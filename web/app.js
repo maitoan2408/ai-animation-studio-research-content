@@ -3,6 +3,10 @@ let current = null;
 let dirty = false;
 let selectedArtifact = '';
 let pendingJobId = '';
+function markDirty() {
+  dirty = true;
+  $('#discard-edits').hidden = false;
+}
 
 async function api(url, data) {
   const response = await fetch(
@@ -62,6 +66,7 @@ async function listProjects() {
 async function loadProject(id) {
   current = await api(`/projects/${id}`);
   dirty = false;
+  $('#discard-edits').hidden = true;
   $('#create-panel').hidden = true;
   $('#workspace').hidden = false;
   $('#heading').textContent = current.project.title;
@@ -104,7 +109,7 @@ function field(labelText, name, value, type = 'text', options) {
   }
   input.value = value;
   input.oninput = () => {
-    dirty = true;
+    markDirty();
   };
   label.append(input);
   return label;
@@ -165,7 +170,7 @@ function buildScenes() {
         detach.type = 'button';
         detach.onclick = () => {
           panel.dataset.detach = 'yes';
-          dirty = true;
+          markDirty();
           audio.replaceChildren(element('span', 'Sẽ bỏ audio khi lưu phiên bản.'));
         };
         audio.append(detach);
@@ -320,8 +325,13 @@ $('#new-project').onclick = () =>
     await listProjects();
   });
 $('#project-style').onchange = () => {
-  dirty = true;
+  markDirty();
 };
+$('#discard-edits').onclick = (event) =>
+  action(event.target, async () => {
+    await loadProject(current.project.id);
+    notice('Đã bỏ thay đổi chưa lưu và tải revision mới nhất.');
+  });
 $('#scrubber').oninput = updatePreview;
 $('#artifact-select').onchange = showArtifact;
 $('#save-scenes').onclick = (event) =>

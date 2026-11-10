@@ -11,8 +11,8 @@ Mục tiêu bàn giao vòng đầu: chương trình dùng được từ kịch b
 | M2 | Rig/evaluator, compiler HyperFrames, audio, renderer/QC | Video từ nhiều cảnh; thiếu asset bị chặn; frame/audio đúng | DONE — 3 styles; pilot 13 giây 1080p |
 | M3 | Job queue, cancel/retry/restart, cache và review/export | Crash state, idempotency, review revision và import hash tests | DONE trong phạm vi một process; fault matrix production còn ở P9 |
 | M4 | HTTP API, web UI và CLI | Luồng create/edit/render/review/export bằng browser + CLI | DONE — 9 browser checks PASS sau sửa mobile |
-| M5 | Pilot kỹ thuật, sửa lỗi, cài sạch, tài liệu và CI | verify + integration + UI; artifact review được | IN_PROGRESS |
-| M6 | Push code/plan/evidence, PR để người dùng duyệt | Remote commit khớp local; hướng dẫn khởi động đầy đủ | TODO |
+| M5 | Pilot kỹ thuật, sửa lỗi, cài sạch, tài liệu và CI | verify + integration + UI; artifact review được | DONE — clean install và CI thực đã PASS; UI sửa cuối đã retest |
+| M6 | Push code/plan/evidence, PR để người dùng duyệt | Remote commit khớp local; hướng dẫn khởi động đầy đủ | DELIVERED_FOR_REVIEW — draft PR #1; người dùng chưa duyệt |
 
 Chi tiết đầu vào, việc làm, ca lỗi và điều kiện dừng của từng mốc nằm trong `docs/phases/`. Mỗi mốc có commit riêng. Nếu gate lỗi: ghi lại bằng chứng → sửa nguyên nhân → chạy lại → cập nhật trạng thái. Không chuyển mốc chỉ vì đã viết đủ file.
 
@@ -33,3 +33,10 @@ G1 production theo báo cáo thẩm định vẫn cần asset nghệ thuật th�
 ## Bằng chứng mỗi mốc
 
 Ghi command, phiên bản, exit status, input/output hash và giới hạn trong `docs/verification.md`. Các artifact nhỏ dùng để duyệt nằm trong `artifacts/`. Phiên bản runtime và bước cài nằm trong README và `docs/reproduction.md`.
+
+## Điểm bàn giao
+
+- Branch: `codex/studio-internal-mvp`.
+- Draft PR: https://github.com/maitoan2408/ai-animation-studio-research-content/pull/1
+- Review chương trình/demo theo `docs/review-checklist.md`; kế hoạch production đầy đủ ở `docs/roadmap-full.md`.
+- Word/PDF gốc và evidence các mốc đã hoàn thành được giữ nguyên. Bản Word bàn giao mới nằm trong `reports/Ban_giao_Studio_noi_bo_v0.1.docx`.

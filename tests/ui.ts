@@ -41,12 +41,27 @@ try {
   await page.waitForSelector('#workspace:not([hidden])');
   assert.equal(await page.$$eval('.scene', (nodes) => nodes.length), 2);
   checks.push('create script -> two editable scenes');
+  await input('[data-scene="s001"] [name="title"]', 'Unsaved draft');
+  await page.click('#discard-edits');
+  await page.waitForFunction(() =>
+    document.querySelector('#notice')?.textContent?.includes('bỏ thay đổi'),
+  );
+  assert.equal(
+    await page.$eval(
+      '[data-scene="s001"] [name="title"]',
+      (node) => (node as HTMLInputElement).value,
+    ),
+    'Chào',
+  );
+  assert.ok(
+    await page.$eval('input[type=color]', (node) => node.getBoundingClientRect().height >= 32),
+  );
   await input('[data-scene="s001"] [name="title"]', 'Lời chào đã chỉnh');
   await page.click('#save-scenes');
   await page.waitForFunction(() =>
     document.querySelector('#revision-badge')?.textContent?.includes('Phiên bản 2'),
   );
-  checks.push('edit -> new immutable revision');
+  checks.push('discard unsaved edit, then save a new immutable revision');
   await page.click('#generate-voice');
   await page.waitForFunction(
     () => document.querySelector('#revision-badge')?.textContent?.includes('Phiên bản 3'),
@@ -70,7 +85,7 @@ try {
   await page.waitForFunction(
     () => {
       const v = document.querySelector('video');
-      return v instanceof HTMLVideoElement && !v.hidden && v.readyState >= 1;
+      return v instanceof HTMLVideoElement && !v.hidden && v.readyState >= 2;
     },
     { timeout: 15000 },
   );
@@ -87,6 +102,12 @@ try {
   assert.equal(reviewed.reviews.length, 1);
   assert.equal(reviewed.reviews[0]!.revisionId, reviewed.revision.id);
   checks.push('review binds the selected artifact and revision');
+  await page.evaluate(async () => {
+    window.scrollTo(0, 0);
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+    );
+  });
   await page.screenshot({ path: 'artifacts/ui-desktop.png', fullPage: true });
   const exported = await page.$eval('#export-link', async (node) => {
     const response = await fetch((node as HTMLAnchorElement).href);

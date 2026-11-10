@@ -3,7 +3,8 @@
 - morning-final.mp4: 13 giây, 312 frames, 1920×1080/24fps, 3 scene, giọng VI local; **chờ người dùng duyệt art**.
 - morning.studio.json: portable spec/audio để import/render lại; không mang approval.
 - smoke-preview.mp4: 2 scene/96 frames/640×360, fixture kỹ thuật.
-- integration-results.json, ui-results.json: kết quả clean checkout 5891a77.
+- integration-results.json: clean checkout 5891a77. ui-results.json: lượt kiểm UI mới nhất sau sửa palette/discard/capture; bản clean trước đó giữ trong runs/clean-ui-results.json.
+- ci-results.json: CI GitHub thực đã thành công, ghi rõ commit/run ID.
 - ui-desktop.png, ui-mobile.png: giao diện test; reviewer `Automated UI test` chỉ là test data.
 - runs/: checkpoint trước và clean-install log; failures/: lỗi đã phát hiện/sửa, giữ làm lịch sử.
 - dependency-bom.json: npm CycloneDX cho production dependencies.

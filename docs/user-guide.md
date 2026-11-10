@@ -13,7 +13,7 @@ Không có chỉ dẫn, planner chọn action theo từ khóa và ước lượn
 
 Action: idle, wave, walk, pick-up, talk. Camera: static, pan. Chỉ dẫn không hỗ trợ bị từ chối. Chỉnh các trường rồi **Lưu phiên bản mới**; version/video cũ vẫn tồn tại. Có sửa chưa lưu thì voice/render báo cần lưu trước.
 
-Nếu tab khác sửa trước, API trả REVISION_CONFLICT. Giữ patch muốn áp dụng, mở lại trang và áp dụng trên revision mới. Không force-overwrite. UI chưa có thêm/xóa/sắp xếp scene sau create; có thể tạo project mới từ script đã sửa hoặc dùng API revision gửi spec đầy đủ.
+Nếu tab khác sửa trước, API trả REVISION_CONFLICT. Ghi lại patch muốn giữ, chọn **Bỏ thay đổi chưa lưu** để tải revision mới rồi áp dụng lại. Nút này chỉ bỏ bản nháp trên giao diện, không xóa revision đã lưu. Không force-overwrite. UI chưa có thêm/xóa/sắp xếp scene sau create; có thể tạo project mới từ script đã sửa hoặc dùng API revision gửi spec đầy đủ.
 
 ## Audio
 

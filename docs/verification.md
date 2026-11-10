@@ -43,6 +43,13 @@ Kết quả nghiên cứu gốc nằm trong `validation/evidence/` và `reports/
 - Raw log: `artifacts/runs/clean-install.log`; JSON: `artifacts/runs/clean-*.json`. Kết quả trước giữ ở `m2-integration.json` và `m4-ui.json`.
 - CI remote được theo dõi riêng trong trạng thái bàn giao; việc có file workflow chưa có nghĩa CI đã PASS.
 
+## CI và lần sửa UI cuối
+
+- GitHub Actions run [42926702266](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/42926702266), commit `03fc06621e1a3a7e0b371fb1880a3b35cfe50fcb`: **SUCCESS**. Cài media runtime, npm ci, doctor, verify, build, integration, UI và upload evidence đều thành công. Record an toàn trong `artifacts/ci-results.json`; log/artifacts đầy đủ ở GitHub.
+- Sau đó rà ảnh phát hiện swatch màu quá thấp và screenshot sticky sidebar chụp khi trang đang scroll. Sửa CSS, đưa viewport về đầu trước capture; thêm nút bỏ bản nháp để người dùng phục hồi sau revision conflict.
+- Chạy lại verify (16 PASS) và toàn bộ UI (9 PASS), gồm thử bỏ thay đổi rồi lưu revision, chiều cao ô màu và video đã có frame decoded. Kết quả mới tại ui-results.json; screenshot trước sửa giữ trong artifacts/runs.
+- Workflow khóa container digest và action commit SHAs, tránh hai pipeline trùng trên cùng PR. CI mới nhất của branch xem tại PR #1; kết quả remote ghi theo commit cụ thể, không giả định mọi HEAD tương lai đã pass.
+
 ## Giới hạn chưa được đánh dấu PASS
 
 Art acceptance, corpus phát âm/phoneme, placement/retarget/foot-lock, load test production, SIGKILL tại mọi giai đoạn commit, restore full history giữa máy, provider LLM/eval 40 đề và chi phí/phút accepted. Toàn bộ được ánh xạ vào P0–P11 trong `docs/roadmap-full.md`.

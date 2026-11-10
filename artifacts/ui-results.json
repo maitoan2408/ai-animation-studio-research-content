@@ -2,7 +2,7 @@
   "status": "PASS",
   "checks": [
     "create script -> two editable scenes",
-    "edit -> new immutable revision",
+    "discard unsaved edit, then save a new immutable revision",
     "local voice -> audio bindings and updated revision",
     "WAV upload normalizes and creates another revision",
     "real render -> browser video metadata and QC",
@@ -20,6 +20,6 @@
     "backend": "HyperFrames 0.9.30",
     "compiler": "paper-studio/1"
   },
-  "dataRoot": "/tmp/studio-ui-MlTXIV",
+  "dataRoot": "/tmp/studio-ui-ITMEyv",
   "reviewer": "Automated UI test (test data only)"
 }

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "commit": "03fc06621e1a3a7e0b371fb1880a3b35cfe50fcb",
+  "runId": 42926702266,
+  "jobId": 130214882050,
+  "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/42926702266",
+  "steps": [
+    "install media runtime",
+    "npm ci",
+    "doctor",
+    "verify (16 tests)",
+    "build",
+    "integration (13 checks)",
+    "UI (9 checks)",
+    "upload evidence"
+  ],
+  "scope": "Exact recorded commit; later UI-only changes have their own local retest and PR CI."
+}

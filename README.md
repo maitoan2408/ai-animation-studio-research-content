@@ -67,5 +67,6 @@ Giữ nguyên các tài liệu đã bàn giao:
 - [Word gốc](reports/Bao_cao_Studio_hoat_hinh_AI_HyperFrames_Remotion.docx?raw=true), [PDF 59 trang](reports/Bao_cao_Studio_hoat_hinh_AI_HyperFrames_Remotion.pdf?raw=true), [hash gốc](SHA256SUMS).
 - [Thẩm định](reports/Tham_dinh_ky_thuat.md), [kế hoạch khảo sát ban đầu](reports/Ke_hoach_trien_khai.md), [Word thẩm định](reports/Tham_dinh_va_ke_hoach_Studio_AI.docx?raw=true).
 - [Harness HyperFrames/Remotion](validation/README.md), tách biệt với ứng dụng.
+- [Word bàn giao chương trình, kiểm thử và đủ 12 giai đoạn](reports/Ban_giao_Studio_noi_bo_v0.1.docx?raw=true).
 
 Kế hoạch khảo sát là snapshot trước khi viết chương trình. Trạng thái hiện tại ở `plan.md` và `docs/roadmap-full.md`.
