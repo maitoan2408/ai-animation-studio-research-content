@@ -30,3 +30,19 @@ Kết quả nghiên cứu gốc nằm trong `validation/evidence/` và `reports/
 - Browser: 9 checks PASS — tạo, sửa revision, voice, upload WAV, render/playback metadata, review, export/import, viewport 390 px và không lỗi JavaScript.
 - Phát hiện tràn ngang do intrinsic width của form trong grid. Sửa min-width và layout mobile; chạy lại toàn luồng PASS. Log và ảnh trước sửa ở `artifacts/failures/02-mobile-overflow.*`.
 - Review trong test dùng tên `Automated UI test` và dữ liệu tạm; pilot bàn giao chưa được người dùng duyệt.
+
+## M5 — clean checkout và kiểm chứng bổ sung
+
+- Checkout bằng `git archive` commit **5891a77** sang `/tmp/paper-studio-clean-BS1la7`, cài bằng `npm ci` với npm cache riêng; không copy node_modules từ workspace.
+- `npm run verify`: PASS **16 tests**, format và hai lượt typecheck.
+- `npm run build`: PASS. `npm run test:integration`: PASS **13 checks**. `npm run test:ui`: PASS **9 checks**.
+- Bổ sung: QC từ chối video 96 frames khi spec yêu cầu 120; cancellation renderer thật không công bố artifact và retry thành công với attempt thứ hai.
+- Audio AAC sau encode so với PCM trộn tại cùng sample index: correlation **0.9998988035476665**, ngưỡng đã đặt >0.98. Đây là kiểm timing pipeline, chưa kiểm ngữ âm/viseme.
+- Reopen app từ persisted running state chuyển interrupted và đóng attempt; retry được; close lặp của owner cũ không tháo lock owner mới.
+- Integration clean run mất **86,448 giây cho toàn suite**, không phải tốc độ render production/phút phim. Cùng runtime như checkpoint M2; hashes hai MP4 giống bản trước.
+- Raw log: `artifacts/runs/clean-install.log`; JSON: `artifacts/runs/clean-*.json`. Kết quả trước giữ ở `m2-integration.json` và `m4-ui.json`.
+- CI remote được theo dõi riêng trong trạng thái bàn giao; việc có file workflow chưa có nghĩa CI đã PASS.
+
+## Giới hạn chưa được đánh dấu PASS
+
+Art acceptance, corpus phát âm/phoneme, placement/retarget/foot-lock, load test production, SIGKILL tại mọi giai đoạn commit, restore full history giữa máy, provider LLM/eval 40 đề và chi phí/phút accepted. Toàn bộ được ánh xạ vào P0–P11 trong `docs/roadmap-full.md`.

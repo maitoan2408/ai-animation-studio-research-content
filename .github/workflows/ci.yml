@@ -1,0 +1,37 @@
+name: Paper Studio verification
+on:
+  pull_request:
+  push:
+    branches: [main, codex/studio-internal-mvp]
+    paths: ['src/**', 'web/**', 'tests/**', 'examples/**', 'package*.json', 'tsconfig*.json', '.prettier*', '.github/workflows/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 20
+    env:
+      STUDIO_BROWSER: /usr/bin/chromium
+      HYPERFRAMES_NO_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install media runtime
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation
+      - run: npm ci
+      - run: npm run studio -- doctor
+      - run: npm run verify
+      - run: npm run build
+      - run: npm run test:integration
+      - run: npm run test:ui
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-studio-${{ github.run_number }}
+          path: |
+            artifacts/
+            /tmp/studio-integration-*/tmp/**/render-log.json
+            /tmp/studio-integration-*/tmp/**/failure.json
+          retention-days: 14

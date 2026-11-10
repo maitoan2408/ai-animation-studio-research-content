@@ -16,6 +16,8 @@ Mục tiêu bàn giao vòng đầu: chương trình dùng được từ kịch b
 
 Chi tiết đầu vào, việc làm, ca lỗi và điều kiện dừng của từng mốc nằm trong `docs/phases/`. Mỗi mốc có commit riêng. Nếu gate lỗi: ghi lại bằng chứng → sửa nguyên nhân → chạy lại → cập nhật trạng thái. Không chuyển mốc chỉ vì đã viết đủ file.
 
+**Không bỏ giai đoạn trong Word:** đối chiếu đủ P0–P11 và từng đầu việc còn lại tại [docs/roadmap-full.md](docs/roadmap-full.md). M0–M6 là các mốc prototype phần mềm. Những gate cần art pack, provider/model, pilot production hoặc người dùng duyệt vẫn ghi PARTIAL/NEEDS_REVIEW; không được suy ra đã hoàn tất từ demo 13 giây.
+
 ## Quyết định phạm vi vòng đầu
 
 - HyperFrames 0.9.30 là backend sản phẩm đầu tiên; quyết định có thể đổi khi fixture production cung cấp bằng chứng mới.
