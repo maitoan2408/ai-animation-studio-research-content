@@ -13,7 +13,9 @@
     "studio": "tsx src/cli.ts",
     "typecheck": "tsc --noEmit && tsc -p tsconfig.test.json",
     "test": "tsx --test tests/*.test.ts",
-    "verify": "npm run typecheck && npm test",
+    "format": "prettier --write src tests web package.json tsconfig.json tsconfig.test.json",
+    "format:check": "prettier --check src tests web package.json tsconfig.json tsconfig.test.json",
+    "verify": "npm run format:check && npm run typecheck && npm test",
     "test:integration": "tsx tests/integration.ts",
     "test:ui": "tsx tests/ui.ts"
   },
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@types/node": "24.10.0",
+    "prettier": "3.9.10",
     "puppeteer-core": "24.37.2",
     "tsx": "4.23.15",
     "typescript": "5.9.3"
