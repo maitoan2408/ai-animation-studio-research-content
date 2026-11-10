@@ -1,0 +1,13 @@
+{
+  "command": [
+    "node",
+    "scripts/render-remotion.mjs",
+    "Study",
+    "1"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:35:32.137152+00:00",
+  "elapsed_seconds": 37.212920026999996,
+  "returncode": 0,
+  "log": "remotion-study-render.log"
+}

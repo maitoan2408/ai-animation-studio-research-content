@@ -1,0 +1,14 @@
+{
+  "command": [
+    "node",
+    "scripts/render-hyperframes.mjs",
+    "report",
+    "1",
+    "strict"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:51:15.059389+00:00",
+  "elapsed_seconds": 9.572335801000008,
+  "returncode": 0,
+  "log": "hyperframes-clean-install-smoke.log"
+}

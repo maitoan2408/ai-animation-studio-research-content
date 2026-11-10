@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "studio-ir-design-0.1",
+  "projectId": "pilot-design",
+  "fps": {"num": 24, "den": 1},
+  "canvas": {"width": 1920, "height": 1080},
+  "shot": {
+    "id": "s010",
+    "durationFrames": 240,
+    "styleId": "paper-cut-design",
+    "camera": {"x": 0, "y": 0, "scale": 1},
+    "instances": [
+      {
+        "id": "hero",
+        "rigRef": "hero/rig/v001",
+        "position": {"x": 720, "y": 760},
+        "depthPlane": "mid",
+        "drawOrder": 20
+      },
+      {
+        "id": "cup",
+        "assetRef": "props/cup/v001",
+        "position": {"x": 980, "y": 700},
+        "depthPlane": "mid",
+        "drawOrder": 21
+      }
+    ],
+    "actions": [
+      {
+        "id": "pick-cup",
+        "actor": "hero",
+        "type": "reach-and-grip",
+        "target": "cup.handle",
+        "startFrame": 24,
+        "contactFrame": 72,
+        "endFrameExclusive": 144,
+        "attachmentAfterContact": "hero.rightHandGrip"
+      }
+    ],
+    "audio": [
+      {
+        "assetRef": "voice/line010/v001",
+        "timelineStartFrame": 0,
+        "sourceInSample": 0,
+        "sampleRate": 48000,
+        "stem": "dialogue"
+      }
+    ]
+  }
+}

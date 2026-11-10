@@ -1,0 +1,13 @@
+{
+  "checks": 22,
+  "failures": [],
+  "max_mean_raster_error": 0.11083622685185185,
+  "timebase": {
+    "raw_rgba_1080p_600s_24fps_bytes": 119439360000,
+    "samples_per_frame_24fps": 2000,
+    "samples_per_frame_ntsc": "8008/5",
+    "round_each_frame_drift_ms_after_18000_ntsc_frames": 150.0,
+    "report_hyperframes_x_at_frame119": 357.0,
+    "report_remotion_x_at_frame119": 360
+  }
+}

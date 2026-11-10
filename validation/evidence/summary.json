@@ -1,0 +1,74 @@
+{
+  "scope": "Focused technical feasibility; no full production/pilot/artistic acceptance claim",
+  "results": [
+    {
+      "test": "hyperframes-editor-example-fix",
+      "status": "PASS"
+    },
+    {
+      "test": "hyperframes-seek",
+      "status": "PASS",
+      "captures": 48,
+      "comparisons_against_baseline": 36
+    },
+    {
+      "test": "remotion-seek",
+      "status": "PASS",
+      "captures": 48,
+      "comparisons_against_baseline": 36
+    },
+    {
+      "test": "hyperframes-concurrency",
+      "status": "PASS",
+      "frames": 240,
+      "identical_decoded_frames": 240
+    },
+    {
+      "test": "remotion-concurrency",
+      "status": "PASS",
+      "frames": 240,
+      "identical_decoded_frames": 240
+    },
+    {
+      "test": "media-qc",
+      "status": "PASS",
+      "checks": 22
+    },
+    {
+      "test": "hyperframes-missing-best-effort",
+      "status": "REPRODUCED",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected_message_found": true
+    },
+    {
+      "test": "hyperframes-missing-strict",
+      "status": "REPRODUCED",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "expected_message_found": true
+    },
+    {
+      "test": "remotion-missing-native",
+      "status": "REPRODUCED",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected_message_found": true
+    },
+    {
+      "test": "remotion-missing-guarded",
+      "status": "REPRODUCED",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "expected_message_found": true
+    },
+    {
+      "test": "no-final-artifact-hyperframes-missing-w1-strict.mp4",
+      "status": "PASS"
+    },
+    {
+      "test": "no-final-artifact-remotion-missingguarded-w1.mp4",
+      "status": "PASS"
+    }
+  ]
+}

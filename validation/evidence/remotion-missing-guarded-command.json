@@ -1,0 +1,13 @@
+{
+  "command": [
+    "node",
+    "scripts/render-remotion.mjs",
+    "MissingGuarded",
+    "1"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:41:13.356989+00:00",
+  "elapsed_seconds": 6.969509608999942,
+  "returncode": 1,
+  "log": "remotion-missing-guarded.log"
+}

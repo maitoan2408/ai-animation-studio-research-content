@@ -1,0 +1,20 @@
+<div id="shot" data-composition-id="shot"
+     data-width="1920" data-height="1080"
+     data-start="0" data-duration="5">
+  <div class="clip" data-start="0"
+       data-duration="5" data-track-index="0">
+    <div id="paper">Paper-cut study</div>
+  </div>
+</div>
+<style>
+  #shot { width:1920px; height:1080px; background:#eee8d5; }
+  #paper { position:absolute; left:180px; top:480px;
+           color:#203342; font-size:64px; }
+</style>
+<script>
+  const timeline = gsap.timeline({paused:true});
+  timeline.fromTo('#paper', {x:0},
+    {x:360, duration:5, ease:'none'});
+  window.__timelines = window.__timelines || {};
+  window.__timelines['shot'] = timeline;
+</script>

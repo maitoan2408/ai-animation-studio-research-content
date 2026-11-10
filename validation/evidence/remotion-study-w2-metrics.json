@@ -1,0 +1,22 @@
+{
+  "id": "Study",
+  "workers": 2,
+  "composition": {
+    "id": "Study",
+    "width": 640,
+    "height": 360,
+    "fps": 24,
+    "durationInFrames": 240,
+    "props": {},
+    "defaultProps": {},
+    "defaultCodec": null,
+    "defaultOutName": null,
+    "defaultVideoImageFormat": null,
+    "defaultPixelFormat": null,
+    "defaultProResProfile": null,
+    "defaultSampleRate": null
+  },
+  "bundleSeconds": 2.635656428,
+  "renderSeconds": 38.705646805,
+  "totalSeconds": 42.293104406
+}

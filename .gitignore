@@ -1,0 +1,14 @@
+validation/node_modules/
+validation/out/
+validation/.cache/
+validation/scaffold/
+validation/bundle/
+validation/fixtures/hyperframes-project/.hyperframes/
+validation/fixtures/hyperframes-project/renders/
+validation/fixtures/hyperframes-project/.cache/
+validation/fixtures/hyperframes-report/
+validation/fixtures/hyperframes-editable/
+validation/fixtures/hyperframes-study/
+validation/fixtures/hyperframes-missing/
+validation/fixtures/public/
+validation/scripts/__pycache__/

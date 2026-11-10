@@ -1,0 +1,4 @@
+Welcome to Remotion!
+Could not fetch the latest Remotion version from https://registry.npmjs.org (getaddrinfo EAI_AGAIN registry.npmjs.org). Continuing with 4.0.542.
+Error: getaddrinfo EAI_AGAIN github.com
+Error with template cloning. Aborting

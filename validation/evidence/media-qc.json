@@ -1,0 +1,424 @@
+{
+  "media": {
+    "hyperframes-missing-w1-best-effort.mp4": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "width": 320,
+          "height": 180,
+          "r_frame_rate": "24/1",
+          "duration": "0.500000",
+          "nb_read_frames": "12"
+        }
+      ],
+      "sha256": "0127ad27c14cca45a58cac6017655bcf5d90b41c76aa680814993825a770348b"
+    },
+    "hyperframes-report-w1-strict.mp4": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "24/1",
+          "duration": "5.000000",
+          "nb_read_frames": "120"
+        }
+      ],
+      "sha256": "52f24dee45a10e7a52a2650ce503d3af0c7628647376023ba4a7244a790ddcbd"
+    },
+    "hyperframes-study-w1-strict.mp4": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "r_frame_rate": "24/1",
+          "duration": "10.000000",
+          "nb_read_frames": "240"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "r_frame_rate": "0/0",
+          "duration": "10.000000",
+          "nb_read_frames": "469"
+        }
+      ],
+      "sha256": "8ccdf35c13a1361d7b92ee46542d91f01cc5ea7afab267b61ea1a06bcb8cf18f",
+      "audio_onsets": [
+        {
+          "expected_sample": 48000,
+          "observed_sample": 48002,
+          "error_ms": 0.041666666666666664
+        },
+        {
+          "expected_sample": 144000,
+          "observed_sample": 144002,
+          "error_ms": 0.041666666666666664
+        }
+      ],
+      "decoded_samples": 480256,
+      "peak_amplitude": 0.3477693200111389
+    },
+    "hyperframes-study-w2-strict.mp4": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "r_frame_rate": "24/1",
+          "duration": "10.000000",
+          "nb_read_frames": "240"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "r_frame_rate": "0/0",
+          "duration": "10.000000",
+          "nb_read_frames": "469"
+        }
+      ],
+      "sha256": "8ccdf35c13a1361d7b92ee46542d91f01cc5ea7afab267b61ea1a06bcb8cf18f",
+      "audio_onsets": [
+        {
+          "expected_sample": 48000,
+          "observed_sample": 48002,
+          "error_ms": 0.041666666666666664
+        },
+        {
+          "expected_sample": 144000,
+          "observed_sample": 144002,
+          "error_ms": 0.041666666666666664
+        }
+      ],
+      "decoded_samples": 480256,
+      "peak_amplitude": 0.3477693200111389
+    },
+    "remotion-missingnative-w1.mp4": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "width": 320,
+          "height": 180,
+          "r_frame_rate": "24/1",
+          "duration": "0.500000",
+          "nb_read_frames": "12",
+          "side_data_list": [
+            {}
+          ]
+        }
+      ],
+      "sha256": "39ab9fe3e41d927d3be29ea5149b27ec96b65de498a1be1f405c9333c81e9e16"
+    },
+    "remotion-myvideo-w1.mp4": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "24/1",
+          "duration": "5.000000",
+          "nb_read_frames": "120",
+          "side_data_list": [
+            {}
+          ]
+        }
+      ],
+      "sha256": "105dd83ef4af2fc344cac018d105fa26eb7be1902127b64b84ed7834ecb92619"
+    },
+    "remotion-study-w1.mp4": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "r_frame_rate": "24/1",
+          "duration": "10.000000",
+          "nb_read_frames": "240",
+          "side_data_list": [
+            {}
+          ]
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "r_frame_rate": "0/0",
+          "duration": "10.005000",
+          "nb_read_frames": "469"
+        }
+      ],
+      "sha256": "cd133ab0d94056667752d5466544dd796026f9cfe8376571eebc13db54fe3f97",
+      "audio_onsets": [
+        {
+          "expected_sample": 48000,
+          "observed_sample": 48003,
+          "error_ms": 0.0625
+        },
+        {
+          "expected_sample": 144000,
+          "observed_sample": 144003,
+          "error_ms": 0.0625
+        }
+      ],
+      "decoded_samples": 480256,
+      "peak_amplitude": 0.24673302471637726
+    },
+    "remotion-study-w2.mp4": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "r_frame_rate": "24/1",
+          "duration": "10.000000",
+          "nb_read_frames": "240",
+          "side_data_list": [
+            {}
+          ]
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "r_frame_rate": "0/0",
+          "duration": "10.005000",
+          "nb_read_frames": "469"
+        }
+      ],
+      "sha256": "cd133ab0d94056667752d5466544dd796026f9cfe8376571eebc13db54fe3f97",
+      "audio_onsets": [
+        {
+          "expected_sample": 48000,
+          "observed_sample": 48003,
+          "error_ms": 0.0625
+        },
+        {
+          "expected_sample": 144000,
+          "observed_sample": 144003,
+          "error_ms": 0.0625
+        }
+      ],
+      "decoded_samples": 480256,
+      "peak_amplitude": 0.24673302471637726
+    }
+  },
+  "raster_comparison": [
+    {
+      "frame": 0,
+      "max_channel_error": 109,
+      "mean_channel_error": 0.0849681712962963,
+      "different_pixel_fraction": 0.02736545138888889,
+      "hf_marker_red": false,
+      "remotion_marker_red": false,
+      "expected_marker_red": false
+    },
+    {
+      "frame": 23,
+      "max_channel_error": 91,
+      "mean_channel_error": 0.08701244212962964,
+      "different_pixel_fraction": 0.02877170138888889,
+      "hf_marker_red": false,
+      "remotion_marker_red": false,
+      "expected_marker_red": false
+    },
+    {
+      "frame": 24,
+      "max_channel_error": 41,
+      "mean_channel_error": 0.10091145833333333,
+      "different_pixel_fraction": 0.028819444444444446,
+      "hf_marker_red": true,
+      "remotion_marker_red": true,
+      "expected_marker_red": true
+    },
+    {
+      "frame": 47,
+      "max_channel_error": 50,
+      "mean_channel_error": 0.10711950231481482,
+      "different_pixel_fraction": 0.0305078125,
+      "hf_marker_red": true,
+      "remotion_marker_red": true,
+      "expected_marker_red": true
+    },
+    {
+      "frame": 48,
+      "max_channel_error": 91,
+      "mean_channel_error": 0.09377893518518518,
+      "different_pixel_fraction": 0.030625,
+      "hf_marker_red": true,
+      "remotion_marker_red": true,
+      "expected_marker_red": true
+    },
+    {
+      "frame": 71,
+      "max_channel_error": 76,
+      "mean_channel_error": 0.09504050925925926,
+      "different_pixel_fraction": 0.03145833333333333,
+      "hf_marker_red": true,
+      "remotion_marker_red": true,
+      "expected_marker_red": true
+    },
+    {
+      "frame": 72,
+      "max_channel_error": 50,
+      "mean_channel_error": 0.10885561342592592,
+      "different_pixel_fraction": 0.03135416666666667,
+      "hf_marker_red": false,
+      "remotion_marker_red": false,
+      "expected_marker_red": false
+    },
+    {
+      "frame": 95,
+      "max_channel_error": 45,
+      "mean_channel_error": 0.10433015046296296,
+      "different_pixel_fraction": 0.03266927083333333,
+      "hf_marker_red": false,
+      "remotion_marker_red": false,
+      "expected_marker_red": false
+    },
+    {
+      "frame": 96,
+      "max_channel_error": 76,
+      "mean_channel_error": 0.0929933449074074,
+      "different_pixel_fraction": 0.03242621527777778,
+      "hf_marker_red": false,
+      "remotion_marker_red": false,
+      "expected_marker_red": false
+    },
+    {
+      "frame": 119,
+      "max_channel_error": 97,
+      "mean_channel_error": 0.10141059027777778,
+      "different_pixel_fraction": 0.03309027777777778,
+      "hf_marker_red": false,
+      "remotion_marker_red": false,
+      "expected_marker_red": false
+    },
+    {
+      "frame": 120,
+      "max_channel_error": 83,
+      "mean_channel_error": 0.11083622685185185,
+      "different_pixel_fraction": 0.032391493055555554,
+      "hf_marker_red": false,
+      "remotion_marker_red": false,
+      "expected_marker_red": false
+    },
+    {
+      "frame": 239,
+      "max_channel_error": 85,
+      "mean_channel_error": 0.10469618055555556,
+      "different_pixel_fraction": 0.031792534722222224,
+      "hf_marker_red": false,
+      "remotion_marker_red": false,
+      "expected_marker_red": false
+    }
+  ],
+  "timebase": {
+    "raw_rgba_1080p_600s_24fps_bytes": 119439360000,
+    "samples_per_frame_24fps": 2000,
+    "samples_per_frame_ntsc": "8008/5",
+    "round_each_frame_drift_ms_after_18000_ntsc_frames": 150.0,
+    "report_hyperframes_x_at_frame119": 357.0,
+    "report_remotion_x_at_frame119": 360
+  },
+  "checks": [
+    {
+      "id": "hyperframes-report-w1-strict.mp4:video",
+      "pass": true
+    },
+    {
+      "id": "hyperframes-study-w1-strict.mp4:video",
+      "pass": true
+    },
+    {
+      "id": "hyperframes-study-w1-strict.mp4:sync",
+      "pass": true
+    },
+    {
+      "id": "hyperframes-study-w2-strict.mp4:video",
+      "pass": true
+    },
+    {
+      "id": "hyperframes-study-w2-strict.mp4:sync",
+      "pass": true
+    },
+    {
+      "id": "remotion-myvideo-w1.mp4:video",
+      "pass": true
+    },
+    {
+      "id": "remotion-study-w1.mp4:video",
+      "pass": true
+    },
+    {
+      "id": "remotion-study-w1.mp4:sync",
+      "pass": true
+    },
+    {
+      "id": "remotion-study-w2.mp4:video",
+      "pass": true
+    },
+    {
+      "id": "remotion-study-w2.mp4:sync",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-0",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-23",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-24",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-47",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-48",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-71",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-72",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-95",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-96",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-119",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-120",
+      "pass": true
+    },
+    {
+      "id": "clip-boundary-239",
+      "pass": true
+    }
+  ]
+}

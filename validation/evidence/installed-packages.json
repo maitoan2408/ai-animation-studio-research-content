@@ -1,0 +1,57 @@
+{
+  "hyperframes": {
+    "version": "0.9.30",
+    "license": "Apache-2.0",
+    "package_json_sha256": "90103f140d599b829aed9fde0725bf89d93fe54239147a58352ea09f45642e42"
+  },
+  "@hyperframes/producer": {
+    "version": "0.9.30",
+    "license": null,
+    "package_json_sha256": "9fe8bbdff9dbe5978c5905f3d8066ced36f822c3c7d04a27fe57c31dea7c9528"
+  },
+  "@hyperframes/engine": {
+    "version": "0.9.30",
+    "license": null,
+    "package_json_sha256": "85d2402d8f1262afe25636de11c85933d48f6c8f477d5a0b358e14f07cf60d91"
+  },
+  "@hyperframes/core": {
+    "version": "0.9.30",
+    "license": null,
+    "package_json_sha256": "3d041e3275320f582e91e4d32f6228e5553fd4428d441b300bf96eab214a8c80"
+  },
+  "remotion": {
+    "version": "4.0.542",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "package_json_sha256": "bc13f676d1ed18af1c8476449f797ad67375e63d76782d94de9bb00749d97286"
+  },
+  "@remotion/renderer": {
+    "version": "4.0.542",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "package_json_sha256": "d9bc611c308dbef1fd0e34560eb371b27199cf04e95ddc140316cf7edab4e0f3"
+  },
+  "@remotion/bundler": {
+    "version": "4.0.542",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "package_json_sha256": "d54e612a4e08099ae8be9bef07842539e8ba8389b493a95ebd8bcf06c25a817f"
+  },
+  "@remotion/gsap": {
+    "version": "4.0.542",
+    "license": "MIT",
+    "package_json_sha256": "f2b6f97f89133e58815ae1a45f68dcbcdf569dba6ceb6ac553c49218b44d3346"
+  },
+  "gsap": {
+    "version": "3.15.0",
+    "license": "Standard 'no charge' license: https://gsap.com/standard-license.",
+    "package_json_sha256": "85cc13e31f7a3cd124b587a40f545f265f47d0dfb9a556bb122d70fc0fca3459"
+  },
+  "react": {
+    "version": "19.2.0",
+    "license": "MIT",
+    "package_json_sha256": "6029fda5e660da53952cf5ddcd1e8568fc8dc0c6dcb9deaf7667fdc4c7f5a113"
+  },
+  "react-dom": {
+    "version": "19.2.0",
+    "license": "MIT",
+    "package_json_sha256": "5b479c8bdbdda7bbf6709bb4213aa8e2e1a391d79aa57ca84bc63be17bb2f727"
+  }
+}

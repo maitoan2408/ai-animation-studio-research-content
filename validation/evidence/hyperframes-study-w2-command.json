@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "PRODUCER_LOW_MEMORY_MODE=false",
+    "node",
+    "scripts/render-hyperframes.mjs",
+    "study",
+    "2",
+    "strict"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:38:11.472307+00:00",
+  "elapsed_seconds": 9.59909375899997,
+  "returncode": 0,
+  "log": "hyperframes-study-w2.log"
+}
