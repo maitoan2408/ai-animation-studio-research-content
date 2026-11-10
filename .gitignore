@@ -12,3 +12,11 @@ validation/fixtures/hyperframes-study/
 validation/fixtures/hyperframes-missing/
 validation/fixtures/public/
 validation/scripts/__pycache__/
+/node_modules/
+/dist/
+/data/
+/.cache/
+/.env
+/.env.*
+!/.env.example
+/artifacts/tmp/

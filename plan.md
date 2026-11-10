@@ -7,8 +7,8 @@ Mục tiêu bàn giao vòng đầu: chương trình dùng được từ kịch b
 | Mốc | Đầu ra | Gate | Trạng thái |
 | --- | --- | --- | --- |
 | M0 | Thẩm định, fixture, dependency lock, docs quy trình | Bằng chứng nghiên cứu lưu trong repo | DONE — các kết quả ở reports/ và validation/ |
-| M1 | Domain/schema, asset store, revision và script planner | Unit/negative tests; conflict/hash/path tests | IN_PROGRESS |
-| M2 | Rig/evaluator, compiler HyperFrames, audio, renderer/QC | Video từ nhiều cảnh; thiếu asset bị chặn; frame/audio đúng | TODO |
+| M1 | Domain/schema, asset store, revision và script planner | Unit/negative tests; conflict/hash/path tests | DONE — 7 tests đầu tiên PASS |
+| M2 | Rig/evaluator, compiler HyperFrames, audio, renderer/QC | Video từ nhiều cảnh; thiếu asset bị chặn; frame/audio đúng | IN_PROGRESS |
 | M3 | Job queue, cancel/retry/restart, cache và review/export | Crash state, idempotency, review revision và import hash tests | TODO |
 | M4 | HTTP API, web UI và CLI | Luồng create/edit/render/review/export bằng browser + CLI | TODO |
 | M5 | Pilot kỹ thuật, sửa lỗi, cài sạch, tài liệu và CI | verify + integration + UI; artifact review được | TODO |
