@@ -1,0 +1,5 @@
+[title=Chào; action=wave; seconds=2]
+Xin chào.
+
+[title=Cốc; action=pick-up; camera=pan; seconds=2]
+Một chiếc cốc.

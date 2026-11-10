@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Paper Studio</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <aside>
+      <a class="brand" href="/">◈ PAPER STUDIO</a>
+      <p class="small">Xưởng hoạt hình nội bộ · v0.1</p>
+      <button id="new-project" class="primary">＋ Dự án mới</button>
+      <nav id="project-list" aria-label="Dự án"></nav>
+      <label class="file-button"
+        >Nhập gói dự án<input id="import-file" type="file" accept=".json"
+      /></label>
+      <div class="sidebar-note">
+        Kịch bản → phân cảnh → video<br /><span>Paper-cut · Multiplane · Shadow-box</span>
+      </div>
+    </aside>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">TỪ TRANG GIẤY ĐẾN CHUYỂN ĐỘNG</p>
+          <h1 id="heading">Bắt đầu một câu chuyện</h1>
+        </div>
+        <button id="doctor">Kiểm tra máy</button>
+      </header>
+      <p id="notice" role="status" aria-live="polite"></p>
+      <section id="create-panel" class="card">
+        <h2>Kịch bản của bạn</h2>
+        <p>Mỗi đoạn cách bằng dòng trống tạo một cảnh. Phân cảnh là bản nháp để bạn chỉnh sửa.</p>
+        <form id="create-form">
+          <div class="form-row">
+            <label
+              >Tên dự án<input
+                name="title"
+                value="Chiếc cốc buổi sáng"
+                required
+                maxlength="100" /></label
+            ><label
+              >Phong cách<select name="style">
+                <option value="paper-cut">Paper-cut</option>
+                <option value="multiplane">Multiplane</option>
+                <option value="shadow-box">Shadow-box</option>
+              </select></label
+            ><label
+              >Ngôn ngữ<select name="language">
+                <option value="vi">Tiếng Việt</option>
+                <option value="en">English</option>
+              </select></label
+            >
+          </div>
+          <label
+            >Lời dẫn và chỉ dẫn<textarea name="script" rows="10" required maxlength="12000">
+[title=Chào buổi sáng; action=wave; seconds=4]
+Xin chào. Một ngày mới đã bắt đầu.
+
+[title=Chiếc cốc; action=pick-up; camera=pan; seconds=5]
+Tôi nhấc chiếc cốc lên, và chậm lại một chút.</textarea>
+          </label>
+          <details>
+            <summary>Cách viết chỉ dẫn</summary>
+            <p>
+              Dùng [title=...; action=wave; camera=pan; seconds=4; color=#527e88] ở đầu đoạn. Action
+              hỗ trợ: idle, wave, walk, pick-up, talk. Camera: static, pan. Tối đa 12 cảnh, tổng 240
+              giây.
+            </p>
+          </details>
+          <button class="primary" type="submit">Tạo phân cảnh nháp</button>
+        </form>
+      </section>
+      <section id="workspace" hidden>
+        <div class="toolbar">
+          <span id="revision-badge" class="badge"></span
+          ><a id="export-link" class="button">Xuất gói dự án</a><button id="reload">Tải lại</button>
+        </div>
+        <div class="studio-grid">
+          <div>
+            <section class="card">
+              <div class="section-heading">
+                <h2>Phân cảnh</h2>
+                <span id="total-time"></span>
+              </div>
+              <label
+                >Phong cách<select id="project-style">
+                  <option value="paper-cut">Paper-cut</option>
+                  <option value="multiplane">Multiplane</option>
+                  <option value="shadow-box">Shadow-box</option>
+                </select></label
+              >
+              <div id="scenes"></div>
+              <button id="save-scenes" class="primary">Lưu phiên bản mới</button>
+              <p class="hint">
+                Nếu đổi lời dẫn, bỏ liên kết audio cũ rồi tạo giọng mới. WAV được giữ nguyên cho đến
+                khi bạn thay hoặc bỏ.
+              </p>
+            </section>
+            <section class="card">
+              <h2>Âm thanh & xuất video</h2>
+              <p>Giọng local dùng để duyệt timing; có thể thay bằng WAV trong từng cảnh.</p>
+              <button id="generate-voice">Tạo giọng nháp cho các cảnh</button>
+              <div class="render-actions">
+                <select id="profile" aria-label="Chất lượng">
+                  <option value="preview">Preview · 640 × 360</option>
+                  <option value="final">Final · 1920 × 1080</option></select
+                ><button id="render" class="primary">Render video</button>
+              </div>
+              <div id="jobs"></div>
+            </section>
+          </div>
+          <div>
+            <section class="card preview-card">
+              <h2>Bàn xem</h2>
+              <img id="story-preview" alt="Bố cục cảnh đang xem" /><input
+                id="scrubber"
+                type="range"
+                min="0"
+                value="0"
+                aria-label="Frame bố cục"
+              />
+              <p class="hint">
+                Bố cục của phiên bản đã lưu. Xem video bên dưới để kiểm tra âm thanh và chuyển động.
+              </p>
+              <label
+                >Video đã QC<select id="artifact-select">
+                  <option value="">Chưa có video</option>
+                </select></label
+              ><video id="video" controls preload="metadata" hidden></video>
+              <p id="qc-info" class="hint"></p>
+              <a id="download-video" class="button" hidden>Tải MP4</a>
+            </section>
+            <section class="card">
+              <h2>Duyệt video</h2>
+              <p id="review-context">Render trước khi duyệt.</p>
+              <form id="review-form">
+                <label
+                  >Người duyệt<input
+                    name="reviewer"
+                    required
+                    maxlength="100"
+                    placeholder="Tên của bạn" /></label
+                ><label
+                  >Kết luận<select name="decision">
+                    <option value="changes_requested">Cần chỉnh sửa</option>
+                    <option value="approved">Duyệt</option>
+                  </select></label
+                ><label
+                  >Ghi chú<textarea
+                    name="notes"
+                    rows="3"
+                    maxlength="4000"
+                    placeholder="Chuyển động, bố cục, timing, lời dẫn…"
+                  ></textarea></label
+                ><button type="submit" id="review-submit" disabled>Ghi nhận đánh giá</button>
+              </form>
+              <div id="reviews"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+      <footer>
+        Prototype kỹ thuật · Rig có hành động hữu hạn · Chất lượng nghệ thuật cần người duyệt
+      </footer>
+    </main>
+  </body>
+</html>
