@@ -3,12 +3,12 @@
   "baseline": "6862c9e1e495a9f6b3518a3b68d97d8e22cfcf1d",
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
-  "currentPhase": "Q1",
-  "nextAction": "Create editable lantern art pack, inspect styleframes and pin A/B environments",
+  "currentPhase": "Q2",
+  "nextAction": "Q2.1 asset readiness and random seek; Q1 voice listening remains open",
   "phases": {
     "Q0": "DONE_DELEGATED",
-    "Q1": "IN_PROGRESS",
-    "Q2": "NOT_STARTED",
+    "Q1": "TECHNICAL_READY_REVIEW_PENDING",
+    "Q2": "IN_PROGRESS",
     "Q3": "NOT_STARTED",
     "Q4": "NOT_STARTED",
     "Q5": "NOT_STARTED",
@@ -23,6 +23,12 @@
       "result": "DONE_DELEGATED",
       "evidence": "production/evidence/Q0/gate.json",
       "limits": "No user viewing or independent animator review claimed; art/motion gates remain in Q1/Q2"
+    },
+    {
+      "id": "Q1-art-and-environments",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/evidence/Q1/gate.json",
+      "limits": "Q1 audio listening remains open; no full creative gate"
     }
   ],
   "paidBudget": 0,
@@ -31,6 +37,9 @@
     "EX-002",
     "EX-003",
     "EX-004",
-    "EX-005"
+    "EX-005",
+    "EX-011",
+    "EX-012",
+    "EX-013"
   ]
 }

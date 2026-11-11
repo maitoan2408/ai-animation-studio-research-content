@@ -34,3 +34,11 @@
 - Clean checkout PASS: 16 tests nhanh, 13 integration checks, 9 browser checks; pilot 13 giây/312 frames 1080p.
 - Thêm runbook, API/capability docs, sáu skill contracts, đối chiếu đủ P0–P11, dependency notices/BOM và CI.
 - Chưa duyệt art, chưa tích hợp LLM/phoneme lip-sync, chưa vận hành multi-user/production; các gate giữ mở trong roadmap.
+
+## Production Q1 technical checkpoint — 2026-11-12
+
+64 native SVGs, three body views, rig extremes, texture integrity and hand/prop
+contact verified. Q1 draft-3 preserves new art beside prior drafts. Blender/Three
+rendered real alpha art. Pinned local Kokoro voice fixture generated; listening
+review remains OPEN (tool cannot hear). Q2 technical preflight starts with this
+fixed fixture; no production voice/motion approval claimed. See execution state.

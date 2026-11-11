@@ -1,0 +1,774 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "mai/torso",
+      "size": [
+        720,
+        760
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/torso-front",
+      "size": [
+        720,
+        760
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/torso-profile",
+      "size": [
+        480,
+        760
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/upper-arm",
+      "size": [
+        256,
+        520
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/forearm",
+      "size": [
+        232,
+        488
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/thigh",
+      "size": [
+        288,
+        580
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/shin",
+      "size": [
+        256,
+        580
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/boot",
+      "size": [
+        392,
+        240
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/hand-open",
+      "size": [
+        272,
+        256
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/hand-grip",
+      "size": [
+        272,
+        256
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/hand-point",
+      "size": [
+        272,
+        256
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-front-neutral",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-front-worried",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-front-happy",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-front-blink",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-quarter-neutral",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-quarter-worried",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-quarter-happy",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-quarter-blink",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-profile-neutral",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-profile-worried",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-profile-happy",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mai/head-profile-blink",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/torso",
+      "size": [
+        720,
+        760
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/torso-front",
+      "size": [
+        720,
+        760
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/torso-profile",
+      "size": [
+        480,
+        760
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/upper-arm",
+      "size": [
+        256,
+        520
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/forearm",
+      "size": [
+        232,
+        488
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/thigh",
+      "size": [
+        288,
+        580
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/shin",
+      "size": [
+        256,
+        580
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/boot",
+      "size": [
+        392,
+        240
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/hand-open",
+      "size": [
+        272,
+        256
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/hand-grip",
+      "size": [
+        272,
+        256
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/hand-point",
+      "size": [
+        272,
+        256
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-front-neutral",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-front-worried",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-front-happy",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-front-blink",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-quarter-neutral",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-quarter-worried",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-quarter-happy",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-quarter-blink",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-profile-neutral",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-profile-worried",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-profile-happy",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "an/head-profile-blink",
+      "size": [
+        720,
+        720
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mouth/rest",
+      "size": [
+        144,
+        112
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mouth/M",
+      "size": [
+        144,
+        112
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mouth/A",
+      "size": [
+        144,
+        112
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mouth/E",
+      "size": [
+        144,
+        112
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mouth/O",
+      "size": [
+        144,
+        112
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mouth/F",
+      "size": [
+        144,
+        112
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "mouth/smile",
+      "size": [
+        144,
+        112
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "props/cup",
+      "size": [
+        416,
+        420
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "props/lantern-dark",
+      "size": [
+        656,
+        880
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "props/lantern-lit",
+      "size": [
+        656,
+        880
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "props/workbench",
+      "size": [
+        1408,
+        928
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "background/sky",
+      "size": [
+        3600,
+        2025
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "background/village",
+      "size": [
+        3600,
+        2025
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "background/workshop",
+      "size": [
+        3600,
+        2025
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "background/ground",
+      "size": [
+        3600,
+        2025
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "background/tree-left",
+      "size": [
+        1000,
+        2240
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "background/tree-right",
+      "size": [
+        1000,
+        2240
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "background/foreground-grass",
+      "size": [
+        1920,
+        560
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "status": "PASS"
+    }
+  ],
+  "scope": "Source hashes, PNG dimensions, nonblank and transparent/opaque alpha. Edge/color visual review is separate."
+}

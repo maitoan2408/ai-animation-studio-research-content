@@ -105,6 +105,17 @@ def character(actor):
         body += path('M63 23L75 16L90 27L103 18L122 27L113 78L74 79Z', '#d7c89d')
         body += path('M75 36H112M74 47H113M75 58H111', 'none', '#b7a983', 2)
     save(f'{actor}/torso',180,190,body,[90,170],{'leftShoulder':[37,31],'rightShoulder':[143,31],'neck':[94,15],'hip':[90,170]},'torso')
+    # Dedicated drawings: profile changes garment silhouette and arm anchors,
+    # rather than merely swapping a head on the frontal torso.
+    front=body.replace('M90 18L83 177L97 177L99 20Z','M86 18L85 177L96 177L96 20Z')
+    save(f'{actor}/torso-front',180,190,front,[90,170],{'leftShoulder':[37,31],'rightShoulder':[143,31],'neck':[90,15],'hip':[90,170]},'torso')
+    profile=path('M29 23L49 10L75 16L86 43L101 174L66 184L14 175L18 66Z',coat,dark,2)
+    profile+=path('M71 24L84 165','none',dark,3)+path('M27 50L27 154M26 166L65 171','none',light,2)
+    profile+=path('M62 102L88 100L91 126L64 129Z',dark)
+    for y in [64,91,137]:profile+=ellipse(77+(y-64)*.07,y,2.6,2.6,'#e5d3a4')
+    if mai:profile+=path('M45 13L75 13L88 34L68 40L56 98L39 91L52 34Z','#bc6351')
+    else:profile+=path('M48 18L69 21L77 39L66 71L48 66Z','#d7c89d')
+    save(f'{actor}/torso-profile',120,190,profile,[60,170],{'leftShoulder':[39,31],'rightShoulder':[77,31],'neck':[65,15],'hip':[60,170]},'torso')
     for part,width,height,length in [('upper-arm',64,130,105),('forearm',58,122,98)]:
         b=path(f'M16 8Q{width/2} 2 {width-12} 15L{width-8} {height-27}Q{width-20} {height-5} 15 {height-13}L8 27Z',coat,dark,2)
         b+=path(f'M18 24L21 {height-35}', 'none',light,3)

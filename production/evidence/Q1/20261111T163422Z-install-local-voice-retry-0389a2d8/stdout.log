@@ -1,0 +1,31 @@
+Using Python 3.12.14 environment at: production/.venv
+Resolved 16 packages in 538ms
+Downloading soundfile (1.3MiB)
+Downloading onnxruntime (22.7MiB)
+Downloading numpy (16.0MiB)
+ Downloaded soundfile
+Downloading espeakng-loader (9.6MiB)
+ Downloaded espeakng-loader
+ Downloaded numpy
+ Downloaded onnxruntime
+Prepared 16 packages in 1.06s
+warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+         If the cache and target directories are on different filesystems, hardlinking may not be supported.
+         If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+Installed 16 packages in 384ms
+ + attrs==26.1.0
+ + cffi==2.1.1
+ + cloudpickle==3.1.2
+ + dlinfo==2.0.0
+ + espeakng-loader==0.2.4
+ + flatbuffers==25.12.19
+ + joblib==1.6.0
+ + kokoro-onnx==0.6.1
+ + numpy==2.5.4
+ + onnxruntime==1.31.1
+ + packaging==26.3
+ + phonemizer==3.6.0
+ + protobuf==7.36.2
+ + pycparser==3.12
+ + soundfile==0.13.1
+ + typing-extensions==4.16.0

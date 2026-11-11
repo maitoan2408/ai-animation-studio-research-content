@@ -45,13 +45,23 @@ const sheet: Sprite[]=[];
 for(const [row,actor] of (['mai','an'] as const).entries()) for(const [column,view] of (['front','quarter','profile'] as const).entries())
   sheet.push(...actorSprites(pack,{id:`${actor}-${view}`,character:actor,x:320+column*640,floor:650+row*690,facing:1,view,mood:column===1?'happy':'neutral'}).sprites);
 scenes['model-sheet']=svg(sheet,1920,1440,{x:960,y:720,zoom:1});
+const extremes: Sprite[]=[];
+for(const [row,actor] of (['mai','an'] as const).entries()){
+  for(const [col,view] of (['front','quarter','profile'] as const).entries()){
+    extremes.push(...actorSprites(pack,{id:`${actor}-${view}-extreme`,character:actor,
+      x:320+col*640,floor:650+row*690,facing:1,view,torsoAngle:col===0?-10:8,
+      headAngle:col===1?-15:10,hipOffset:col===1?[0,25]:[0,0],
+      rightWrist:col===1?[172,-440]:undefined,rightHand:col===1?'point':'open',mood:'happy'}).sprites);
+  }
+}
+scenes['rig-extremes']=svg(extremes,1920,1440,{x:960,y:720,zoom:1});
 
 const browser=await puppeteer.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 try {
   const page=await browser.newPage();
   for(const [name,source] of Object.entries(scenes)) {
     await writeFile(path.join(output,`${name}.svg`),source);
-    await page.setViewport({width:1920,height:name==='model-sheet'?1440:1080,deviceScaleFactor:1});
+    await page.setViewport({width:1920,height:['model-sheet','rig-extremes'].includes(name)?1440:1080,deviceScaleFactor:1});
     await page.setContent(`<html><body style="margin:0">${source}</body></html>`);
     await page.evaluate(async()=>{await Promise.all(Array.from(document.querySelectorAll('image')).map(el=>{const img=new Image();img.src=el.getAttribute('href')!;return img.decode();}));});
     await page.screenshot({path:path.join(output,`${name}.png`)});

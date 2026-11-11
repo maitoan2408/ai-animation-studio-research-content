@@ -1,0 +1,13 @@
+{
+  "version": "4.3.2",
+  "engine": "BLENDER_EEVEE_NEXT",
+  "size": [
+    320,
+    320
+  ],
+  "elapsed_seconds": 35.86449300999999,
+  "texture": "out/art-q1/textures/mai/head-quarter-neutral.png",
+  "native_file": "smoke.blend",
+  "render": "smoke.png",
+  "scope": "Environment and alpha-texture smoke only"
+}

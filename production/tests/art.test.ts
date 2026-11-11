@@ -11,7 +11,7 @@ const packRoot=new URL('../assets/lantern-v1/',import.meta.url);
 const pack=JSON.parse(await readFile(new URL('manifest.json',packRoot),'utf8')) as ArtPack;
 
 test('art source hashes, explicit pivots, views and local references remain intact',async()=>{
-  assert.equal(new Set(pack.assets.map(a=>a.id)).size,60);
+  assert.equal(new Set(pack.assets.map(a=>a.id)).size,64);
   for(const a of pack.assets){
     assert.ok(!a.file.includes('..')&&!a.file.startsWith('/'));
     const bytes=await readFile(new URL(a.file,packRoot));
@@ -22,6 +22,11 @@ test('art source hashes, explicit pivots, views and local references remain inta
   }
   for(const actor of ['mai','an'])for(const view of ['front','quarter','profile'])
     assert.ok(pack.assets.some(a=>a.id===`${actor}/head-${view}-neutral`));
+  for(const actor of ['mai','an']){
+    const front=pack.assets.find(a=>a.id===`${actor}/torso-front`)!,profile=pack.assets.find(a=>a.id===`${actor}/torso-profile`)!;
+    assert.notEqual(front.sha256,profile.sha256);
+    assert.ok(profile.width<front.width,'Profile has its own silhouette');
+  }
 });
 
 test('contact styleframe: rendered hand anchor coincides with prop grip within 2 px',()=>{

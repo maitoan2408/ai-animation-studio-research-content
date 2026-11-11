@@ -12,8 +12,11 @@
 ## Trạng thái gần nhất
 
 Q0 DONE_DELEGATED: brief/rubric/source references khóa, 16 app tests + brief gate PASS.
-Q1 IN_PROGRESS: 60 SVG + styleframes draft-1 đã có, typecheck PASS.
-EX-006/007 đã sửa và kiểm lại, draft-2 lưu riêng; EX-008/009 còn mở. Q2–Q9 chưa bắt đầu.
+Q1 TECHNICAL_READY_REVIEW_PENDING: 64 SVG, draft-3 và textures/hash/IK/typecheck PASS;
+Blender + Three thực sự render được, local voice đã tạo và kiểm dữ liệu.
+EX-006–010 đã đóng. EX-011 nghe duyệt voice còn mở vì tool không hỗ trợ audio input.
+Q2 IN_PROGRESS ở phần hợp đồng kỹ thuật, chưa có six-shot video/gate mỹ thuật.
+Q3–Q9 chưa bắt đầu. Không coi technical ready là Q1/Q2 hoàn thành toàn bộ.
 Nguồn trạng thái máy đọc: [state.json](state.json). Các phase và điều kiện đầy đủ:
 [kế hoạch](../toolchain-future-plan.md); snapshot này không bị sửa lại thành DONE.
 
@@ -25,10 +28,12 @@ cat production/evidence/Q0/gate.json
 cat production/brief/Q0-brief.md
 ```
 
-Tiếp tục Q1: bổ sung torso front/profile + kiểm EX-008/009, sau đó alpha/rig extremes.
-Dependencies workbench đã khóa; textures là generated trong production/out/art-q1.
-Sau styleframe gate, kiểm Blender/Three môi trường và audio trước Q2. Khi đã hoàn thành
-một bước, thay mục này bằng bước thực tế tiếp theo, không chạy lại toàn bộ history.
+Tiếp tục Q2.1: explicit asset readiness/hash/timeout + random seek adapter Three/HF.
+Sau đó Q2.2 action evaluator cho sáu shot; kiểm contact/ground độc lập trước render.
+Blender Eevee smoke 320×320 mất 35.864 s; đo cấu hình full scene trước batch.
+Q1 voice fixture cố định dùng cho đối chứng kỹ thuật; nghe duyệt vẫn mở. Không
+đóng gate âm thanh bằng kiểm PCM hoặc cho rằng AI đã nghe. Dependencies workbench
+đã khóa; textures generated trong production/out/art-q1, có lệnh tái tạo ENVIRONMENT.md.
 
 ## Quy tắc phục hồi
 

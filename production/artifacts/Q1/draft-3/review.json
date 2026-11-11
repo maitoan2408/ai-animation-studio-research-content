@@ -1,0 +1,38 @@
+{
+  "reviewer": "delegated-agent",
+  "status": "TECHNICAL_READY_REVIEW_PENDING",
+  "viewed": [
+    "model-sheet",
+    "rig-extremes",
+    "close",
+    "three white/black",
+    "blender smoke"
+  ],
+  "findings": {
+    "EX-008": "Profile mouth stays inside face; raised worried brows read concerned",
+    "EX-009": "Distinct front/profile torso, joints remain overlapped in tested extremes",
+    "EX-012": "High arm occludes face; change acting arc in Q2"
+  },
+  "limits": [
+    "No listening review: audio input unsupported",
+    "No motion approval from stills",
+    "Blender smoke lit color differs from unlit Three; Q2/Q7 need matched color path"
+  ],
+  "files": {
+    "rig-extremes.png": "ccc2d3b08bbc1d25cbe896eff83e536b0de68448689014a12146bf73894f4e15",
+    "contact.png": "68aa3d763af2b6f5cfe39c212736edfbd55600a3857ef2809f3176728610c3cd",
+    "close.png": "dbb87b48ad5e5c55359bc5555da2c755b4125d846fefe9b7e53ba744b3df7e5a",
+    "model-sheet.png": "9c8ec6d074226de157f0acff72171e665d9098ccca9210ee77d90041a827eb9b",
+    "texture-checks.json": "3d070dfff2acd8d3d7087571d342ef6ec41b893ee448eb232b0d5715a51ca053",
+    "wide.png": "28d19764bf15d932438c74ec2660fb92c6fc654381dc2c8b70dc160e59c47252",
+    "blender-environment/manifest.json": "c0255d8eca25c2eba386f531e504575792c924aee57a69e8746b792cb7a50be1",
+    "blender-environment/smoke.png": "3c7f0c2481e504d85860e35d5484a18217ca867e42129ac69992a37312d99598",
+    "voice/scene.wav": "bf8f5b824ac022ee7389c2dc5e03aca4a96b8cc8b45959ba5b366173d2013847",
+    "voice/manifest.json": "a4ab6b7188ab3f804b9a0a0f324762f7348d65c4422851d9cd56111e27e56e6e",
+    "voice/speech.wav": "a8980eb46b00e32469e374a27c2ff5edaf2f5388caeff37ff8e6efa97c4182df",
+    "three-environment/manifest.json": "f71576fc90c0d4ada32b57b6e3e0e09985043d64b6e03c38ec5425968e78e02f",
+    "three-environment/black.png": "3451dda5316d4b92adb2515e4d37373ea0fe70add4578ded7377e79e86ad97aa",
+    "three-environment/transparent.png": "7de685e87a7a1c9e4ddbc30aeedd60c5ce3ebeb94673b132c4464f326d7e6467",
+    "three-environment/white.png": "5974b0c1d675c056ce622d8c264417de2c709515e6d74b53be571a674bc4dd3c"
+  }
+}

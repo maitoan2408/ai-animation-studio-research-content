@@ -63,3 +63,9 @@ Ghi command, phiên bản, exit status, input/output hash và giới hạn trong
 - Draft PR: https://github.com/maitoan2408/ai-animation-studio-research-content/pull/1
 - Review chương trình/demo theo `docs/review-checklist.md`; kế hoạch production đầy đủ ở `docs/roadmap-full.md`.
 - Word/PDF gốc và evidence các mốc đã hoàn thành được giữ nguyên. Bản Word bàn giao mới nằm trong `reports/Ban_giao_Studio_noi_bo_v0.1.docx`.
+
+### Checkpoint Q1 — 2026-11-12
+
+Art/rig/environment technical inputs are ready (64 SVG); Q1 voice listening is
+still open. Q2 technical contracts now in progress. Full phase gates are tracked
+in `docs/execution/state.json`, not inferred from this checklist.

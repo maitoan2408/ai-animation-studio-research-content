@@ -39,6 +39,72 @@
       "source": "project-original"
     },
     {
+      "id": "mai/torso-front",
+      "file": "mai/torso-front.svg",
+      "width": 180,
+      "height": 190,
+      "pivot": [
+        90,
+        170
+      ],
+      "anchors": {
+        "leftShoulder": [
+          37,
+          31
+        ],
+        "rightShoulder": [
+          143,
+          31
+        ],
+        "neck": [
+          90,
+          15
+        ],
+        "hip": [
+          90,
+          170
+        ]
+      },
+      "category": "torso",
+      "sha256": "9545eade681a745e82c6190a4b43f3300738b71f01695154346083d75e614627",
+      "colorSpace": "srgb",
+      "alpha": "straight",
+      "source": "project-original"
+    },
+    {
+      "id": "mai/torso-profile",
+      "file": "mai/torso-profile.svg",
+      "width": 120,
+      "height": 190,
+      "pivot": [
+        60,
+        170
+      ],
+      "anchors": {
+        "leftShoulder": [
+          39,
+          31
+        ],
+        "rightShoulder": [
+          77,
+          31
+        ],
+        "neck": [
+          65,
+          15
+        ],
+        "hip": [
+          60,
+          170
+        ]
+      },
+      "category": "torso",
+      "sha256": "81b86e0f08266649bd017890a12a874ef18c2e44d9c3388e127519118a83a052",
+      "colorSpace": "srgb",
+      "alpha": "straight",
+      "source": "project-original"
+    },
+    {
       "id": "mai/upper-arm",
       "file": "mai/upper-arm.svg",
       "width": 64,
@@ -595,6 +661,72 @@
       },
       "category": "torso",
       "sha256": "ed48294fbf93780be4205509c25304d8b5bff2559f1d37d1dd0099d1bc32a269",
+      "colorSpace": "srgb",
+      "alpha": "straight",
+      "source": "project-original"
+    },
+    {
+      "id": "an/torso-front",
+      "file": "an/torso-front.svg",
+      "width": 180,
+      "height": 190,
+      "pivot": [
+        90,
+        170
+      ],
+      "anchors": {
+        "leftShoulder": [
+          37,
+          31
+        ],
+        "rightShoulder": [
+          143,
+          31
+        ],
+        "neck": [
+          90,
+          15
+        ],
+        "hip": [
+          90,
+          170
+        ]
+      },
+      "category": "torso",
+      "sha256": "26263d8ae7da2e5eee083821c354248bbfe96bbd01e463e23e01dcd5a4dac60a",
+      "colorSpace": "srgb",
+      "alpha": "straight",
+      "source": "project-original"
+    },
+    {
+      "id": "an/torso-profile",
+      "file": "an/torso-profile.svg",
+      "width": 120,
+      "height": 190,
+      "pivot": [
+        60,
+        170
+      ],
+      "anchors": {
+        "leftShoulder": [
+          39,
+          31
+        ],
+        "rightShoulder": [
+          77,
+          31
+        ],
+        "neck": [
+          65,
+          15
+        ],
+        "hip": [
+          60,
+          170
+        ]
+      },
+      "category": "torso",
+      "sha256": "221aa1ddee7f286c1287e8397313cb2697f1c2d1ed8d894b61a2e3f0cd0b490c",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"

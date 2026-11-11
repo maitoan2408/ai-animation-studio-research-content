@@ -8,6 +8,11 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
   const a = pose.character, hip = add([0, -258], pose.hipOffset ?? [0, 0]);
   const torsoAngle = pose.torsoAngle ?? 0;
   const atTorso = (local: Point) => add(hip, rotate(local, torsoAngle));
+  const profile=pose.view==='profile';
+  const torsoId=`${a}/torso${pose.view==='front'?'-front':profile?'-profile':''}`;
+  const torso=pack.assets.find(x=>x.id===torsoId);
+  if(!torso) throw new Error(`TORSO_MISSING: ${torsoId}`);
+  const torsoAnchor=(name:string)=>atTorso(subtract(torso.anchors[name]!,torso.pivot));
   const localSprite = (id: string, asset: string, p: Point, z: number, rotation = 0) => {
     items.push(sprite(`${pose.id}.${id}`, asset, p[0], p[1], z, rotation));
   };
@@ -38,9 +43,10 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
     mark(`${side}-grip`,add(wrist,rotate([offset[0]*handSprite.scaleX,offset[1]],handAngle)),'contact',z+.2);
     mark(`${side}-wrist`,wrist,'joint',z+.2);
   };
-  arm('left',atTorso([-53,-139]),pose.leftWrist ?? [-99,-211],2.5);
-  localSprite('torso',`${a}/torso`,hip,3,torsoAngle);
-  const neck = atTorso([4,-155]);
+  const restWrist=(x:number)=>atTorso([x,47]);
+  arm('left',torsoAnchor('leftShoulder'),pose.leftWrist ?? restWrist(profile?-62:-99),2.5);
+  localSprite('torso',torsoId,hip,3,torsoAngle);
+  const neck = torsoAnchor('neck');
   const headId = `${a}/head-${pose.view ?? 'quarter'}-${pose.mood ?? 'neutral'}`;
   const headAsset = pack.assets.find(x=>x.id===headId);
   if (!headAsset?.anchors.mouth) throw new Error(`MISSING_HEAD_ANCHOR: ${headId}`);
@@ -49,7 +55,7 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
   const mouth = add(neck,rotate(subtract(headAsset.anchors.mouth,headAsset.pivot),headAngle));
   localSprite('mouth',`mouth/${pose.mouth ?? 'rest'}`,mouth,4.1,headAngle);
   if(pose.view==='profile') items[items.length-1]!.scaleX=.65;
-  arm('right',atTorso([53,-139]),pose.rightWrist ?? [108,-211],5);
+  arm('right',torsoAnchor('rightShoulder'),pose.rightWrist ?? restWrist(profile?75:108),5);
   const scale = pose.scale ?? 1, facing = pose.facing;
   const world = (p: Point): Point => [pose.x + p[0]*scale*facing, pose.floor+p[1]*scale];
   return {
