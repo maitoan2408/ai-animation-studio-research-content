@@ -55,6 +55,7 @@ Xem [capability matrix](docs/capabilities.md). **Đủ 12 giai đoạn trong Wor
 
 ## Tài liệu dự án
 
+- **Nghiên cứu chất lượng production (11/11/2026, chưa triển khai):** [phân tích công cụ/mã nguồn](reports/Nghien_cuu_chat_luong_production.md), [kế hoạch Q0–Q9](docs/production-quality-plan.md), [nguồn và giấy phép](docs/research/production-quality-sources.md), [Word để duyệt](reports/Nghien_cuu_va_ke_hoach_chat_luong_production.docx?raw=true).
 - [Kế hoạch và trạng thái](plan.md), [từng mốc chi tiết](docs/phases/).
 - [AGENTS.md](AGENTS.md), [agent.md](agent.md), [skills.md](skills.md), [skill contracts](skills/).
 - [Kiến trúc](docs/architecture.md), [API](docs/api.md), [ADR renderer](docs/adr/0001-renderer.md).
