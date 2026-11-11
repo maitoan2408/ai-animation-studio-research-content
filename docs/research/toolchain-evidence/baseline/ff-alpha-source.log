@@ -1,0 +1,13 @@
+Input #0, lavfi, from 'color=c=red@0.5:s=64x64:r=24:d=1,format=rgba':
+  Duration: N/A, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: wrapped_avframe, rgba, 64x64 [SAR 1:1 DAR 1:1], 24 fps, 24 tbr, 24 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (wrapped_avframe (native) -> qtrle (native))
+Output #0, mov, to 'out/media/alpha-qtrle.mov':
+  Metadata:
+    encoder         : Lavf61.7.103
+  Stream #0:0: Video: qtrle (rle  / 0x20656C72), argb(pc, gbr/unknown/unknown, progressive), 64x64 [SAR 1:1 DAR 1:1], q=2-31, 200 kb/s, 24 fps, 12288 tbn
+      Metadata:
+        encoder         : Lavc61.19.101 qtrle
+[out#0/mov @ 0x55850a0c6ac0] video:1KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 80.921053%
+frame=   24 fps=0.0 q=-0.0 Lsize=       2KiB time=00:00:01.00 bitrate=  15.4kbits/s speed= 126x    

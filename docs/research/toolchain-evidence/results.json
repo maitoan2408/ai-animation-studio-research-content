@@ -1,0 +1,1013 @@
+{
+  "schema": "research-evidence-v1",
+  "date": "2026-11-11",
+  "scope": "Existing harness/CLI only, no product changes",
+  "tests": [
+    {
+      "id": "E01",
+      "status": "PASS",
+      "question": "Nền ứng dụng có qua verify hiện có?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "Format/typecheck và 16 tests không fail",
+      "actual": {
+        "tests": 16,
+        "failed": 0
+      },
+      "command_records": [
+        "baseline/app-verify-command.json"
+      ],
+      "artifacts": [
+        "baseline/app-verify.log"
+      ],
+      "limits": [
+        "Không art approval",
+        "13 integration/9 UI là kết quả cũ, chưa chạy lại vòng này"
+      ]
+    },
+    {
+      "id": "E02",
+      "status": "PASS",
+      "question": "Seek/reload cùng frame có cùng hash?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "36 captures sau baseline phải cùng PNG hash",
+      "actual": {
+        "version": "0.9.30",
+        "captures": 48,
+        "comparisons": 36,
+        "mismatches": 0
+      },
+      "command_records": [
+        "baseline/hf030-seek-command.json"
+      ],
+      "artifacts": [
+        "baseline/hyperframes-seek.json"
+      ],
+      "limits": [
+        "SVG/GSAP fixture 640x360/24fps",
+        "Không chứng minh WebGL/physics/cross-device"
+      ]
+    },
+    {
+      "id": "E03",
+      "status": "PASS",
+      "question": "Seek/reload cùng frame có cùng hash?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "36 captures sau baseline phải cùng PNG hash",
+      "actual": {
+        "version": "0.9.33",
+        "captures": 48,
+        "comparisons": 36,
+        "mismatches": 0
+      },
+      "command_records": [
+        "hf033-locked/hf033-locked-seek-command.json"
+      ],
+      "artifacts": [
+        "hf033-locked/hyperframes-seek.json"
+      ],
+      "limits": [
+        "SVG/GSAP fixture 640x360/24fps",
+        "Không chứng minh WebGL/physics/cross-device"
+      ]
+    },
+    {
+      "id": "E04",
+      "status": "PASS",
+      "question": "Missing required image xử lý đúng mode?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "Strict: lỗi rõ, không MP4 cuối",
+      "actual": [
+        {
+          "version": "0.9.30",
+          "exit_code": 1,
+          "status": "failed",
+          "outcome": "failed",
+          "warnings": [
+            {
+              "code": "media_load_failed",
+              "message": "image media failed to load before capture",
+              "details": {
+                "mediaType": "image",
+                "sources": [
+                  "http://localhost:42815/assets/does-not-exist.png"
+                ],
+                "timeoutMs": 45000
+              },
+              "stage": "capture-readiness"
+            }
+          ],
+          "error": "Render blocked by 1 correctness warning:\n- media_load_failed: image media failed to load before capture",
+          "final_mp4_observed": false
+        },
+        {
+          "version": "0.9.33",
+          "exit_code": 1,
+          "status": "failed",
+          "outcome": "failed",
+          "warnings": [
+            {
+              "code": "media_load_failed",
+              "message": "image media failed to load before capture",
+              "details": {
+                "mediaType": "image",
+                "sources": [
+                  "http://localhost:39909/assets/does-not-exist.png"
+                ],
+                "timeoutMs": 45000
+              },
+              "stage": "capture-readiness"
+            }
+          ],
+          "error": "Render blocked by 1 correctness warning:\n- media_load_failed: image media failed to load before capture",
+          "final_mp4_observed": false
+        }
+      ],
+      "command_records": [
+        "baseline/hf030-missing-strict-command.json",
+        "hf033-locked/hf033-locked-missing-strict-command.json"
+      ],
+      "artifacts": [
+        "baseline/hyperframes-missing-w1-strict-metrics.json",
+        "hf033-locked/hyperframes-missing-w1-strict-metrics.json"
+      ],
+      "limits": [
+        "Negative/behavior test; best-effort output không đạt delivery",
+        "Không bao phủ texture readiness của Three"
+      ]
+    },
+    {
+      "id": "E05",
+      "status": "PASS",
+      "question": "Missing required image xử lý đúng mode?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "Best effort: warning và clip có thể tồn tại",
+      "actual": [
+        {
+          "version": "0.9.30",
+          "exit_code": 0,
+          "status": "complete",
+          "outcome": "completed_with_warnings",
+          "warnings": [
+            {
+              "code": "media_load_failed",
+              "message": "image media failed to load before capture",
+              "details": {
+                "mediaType": "image",
+                "sources": [
+                  "http://localhost:34481/assets/does-not-exist.png"
+                ],
+                "timeoutMs": 45000
+              },
+              "stage": "capture-readiness"
+            }
+          ],
+          "error": null,
+          "final_mp4_observed": true
+        },
+        {
+          "version": "0.9.33",
+          "exit_code": 0,
+          "status": "complete",
+          "outcome": "completed_with_warnings",
+          "warnings": [
+            {
+              "code": "media_load_failed",
+              "message": "image media failed to load before capture",
+              "details": {
+                "mediaType": "image",
+                "sources": [
+                  "http://localhost:41875/assets/does-not-exist.png"
+                ],
+                "timeoutMs": 45000
+              },
+              "stage": "capture-readiness"
+            }
+          ],
+          "error": null,
+          "final_mp4_observed": true
+        }
+      ],
+      "command_records": [
+        "baseline/hf030-missing-best-command.json",
+        "hf033-locked/hf033-locked-missing-best-command.json"
+      ],
+      "artifacts": [
+        "baseline/hyperframes-missing-w1-best-effort-metrics.json",
+        "hf033-locked/hyperframes-missing-w1-best-effort-metrics.json"
+      ],
+      "limits": [
+        "Negative/behavior test; best-effort output không đạt delivery",
+        "Không bao phủ texture readiness của Three"
+      ]
+    },
+    {
+      "id": "E06",
+      "status": "PASS",
+      "question": "Study hợp lệ có đúng output contract fixture?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "Strict completed, không warning, 240 frames/24fps/10s, audio 48k, decode",
+      "actual": {
+        "frames": 240,
+        "fps": "24/1",
+        "size": [
+          640,
+          360
+        ],
+        "duration": 10,
+        "audio_channels": 2,
+        "audio_sample_rate": 48000,
+        "color": "BT.709, tv",
+        "decode_exit": 0
+      },
+      "command_records": [
+        "hf033/hf033-study-strict-command.json",
+        "hf033/hf033-study-probe-command.json",
+        "hf033/hf033-study-decode-command.json"
+      ],
+      "artifacts": [
+        "hf033/study.mp4",
+        "hf033/hyperframes-study-w1-strict-metrics.json",
+        "hf033/hf033-study-probe.log"
+      ],
+      "limits": [
+        "Chồng thời gian Three check; không speed benchmark",
+        "Không art/acting review"
+      ]
+    },
+    {
+      "id": "E07",
+      "status": "PASS",
+      "question": "Upstream Three example có qua harness đã có?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "4,0,4 và reload hash đúng; count/spread/change/step thresholds giữ nguyên harness",
+      "actual": {
+        "three_version": "0.180.0",
+        "size": [
+          320,
+          180
+        ],
+        "path_samples": 2,
+        "raster_frames": 30,
+        "path_frames": 8,
+        "report": "three/report.json"
+      },
+      "command_records": [
+        "baseline/three-upstream-verify-command.json"
+      ],
+      "artifacts": [
+        "three/report.json",
+        "three/inputs.json",
+        "three/raster.mp4",
+        "three/path.mp4",
+        "three/raster-at-4s.png",
+        "three/path-at-4s.png"
+      ],
+      "limits": [
+        "Workers trong report là yêu cầu, không số concurrency đo được",
+        "Native fps 30 raster/10 path khác nhau; không ranking speed",
+        "Chỉ xem still, chưa chấm art/motion bằng video",
+        "Không chứng nhận Three r187 hoặc production style"
+      ]
+    },
+    {
+      "id": "E08",
+      "status": "PASS",
+      "question": "QTRLE giữ alpha phẳng?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "24 decoded frames alpha 127/255",
+      "actual": {
+        "frames": 24,
+        "alpha_mean": 127,
+        "alpha_stdev": 0
+      },
+      "command_records": [
+        "baseline/ff-alpha-source-command.json",
+        "baseline/ff-alpha-roundtrip-command.json"
+      ],
+      "artifacts": [
+        "media/alpha-qtrle.mov",
+        "baseline/ff-alpha-roundtrip.log"
+      ],
+      "limits": [
+        "Không kiểm fringe/compositing/alpha edge"
+      ]
+    },
+    {
+      "id": "E09",
+      "status": "PASS",
+      "question": "Negative control H264 yuv420p có phát hiện không alpha?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "alphaextract phải lỗi thiếu plane",
+      "actual": {
+        "exit_code": 234,
+        "message": "Requested planes not available"
+      },
+      "command_records": [
+        "baseline/ff-h264-delivery-command.json",
+        "baseline/ff-no-alpha-negative-command.json"
+      ],
+      "artifacts": [
+        "baseline/ff-no-alpha-negative.log"
+      ],
+      "limits": [
+        "Không suy mọi codec/container đều không alpha"
+      ]
+    },
+    {
+      "id": "E10a",
+      "status": "FAIL",
+      "question": "Encode đầu có đủ BT709 tags?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "matrix/transfer/primaries bt709, range tv",
+      "actual": {
+        "space": "bt709",
+        "range": "tv",
+        "transfer": null,
+        "primaries": null,
+        "encode_exit": 0
+      },
+      "command_records": [
+        "baseline/ff-h264-delivery-command.json",
+        "baseline/ff-color-initial-probe-command.json"
+      ],
+      "artifacts": [
+        "media/opaque-h264.mp4",
+        "baseline/ff-color-initial-probe.log"
+      ],
+      "limits": [
+        "Thiếu tags ở output thử, không kết luận toàn FFmpeg lỗi"
+      ]
+    },
+    {
+      "id": "E10b",
+      "status": "PASS",
+      "question": "Explicit color conversion có đủ tags?",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "Giữ expected E10a",
+      "actual": {
+        "space": "bt709",
+        "range": "tv",
+        "transfer": "bt709",
+        "primaries": "bt709"
+      },
+      "command_records": [
+        "baseline/ff-color-explicit-command.json",
+        "baseline/ff-color-explicit-probe-command.json"
+      ],
+      "artifacts": [
+        "media/opaque-bt709.mp4",
+        "baseline/ff-color-explicit-probe.log"
+      ],
+      "limits": [
+        "Input giả định sRGB/full",
+        "Metadata pass chưa color accuracy/target-player pass"
+      ]
+    },
+    {
+      "id": "E11",
+      "status": "PASS",
+      "question": "Đo thông số demo/loudness, đối chiếu docs",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "Thu số đo input mà không ghi đè demo",
+      "actual": {
+        "frames": 312,
+        "fps": "24/1",
+        "size": [
+          1920,
+          1080
+        ],
+        "duration": 13,
+        "audio_channels": 2,
+        "audio_sample_rate": 48000,
+        "input_integrated_lufs": -17.84,
+        "input_true_peak_dbtp": -1.55,
+        "input_lra_lu": 3.5
+      },
+      "command_records": [
+        "baseline/ff-demo-probe-command.json",
+        "baseline/ff-demo-loudness-command.json"
+      ],
+      "artifacts": [
+        "baseline/ff-demo-probe.log",
+        "baseline/ff-demo-loudness.log"
+      ],
+      "limits": [
+        "Measurement only; chưa approved loudness target",
+        "PCM mono khác AAC stereo, errata tài liệu cũ",
+        "Không lưu master normalize mới"
+      ]
+    },
+    {
+      "id": "E12",
+      "status": "BLOCKED",
+      "question": "Cài Manim CE để render example sẵn có",
+      "input_manifest": "inputs.json",
+      "environment": "environment.json",
+      "expected": "Cài manim 0.22.1 thành công",
+      "actual": {
+        "version": "0.22.1",
+        "python": "3.12.14",
+        "exit_code": 1,
+        "reason": "pangocairo >=1.30.0 missing; manimpango build failed",
+        "render_status": "NOT_RUN"
+      },
+      "command_records": [
+        "baseline/manim-ce-install-command.json",
+        "baseline/runtime-manim-prereq-command.json"
+      ],
+      "artifacts": [
+        "baseline/manim-ce-install.log",
+        "baseline/runtime-manim-prereq.log"
+      ],
+      "limits": [
+        "Setup blocker không chứng minh khả năng/chất lượng render",
+        "Không có auto-review rejection"
+      ]
+    }
+  ],
+  "additional_observation": {
+    "description": "Post-hoc cross-version first-pass PNG hash comparison",
+    "pairs": 12,
+    "equal": 12,
+    "statistical_claim": false
+  },
+  "all_command_attempts": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "verify"
+      ],
+      "cwd": "/workspace/ai-animation-studio-research-content",
+      "started_at_utc": "2026-11-11T15:08:55.312382+00:00",
+      "elapsed_seconds": 8.586014510998211,
+      "returncode": 0,
+      "log": "app-verify.log",
+      "record": "baseline/app-verify-command.json"
+    },
+    {
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-i",
+        "out/media/alpha-qtrle.mov",
+        "-vf",
+        "alphaextract,showinfo",
+        "-an",
+        "-f",
+        "null",
+        "-"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:06:53.469431+00:00",
+      "elapsed_seconds": 0.0653990069986321,
+      "returncode": 0,
+      "log": "ff-alpha-roundtrip.log",
+      "record": "baseline/ff-alpha-roundtrip-command.json"
+    },
+    {
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-y",
+        "-f",
+        "lavfi",
+        "-i",
+        "color=c=red@0.5:s=64x64:r=24:d=1,format=rgba",
+        "-frames:v",
+        "24",
+        "-c:v",
+        "qtrle",
+        "-pix_fmt",
+        "argb",
+        "out/media/alpha-qtrle.mov"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:06:53.341345+00:00",
+      "elapsed_seconds": 0.0961798650023411,
+      "returncode": 0,
+      "log": "ff-alpha-source.log",
+      "record": "baseline/ff-alpha-source-command.json"
+    },
+    {
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-y",
+        "-i",
+        "out/media/alpha-qtrle.mov",
+        "-vf",
+        "format=gbrpf32le,zscale=matrixin=gbr:transferin=iec61966-2-1:primariesin=709:rangein=full:matrix=709:transfer=709:primaries=709:range=limited,format=yuv420p",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-color_range",
+        "tv",
+        "-colorspace",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-color_primaries",
+        "bt709",
+        "out/media/opaque-bt709.mp4"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:07:29.068333+00:00",
+      "elapsed_seconds": 0.09117843200147036,
+      "returncode": 0,
+      "log": "ff-color-explicit.log",
+      "record": "baseline/ff-color-explicit-command.json"
+    },
+    {
+      "command": [
+        "ffprobe",
+        "-v",
+        "error",
+        "-count_frames",
+        "-show_entries",
+        "stream=index,codec_name,pix_fmt,width,height,r_frame_rate,nb_read_frames,color_range,color_space,color_transfer,color_primaries",
+        "-of",
+        "json",
+        "out/media/opaque-bt709.mp4"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:07:29.195001+00:00",
+      "elapsed_seconds": 0.08485882899913122,
+      "returncode": 0,
+      "log": "ff-color-explicit-probe.log",
+      "record": "baseline/ff-color-explicit-probe-command.json"
+    },
+    {
+      "command": [
+        "ffprobe",
+        "-v",
+        "error",
+        "-count_frames",
+        "-show_entries",
+        "stream=index,codec_name,pix_fmt,width,height,r_frame_rate,nb_read_frames,color_range,color_space,color_transfer,color_primaries",
+        "-of",
+        "json",
+        "out/media/opaque-h264.mp4"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:07:28.898191+00:00",
+      "elapsed_seconds": 0.14353808700252557,
+      "returncode": 0,
+      "log": "ff-color-initial-probe.log",
+      "record": "baseline/ff-color-initial-probe-command.json"
+    },
+    {
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-i",
+        "/workspace/ai-animation-studio-research-content/artifacts/morning-final.mp4",
+        "-vn",
+        "-af",
+        "loudnorm=I=-16:TP=-1:LRA=11:print_format=json",
+        "-f",
+        "null",
+        "-"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:07:29.320004+00:00",
+      "elapsed_seconds": 0.6847018090011261,
+      "returncode": 0,
+      "log": "ff-demo-loudness.log",
+      "record": "baseline/ff-demo-loudness-command.json"
+    },
+    {
+      "command": [
+        "ffprobe",
+        "-v",
+        "error",
+        "-count_frames",
+        "-show_entries",
+        "stream=index,codec_name,width,height,pix_fmt,r_frame_rate,nb_read_frames,duration,sample_rate,channel_layout,color_range,color_space,color_transfer,color_primaries",
+        "-of",
+        "json",
+        "/workspace/ai-animation-studio-research-content/artifacts/morning-final.mp4"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:13:32.056766+00:00",
+      "elapsed_seconds": 2.183764240999153,
+      "returncode": 0,
+      "log": "ff-demo-probe.log",
+      "record": "baseline/ff-demo-probe-command.json"
+    },
+    {
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-y",
+        "-i",
+        "out/media/alpha-qtrle.mov",
+        "-vf",
+        "scale=in_range=full:out_range=limited:out_color_matrix=bt709",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_range",
+        "tv",
+        "-colorspace",
+        "bt709",
+        "-color_trc",
+        "bt709",
+        "-color_primaries",
+        "bt709",
+        "out/media/opaque-h264.mp4"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:06:53.561313+00:00",
+      "elapsed_seconds": 0.08231583200176829,
+      "returncode": 0,
+      "log": "ff-h264-delivery.log",
+      "record": "baseline/ff-h264-delivery-command.json"
+    },
+    {
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-i",
+        "out/media/opaque-h264.mp4",
+        "-vf",
+        "alphaextract",
+        "-an",
+        "-f",
+        "null",
+        "-"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:06:53.680783+00:00",
+      "elapsed_seconds": 0.5730870879997383,
+      "returncode": 234,
+      "log": "ff-no-alpha-negative.log",
+      "record": "baseline/ff-no-alpha-negative-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/render-hyperframes.mjs",
+        "missing",
+        "1",
+        "best-effort"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:06:21.421649+00:00",
+      "elapsed_seconds": 2.657371509998484,
+      "returncode": 0,
+      "log": "hf030-missing-best.log",
+      "record": "baseline/hf030-missing-best-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/render-hyperframes.mjs",
+        "missing",
+        "1",
+        "strict"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:05:47.471062+00:00",
+      "elapsed_seconds": 2.646949381000013,
+      "returncode": 1,
+      "log": "hf030-missing-strict.log",
+      "record": "baseline/hf030-missing-strict-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/seek-hyperframes.mjs"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:04:53.287455+00:00",
+      "elapsed_seconds": 5.833642492998479,
+      "returncode": 0,
+      "log": "hf030-seek.log",
+      "record": "baseline/hf030-seek-command.json"
+    },
+    {
+      "command": [
+        "npm",
+        "install",
+        "--save-exact",
+        "--cache",
+        "/tmp/studio-toolchain-r2/npm-cache",
+        "--prefix",
+        "/tmp/studio-toolchain-r2/hf033",
+        "hyperframes@0.9.33"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:09:49.404792+00:00",
+      "elapsed_seconds": 4.715933872001187,
+      "returncode": 0,
+      "log": "hf033-cli-install.log",
+      "record": "baseline/hf033-cli-install-command.json"
+    },
+    {
+      "command": [
+        "npm",
+        "install",
+        "--save-exact",
+        "--prefix",
+        "/tmp/studio-toolchain-r2/hf033",
+        "@hyperframes/engine@0.9.33",
+        "@hyperframes/producer@0.9.33",
+        "gsap@3.15.0",
+        "puppeteer-core@24.37.2"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:06:08.374099+00:00",
+      "elapsed_seconds": 1.0596778929975699,
+      "returncode": 1,
+      "log": "hf033-install.log",
+      "record": "baseline/hf033-install-command.json"
+    },
+    {
+      "command": [
+        "npm",
+        "install",
+        "--save-exact",
+        "--cache",
+        "/tmp/studio-toolchain-r2/npm-cache",
+        "--prefix",
+        "/tmp/studio-toolchain-r2/hf033",
+        "@hyperframes/engine@0.9.33",
+        "@hyperframes/producer@0.9.33",
+        "gsap@3.15.0",
+        "puppeteer-core@24.37.2"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:06:19.893400+00:00",
+      "elapsed_seconds": 19.50665200900039,
+      "returncode": 0,
+      "log": "hf033-install-retry.log",
+      "record": "baseline/hf033-install-retry-command.json"
+    },
+    {
+      "command": [
+        "uv",
+        "--cache-dir",
+        "/tmp/studio-toolchain-r2/uv-cache",
+        "pip",
+        "install",
+        "--python",
+        "/tmp/studio-toolchain-r2/manim-ce/bin/python",
+        "manim==0.22.1"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:08:23.924093+00:00",
+      "elapsed_seconds": 3.845728298998438,
+      "returncode": 1,
+      "log": "manim-ce-install.log",
+      "record": "baseline/manim-ce-install-command.json"
+    },
+    {
+      "command": [
+        "ffmpeg",
+        "-version"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:13:34.282531+00:00",
+      "elapsed_seconds": 0.17872096599967335,
+      "returncode": 0,
+      "log": "runtime-ffmpeg.log",
+      "record": "baseline/runtime-ffmpeg-command.json"
+    },
+    {
+      "command": [
+        "pkg-config",
+        "--modversion",
+        "cairo",
+        "pangocairo"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:13:34.536549+00:00",
+      "elapsed_seconds": 0.0033420559993828647,
+      "returncode": 1,
+      "log": "runtime-manim-prereq.log",
+      "record": "baseline/runtime-manim-prereq-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "/tmp/studio-toolchain-r2/three-example/source/verify-render.mjs"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/baseline",
+      "started_at_utc": "2026-11-11T15:10:53.462175+00:00",
+      "elapsed_seconds": 450.76870514799884,
+      "returncode": 0,
+      "log": "three-upstream-verify.log",
+      "record": "baseline/three-upstream-verify-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/render-hyperframes.mjs",
+        "missing",
+        "1",
+        "best-effort"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/hf033",
+      "started_at_utc": "2026-11-11T15:07:35.613274+00:00",
+      "elapsed_seconds": 2.2068929449997086,
+      "returncode": 0,
+      "log": "hf033-missing-best.log",
+      "record": "hf033/hf033-missing-best-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/render-hyperframes.mjs",
+        "missing",
+        "1",
+        "strict"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/hf033",
+      "started_at_utc": "2026-11-11T15:07:33.565228+00:00",
+      "elapsed_seconds": 2.020275901999412,
+      "returncode": 1,
+      "log": "hf033-missing-strict.log",
+      "record": "hf033/hf033-missing-strict-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/seek-hyperframes.mjs"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/hf033",
+      "started_at_utc": "2026-11-11T15:07:29.104910+00:00",
+      "elapsed_seconds": 4.4350751000019955,
+      "returncode": 0,
+      "log": "hf033-seek.log",
+      "record": "hf033/hf033-seek-command.json"
+    },
+    {
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-nostdin",
+        "-i",
+        "out/hyperframes-study-w1-strict.mp4",
+        "-f",
+        "null",
+        "-"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/hf033",
+      "started_at_utc": "2026-11-11T15:13:52.753135+00:00",
+      "elapsed_seconds": 0.39146731099754106,
+      "returncode": 0,
+      "log": "hf033-study-decode.log",
+      "record": "hf033/hf033-study-decode-command.json"
+    },
+    {
+      "command": [
+        "ffprobe",
+        "-v",
+        "error",
+        "-count_frames",
+        "-show_entries",
+        "stream=index,codec_name,width,height,pix_fmt,r_frame_rate,nb_read_frames,duration,sample_rate,channel_layout,color_range,color_space,color_transfer,color_primaries",
+        "-of",
+        "json",
+        "out/hyperframes-study-w1-strict.mp4"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/hf033",
+      "started_at_utc": "2026-11-11T15:13:52.355227+00:00",
+      "elapsed_seconds": 0.3139917860025889,
+      "returncode": 0,
+      "log": "hf033-study-probe.log",
+      "record": "hf033/hf033-study-probe-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/render-hyperframes.mjs",
+        "study",
+        "1",
+        "strict"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/hf033",
+      "started_at_utc": "2026-11-11T15:13:25.542362+00:00",
+      "elapsed_seconds": 26.71727188799923,
+      "returncode": 0,
+      "log": "hf033-study-strict.log",
+      "record": "hf033/hf033-study-strict-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/render-hyperframes.mjs",
+        "missing",
+        "1",
+        "best-effort"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/hf033",
+      "started_at_utc": "2026-11-11T15:31:21.012689+00:00",
+      "elapsed_seconds": 2.1083448019999196,
+      "returncode": 0,
+      "log": "hf033-locked-missing-best.log",
+      "record": "hf033-locked/hf033-locked-missing-best-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/render-hyperframes.mjs",
+        "missing",
+        "1",
+        "strict"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/hf033",
+      "started_at_utc": "2026-11-11T15:31:19.065742+00:00",
+      "elapsed_seconds": 1.920351261000178,
+      "returncode": 1,
+      "log": "hf033-locked-missing-strict.log",
+      "record": "hf033-locked/hf033-locked-missing-strict-command.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/seek-hyperframes.mjs"
+      ],
+      "cwd": "/tmp/studio-toolchain-r2/hf033",
+      "started_at_utc": "2026-11-11T15:31:13.866777+00:00",
+      "elapsed_seconds": 5.171255478999228,
+      "returncode": 0,
+      "log": "hf033-locked-seek.log",
+      "record": "hf033-locked/hf033-locked-seek-command.json"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/prepare-fixtures.py"
+      ],
+      "cwd": "/tmp/studio-fixture-repro-Gdpsl7/validation",
+      "started_at_utc": "2026-11-11T15:57:47.509557+00:00",
+      "elapsed_seconds": 0.2004839000001084,
+      "returncode": 0,
+      "log": "prepare-fixtures-repro.log",
+      "record": "reproduction/prepare-fixtures-repro-command.json"
+    }
+  ],
+  "not_run": [
+    "T-THREE-01",
+    "T-THREE-02",
+    "T-HF-01",
+    "T-MEDIA-01",
+    "T-MANIM-01",
+    "T-MANIM-02",
+    "T-EDIT-01",
+    "T-OPS-01",
+    "Q2 six-shot native A/B",
+    "Two-round art/animation revision study",
+    "Production cost per accepted minute",
+    "Paid model/API/GPU trials"
+  ],
+  "phase_status": {
+    "Q0": "NOT_STARTED",
+    "Q1": "NOT_STARTED",
+    "Q2": "NOT_STARTED",
+    "Q3": "NOT_STARTED",
+    "Q4": "NOT_STARTED",
+    "Q5": "NOT_STARTED",
+    "Q6": "NOT_STARTED",
+    "Q7": "NOT_STARTED",
+    "Q8": "NOT_STARTED",
+    "Q9": "NOT_STARTED"
+  },
+  "dependency_limit": "HF033 first three trials predate CLI install and their transitive lock was not retained. Repeated all three with final saved lock in hf033-locked; study/Three used final lock.",
+  "packaging_reproduction": {
+    "initial_check": "reproduction/fixture-hashes.json",
+    "initial_status": "FAIL",
+    "reason": "Eight old generated cache/check outputs were misclassified as inputs",
+    "corrected_input_check": "reproduction/fixture-input-hashes-corrected.json",
+    "corrected_status": "PASS",
+    "matched_required_inputs": 21,
+    "required_inputs": 21,
+    "threshold_changed": false
+  }
+}

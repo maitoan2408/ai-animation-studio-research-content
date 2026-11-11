@@ -1,0 +1,20 @@
+{
+  "command": [
+    "npm",
+    "install",
+    "--save-exact",
+    "--cache",
+    "/tmp/studio-toolchain-r2/npm-cache",
+    "--prefix",
+    "/tmp/studio-toolchain-r2/hf033",
+    "@hyperframes/engine@0.9.33",
+    "@hyperframes/producer@0.9.33",
+    "gsap@3.15.0",
+    "puppeteer-core@24.37.2"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:06:19.893400+00:00",
+  "elapsed_seconds": 19.50665200900039,
+  "returncode": 0,
+  "log": "hf033-install-retry.log"
+}

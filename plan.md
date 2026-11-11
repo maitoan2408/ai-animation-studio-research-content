@@ -1,5 +1,13 @@
 # Kế hoạch xây dựng Studio nội bộ
 
+## Tổng kết vòng nghiên cứu toolchain — 11/11/2026
+
+- **Đã hoàn thành trong vòng nghiên cứu:** đối chiếu Word/kế hoạch/code/tests; khảo sát Three.js, HyperFrames, FFmpeg, Manim CE/GL và các ứng viên liên quan; chạy test/harness/CLI được phép; soạn kế hoạch chi tiết, backlog và đường quay lại khi fail.
+- **Bằng chứng mới:** app verify 16 tests PASS; HF 0.9.30/0.9.33 seek và missing-asset; harness Three upstream ở 320×180; FFmpeg alpha/color/loudness. Lần encode thiếu color tags giữ FAIL, lần đổi cấu hình đã kiểm lại; Manim CE cài bị thiếu pangocairo, render NOT_RUN. Không suy kết quả fixture thành art approval.
+- **Chưa thực hiện:** Q0–Q9 vẫn NOT_STARTED; A/B sáu shot, hai vòng sửa và chi phí/phút accepted chưa đo. Code, schema, dependencies ứng dụng và evidence cũ giữ nguyên.
+- **Bàn giao:** [báo cáo tổng hợp](reports/Nghien_cuu_toolchain_va_ke_hoach_mo_rong.md), [Q0–Q9/F01–F11 và quyết định cần duyệt](docs/toolchain-future-plan.md), [verification/tái lập](docs/research/toolchain-verification.md), [nguồn/nhật ký đọc](docs/research/toolchain-reading-and-sources.md). Nhánh `codex/toolchain-research-plan` từ research snapshot `8e58ffc`.
+- **Tiếp theo sau duyệt:** Q0 khóa art/motion target → Q1 chuẩn bị art pack → Q2 thử A/B Three/Canvas + HyperFrames và Blender; Q3 mới quyết định backend/code sản phẩm. FFmpeg dùng chung; Manim là nhánh shot giải thích có điều kiện.
+
 ## Cập nhật yêu cầu — nghiên cứu production, 11/11/2026
 
 Người dùng đánh giá demo phù hợp nhưng chất lượng hình ảnh/chuyển động chưa đạt production; yêu cầu nghiên cứu công cụ/mã nguồn và lên plan trước, chưa code. Vòng mới đã có [phân tích](reports/Nghien_cuu_chat_luong_production.md), [kế hoạch Q0–Q9](docs/production-quality-plan.md), [sổ nguồn](docs/research/production-quality-sources.md) và [manifest khảo sát](docs/research/production-quality-evidence.json). Q0–Q9 **NOT_STARTED**; backend/model benchmarks mới **NOT_RUN**. Không coi phản hồi về demo là duyệt art target hay production release.

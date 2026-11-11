@@ -1,0 +1,18 @@
+{
+  "command": [
+    "ffprobe",
+    "-v",
+    "error",
+    "-count_frames",
+    "-show_entries",
+    "stream=index,codec_name,width,height,pix_fmt,r_frame_rate,nb_read_frames,duration,sample_rate,channel_layout,color_range,color_space,color_transfer,color_primaries",
+    "-of",
+    "json",
+    "/workspace/ai-animation-studio-research-content/artifacts/morning-final.mp4"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:13:32.056766+00:00",
+  "elapsed_seconds": 2.183764240999153,
+  "returncode": 0,
+  "log": "ff-demo-probe.log"
+}

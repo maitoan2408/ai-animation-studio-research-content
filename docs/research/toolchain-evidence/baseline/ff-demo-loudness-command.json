@@ -1,0 +1,20 @@
+{
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-i",
+    "/workspace/ai-animation-studio-research-content/artifacts/morning-final.mp4",
+    "-vn",
+    "-af",
+    "loudnorm=I=-16:TP=-1:LRA=11:print_format=json",
+    "-f",
+    "null",
+    "-"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:07:29.320004+00:00",
+  "elapsed_seconds": 0.6847018090011261,
+  "returncode": 0,
+  "log": "ff-demo-loudness.log"
+}

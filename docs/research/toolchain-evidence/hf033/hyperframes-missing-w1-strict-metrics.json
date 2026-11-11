@@ -1,0 +1,413 @@
+{
+  "elapsedSeconds": 1.5916229880000001,
+  "job": {
+    "reference_background": {
+      "kind": "unknown"
+    },
+    "id": "705f0c20-af6b-4800-8abc-ca26d323cc74",
+    "config": {
+      "fps": {
+        "num": 24,
+        "den": 1
+      },
+      "quality": "standard",
+      "format": "mp4",
+      "workers": 1,
+      "crf": 18,
+      "strictness": "strict",
+      "maxRenderMs": 180000
+    },
+    "status": "failed",
+    "progress": 90,
+    "currentStage": "Failed: Render blocked by 1 correctness warning:\n- media_load_failed: image media failed to load before capture",
+    "createdAt": "2026-11-11T15:07:33.981Z",
+    "warnings": [
+      {
+        "code": "media_load_failed",
+        "message": "image media failed to load before capture",
+        "details": {
+          "mediaType": "image",
+          "sources": [
+            "http://localhost:46473/assets/does-not-exist.png"
+          ],
+          "timeoutMs": 45000
+        },
+        "stage": "capture-readiness"
+      }
+    ],
+    "startedAt": "2026-11-11T15:07:33.989Z",
+    "duration": 0.5,
+    "totalFrames": 12,
+    "framesRendered": 12,
+    "error": "Render blocked by 1 correctness warning:\n- media_load_failed: image media failed to load before capture",
+    "failedStage": "Encoding frame 12/12",
+    "errorDetails": {
+      "message": "Render blocked by 1 correctness warning:\n- media_load_failed: image media failed to load before capture",
+      "stack": "RenderQualityError: Render blocked by 1 correctness warning:\n- media_load_failed: image media failed to load before capture\n    at applyRenderWarningPolicy (file:///tmp/studio-toolchain-r2/hf033/node_modules/@hyperframes/producer/dist/index.js:13324:11)\n    at executeRenderPipeline (file:///tmp/studio-toolchain-r2/hf033/node_modules/@hyperframes/producer/dist/index.js:16069:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async executeRenderJob (file:///tmp/studio-toolchain-r2/hf033/node_modules/@hyperframes/producer/dist/index.js:14213:5)\n    at async file:///tmp/studio-toolchain-r2/hf033/scripts/render-hyperframes.mjs:18:2",
+      "elapsedMs": 1589,
+      "freeMemoryMB": 8964,
+      "browserConsoleTail": [
+        "[FrameCapture:NAV] page.goto start mode=screenshot timeoutMs=60000 url=http://localhost:46473/index.html",
+        "[Browser:HTTP404] GET http://localhost:46473/assets/does-not-exist.png resource=image Not Found",
+        "[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "[HyperFrames] render runtime fps {\"canonicalFps\":24,\"source\":\"render-options\",\"rawFpsSource\":\"render-options\",\"rawFps\":24}",
+        "[Browser:HTTP404] GET http://localhost:46473/favicon.ico resource=other Not Found",
+        "[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "[FrameCapture:INIT] complete initDurationMs=312 tweenCount=1 elementCount=20"
+      ],
+      "perfStages": {
+        "compileOnlyMs": 28,
+        "browserProbeMs": 5,
+        "compileMs": 37,
+        "videoExtractMs": 0,
+        "audioProcessMs": 3,
+        "captureMs": 1539,
+        "captureFrameMs": 1528,
+        "captureSetupMs": 11,
+        "encodeMs": 1522,
+        "encoderDrainWaitMs": 0
+      },
+      "observability": {
+        "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74",
+        "compositionHash": "266d20c337691cf1",
+        "events": [
+          {
+            "phase": "pipeline",
+            "status": "checkpoint",
+            "elapsedMs": 5,
+            "message": "started",
+            "data": {
+              "format": "mp4",
+              "quality": "standard",
+              "browserGpuMode": "software",
+              "forceScreenshot": true,
+              "protocolTimeoutMs": 300000,
+              "pageNavigationTimeoutMs": 60000,
+              "playerReadyTimeoutMs": 45000,
+              "requestedWorkers": 1
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "compile",
+            "status": "start",
+            "elapsedMs": 6,
+            "data": {
+              "needsAlpha": false
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "compile",
+            "status": "end",
+            "elapsedMs": 35,
+            "durationMs": 29,
+            "data": {
+              "needsAlpha": false
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "compile",
+            "status": "checkpoint",
+            "elapsedMs": 36,
+            "message": "composition metadata resolved",
+            "data": {
+              "width": 320,
+              "height": 180,
+              "videoCount": 0,
+              "audioCount": 0,
+              "imageCount": 1,
+              "deviceScaleFactor": 1,
+              "forceScreenshot": true,
+              "compositionHash": "266d20c337691cf1"
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "browser_probe",
+            "status": "start",
+            "elapsedMs": 36,
+            "data": {
+              "forceScreenshot": true,
+              "stagePhase": "calibrating"
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "browser_probe",
+            "status": "end",
+            "elapsedMs": 42,
+            "durationMs": 6,
+            "data": {
+              "forceScreenshot": true,
+              "stagePhase": "calibrating"
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "browser_probe",
+            "status": "checkpoint",
+            "elapsedMs": 42,
+            "message": "duration resolved",
+            "data": {
+              "durationSeconds": 0.5,
+              "totalFrames": 12,
+              "compositionHash": "266d20c337691cf1",
+              "beginFrameStalled": false
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "video_extract",
+            "status": "start",
+            "elapsedMs": 43,
+            "data": {
+              "videoCount": 0
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "video_extract",
+            "status": "end",
+            "elapsedMs": 43,
+            "durationMs": 0,
+            "data": {
+              "videoCount": 0
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "video_extract",
+            "status": "checkpoint",
+            "elapsedMs": 44,
+            "message": "frames resolved",
+            "data": {
+              "videoCount": 0,
+              "extractedVideoCount": 0,
+              "totalFramesExtracted": 0,
+              "maxFramesPerVideo": 0,
+              "avgFramesPerExtractedVideo": null,
+              "vfrPreflightCount": null,
+              "vfrPreflightMs": null,
+              "cacheHits": null,
+              "cacheMisses": null,
+              "transientRetries": null,
+              "minVideoFrameCoverageRatio": null,
+              "authoredTimedClipCount": 2
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "hdr_detection",
+            "status": "checkpoint",
+            "elapsedMs": 44,
+            "message": "resolved",
+            "data": {
+              "requestedHdrMode": "auto",
+              "effectiveHdr": "sdr",
+              "nativeHdrVideoCount": 0,
+              "nativeHdrImageCount": 0
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "audio_process",
+            "status": "start",
+            "elapsedMs": 44,
+            "data": {
+              "audioCount": 0
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "file_server",
+            "status": "start",
+            "elapsedMs": 44,
+            "data": {
+              "reused": false
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "audio_process",
+            "status": "end",
+            "elapsedMs": 47,
+            "durationMs": 3,
+            "data": {
+              "audioCount": 0
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "file_server",
+            "status": "end",
+            "elapsedMs": 51,
+            "durationMs": 6,
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "capture_calibration",
+            "status": "checkpoint",
+            "elapsedMs": 53,
+            "message": "skipped",
+            "data": {
+              "requestedWorkers": 1,
+              "totalFrames": 12,
+              "htmlInCanvasDetected": false,
+              "lowMemoryMode": true,
+              "deInversionEligible": false,
+              "deParallelRouterEligible": false
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "worker_resolution",
+            "status": "checkpoint",
+            "elapsedMs": 54,
+            "message": "resolved",
+            "data": {
+              "workerCount": 1
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "capture_strategy",
+            "status": "checkpoint",
+            "elapsedMs": 55,
+            "message": "resolved",
+            "data": {
+              "workerCount": 1,
+              "forceScreenshot": true,
+              "captureBeyondViewport": null,
+              "useStreamingEncode": true,
+              "useLayeredComposite": false,
+              "usePageSideCompositing": false,
+              "hasHdrContent": false,
+              "hasShaderTransitions": false,
+              "isPngSequence": false
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "capture_streaming",
+            "status": "start",
+            "elapsedMs": 55,
+            "data": {
+              "stagePhase": "capturing",
+              "workerCount": 1,
+              "forceScreenshot": true,
+              "totalFrames": 12,
+              "framesCompleted": 0,
+              "captureMode": "screenshot",
+              "captureOperation": "captureScreenshot"
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "capture_streaming",
+            "status": "end",
+            "elapsedMs": 1583,
+            "durationMs": 1528,
+            "data": {
+              "stagePhase": "capturing",
+              "workerCount": 1,
+              "forceScreenshot": true,
+              "totalFrames": 12,
+              "framesCompleted": 12,
+              "captureMode": "screenshot",
+              "captureOperation": "encode"
+            },
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          },
+          {
+            "phase": "Encoding frame 12/12",
+            "status": "error",
+            "elapsedMs": 1588,
+            "durationMs": 0,
+            "message": "Render blocked by 1 correctness warning:\n- media_load_failed: image media failed to load before capture",
+            "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+          }
+        ],
+        "eventCount": 21,
+        "lastEvent": {
+          "phase": "Encoding frame 12/12",
+          "status": "error",
+          "elapsedMs": 1588,
+          "durationMs": 0,
+          "message": "Render blocked by 1 correctness warning:\n- media_load_failed: image media failed to load before capture",
+          "renderJobId": "705f0c20-af6b-4800-8abc-ca26d323cc74"
+        },
+        "failedPhase": "Encoding frame 12/12",
+        "browserDiagnostics": {
+          "total": 7,
+          "errors": 0,
+          "pageErrors": 0,
+          "requestFailed": 0,
+          "httpErrors": 2,
+          "navigationStarts": 1,
+          "navigationFailures": 0,
+          "consoleErrors": 0,
+          "consoleWarnings": 0
+        },
+        "capture": {
+          "forceScreenshot": true,
+          "captureMode": "screenshot",
+          "browserGpuMode": "software",
+          "protocolTimeoutMs": 300000,
+          "pageNavigationTimeoutMs": 60000,
+          "playerReadyTimeoutMs": 45000,
+          "workerCount": 1,
+          "compositionElementCount": 6,
+          "compositionElementCountSource": "static",
+          "compositionElementTags": {
+            "meta": 1,
+            "head": 1,
+            "img": 1,
+            "div": 1,
+            "body": 1,
+            "html": 1
+          },
+          "arollVideoCount": 0,
+          "heygenVideoCount": 0,
+          "adaptersUsed": [
+            "gsap"
+          ],
+          "audioCount": 0,
+          "imageCount": 1,
+          "subCompositionCount": 0,
+          "audioGroupCount": 0,
+          "colorGradingCount": 0,
+          "hasLut": false,
+          "capturePath": "streaming",
+          "useStreamingEncode": true,
+          "useLayeredComposite": false,
+          "usePageSideCompositing": false,
+          "hasHdrContent": false,
+          "videoFrameWindow": "off",
+          "chromeBrowserRssPeakMb": 126,
+          "chromeRendererRssPeakMb": 105,
+          "chromeRssLastMb": 448,
+          "chromeGpuProcessSeenLastSample": true,
+          "chromeMemorySamples": 1,
+          "captureBeyondViewport": false
+        },
+        "extraction": {
+          "videoCount": 0,
+          "extractedVideoCount": 0,
+          "totalFramesExtracted": 0,
+          "maxFramesPerVideo": 0,
+          "authoredTimedClipCount": 2
+        },
+        "init": {
+          "initDurationMs": 312,
+          "tweenCount": 1,
+          "elementCount": 20
+        }
+      },
+      "subTimelineWait": "ready"
+    },
+    "completedAt": "2026-11-11T15:07:35.574Z",
+    "outcome": "failed"
+  }
+}

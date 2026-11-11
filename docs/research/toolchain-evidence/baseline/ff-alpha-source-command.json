@@ -1,0 +1,24 @@
+{
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-y",
+    "-f",
+    "lavfi",
+    "-i",
+    "color=c=red@0.5:s=64x64:r=24:d=1,format=rgba",
+    "-frames:v",
+    "24",
+    "-c:v",
+    "qtrle",
+    "-pix_fmt",
+    "argb",
+    "out/media/alpha-qtrle.mov"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:06:53.341345+00:00",
+  "elapsed_seconds": 0.0961798650023411,
+  "returncode": 0,
+  "log": "ff-alpha-source.log"
+}

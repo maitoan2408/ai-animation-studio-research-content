@@ -1,0 +1,25 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'out/media/opaque-h264.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.103
+  Duration: 00:00:01.00, start: 0.000000, bitrate: 17 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709/unknown/unknown, progressive), 64x64 [SAR 1:1 DAR 1:1], 8 kb/s, 24 fps, 24 tbr, 12288 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.101 libx264
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
+[Parsed_alphaextract_0 @ 0x7f7c30001d40] Requested planes not available.
+[Parsed_alphaextract_0 @ 0x7f7c30001d40] Failed to configure input pad on Parsed_alphaextract_0
+[vf#0:0 @ 0x5622a9d618c0] Error reinitializing filters!
+[vf#0:0 @ 0x5622a9d618c0] Task finished with error code: -22 (Invalid argument)
+[vf#0:0 @ 0x5622a9d618c0] Terminating thread with return code -22 (Invalid argument)
+[vost#0:0/wrapped_avframe @ 0x5622a9d5ca00] Could not open encoder before EOF
+[vost#0:0/wrapped_avframe @ 0x5622a9d5ca00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/wrapped_avframe @ 0x5622a9d5ca00] Terminating thread with return code -22 (Invalid argument)
+[out#0/null @ 0x5622a9d61300] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!

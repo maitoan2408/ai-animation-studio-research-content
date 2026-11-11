@@ -1,0 +1,12 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "verify"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "started_at_utc": "2026-11-11T15:08:55.312382+00:00",
+  "elapsed_seconds": 8.586014510998211,
+  "returncode": 0,
+  "log": "app-verify.log"
+}

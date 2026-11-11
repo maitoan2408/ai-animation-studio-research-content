@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "scripts/prepare-fixtures.py"
+  ],
+  "cwd": "/tmp/studio-fixture-repro-Gdpsl7/validation",
+  "started_at_utc": "2026-11-11T15:57:47.509557+00:00",
+  "elapsed_seconds": 0.2004839000001084,
+  "returncode": 0,
+  "log": "prepare-fixtures-repro.log"
+}

@@ -1,0 +1,169 @@
+{
+  "status": "PASS",
+  "fixture_input_files": 21,
+  "matched": 21,
+  "files": [
+    {
+      "path": "validation/fixtures/RemotionReport.tsx",
+      "expected": "5a0b3ad18ca90f37fbd84d1bd2b35d93b3f2ca5b76a817d617a04332936d70c0",
+      "actual": "5a0b3ad18ca90f37fbd84d1bd2b35d93b3f2ca5b76a817d617a04332936d70c0",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/Study.tsx",
+      "expected": "38898f355805a9964ea37e4c99153cccc653a3ce7feb6307a3854e041c352a73",
+      "actual": "38898f355805a9964ea37e4c99153cccc653a3ce7feb6307a3854e041c352a73",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/assets/gsap.min.js",
+      "expected": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "actual": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/hyperframes.json",
+      "expected": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "actual": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/index.html",
+      "expected": "23b89206f1de0e3a236d97449e61c1139e09054a153426be0bdfd7059022341e",
+      "actual": "23b89206f1de0e3a236d97449e61c1139e09054a153426be0bdfd7059022341e",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-missing/assets/gsap.min.js",
+      "expected": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "actual": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-missing/hyperframes.json",
+      "expected": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "actual": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-missing/index.html",
+      "expected": "a704fc839b4f991e12a3f41ebad2ce3da422d38a8d6687482848633789224cb5",
+      "actual": "a704fc839b4f991e12a3f41ebad2ce3da422d38a8d6687482848633789224cb5",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/assets/gsap.min.js",
+      "expected": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "actual": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/hyperframes.json",
+      "expected": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "actual": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/index.html",
+      "expected": "3fc795a580af0a398101fc9ec57036f152a2d216f665c9402c57335d3793d8ee",
+      "actual": "3fc795a580af0a398101fc9ec57036f152a2d216f665c9402c57335d3793d8ee",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report.html",
+      "expected": "676e54b508fea87f266af712b6ad10f0e33005936278c77d902a5f933adb26ca",
+      "actual": "676e54b508fea87f266af712b6ad10f0e33005936278c77d902a5f933adb26ca",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/assets/gsap.min.js",
+      "expected": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "actual": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/assets/scene.js",
+      "expected": "90d92218afb865a1a18fc7683c884b2699fecac62129e52d7e676a948152e7f7",
+      "actual": "90d92218afb865a1a18fc7683c884b2699fecac62129e52d7e676a948152e7f7",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/assets/sync.wav",
+      "expected": "f41270a096a2f03449956718ae211432f782731c9ebca94e7c6570b84273e321",
+      "actual": "f41270a096a2f03449956718ae211432f782731c9ebca94e7c6570b84273e321",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/hyperframes.json",
+      "expected": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "actual": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/index.html",
+      "expected": "0f6bdb5175abf5b3b0a82135b3adba1af4bd9a8d2b87585cf2e93c4363deab7b",
+      "actual": "0f6bdb5175abf5b3b0a82135b3adba1af4bd9a8d2b87585cf2e93c4363deab7b",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/public/sync.wav",
+      "expected": "f41270a096a2f03449956718ae211432f782731c9ebca94e7c6570b84273e321",
+      "actual": "f41270a096a2f03449956718ae211432f782731c9ebca94e7c6570b84273e321",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/remotion-report-entry.ts",
+      "expected": "a17efe2543d058a428797e7febeab2ebb480998e61465e52d3e67dadd04d20e0",
+      "actual": "a17efe2543d058a428797e7febeab2ebb480998e61465e52d3e67dadd04d20e0",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/scene-ir-example.json",
+      "expected": "4cc0f3b5a13017ff0e43fd508e139d1102334beb9396de3b5f81fb6be0cc2344",
+      "actual": "4cc0f3b5a13017ff0e43fd508e139d1102334beb9396de3b5f81fb6be0cc2344",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/scene.js",
+      "expected": "90d92218afb865a1a18fc7683c884b2699fecac62129e52d7e676a948152e7f7",
+      "actual": "90d92218afb865a1a18fc7683c884b2699fecac62129e52d7e676a948152e7f7",
+      "matches": true
+    }
+  ],
+  "exclusions": [
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/artifacts/checks/5f122633-c24c-4015-bb53-9101dc9678ba.json",
+      "reason": "Output/cache from previous hyperframes-report/editable checks; not an input used by study/missing harness or prepare-fixtures.py"
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/cache/check.json",
+      "reason": "Output/cache from previous hyperframes-report/editable checks; not an input used by study/missing harness or prepare-fixtures.py"
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/history-id",
+      "reason": "Output/cache from previous hyperframes-report/editable checks; not an input used by study/missing harness or prepare-fixtures.py"
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/video-state.json",
+      "reason": "Output/cache from previous hyperframes-report/editable checks; not an input used by study/missing harness or prepare-fixtures.py"
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/artifacts/checks/65b3bd22-f9ad-48b6-a961-ffd95f7d2f10.json",
+      "reason": "Output/cache from previous hyperframes-report/editable checks; not an input used by study/missing harness or prepare-fixtures.py"
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/cache/check.json",
+      "reason": "Output/cache from previous hyperframes-report/editable checks; not an input used by study/missing harness or prepare-fixtures.py"
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/history-id",
+      "reason": "Output/cache from previous hyperframes-report/editable checks; not an input used by study/missing harness or prepare-fixtures.py"
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/video-state.json",
+      "reason": "Output/cache from previous hyperframes-report/editable checks; not an input used by study/missing harness or prepare-fixtures.py"
+    }
+  ],
+  "explanation": "Repair input inventory classification; no render assertions or hash acceptance tolerance changed. All 21 actual fixture source/generated inputs match. Eight old outputs are absent as expected in clean preparation. Initial FAIL retained.",
+  "limitations": "Used existing HF033 node_modules; not a clean dependency installation or render rerun"
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "ffprobe",
+    "-v",
+    "error",
+    "-count_frames",
+    "-show_entries",
+    "stream=index,codec_name,pix_fmt,width,height,r_frame_rate,nb_read_frames,color_range,color_space,color_transfer,color_primaries",
+    "-of",
+    "json",
+    "out/media/opaque-bt709.mp4"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:07:29.195001+00:00",
+  "elapsed_seconds": 0.08485882899913122,
+  "returncode": 0,
+  "log": "ff-color-explicit-probe.log"
+}

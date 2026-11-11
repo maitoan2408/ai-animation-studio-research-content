@@ -1,0 +1,236 @@
+{
+  "research_date": "2026-11-11",
+  "time_standard": "UTC in execution logs; Vietnamese prose date 11/11/2026",
+  "research_baseline": "8e58ffc3133102279f6a3f59b66a38f22d14def0",
+  "application_baseline": "b79ec76497b7cb57f753f596cb60969aae3383d2",
+  "branch": "codex/toolchain-research-plan",
+  "scope": "Research, existing harness/CLI execution, documentation; no application changes or new test harness",
+  "repositories": [
+    {
+      "repository": "mrdoob/three.js",
+      "ref": "r187",
+      "commit": "7e89746a687bb88271253698fa108b1dd59825d0",
+      "release_published_at": "2026-10-30T08:03:18Z",
+      "evidence_level": "SOURCE_REVIEW",
+      "coverage": "Targeted source sections listed in reading/source register; not a complete upstream audit",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/mrdoob/three.js/blob/7e89746a687bb88271253698fa108b1dd59825d0/LICENSE",
+          "git_blob_sha": "8ada2a5f982916b0ba4b7a0aa7de347587e745d7"
+        },
+        {
+          "path": "src/animation/AnimationMixer.js",
+          "url": "https://github.com/mrdoob/three.js/blob/7e89746a687bb88271253698fa108b1dd59825d0/src/animation/AnimationMixer.js",
+          "git_blob_sha": "60272b79c8c000b9f156adea6a4274c7aeeac595"
+        },
+        {
+          "path": "src/loaders/LoadingManager.js",
+          "url": "https://github.com/mrdoob/three.js/blob/7e89746a687bb88271253698fa108b1dd59825d0/src/loaders/LoadingManager.js",
+          "git_blob_sha": "97301477fc455c9b8e02e2967b940783af716902"
+        },
+        {
+          "path": "src/renderers/WebGLRenderer.js",
+          "url": "https://github.com/mrdoob/three.js/blob/7e89746a687bb88271253698fa108b1dd59825d0/src/renderers/WebGLRenderer.js",
+          "git_blob_sha": "80f1bd2ec76ab788cf0bf28834ae2f5f718d9e1d"
+        },
+        {
+          "path": "src/objects/SkinnedMesh.js",
+          "url": "https://github.com/mrdoob/three.js/blob/7e89746a687bb88271253698fa108b1dd59825d0/src/objects/SkinnedMesh.js",
+          "git_blob_sha": "3ac204c2be2d8baa87df045ea6aca133b24bef37"
+        },
+        {
+          "path": "manual/pages/color-management.html",
+          "url": "https://github.com/mrdoob/three.js/blob/7e89746a687bb88271253698fa108b1dd59825d0/manual/pages/color-management.html",
+          "git_blob_sha": "21d1ef88c3ff7a92bff56ad4548c51e3083cb42e"
+        }
+      ]
+    },
+    {
+      "repository": "heygen-com/hyperframes",
+      "ref": "v0.9.33",
+      "commit": "e596be16c901639ce6c18032e56924a9d8e1967d",
+      "release_published_at": "2026-11-11T07:00:23Z",
+      "evidence_level": "SOURCE_REVIEW",
+      "coverage": "Targeted source sections listed in reading/source register; not a complete upstream audit",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/heygen-com/hyperframes/blob/e596be16c901639ce6c18032e56924a9d8e1967d/LICENSE",
+          "git_blob_sha": "ae06b37e1c5116ccfaa615ac25ec1aabf5658d8c"
+        },
+        {
+          "path": "packages/core/src/runtime/adapters/three.ts",
+          "url": "https://github.com/heygen-com/hyperframes/blob/e596be16c901639ce6c18032e56924a9d8e1967d/packages/core/src/runtime/adapters/three.ts",
+          "git_blob_sha": "a044d5a1632827cb22d5668695bccc8a32bbd500"
+        },
+        {
+          "path": "packages/core/src/runtime/adapters/three.test.ts",
+          "url": "https://github.com/heygen-com/hyperframes/blob/e596be16c901639ce6c18032e56924a9d8e1967d/packages/core/src/runtime/adapters/three.test.ts",
+          "git_blob_sha": "eb26beb7a2f1416098fb97b14b666c77d1fce20c"
+        },
+        {
+          "path": "packages/core/src/runtime/adapters/gsap.ts",
+          "url": "https://github.com/heygen-com/hyperframes/blob/e596be16c901639ce6c18032e56924a9d8e1967d/packages/core/src/runtime/adapters/gsap.ts",
+          "git_blob_sha": "c79682a4094fff4b72c9c3836d00dd8af827fde0"
+        },
+        {
+          "path": "docs/concepts/frame-adapters.mdx",
+          "url": "https://github.com/heygen-com/hyperframes/blob/e596be16c901639ce6c18032e56924a9d8e1967d/docs/concepts/frame-adapters.mdx",
+          "git_blob_sha": "0b45b90b4010e11bbec25f7b18f078cd1ec96a7d"
+        },
+        {
+          "path": "docs/guides/path-tracing.mdx",
+          "url": "https://github.com/heygen-com/hyperframes/blob/e596be16c901639ce6c18032e56924a9d8e1967d/docs/guides/path-tracing.mdx",
+          "git_blob_sha": "fe99e475e888d62ae36ab5cfd48fcabb39775ac3"
+        },
+        {
+          "path": "registry/examples/path-traced-3d/source/verify-render.mjs",
+          "url": "https://github.com/heygen-com/hyperframes/blob/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/source/verify-render.mjs",
+          "git_blob_sha": "d576a1038f86173f5942ebe1262d1ed98dcdcb11"
+        },
+        {
+          "path": "registry/examples/path-traced-3d/assets/render.js",
+          "url": "https://github.com/heygen-com/hyperframes/blob/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/assets/render.js",
+          "git_blob_sha": "7f3925e387474203330fb924c1e7fb9d16153844"
+        },
+        {
+          "path": "registry/examples/path-traced-3d/assets/scene.js",
+          "url": "https://github.com/heygen-com/hyperframes/blob/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/assets/scene.js",
+          "git_blob_sha": "63392ccea52d072720d366ee116f8c5cb2d313f0"
+        },
+        {
+          "path": "registry/examples/path-traced-3d/assets/vendor/README.md",
+          "url": "https://github.com/heygen-com/hyperframes/blob/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/assets/vendor/README.md",
+          "git_blob_sha": "f19dec8d48d551c144568da75e0364be0ded364d"
+        }
+      ]
+    },
+    {
+      "repository": "ManimCommunity/manim",
+      "ref": "v0.22.1",
+      "commit": "16ea443e2a5f1d79db0a721161411ce916d6e733",
+      "release_published_at": "2026-10-27T20:46:53Z",
+      "evidence_level": "SOURCE_REVIEW",
+      "coverage": "Targeted source sections listed in reading/source register; not a complete upstream audit",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/ManimCommunity/manim/blob/16ea443e2a5f1d79db0a721161411ce916d6e733/LICENSE",
+          "git_blob_sha": "774f5965700a59c2c7df2d4c234209d1da333c3e"
+        },
+        {
+          "path": "pyproject.toml",
+          "url": "https://github.com/ManimCommunity/manim/blob/16ea443e2a5f1d79db0a721161411ce916d6e733/pyproject.toml",
+          "git_blob_sha": "0c304d23a953390ac7e4bfe59876ca88ef83daa9"
+        },
+        {
+          "path": "example_scenes/basic.py",
+          "url": "https://github.com/ManimCommunity/manim/blob/16ea443e2a5f1d79db0a721161411ce916d6e733/example_scenes/basic.py",
+          "git_blob_sha": "a94d17bd02537e39d97089abc82e030be284c4b6"
+        },
+        {
+          "path": "manim/scene/scene.py",
+          "url": "https://github.com/ManimCommunity/manim/blob/16ea443e2a5f1d79db0a721161411ce916d6e733/manim/scene/scene.py",
+          "git_blob_sha": "29f69d5c52be26c99b91d52a9943ee860613fb7a"
+        },
+        {
+          "path": "manim/scene/scene_file_writer.py",
+          "url": "https://github.com/ManimCommunity/manim/blob/16ea443e2a5f1d79db0a721161411ce916d6e733/manim/scene/scene_file_writer.py",
+          "git_blob_sha": "f540bd6a7841d04de38a9fc8a33070f92afe49e4"
+        }
+      ]
+    },
+    {
+      "repository": "3b1b/manim",
+      "ref": "v1.7.2",
+      "commit": "f427fc67df75513be0cd3f3329e327a9a19401c3",
+      "release_published_at": "2024-12-13T02:58:56Z",
+      "evidence_level": "SOURCE_REVIEW",
+      "coverage": "Targeted source sections listed in reading/source register; not a complete upstream audit",
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "url": "https://github.com/3b1b/manim/blob/f427fc67df75513be0cd3f3329e327a9a19401c3/LICENSE.md",
+          "git_blob_sha": "376297d623856cb9a4807572add16920556550ab"
+        },
+        {
+          "path": "pyproject.toml",
+          "url": "https://github.com/3b1b/manim/blob/f427fc67df75513be0cd3f3329e327a9a19401c3/pyproject.toml",
+          "git_blob_sha": "c9538153fde09bb712f1a2d9f97232c06d346e3d"
+        },
+        {
+          "path": "requirements.txt",
+          "url": "https://github.com/3b1b/manim/blob/f427fc67df75513be0cd3f3329e327a9a19401c3/requirements.txt",
+          "git_blob_sha": "38a547fb4777866fee648d962e4b2556858575ae"
+        },
+        {
+          "path": "example_scenes.py",
+          "url": "https://github.com/3b1b/manim/blob/f427fc67df75513be0cd3f3329e327a9a19401c3/example_scenes.py",
+          "git_blob_sha": "4646c8571136cd26eec51187beb0b71191b1b86a"
+        },
+        {
+          "path": "manimlib/scene/scene.py",
+          "url": "https://github.com/3b1b/manim/blob/f427fc67df75513be0cd3f3329e327a9a19401c3/manimlib/scene/scene.py",
+          "git_blob_sha": "f334eeac44ae4044849feff82634348876b8a511"
+        },
+        {
+          "path": "manimlib/scene/scene_file_writer.py",
+          "url": "https://github.com/3b1b/manim/blob/f427fc67df75513be0cd3f3329e327a9a19401c3/manimlib/scene/scene_file_writer.py",
+          "git_blob_sha": "479e3b4c8aebed1b1bcb30880a4c9196a302b3da"
+        }
+      ]
+    },
+    {
+      "repository": "FFmpeg/FFmpeg",
+      "ref": "n7.1.5",
+      "commit": "3a0867c2bfda4a4d4309ca1a8cbdc6175e67f587",
+      "release_published_at": null,
+      "evidence_level": "SOURCE_REVIEW",
+      "coverage": "Targeted source sections listed in reading/source register; not a complete upstream audit",
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "url": "https://github.com/FFmpeg/FFmpeg/blob/3a0867c2bfda4a4d4309ca1a8cbdc6175e67f587/LICENSE.md",
+          "git_blob_sha": null
+        }
+      ]
+    }
+  ],
+  "previous_source_register": "production-quality-sources.md",
+  "previous_source_manifest": "production-quality-evidence.json",
+  "additional_docs": [
+    {
+      "url": "https://pixijs.com/8.x/guides/components/application/ticker-plugin",
+      "accessed": "2026-11-11",
+      "version_scope": "8.x, living documentation",
+      "level": "DOC_REVIEW"
+    },
+    {
+      "url": "https://docs.krita.org/en/user_manual/animation.html",
+      "accessed": "2026-11-11",
+      "version_scope": "Manual 5.3.0",
+      "level": "DOC_REVIEW"
+    },
+    {
+      "url": "https://3b1b.github.io/manim/getting_started/installation.html",
+      "accessed": "2026-11-11",
+      "version_scope": "Living docs, does not override pinned v1.7.2 requirements",
+      "level": "DOC_REVIEW"
+    },
+    {
+      "url": "https://ffmpeg.org/download.html",
+      "accessed": "2026-11-11",
+      "level": "SEARCH_ONLY",
+      "limitation": "Full page fetch timed out. Do not infer newest release compatibility; tests use 7.1.5."
+    }
+  ],
+  "not_run": [
+    "Studio six-shot art benchmark and two revision rounds",
+    "Three r187 studio bridge and slow/missing native LoadingManager test",
+    "ManimGL rendering",
+    "Manim Community rendering (environment install failed: pangocairo)",
+    "New product backends / schemas / agent integration",
+    "Paid/GPU/model benchmarks and artistic production approval"
+  ]
+}

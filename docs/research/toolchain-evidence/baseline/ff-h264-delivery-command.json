@@ -1,0 +1,32 @@
+{
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-y",
+    "-i",
+    "out/media/alpha-qtrle.mov",
+    "-vf",
+    "scale=in_range=full:out_range=limited:out_color_matrix=bt709",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-color_range",
+    "tv",
+    "-colorspace",
+    "bt709",
+    "-color_trc",
+    "bt709",
+    "-color_primaries",
+    "bt709",
+    "out/media/opaque-h264.mp4"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:06:53.561313+00:00",
+  "elapsed_seconds": 0.08231583200176829,
+  "returncode": 0,
+  "log": "ff-h264-delivery.log"
+}

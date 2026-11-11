@@ -1,0 +1,30 @@
+{
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-y",
+    "-i",
+    "out/media/alpha-qtrle.mov",
+    "-vf",
+    "format=gbrpf32le,zscale=matrixin=gbr:transferin=iec61966-2-1:primariesin=709:rangein=full:matrix=709:transfer=709:primaries=709:range=limited,format=yuv420p",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "18",
+    "-color_range",
+    "tv",
+    "-colorspace",
+    "bt709",
+    "-color_trc",
+    "bt709",
+    "-color_primaries",
+    "bt709",
+    "out/media/opaque-bt709.mp4"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:07:29.068333+00:00",
+  "elapsed_seconds": 0.09117843200147036,
+  "returncode": 0,
+  "log": "ff-color-explicit.log"
+}

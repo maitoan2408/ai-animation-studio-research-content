@@ -1,0 +1,20 @@
+{
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-i",
+    "out/media/opaque-h264.mp4",
+    "-vf",
+    "alphaextract",
+    "-an",
+    "-f",
+    "null",
+    "-"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:06:53.680783+00:00",
+  "elapsed_seconds": 0.5730870879997383,
+  "returncode": 234,
+  "log": "ff-no-alpha-negative.log"
+}

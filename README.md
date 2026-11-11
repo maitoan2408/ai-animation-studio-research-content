@@ -55,6 +55,7 @@ Xem [capability matrix](docs/capabilities.md). **Đủ 12 giai đoạn trong Wor
 
 ## Tài liệu dự án
 
+- **Nghiên cứu toolchain vòng 2 (11/11/2026):** [tổng kết/đối chiếu Word và source](reports/Nghien_cuu_toolchain_va_ke_hoach_mo_rong.md), [kế hoạch chi tiết Q0–Q9 và F01–F11](docs/toolchain-future-plan.md), [kết quả kiểm thử và tái lập](docs/research/toolchain-verification.md), [sổ đọc/nguồn](docs/research/toolchain-reading-and-sources.md). Đã chạy harness/CLI độc lập; chưa code sản phẩm, chưa đóng gate production.
 - **Nghiên cứu chất lượng production (11/11/2026, chưa triển khai):** [phân tích công cụ/mã nguồn](reports/Nghien_cuu_chat_luong_production.md), [kế hoạch Q0–Q9](docs/production-quality-plan.md), [nguồn và giấy phép](docs/research/production-quality-sources.md), [Word để duyệt](reports/Nghien_cuu_va_ke_hoach_chat_luong_production.docx?raw=true).
 - [Kế hoạch và trạng thái](plan.md), [từng mốc chi tiết](docs/phases/).
 - [AGENTS.md](AGENTS.md), [agent.md](agent.md), [skills.md](skills.md), [skill contracts](skills/).

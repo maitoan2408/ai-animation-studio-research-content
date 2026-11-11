@@ -1,0 +1,20 @@
+{
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-i",
+    "out/media/alpha-qtrle.mov",
+    "-vf",
+    "alphaextract,showinfo",
+    "-an",
+    "-f",
+    "null",
+    "-"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:06:53.469431+00:00",
+  "elapsed_seconds": 0.0653990069986321,
+  "returncode": 0,
+  "log": "ff-alpha-roundtrip.log"
+}
