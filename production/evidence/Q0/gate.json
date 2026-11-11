@@ -1,0 +1,37 @@
+{
+  "phase": "Q0",
+  "status": "DONE_DELEGATED",
+  "reviewer": "delegated-agent",
+  "authority": "Current user explicitly authorized autonomous decisions and phase execution",
+  "decided_at_utc": "2026-11-11T16:14:49.552413+00:00",
+  "decisions": [
+    "Paper-cut/multiplane first style",
+    "72-second lantern story, English local voice trial",
+    "A Three/Canvas+HyperFrames, B Blender 2.5D",
+    "1080p/24 SDR with fixed rubric and contact thresholds",
+    "Paid API/GPU/license budget 0"
+  ],
+  "source_files": [
+    {
+      "path": "production/brief/Q0-brief.md",
+      "sha256": "92e897c9e3e41a323ceb4bb25df6dfc7f48b6c927ec840b75445a8b3588b4717"
+    },
+    {
+      "path": "production/brief/shots.json",
+      "sha256": "19a0f9690426fcb2bbe61754623418d7fc456dda93f734c299d210795b6ea5d8"
+    },
+    {
+      "path": "production/brief/pilot.md",
+      "sha256": "c012da546e16adb94fe9481781a015495d593ade0cc1d277f5038590d914809e"
+    }
+  ],
+  "tests": [
+    "20261111T161057Z-baseline-072da0ab/result.json",
+    "20261111T161407Z-brief-gate-1cb5080a/result.json"
+  ],
+  "open_next_gates": [
+    "Q1 actual art pack and styleframe review",
+    "Q2 motion videos and edit rounds"
+  ],
+  "review_limit": "Delegated production decisions, not independent human art approval"
+}

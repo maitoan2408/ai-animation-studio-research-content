@@ -1,0 +1,128 @@
+{
+  "files": [
+    {
+      "path": "package-lock.json",
+      "sha256": "e7dee7b79709f748a0f5962fadb9179b6e742d3ba45e4cb8913c6f8b1683432d"
+    },
+    {
+      "path": "package.json",
+      "sha256": "e8b19c705919561b6ebed0c3f933f85fe606e29956d8db6b5d4e98b8b66be0d7"
+    },
+    {
+      "path": "production/brief/Q0-brief.md",
+      "sha256": "92e897c9e3e41a323ceb4bb25df6dfc7f48b6c927ec840b75445a8b3588b4717"
+    },
+    {
+      "path": "production/brief/pilot.md",
+      "sha256": "c012da546e16adb94fe9481781a015495d593ade0cc1d277f5038590d914809e"
+    },
+    {
+      "path": "production/brief/shots.json",
+      "sha256": "19a0f9690426fcb2bbe61754623418d7fc456dda93f734c299d210795b6ea5d8"
+    },
+    {
+      "path": "production/tests/brief.test.mjs",
+      "sha256": "6e5e33c6153e427763b8e3ec604d7730f4263632acbd2da30d6f2e0618bbae74"
+    },
+    {
+      "path": "scripts/build-handoff-docx.py",
+      "sha256": "1102daf9e71741c919e9337006d16184c08305729be24db0796ec6cccbd2e359"
+    },
+    {
+      "path": "scripts/run-step.py",
+      "sha256": "516339b5284a83001face6fb77fae55f1ddb6443ae9614feeb205a60bdb3351a"
+    },
+    {
+      "path": "scripts/seal-evidence.py",
+      "sha256": "8c4f173bac17c429b0c191dfddd1ad8bf3a4f3b7b7fb6805f10fe067ed34c89d"
+    },
+    {
+      "path": "src/application.ts",
+      "sha256": "61dc157f560c47796697b7cf8eac2a94c4d462dd8e85d88939b3dc55122307ce"
+    },
+    {
+      "path": "src/audio.ts",
+      "sha256": "bc4d76b1d693e03ffb33021b9dccb390b79fff96335e704a5bffb09a935000b2"
+    },
+    {
+      "path": "src/cli.ts",
+      "sha256": "1bca025da365bb2a7c673f20aa455a8b5220bfb9a59ee6fd920cbce97ccb45e7"
+    },
+    {
+      "path": "src/domain.ts",
+      "sha256": "28ed9c3a347c0042d5277d60e361d647d1cddb4cef3569ec31cbefb5676f312f"
+    },
+    {
+      "path": "src/espeak.d.ts",
+      "sha256": "64018683f1b290d60ebed0338d545a5545ef1892c5d736182909f479c2398458"
+    },
+    {
+      "path": "src/planner.ts",
+      "sha256": "8a3eefad5fc31d5e146f814a840453418422275c0e333076f52b77727bab09eb"
+    },
+    {
+      "path": "src/process.ts",
+      "sha256": "f9b69cbbd376abf27dac97b98c8a9f52ca4586e86f44aee3d527a67fba0c7913"
+    },
+    {
+      "path": "src/render.ts",
+      "sha256": "59591bdc4a4f1e0287d50b5f2089f3f0a592d09b06ed6a2312a11edc32951ef4"
+    },
+    {
+      "path": "src/rig.ts",
+      "sha256": "ddb7425f5eeec75ba7491799c8bcd0c702e932e1b073115728b823adbe3d13ad"
+    },
+    {
+      "path": "src/server.ts",
+      "sha256": "392c22b483ce27bea072082cbd6f4c4bd16e828f7ca992f3e9ea8579a6a0e2c4"
+    },
+    {
+      "path": "src/store.ts",
+      "sha256": "e527aa636e5ccf9bc48a6e448c9de185f8d4ebaa1b3f9b4cf86bd2045ef5fdfc"
+    },
+    {
+      "path": "tests/audio.test.ts",
+      "sha256": "acd40440003e2478988a2ec0fb7257b704a1847a821cc6e0cee7dd7b2f9efb27"
+    },
+    {
+      "path": "tests/domain.test.ts",
+      "sha256": "704f7bab61ade8b3d3035f6e81d3400eddd7dfa18302385d659c96949037bcb7"
+    },
+    {
+      "path": "tests/http.test.ts",
+      "sha256": "aa198d8396180d753db4cc68c031f9ac0c37e82b10272d60becd0e11cfa16470"
+    },
+    {
+      "path": "tests/integration.ts",
+      "sha256": "8740fd524dba3460cc9c6257b4688e1a3d313ca757bb76f3192c432d2c49e795"
+    },
+    {
+      "path": "tests/ui.ts",
+      "sha256": "1ef94554dbddda83442cba7ecd60b1456d82ed05f1b182eb6d9176e75314c124"
+    },
+    {
+      "path": "tests/workflow.test.ts",
+      "sha256": "53742f26ece92acf9b5573aab4b70916605239b56102c1fb5d39c658439c721d"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "4afae760b5196bf8b09772325ccb58481f8cddc5c7c9a89e5f680e5ed5af0387"
+    },
+    {
+      "path": "tsconfig.test.json",
+      "sha256": "594d1ec32aa62768eb2660d5f1ade4d8a64a25f6802d876fde8f0faf91576541"
+    },
+    {
+      "path": "web/app.js",
+      "sha256": "9f88c01e119ce70a54a7e0d93e240bb17b867697debb9023a911549e85738d69"
+    },
+    {
+      "path": "web/index.html",
+      "sha256": "b8b1243cd88d9da3b9b84eaae74095b13de6f541fa594ecea30fec66f9f62a0e"
+    },
+    {
+      "path": "web/style.css",
+      "sha256": "2d176df77d80523a36102397cc2ec212baaf77e1d9263a339006b94d17ed0be8"
+    }
+  ]
+}

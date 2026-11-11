@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "baseline": "6862c9e1e495a9f6b3518a3b68d97d8e22cfcf1d",
+  "branch": "codex/production-q0-q9",
+  "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
+  "currentPhase": "Q1",
+  "nextAction": "Create editable lantern art pack, inspect styleframes and pin A/B environments",
+  "phases": {
+    "Q0": "DONE_DELEGATED",
+    "Q1": "IN_PROGRESS",
+    "Q2": "NOT_STARTED",
+    "Q3": "NOT_STARTED",
+    "Q4": "NOT_STARTED",
+    "Q5": "NOT_STARTED",
+    "Q6": "NOT_STARTED",
+    "Q7": "NOT_STARTED",
+    "Q8": "NOT_STARTED",
+    "Q9": "NOT_STARTED"
+  },
+  "completedSteps": [
+    {
+      "id": "Q0",
+      "result": "DONE_DELEGATED",
+      "evidence": "production/evidence/Q0/gate.json",
+      "limits": "No user viewing or independent animator review claimed; art/motion gates remain in Q1/Q2"
+    }
+  ],
+  "paidBudget": 0,
+  "openIssues": [
+    "EX-001",
+    "EX-002",
+    "EX-003",
+    "EX-004",
+    "EX-005"
+  ]
+}

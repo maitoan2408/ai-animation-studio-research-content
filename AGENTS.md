@@ -1,5 +1,12 @@
 # Hướng dẫn làm việc trong repo
 
+## Vòng thực hiện hiện hành
+
+Người dùng đã ủy quyền thực hiện/ra quyết định từng phase và tự sửa lỗi. Đọc
+`docs/execution/RESUME.md` và `state.json` trước khi tiếp tục. Review theo ủy quyền
+phải ghi `delegated-agent`, không giả là người dùng hoặc chuyên gia độc lập đã duyệt.
+Sau từng bước có evidence, cập nhật checkpoint và push nhánh; giữ toàn bộ kết quả cũ.
+
 ## Mục tiêu
 
 Xây studio nội bộ tạo hoạt hình 2D/2.5D từ kịch bản. Sản phẩm phải chạy lại được, có bằng chứng kiểm thử và review gắn đúng revision/artifact. Đọc `plan.md`, `docs/architecture.md`, `skills.md` trước khi đổi workflow.

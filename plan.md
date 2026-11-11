@@ -1,5 +1,12 @@
 # Kế hoạch xây dựng Studio nội bộ
 
+## Thực hiện theo ủy quyền — hiện hành
+
+Người dùng đã cho phép tự quyết định, viết code, kiểm thử/sửa lỗi và push từng bước.
+Trạng thái tiếp tục ở [RESUME](docs/execution/RESUME.md), [state](docs/execution/state.json),
+[issue ledger](docs/execution/issues.md). Q0 đã khóa brief/rubric theo ủy quyền; Q1 đang làm.
+Các mục nghiên cứu bên dưới là snapshot lịch sử, giữ nguyên kết quả.
+
 ## Tổng kết vòng nghiên cứu toolchain — 11/11/2026
 
 - **Đã hoàn thành trong vòng nghiên cứu:** đối chiếu Word/kế hoạch/code/tests; khảo sát Three.js, HyperFrames, FFmpeg, Manim CE/GL và các ứng viên liên quan; chạy test/harness/CLI được phép; soạn kế hoạch chi tiết, backlog và đường quay lại khi fail.

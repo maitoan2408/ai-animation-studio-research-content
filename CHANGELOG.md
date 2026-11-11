@@ -1,5 +1,12 @@
 # Changelog
 
+## Q0 — bắt đầu thực hiện production theo ủy quyền
+
+- Khóa brief paper-cut/multiplane, pilot 72 giây, sáu shot/48 giây, rubric và output profile.
+- Baseline verify 16 tests PASS; brief gate PASS. Chưa đóng gate art/motion Q1/Q2.
+- Thêm recorder lưu request trước chạy, log/result riêng mỗi attempt và source hashes; có RESUME/state/issue ledger.
+- Review ghi delegated-agent theo quyền người dùng giao; không tạo approval giả dưới tên người dùng.
+
 ## Nghiên cứu toolchain và kế hoạch mở rộng — 11/11/2026
 
 - Đối chiếu Word/PDF, kế hoạch P0–P11/Q0–Q9, code và evidence; công khai phạm vi đã đọc và phần chưa kiểm chứng.

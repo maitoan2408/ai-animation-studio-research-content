@@ -20,3 +20,8 @@ validation/scripts/__pycache__/
 /.env.*
 !/.env.example
 /artifacts/tmp/
+/production/node_modules/
+/production/out/
+/production/.cache/
+/production/.venv/
+**/__pycache__/
