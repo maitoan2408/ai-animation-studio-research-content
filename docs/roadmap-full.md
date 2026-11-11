@@ -1,5 +1,7 @@
 # Đối chiếu đủ 12 giai đoạn của Word
 
+**Bổ sung 11/11/2026:** phản hồi mới yêu cầu nâng chất lượng hình/chuyển động và nghiên cứu trước khi code tiếp. [Kế hoạch production Q0–Q9](production-quality-plan.md) cụ thể hóa toàn bộ phần còn mở, có bảng nối từng P0–P11. Bảng dưới giữ trạng thái snapshot v0.1; nghiên cứu mới không tự hoàn tất các gate production.
+
 Nguồn: chương 20, P0–P11 trong Word gốc. M0–M6 ở plan.md là các mốc bàn giao **prototype phần mềm**, không thay thế hoặc xóa các giai đoạn production bên dưới. Theo yêu cầu của người dùng, ứng dụng được viết và kiểm trước lần duyệt; các quyết định nghệ thuật/production vẫn mở. Không chuyển trạng thái PARTIAL thành DONE chỉ vì đã có demo.
 
 Vai trò là trách nhiệm, chưa giả định đã tuyển đủ người. Không ấn định tuần/ngân sách khi chưa có năng lực đội và art rubric được duyệt. Mỗi vòng: chọn item → khóa input/tiêu chí → làm → test → giữ log → sửa → test lại → review → cập nhật trạng thái.

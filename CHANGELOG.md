@@ -1,5 +1,11 @@
 # Changelog
 
+## Nghiên cứu chất lượng production — 11/11/2026
+
+- Đọc source ở commit cố định của OpenMontage, Lemo-Opuscar, ClaudeAnimationBase và các công cụ liên quan; ghi rõ mức bằng chứng, license và giới hạn.
+- Lập phân tích hình/acting/rig/camera/composite, sáu shot thử, rubric, hai vòng sửa và kế hoạch Q0–Q9 nối đủ P0–P11.
+- Có bản Word để duyệt, Markdown nguồn và manifest khảo sát. Chưa sửa ứng dụng hoặc dependencies, chưa chạy benchmark/backend/model mới; giữ nguyên báo cáo và evidence cũ.
+
 ## 0.1.0 — bản nội bộ chờ duyệt, 11/11/2026
 
 - Bắt đầu dự án studio nội bộ dựa trên báo cáo đã thẩm định.

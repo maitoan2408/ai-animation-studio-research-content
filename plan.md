@@ -1,5 +1,13 @@
 # Kế hoạch xây dựng Studio nội bộ
 
+## Cập nhật yêu cầu — nghiên cứu production, 11/11/2026
+
+Người dùng đánh giá demo phù hợp nhưng chất lượng hình ảnh/chuyển động chưa đạt production; yêu cầu nghiên cứu công cụ/mã nguồn và lên plan trước, chưa code. Vòng mới đã có [phân tích](reports/Nghien_cuu_chat_luong_production.md), [kế hoạch Q0–Q9](docs/production-quality-plan.md), [sổ nguồn](docs/research/production-quality-sources.md) và [manifest khảo sát](docs/research/production-quality-evidence.json). Q0–Q9 **NOT_STARTED**; backend/model benchmarks mới **NOT_RUN**. Không coi phản hồi về demo là duyệt art target hay production release.
+
+Các mốc/bằng chứng v0.1 bên dưới được giữ nguyên như snapshot bàn giao. Kế hoạch mới bổ sung cách hoàn tất chất lượng production và đối chiếu đủ P0–P11, không thay trạng thái đã đạt của prototype. Sau khi duyệt kế hoạch, bắt đầu Q0 → Q1 → Q2 trước khi chọn backend và mở rộng ứng dụng.
+
+## Mục tiêu vòng prototype đã bàn giao
+
 Mục tiêu bàn giao vòng đầu: chương trình dùng được từ kịch bản → phân cảnh nháp → chỉnh cảnh/audio → render → QC → review → export/reopen, có web UI và CLI. Người dùng sẽ duyệt sau khi chương trình và bằng chứng được đẩy lên Git. Phạm vi phong cách: paper-cut, multiplane và layered shadow-box theo báo cáo.
 
 ## Các mốc triển khai

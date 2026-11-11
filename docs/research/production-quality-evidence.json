@@ -1,0 +1,287 @@
+{
+  "researchDate": "2026-11-11",
+  "baselineCommit": "b79ec76497b7cb57f753f596cb60969aae3383d2",
+  "scope": "Documentation research and static source inspection only; no application implementation or new render/model benchmark.",
+  "baselineHashes": {
+    "originalWord": "629014426d9ff2333266e83d2925206c9b9b1c0c66b0ca2b07145f310df77dcd",
+    "demoMp4": "80b135bb23547da300c8fb218ac25d79514ebb39c3a1433457dae566ec142f18",
+    "demoStill": "5b7fda9e4448d54fe4774e7c90abd13289d1ae7988b52aa267b4bd9530ad5cdd"
+  },
+  "repositories": [
+    {
+      "repo": "OpenMontageInc/OpenMontage",
+      "commit": "fecb9a1e3cc23ef84de30b272059457a427f16f8",
+      "commitDate": "2026-11-09T06:23:54Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/OpenMontageInc/OpenMontage/blob/fecb9a1e3cc23ef84de30b272059457a427f16f8/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/OpenMontageInc/OpenMontage/blob/fecb9a1e3cc23ef84de30b272059457a427f16f8/LICENSE"
+        },
+        {
+          "path": ".agents/skills/character-rigging/SKILL.md",
+          "url": "https://github.com/OpenMontageInc/OpenMontage/blob/fecb9a1e3cc23ef84de30b272059457a427f16f8/.agents/skills/character-rigging/SKILL.md"
+        },
+        {
+          "path": ".agents/skills/character-animation-qa/SKILL.md",
+          "url": "https://github.com/OpenMontageInc/OpenMontage/blob/fecb9a1e3cc23ef84de30b272059457a427f16f8/.agents/skills/character-animation-qa/SKILL.md"
+        },
+        {
+          "path": "tools/character/character_animation.py",
+          "url": "https://github.com/OpenMontageInc/OpenMontage/blob/fecb9a1e3cc23ef84de30b272059457a427f16f8/tools/character/character_animation.py"
+        },
+        {
+          "path": "pipeline_defs/character-animation.yaml",
+          "url": "https://github.com/OpenMontageInc/OpenMontage/blob/fecb9a1e3cc23ef84de30b272059457a427f16f8/pipeline_defs/character-animation.yaml"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    },
+    {
+      "repo": "lemomo-ai/lemo-opuscar",
+      "commit": "9eb7739a0fca4c6990fe966cb8b87b1930f7193a",
+      "commitDate": "2026-11-10T01:28:41Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/LICENSE"
+        },
+        {
+          "path": "core/README.md",
+          "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/core/README.md"
+        },
+        {
+          "path": "core/render/page.mjs",
+          "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/core/render/page.mjs"
+        },
+        {
+          "path": "styles/paper-popup/STYLE.md",
+          "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/styles/paper-popup/STYLE.md"
+        },
+        {
+          "path": "styles/paper-popup/demo/actors.js",
+          "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/styles/paper-popup/demo/actors.js"
+        },
+        {
+          "path": "styles/shadow-puppet/STYLE.md",
+          "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/styles/shadow-puppet/STYLE.md"
+        },
+        {
+          "path": "styles/shadow-puppet/demo/poses.js",
+          "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/styles/shadow-puppet/demo/poses.js"
+        },
+        {
+          "path": "styles/shadow-puppet/demo/houyi.js",
+          "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/styles/shadow-puppet/demo/houyi.js"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    },
+    {
+      "repo": "JohnHeibel/ClaudeAnimationBase",
+      "commit": "0ac8bf2b31942376cb6b8c4074715595d512acd2",
+      "commitDate": "2026-09-24T07:41:21Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/JohnHeibel/ClaudeAnimationBase/blob/0ac8bf2b31942376cb6b8c4074715595d512acd2/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/JohnHeibel/ClaudeAnimationBase/blob/0ac8bf2b31942376cb6b8c4074715595d512acd2/LICENSE"
+        },
+        {
+          "path": "ANIMATION_GUIDE.md",
+          "url": "https://github.com/JohnHeibel/ClaudeAnimationBase/blob/0ac8bf2b31942376cb6b8c4074715595d512acd2/ANIMATION_GUIDE.md"
+        },
+        {
+          "path": "src/core.js",
+          "url": "https://github.com/JohnHeibel/ClaudeAnimationBase/blob/0ac8bf2b31942376cb6b8c4074715595d512acd2/src/core.js"
+        },
+        {
+          "path": "src/clawd.js",
+          "url": "https://github.com/JohnHeibel/ClaudeAnimationBase/blob/0ac8bf2b31942376cb6b8c4074715595d512acd2/src/clawd.js"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    },
+    {
+      "repo": "mfahsold/montage-ai",
+      "commit": "2e9dc03bfd0c320cf30f2762791bcccfd1d12b06",
+      "commitDate": "2026-03-09T23:44:34Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/mfahsold/montage-ai/blob/2e9dc03bfd0c320cf30f2762791bcccfd1d12b06/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/mfahsold/montage-ai/blob/2e9dc03bfd0c320cf30f2762791bcccfd1d12b06/LICENSE"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    },
+    {
+      "repo": "Wan-Video/Wan2.2",
+      "commit": "1ea34ff48f87168174e12956e200b1d908b1c5ff",
+      "commitDate": "2026-09-21T06:16:22Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/Wan-Video/Wan2.2/blob/1ea34ff48f87168174e12956e200b1d908b1c5ff/README.md"
+        },
+        {
+          "path": "LICENSE.txt",
+          "url": "https://github.com/Wan-Video/Wan2.2/blob/1ea34ff48f87168174e12956e200b1d908b1c5ff/LICENSE.txt"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    },
+    {
+      "repo": "Lightricks/LTX-2",
+      "commit": "4f521619ae0029e8fbb64d555030c2b121a33b4f",
+      "commitDate": "2026-11-04T12:37:22Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/Lightricks/LTX-2/blob/4f521619ae0029e8fbb64d555030c2b121a33b4f/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/Lightricks/LTX-2/blob/4f521619ae0029e8fbb64d555030c2b121a33b4f/LICENSE"
+        },
+        {
+          "path": "LICENSE-2_x",
+          "url": "https://github.com/Lightricks/LTX-2/blob/4f521619ae0029e8fbb64d555030c2b121a33b4f/LICENSE-2_x"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    },
+    {
+      "repo": "Comfy-Org/ComfyUI",
+      "commit": "4d64a8bc072b81c9b47321789b4d83fb7348ae2a",
+      "commitDate": "2026-11-11T05:42:39Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/Comfy-Org/ComfyUI/blob/4d64a8bc072b81c9b47321789b4d83fb7348ae2a/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/Comfy-Org/ComfyUI/blob/4d64a8bc072b81c9b47321789b4d83fb7348ae2a/LICENSE"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    },
+    {
+      "repo": "DanielSWolf/rhubarb-lip-sync",
+      "commit": "9b9573cd21b253c9ba58739bbd1aa0b50b991bff",
+      "commitDate": "2025-04-03T07:43:25Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "README.adoc",
+          "url": "https://github.com/DanielSWolf/rhubarb-lip-sync/blob/9b9573cd21b253c9ba58739bbd1aa0b50b991bff/README.adoc"
+        },
+        {
+          "path": "LICENSE.md",
+          "url": "https://github.com/DanielSWolf/rhubarb-lip-sync/blob/9b9573cd21b253c9ba58739bbd1aa0b50b991bff/LICENSE.md"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    },
+    {
+      "repo": "Vchitect/VBench",
+      "commit": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+      "commitDate": "2026-08-21T15:28:07Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/Vchitect/VBench/blob/fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490/README.md"
+        },
+        {
+          "path": "vbench/motion_smoothness.py",
+          "url": "https://github.com/Vchitect/VBench/blob/fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490/vbench/motion_smoothness.py"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    },
+    {
+      "repo": "QwenLM/Qwen-Image-Layered",
+      "commit": "54c4fe47e76d745775e03fc66ee38457280ed9ea",
+      "commitDate": "2025-12-31T11:40:35Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/QwenLM/Qwen-Image-Layered/blob/54c4fe47e76d745775e03fc66ee38457280ed9ea/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/QwenLM/Qwen-Image-Layered/blob/54c4fe47e76d745775e03fc66ee38457280ed9ea/LICENSE"
+        },
+        {
+          "path": "src/app.py",
+          "url": "https://github.com/QwenLM/Qwen-Image-Layered/blob/54c4fe47e76d745775e03fc66ee38457280ed9ea/src/app.py"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    },
+    {
+      "repo": "blender/blender",
+      "commit": "ca56249b6affcc1b79dcde5a7a7feaf6dd630e32",
+      "commitDate": "2026-11-10T21:56:37Z",
+      "evidenceLevel": "SOURCE_REVIEW",
+      "inspectedFiles": [
+        {
+          "path": "source/blender/modifiers/intern/MOD_grease_pencil_armature.cc",
+          "url": "https://github.com/blender/blender/blob/ca56249b6affcc1b79dcde5a7a7feaf6dd630e32/source/blender/modifiers/intern/MOD_grease_pencil_armature.cc"
+        },
+        {
+          "path": "source/creator/creator_args.cc",
+          "url": "https://github.com/blender/blender/blob/ca56249b6affcc1b79dcde5a7a7feaf6dd630e32/source/creator/creator_args.cc"
+        }
+      ],
+      "runtimeTest": "NOT_RUN"
+    }
+  ],
+  "visualInspection": [
+    {
+      "type": "STILL_ONLY",
+      "path": "artifacts/morning-frame.png"
+    },
+    {
+      "type": "STILL_ONLY",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/styles/paper-popup/poster.jpg"
+    },
+    {
+      "type": "STILL_ONLY",
+      "url": "https://github.com/lemomo-ai/lemo-opuscar/blob/9eb7739a0fca4c6990fe966cb8b87b1930f7193a/styles/shadow-puppet/poster.jpg"
+    }
+  ],
+  "notRun": [
+    "external repository installation or execution",
+    "new renderer comparison",
+    "frame-by-frame video review of external demos",
+    "DCC authoring/export trial",
+    "generative image/video model inference",
+    "Vietnamese phoneme/viseme benchmark",
+    "paid provider calls",
+    "production quality acceptance or cost/performance measurement"
+  ]
+}
