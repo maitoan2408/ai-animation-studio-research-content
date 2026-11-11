@@ -1,0 +1,24 @@
+{
+  "phase": "Q1",
+  "step": "three-types-version",
+  "run_id": "20261111T161641Z-three-types-version-b1a72128",
+  "started_at_utc": "20261111T161641Z",
+  "command": [
+    "npm",
+    "view",
+    "@types/three",
+    "version",
+    "--cache",
+    "/tmp/studio-production-npm-cache"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "2f63bc1ed6305ee03fdd884898fa1d18d7c0c909",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 7743,
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.519,
+  "finished_at_utc": "2026-11-11T16:16:42.032330+00:00",
+  "log_sha256": "41638829106bb249161adb942cf2cb3639c9706eb917b6391333dacb176fe6ab",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

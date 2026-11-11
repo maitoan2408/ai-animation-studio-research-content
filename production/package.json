@@ -1,0 +1,25 @@
+{
+  "name": "paper-studio-production-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts tests/*.test.mjs",
+    "assets": "python src/art/build_assets.py"
+  },
+  "dependencies": {
+    "@hyperframes/engine": "0.9.33",
+    "@hyperframes/producer": "0.9.33",
+    "gsap": "3.15.0",
+    "puppeteer-core": "24.37.2",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.0",
+    "@types/three": "0.187.0",
+    "esbuild": "0.25.12",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}
