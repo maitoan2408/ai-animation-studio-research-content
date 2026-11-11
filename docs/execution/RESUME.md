@@ -13,7 +13,7 @@
 
 Q0 DONE_DELEGATED: brief/rubric/source references khóa, 16 app tests + brief gate PASS.
 Q1 IN_PROGRESS: 60 SVG + styleframes draft-1 đã có, typecheck PASS.
-Review phát hiện EX-006/007/008; giữ ảnh lỗi, chưa art approval. Q2–Q9 chưa bắt đầu.
+EX-006/007 đã sửa và kiểm lại, draft-2 lưu riêng; EX-008/009 còn mở. Q2–Q9 chưa bắt đầu.
 Nguồn trạng thái máy đọc: [state.json](state.json). Các phase và điều kiện đầy đủ:
 [kế hoạch](../toolchain-future-plan.md); snapshot này không bị sửa lại thành DONE.
 
@@ -25,7 +25,7 @@ cat production/evidence/Q0/gate.json
 cat production/brief/Q0-brief.md
 ```
 
-Tiếp tục Q1: thêm contact invariant, sửa EX-006/007/008 và re-render draft-2.
+Tiếp tục Q1: bổ sung torso front/profile + kiểm EX-008/009, sau đó alpha/rig extremes.
 Dependencies workbench đã khóa; textures là generated trong production/out/art-q1.
 Sau styleframe gate, kiểm Blender/Three môi trường và audio trước Q2. Khi đã hoàn thành
 một bước, thay mục này bằng bước thực tế tiếp theo, không chạy lại toàn bộ history.

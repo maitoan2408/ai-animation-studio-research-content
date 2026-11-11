@@ -271,7 +271,7 @@
         ]
       },
       "category": "head",
-      "sha256": "54cc94fffb8d1ada2883b5e6756b98e4534ff86c996438f09b1c929f7291b276",
+      "sha256": "c4a00b4bbd175032a2057cbbbdc732275b4a445eb59ec9a543eebd1416ddc25f",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -387,7 +387,7 @@
         ]
       },
       "category": "head",
-      "sha256": "ecd2e30b14c3a05e2ce24207e57f210b77c3e482ca15f57b1bb1276d5ae4ae91",
+      "sha256": "751ad0327646bd95dca436cad3136e16cedf1dd8ce5c38b4a7ab6345f256209d",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -461,7 +461,7 @@
       ],
       "anchors": {
         "mouth": [
-          145,
+          140,
           132
         ],
         "eye": [
@@ -490,7 +490,7 @@
       ],
       "anchors": {
         "mouth": [
-          145,
+          140,
           132
         ],
         "eye": [
@@ -503,7 +503,7 @@
         ]
       },
       "category": "head",
-      "sha256": "77b54cc902edf3a2c8c3c8d984136ad85d86c65ab5ad7213b3f9c2e6fede54ae",
+      "sha256": "4c679d0f69f136d4807f8832d8bc568217498d34915382a8ffcb7d3052cf105a",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -519,7 +519,7 @@
       ],
       "anchors": {
         "mouth": [
-          145,
+          140,
           132
         ],
         "eye": [
@@ -548,7 +548,7 @@
       ],
       "anchors": {
         "mouth": [
-          145,
+          140,
           132
         ],
         "eye": [
@@ -832,7 +832,7 @@
         ]
       },
       "category": "head",
-      "sha256": "d036f86033975f955b6bcbfeefd793d6561fc95588b137ef901a7472ec6fae96",
+      "sha256": "38ed1638ee6d8f6453239a94ce7acb1c2ecf25b3bb7309c1fd75df7b3b1cbdb7",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -948,7 +948,7 @@
         ]
       },
       "category": "head",
-      "sha256": "0842853388c3bb57901e07fde6ebb613afe0b1a68df42aed74c9812bc616ede3",
+      "sha256": "3ac8a2e5188d0b79b0ca78c53ffc3549867ae96f83f36aac65e602d7809e54f9",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -1022,7 +1022,7 @@
       ],
       "anchors": {
         "mouth": [
-          145,
+          140,
           132
         ],
         "eye": [
@@ -1051,7 +1051,7 @@
       ],
       "anchors": {
         "mouth": [
-          145,
+          140,
           132
         ],
         "eye": [
@@ -1064,7 +1064,7 @@
         ]
       },
       "category": "head",
-      "sha256": "7e88ea062b87b55da1bff025fe83ae3810843af3f441ed40985ddf459a8e32b7",
+      "sha256": "c3eb342c341870d7c40aa1a2e2534bf83c8891bc920587b475bafa4ecf6b1a00",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -1080,7 +1080,7 @@
       ],
       "anchors": {
         "mouth": [
-          145,
+          140,
           132
         ],
         "eye": [
@@ -1109,7 +1109,7 @@
       ],
       "anchors": {
         "mouth": [
-          145,
+          140,
           132
         ],
         "eye": [

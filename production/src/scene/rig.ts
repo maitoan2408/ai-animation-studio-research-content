@@ -5,7 +5,7 @@ import { sprite, type ActorPose, type ArtPack, type Marker, type Point, type Spr
  * re-evaluating a frame never integrates previous frames or clock state. */
 export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]; markers: Marker[]} {
   const items: Sprite[] = [], markers: Marker[] = [];
-  const a = pose.character, hip = add([0, -252], pose.hipOffset ?? [0, 0]);
+  const a = pose.character, hip = add([0, -258], pose.hipOffset ?? [0, 0]);
   const torsoAngle = pose.torsoAngle ?? 0;
   const atTorso = (local: Point) => add(hip, rotate(local, torsoAngle));
   const localSprite = (id: string, asset: string, p: Point, z: number, rotation = 0) => {
@@ -29,8 +29,13 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
     bone(`${side}-upper`, 'upper-arm', shoulder,joint,z);
     bone(`${side}-forearm`, 'forearm',joint,wrist,z+.1);
     const hand = side === 'right' ? pose.rightHand ?? 'open' : pose.leftHand ?? 'open';
-    localSprite(`${side}-hand`,`${a}/hand-${hand}`,wrist,z+.2);
-    mark(`${side}-grip`,add(wrist,[14,-17]),'contact',z+.2);
+    const handAngle=(side==='right'?pose.rightHandAngle:pose.leftHandAngle) ?? (hand==='open'?180:0);
+    localSprite(`${side}-hand`,`${a}/hand-${hand}`,wrist,z+.2,handAngle);
+    const handSprite=items[items.length-1]!;
+    if(hand==='open'&&side==='right') handSprite.scaleX=-1;
+    const handAsset=pack.assets.find(x=>x.id===handSprite.asset)!;
+    const offset=subtract(handAsset.anchors.grip!,handAsset.pivot);
+    mark(`${side}-grip`,add(wrist,rotate([offset[0]*handSprite.scaleX,offset[1]],handAngle)),'contact',z+.2);
     mark(`${side}-wrist`,wrist,'joint',z+.2);
   };
   arm('left',atTorso([-53,-139]),pose.leftWrist ?? [-99,-211],2.5);
@@ -43,11 +48,12 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
   localSprite('head',headId,neck,4,headAngle);
   const mouth = add(neck,rotate(subtract(headAsset.anchors.mouth,headAsset.pivot),headAngle));
   localSprite('mouth',`mouth/${pose.mouth ?? 'rest'}`,mouth,4.1,headAngle);
+  if(pose.view==='profile') items[items.length-1]!.scaleX=.65;
   arm('right',atTorso([53,-139]),pose.rightWrist ?? [108,-211],5);
   const scale = pose.scale ?? 1, facing = pose.facing;
   const world = (p: Point): Point => [pose.x + p[0]*scale*facing, pose.floor+p[1]*scale];
   return {
-    sprites: items.map(s=>{const p=world([s.x,s.y]);return {...s,x:p[0],y:p[1],rotation:s.rotation*facing,scaleX:scale*facing,scaleY:scale};}),
+    sprites: items.map(s=>{const p=world([s.x,s.y]);return {...s,x:p[0],y:p[1],rotation:s.rotation*facing,scaleX:s.scaleX*scale*facing,scaleY:s.scaleY*scale};}),
     markers: markers.map(m=>({...m,point:world(m.point)})),
   };
 }

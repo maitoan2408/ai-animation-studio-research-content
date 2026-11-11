@@ -73,13 +73,13 @@ def face(actor, view, mood):
             b += path(f'M{x-6} {y}Q{x} {y+3} {x+5} {y}', 'none', INK, 2.5)
         else:
             b += ellipse(x, y, 3.4, 5, INK) + ellipse(x-1, y-2, 1, 1.2, '#fff4d5')
-        tilt = -4 if mood == 'worried' and i == 0 else (3 if mood == 'worried' else 0)
+        tilt = 5 if mood == 'worried' and i == 0 else (-5 if mood == 'worried' else 0)
         b += path(f'M{x-7} {y-13+tilt}Q{x} {y-17} {x+6} {y-13-tilt}', 'none', hair if mai else '#817f72', 3)
     nose_x = 98 if view == 'front' else (127 if view == 'quarter' else 145)
     b += path(f'M{nose_x} 106l4 13l-7 2', 'none', shade, 2.5)
     if view == 'profile':
         b += path('M140 90L156 112L146 119L148 131L134 147', skin, shade, 1)
-    mouth = [99, 135] if view == 'front' else ([124, 134] if view == 'quarter' else [145, 132])
+    mouth = [99, 135] if view == 'front' else ([124, 134] if view == 'quarter' else [140, 132])
     save(f'{actor}/head-{view}-{mood}', 180, 180, b, [94, 168],
          {'mouth':mouth, 'eye':[eye_x[-1], 104], 'neck':[94,168]}, 'head')
 

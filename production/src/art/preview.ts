@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import puppeteer from 'puppeteer-core';
 import { actorSprites } from '../scene/rig.js';
+import { contactLayout } from './contact-layout.js';
 import { sprite, type ArtPack, type Sprite } from '../scene/types.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -38,7 +39,7 @@ const lantern=sprite('lamp','props/lantern-dark',1100,667,6,0,.65);
 const scenes: Record<string,string>={
   'wide':svg([...background(),...mai,...an,table,lantern]),
   'close':svg([...background(),...mai,...an,table,lantern],1920,1080,{x:795,y:430,zoom:2.35}),
-  'contact':svg([...background(),...actorSprites(pack,{id:'mai',character:'mai',x:760,floor:860,facing:1,rightWrist:[158,-277],rightHand:'grip',headAngle:9}).sprites,table,sprite('cup','props/cup',908,631,5.2,0,.7)],1920,1080,{x:940,y:620,zoom:1.55}),
+  'contact':svg([...background(),...contactLayout(pack).sprites],1920,1080,contactLayout(pack).camera),
 };
 const sheet: Sprite[]=[];
 for(const [row,actor] of (['mai','an'] as const).entries()) for(const [column,view] of (['front','quarter','profile'] as const).entries())

@@ -11,6 +11,7 @@ ca lỗi lẫn regression liên quan đã chạy; chưa chạy ghi OPEN/BLOCKED.
 | EX-004 | Q6 | Preview SVG không khớp audio envelope final | Preview dùng cùng shot/cue evaluator với final; parity test | Research C11 | OPEN |
 | EX-005 | Q7 | Cache fingerprint và restore chưa đủ production | Hash dependency graph; fault/restore tests | Research C11/P9 | OPEN |
 
-| EX-006 | Q1 | Neutral pose khuỵu, bàn tay nghỉ quay lên | Hip cao hơn trong IK reach, hand rest 180°, soles cố định | production/artifacts/Q1/draft-1/review.json | OPEN |
-| EX-007 | Q1 | Contact styleframe lệch tay–cốc khoảng 31 px | Test cả hai anchor qua transform, sửa wrist từ anchor thật | production/artifacts/Q1/draft-1/contact.png | OPEN |
+| EX-006 | Q1 | Neutral pose khuỵu, bàn tay nghỉ quay lên | Hip cao hơn trong IK reach, hand rest 180°, soles cố định | production/artifacts/Q1/draft-1/review.json | CLOSED — test + draft-2 review |
+| EX-007 | Q1 | Contact styleframe lệch tay–cốc khoảng 31 px | Test cả hai anchor qua transform, sửa wrist từ anchor thật | production/artifacts/Q1/draft-1/contact.png | CLOSED — test + draft-2 review |
 | EX-008 | Q1 | Eyebrow worried đọc thành angry, miệng profile lộ mép | Sửa art/mouth width, xem lại model sheet/close-up | production/artifacts/Q1/draft-1/review.json | OPEN |
+| EX-009 | Q1 | Torso chưa có drawing riêng cho front/profile | Tạo variant + pivot/shoulder metadata, rig đọc metadata, kiểm pose cực trị | Draft-2 review | OPEN |
