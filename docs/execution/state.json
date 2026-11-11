@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Q2.1 asset readiness and random seek; Q1 voice listening remains open",
+  "nextAction": "Finish six-shot A blocking render, review and fix deceleration EX-015; run native Blender B samples",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -29,17 +29,23 @@
       "result": "PASS_TECHNICAL",
       "evidence": "production/evidence/Q1/gate.json",
       "limits": "Q1 audio listening remains open; no full creative gate"
+    },
+    {
+      "id": "Q2.1-readiness-seek",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/technical-preflight/report.json",
+      "limits": "6 load cases and 48 captures/36 comparisons on S05; not motion/production gate"
     }
   ],
   "paidBudget": 0,
   "openIssues": [
-    "EX-001",
     "EX-002",
     "EX-003",
     "EX-004",
     "EX-005",
     "EX-011",
     "EX-012",
-    "EX-013"
+    "EX-013",
+    "EX-015"
   ]
 }

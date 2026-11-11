@@ -1,0 +1,21 @@
+{"fault":"none","early":null,"ready":true,"error":null,"protocol":true,"diagnostics":{"three":"187","readyMs":2603.100000000093,"textures":64,"gl":"WebGL 2.0 (OpenGL ES 3.0 Chromium)","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"},"pass":true}
+{"fault":"slow","early":{"ready":false,"protocol":false},"ready":true,"error":null,"protocol":true,"diagnostics":{"three":"187","readyMs":1615.3999999999069,"textures":64,"gl":"WebGL 2.0 (OpenGL ES 3.0 Chromium)","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"},"pass":true}
+{"fault":"404","early":null,"ready":false,"error":"ASSET_HTTP mai/head-quarter-neutral 404","protocol":false,"diagnostics":{},"pass":true}
+{"fault":"hash","early":null,"ready":false,"error":"ASSET_HASH mai/head-quarter-neutral","protocol":false,"diagnostics":{},"pass":true}
+{"fault":"corrupt","early":null,"ready":false,"error":"ASSET_DECODE mai/head-quarter-neutral","protocol":false,"diagnostics":{},"pass":true}
+{"fault":"timeout","early":null,"ready":false,"error":"ASSET_TIMEOUT mai/head-quarter-neutral","protocol":false,"diagnostics":{},"pass":true}
+[SystemMemory] cgroup memory limit detected: 8192 MiB. It governs memory-adaptive render behaviour instead of host RAM.
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+/workspace/ai-animation-studio-research-content/production/node_modules/@hyperframes/engine/dist/services/frameCapture.js:1337
+    throw new Error(`[FrameCapture] window.__hf not ready after ${timeoutMs}ms. ` +
+          ^
+
+Error: [FrameCapture] window.__hf not ready after 45000ms. Page must expose window.__hf = { duration, seek }.
+  State: __hf=false, seek=false, player=false, renderReady=false, duration=-1
+    at pollHfReady (/workspace/ai-animation-studio-research-content/production/node_modules/@hyperframes/engine/dist/services/frameCapture.js:1337:11)
+    at async initializeSession (/workspace/ai-animation-studio-research-content/production/node_modules/@hyperframes/engine/dist/services/frameCapture.js:2288:9)
+    at async create (/workspace/ai-animation-studio-research-content/production/src/render/check_adapter.ts:37:7)
+    at async <anonymous> (/workspace/ai-animation-studio-research-content/production/src/render/check_adapter.ts:41:11)
+
+Node.js v24.22.1

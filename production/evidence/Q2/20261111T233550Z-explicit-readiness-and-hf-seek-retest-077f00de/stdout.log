@@ -1,0 +1,20 @@
+{"fault":"none","early":null,"ready":true,"error":null,"protocol":true,"diagnostics":{"three":"187","readyMs":1454.8999999999069,"textures":64,"gl":"WebGL 2.0 (OpenGL ES 3.0 Chromium)","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"},"pass":true}
+{"fault":"slow","early":{"ready":false,"protocol":false},"ready":true,"error":null,"protocol":true,"diagnostics":{"three":"187","readyMs":1459.1000000000931,"textures":64,"gl":"WebGL 2.0 (OpenGL ES 3.0 Chromium)","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"},"pass":true}
+{"fault":"404","early":null,"ready":false,"error":"ASSET_HTTP mai/head-quarter-neutral 404","protocol":false,"diagnostics":{},"pass":true}
+{"fault":"hash","early":null,"ready":false,"error":"ASSET_HASH mai/head-quarter-neutral","protocol":false,"diagnostics":{},"pass":true}
+{"fault":"corrupt","early":null,"ready":false,"error":"ASSET_DECODE mai/head-quarter-neutral","protocol":false,"diagnostics":{},"pass":true}
+{"fault":"timeout","early":null,"ready":false,"error":"ASSET_TIMEOUT mai/head-quarter-neutral","protocol":false,"diagnostics":{},"pass":true}
+[SystemMemory] cgroup memory limit detected: 8192 MiB. It governs memory-adaptive render behaviour instead of host RAM.
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Browser:WARN] [.WebGL-0x3f4c001b4400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+[Browser:WARN] [.WebGL-0x3f4c001b4400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x3f4c001b4400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x3f4c001b4400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Browser:WARN] [.WebGL-0x30cc001bb800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+[Browser:WARN] [.WebGL-0x30cc001bb800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x30cc001bb800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x30cc001bb800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+{"status":"PASS","faultCases":6,"seekSamples":48}

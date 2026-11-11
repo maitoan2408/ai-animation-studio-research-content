@@ -41,3 +41,11 @@ Q1 voice fixture cố định dùng cho đối chứng kỹ thuật; nghe duyệ
 PASS; giữ thư mục và tạo run mới. Không chạy lại vào artifacts/logs cũ. Nếu remote
 đã có checkpoint mới, đọc delta trước khi tiếp tục. Tiến độ test tự động không đóng
 gate hình/chuyển động nếu chưa có media và review tương ứng.
+
+### Q2.1 checkpoint
+
+Explicit readiness 6 ca + 48 HyperFrames captures (36 repeat comparisons, gồm
+browser mới) PASS; EX-001/014 đóng. Entry /index.html đã sửa, fail log giữ nguyên.
+All 1152 frame geometry/contact/stance tests PASS. Six-shot A blocking 640 đang
+render ở run `six-shot-blocking-a-retest`; xem result trước rerun. Tiếp: review
+blocking, bổ sung test/sửa EX-015 giảm tốc bước cuối, native Blender B samples.

@@ -42,3 +42,10 @@ contact verified. Q1 draft-3 preserves new art beside prior drafts. Blender/Thre
 rendered real alpha art. Pinned local Kokoro voice fixture generated; listening
 review remains OPEN (tool cannot hear). Q2 technical preflight starts with this
 fixed fixture; no production voice/motion approval claimed. See execution state.
+
+## Q2.1 checkpoint — 2026-11-12
+
+Pure six-shot evaluator (1152 frames), independent actual-anchor contact/stance
+checks, explicit texture readiness, Three + actual HyperFrames seek verification.
+6 load cases and 48 captures/36 repeat comparisons PASS after fixing fixture entry
+EX-014. Blocking render and native Blender comparison still in progress.
