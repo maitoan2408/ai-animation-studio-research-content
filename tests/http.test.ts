@@ -38,11 +38,20 @@ test('HTTP boundary rejects cross-origin writes, unknown fields and revision con
     400,
   );
   const { revision } = await app.store.current(project.id);
+  const editedSpec = structuredClone(revision.spec);
+  editedSpec.scenes[0]!.color = '#c74c4c';
   const endpoint = `/projects/${project.id}/revisions`,
-    payload = { expectedRevision: revision.id, spec: revision.spec };
+    payload = { expectedRevision: revision.id, spec: editedSpec };
   assert.equal((await post(endpoint, payload)).status, 201);
   assert.equal((await post(endpoint, payload)).status, 409);
   const response = await fetch(server.url + '/api/projects/' + project.id + '/export');
   assert.equal(response.status, 200);
-  assert.deepEqual((await response.json()).spec, revision.spec);
+  assert.deepEqual((await response.json()).spec, editedSpec);
+  const previewUrl = server.url + '/api/projects/' + project.id + '/preview';
+  const oldPreview = await (await fetch(previewUrl + '?revision=' + revision.id)).text();
+  assert.ok(oldPreview.includes(revision.spec.scenes[0]!.color));
+  assert.ok(!oldPreview.includes('#c74c4c'));
+  assert.ok((await (await fetch(previewUrl)).text()).includes('#c74c4c'));
+  const other = await app.create('Other project.', 'Other');
+  assert.equal((await fetch(previewUrl + '?revision=' + other.currentRevisionId)).status, 400);
 });

@@ -26,22 +26,22 @@ npm notice
 > paper-studio@0.1.0 test
 > tsx --test tests/*.test.ts
 
-✔ mixer places audio at scene frame boundary and rejects overflow instead of trimming (43.002826ms)
-✔ planner rejects malformed and duplicate directives (0.37712ms)
-✔ script produces explicit scenes, stable IDs and frame durations (5.92538ms)
-✔ reject invalid duration, unsupported directions and excessive scene count (1.242357ms)
-✔ narration edits invalidate generated voice binding (1.183327ms)
-✔ duplicate scene IDs and unknown fields are rejected (0.524882ms)
-✔ optimistic revision updates serialize; old revision remains unchanged (26.724282ms)
-✔ store blocks traversal and detects changed asset bytes (4.431744ms)
-✔ startup marks a running job interrupted rather than successful (2.296198ms)
-✔ HTTP boundary rejects cross-origin writes, unknown fields and revision conflicts (79.310463ms)
-✔ one data owner; failed attempt retries without overwriting history (237.247506ms)
-✔ duplicate submit, active cancellation and manual retry (220.022464ms)
-✔ cache verifies bytes and binds reused output to the requested revision (408.244728ms)
-✔ portable package checks all hashes before importing and does not inherit approval (29.257358ms)
-✔ WAV parsing rejects format confusion and truncated chunks (0.479403ms)
-✔ reopening persisted running state interrupts its attempt and keeps the next owner locked (210.493381ms)
+✔ mixer places audio at scene frame boundary and rejects overflow instead of trimming (30.505481ms)
+✔ planner rejects malformed and duplicate directives (0.339863ms)
+✔ script produces explicit scenes, stable IDs and frame durations (5.2955ms)
+✔ reject invalid duration, unsupported directions and excessive scene count (1.208273ms)
+✔ narration edits invalidate generated voice binding (6.40146ms)
+✔ duplicate scene IDs and unknown fields are rejected (2.6447ms)
+✔ optimistic revision updates serialize; old revision remains unchanged (64.889753ms)
+✔ store blocks traversal and detects changed asset bytes (4.303944ms)
+✔ startup marks a running job interrupted rather than successful (2.841268ms)
+✔ HTTP boundary rejects cross-origin writes, unknown fields and revision conflicts (68.914777ms)
+✔ one data owner; failed attempt retries without overwriting history (232.407095ms)
+✔ duplicate submit, active cancellation and manual retry (220.619249ms)
+✔ cache verifies bytes and binds reused output to the requested revision (316.577763ms)
+✔ portable package checks all hashes before importing and does not inherit approval (15.1828ms)
+✔ WAV parsing rejects format confusion and truncated chunks (0.425703ms)
+✔ reopening persisted running state interrupts its attempt and keeps the next owner locked (211.802894ms)
 ℹ tests 16
 ℹ suites 0
 ℹ pass 16
@@ -49,7 +49,7 @@ npm notice
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 2024.883575
+ℹ duration_ms 1958.59614
 npm notice
 npm notice New major version of npm available! 11.9.0 -> 12.2.2
 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2

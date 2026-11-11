@@ -1,11 +1,9 @@
 {
   "status": "PASS",
-  "commit": "03fc06621e1a3a7e0b371fb1880a3b35cfe50fcb",
-  "runId": 42926702266,
-  "jobId": 130214882050,
-  "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/42926702266",
+  "commit": "b614d37cdf98583a28f8199868b75558b59f829c",
+  "runId": 42927625649,
+  "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/42927625649",
   "steps": [
-    "install media runtime",
     "npm ci",
     "doctor",
     "verify (16 tests)",
@@ -14,5 +12,23 @@
     "UI (9 checks)",
     "upload evidence"
   ],
-  "scope": "Exact recorded commit; later UI-only changes have their own local retest and PR CI."
+  "previousRun": {
+    "status": "PASS",
+    "commit": "03fc06621e1a3a7e0b371fb1880a3b35cfe50fcb",
+    "runId": 42926702266,
+    "jobId": 130214882050,
+    "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/42926702266",
+    "steps": [
+      "install media runtime",
+      "npm ci",
+      "doctor",
+      "verify (16 tests)",
+      "build",
+      "integration (13 checks)",
+      "UI (9 checks)",
+      "upload evidence"
+    ],
+    "scope": "Exact recorded commit; later UI-only changes have their own local retest and PR CI."
+  },
+  "scope": "Exact recorded commit; final preview-revision fix is covered by local verify/UI and latest PR checks."
 }

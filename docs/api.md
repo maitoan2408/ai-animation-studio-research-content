@@ -13,7 +13,7 @@ Base `http://127.0.0.1:4310/api`; request ghi cần application/json, ≤40 MB. 
 | POST /projects/:id/voice | {expectedRevision} → Revision có voice |
 | POST /projects/:id/audio | {expectedRevision,sceneId,base64} → Revision gắn WAV |
 | POST /projects/:id/jobs | {revisionId,profile} → Job, 202 |
-| GET /projects/:id/preview?frame=24 | SVG current revision, chưa audio envelope |
+| GET /projects/:id/preview?frame=24&revision=... | SVG đúng revision yêu cầu; mặc định current; chưa audio envelope |
 | GET /projects/:id/export?revision=... | Gói spec + audio; mặc định current |
 | POST /import | ProjectPackage → Project mới |
 | GET /jobs/:id | Job/progress/attempts |

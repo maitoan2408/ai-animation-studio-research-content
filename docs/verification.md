@@ -49,6 +49,7 @@ Kết quả nghiên cứu gốc nằm trong `validation/evidence/` và `reports/
 - Sau đó rà ảnh phát hiện swatch màu quá thấp và screenshot sticky sidebar chụp khi trang đang scroll. Sửa CSS, đưa viewport về đầu trước capture; thêm nút bỏ bản nháp để người dùng phục hồi sau revision conflict.
 - Chạy lại verify (16 PASS) và toàn bộ UI (9 PASS), gồm thử bỏ thay đổi rồi lưu revision, chiều cao ô màu và video đã có frame decoded. Kết quả mới tại ui-results.json; screenshot trước sửa giữ trong artifacts/runs.
 - Workflow khóa container digest và action commit SHAs, tránh hai pipeline trùng trên cùng PR. CI mới nhất của branch xem tại PR #1; kết quả remote ghi theo commit cụ thể, không giả định mọi HEAD tương lai đã pass.
+- Bàn xem SVG nhận revision tường minh để tab đang sửa revision cũ không vô tình xem hình của revision mới do tab khác vừa lưu. HTTP regression kiểm hai palette ở hai revision và chặn revision thuộc project khác. Cancel/retry body cũng từ chối field ngoài contract.
 
 ## Giới hạn chưa được đánh dấu PASS
 

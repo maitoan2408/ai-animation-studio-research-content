@@ -158,8 +158,14 @@ export async function serve(app: Studio, port = 4310) {
           return;
         }
         if (parts.length === 4 && parts[3] === 'preview' && method === 'GET') {
-          const { revision } = await app.store.current(id),
-            frame = Number(url.searchParams.get('frame') ?? 0);
+          const current = await app.store.current(id);
+          const requested = url.searchParams.get('revision');
+          const revision = requested
+            ? await app.store.get<typeof current.revision>('revisions', requested)
+            : current.revision;
+          if (revision.projectId !== id)
+            throw new StudioError('REVISION_MISMATCH', 'Revision không thuộc project.');
+          const frame = Number(url.searchParams.get('frame') ?? 0);
           if (!Number.isFinite(frame) || frame < 0)
             throw new StudioError('INVALID_FRAME', 'Frame không hợp lệ.');
           res.writeHead(200, { 'Content-Type': 'image/svg+xml' });
@@ -173,7 +179,7 @@ export async function serve(app: Studio, port = 4310) {
           return;
         }
         if (parts.length === 4 && method === 'POST' && ['cancel', 'retry'].includes(parts[3]!)) {
-          await body(req);
+          validate(z.object({}).strict(), await body(req));
           json(
             parts[3] === 'retry' ? await app.retry(id) : ((await app.cancel(id)) ?? { ok: true }),
           );
