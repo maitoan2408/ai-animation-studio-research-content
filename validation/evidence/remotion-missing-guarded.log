@@ -1,0 +1,76 @@
+[http://localhost:3000/public/does-not-exist.png] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Tab 0, node_modules/remotion/dist/esm/index.mjs:16030] EncodingError: The source image cannot be decoded.
+[Tab 0, node_modules/remotion/dist/esm/index.mjs:15974] Could not load image with source http://localhost:3000/public/does-not-exist.png, retrying again in 1000ms
+[http://localhost:3000/public/does-not-exist.png] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Tab 0, node_modules/remotion/dist/esm/index.mjs:15974] Could not load image with source http://localhost:3000/public/does-not-exist.png, retrying again in 2000ms
+[http://localhost:3000/public/does-not-exist.png] Failed to load resource: the server responded with a status of 404 (Not Found)
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+Error: Error loading image with src: http://localhost:3000/public/does-not-exist.png
+    at cancelRenderInternal (http://localhost:3000/bundle.js:19756:13)
+    at http://localhost:3000/bundle.js:19983:12
+    at handleImageError (http://localhost:3000/bundle.js:34454:5)
+    at processDispatchQueue (http://localhost:3000/bundle.js:12649:13)
+    at http://localhost:3000/bundle.js:13199:5
+    at batchedUpdates$1 (http://localhost:3000/bundle.js:1830:36)
+    at dispatchEventForPluginEventSystem (http://localhost:3000/bundle.js:12787:3)
+    at dispatchEvent (http://localhost:3000/bundle.js:15638:7) {
+  stackFrame: [
+    {
+      columnNumber: 13,
+      fileName: 'http://localhost:3000/bundle.js',
+      functionName: 'cancelRenderInternal',
+      lineNumber: 19756
+    },
+    {
+      columnNumber: 12,
+      fileName: 'http://localhost:3000/bundle.js',
+      functionName: null,
+      lineNumber: 19983
+    },
+    {
+      columnNumber: 5,
+      fileName: 'http://localhost:3000/bundle.js',
+      functionName: 'handleImageError',
+      lineNumber: 34454
+    },
+    {
+      columnNumber: 13,
+      fileName: 'http://localhost:3000/bundle.js',
+      functionName: 'processDispatchQueue',
+      lineNumber: 12649
+    },
+    {
+      columnNumber: 5,
+      fileName: 'http://localhost:3000/bundle.js',
+      functionName: null,
+      lineNumber: 13199
+    },
+    {
+      columnNumber: 36,
+      fileName: 'http://localhost:3000/bundle.js',
+      functionName: 'batchedUpdates$1',
+      lineNumber: 1830
+    },
+    {
+      columnNumber: 3,
+      fileName: 'http://localhost:3000/bundle.js',
+      functionName: 'dispatchEventForPluginEventSystem',
+      lineNumber: 12787
+    },
+    {
+      columnNumber: 7,
+      fileName: 'http://localhost:3000/bundle.js',
+      functionName: 'dispatchEvent',
+      lineNumber: 15638
+    }
+  ],
+  delayRenderCall: null,
+  frame: null,
+  chunk: null,
+  name: 'CancelledError'
+}
+
+Node.js v24.22.1

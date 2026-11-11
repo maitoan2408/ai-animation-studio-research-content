@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "NODE_USE_ENV_PROXY=1",
+    "npm_config_cache=/tmp/studio-npm-cache",
+    "./node_modules/.bin/create-video",
+    "--yes",
+    "--blank",
+    "scaffold/remotion-fixed"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:33:55.563185+00:00",
+  "elapsed_seconds": 15.648700984000016,
+  "returncode": 0,
+  "log": "remotion-scaffold-fixed.log"
+}

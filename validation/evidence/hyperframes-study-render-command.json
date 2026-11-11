@@ -1,0 +1,14 @@
+{
+  "command": [
+    "node",
+    "scripts/render-hyperframes.mjs",
+    "study",
+    "1",
+    "strict"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:35:04.691955+00:00",
+  "elapsed_seconds": 13.659386262999988,
+  "returncode": 0,
+  "log": "hyperframes-study-render.log"
+}

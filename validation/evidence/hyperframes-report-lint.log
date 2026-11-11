@@ -1,0 +1,8 @@
+◆  Linting hyperframes-report/index.html
+
+  ⚠ [/workspace/ai-animation-studio-research-content/validation/fixtures/hyperframes-report/index.html:4:3] studio_missing_editable_id: <div data-start="0" data-track-index="0"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.
+    Fix: Add a stable, human-readable id such as id="hero-title" or id="scene-1-card" to every timeline-visible element you want agents or Studio to edit.
+  ⚠ nested_structure_needs_subcomposition: <div> is a timeline element that contains nested <div id="paper">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.
+    Fix: Move <div> and its contents into a sub-composition file and mount it with data-composition-src.
+
+◇  0 error(s), 2 warning(s)

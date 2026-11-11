@@ -1,0 +1,7 @@
+node_modules/
+dist/
+data/
+validation/
+reports/
+artifacts/
+package-lock.json

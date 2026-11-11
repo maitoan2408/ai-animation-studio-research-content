@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "HYPERFRAMES_NO_TELEMETRY=1",
+    "HYPERFRAMES_CACHE_DIR=/tmp/studio-hyperframes-cache",
+    "HYPERFRAMES_BROWSER_PATH=/usr/bin/chromium",
+    "./node_modules/.bin/hyperframes",
+    "check",
+    "fixtures/hyperframes-report"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:53:06.232677+00:00",
+  "elapsed_seconds": 3.552573620999965,
+  "returncode": 0,
+  "log": "hyperframes-report-check.log"
+}

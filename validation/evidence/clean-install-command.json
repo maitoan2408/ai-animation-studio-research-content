@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "NODE_USE_ENV_PROXY=1",
+    "npm_config_cache=/tmp/studio-npm-cache",
+    "npm",
+    "ci",
+    "--no-audit",
+    "--no-fund"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:43:32.584356+00:00",
+  "elapsed_seconds": 9.617613299999903,
+  "returncode": 0,
+  "log": "clean-install.log"
+}

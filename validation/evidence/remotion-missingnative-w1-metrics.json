@@ -1,0 +1,22 @@
+{
+  "id": "MissingNative",
+  "workers": 1,
+  "composition": {
+    "id": "MissingNative",
+    "width": 320,
+    "height": 180,
+    "fps": 24,
+    "durationInFrames": 12,
+    "props": {},
+    "defaultProps": {},
+    "defaultCodec": null,
+    "defaultOutName": null,
+    "defaultVideoImageFormat": null,
+    "defaultPixelFormat": null,
+    "defaultProResProfile": null,
+    "defaultSampleRate": null
+  },
+  "bundleSeconds": 6.470747275,
+  "renderSeconds": 1.1596804810000003,
+  "totalSeconds": 8.661201046
+}

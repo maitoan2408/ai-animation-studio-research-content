@@ -1,0 +1,39 @@
+[hyperframes] Could not persist telemetry config: ENOENT: no such file or directory, mkdir '/home/agent/.hyperframes'. Canary cohort assignment will not be stable across runs.
+
+  Hyperframes collects usage data to improve the tool, anonymous until you sign in.
+  File paths and composition content are never collected.
+  If you sign in to HeyGen, your account (email and username) is linked to your usage.
+
+  Disable anytime: hyperframes telemetry disable
+
+[SystemMemory] cgroup memory limit detected: 8192 MiB. It governs memory-adaptive render behaviour instead of host RAM.
+Created scaffold/hyperframes-report/
+  AGENTS.md
+  CLAUDE.md
+  hyperframes.json
+  index.html
+  meta.json
+  package.json
+
+Get started:
+
+  1. For the user: use your HyperFrames plugin, or install standalone skills with:
+     npx hyperframes skills update
+
+  2. Open this project with your AI coding agent:
+     cd scaffold/hyperframes-report then start Claude Code, Cursor, or your preferred agent
+
+  3. Try a starter prompt:
+     "Using /hyperframes, create a 15-second intro about [your topic]"
+     More patterns: https://hyperframes.heygen.com/prompting/overview?utm_source=cli
+
+  4. Preview in the browser:
+     cd scaffold/hyperframes-report && npm run dev
+
+  5. Check the composition:
+     cd scaffold/hyperframes-report && npm run check
+
+  6. Render to MP4 when ready:
+     cd scaffold/hyperframes-report && npm run render
+
+  Full docs: https://hyperframes.heygen.com/?utm_source=cli

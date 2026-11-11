@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "scripts/qc.py"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:55:28.868522+00:00",
+  "elapsed_seconds": 1.7316428960000394,
+  "returncode": 0,
+  "log": "media-qc.log"
+}

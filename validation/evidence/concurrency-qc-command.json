@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "scripts/compare-concurrency.py"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:41:23.466756+00:00",
+  "elapsed_seconds": 4.38435210800003,
+  "returncode": 0,
+  "log": "concurrency-qc.log"
+}

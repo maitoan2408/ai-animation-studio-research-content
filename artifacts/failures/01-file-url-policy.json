@@ -1,0 +1,30 @@
+{
+  "root": "/tmp/studio-integration-LTrfdy",
+  "error": "Error: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///tmp/studio-integration-LTrfdy/seek-composition/index.html",
+  "checks": [
+    {
+      "name": "real Vietnamese draft voice is audible and fits every scene",
+      "status": "PASS",
+      "detail": [
+        {
+          "id": "s001",
+          "frames": 48,
+          "audio": {
+            "assetId": "0fb8b8f3cad36f5e9c35baab8b09f659af649c0577a905be435d9372c83f34fd",
+            "textHash": "0dcb19e76cd327199d6c8e08508b553347c6bb6ccd602e39661194f204d59229",
+            "gain": 1
+          }
+        },
+        {
+          "id": "s002",
+          "frames": 48,
+          "audio": {
+            "assetId": "c6059ace9f67bdc5f97d810c25be9d070764e65e2d2f2ad51d534aa7859faeb9",
+            "textHash": "c70ea7b6a9c2c06f0d07f8cf978b5ff794f964d116146a6e0513110393a30752",
+            "gain": 1
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "command": [
+    "./node_modules/.bin/create-video",
+    "--yes",
+    "--blank",
+    "scaffold/remotion-report"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:31:01.421525+00:00",
+  "elapsed_seconds": 5.428949552999995,
+  "returncode": 1,
+  "log": "remotion-scaffold-in-repo.log"
+}

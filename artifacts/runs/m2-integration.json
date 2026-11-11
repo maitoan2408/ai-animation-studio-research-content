@@ -1,0 +1,169 @@
+{
+  "status": "PASS",
+  "runtime": {
+    "node": "v24.22.1",
+    "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 7.1.5-0+deb13u1 Copyright (c) 2007-2026 the FFmpeg developers",
+    "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+    "browser": "/usr/bin/chromium",
+    "backend": "HyperFrames 0.9.30",
+    "compiler": "paper-studio/1"
+  },
+  "elapsedSeconds": 82.56,
+  "dataRoot": "/tmp/studio-integration-Imb1xn",
+  "checks": [
+    {
+      "name": "real Vietnamese draft voice is audible and fits every scene",
+      "status": "PASS",
+      "detail": [
+        {
+          "id": "s001",
+          "frames": 48,
+          "audio": {
+            "assetId": "0fb8b8f3cad36f5e9c35baab8b09f659af649c0577a905be435d9372c83f34fd",
+            "textHash": "0dcb19e76cd327199d6c8e08508b553347c6bb6ccd602e39661194f204d59229",
+            "gain": 1
+          }
+        },
+        {
+          "id": "s002",
+          "frames": 48,
+          "audio": {
+            "assetId": "c6059ace9f67bdc5f97d810c25be9d070764e65e2d2f2ad51d534aa7859faeb9",
+            "textHash": "c70ea7b6a9c2c06f0d07f8cf978b5ff794f964d116146a6e0513110393a30752",
+            "gain": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "browser seeks reproduce pixels in reverse order",
+      "status": "PASS",
+      "detail": {
+        "0": "5b9b78904209028f0b08f67f8f9f456a52b003693db76be3d8f5843078dd2cca",
+        "12": "d992994422d312bf91eb20bc708558d12550589353332a013e10c843ac603f7a",
+        "36": "6367809ac9412d60a25f913d9672a5b13fbc4cc847512a287a35145997336b4d",
+        "47": "19184edb71400122f13471b17566f78aa220001bf3ea71d871d53dd961a28695",
+        "48": "a0f88281e355bc0f0b0e428900ebda5df176244ccb75bf806e80d488f7af38c1",
+        "72": "0b9fe5cec97ef93331110a3cb27764236b079de0114ac12ecddeeb1f0b9a7d2c",
+        "95": "a27c8ec7d0d292dccb2f43f8433a4c50433d9b64c0ad1dac5c70e9d773d8d350"
+      }
+    },
+    {
+      "name": "HyperFrames strict multi-scene render + full decode/QC",
+      "status": "PASS",
+      "detail": {
+        "id": "artifact_7567c259-e7f4-49d8-9ed6-fa12a12df27a",
+        "projectId": "prj_a267992b-045f-4849-ad42-2a0ff359c119",
+        "revisionId": "rev_53d09e05-5ab1-4b66-b8b3-8955101ccfde",
+        "jobId": "job_54bfbb32-94e5-4d48-9bde-85a1b2dba491",
+        "profile": "preview",
+        "cacheKey": "032d03aa2fdd00dc5a6ef35cb7dddb7c92a71b6bef573ced5f3051c956dc0534",
+        "sha256": "c5dec7cb77faa8ecfbc1c81046b0376c29e8de9ae3ba56cd52d47f8a64aec184",
+        "bytes": 163531,
+        "createdAt": "2026-11-10T23:31:09.446Z",
+        "qc": {
+          "frames": 96,
+          "expectedFrames": 96,
+          "fps": "24/1",
+          "width": 640,
+          "height": 360,
+          "duration": 4,
+          "hasAudio": true,
+          "audioDuration": 4,
+          "audioSampleRate": 48000
+        }
+      }
+    },
+    {
+      "name": "real artifact cache hit after hash verification",
+      "status": "PASS",
+      "detail": {
+        "job": "job_6db23ffb-7ec6-4bb4-a175-bdc89f05f7a1"
+      }
+    },
+    {
+      "name": "export and reopen preserve exact spec and audio hashes",
+      "status": "PASS",
+      "detail": {
+        "project": "prj_0f6587f6-40d0-4f2d-b6f0-8174d0369d1f"
+      }
+    },
+    {
+      "name": "tampered audio rejected before queueing",
+      "status": "PASS",
+      "detail": {
+        "assetId": "0fb8b8f3cad36f5e9c35baab8b09f659af649c0577a905be435d9372c83f34fd"
+      }
+    },
+    {
+      "name": "real multiplane render",
+      "status": "PASS",
+      "detail": {
+        "frames": 96,
+        "expectedFrames": 96,
+        "fps": "24/1",
+        "width": 640,
+        "height": 360,
+        "duration": 4,
+        "hasAudio": true,
+        "audioDuration": 4,
+        "audioSampleRate": 48000
+      }
+    },
+    {
+      "name": "real shadow-box render",
+      "status": "PASS",
+      "detail": {
+        "frames": 96,
+        "expectedFrames": 96,
+        "fps": "24/1",
+        "width": 640,
+        "height": 360,
+        "duration": 4,
+        "hasAudio": true,
+        "audioDuration": 4,
+        "audioSampleRate": 48000
+      }
+    },
+    {
+      "name": "1080p pilot with three scenes and local voice",
+      "status": "PASS",
+      "detail": {
+        "id": "artifact_363624cc-f00c-4469-b2c8-13c588f1e9b8",
+        "projectId": "prj_e76d7760-8b0c-44c4-89d1-5c58ef5dc9d4",
+        "revisionId": "rev_7ea8ac12-5330-4f07-8866-87a6be06edda",
+        "jobId": "job_ae74d365-145c-4a8f-8b73-f61cf93324a1",
+        "profile": "final",
+        "cacheKey": "87a8af89af056b6aaaa871c81815bc28c85392c041068cf2e7c47078560eba10",
+        "sha256": "80b135bb23547da300c8fb218ac25d79514ebb39c3a1433457dae566ec142f18",
+        "bytes": 1555291,
+        "createdAt": "2026-11-10T23:32:07.354Z",
+        "qc": {
+          "frames": 312,
+          "expectedFrames": 312,
+          "fps": "24/1",
+          "width": 1920,
+          "height": 1080,
+          "duration": 13,
+          "hasAudio": true,
+          "audioDuration": 13,
+          "audioSampleRate": 48000
+        }
+      }
+    },
+    {
+      "name": "compiled CLI create -> voice -> render",
+      "status": "PASS",
+      "detail": {
+        "project": "prj_96e900bc-53a2-4f0d-aabc-d545309fa281",
+        "job": "job_f7487932-36a6-4c31-a889-a1818367af1c"
+      }
+    }
+  ],
+  "limitations": [
+    "Voice is a timing draft; no phoneme lip-sync claim.",
+    "Human artistic review is pending.",
+    "Single trial is not a production throughput benchmark."
+  ]
+}

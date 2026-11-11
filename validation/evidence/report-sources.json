@@ -1,0 +1,290 @@
+[
+  {
+    "label": "[H01] HeyGen / HyperFrames — HyperFrames — README",
+    "url": "https://github.com/heygen-com/hyperframes/blob/main/README.md",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Mô hình HTML-to-video, CLI, Node.js 22+, FFmpeg và cách cài skills."
+  },
+  {
+    "label": "[H02] HeyGen / HyperFrames — HyperFrames — LICENSE",
+    "url": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Văn bản Apache License 2.0 của repository; không thay license dependency."
+  },
+  {
+    "label": "[H03] HeyGen / HyperFrames — Compositions",
+    "url": "https://hyperframes.heygen.com/concepts/compositions",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Composition, clip timing, sub-composition, local time và đăng ký timeline."
+  },
+  {
+    "label": "[H04] HeyGen / HyperFrames — @hyperframes/engine",
+    "url": "https://hyperframes.heygen.com/packages/engine",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Primitive seek/capture và ranh giới trách nhiệm của Engine."
+  },
+  {
+    "label": "[H05] HeyGen / HyperFrames — @hyperframes/producer",
+    "url": "https://hyperframes.heygen.com/packages/producer",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Pipeline compile/capture/encode/audio; Node API; distributed activities; kiểm frame count."
+  },
+  {
+    "label": "[H06] HeyGen / HyperFrames — Frame adapters",
+    "url": "https://hyperframes.heygen.com/concepts/frame-adapters",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Hợp đồng FrameAdapter; trạng thái experimental v0; random seek và cleanup."
+  },
+  {
+    "label": "[H07] HeyGen / HyperFrames — Rendering",
+    "url": "https://hyperframes.heygen.com/guides/rendering",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Luồng và tùy chọn render. Chưa kiểm nghiệm các profile trong môi trường đích."
+  },
+  {
+    "label": "[R01] Remotion — Installation / Getting started",
+    "url": "https://www.remotion.dev/docs",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Scaffold CLI, Studio và hướng dẫn cài đặt; không phải xác nhận đã chạy local."
+  },
+  {
+    "label": "[R02] Remotion — The fundamentals / core idea",
+    "url": "https://www.remotion.dev/docs/idea",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: React, composition và frame-driven animation."
+  },
+  {
+    "label": "[R03] Remotion — Flickering",
+    "url": "https://www.remotion.dev/docs/flickering",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Nhiều tab, state, frame-order independence và đợi asset/font."
+  },
+  {
+    "label": "[R04] Remotion — renderMedia()",
+    "url": "https://www.remotion.dev/docs/renderer/render-media",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: API server-side rendering và tùy chọn thực thi."
+  },
+  {
+    "label": "[R05] Remotion — Parameterized videos",
+    "url": "https://www.remotion.dev/docs/parameterized-rendering",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Default/input props, schema, calculateMetadata và Player."
+  },
+  {
+    "label": "[R06] Remotion — <Sequence>",
+    "url": "https://www.remotion.dev/docs/sequence",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Vị trí clip và frame cục bộ trong sequence."
+  },
+  {
+    "label": "[R07] Remotion — License pricing",
+    "url": "https://www.remotion.dev/docs/license/pricing",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Giá hiển thị và phân nhóm gói tại ngày truy cập; không phải báo giá studio."
+  },
+  {
+    "label": "[R08] Remotion — Terms and Conditions — Remotion 4.0",
+    "url": "https://www.remotion.dev/docs/terms-4-0",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Điều khoản cho v4; cần đối chiếu LICENSE và hợp đồng của bản cài."
+  },
+  {
+    "label": "[R09] Remotion — Terms and Conditions — upcoming Remotion 5.0",
+    "url": "https://www.remotion.dev/docs/terms",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Có nhãn Upcoming trong lần đọc. Không được tự áp cho mọi bản v4."
+  },
+  {
+    "label": "[R10] Remotion — GSAP integration",
+    "url": "https://www.remotion.dev/docs/gsap",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: @remotion/gsap dùng paused timeline được seek theo frame; yêu cầu version đồng bộ."
+  },
+  {
+    "label": "[R11] Remotion — Core package LICENSE.md",
+    "url": "https://github.com/remotion-dev/remotion/blob/main/packages/core/LICENSE.md",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Free/Company License, eligibility, giới hạn; thông báo thay đổi khi v5."
+  },
+  {
+    "label": "[P01] PixiJS — Architecture",
+    "url": "https://pixijs.com/8.x/guides/concepts/architecture",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Renderer, containers/scene graph và hệ thống của PixiJS 8.x."
+  },
+  {
+    "label": "[P02] PixiJS — Ticker Plugin",
+    "url": "https://pixijs.com/8.x/guides/components/application/ticker-plugin",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Ticker, điều khiển vòng cập nhật của application."
+  },
+  {
+    "label": "[P03] PixiJS — Performance Tips",
+    "url": "https://pixijs.com/8.x/guides/concepts/performance-tips",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Các yếu tố hiệu năng; không cung cấp benchmark cho studio này."
+  },
+  {
+    "label": "[P04] PixiJS — LICENSE",
+    "url": "https://github.com/pixijs/pixijs/blob/dev/LICENSE",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: MIT license trong kho PixiJS, nhánh dev tại ngày truy cập."
+  },
+  {
+    "label": "[A01] Esoteric Software — Spine Runtimes — Skeletons",
+    "url": "https://esotericsoftware.com/spine-runtime-skeletons",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Bones, slots, attachments và dữ liệu skeleton."
+  },
+  {
+    "label": "[A02] Esoteric Software — Spine Runtimes License Agreement",
+    "url": "https://esotericsoftware.com/spine-runtimes-license",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: License runtime và liên hệ với Spine Editor; cập nhật ghi trong trang 05/04/2025."
+  },
+  {
+    "label": "[A03] Rive — Web low-level API usage",
+    "url": "https://rive.app/docs/runtimes/web/low-level-api-usage",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Điều khiển animation/state machine/artboard và draw; chưa chứng minh random seek tùy ý."
+  },
+  {
+    "label": "[A04] OpenToonz documentation — Creating Animations Using Plastic Tool",
+    "url": "https://opentoonz.readthedocs.io/en/latest/create_animations_using_plastic_tool.html",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Mesh/skeleton và biến dạng. Phiên bản trang tài liệu không chứng minh bản phần mềm mới nhất."
+  },
+  {
+    "label": "[A05] Krita documentation — Animation with Krita",
+    "url": "https://docs.krita.org/en/user_manual/animation.html",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Workflow hoạt hình raster và tổ chức animation."
+  },
+  {
+    "label": "[A06] Toon Boom — Harmony 27 — How to Rig a Cut-out Character",
+    "url": "https://docs.toonboom.com/help/harmony-27/premium/getting-started/character-building.html",
+    "original_access": "Truy cập 10/11/2026. Đọc bản lập chỉ mục của trang chính thức; không xác nhận tải trực tiếp.",
+    "scope": "Phạm vi: Phân lớp nhân vật, pegs và hierarchy. Bản lập chỉ mục; tải trực tiếp lỗi 404."
+  },
+  {
+    "label": "[A07] Toon Boom — Harmony 25 — About Multiplane",
+    "url": "https://docs.toonboom.com/help/harmony-25/premium/staging/about-multiplane.html",
+    "original_access": "Truy cập 10/11/2026. Đọc bản lập chỉ mục của trang chính thức; không xác nhận tải trực tiếp.",
+    "scope": "Phạm vi: Layer depth, camera và cần vẽ đầy đủ vùng bị che. Bản lập chỉ mục; tải trực tiếp lỗi 404."
+  },
+  {
+    "label": "[A08] Motion Canvas — Introduction",
+    "url": "https://motioncanvas.io/docs/",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: TypeScript generators, preview editor và phạm vi animation giải thích/vector."
+  },
+  {
+    "label": "[A09] LottieFiles — Supported After Effects Features",
+    "url": "https://help.lottiefiles.com/supported-after-effects-features",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Khác biệt hỗ trợ tính năng theo renderer; không bảo đảm mọi AE effect xuất đúng."
+  },
+  {
+    "label": "[A11] Rive — rive-runtime — LICENSE",
+    "url": "https://github.com/rive-app/rive-runtime/blob/master/LICENSE",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: MIT của repository runtime; không suy ra điều khoản editor/cloud."
+  },
+  {
+    "label": "[A12] Toon Boom — Storyboard Pro 25 — About Timing",
+    "url": "https://docs.toonboom.com/help/storyboard-pro-25/storyboard/timing/about-timing.html",
+    "original_access": "Truy cập 10/11/2026. Đọc bản lập chỉ mục của trang chính thức; không xác nhận tải trực tiếp.",
+    "scope": "Phạm vi: Timing panel/scene cho animatic theo hành động và soundtrack; truy cập qua chỉ mục."
+  },
+  {
+    "label": "[A13] Motion Canvas — Video (FFmpeg)",
+    "url": "https://motioncanvas.io/docs/rendering/video/",
+    "original_access": "Truy cập 10/11/2026. Mở trực tiếp bằng công cụ web.",
+    "scope": "Phạm vi: Exporter @motion-canvas/ffmpeg, audio và tùy chọn xuất video."
+  },
+  {
+    "label": "[I01] OpenAI — Image generation guide",
+    "url": "https://developers.openai.com/api/docs/guides/image-generation",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Khả năng tạo/chỉnh ảnh và giới hạn consistency/layout; không có benchmark dự án này."
+  },
+  {
+    "label": "[I02] Meta / SAM 2 — SAM 2 — README",
+    "url": "https://github.com/facebookresearch/sam2/blob/main/README.md",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Segmentation ảnh/video; không cung cấp rig hoặc hoàn thiện phần bị che."
+  },
+  {
+    "label": "[S01] Daniel S. Wolf / Rhubarb Lip Sync — README.adoc",
+    "url": "https://github.com/DanielSWolf/rhubarb-lip-sync/blob/master/README.adoc",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Mouth shapes, cues, PocketSphinx/phonetic; không có kết quả thử tiếng Việt ở nghiên cứu này."
+  },
+  {
+    "label": "[S02] Montreal Forced Aligner — Corpus alignment workflow",
+    "url": "https://montreal-forced-aligner.readthedocs.io/en/stable/user_guide/workflows/alignment.html",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Forced alignment với model/dictionary và dữ liệu; phải khóa phiên bản model/tool."
+  },
+  {
+    "label": "[S03] FFmpeg — FFmpeg Filters — loudnorm",
+    "url": "https://ffmpeg.org/ffmpeg-filters.html",
+    "original_access": "Truy cập 10/11/2026. Đọc bản lập chỉ mục của trang chính thức; không xác nhận tải trực tiếp.",
+    "scope": "Phạm vi: Integrated loudness, loudness range, true peak và các chế độ; đọc qua chỉ mục do lỗi tải trực tiếp."
+  },
+  {
+    "label": "[S04] FFmpeg — LICENSE.md",
+    "url": "https://github.com/FFmpeg/FFmpeg/blob/master/LICENSE.md",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: LGPL/GPL và external/nonfree library theo cấu hình build."
+  },
+  {
+    "label": "[S05] ElevenLabs — Text to Speech — Convert with timestamps",
+    "url": "https://elevenlabs.io/docs/api-reference/text-to-speech/convert-with-timestamps",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Audio và alignment timestamps ký tự; không đồng nghĩa phoneme/viseme."
+  },
+  {
+    "label": "[O01] OpenTimelineIO — OpenTimelineIO documentation v0.18.0",
+    "url": "https://opentimelineio.readthedocs.io/en/v0.18.0/",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Timeline editorial và media references; không phải renderer hoặc rig format."
+  },
+  {
+    "label": "[O02] LangChain / LangGraph — Persistence",
+    "url": "https://docs.langchain.com/oss/python/langgraph/persistence",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Checkpoint, thread và persistence cho luồng agent."
+  },
+  {
+    "label": "[O03] Temporal — Activity Definition",
+    "url": "https://docs.temporal.io/activity-definition",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Activity, idempotency và hành vi cần cân nhắc khi retry."
+  },
+  {
+    "label": "[O04] OpenAI — Structured Outputs guide",
+    "url": "https://developers.openai.com/api/docs/guides/structured-outputs",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Ràng buộc schema; nội dung vẫn có thể sai về ngữ nghĩa."
+  },
+  {
+    "label": "[O05] OpenAI Agents SDK — Tracing",
+    "url": "https://openai.github.io/openai-agents-python/tracing/",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Theo dõi agent runs/tool calls; không thay toàn bộ durable workflow."
+  },
+  {
+    "label": "[Q01] Netflix — VMAF — README",
+    "url": "https://github.com/Netflix/vmaf/blob/master/README.md",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Mục tiêu perceptual video quality; không phải metric kể chuyện/diễn xuất."
+  },
+  {
+    "label": "[G01] Webflow / GSAP — Standard “No Charge” GSAP License",
+    "url": "https://gsap.com/community/standard-license/",
+    "original_access": "Truy cập 09/11/2026. Đọc trực tiếp; có bản chụp trong hồ sơ khảo sát.",
+    "scope": "Phạm vi: Permitted/prohibited uses và FAQ AI-generated code; văn bản sửa 30/05/2025."
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "backend": "hyperframes",
+    "frames": 240,
+    "identical_frames": 240,
+    "max_frame_mean_channel_error": 0.0,
+    "max_pixel_fraction_above_16": 0.0,
+    "thresholds": {
+      "frame_mean_channel_error_lte": 1,
+      "pixel_fraction_above_16_lte": 0.001
+    },
+    "pass": true
+  },
+  {
+    "backend": "remotion",
+    "frames": 240,
+    "identical_frames": 240,
+    "max_frame_mean_channel_error": 0.0,
+    "max_pixel_fraction_above_16": 0.0,
+    "thresholds": {
+      "frame_mean_channel_error_lte": 1,
+      "pixel_fraction_above_16_lte": 0.001
+    },
+    "pass": true
+  }
+]

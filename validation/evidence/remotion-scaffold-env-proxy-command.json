@@ -1,0 +1,15 @@
+{
+  "command": [
+    "env",
+    "NODE_USE_ENV_PROXY=1",
+    "./node_modules/.bin/create-video",
+    "--yes",
+    "--blank",
+    "scaffold/remotion-proxy"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:32:15.235526+00:00",
+  "elapsed_seconds": 2.2636164770000278,
+  "returncode": 0,
+  "log": "remotion-scaffold-env-proxy.log"
+}

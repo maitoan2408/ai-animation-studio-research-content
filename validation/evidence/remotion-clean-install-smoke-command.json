@@ -1,0 +1,13 @@
+{
+  "command": [
+    "node",
+    "scripts/render-remotion.mjs",
+    "MyVideo",
+    "1"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:50:52.239243+00:00",
+  "elapsed_seconds": 22.793648244999986,
+  "returncode": 0,
+  "log": "remotion-clean-install-smoke.log"
+}

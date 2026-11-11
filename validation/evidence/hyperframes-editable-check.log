@@ -1,0 +1,98 @@
+◆  Checking hyperframes-editable
+[hyperframes] check: the report is saved to /workspace/ai-animation-studio-research-content/validation/fixtures/hyperframes-editable/.hyperframes/artifacts/checks/5f122633-c24c-4015-bb53-9101dc9678ba.json when the check ends, unless a warning says it could not be saved
+[hyperframes] check: starting Chrome
+[hyperframes] browserGpuMode probe → software (WebGL renderer vendor="Google Inc. (Mesa)" renderer="ANGLE (Mesa, llvmpipe (LLVM 19.1.7 256 bits), OpenGL ES 3.2)")
+[SystemMemory] cgroup memory limit detected: 8192 MiB. It governs memory-adaptive render behaviour instead of host RAM.
+[hyperframes] check: loading the page
+[hyperframes] check: waiting for the page to be ready
+[hyperframes] check: checking samples
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: running the overlap pass
+[hyperframes] check: craft 1/40
+[hyperframes] check: craft 2/40
+[hyperframes] check: craft 3/40
+[hyperframes] check: craft 4/40
+[hyperframes] check: craft 5/40
+[hyperframes] check: craft 6/40
+[hyperframes] check: craft 7/40
+[hyperframes] check: craft 8/40
+[hyperframes] check: craft 9/40
+[hyperframes] check: craft 10/40
+[hyperframes] check: craft 11/40
+[hyperframes] check: craft 12/40
+[hyperframes] check: craft 13/40
+[hyperframes] check: craft 14/40
+[hyperframes] check: craft 15/40
+[hyperframes] check: craft 16/40
+[hyperframes] check: craft 17/40
+[hyperframes] check: craft 18/40
+[hyperframes] check: craft 19/40
+[hyperframes] check: craft 20/40
+[hyperframes] check: craft 21/40
+[hyperframes] check: craft 22/40
+[hyperframes] check: craft 23/40
+[hyperframes] check: craft 24/40
+[hyperframes] check: craft 25/40
+[hyperframes] check: craft 26/40
+[hyperframes] check: craft 27/40
+[hyperframes] check: craft 28/40
+[hyperframes] check: craft 29/40
+[hyperframes] check: craft 30/40
+[hyperframes] check: craft 31/40
+[hyperframes] check: craft 32/40
+[hyperframes] check: craft 33/40
+[hyperframes] check: craft 34/40
+[hyperframes] check: craft 35/40
+[hyperframes] check: craft 36/40
+[hyperframes] check: craft 37/40
+[hyperframes] check: craft 38/40
+[hyperframes] check: craft 39/40
+[hyperframes] check: craft 40/40
+[hyperframes] check: overlap 1/5
+[hyperframes] check: overlap 2/5
+[hyperframes] check: overlap 3/5
+[hyperframes] check: overlap 4/5
+[hyperframes] check: overlap 5/5
+[hyperframes] check: checking samples
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyzing the samples
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+
+Lint
+  ◇ 0 errors, 0 warnings
+
+Runtime
+  ◇ 0 errors, 0 warnings
+
+Layout
+  ◇ 0 issues across 9 sample(s)
+
+Motion
+  ◇ 0 errors, 0 warnings
+
+Contrast
+  ◇ 5/5 text checks pass WCAG AA
+
+Craft
+  ◇ 0 errors, 0 warnings
+
+Audio
+  ℹ audio_none: The film has no sound: no clip in it plays audio.
+    index.html [data-composition-id] t=0s
+  0 error(s), 0 warning(s), 1 info(s)
+
+Snapshots
+  ◇ disabled
+
+◇  Check passed
+Report: /workspace/ai-animation-studio-research-content/validation/fixtures/hyperframes-editable/.hyperframes/artifacts/checks/5f122633-c24c-4015-bb53-9101dc9678ba.json
+Revision: none (unversioned)

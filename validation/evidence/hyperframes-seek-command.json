@@ -1,0 +1,11 @@
+{
+  "command": [
+    "node",
+    "scripts/seek-hyperframes.mjs"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:40:00.935544+00:00",
+  "elapsed_seconds": 4.081535897000094,
+  "returncode": 0,
+  "log": "hyperframes-seek.log"
+}

@@ -1,0 +1,8 @@
+[title=Chào buổi sáng; action=wave; seconds=4; color=#527e88]
+Xin chào. Một ngày mới đã bắt đầu.
+
+[title=Chiếc cốc; action=pick-up; camera=pan; seconds=5; color=#527e88]
+Tôi nhấc chiếc cốc lên, và chậm lại một chút.
+
+[title=Đi về phía trước; action=walk; camera=pan; seconds=4; color=#527e88]
+Rồi tôi bước đi, mang theo một ý tưởng mới.

@@ -1,0 +1,22 @@
+{
+  "id": "MyVideo",
+  "workers": 1,
+  "composition": {
+    "id": "MyVideo",
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "durationInFrames": 120,
+    "props": {},
+    "defaultProps": {},
+    "defaultCodec": null,
+    "defaultOutName": null,
+    "defaultVideoImageFormat": null,
+    "defaultPixelFormat": null,
+    "defaultProResProfile": null,
+    "defaultSampleRate": null
+  },
+  "bundleSeconds": 11.620628385999998,
+  "renderSeconds": 9.709838324999998,
+  "totalSeconds": 22.429110403000003
+}

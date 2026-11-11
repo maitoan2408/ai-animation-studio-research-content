@@ -1,0 +1,14 @@
+{
+  "command": [
+    "node",
+    "scripts/render-hyperframes.mjs",
+    "missing",
+    "1",
+    "best-effort"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content/validation",
+  "started_at_utc": "2026-11-10T15:36:37.616976+00:00",
+  "elapsed_seconds": 2.0410050489999776,
+  "returncode": 0,
+  "log": "hyperframes-missing-best-effort.log"
+}

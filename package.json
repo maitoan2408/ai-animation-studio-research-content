@@ -1,0 +1,36 @@
+{
+  "name": "paper-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "tsx src/cli.ts serve",
+    "build": "tsc",
+    "start": "node dist/cli.js serve",
+    "studio": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.test.json",
+    "test": "tsx --test tests/*.test.ts",
+    "format": "prettier --write src tests web package.json tsconfig.json tsconfig.test.json",
+    "format:check": "prettier --check src tests web package.json tsconfig.json tsconfig.test.json",
+    "verify": "npm run format:check && npm run typecheck && npm test",
+    "test:integration": "tsx tests/integration.ts",
+    "test:ui": "tsx tests/ui.ts"
+  },
+  "dependencies": {
+    "@echogarden/espeak-ng-emscripten": "0.3.5",
+    "@hyperframes/engine": "0.9.30",
+    "@hyperframes/producer": "0.9.30",
+    "gsap": "3.15.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.0",
+    "prettier": "3.9.10",
+    "puppeteer-core": "24.37.2",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}

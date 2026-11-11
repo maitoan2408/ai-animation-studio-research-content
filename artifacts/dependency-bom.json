@@ -1,0 +1,3627 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cc466137-0f23-4d36-a682-e1609ad9d00c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-10T23:47:15.729Z",
+    "lifecycles": [
+      {
+        "phase": "build"
+      }
+    ],
+    "tools": [
+      {
+        "vendor": "npm",
+        "name": "cli",
+        "version": "11.9.0"
+      }
+    ],
+    "component": {
+      "bom-ref": "paper-studio@0.1.0",
+      "type": "library",
+      "name": "ai-animation-studio-research-content",
+      "version": "0.1.0",
+      "scope": "required",
+      "purl": "pkg:npm/paper-studio@0.1.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        }
+      ],
+      "externalReferences": []
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "@babel/helper-string-parser@7.29.13",
+      "type": "library",
+      "name": "@babel/helper-string-parser",
+      "version": "7.29.13",
+      "scope": "required",
+      "author": "The Babel Team (https://babel.dev/team)",
+      "description": "A utility package to parse strings",
+      "purl": "pkg:npm/%40babel/helper-string-parser@7.29.13",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.29.13.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/babel/babel.git"
+        },
+        {
+          "type": "website",
+          "url": "https://babel.dev/docs/en/next/babel-helper-string-parser"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "7d67a0afe5ac12c88c556e0a50d748233ccc4d94b3362aa1cb4fffebed8c462d9de4d14db0bfc06300505bc7819d16d30554670d5ce3689114a8a6825a330c75"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@babel/helper-validator-identifier@7.29.7",
+      "type": "library",
+      "name": "@babel/helper-validator-identifier",
+      "version": "7.29.7",
+      "scope": "required",
+      "author": "The Babel Team (https://babel.dev/team)",
+      "description": "Validate identifier/keywords name",
+      "purl": "pkg:npm/%40babel/helper-validator-identifier@7.29.7",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/babel/babel.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "a9e8711a4463e7987f7dff0431a27e71887268a947231a980e7ebcdb0403ed1369f54ba3390b07a20dae4b4af6bf3af8a56fac5dff7435e79aca370d697ddf16"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@babel/parser@7.29.13",
+      "type": "library",
+      "name": "@babel/parser",
+      "version": "7.29.13",
+      "scope": "required",
+      "author": "The Babel Team (https://babel.dev/team)",
+      "description": "A JavaScript parser",
+      "purl": "pkg:npm/%40babel/parser@7.29.13",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@babel/parser/-/parser-7.29.13.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/babel/babel.git"
+        },
+        {
+          "type": "website",
+          "url": "https://babel.dev/docs/en/next/babel-parser"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "7c9339d186239538818607641a60b5b41a6ff85300ca8e1a9e77f65fa024b3ed324656a2564616ff77f4ef101f55591822867d7c5669fa6113854167bb26e191"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@babel/types@7.29.11",
+      "type": "library",
+      "name": "@babel/types",
+      "version": "7.29.11",
+      "scope": "required",
+      "author": "The Babel Team (https://babel.dev/team)",
+      "description": "Babel Types is a Lodash-esque utility library for AST nodes",
+      "purl": "pkg:npm/%40babel/types@7.29.11",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@babel/types/-/types-7.29.11.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/babel/babel.git"
+        },
+        {
+          "type": "website",
+          "url": "https://babel.dev/docs/en/next/babel-types"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "582b1e996e340a973a828b82d52ad8e8f05a67ea0b46511563d5c1bd9048ee297f1f252b6f69c9e74e70135307105c8364d9eb58312ecb88cbe745951df4d349"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@chenglou/pretext@0.0.5",
+      "type": "library",
+      "name": "@chenglou/pretext",
+      "version": "0.0.5",
+      "scope": "required",
+      "description": "Fast, accurate & comprehensive text measurement & layout",
+      "purl": "pkg:npm/%40chenglou/pretext@0.0.5",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@chenglou/pretext/-/pretext-0.0.5.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/chenglou/pretext.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "03c199375d1111d146b32ba25202d5f238cf0c314c8391a68311965742378a0c413a7ce3fa3833d95326543ee0f92172a1cb5f7aa1c5c5b35ab4a4b35515ad46"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@echogarden/espeak-ng-emscripten@0.3.5",
+      "type": "library",
+      "name": "@echogarden/espeak-ng-emscripten",
+      "version": "0.3.5",
+      "scope": "required",
+      "author": "Echogarden project",
+      "description": "eSpeak-NG speech synthesizer, compiled to JavaScript via Emscripten. Intended for use with Echogarden.",
+      "purl": "pkg:npm/%40echogarden/espeak-ng-emscripten@0.3.5",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@echogarden/espeak-ng-emscripten/-/espeak-ng-emscripten-0.3.5.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/echogarden-project/espeak-ng-emscripten"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/echogarden-project/espeak-ng-emscripten/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "2336e49bb35671cc1bfff44a80ea75ff4936d52b4a3750c5227f8aec65355cdee7ea99928b86ec93fd2d614b2041bcac0b8195cab5689a93662c89d4fc1144f8"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@emnapi/runtime@1.11.3",
+      "type": "library",
+      "name": "@emnapi/runtime",
+      "version": "1.11.3",
+      "scope": "optional",
+      "author": "toyobayashi",
+      "description": "emnapi runtime",
+      "purl": "pkg:npm/%40emnapi/runtime@1.11.3",
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@emnapi/runtime/-/runtime-1.11.3.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/toyobayashi/emnapi.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/toyobayashi/emnapi#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/toyobayashi/emnapi/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "5f3e13a72922ed7caba5b50ad6347502174075a5f2861638959de778ba1d9a1a6e59fcb63c040de41e3ab00894e2588e5c62e41f2a67fea53e8ef7d64826182c"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@hono/node-server@2.1.6",
+      "type": "library",
+      "name": "@hono/node-server",
+      "version": "2.1.6",
+      "scope": "required",
+      "author": "Yusuke Wada <yusuke@kamawada.com> (https://github.com/yusukebe)",
+      "description": "Node.js Adapter for Hono",
+      "purl": "pkg:npm/%40hono/node-server@2.1.6",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@hono/node-server/-/node-server-2.1.6.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/honojs/node-server.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/honojs/node-server"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "a7f287f4c9df35cb26dec47ac7894d826e63f9037812df2cacaade765f4365f5e2c99d54437690d9856914b6ea92d60de4923e0c1f9564528cd8fa84e612ca8d"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@hyperframes/core@0.9.30",
+      "type": "library",
+      "name": "@hyperframes/core",
+      "version": "0.9.30",
+      "scope": "required",
+      "purl": "pkg:npm/%40hyperframes/core@0.9.30",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@hyperframes/core/-/core-0.9.30.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/heygen-com/hyperframes"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e14db83443e43abb58bc69d31cec62ccff037b2b78b376349bb70e2cdcb11ee77b750f35d48de470aa7ca3335ea4a2d4ce5d654a8b715dd555501e7255e00954"
+        }
+      ]
+    },
+    {
+      "bom-ref": "@hyperframes/engine@0.9.30",
+      "type": "library",
+      "name": "@hyperframes/engine",
+      "version": "0.9.30",
+      "scope": "required",
+      "description": "Seekable web page to video rendering engine (Puppeteer + FFmpeg)",
+      "purl": "pkg:npm/%40hyperframes/engine@0.9.30",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@hyperframes/engine/-/engine-0.9.30.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/heygen-com/hyperframes"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "f497623858f3725673ae0f66e1ea14fa7e564cea4e36a8ee0f95f433a3837fa4d4bb10612088bcaafbb4e92f86073c2ea3ebddf0b4cd22b094db5550fbea6a88"
+        }
+      ]
+    },
+    {
+      "bom-ref": "@puppeteer/browsers@3.2.7",
+      "type": "library",
+      "name": "@puppeteer/browsers",
+      "version": "3.2.7",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "description": "Download and launch browsers",
+      "purl": "pkg:npm/%40puppeteer/browsers@3.2.7",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@puppeteer/browsers/-/browsers-3.2.7.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/puppeteer/puppeteer/tree/main/packages/browsers"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "0770bfbfc38411a25870dd48cf381b3e6b7e19b14036be0c7ff36ba8db8693f748721aefeaab8dab1813f80eaa13419ed0c37de4d8ca51d75c47524ca5844c58"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "chromium-bidi@157.0.8090-0",
+      "type": "library",
+      "name": "chromium-bidi",
+      "version": "157.0.8090-0",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "description": "An implementation of the WebDriver BiDi protocol for Chromium implemented as a JavaScript layer translating between BiDi and CDP, running inside a Chrome tab.",
+      "purl": "pkg:npm/chromium-bidi@157.0.8090-0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/chromium-bidi/-/chromium-bidi-157.0.8090-0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/GoogleChromeLabs/chromium-bidi.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "289c3b21082a5f0c692602651083e0e66af6668a80fa391346d739100048eec509ddbbb772923b36e101a23e069f502c17bf02693f52a395905aca4adffc186a"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "devtools-protocol@0.0.1717327",
+      "type": "library",
+      "name": "devtools-protocol",
+      "version": "0.0.1717327",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "description": "The Chrome DevTools Protocol JSON",
+      "purl": "pkg:npm/devtools-protocol@0.0.1717327",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1717327.tgz"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ChromeDevTools/devtools-protocol/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "dd10cb0f3cafbfc5c061fd4bf932f5a20d04124d1e396d499f4ca2f3cb86e818fc7d428ed5929f80db706c992a7f949674f0d2e151843f1c1d516cfbf15e9772"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "puppeteer-core@25.17.0",
+      "type": "library",
+      "name": "puppeteer-core",
+      "version": "25.17.0",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "description": "A high-level API to control headless Chrome over the DevTools Protocol",
+      "purl": "pkg:npm/puppeteer-core@25.17.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-25.17.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/puppeteer/puppeteer/tree/main/packages/puppeteer-core"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "6008018ad91df8af60c51b7ec330401534e41a3902f1a0b6a383b1a1fb14f09532da79cafd17e54c227d6d10af08c35babd4cf86a164e0f873f7ca2d37d16b1a"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "webdriver-bidi-protocol@1.0.2",
+      "type": "library",
+      "name": "webdriver-bidi-protocol",
+      "version": "1.0.2",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "purl": "pkg:npm/webdriver-bidi-protocol@1.0.2",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/webdriver-bidi-protocol/-/webdriver-bidi-protocol-1.0.2.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/GoogleChromeLabs/webdriver-bidi-protocol.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "9e085accf23e27946b2d9faa6fabcc8c2ea5d7fb67c2aaf69ae5446b1e147dde9e21d7237aa36784bb00c531bdb3eed97f8ba681fd03ac4c030bc0a853dd6700"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@hyperframes/lint@0.9.30",
+      "type": "library",
+      "name": "@hyperframes/lint",
+      "version": "0.9.30",
+      "scope": "required",
+      "purl": "pkg:npm/%40hyperframes/lint@0.9.30",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@hyperframes/lint/-/lint-0.9.30.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/heygen-com/hyperframes"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "d4238cd51f864c33b526d0c0770ebb7ce1c54624b64b7885981d0a516e8bb738f1dd5e4d6fb7ea89fc61f4b93151b94e2d8ee15e7fefa3f4286a7e90b16fab5a"
+        }
+      ]
+    },
+    {
+      "bom-ref": "@hyperframes/parsers@0.9.30",
+      "type": "library",
+      "name": "@hyperframes/parsers",
+      "version": "0.9.30",
+      "scope": "required",
+      "purl": "pkg:npm/%40hyperframes/parsers@0.9.30",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@hyperframes/parsers/-/parsers-0.9.30.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/heygen-com/hyperframes"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "39fe118252d9d86746edc60f9a5835f14e5f37e58b87dbd42de10fd766ba3c625c4a7f152e67b66b71f2f50b4479f541f1bbd2b1e5627522c85cf4eb55f06100"
+        }
+      ]
+    },
+    {
+      "bom-ref": "@hyperframes/producer@0.9.30",
+      "type": "library",
+      "name": "@hyperframes/producer",
+      "version": "0.9.30",
+      "scope": "required",
+      "description": "HTML-to-video rendering engine using Chrome's BeginFrame API",
+      "purl": "pkg:npm/%40hyperframes/producer@0.9.30",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@hyperframes/producer/-/producer-0.9.30.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/heygen-com/hyperframes"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "cc2238eb806d2497cb66b49e245452681c4af3ab315eff6c5e7019a0fccdee58a1cd40154da5ffdc899628215a48b2c50d7e5b20e8b13aa0c84c0da5d4839344"
+        }
+      ]
+    },
+    {
+      "bom-ref": "@hyperframes/studio-server@0.9.30",
+      "type": "library",
+      "name": "@hyperframes/studio-server",
+      "version": "0.9.30",
+      "scope": "required",
+      "purl": "pkg:npm/%40hyperframes/studio-server@0.9.30",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@hyperframes/studio-server/-/studio-server-0.9.30.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/heygen-com/hyperframes"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "887a408462d1a1fa1f082cc58b3c58dddcc715a72f7a31fe7ba9b898643489cf9a9093b2d1d8916404bbb27e403bf01418fcb67450722029d72d6a0136e6a9b4"
+        }
+      ]
+    },
+    {
+      "bom-ref": "@img/colour@1.1.0",
+      "type": "library",
+      "name": "@img/colour",
+      "version": "1.1.0",
+      "scope": "optional",
+      "description": "The ESM-only 'color' package made compatible for use with CommonJS runtimes",
+      "purl": "pkg:npm/%40img/colour@1.1.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@img/colour/-/colour-1.1.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/lovell/colour.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "4ddefaabb8f9ee8fed2d57604bbe3a7180117d2cb193c8847d1c5ec0bf61e0e3336216d6e1301ca69974993e1ecaa5dd761e8bfe3c2833be66a3b8b16bfa4279"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@img/sharp-libvips-linux-x64@1.3.4",
+      "type": "library",
+      "name": "@img/sharp-libvips-linux-x64",
+      "version": "1.3.4",
+      "scope": "optional",
+      "author": "Lovell Fuller <npm@lovell.info>",
+      "description": "Prebuilt libvips and dependencies for use with sharp on Linux (glibc) x64",
+      "purl": "pkg:npm/%40img/sharp-libvips-linux-x64@1.3.4",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@img/sharp-libvips-linux-x64/-/sharp-libvips-linux-x64-1.3.4.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/lovell/sharp-libvips.git"
+        },
+        {
+          "type": "website",
+          "url": "https://sharp.pixelplumbing.com"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "189fff4925db9f04837acd36ba60779c324b15c433c3c6b5f15f1fca1aabead579d79b4e10c7489a38f18f502869f311cf9e85dcf1e07ed9e3d5010a494d7393"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "LGPL-3.0-or-later"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@img/sharp-libvips-linuxmusl-x64@1.3.4",
+      "type": "library",
+      "name": "@img/sharp-libvips-linuxmusl-x64",
+      "version": "1.3.4",
+      "scope": "optional",
+      "author": "Lovell Fuller <npm@lovell.info>",
+      "description": "Prebuilt libvips and dependencies for use with sharp on Linux (musl) x64",
+      "purl": "pkg:npm/%40img/sharp-libvips-linuxmusl-x64@1.3.4",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@img/sharp-libvips-linuxmusl-x64/-/sharp-libvips-linuxmusl-x64-1.3.4.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/lovell/sharp-libvips.git"
+        },
+        {
+          "type": "website",
+          "url": "https://sharp.pixelplumbing.com"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "eb35ca784fe9dfd2350260377091b7e5ec8118da8d75d2e75178e1c019ec1a314f5aa7f954a903044a9a1243c3a1312d931c22dafbfc4dcaf6983c8fe12a3b16"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "LGPL-3.0-or-later"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@img/sharp-linux-x64@0.35.5",
+      "type": "library",
+      "name": "@img/sharp-linux-x64",
+      "version": "0.35.5",
+      "scope": "optional",
+      "author": "Lovell Fuller <npm@lovell.info>",
+      "description": "Prebuilt sharp for use with Linux (glibc) x64",
+      "purl": "pkg:npm/%40img/sharp-linux-x64@0.35.5",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@img/sharp-linux-x64/-/sharp-linux-x64-0.35.5.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/lovell/sharp.git"
+        },
+        {
+          "type": "website",
+          "url": "https://sharp.pixelplumbing.com"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "4b116d2d378922784003d43cdfa92ec76bd935e381404c7ae7caaf6dba1949caf4c08011ca6dc8706996ecaa550f9b1b560d0e8f2fae74541d6b2608672a0da2"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@img/sharp-linuxmusl-x64@0.35.5",
+      "type": "library",
+      "name": "@img/sharp-linuxmusl-x64",
+      "version": "0.35.5",
+      "scope": "optional",
+      "author": "Lovell Fuller <npm@lovell.info>",
+      "description": "Prebuilt sharp for use with Linux (musl) x64",
+      "purl": "pkg:npm/%40img/sharp-linuxmusl-x64@0.35.5",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@img/sharp-linuxmusl-x64/-/sharp-linuxmusl-x64-0.35.5.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/lovell/sharp.git"
+        },
+        {
+          "type": "website",
+          "url": "https://sharp.pixelplumbing.com"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e0a3a986a074df91eb55da8b65f0a0333cc446b4249333b04619783809113b560295d6da163c925cc68ae77e0ca3457e2e776794993eb1b5322de53450bc83d4"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@img/sharp-wasm32@0.35.5",
+      "type": "library",
+      "name": "@img/sharp-wasm32",
+      "version": "0.35.5",
+      "scope": "optional",
+      "author": "Lovell Fuller <npm@lovell.info>",
+      "description": "Prebuilt sharp for use with WebAssembly",
+      "purl": "pkg:npm/%40img/sharp-wasm32@0.35.5",
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@img/sharp-wasm32/-/sharp-wasm32-0.35.5.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/lovell/sharp.git"
+        },
+        {
+          "type": "website",
+          "url": "https://sharp.pixelplumbing.com"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "3edb206b5b2ee2d431f8b2c5d44092f54ea7cf9926ad72a8e9755bb51e3c29edd9471c6069606eec80ed11ed6aba8f218aea709ba585ab15655da49fec820d19"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 AND LGPL-3.0-or-later AND MIT"
+        }
+      ]
+    },
+    {
+      "bom-ref": "@jridgewell/sourcemap-codec@1.6.0",
+      "type": "library",
+      "name": "@jridgewell/sourcemap-codec",
+      "version": "1.6.0",
+      "scope": "required",
+      "author": "Justin Ridgewell <justin@ridgewell.name>",
+      "description": "Encode/decode sourcemap mappings",
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.6.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/jridgewell/sourcemaps.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/jridgewell/sourcemaps/tree/main/packages/sourcemap-codec"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "4fb8dffb9ce0b191f0349e25bd0eff69ecdbca4d27357fb32555a998703b558b04c7b6bbaabe5183921bb4916a920cdee58dacaeeab545463c43cdfb39dee217"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@puppeteer/browsers@3.2.2",
+      "type": "library",
+      "name": "@puppeteer/browsers",
+      "version": "3.2.2",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "description": "Download and launch browsers",
+      "purl": "pkg:npm/%40puppeteer/browsers@3.2.2",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/@puppeteer/browsers/-/browsers-3.2.2.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/puppeteer/puppeteer/tree/main/packages/browsers"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "ab6054e187cef61fd6b7b21c58f72082938ea8b9364dbb35843c2896f299af07918f2ef9d4e24128c37dccee5b7c3d29cd4ed7fedbcac3f7b141db38a4cfcb3a"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "acorn@8.19.0",
+      "type": "library",
+      "name": "acorn",
+      "version": "8.19.0",
+      "scope": "required",
+      "description": "ECMAScript parser",
+      "purl": "pkg:npm/acorn@8.19.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/acorn/-/acorn-8.19.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/acornjs/acorn.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/acornjs/acorn"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "a09940dd78919bb0b293aa850f6267f1a93d07b8d2cb4ab2d340033b7fbc7694f42d28c58a1418bf80b4d8b142498255dd0dfbc58c30472e66f88a48894cea5b"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "acorn-walk@8.3.5",
+      "type": "library",
+      "name": "acorn-walk",
+      "version": "8.3.5",
+      "scope": "required",
+      "description": "ECMAScript (ESTree) AST walker",
+      "purl": "pkg:npm/acorn-walk@8.3.5",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/acorn-walk/-/acorn-walk-8.3.5.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/acornjs/acorn.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/acornjs/acorn"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "1c41cd7db6abb3dbf8a60a56e923b52923e47e84b4c5538cffd53390996d8e5b0766625ab3183c69792e65aed231ff2f28620186952c3e5b904aa849142a9e6f"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "ansi-regex@6.6.0",
+      "type": "library",
+      "name": "ansi-regex",
+      "version": "6.6.0",
+      "scope": "required",
+      "author": "Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)",
+      "description": "Regular expression for matching ANSI escape codes",
+      "purl": "pkg:npm/ansi-regex@6.6.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.6.0.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "5d9e5aa5bceb7826d748ac0f8c9b2dbbc474cce8b6e3bc375d8c16c6dc015e0a59ac2c9cd4a6bba7dff163403dfdd88c7b09876c42b3f8522b6966845a394de6"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "ansi-styles@6.2.3",
+      "type": "library",
+      "name": "ansi-styles",
+      "version": "6.2.3",
+      "scope": "required",
+      "author": "Sindre Sorhus",
+      "description": "ANSI escape codes for styling strings in the terminal",
+      "purl": "pkg:npm/ansi-styles@6.2.3",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-6.2.3.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e038fa336f0907ea001fc9059132d4a3e6b68f038592ea9bdf2b9c53408035c45151bc52d1c3f49d96021a371cdc1357c1122c5159831a0cdac267bbcef247be"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "argparse@2.0.1",
+      "type": "library",
+      "name": "argparse",
+      "version": "2.0.1",
+      "scope": "required",
+      "description": "CLI arguments parser. Native port of python's argparse.",
+      "purl": "pkg:npm/argparse@2.0.1",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "f3ef56a9e6db173a57f4e47e59ae8edbd6ac22881e44ccdc1ad00835da4c1c7c80835d1fd3969215505b704a867ff3d7c35123019faadbf6c4060dc3beeacadd"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Python-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "ast-types@0.16.3",
+      "type": "library",
+      "name": "ast-types",
+      "version": "0.16.3",
+      "scope": "required",
+      "author": "Ben Newman <bn@cs.stanford.edu>",
+      "description": "Esprima-compatible implementation of the Mozilla JS Parser API",
+      "purl": "pkg:npm/ast-types@0.16.3",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/ast-types/-/ast-types-0.16.3.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/benjamn/ast-types.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/benjamn/ast-types"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "16f5a85987d208cea44710921fe3062c720a28644be80e805bb65e9363b7d9110f411760d77d78dbcb914ca3016007917775d701a1c34bad16a6b8bb09d283ac"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "boolbase@2.0.0",
+      "type": "library",
+      "name": "boolbase",
+      "version": "2.0.0",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "two functions: One that returns true, one that returns false",
+      "purl": "pkg:npm/boolbase@2.0.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/boolbase/-/boolbase-2.0.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/fb55/boolbase"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/fb55/boolbase"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/fb55/boolbase/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "0e455a6901f2991869604628f71d68a3b43b07463a28952c8e6ddcf5e4f21436f2e0c1cb053c19e990d605e979ceb6318f55ac6600b9a0ba62cfef77325b9778"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "chromium-bidi@17.0.2",
+      "type": "library",
+      "name": "chromium-bidi",
+      "version": "17.0.2",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "description": "An implementation of the WebDriver BiDi protocol for Chromium implemented as a JavaScript layer translating between BiDi and CDP, running inside a Chrome tab.",
+      "purl": "pkg:npm/chromium-bidi@17.0.2",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/chromium-bidi/-/chromium-bidi-17.0.2.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/GoogleChromeLabs/chromium-bidi.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e6ff4640585392d16fa2d9ff38534906628b29101bea7f6bd1b542c1feec1e059cdff26bc8ad1b8f59e7f772f7a4716b7e072cbba05ee845ac0e2fb55c74c60e"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "zod@3.25.76",
+      "type": "library",
+      "name": "zod",
+      "version": "3.25.76",
+      "scope": "required",
+      "author": "Colin McDonnell <zod@colinhacks.com>",
+      "description": "TypeScript-first schema declaration and validation library with static type inference",
+      "purl": "pkg:npm/zod@3.25.76",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colinhacks/zod.git"
+        },
+        {
+          "type": "website",
+          "url": "https://zod.dev"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colinhacks/zod/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "83352dfeab7cd675ec14628815c0b76277c4031e4d92e9c27e70e5bee0524854b4d9b717bb82e679ad001485306cb5b158fc7777da7c4b94286ae8ca70d43171"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "cliui@9.0.1",
+      "type": "library",
+      "name": "cliui",
+      "version": "9.0.1",
+      "scope": "required",
+      "author": "Ben Coe <ben@npmjs.com>",
+      "description": "easily create complex multi-column command-line-interfaces",
+      "purl": "pkg:npm/cliui@9.0.1",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/cliui/-/cliui-9.0.1.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "93b9dd80a870a10bde04bfbfd6da86258373d3dec8ed63afc1b9a6536011e7e99a82d6e33d64134b50b9bf31a4042f189bc5164737ca533514a852f2a58e10fb"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "string-width@7.2.0",
+      "type": "library",
+      "name": "string-width",
+      "version": "7.2.0",
+      "scope": "required",
+      "author": "Sindre Sorhus",
+      "description": "Get the visual width of a string - the number of columns required to display it",
+      "purl": "pkg:npm/string-width@7.2.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/string-width/-/string-width-7.2.0.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "b6c693224296f5be0df80123f92540f96849cd5effccc85c4aeefc98b2964a4edc5cc3921ec04a15652cd1f5b0abc4322b73202414115fa19b8b89186ddbc691"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "css-select@7.0.0",
+      "type": "library",
+      "name": "css-select",
+      "version": "7.0.0",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "a CSS selector compiler/engine",
+      "purl": "pkg:npm/css-select@7.0.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/css-select/-/css-select-7.0.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/fb55/css-select.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "b279a31155f2fb52e7c17771858bd3323d5df6d3a1e07c64035626a1ac9505e7b24760b5e0fba6edf7312489b84acc18b29572f3ae9e60dc251fac42dff547e6"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "dom-serializer@3.1.1",
+      "type": "library",
+      "name": "dom-serializer",
+      "version": "3.1.1",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "render domhandler DOM nodes to a string",
+      "purl": "pkg:npm/dom-serializer@3.1.1",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/dom-serializer/-/dom-serializer-3.1.1.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/cheeriojs/dom-serializer.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e0c11adfcfd07b10686fa805370bbe106756be127538ab8dc1d618dd8dcdc9e58341f9c67836105037c84735aee41e60b2fd37b28d94c5ddbc602eb3aecc772f"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "domelementtype@3.0.0",
+      "type": "library",
+      "name": "domelementtype",
+      "version": "3.0.0",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "all the types of nodes in htmlparser2's dom",
+      "purl": "pkg:npm/domelementtype@3.0.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/domelementtype/-/domelementtype-3.0.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/fb55/domelementtype.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "ba609089dde329b0e6563c7c8c6696eee532926e031147b2576d613f134ca369d5f79e438544e1c2ac8e203b6b79ea4fdf5865f385fb1b953d65fb16bc80773e"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "domhandler@6.0.1",
+      "type": "library",
+      "name": "domhandler",
+      "version": "6.0.1",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "Handler for htmlparser2 that turns pages into a dom",
+      "purl": "pkg:npm/domhandler@6.0.1",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/domhandler/-/domhandler-6.0.1.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/fb55/domhandler.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "818cefb4cef666dc503b44f4e3c91de875926db18234e5307277d0d3572a209e17d8860a1451d9e662afad01137055f1b1139b66e94368a9b2fff47b4cfb6c06"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "domutils@4.0.2",
+      "type": "library",
+      "name": "domutils",
+      "version": "4.0.2",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "Utilities for working with htmlparser2's dom",
+      "purl": "pkg:npm/domutils@4.0.2",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/domutils/-/domutils-4.0.2.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/fb55/domutils.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "a88e092d12a74b3a85aabee10254b9c500eeb010a3292106e2de3eeda36b21030705cb02d9318486ec8004975892049ec0be7b3cd2d812289b63688f2a12a968"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "entities@8.1.0",
+      "type": "library",
+      "name": "entities",
+      "version": "8.1.0",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "Encode & decode XML and HTML entities with ease & speed",
+      "purl": "pkg:npm/entities@8.1.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/entities/-/entities-8.1.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/fb55/entities.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "9312fb9ac21f7d2ba1f5a68500c0fbaf1008b9344c00731e06d8075b6c94756c3bdf664d87831e86417681d8efb5d9a29246883fd6c50c324e3e5b2f9bb6afac"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "css-what@8.0.0",
+      "type": "library",
+      "name": "css-what",
+      "version": "8.0.0",
+      "scope": "required",
+      "author": "Felix Böhm <me@feedic.com> (http://feedic.com)",
+      "description": "a CSS selector parser",
+      "purl": "pkg:npm/css-what@8.0.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/css-what/-/css-what-8.0.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/fb55/css-what"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "0c7d01aaadc3369e6d74e45eb8dc8003e12fe18d864b914c6d9a5e4cb3fa0b80838b48799cbd019943c2857c37a3fa9b1cb0d61e5e3db1b36a41563b6cc48377"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "cssomnom@0.1.11",
+      "type": "library",
+      "name": "cssomnom",
+      "version": "0.1.11",
+      "scope": "required",
+      "description": "Fast, spec-compliant CSS Object Model (CSSOM) and Typed OM parser in pure TypeScript",
+      "purl": "pkg:npm/cssomnom@0.1.11",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/cssomnom/-/cssomnom-0.1.11.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/GoogleChromeLabs/cssomnom.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/GoogleChromeLabs/cssomnom#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/GoogleChromeLabs/cssomnom/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "3f84643b54aad946a5efbc72a449807383243399361dae14c2d04f08ea4999772e9460983e0cec53fc67382cb4f387ac65a3de3e01a4909838225fc713b192e4"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "detect-libc@2.1.2",
+      "type": "library",
+      "name": "detect-libc",
+      "version": "2.1.2",
+      "scope": "optional",
+      "author": "Lovell Fuller <npm@lovell.info>",
+      "description": "Node.js module to detect the C standard library (libc) implementation family and version",
+      "purl": "pkg:npm/detect-libc@2.1.2",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/lovell/detect-libc.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "06d8f604e38ef37a375b21f9f5ef0c817b3111055c6ab9143a9118aee6c1d2eaf09cdd74c90dfae2bb22072535d67665a966199b4e62fe87fb8a8e26ce2841b5"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "devtools-protocol@0.0.1680125",
+      "type": "library",
+      "name": "devtools-protocol",
+      "version": "0.0.1680125",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "description": "The Chrome DevTools Protocol JSON",
+      "purl": "pkg:npm/devtools-protocol@0.0.1680125",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1680125.tgz"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ChromeDevTools/devtools-protocol/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "ad5011280bce14908592f817d3554bbd8a8a22fb7e7110aabd4c48841da802a5463da971937c37b1be535060da829a30fc415b941a66fd997fdbd400d9d77e8c"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "dom-serializer@2.0.0",
+      "type": "library",
+      "name": "dom-serializer",
+      "version": "2.0.0",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "render domhandler DOM nodes to a string",
+      "purl": "pkg:npm/dom-serializer@2.0.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/dom-serializer/-/dom-serializer-2.0.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/cheeriojs/dom-serializer.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "c08900af28aab7f9d5e4440aa90a68dd24e848e57d2740e76c9ab02bb5affd3adcf76cc801867816532ef893c55b50df185b7cd594c21a00c469b7df5de2f226"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "entities@4.5.0",
+      "type": "library",
+      "name": "entities",
+      "version": "4.5.0",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "Encode & decode XML and HTML entities with ease & speed",
+      "purl": "pkg:npm/entities@4.5.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/fb55/entities.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "5748631f87463e1f40a39a74328458e8156ab700a3873eaf2392d3f00279e47fb883dff8bdb1f1d48e787d2d17b9c94b8431c0acf40288c8c3c6368bf1f3f187"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "domelementtype@2.3.0",
+      "type": "library",
+      "name": "domelementtype",
+      "version": "2.3.0",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "all the types of nodes in htmlparser2's dom",
+      "purl": "pkg:npm/domelementtype@2.3.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/domelementtype/-/domelementtype-2.3.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/fb55/domelementtype.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "38b113063eb0d0eb1a801c1d5e73dd37472731f17da2937af5ca3eed9adb7cf1ab7693d5341523d36b298ba07537bc0284b4223e7e02487ff326f5f0e7a8261f"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "domhandler@5.0.3",
+      "type": "library",
+      "name": "domhandler",
+      "version": "5.0.3",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "Handler for htmlparser2 that turns pages into a dom",
+      "purl": "pkg:npm/domhandler@5.0.3",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/domhandler/-/domhandler-5.0.3.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/fb55/domhandler.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "720c25bffd621508859d4f7a5d78113a1f314de7adb272620ec4dced36022c577dfbf58d908a8f4f188cffca5277c548ae15c64dfd4dcb5ab586ab95a83241e7"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "domutils@3.2.2",
+      "type": "library",
+      "name": "domutils",
+      "version": "3.2.2",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "Utilities for working with htmlparser2's dom",
+      "purl": "pkg:npm/domutils@3.2.2",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/domutils/-/domutils-3.2.2.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/fb55/domutils.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "ea464ac946a3943baa9472955f5c3b832b258fd30f217cc8162cffac6bb7e6e0b5c0c8be90c850c06865e25b7dba70bd55bf4836763d677fd9037f8584048b6b"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "emoji-regex@10.6.0",
+      "type": "library",
+      "name": "emoji-regex",
+      "version": "10.6.0",
+      "scope": "required",
+      "author": "Mathias Bynens",
+      "description": "A regular expression to match all Emoji-only symbols as per the Unicode Standard.",
+      "purl": "pkg:npm/emoji-regex@10.6.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/emoji-regex/-/emoji-regex-10.6.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/mathiasbynens/emoji-regex.git"
+        },
+        {
+          "type": "website",
+          "url": "https://mths.be/emoji-regex"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "b68508f38612e589b15b6d7d7ab9e2583d022153a8e3ac46282a2578d41180ecc3a2b8018b5bf80fbd7f385ce00fd18ed9418a22fd42dd2a7c0c09f4fa3e70ec"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "entities@7.0.1",
+      "type": "library",
+      "name": "entities",
+      "version": "7.0.1",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "Encode & decode XML and HTML entities with ease & speed",
+      "purl": "pkg:npm/entities@7.0.1",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/entities/-/entities-7.0.1.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/fb55/entities.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "4d6ae02ce1544131fdf78614ca5d724f8bb26af6399cd0799ae7dff91b566aa3550802b8d3c6f96679db34050458b4c2a6e9bdc3a6ab4fbd22d57750e1478e3c"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "get-east-asian-width@1.7.0",
+      "type": "library",
+      "name": "get-east-asian-width",
+      "version": "1.7.0",
+      "scope": "required",
+      "author": "Sindre Sorhus",
+      "description": "Determine the East Asian Width of a Unicode character",
+      "purl": "pkg:npm/get-east-asian-width@1.7.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/get-east-asian-width/-/get-east-asian-width-1.7.0.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "5e31f50040b17f48222f6575694f2f2b2451da9a5151be5cd04bd3ef3b894e8910ef86cda39db33ad821a9d588aab8540fbf5fa37c7459f29974eab117a2c6d5"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "gsap@3.15.0",
+      "type": "library",
+      "name": "gsap",
+      "version": "3.15.0",
+      "scope": "required",
+      "description": "GSAP is a framework-agnostic JavaScript animation library that turns developers into animation superheroes. Build high-performance animations that work in **every** major browser. Animate CSS, SVG, canvas, React, Vue, WebGL, colors, strings, motion paths, generic objects...anything JavaScript can touch! The ScrollTrigger plugin lets you create jaw-dropping scroll-based animations with minimal code. No other library delivers such advanced sequencing, reliability, and tight control while solving real-world problems on millions of sites. GSAP works around countless browser inconsistencies; your animations **just work**. At its core, GSAP is a high-speed property manipulator, updating values over time with extreme accuracy.",
+      "purl": "pkg:npm/gsap@3.15.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/gsap/-/gsap-3.15.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/greensock/GSAP.git"
+        },
+        {
+          "type": "website",
+          "url": "https://gsap.com"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://gsap.com/community/"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "74c5b809605350ad401040de65cd60e31a4f188ad27fd7c917deb4a9b4d998dfd0c19216639c209624ba25697dff6e5fa53189acc46d4a31ad3a63e77e3641f8"
+        }
+      ]
+    },
+    {
+      "bom-ref": "hono@4.13.17",
+      "type": "library",
+      "name": "hono",
+      "version": "4.13.17",
+      "scope": "required",
+      "author": "Yusuke Wada <yusuke@kamawada.com> (https://github.com/yusukebe)",
+      "description": "Web framework built on Web Standards",
+      "purl": "pkg:npm/hono@4.13.17",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/hono/-/hono-4.13.17.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/honojs/hono.git"
+        },
+        {
+          "type": "website",
+          "url": "https://hono.dev"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "bd921c6e4be3391e611d158445b1a4afc7c67c5d0618cd68a1892e1f8e3c88eddbd8075512bdc05d94b0e19dca9fed4be73d0256855ec95dbd546626161d3991"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "html-escaper@3.0.3",
+      "type": "library",
+      "name": "html-escaper",
+      "version": "3.0.3",
+      "scope": "required",
+      "author": "Andrea Giammarchi",
+      "description": "fast and safe way to escape and unescape &<>'\" chars",
+      "purl": "pkg:npm/html-escaper@3.0.3",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/html-escaper/-/html-escaper-3.0.3.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/WebReflection/html-escaper.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/WebReflection/html-escaper"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/WebReflection/html-escaper/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "46e31f7c2f3d04e590a18d16286a48867e605f7888e783ba9d1034c82d76e0d615b738e615604888577c334c7e65d5f43fd4789400e0d6680ff02ecfc46396b9"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "htmlparser2@10.1.0",
+      "type": "library",
+      "name": "htmlparser2",
+      "version": "10.1.0",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "Fast & forgiving HTML/XML parser",
+      "purl": "pkg:npm/htmlparser2@10.1.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/htmlparser2/-/htmlparser2-10.1.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/fb55/htmlparser2.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "55366433d196440b44a6f7a1ecc485e928e3ae935534d5497c5ba9ef14d8dd4a45b66ebb7e8cbd1c35579de2ed155b78a4ccf9919b6035cbc29e23456f586511"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "ignore@5.3.2",
+      "type": "library",
+      "name": "ignore",
+      "version": "5.3.2",
+      "scope": "required",
+      "author": "kael",
+      "description": "Ignore is a manager and filter for .gitignore rules, the one used by eslint, gitbook and many others.",
+      "purl": "pkg:npm/ignore@5.3.2",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/ignore/-/ignore-5.3.2.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git@github.com:kaelzhang/node-ignore.git"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/kaelzhang/node-ignore/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "86c053354a904c3c245ad71d608da2d3a63f9d4044b0d10324a8d676280bbde832f240ee2404bcb91969924710a721172f467fa630f2e4706632344227682afa"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "lilconfig@3.1.5",
+      "type": "library",
+      "name": "lilconfig",
+      "version": "3.1.5",
+      "scope": "required",
+      "author": "antonk52",
+      "description": "A zero-dependency alternative to cosmiconfig",
+      "purl": "pkg:npm/lilconfig@3.1.5",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/lilconfig/-/lilconfig-3.1.5.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/antonk52/lilconfig"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "69100e23d21ae37ca02f8a3510e982fec73fd0e171ae6eea7109e0888c966aa5674a7cfddf6c9b274ef3c8272030d1920cff18c5a7fcf178f5cc71179af43848"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "linkedom@0.18.15",
+      "type": "library",
+      "name": "linkedom",
+      "version": "0.18.15",
+      "scope": "required",
+      "author": "Andrea Giammarchi",
+      "description": "A triple-linked lists based DOM implementation",
+      "purl": "pkg:npm/linkedom@0.18.15",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/linkedom/-/linkedom-0.18.15.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/WebReflection/linkedom.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/WebReflection/linkedom#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/WebReflection/linkedom/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "a34c3b783fd2be809aa3ea548ba773a1c08bb8c475d60e13bff7add16d8e533c1699471ec27b52cf297e51afcafb4c8aca6d18fcc6afde7140688e40bf98ef66"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "magic-string@0.30.21",
+      "type": "library",
+      "name": "magic-string",
+      "version": "0.30.21",
+      "scope": "required",
+      "author": "Rich Harris",
+      "description": "Modify strings, generate sourcemaps",
+      "purl": "pkg:npm/magic-string@0.30.21",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/Rich-Harris/magic-string.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "bddd85e1853211728670b1e8abe4c4c828f1b9e49e1e7171cb28cda7cd328345d5e2f5219c37abfe5bef96a33f6ab0796d740de4adbfde88a7c82472c7c4f609"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "modern-tar@0.8.6",
+      "type": "library",
+      "name": "modern-tar",
+      "version": "0.8.6",
+      "scope": "required",
+      "author": "Ayuhito <hello@ayuhito.com>",
+      "description": "Zero dependency streaming tar parser and writer for JavaScript.",
+      "purl": "pkg:npm/modern-tar@0.8.6",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/modern-tar/-/modern-tar-0.8.6.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/ayuhito/modern-tar.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/ayuhito/modern-tar"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/ayuhito/modern-tar/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "2d84a4b34b4d56a6ed7b3ffd381d1814feaa2d14aa91d031256390a55691ebb94d4db8f6ccd2f2629a309113226b99572c264acf1c28c64c47d8c6db051d9a12"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "nanoid@3.3.20",
+      "type": "library",
+      "name": "nanoid",
+      "version": "3.3.20",
+      "scope": "required",
+      "author": "Andrey Sitnik <andrey@sitnik.ru>",
+      "description": "A tiny (116 bytes), secure URL-friendly unique string ID generator",
+      "purl": "pkg:npm/nanoid@3.3.20",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.20.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "b8a760d86dc63422909fd6f260ea716c6aab4f67c63b9291b7927ff1bde9a24f2b4faab119617a871332262118b407fe155c98b83f6145a0ea5f9b8f15827865"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "nth-check@3.0.1",
+      "type": "library",
+      "name": "nth-check",
+      "version": "3.0.1",
+      "scope": "required",
+      "author": "Felix Boehm <me@feedic.com>",
+      "description": "Parses and compiles CSS nth-checks to highly optimized functions.",
+      "purl": "pkg:npm/nth-check@3.0.1",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/nth-check/-/nth-check-3.0.1.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/fb55/nth-check"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/fb55/nth-check"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/fb55/nth-check/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "197d20b1d6c65428274606de19ab9b7e3a415f261158e38255e621d3c6d242f0d9ab1cf99dd5ecd4e4df02dfe1dfa1b5c6f23de1822ca6c234b1516a015f7e45"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "picocolors@1.1.1",
+      "type": "library",
+      "name": "picocolors",
+      "version": "1.1.1",
+      "scope": "required",
+      "author": "Alexey Raspopov",
+      "description": "The tiniest and the fastest library for terminal output formatting with ANSI colors",
+      "purl": "pkg:npm/picocolors@1.1.1",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "c5c787dac9e1b5be4cf658aa0ec984c39ea57b7efa993664117fe311bfd1c4d1727a036e97b78db250973fd1438ff2dcbb45fc284c8c71e3f69eda5a1eb0c454"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "postcss@8.5.32",
+      "type": "library",
+      "name": "postcss",
+      "version": "8.5.32",
+      "scope": "required",
+      "author": "Andrey Sitnik <andrey@sitnik.es>",
+      "description": "Tool for transforming styles with JS plugins",
+      "purl": "pkg:npm/postcss@8.5.32",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/postcss/-/postcss-8.5.32.tgz"
+        },
+        {
+          "type": "website",
+          "url": "https://postcss.org/"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/postcss/postcss/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "2c994a08201414a3ae6718a951d630d4dcc821312c3dc832386f4b92f449bee2a3fdb4736ee458d00457bcbd29586a6c66f9fc8e4bbe2cc7a9d9e534b1e1e9f2"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "postcss-selector-parser@7.2.0",
+      "type": "library",
+      "name": "postcss-selector-parser",
+      "version": "7.2.0",
+      "scope": "required",
+      "description": "Selector parser with built in methods for working with selector strings.",
+      "purl": "pkg:npm/postcss-selector-parser@7.2.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-7.2.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/postcss/postcss-selector-parser.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/postcss/postcss-selector-parser"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "2a187fb44455067d08d78f7d76f0521d8d29589968309594c43b0e04cd020833c0715675d099762f5ab2d5fd7db845f6daca5af0cbfb0c2744409734706c0185"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "puppeteer@25.11.0",
+      "type": "library",
+      "name": "puppeteer",
+      "version": "25.11.0",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "description": "A high-level API to control headless Chrome over the DevTools Protocol",
+      "purl": "pkg:npm/puppeteer@25.11.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/puppeteer/-/puppeteer-25.11.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/puppeteer/puppeteer/tree/main/packages/puppeteer"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "9fea6cc59147fea949de0c1364cc532d466813df0500e1234ff052c475ef3e63421807cdfe4ab4527219f26f51078ac056f26bef344752728a83df062cc532c9"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "puppeteer-core@25.11.0",
+      "type": "library",
+      "name": "puppeteer-core",
+      "version": "25.11.0",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "description": "A high-level API to control headless Chrome over the DevTools Protocol",
+      "purl": "pkg:npm/puppeteer-core@25.11.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-25.11.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/puppeteer/puppeteer/tree/main/packages/puppeteer-core"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "523ca6ec96f1a00a9a9dac467078264e899f842d351df0c24ae199f07b3d6e81eb0e3cdb355327151268d8ab5b0d3f4b09181e268167927f49419e3578452b2f"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "webdriver-bidi-protocol@0.4.3",
+      "type": "library",
+      "name": "webdriver-bidi-protocol",
+      "version": "0.4.3",
+      "scope": "required",
+      "author": "The Chromium Authors",
+      "purl": "pkg:npm/webdriver-bidi-protocol@0.4.3",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/webdriver-bidi-protocol/-/webdriver-bidi-protocol-0.4.3.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/GoogleChromeLabs/webdriver-bidi-protocol.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "bae37482859fc4fdb607b27fb80801a4e60d3edb42f9756c79813ead2639fab43e601795cff54e470f166e62d572a5bbf33360e40e2a9e3357614591de29768a"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "recast@0.23.21",
+      "type": "library",
+      "name": "recast",
+      "version": "0.23.21",
+      "scope": "required",
+      "author": "Ben Newman <bn@cs.stanford.edu>",
+      "description": "JavaScript syntax tree transformer, nondestructive pretty-printer, and automatic source map generator",
+      "purl": "pkg:npm/recast@0.23.21",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/recast/-/recast-0.23.21.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/benjamn/recast.git"
+        },
+        {
+          "type": "website",
+          "url": "http://github.com/benjamn/recast"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "98503226af6f51b4930112d952f0047f5cf763196f030b306e6c4cc7698f03f3129b82a6a70bf0be1b07fcd22b661c8ebb00fad0bcf2c36aa1f37b826e04cf63"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "sharp@0.35.5",
+      "type": "library",
+      "name": "sharp",
+      "version": "0.35.5",
+      "scope": "optional",
+      "author": "Lovell Fuller <npm@lovell.info>",
+      "description": "High performance Node.js image processing, the fastest module to resize JPEG, PNG, WebP, GIF, AVIF and TIFF images",
+      "purl": "pkg:npm/sharp@0.35.5",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/sharp/-/sharp-0.35.5.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/lovell/sharp.git"
+        },
+        {
+          "type": "website",
+          "url": "https://sharp.pixelplumbing.com"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "6309f83a7cc6ba4a7b08332ba74f11439d182a6bb01b8edbad980854f4ef05a6807d095197282b46a4abc5d0a22fd33e2e5ccb06227af0847542abf31f28c2ee"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "source-map-js@1.2.2",
+      "type": "library",
+      "name": "source-map-js",
+      "version": "1.2.2",
+      "scope": "required",
+      "author": "Valentin 7rulnik Semirulnik <v7rulnik@gmail.com>",
+      "description": "Generates and consumes source maps",
+      "purl": "pkg:npm/source-map-js@1.2.2",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.2.tgz"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/7rulnik/source-map-js"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "2868fff18e37c77e5a6550edb7e27898ad61a0b18750b3187d290e0c93508cd0c2de85b53ea3e8c4cc28d292d4b1633f5041b338dfcdc5e1f2c047cd5cd3f757"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "string-width@8.3.0",
+      "type": "library",
+      "name": "string-width",
+      "version": "8.3.0",
+      "scope": "required",
+      "author": "Sindre Sorhus",
+      "description": "Get the visual width of a string - the number of columns required to display it",
+      "purl": "pkg:npm/string-width@8.3.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/string-width/-/string-width-8.3.0.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "65b9993342428a140df757569f1a22a53d8a384c87a84c9f4575328ee4615bc6ffc67a8f0e8ab88161150294d56bd75bdb037c9a6a229201416e387bd7e70679"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "strip-ansi@7.2.0",
+      "type": "library",
+      "name": "strip-ansi",
+      "version": "7.2.0",
+      "scope": "required",
+      "author": "Sindre Sorhus",
+      "description": "Strip ANSI escape codes from a string",
+      "purl": "pkg:npm/strip-ansi@7.2.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.2.0.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "c833cc363a785b27d80641e78c844b7dc6b58ba28cc860adb1582829eff3d7eeafba481a10d76018166df9998a3dce206afbc46793a01df1ddadace180dc86ef"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "tiny-invariant@1.3.3",
+      "type": "library",
+      "name": "tiny-invariant",
+      "version": "1.3.3",
+      "scope": "required",
+      "author": "Alex Reardon <alexreardon@gmail.com>",
+      "description": "A tiny invariant function",
+      "purl": "pkg:npm/tiny-invariant@1.3.3",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.3.3.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/alexreardon/tiny-invariant.git"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/alexreardon/tiny-invariant/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "f856c13c4d68f50018bef89abbfa82e5213771ac36d6adf192f58a06d8dae6f82a3962071c9de2a1aab554f7e7fd2cea72dcf66d4fe861e29df7fcf904bf8f56"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "uhyphen@0.2.0",
+      "type": "library",
+      "name": "uhyphen",
+      "version": "0.2.0",
+      "scope": "required",
+      "author": "Andrea Giammarchi",
+      "description": "A micro utility to hyphenize strings",
+      "purl": "pkg:npm/uhyphen@0.2.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/uhyphen/-/uhyphen-0.2.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/WebReflection/uhyphen.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/WebReflection/uhyphen#readme"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/WebReflection/uhyphen/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "ab3de8f421d798924f18176acda6fba8062e5bc91018a344ba81c562b07057a85620c729026c432d7a237077c5afd512d4f7bacd4b301082486cb23ad747eea8"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "undici@7.25.0",
+      "type": "library",
+      "name": "undici",
+      "version": "7.25.0",
+      "scope": "required",
+      "description": "An HTTP/1.1 client, written from scratch for Node.js",
+      "purl": "pkg:npm/undici@7.25.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/undici/-/undici-7.25.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/nodejs/undici.git"
+        },
+        {
+          "type": "website",
+          "url": "https://undici.nodejs.org"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/nodejs/undici/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "c579e9e244f2a2bd99abe27515f3c8e84ab77b0e61e9597417ff1df57539cd941fd6d5fdb364aed7fdcf88c99400d1542e99a4b3190295a98865c694aabc87b1"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "util-deprecate@1.0.2",
+      "type": "library",
+      "name": "util-deprecate",
+      "version": "1.0.2",
+      "scope": "required",
+      "author": "Nathan Rajlich <nathan@tootallnate.net> (http://n8.io/)",
+      "description": "The Node.js `util.deprecate()` function with browser support",
+      "purl": "pkg:npm/util-deprecate@1.0.2",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git://github.com/TooTallNate/util-deprecate.git"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/TooTallNate/util-deprecate"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/TooTallNate/util-deprecate/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "10f0f9ab5b97c85c49a42acb9c27359c79eade039ae83641a1c008888d93692080ed5089d5424331a802cc891736c5187c3d5d68afff2d3110f318886eb1ed73"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "wawoff2@2.0.1",
+      "type": "library",
+      "name": "wawoff2",
+      "version": "2.0.1",
+      "scope": "required",
+      "description": "Convert TTF font to WOFF2",
+      "purl": "pkg:npm/wawoff2@2.0.1",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/wawoff2/-/wawoff2-2.0.1.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "af40849afa47eb7af84f5e5e6c5a9e3a31aa538f84813c78239d7436d2b7e4431c89275c4f10b0dc1cb2dc99c1a27cfb8b220567401b568d1b6c5a4456e84260"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "wrap-ansi@9.0.2",
+      "type": "library",
+      "name": "wrap-ansi",
+      "version": "9.0.2",
+      "scope": "required",
+      "author": "Sindre Sorhus",
+      "description": "Wordwrap a string with ANSI escape codes",
+      "purl": "pkg:npm/wrap-ansi@9.0.2",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-9.0.2.tgz"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e3602d9a0aa357e5f556974e7f24c6398462d3fceca0baad5d07244e6a937b26d3f810c86ccfc6bb1a3bc77a44dafb69af5a24eb146a33d3a905ef89ca8ab2c3"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "yargs@18.2.0",
+      "type": "library",
+      "name": "yargs",
+      "version": "18.2.0",
+      "scope": "required",
+      "description": "yargs the modern, pirate-themed, successor to optimist.",
+      "purl": "pkg:npm/yargs@18.2.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/yargs/-/yargs-18.2.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/yargs/yargs.git"
+        },
+        {
+          "type": "website",
+          "url": "https://yargs.js.org/"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "f4ea4a38b79aa0d15e704a7b3fa8986f3cdeff90aa5a81fb37748cb3feb2d571789ccbc532ca44199cc9eae162f4c990c17872cea62848428ededbc0dd9fe8db"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "yargs-parser@22.0.0",
+      "type": "library",
+      "name": "yargs-parser",
+      "version": "22.0.0",
+      "scope": "required",
+      "author": "Ben Coe <ben@npmjs.com>",
+      "description": "the mighty option parser used by yargs",
+      "purl": "pkg:npm/yargs-parser@22.0.0",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/yargs-parser/-/yargs-parser-22.0.0.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/yargs/yargs-parser.git"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "af0bbf0a535d48ca644ab51bf9de8146c4a42d4ab57e67ec63a4cea58cd3c2fc24835fcd446f39281cb792afbe03c2ca4305fa96cbbe69669dfb6921bee5ebab"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "zod@4.6.7",
+      "type": "library",
+      "name": "zod",
+      "version": "4.6.7",
+      "scope": "required",
+      "author": "Colin McDonnell <zod@colinhacks.com>",
+      "description": "TypeScript-first schema declaration and validation library with static type inference",
+      "purl": "pkg:npm/zod@4.6.7",
+      "properties": [],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://registry.npmjs.org/zod/-/zod-4.6.7.tgz"
+        },
+        {
+          "type": "vcs",
+          "url": "git+https://github.com/colinhacks/zod.git"
+        },
+        {
+          "type": "website",
+          "url": "https://zod.dev"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/colinhacks/zod/issues"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "83c5b60f6914e9af2e9ed734e777d7d6e5412b333bcaa0315bfdf3c24f37fba472176f9228eb95f9cd30043854c335753da19aa66647fab99c5333dffb7086c2"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "paper-studio@0.1.0",
+      "dependsOn": [
+        "@echogarden/espeak-ng-emscripten@0.3.5",
+        "@hyperframes/engine@0.9.30",
+        "@hyperframes/producer@0.9.30",
+        "gsap@3.15.0",
+        "zod@4.6.7"
+      ]
+    },
+    {
+      "ref": "@babel/helper-string-parser@7.29.13",
+      "dependsOn": []
+    },
+    {
+      "ref": "@babel/helper-validator-identifier@7.29.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "@babel/parser@7.29.13",
+      "dependsOn": [
+        "@babel/types@7.29.11"
+      ]
+    },
+    {
+      "ref": "@babel/types@7.29.11",
+      "dependsOn": [
+        "@babel/helper-string-parser@7.29.13",
+        "@babel/helper-validator-identifier@7.29.7"
+      ]
+    },
+    {
+      "ref": "@chenglou/pretext@0.0.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "@echogarden/espeak-ng-emscripten@0.3.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "@emnapi/runtime@1.11.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "@hono/node-server@2.1.6",
+      "dependsOn": [
+        "hono@4.13.17"
+      ]
+    },
+    {
+      "ref": "@hyperframes/core@0.9.30",
+      "dependsOn": [
+        "@chenglou/pretext@0.0.5",
+        "acorn@8.19.0",
+        "linkedom@0.18.15",
+        "postcss@8.5.32",
+        "wawoff2@2.0.1",
+        "@hyperframes/lint@0.9.30",
+        "@hyperframes/studio-server@0.9.30",
+        "@hyperframes/parsers@0.9.30"
+      ]
+    },
+    {
+      "ref": "@hyperframes/engine@0.9.30",
+      "dependsOn": [
+        "@hono/node-server@2.1.6",
+        "hono@4.13.17",
+        "linkedom@0.18.15",
+        "puppeteer@25.11.0",
+        "puppeteer-core@25.17.0",
+        "undici@7.25.0",
+        "@hyperframes/core@0.9.30",
+        "@hyperframes/parsers@0.9.30"
+      ]
+    },
+    {
+      "ref": "@puppeteer/browsers@3.2.7",
+      "dependsOn": [
+        "modern-tar@0.8.6",
+        "yargs@18.2.0"
+      ]
+    },
+    {
+      "ref": "chromium-bidi@157.0.8090-0",
+      "dependsOn": [
+        "devtools-protocol@0.0.1717327",
+        "zod@4.6.7"
+      ]
+    },
+    {
+      "ref": "devtools-protocol@0.0.1717327",
+      "dependsOn": []
+    },
+    {
+      "ref": "puppeteer-core@25.17.0",
+      "dependsOn": [
+        "@puppeteer/browsers@3.2.7",
+        "chromium-bidi@157.0.8090-0",
+        "devtools-protocol@0.0.1717327",
+        "webdriver-bidi-protocol@1.0.2"
+      ]
+    },
+    {
+      "ref": "webdriver-bidi-protocol@1.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "@hyperframes/lint@0.9.30",
+      "dependsOn": [
+        "acorn@8.19.0",
+        "acorn-walk@8.3.5",
+        "htmlparser2@10.1.0",
+        "ignore@5.3.2",
+        "linkedom@0.18.15",
+        "postcss@8.5.32",
+        "postcss-selector-parser@7.2.0",
+        "@hyperframes/parsers@0.9.30"
+      ]
+    },
+    {
+      "ref": "@hyperframes/parsers@0.9.30",
+      "dependsOn": [
+        "@babel/parser@7.29.13",
+        "acorn@8.19.0",
+        "acorn-walk@8.3.5",
+        "entities@7.0.1",
+        "linkedom@0.18.15",
+        "magic-string@0.30.21",
+        "recast@0.23.21"
+      ]
+    },
+    {
+      "ref": "@hyperframes/producer@0.9.30",
+      "dependsOn": [
+        "@hono/node-server@2.1.6",
+        "hono@4.13.17",
+        "linkedom@0.18.15",
+        "postcss@8.5.32",
+        "puppeteer@25.11.0",
+        "puppeteer-core@25.17.0",
+        "@hyperframes/core@0.9.30",
+        "@hyperframes/lint@0.9.30",
+        "@hyperframes/engine@0.9.30",
+        "@hyperframes/parsers@0.9.30",
+        "@hyperframes/studio-server@0.9.30"
+      ]
+    },
+    {
+      "ref": "@hyperframes/studio-server@0.9.30",
+      "dependsOn": [
+        "hono@4.13.17",
+        "linkedom@0.18.15",
+        "postcss@8.5.32",
+        "postcss-selector-parser@7.2.0",
+        "@hyperframes/core@0.9.30",
+        "@hyperframes/parsers@0.9.30",
+        "sharp@0.35.5"
+      ]
+    },
+    {
+      "ref": "@img/colour@1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "@img/sharp-libvips-linux-x64@1.3.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "@img/sharp-libvips-linuxmusl-x64@1.3.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "@img/sharp-linux-x64@0.35.5",
+      "dependsOn": [
+        "@img/sharp-libvips-linux-x64@1.3.4"
+      ]
+    },
+    {
+      "ref": "@img/sharp-linuxmusl-x64@0.35.5",
+      "dependsOn": [
+        "@img/sharp-libvips-linuxmusl-x64@1.3.4"
+      ]
+    },
+    {
+      "ref": "@img/sharp-wasm32@0.35.5",
+      "dependsOn": [
+        "@emnapi/runtime@1.11.3"
+      ]
+    },
+    {
+      "ref": "@jridgewell/sourcemap-codec@1.6.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "@puppeteer/browsers@3.2.2",
+      "dependsOn": [
+        "modern-tar@0.8.6",
+        "yargs@18.2.0"
+      ]
+    },
+    {
+      "ref": "acorn@8.19.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "acorn-walk@8.3.5",
+      "dependsOn": [
+        "acorn@8.19.0"
+      ]
+    },
+    {
+      "ref": "ansi-regex@6.6.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "ansi-styles@6.2.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "argparse@2.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "ast-types@0.16.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "boolbase@2.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "chromium-bidi@17.0.2",
+      "dependsOn": [
+        "devtools-protocol@0.0.1680125",
+        "zod@3.25.76"
+      ]
+    },
+    {
+      "ref": "zod@3.25.76",
+      "dependsOn": []
+    },
+    {
+      "ref": "cliui@9.0.1",
+      "dependsOn": [
+        "string-width@7.2.0",
+        "strip-ansi@7.2.0",
+        "wrap-ansi@9.0.2"
+      ]
+    },
+    {
+      "ref": "string-width@7.2.0",
+      "dependsOn": [
+        "emoji-regex@10.6.0",
+        "get-east-asian-width@1.7.0",
+        "strip-ansi@7.2.0"
+      ]
+    },
+    {
+      "ref": "css-select@7.0.0",
+      "dependsOn": [
+        "boolbase@2.0.0",
+        "css-what@8.0.0",
+        "domhandler@6.0.1",
+        "domutils@4.0.2",
+        "nth-check@3.0.1"
+      ]
+    },
+    {
+      "ref": "dom-serializer@3.1.1",
+      "dependsOn": [
+        "domelementtype@3.0.0",
+        "domhandler@6.0.1",
+        "entities@8.1.0"
+      ]
+    },
+    {
+      "ref": "domelementtype@3.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "domhandler@6.0.1",
+      "dependsOn": [
+        "domelementtype@3.0.0"
+      ]
+    },
+    {
+      "ref": "domutils@4.0.2",
+      "dependsOn": [
+        "dom-serializer@3.1.1",
+        "domelementtype@3.0.0",
+        "domhandler@6.0.1"
+      ]
+    },
+    {
+      "ref": "entities@8.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "css-what@8.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "cssomnom@0.1.11",
+      "dependsOn": []
+    },
+    {
+      "ref": "detect-libc@2.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "devtools-protocol@0.0.1680125",
+      "dependsOn": []
+    },
+    {
+      "ref": "dom-serializer@2.0.0",
+      "dependsOn": [
+        "domelementtype@2.3.0",
+        "domhandler@5.0.3",
+        "entities@4.5.0"
+      ]
+    },
+    {
+      "ref": "entities@4.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "domelementtype@2.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "domhandler@5.0.3",
+      "dependsOn": [
+        "domelementtype@2.3.0"
+      ]
+    },
+    {
+      "ref": "domutils@3.2.2",
+      "dependsOn": [
+        "dom-serializer@2.0.0",
+        "domelementtype@2.3.0",
+        "domhandler@5.0.3"
+      ]
+    },
+    {
+      "ref": "emoji-regex@10.6.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "entities@7.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "get-east-asian-width@1.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "gsap@3.15.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "hono@4.13.17",
+      "dependsOn": []
+    },
+    {
+      "ref": "html-escaper@3.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "htmlparser2@10.1.0",
+      "dependsOn": [
+        "domelementtype@2.3.0",
+        "domhandler@5.0.3",
+        "domutils@3.2.2",
+        "entities@7.0.1"
+      ]
+    },
+    {
+      "ref": "ignore@5.3.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "lilconfig@3.1.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "linkedom@0.18.15",
+      "dependsOn": [
+        "css-select@7.0.0",
+        "cssomnom@0.1.11",
+        "html-escaper@3.0.3",
+        "htmlparser2@10.1.0",
+        "uhyphen@0.2.0"
+      ]
+    },
+    {
+      "ref": "magic-string@0.30.21",
+      "dependsOn": [
+        "@jridgewell/sourcemap-codec@1.6.0"
+      ]
+    },
+    {
+      "ref": "modern-tar@0.8.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "nanoid@3.3.20",
+      "dependsOn": []
+    },
+    {
+      "ref": "nth-check@3.0.1",
+      "dependsOn": [
+        "boolbase@2.0.0"
+      ]
+    },
+    {
+      "ref": "picocolors@1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "postcss@8.5.32",
+      "dependsOn": [
+        "nanoid@3.3.20",
+        "picocolors@1.1.1",
+        "source-map-js@1.2.2"
+      ]
+    },
+    {
+      "ref": "postcss-selector-parser@7.2.0",
+      "dependsOn": [
+        "util-deprecate@1.0.2"
+      ]
+    },
+    {
+      "ref": "puppeteer@25.11.0",
+      "dependsOn": [
+        "@puppeteer/browsers@3.2.2",
+        "chromium-bidi@17.0.2",
+        "devtools-protocol@0.0.1680125",
+        "lilconfig@3.1.5",
+        "puppeteer-core@25.11.0"
+      ]
+    },
+    {
+      "ref": "puppeteer-core@25.11.0",
+      "dependsOn": [
+        "@puppeteer/browsers@3.2.2",
+        "chromium-bidi@17.0.2",
+        "devtools-protocol@0.0.1680125",
+        "webdriver-bidi-protocol@0.4.3"
+      ]
+    },
+    {
+      "ref": "webdriver-bidi-protocol@0.4.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "recast@0.23.21",
+      "dependsOn": [
+        "ast-types@0.16.3",
+        "tiny-invariant@1.3.3"
+      ]
+    },
+    {
+      "ref": "sharp@0.35.5",
+      "dependsOn": [
+        "@img/colour@1.1.0",
+        "detect-libc@2.1.2",
+        "@img/sharp-libvips-linux-x64@1.3.4",
+        "@img/sharp-libvips-linuxmusl-x64@1.3.4",
+        "@img/sharp-linux-x64@0.35.5",
+        "@img/sharp-linuxmusl-x64@0.35.5"
+      ]
+    },
+    {
+      "ref": "source-map-js@1.2.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "string-width@8.3.0",
+      "dependsOn": [
+        "get-east-asian-width@1.7.0",
+        "strip-ansi@7.2.0"
+      ]
+    },
+    {
+      "ref": "strip-ansi@7.2.0",
+      "dependsOn": [
+        "ansi-regex@6.6.0"
+      ]
+    },
+    {
+      "ref": "tiny-invariant@1.3.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "uhyphen@0.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "undici@7.25.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "util-deprecate@1.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "wawoff2@2.0.1",
+      "dependsOn": [
+        "argparse@2.0.1"
+      ]
+    },
+    {
+      "ref": "wrap-ansi@9.0.2",
+      "dependsOn": [
+        "ansi-styles@6.2.3",
+        "string-width@7.2.0",
+        "strip-ansi@7.2.0"
+      ]
+    },
+    {
+      "ref": "yargs@18.2.0",
+      "dependsOn": [
+        "cliui@9.0.1",
+        "string-width@8.3.0",
+        "yargs-parser@22.0.0"
+      ]
+    },
+    {
+      "ref": "yargs-parser@22.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "zod@4.6.7",
+      "dependsOn": []
+    }
+  ]
+}
