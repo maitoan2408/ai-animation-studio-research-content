@@ -1,5 +1,14 @@
 # Changelog
 
+## Nghiên cứu toolchain và kế hoạch mở rộng — 11/11/2026
+
+- Đối chiếu Word/PDF, kế hoạch P0–P11/Q0–Q9, code và evidence; công khai phạm vi đã đọc và phần chưa kiểm chứng.
+- Đọc source/version/license Three r187, HyperFrames 0.9.33, FFmpeg 7.1.5, Manim CE 0.22.1 và ManimGL 1.7.2; giữ source evidence tách runtime results.
+- Chạy lại verify 16 tests, HF seek/missing asset 0.9.30/0.9.33, demo Three upstream và FFmpeg alpha/color/loudness trong môi trường nghiên cứu. Lưu cả lỗi setup, encode thiếu tags và kết quả kiểm lại; Manim render chưa chạy do thiếu dependency.
+- Ghi errata audio demo là AAC stereo; PCM mixer mono. Giữ nguyên video và hồ sơ bàn giao cũ.
+- Bổ sung kế hoạch chi tiết Q0–Q9, 11 nhánh tương lai, test plan/backlog/gates và quyết định trước code; chưa sửa ứng dụng/dependencies hoặc đóng gate production.
+- Markdown là nguồn chính; kèm source/environment/input manifests, log, artifacts nhỏ và hướng dẫn tái lập.
+
 ## Nghiên cứu chất lượng production — 11/11/2026
 
 - Đọc source ở commit cố định của OpenMontage, Lemo-Opuscar, ClaudeAnimationBase và các công cụ liên quan; ghi rõ mức bằng chứng, license và giới hạn.

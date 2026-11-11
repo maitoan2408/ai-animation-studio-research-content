@@ -1,0 +1,76 @@
+[SystemMemory] cgroup memory limit detected: 8192 MiB. It governs memory-adaptive render behaviour instead of host RAM.
+[INFO] [Render] Pipeline started {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","platform":"linux","arch":"x64","nodeVersion":"v24.22.1","fps":{"num":24,"den":1},"format":"mp4","quality":"standard","browserGpuMode":"software","forceScreenshot":true,"protocolTimeout":300000,"browserTimeout":120000,"pageNavigationTimeout":60000,"playerReadyTimeout":45000}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"pipeline","status":"checkpoint","elapsedMs":6,"message":"started","format":"mp4","quality":"standard","browserGpuMode":"software","forceScreenshot":true,"protocolTimeoutMs":300000,"pageNavigationTimeoutMs":60000,"playerReadyTimeoutMs":45000,"requestedWorkers":1}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"compile","status":"start","elapsedMs":7,"needsAlpha":false}
+[INFO] Compiled composition metadata {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","entryFile":"index.html","staticDuration":0.5,"width":320,"height":180,"videoCount":0,"audioCount":0,"renderModeHints":{"recommendScreenshot":false,"reasons":[]}}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"compile","status":"end","elapsedMs":40,"durationMs":33,"needsAlpha":false}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"compile","status":"checkpoint","elapsedMs":40,"message":"composition metadata resolved","width":320,"height":180,"videoCount":0,"audioCount":0,"imageCount":1,"deviceScaleFactor":1,"forceScreenshot":true,"compositionHash":"266d20c337691cf1"}
+[INFO] [Render] Low-memory render profile active: screenshot capture, auto-worker calibration skipped. Override with --no-low-memory-mode or PRODUCER_LOW_MEMORY_MODE=false. {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","totalMemMb":8192,"thresholdMb":8192}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"browser_probe","status":"start","elapsedMs":41,"forceScreenshot":true,"stagePhase":"calibrating"}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"browser_probe","status":"end","elapsedMs":49,"durationMs":8,"forceScreenshot":true,"stagePhase":"calibrating"}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"browser_probe","status":"checkpoint","elapsedMs":49,"message":"duration resolved","durationSeconds":0.5,"totalFrames":12,"compositionHash":"266d20c337691cf1","beginFrameStalled":false}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"video_extract","status":"start","elapsedMs":49,"videoCount":0}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"video_extract","status":"end","elapsedMs":50,"durationMs":1,"videoCount":0}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"video_extract","status":"checkpoint","elapsedMs":50,"message":"frames resolved","videoCount":0,"extractedVideoCount":0,"totalFramesExtracted":0,"maxFramesPerVideo":0,"avgFramesPerExtractedVideo":null,"vfrPreflightCount":null,"vfrPreflightMs":null,"cacheHits":null,"cacheMisses":null,"transientRetries":null,"minVideoFrameCoverageRatio":null,"authoredTimedClipCount":2}
+[INFO] [Render] No HDR sources detected, rendering SDR {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713"}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"hdr_detection","status":"checkpoint","elapsedMs":51,"message":"resolved","requestedHdrMode":"auto","effectiveHdr":"sdr","nativeHdrVideoCount":0,"nativeHdrImageCount":0}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"audio_process","status":"start","elapsedMs":51,"audioCount":0}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"file_server","status":"start","elapsedMs":51,"reused":false}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"audio_process","status":"end","elapsedMs":56,"durationMs":5,"audioCount":0}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"file_server","status":"end","elapsedMs":61,"durationMs":10}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"capture_calibration","status":"checkpoint","elapsedMs":63,"message":"skipped","requestedWorkers":1,"totalFrames":12,"htmlInCanvasDetected":false,"lowMemoryMode":true,"deInversionEligible":false,"deParallelRouterEligible":false}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"worker_resolution","status":"checkpoint","elapsedMs":64,"message":"resolved","workerCount":1}
+[INFO] streaming-encode gate {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","enabled":true,"reason":"single_worker","configFlag":true,"durationCapEnabled":false,"outputFormat":"mp4","workerCount":1,"durationSeconds":0.5,"maxDurationSeconds":240}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"capture_strategy","status":"checkpoint","elapsedMs":65,"message":"resolved","workerCount":1,"forceScreenshot":true,"captureBeyondViewport":null,"useStreamingEncode":true,"useLayeredComposite":false,"usePageSideCompositing":false,"hasHdrContent":false,"hasShaderTransitions":false,"isPngSequence":false}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"capture_streaming","status":"start","elapsedMs":65,"stagePhase":"capturing","workerCount":1,"forceScreenshot":true,"totalFrames":12,"framesCompleted":0,"captureMode":"screenshot","captureOperation":"captureScreenshot"}
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (0ms)
+[FileServer] 404 Not Found: /assets/does-not-exist.png
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[initSession:screenshot] page.goto complete (183ms)
+[HyperFrames] render runtime fps {"canonicalFps":24,"source":"render-options","rawFpsSource":"render-options","rawFps":24}
+[initSession:screenshot] GSAP proxy flush complete (234ms)
+[initSession:screenshot] pollHfReady complete (241ms)
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (246ms)
+[initSession:screenshot] applyVideoMetadataHints complete (246ms)
+[initSession:screenshot] media + fonts + tailwind ready (249ms)
+[FrameCapture:media_load_failed] image media failed to load before capture {
+  mediaType: 'image',
+  sources: [ 'http://localhost:42815/assets/does-not-exist.png' ],
+  timeoutMs: 45000
+}
+[initSession:screenshot] static-frame dedup: disabled (eligible) (269ms)
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"capture_streaming","status":"end","elapsedMs":1936,"durationMs":1871,"stagePhase":"capturing","workerCount":1,"forceScreenshot":true,"totalFrames":12,"framesCompleted":12,"captureMode":"screenshot","captureOperation":"encode"}
+[WARN] Render completed capture with correctness warnings {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","strictness":"strict","warningCodes":["media_load_failed"],"warningReasons":[],"warningStages":[],"warningOwners":[]}
+[INFO] [Render:trace] {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","phase":"Encoding frame 12/12","status":"error","elapsedMs":1939,"durationMs":0,"message":"Render blocked by 1 correctness warning:\n- media_load_failed: image media failed to load before capture"}
+[INFO] [Render] Failure summary {"renderJobId":"6e420e62-322a-4299-8713-0d2aded37713","failedStage":"Encoding frame 12/12","error":"Render blocked by 1 correctness warning:\n- media_load_failed: image media failed to load before capture","elapsedMs":1940,"stageTimings":{"compileOnlyMs":30,"browserProbeMs":6,"compileMs":42,"videoExtractMs":0,"audioProcessMs":5,"captureMs":1885,"captureFrameMs":1871,"captureSetupMs":14,"encodeMs":1861,"encoderDrainWaitMs":0},"isTimeout":false,"workers":1,"protocolTimeout":300000,"observedFailedPhase":"Encoding frame 12/12","observedLastPhase":"Encoding frame 12/12","observedLastStatus":"error","browserDiagnostics":{"total":7,"errors":0,"pageErrors":0,"requestFailed":0,"httpErrors":2,"navigationStarts":1,"navigationFailures":0,"consoleErrors":0,"consoleWarnings":0},"extraction":{"videoCount":0,"extractedVideoCount":0,"totalFramesExtracted":0,"maxFramesPerVideo":0,"authoredTimedClipCount":2},"browserConsoleErrors":["[FrameCapture:NAV] page.goto start mode=screenshot timeoutMs=60000 url=http://localhost:42815/index.html","[Browser:HTTP404] GET http://localhost:42815/assets/does-not-exist.png resource=image Not Found","[Browser:HTTP404] GET http://localhost:42815/favicon.ico resource=other Not Found"]}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+RenderQualityError: Render blocked by 1 correctness warning:
+- media_load_failed: image media failed to load before capture
+    at applyRenderWarningPolicy (file:///workspace/ai-animation-studio-research-content/validation/node_modules/@hyperframes/producer/dist/index.js:13204:11)
+    at executeRenderPipeline (file:///workspace/ai-animation-studio-research-content/validation/node_modules/@hyperframes/producer/dist/index.js:15921:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async executeRenderJob (file:///workspace/ai-animation-studio-research-content/validation/node_modules/@hyperframes/producer/dist/index.js:14084:5)
+    at async file:///tmp/studio-toolchain-r2/baseline/scripts/render-hyperframes.mjs:18:2 {
+  warnings: [
+    {
+      code: 'media_load_failed',
+      message: 'image media failed to load before capture',
+      details: {
+        mediaType: 'image',
+        sources: [ 'http://localhost:42815/assets/does-not-exist.png' ],
+        timeoutMs: 45000,
+        audioFailures: undefined,
+        failureReasons: undefined,
+        failureStages: undefined
+      },
+      stage: 'capture-readiness'
+    }
+  ]
+}
+
+Node.js v24.22.1

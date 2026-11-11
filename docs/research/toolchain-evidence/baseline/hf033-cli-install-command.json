@@ -1,0 +1,17 @@
+{
+  "command": [
+    "npm",
+    "install",
+    "--save-exact",
+    "--cache",
+    "/tmp/studio-toolchain-r2/npm-cache",
+    "--prefix",
+    "/tmp/studio-toolchain-r2/hf033",
+    "hyperframes@0.9.33"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:09:49.404792+00:00",
+  "elapsed_seconds": 4.715933872001187,
+  "returncode": 0,
+  "log": "hf033-cli-install.log"
+}

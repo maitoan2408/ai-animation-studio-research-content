@@ -1,0 +1,77 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'out/media/alpha-qtrle.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 512
+    compatible_brands: qt  
+    encoder         : Lavf61.7.103
+  Duration: 00:00:01.00, start: 0.000000, bitrate: 15 kb/s
+  Stream #0:0[0x1]: Video: qtrle (rle  / 0x20656C72), argb(progressive), 64x64, 8 kb/s, SAR 1:1 DAR 1:1, 24 fps, 24 tbr, 12288 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : FFMP
+        encoder         : Lavc61.19.101 qtrle
+Stream mapping:
+  Stream #0:0 -> #0:0 (qtrle (native) -> wrapped_avframe (native))
+[Parsed_showinfo_1 @ 0x7f9d40002040] config in time_base: 1/12288, frame_rate: 24/1
+[Parsed_showinfo_1 @ 0x7f9d40002040] config out time_base: 0/0, frame_rate: 0/0
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:   0 pts:      0 pts_time:0       duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 512
+    compatible_brands: qt  
+    encoder         : Lavf61.7.103
+  Stream #0:0: Video: wrapped_avframe, gray(pc, gbr/unknown/unknown, progressive), 64x64 [SAR 1:1 DAR 1:1], q=2-31, 200 kb/s, 24 fps, 24 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : FFMP
+        encoder         : Lavc61.19.101 wrapped_avframe
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:   1 pts:    512 pts_time:0.0416667 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:   2 pts:   1024 pts_time:0.0833333 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:   3 pts:   1536 pts_time:0.125   duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:   4 pts:   2048 pts_time:0.166667 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:   5 pts:   2560 pts_time:0.208333 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:   6 pts:   3072 pts_time:0.25    duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:   7 pts:   3584 pts_time:0.291667 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:   8 pts:   4096 pts_time:0.333333 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:   9 pts:   4608 pts_time:0.375   duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  10 pts:   5120 pts_time:0.416667 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  11 pts:   5632 pts_time:0.458333 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  12 pts:   6144 pts_time:0.5     duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  13 pts:   6656 pts_time:0.541667 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  14 pts:   7168 pts_time:0.583333 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  15 pts:   7680 pts_time:0.625   duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  16 pts:   8192 pts_time:0.666667 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  17 pts:   8704 pts_time:0.708333 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  18 pts:   9216 pts_time:0.75    duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  19 pts:   9728 pts_time:0.791667 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  20 pts:  10240 pts_time:0.833333 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  21 pts:  10752 pts_time:0.875   duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  22 pts:  11264 pts_time:0.916667 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7f9d40002040] n:  23 pts:  11776 pts_time:0.958333 duration:    512 duration_time:0.0416667 fmt:gray cl:unspecified sar:1/1 s:64x64 i:P iskey:0 type:? checksum:B0E9F069 plane_checksum:[B0E9F069] mean:[127] stdev:[0.0]
+[Parsed_showinfo_1 @ 0x7f9d40002040] color_range:pc color_space:gbr color_primaries:unknown color_trc:unknown
+[out#0/null @ 0x55d449659540] video:10KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame=   24 fps=0.0 q=-0.0 Lsize=N/A time=00:00:01.00 bitrate=N/A speed= 514x    

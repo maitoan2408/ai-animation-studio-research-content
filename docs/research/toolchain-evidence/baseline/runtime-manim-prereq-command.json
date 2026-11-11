@@ -1,0 +1,13 @@
+{
+  "command": [
+    "pkg-config",
+    "--modversion",
+    "cairo",
+    "pangocairo"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:13:34.536549+00:00",
+  "elapsed_seconds": 0.0033420559993828647,
+  "returncode": 1,
+  "log": "runtime-manim-prereq.log"
+}

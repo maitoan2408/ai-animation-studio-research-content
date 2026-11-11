@@ -1,0 +1,17 @@
+{
+  "command": [
+    "uv",
+    "--cache-dir",
+    "/tmp/studio-toolchain-r2/uv-cache",
+    "pip",
+    "install",
+    "--python",
+    "/tmp/studio-toolchain-r2/manim-ce/bin/python",
+    "manim==0.22.1"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:08:23.924093+00:00",
+  "elapsed_seconds": 3.845728298998438,
+  "returncode": 1,
+  "log": "manim-ce-install.log"
+}

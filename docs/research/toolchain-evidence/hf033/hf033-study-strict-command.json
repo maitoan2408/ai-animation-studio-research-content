@@ -1,0 +1,14 @@
+{
+  "command": [
+    "node",
+    "scripts/render-hyperframes.mjs",
+    "study",
+    "1",
+    "strict"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/hf033",
+  "started_at_utc": "2026-11-11T15:13:25.542362+00:00",
+  "elapsed_seconds": 26.71727188799923,
+  "returncode": 0,
+  "log": "hf033-study-strict.log"
+}

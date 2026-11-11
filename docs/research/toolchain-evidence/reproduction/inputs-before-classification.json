@@ -1,0 +1,231 @@
+{
+  "app_commit": "b79ec76497b7cb57f753f596cb60969aae3383d2",
+  "research_commit": "8e58ffc3133102279f6a3f59b66a38f22d14def0",
+  "files": [
+    {
+      "path": "artifacts/morning-final.mp4",
+      "sha256": "80b135bb23547da300c8fb218ac25d79514ebb39c3a1433457dae566ec142f18",
+      "bytes": 1555291
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "e7dee7b79709f748a0f5962fadb9179b6e742d3ba45e4cb8913c6f8b1683432d",
+      "bytes": 110842
+    },
+    {
+      "path": "package.json",
+      "sha256": "e8b19c705919561b6ebed0c3f933f85fe606e29956d8db6b5d4e98b8b66be0d7",
+      "bytes": 1085
+    },
+    {
+      "path": "validation/fixtures/RemotionReport.tsx",
+      "sha256": "5a0b3ad18ca90f37fbd84d1bd2b35d93b3f2ca5b76a817d617a04332936d70c0",
+      "bytes": 754
+    },
+    {
+      "path": "validation/fixtures/Study.tsx",
+      "sha256": "38898f355805a9964ea37e4c99153cccc653a3ce7feb6307a3854e041c352a73",
+      "bytes": 1202
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/artifacts/checks/5f122633-c24c-4015-bb53-9101dc9678ba.json",
+      "sha256": "70606eb2a67811b39403d65258ed314e6d83e1d0af706599d94d2a044181118a",
+      "bytes": 2006
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/cache/check.json",
+      "sha256": "95af400bc6f4c28bfd9e9e44256b79f58ccb0decff1d34d026e3ea53b0801fd2",
+      "bytes": 1433
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/history-id",
+      "sha256": "8144acf1b2ab12fa4e039cdfd633996d207c801ff1981d18830a3bfed5f0a433",
+      "bytes": 37
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/video-state.json",
+      "sha256": "07f57974919c1bad5e73f6de297c4a4d63d9c1178c7c78b6dfca5ad9b803ebc0",
+      "bytes": 2401
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/assets/gsap.min.js",
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "bytes": 72927
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/hyperframes.json",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "bytes": 3
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/index.html",
+      "sha256": "23b89206f1de0e3a236d97449e61c1139e09054a153426be0bdfd7059022341e",
+      "bytes": 796
+    },
+    {
+      "path": "validation/fixtures/hyperframes-missing/assets/gsap.min.js",
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "bytes": 72927
+    },
+    {
+      "path": "validation/fixtures/hyperframes-missing/hyperframes.json",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "bytes": 3
+    },
+    {
+      "path": "validation/fixtures/hyperframes-missing/index.html",
+      "sha256": "a704fc839b4f991e12a3f41ebad2ce3da422d38a8d6687482848633789224cb5",
+      "bytes": 538
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/artifacts/checks/65b3bd22-f9ad-48b6-a961-ffd95f7d2f10.json",
+      "sha256": "05ef0cff2003ad3384cada8f751848d54dde09f9b92d7feda9d2c3d16e092886",
+      "bytes": 3511
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/cache/check.json",
+      "sha256": "92bf0b49424d75e324a354f253453a6e4862bcc6742d6c9721445c2dc8de3cae",
+      "bytes": 2611
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/history-id",
+      "sha256": "4f1139acb7fe30c4581f60659197783a3c30032bbb2713189478c2d2bdc5063e",
+      "bytes": 37
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/video-state.json",
+      "sha256": "9b6514c81b4c46c696b391c4e1aaa032ff6f2f5313f592344585b386eb3c56e6",
+      "bytes": 2399
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/assets/gsap.min.js",
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "bytes": 72927
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/hyperframes.json",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "bytes": 3
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/index.html",
+      "sha256": "3fc795a580af0a398101fc9ec57036f152a2d216f665c9402c57335d3793d8ee",
+      "bytes": 822
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report.html",
+      "sha256": "676e54b508fea87f266af712b6ad10f0e33005936278c77d902a5f933adb26ca",
+      "bytes": 670
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/assets/gsap.min.js",
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "bytes": 72927
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/assets/scene.js",
+      "sha256": "90d92218afb865a1a18fc7683c884b2699fecac62129e52d7e676a948152e7f7",
+      "bytes": 2340
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/assets/sync.wav",
+      "sha256": "f41270a096a2f03449956718ae211432f782731c9ebca94e7c6570b84273e321",
+      "bytes": 960044
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/hyperframes.json",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "bytes": 3
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/index.html",
+      "sha256": "0f6bdb5175abf5b3b0a82135b3adba1af4bd9a8d2b87585cf2e93c4363deab7b",
+      "bytes": 1092
+    },
+    {
+      "path": "validation/fixtures/public/sync.wav",
+      "sha256": "f41270a096a2f03449956718ae211432f782731c9ebca94e7c6570b84273e321",
+      "bytes": 960044
+    },
+    {
+      "path": "validation/fixtures/remotion-report-entry.ts",
+      "sha256": "a17efe2543d058a428797e7febeab2ebb480998e61465e52d3e67dadd04d20e0",
+      "bytes": 104
+    },
+    {
+      "path": "validation/fixtures/scene-ir-example.json",
+      "sha256": "4cc0f3b5a13017ff0e43fd508e139d1102334beb9396de3b5f81fb6be0cc2344",
+      "bytes": 1157
+    },
+    {
+      "path": "validation/fixtures/scene.js",
+      "sha256": "90d92218afb865a1a18fc7683c884b2699fecac62129e52d7e676a948152e7f7",
+      "bytes": 2340
+    },
+    {
+      "path": "validation/package-lock.json",
+      "sha256": "b9cd2d9e8bdcc33704f5741e7dbbf2900ec1d3cbbbdedd470eb563702cfe3de7",
+      "bytes": 273734
+    },
+    {
+      "path": "validation/package.json",
+      "sha256": "3c4e6899dcb7f88d21598e6922661bbe75e5bfd79edf6ae6740650214f9db76e",
+      "bytes": 782
+    },
+    {
+      "path": "validation/scripts/build-review-docx.py",
+      "sha256": "f184856e41e21562e15c4603ae8189141e689331993e708135a7d956db3eea7a",
+      "bytes": 5647
+    },
+    {
+      "path": "validation/scripts/compare-concurrency.py",
+      "sha256": "cc22e8da8f530364031d0bc3aba534a8a5d45d53b3aa4fede68840d27036509f",
+      "bytes": 1406
+    },
+    {
+      "path": "validation/scripts/prepare-fixtures.py",
+      "sha256": "cf14bd9dc8d3850c39e4c15302e0039bf60dbacd96faa4ea4b8d036d1a81f6f7",
+      "bytes": 3687
+    },
+    {
+      "path": "validation/scripts/qc.py",
+      "sha256": "b27a512a6b87dc6a218f4b025864612a47f1328e6e86dc8aa9caea572eccc644",
+      "bytes": 4215
+    },
+    {
+      "path": "validation/scripts/record.py",
+      "sha256": "93665c8ad0795fd38e2acd14460158abab86f0775c82717fb4314d6a88390934",
+      "bytes": 990
+    },
+    {
+      "path": "validation/scripts/render-hyperframes.mjs",
+      "sha256": "bb31d2ab7f19550a4d20356094abd73be90ef69590fcfdde8d4059f71865af23",
+      "bytes": 1238
+    },
+    {
+      "path": "validation/scripts/render-remotion.mjs",
+      "sha256": "bd9376a798d8a2b6b6b7fd11561124f282fd2fcfbc8f9b200a5ab4ae97f2e60d",
+      "bytes": 1692
+    },
+    {
+      "path": "validation/scripts/run-suite.py",
+      "sha256": "8d500de1081abf7fbbe8aaaa57e9e64f6604d67427bb33ee0f36ea7670788fc3",
+      "bytes": 2311
+    },
+    {
+      "path": "validation/scripts/seek-hyperframes.mjs",
+      "sha256": "ba346a18b0946d57542ef06ca86886e963a75a1ba312aaf5f53f0294d73c980f",
+      "bytes": 2151
+    },
+    {
+      "path": "validation/scripts/seek-remotion.mjs",
+      "sha256": "b6ac477ba08d9bbc6d8192a38b37697d5242eaa70906de61ee67db12a16d2d9b",
+      "bytes": 1559
+    },
+    {
+      "path": "validation/scripts/summarize.py",
+      "sha256": "e5bf44b96150bc334b2fb812c12802422bad64071f6c4afc5d61e588ecaac53c",
+      "bytes": 3087
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "path": "assets/render.js",
+    "sha256": "8f760b8e57ce54107a2dcec7969550411272e4a95dce8e549026b0e2fe947c9f",
+    "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/assets/render.js"
+  },
+  {
+    "path": "assets/scene.js",
+    "sha256": "91ed24421f28fb9cf2264fdc36a1a3dff3c10bb15b701a7b966f67ca43e370be",
+    "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/assets/scene.js"
+  },
+  {
+    "path": "assets/vendor/README.md",
+    "sha256": "ce5720eb75dab09bcb8ab73c24534ffa086bc55873801994afe9ec5bd485cd27",
+    "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/assets/vendor/README.md"
+  },
+  {
+    "path": "assets/vendor/three-gpu-pathtracer.LICENSE.txt",
+    "sha256": "2df239f3787d174fbd6ead7bc4c748bee526564aa2e67315afcae47e15552e00",
+    "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/assets/vendor/three-gpu-pathtracer.LICENSE.txt"
+  },
+  {
+    "path": "assets/vendor/three-mesh-bvh.LICENSE.txt",
+    "sha256": "b106ef6198a9862ed2b5b873e944ecf3583c631a84a7462d400ecc1910ce7fee",
+    "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/assets/vendor/three-mesh-bvh.LICENSE.txt"
+  },
+  {
+    "path": "assets/vendor/three-path-tracer.min.js",
+    "sha256": "a247cb7f88eff8b1d423a2892e5ca27c7d03d83939fe0ca6fa9a11c7f9f21fc9",
+    "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/assets/vendor/three-path-tracer.min.js"
+  },
+  {
+    "path": "assets/vendor/three.LICENSE.txt",
+    "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+    "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/assets/vendor/three.LICENSE.txt"
+  },
+  {
+    "path": "index.html",
+    "sha256": "ef6748477b5073c4bbaaca21082139f5d87b43052cff7c819362a501cf02f3ca",
+    "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/index.html"
+  },
+  {
+    "path": "source/README.md",
+    "sha256": "c640f9e0f43caf49593e621b432c280fd8f62e44f859deadec4428a79fbdace8",
+    "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/source/README.md"
+  },
+  {
+    "path": "source/verify-render.mjs",
+    "sha256": "2649427fc2f5a5d006498f7ed93d5f5f8c2d532e8865dffd2657fc9c84d2d145",
+    "url": "https://raw.githubusercontent.com/heygen-com/hyperframes/e596be16c901639ce6c18032e56924a9d8e1967d/registry/examples/path-traced-3d/source/verify-render.mjs"
+  }
+]

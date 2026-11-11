@@ -1,0 +1,11 @@
+{
+  "command": [
+    "ffmpeg",
+    "-version"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:13:34.282531+00:00",
+  "elapsed_seconds": 0.17872096599967335,
+  "returncode": 0,
+  "log": "runtime-ffmpeg.log"
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "node",
+    "scripts/render-hyperframes.mjs",
+    "missing",
+    "1",
+    "best-effort"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/baseline",
+  "started_at_utc": "2026-11-11T15:06:21.421649+00:00",
+  "elapsed_seconds": 2.657371509998484,
+  "returncode": 0,
+  "log": "hf030-missing-best.log"
+}

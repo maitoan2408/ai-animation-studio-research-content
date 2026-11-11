@@ -1,0 +1,24 @@
+[SystemMemory] cgroup memory limit detected: 8192 MiB. It governs memory-adaptive render behaviour instead of host RAM.
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (1ms)
+[HyperFrames] render runtime fps {"canonicalFps":24,"source":"render-options","rawFpsSource":"render-options","rawFps":24}
+[initSession:screenshot] page.goto complete (238ms)
+[initSession:screenshot] GSAP proxy flush complete (263ms)
+[initSession:screenshot] pollHfReady complete (267ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (271ms)
+[initSession:screenshot] applyVideoMetadataHints complete (271ms)
+[initSession:screenshot] media + fonts + tailwind ready (281ms)
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[initSession:screenshot] static-frame dedup: disabled (eligible) (299ms)
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (0ms)
+[HyperFrames] render runtime fps {"canonicalFps":24,"source":"render-options","rawFpsSource":"render-options","rawFps":24}
+[initSession:screenshot] page.goto complete (163ms)
+[initSession:screenshot] GSAP proxy flush complete (176ms)
+[initSession:screenshot] pollHfReady complete (178ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (186ms)
+[initSession:screenshot] applyVideoMetadataHints complete (186ms)
+[initSession:screenshot] media + fonts + tailwind ready (190ms)
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[initSession:screenshot] static-frame dedup: disabled (eligible) (202ms)
+{"samples":48,"failures":[]}

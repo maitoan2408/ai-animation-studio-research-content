@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-11",
+  "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "cpu_quota": "200000 100000",
+  "memory_limit_bytes": 8589934592,
+  "versions": {
+    "node": "v24.22.1",
+    "npm": "11.9.0",
+    "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+    "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "blender": "Blender 4.3.2"
+  },
+  "three_harness_environment": {
+    "HYPERFRAMES_CLI": "/tmp/studio-toolchain-r2/hf033/node_modules/hyperframes/bin/hyperframes.mjs",
+    "HYPERFRAMES_BROWSER_PATH": "/usr/bin/chromium",
+    "HF_CHROME": "/usr/bin/chromium",
+    "HYPERFRAMES_CACHE_DIR": "/tmp/studio-toolchain-r2/hf-cache",
+    "HYPERFRAMES_NO_TELEMETRY": "1",
+    "PRODUCER_BROWSER_GPU_MODE": "software",
+    "KEEP_VERIFY_OUTPUT": "1"
+  },
+  "performance_limitations": [
+    "Single trials, not a throughput or SLA benchmark",
+    "HF033 valid-study render overlapped upstream Three check; timings are not isolated performance measurements"
+  ],
+  "scope": "No paid services; existing code/harness/CLI only; no application dependencies modified"
+}

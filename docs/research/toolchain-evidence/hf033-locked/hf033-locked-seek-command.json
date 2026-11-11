@@ -1,0 +1,11 @@
+{
+  "command": [
+    "node",
+    "scripts/seek-hyperframes.mjs"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/hf033",
+  "started_at_utc": "2026-11-11T15:31:13.866777+00:00",
+  "elapsed_seconds": 5.171255478999228,
+  "returncode": 0,
+  "log": "hf033-locked-seek.log"
+}

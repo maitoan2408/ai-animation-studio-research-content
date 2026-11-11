@@ -1,0 +1,19 @@
+{
+  "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-xerror",
+    "-nostdin",
+    "-i",
+    "out/hyperframes-study-w1-strict.mp4",
+    "-f",
+    "null",
+    "-"
+  ],
+  "cwd": "/tmp/studio-toolchain-r2/hf033",
+  "started_at_utc": "2026-11-11T15:13:52.753135+00:00",
+  "elapsed_seconds": 0.39146731099754106,
+  "returncode": 0,
+  "log": "hf033-study-decode.log"
+}

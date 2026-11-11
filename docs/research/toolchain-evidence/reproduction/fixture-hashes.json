@@ -1,0 +1,181 @@
+{
+  "question": "Generated fixtures from clean tracked inputs match original experiment inputs",
+  "status": "FAIL",
+  "files": [
+    {
+      "path": "validation/fixtures/RemotionReport.tsx",
+      "expected": "5a0b3ad18ca90f37fbd84d1bd2b35d93b3f2ca5b76a817d617a04332936d70c0",
+      "actual": "5a0b3ad18ca90f37fbd84d1bd2b35d93b3f2ca5b76a817d617a04332936d70c0",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/Study.tsx",
+      "expected": "38898f355805a9964ea37e4c99153cccc653a3ce7feb6307a3854e041c352a73",
+      "actual": "38898f355805a9964ea37e4c99153cccc653a3ce7feb6307a3854e041c352a73",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/artifacts/checks/5f122633-c24c-4015-bb53-9101dc9678ba.json",
+      "expected": "70606eb2a67811b39403d65258ed314e6d83e1d0af706599d94d2a044181118a",
+      "actual": null,
+      "matches": false
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/cache/check.json",
+      "expected": "95af400bc6f4c28bfd9e9e44256b79f58ccb0decff1d34d026e3ea53b0801fd2",
+      "actual": null,
+      "matches": false
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/history-id",
+      "expected": "8144acf1b2ab12fa4e039cdfd633996d207c801ff1981d18830a3bfed5f0a433",
+      "actual": null,
+      "matches": false
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/.hyperframes/video-state.json",
+      "expected": "07f57974919c1bad5e73f6de297c4a4d63d9c1178c7c78b6dfca5ad9b803ebc0",
+      "actual": null,
+      "matches": false
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/assets/gsap.min.js",
+      "expected": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "actual": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/hyperframes.json",
+      "expected": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "actual": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-editable/index.html",
+      "expected": "23b89206f1de0e3a236d97449e61c1139e09054a153426be0bdfd7059022341e",
+      "actual": "23b89206f1de0e3a236d97449e61c1139e09054a153426be0bdfd7059022341e",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-missing/assets/gsap.min.js",
+      "expected": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "actual": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-missing/hyperframes.json",
+      "expected": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "actual": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-missing/index.html",
+      "expected": "a704fc839b4f991e12a3f41ebad2ce3da422d38a8d6687482848633789224cb5",
+      "actual": "a704fc839b4f991e12a3f41ebad2ce3da422d38a8d6687482848633789224cb5",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/artifacts/checks/65b3bd22-f9ad-48b6-a961-ffd95f7d2f10.json",
+      "expected": "05ef0cff2003ad3384cada8f751848d54dde09f9b92d7feda9d2c3d16e092886",
+      "actual": null,
+      "matches": false
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/cache/check.json",
+      "expected": "92bf0b49424d75e324a354f253453a6e4862bcc6742d6c9721445c2dc8de3cae",
+      "actual": null,
+      "matches": false
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/history-id",
+      "expected": "4f1139acb7fe30c4581f60659197783a3c30032bbb2713189478c2d2bdc5063e",
+      "actual": null,
+      "matches": false
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/.hyperframes/video-state.json",
+      "expected": "9b6514c81b4c46c696b391c4e1aaa032ff6f2f5313f592344585b386eb3c56e6",
+      "actual": null,
+      "matches": false
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/assets/gsap.min.js",
+      "expected": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "actual": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/hyperframes.json",
+      "expected": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "actual": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report/index.html",
+      "expected": "3fc795a580af0a398101fc9ec57036f152a2d216f665c9402c57335d3793d8ee",
+      "actual": "3fc795a580af0a398101fc9ec57036f152a2d216f665c9402c57335d3793d8ee",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-report.html",
+      "expected": "676e54b508fea87f266af712b6ad10f0e33005936278c77d902a5f933adb26ca",
+      "actual": "676e54b508fea87f266af712b6ad10f0e33005936278c77d902a5f933adb26ca",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/assets/gsap.min.js",
+      "expected": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "actual": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/assets/scene.js",
+      "expected": "90d92218afb865a1a18fc7683c884b2699fecac62129e52d7e676a948152e7f7",
+      "actual": "90d92218afb865a1a18fc7683c884b2699fecac62129e52d7e676a948152e7f7",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/assets/sync.wav",
+      "expected": "f41270a096a2f03449956718ae211432f782731c9ebca94e7c6570b84273e321",
+      "actual": "f41270a096a2f03449956718ae211432f782731c9ebca94e7c6570b84273e321",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/hyperframes.json",
+      "expected": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "actual": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/hyperframes-study/index.html",
+      "expected": "0f6bdb5175abf5b3b0a82135b3adba1af4bd9a8d2b87585cf2e93c4363deab7b",
+      "actual": "0f6bdb5175abf5b3b0a82135b3adba1af4bd9a8d2b87585cf2e93c4363deab7b",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/public/sync.wav",
+      "expected": "f41270a096a2f03449956718ae211432f782731c9ebca94e7c6570b84273e321",
+      "actual": "f41270a096a2f03449956718ae211432f782731c9ebca94e7c6570b84273e321",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/remotion-report-entry.ts",
+      "expected": "a17efe2543d058a428797e7febeab2ebb480998e61465e52d3e67dadd04d20e0",
+      "actual": "a17efe2543d058a428797e7febeab2ebb480998e61465e52d3e67dadd04d20e0",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/scene-ir-example.json",
+      "expected": "4cc0f3b5a13017ff0e43fd508e139d1102334beb9396de3b5f81fb6be0cc2344",
+      "actual": "4cc0f3b5a13017ff0e43fd508e139d1102334beb9396de3b5f81fb6be0cc2344",
+      "matches": true
+    },
+    {
+      "path": "validation/fixtures/scene.js",
+      "expected": "90d92218afb865a1a18fc7683c884b2699fecac62129e52d7e676a948152e7f7",
+      "actual": "90d92218afb865a1a18fc7683c884b2699fecac62129e52d7e676a948152e7f7",
+      "matches": true
+    }
+  ],
+  "limitations": "Reused HF033 dependency graph; this is fixture materialization, not a clean npm installation test"
+}

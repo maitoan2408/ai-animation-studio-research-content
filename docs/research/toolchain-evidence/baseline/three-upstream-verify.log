@@ -1,0 +1,142 @@
+{
+  "size": "320x180",
+  "pathSamples": 2,
+  "steps": [
+    {
+      "step": "check",
+      "wallSeconds": 239.1,
+      "exit": 0
+    },
+    {
+      "step": "raster snapshot 4s, 0s, 4s",
+      "wallSeconds": 4.4,
+      "exit": 0
+    },
+    {
+      "step": "path snapshot 4s, 0s, 4s",
+      "wallSeconds": 62.8,
+      "exit": 0
+    },
+    {
+      "step": "path snapshot 4s in a new page",
+      "wallSeconds": 59.7,
+      "exit": 0
+    },
+    {
+      "step": "raster render 1 s at 30 fps",
+      "wallSeconds": 6.5,
+      "exit": 0
+    },
+    {
+      "step": "path render 0.8 s at 10 fps",
+      "wallSeconds": 77.4,
+      "exit": 0
+    }
+  ],
+  "rasterSeekHashes": {
+    "frame-00-at-4s.png": "bc4c4f562a999d8b",
+    "frame-01-at-0s.png": "06dab015d3a412d4",
+    "frame-02-at-4s.png": "bc4c4f562a999d8b"
+  },
+  "pathSeekHashes": {
+    "frame-00-at-4s.png": "605dc67eb114157d",
+    "frame-01-at-0s.png": "98b04fb2ca38a14a",
+    "frame-02-at-4s.png": "605dc67eb114157d"
+  },
+  "pathReloadHash": "605dc67eb114157d",
+  "rasterVsPathAtZero": 22.66,
+  "rasterExport": {
+    "workers": 1,
+    "frames": 30,
+    "spreads": [
+      31.7,
+      32,
+      32.2,
+      32.4,
+      32.6,
+      32.8,
+      33,
+      33.1,
+      33.2,
+      33.3,
+      33.4,
+      33.5,
+      33.5,
+      33.5,
+      33.6,
+      33.6,
+      33.5,
+      33.5,
+      33.4,
+      33.3,
+      33.2,
+      33.1,
+      33,
+      32.9,
+      32.8,
+      32.7,
+      32.7,
+      32.6,
+      32.5,
+      32.4
+    ],
+    "firstToLast": 9.83,
+    "stepRatios": [
+      0.93,
+      0.93,
+      0.93,
+      0.95,
+      0.96,
+      0.97,
+      0.98,
+      1.01,
+      0.99,
+      1.04,
+      0.99,
+      1.02,
+      1.04,
+      1.01,
+      1.03,
+      0.99,
+      1.03,
+      1.04,
+      1.05,
+      1,
+      1.01,
+      1.05,
+      1.01,
+      1,
+      1.02,
+      1,
+      0.96,
+      0.96,
+      0.95
+    ]
+  },
+  "pathExport": {
+    "workers": 2,
+    "frames": 8,
+    "spreads": [
+      33.6,
+      34.2,
+      34.5,
+      34.7,
+      34.8,
+      34.8,
+      34.8,
+      34.9
+    ],
+    "firstToLast": 8.58,
+    "stepRatios": [
+      0.96,
+      1,
+      1.03,
+      1.02,
+      1.01,
+      1,
+      1
+    ]
+  }
+}
+PASS
+kept /tmp/path-traced-3d-verify-47jOIV

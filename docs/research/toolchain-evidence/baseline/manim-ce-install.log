@@ -1,0 +1,53 @@
+Using Python 3.12.14 environment at: /tmp/studio-toolchain-r2/manim-ce
+Resolved 32 packages in 1.33s
+   Building srt==3.5.3
+Downloading numpy (16.0MiB)
+Downloading skia-pathops (3.1MiB)
+Downloading pyglm (11.2MiB)
+Downloading pygments (1.2MiB)
+      Built srt==3.5.3
+Downloading av (33.4MiB)
+ Downloaded pygments
+Downloading scipy (33.7MiB)
+Downloading networkx (2.0MiB)
+Downloading pillow (6.8MiB)
+   Building manimpango==0.7.1
+ Downloaded skia-pathops
+ Downloaded pyglm
+ Downloaded numpy
+   Building pycairo==1.29.2
+ Downloaded networkx
+ Downloaded pillow
+ Downloaded av
+ Downloaded scipy
+error: Failed to build `manimpango==0.7.1`
+  cause: The build backend returned an error
+  cause: Call to `setuptools.build_meta.get_requires_for_build_wheel` failed (exit status: 1)
+
+         [stderr]
+         Package 'pangocairo' was not found
+         Traceback (most recent call last):
+           File "<string>", line 137, in check_min_version
+           File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 413, in check_call
+             raise CalledProcessError(retcode, cmd)
+         subprocess.CalledProcessError: Command '['pkg-config', '--print-errors', '--atleast-version', '1.30.0', 'pangocairo']' returned non-zero exit status 1.
+
+         During handling of the above exception, another exception occurred:
+
+         Traceback (most recent call last):
+           File "<string>", line 14, in <module>
+           File "/tmp/studio-toolchain-r2/uv-cache/builds-v0/.tmppYe6pk/lib/python3.12/site-packages/setuptools/build_meta.py", line 333, in get_requires_for_build_wheel
+             return self._get_build_requires(config_settings, requirements=[])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+           File "/tmp/studio-toolchain-r2/uv-cache/builds-v0/.tmppYe6pk/lib/python3.12/site-packages/setuptools/build_meta.py", line 301, in _get_build_requires
+             self.run_setup()
+           File "/tmp/studio-toolchain-r2/uv-cache/builds-v0/.tmppYe6pk/lib/python3.12/site-packages/setuptools/build_meta.py", line 317, in run_setup
+             exec(code, locals())  # noqa: S102 # exec is intentional here
+             ^^^^^^^^^^^^^^^^^^^^
+           File "<string>", line 204, in <module>
+           File "<string>", line 140, in check_min_version
+         RequiredDependencyException: pangocairo >= 1.30.0 is required
+
+hint: `manimpango` (v0.7.1) was included because `manim` (v0.22.1) depends on `manimpango`
+
+hint: Build failures usually indicate a problem with the package or the build environment
