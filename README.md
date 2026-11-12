@@ -2,7 +2,17 @@
 
 Ứng dụng chạy được từ **kịch bản → phân cảnh nháp → chỉnh cảnh/voice → render → QC → review → export/import**. Có web UI tiếng Việt và CLI dùng chung workflow. Bản 0.1 dùng để duyệt khả năng kỹ thuật và hướng hình ảnh; chưa tự diễn xuất mọi kịch bản.
 
-Vòng nâng chất lượng production hiện tại: [video R0/R1/R2 và gói Blender](production/artifacts/Q2/review-final/README.md), [tổng kết đã làm](docs/execution/COMPLETED.md), [checkpoint tiếp tục](docs/execution/RESUME.md). Q2 còn các gate chất lượng; chưa phải release production.
+Vòng nâng chất lượng production hiện tại: [bộ review v2 R0/R1/R2](production/artifacts/Q2/web-review-v2/README.md), [chương trình review local](production/src/review/README.md), [master và gói Blender](production/artifacts/Q2/review-final/README.md), [tổng kết](docs/execution/COMPLETED.md), [điểm tiếp tục](docs/execution/RESUME.md). Q2 còn nghe/chấm chuyển động, operator độc lập và benchmark sau art gate; chưa phải release production.
+
+Mở chương trình review mới sau khi cài dependencies workbench:
+
+```bash
+npm --prefix production ci
+python production/src/media/review_bundle.py restore production/artifacts/Q2/web-review-v2
+npm --prefix production run review -- serve
+```
+
+Chương trình review chạy ở cổng4311; hướng dẫn v0.1 bên dưới vẫn ở cổng4310.
 
 ![Bàn dựng](artifacts/ui-desktop.png)
 

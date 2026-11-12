@@ -1,0 +1,43 @@
+RUN ["npm", "--prefix", "production", "ci", "--no-audit", "--no-fund"]
+npm error code EUSAGE
+npm error
+npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+npm error
+npm error Missing: proxy-agent@6.5.0 from lock file
+npm error Missing: agent-base@7.1.4 from lock file
+npm error Missing: http-proxy-agent@7.0.2 from lock file
+npm error Missing: https-proxy-agent@7.0.6 from lock file
+npm error Missing: pac-proxy-agent@7.2.0 from lock file
+npm error Missing: proxy-from-env@1.1.0 from lock file
+npm error Missing: socks-proxy-agent@8.0.5 from lock file
+npm error Missing: get-uri@6.0.5 from lock file
+npm error Missing: pac-resolver@7.0.1 from lock file
+npm error Missing: data-uri-to-buffer@6.0.2 from lock file
+npm error Missing: degenerator@5.0.1 from lock file
+npm error Missing: ast-types@0.13.4 from lock file
+npm error
+npm error Clean install a project
+npm error
+npm error Usage:
+npm error npm ci
+npm error
+npm error Options:
+npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts]
+npm error [--allow-git <all|none|root>] [--no-audit] [--no-bin-links] [--no-fund]
+npm error [--dry-run]
+npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+npm error [--workspaces] [--include-workspace-root] [--install-links]
+npm error
+npm error aliases: clean-install, ic, install-clean, isntall-clean
+npm error
+npm error Run "npm help ci" for more info
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm error A complete log of this run can be found in: /workspace/ai-animation-studio-research-content/production/out/fresh-review/eca04a7b905e474a831901b1dae4b108/npm-cache/_logs/2026-11-12T23_09_17_485Z-debug-0.log
+{"status": "FAIL", "commit": "07f3eabba181b0713abfb21595dfa3c0d67f6dc2", "source": "git archive production only; clean npm cache/install", "completedAt": "2026-11-12T23:09:19.942800+00:00", "checks": [{"command": ["npm", "--prefix", "production", "ci", "--no-audit", "--no-fund"], "exitCode": 1}], "lockSha256": "21c8c9e32d63d51d8476d65700d712dbbe212acc5e6340e826ded20cfa8d9b74", "output": "/workspace/ai-animation-studio-research-content/production/out/fresh-review/eca04a7b905e474a831901b1dae4b108", "limits": ["Same host/runtime and agent; not independent operator or clean-machine certification", "No listening or full artistic review from functional test"]}

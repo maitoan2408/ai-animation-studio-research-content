@@ -10,11 +10,15 @@ import json
 import os
 import subprocess
 import tarfile
+import tempfile
 import uuid
 
 ROOT = Path(__file__).resolve().parents[3]
 out = ROOT / 'production/out/fresh-review' / uuid.uuid4().hex
-checkout = out / 'checkout'; checkout.mkdir(parents=True)
+out.mkdir(parents=True)
+# npm/Node can inspect ancestor package trees. A directory under production/out
+# is NOT isolated from this live repository even when its own node_modules is absent.
+checkout = Path(tempfile.mkdtemp(prefix='studio-q2-clean-'))
 head = subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True).strip()
 archive = out / 'source.tar'
 with archive.open('xb') as stream:
@@ -42,7 +46,8 @@ report = {'status': 'PASS' if len(results) == len(commands) and all(r['exitCode'
           'commit': head, 'source': 'git archive production only; clean npm cache/install',
           'completedAt': dt.datetime.now(dt.timezone.utc).isoformat(), 'checks': results,
           'lockSha256': hashlib.sha256((checkout / 'production/package-lock.json').read_bytes()).hexdigest(),
-          'output': str(out), 'limits': ['Same host/runtime and agent; not independent operator or clean-machine certification', 'No listening or full artistic review from functional test']}
+          'output': str(out), 'checkout': str(checkout),
+          'limits': ['Same host/runtime and agent; not independent operator or clean-machine certification', 'No listening or full artistic review from functional test']}
 (out / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
 print(json.dumps(report), flush=True)
 if report['status'] != 'PASS': raise SystemExit(1)

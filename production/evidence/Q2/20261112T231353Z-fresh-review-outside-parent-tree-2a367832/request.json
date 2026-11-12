@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "fresh-review-outside-parent-tree",
+  "run_id": "20261112T231353Z-fresh-review-outside-parent-tree-2a367832",
+  "started_at_utc": "20261112T231353Z",
+  "command": [
+    "python",
+    "production/src/qa/check_fresh_review.py"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "07f3eabba181b0713abfb21595dfa3c0d67f6dc2",
+  "tracked_diff_sha256": "c2c14afc896cdae6337a6c3889509bd3ef0af0736f210e0d1c3b69aa19a67a9e",
+  "status": "RUNNING",
+  "recorder_pid": 5290,
+  "source_snapshot_sha256": "f2b1dbf9da42fd32e6ace3cc2fbb5c83168f6e814b8815f2148eb2f9170921b1"
+}
