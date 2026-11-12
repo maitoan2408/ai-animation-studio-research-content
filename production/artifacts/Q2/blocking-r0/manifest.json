@@ -110,11 +110,13 @@
       "frames": 144
     }
   ],
-  "nativeArchiveSha256": "f8f980a188484bb7b91468211299794da94da1ed6e71795bc3f378ca165c9f02",
+  "nativeArchiveSha256": "077dd0be2875b274a8bca1ba5b1b7312c1a1be0f2384e03c466ff9c7dc1dbe8f",
   "limits": [
     "No full creative gate",
     "Listening review remains open",
     "These timings include concurrent A/B work; not cold/warm performance samples",
     "No independent artist/operator handoff"
-  ]
+  ],
+  "rejectedNativeArchiveSha256": "f8f980a188484bb7b91468211299794da94da1ed6e71795bc3f378ca165c9f02",
+  "nativeReplay": "native-replay-report.json"
 }

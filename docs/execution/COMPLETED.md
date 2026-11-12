@@ -20,7 +20,10 @@ review độc lập hoặc duyệt release. Phần còn dở giữ nguyên trong
 - [12 clip và manifest](../../production/artifacts/Q2/blocking-r0/manifest.json).
 - [A: six shots](../../production/artifacts/Q2/blocking-r0/A/).
 - [B VSE: six shots](../../production/artifacts/Q2/blocking-r0/B-VSE/).
-- [Native six-shot Blender + textures/source JSON](../../production/artifacts/Q2/blocking-r0/native-blender-vse.zip).
+- [Native six-shot Blender + textures/source JSON đã sửa](../../production/artifacts/Q2/blocking-r0/native-blender-vse.zip).
+  Bản đầu bị lỗi relative paths (EX-019) được giữ riêng. Retest fresh path/process:
+  52 file hashes đúng, 6 frames S05 theo thứ tự trộn khớp pixel. Đây là same-agent
+  replay; chưa có operator độc lập. Tên commit cũ có chữ "verified" không phải gate.
 - [Source renderer A](../../production/src/render/README.md), [native Blender](../../production/src/blender/README.md),
   [môi trường](../../production/ENVIRONMENT.md), [issue ledger](issues.md).
 

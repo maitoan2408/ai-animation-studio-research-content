@@ -57,3 +57,11 @@ blocking/rejected VSE takes. Fixed walk deceleration and native VSE flip; added
 Blender exception exit guard and exact source snapshots for new attempts. Native
 six-shot package includes relative hashed textures and source frame JSON. Full
 creative/polish/edit gates remain open; no production release claim.
+
+### Correct native package replay claim
+
+First fresh-path replay failed EX-019 (missing textures after Save As path remap).
+Preserved failed package, repaired destination-relative paths, and verified the
+new package in a fresh path/process: 52 hashes and 6 S05 frames match pixels.
+The earlier commit subject said "verified" prematurely; the test logs and this
+correction are authoritative. Independent operator handoff remains pending.

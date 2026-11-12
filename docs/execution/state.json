@@ -41,6 +41,12 @@
       "result": "PASS_TECHNICAL",
       "evidence": "production/artifacts/Q2/blocking-r0/manifest.json",
       "limits": "Blocking only; full creative gate, edits and fair performance samples pending"
+    },
+    {
+      "id": "Q2-native-portable-replay",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/blocking-r0/native-replay-report.json",
+      "limits": "52 file hashes +6 actual S05 frames exact pixels in new path/process; same agent, not independent operator"
     }
   ],
   "paidBudget": 0,

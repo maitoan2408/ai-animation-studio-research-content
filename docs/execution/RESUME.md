@@ -60,3 +60,10 @@ EX-015 giảm tốc, EX-016 exception exit, EX-017 mirror đã sửa/retest; EX-
 mềm/tiếp đất đang mở. Tiếp Q2 polish pack riêng (không ghi đè blocking), R1/R2,
 performance/handoff/review trước Q3. Q1 voice listening vẫn chờ nhận xét người dùng
 qua câu hỏi async đã gửi; không hỏi lại quyền triển khai. Xem COMPLETED.md.
+
+Native package correction EX-019: Save As remapped already-relative paths and
+first replay was magenta/FAIL. Fixed with relative_remap=False; accepted ZIP now
+077dd0be2875b274a8bca1ba5b1b7312c1a1be0f2384e03c466ff9c7dc1dbe8f.
+Retest native-portable-reopen-seek-retest-18ac17bc PASS: 52 hashes, 6 S05 frames
+exact pixels. Bad ZIP retained as rejected-native-paths.zip. Same agent replay.
+Polish source/tests/raster are in progress and not yet a completed visual gate.

@@ -24,7 +24,10 @@ for shot,take_path in selection.items():
    element.filename=name
   strip.directory='//../textures/'
  bpy.context.scene.frame_set(1)
- bpy.ops.wm.save_as_mainfile(filepath=str(out/'project'/f'{shot}.blend'))
+ # Paths above are already relative to the DESTINATION project directory.
+ # Blender's default relative_remap would reinterpret them against the old take
+ # and rewrite them into broken paths during Save As (EX-019).
+ bpy.ops.wm.save_as_mainfile(filepath=str(out/'project'/f'{shot}.blend'),relative_remap=False)
  shutil.copy2(take/'inputs.json',out/'source'/f'{shot}.json')
 (out/'README.txt').write_text('Q2 blocking native VSE projects, Blender 4.3.2. Open project/S01.blend etc.\nTextures are relative and SHA256-addressed. Source JSON preserves authored frames.\nThese are benchmark fixtures, not the story pilot or production release.\nOriginal artwork belongs to this project; voice is not embedded in these image-strip files.\nRepository: https://github.com/maitoan2408/ai-animation-studio-research-content\nSee production/ENVIRONMENT.md for licenses; Q1 listening review remains open.\n')
 files={str(f.relative_to(out)):hashlib.sha256(f.read_bytes()).hexdigest() for f in out.rglob('*') if f.is_file()}
