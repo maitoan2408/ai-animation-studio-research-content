@@ -25,7 +25,11 @@ const server=createServer((req,res)=>{
  else res.end('<body style="margin:0"><video id="v" muted preload="auto" src="/video.mp4" style="width:1920px;height:1080px"></video><canvas id="c" width="1920" height="1080" style="display:none"></canvas></body>');
 });
 await new Promise<void>(r=>server.listen(0,'127.0.0.1',r));const addr=server.address();if(!addr||typeof addr==='string')throw Error('NO_PORT');
-const browser=await puppeteer.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--autoplay-policy=no-user-gesture-required']});
+const browserArgs=['--no-sandbox','--disable-dev-shm-usage','--autoplay-policy=no-user-gesture-required'];
+const colorProfile=process.argv[5];
+if(colorProfile && colorProfile!=='srgb')throw Error('INVALID_DISPLAY_PROFILE');
+if(colorProfile)browserArgs.push('--force-color-profile=srgb');
+const browser=await puppeteer.launch({executablePath:'/usr/bin/chromium',headless:true,args:browserArgs});
 try{
  const page=await browser.newPage();await page.setViewport({width:1920,height:1080,deviceScaleFactor:1});await page.goto(`http://127.0.0.1:${addr.port}`);
  // A fixed browser script avoids tsx injecting Node-only __name helpers.
@@ -65,6 +69,6 @@ try{
  })()` ) as {elapsedSeconds:number;duration:number;ended:boolean;width:number;height:number;decoded:number;dropped:number};
  const report={...sample,...playback};
  await writeFile(path.join(out,'player.png'),Buffer.from(report.sampled.split(',')[1]!,'base64'));
- const {sampled,...metadata}=report;await writeFile(path.join(out,'report.json'),JSON.stringify({frame,rate,deliverySha256:createHash('sha256').update(video).digest('hex'),browser:await browser.version(),...metadata,scope:'Visible HTML video playback, muted; counts exclude seeking. No listening/creative gate'},null,2)+'\n');
+ const {sampled,...metadata}=report;await writeFile(path.join(out,'report.json'),JSON.stringify({frame,rate,displayProfile:colorProfile??'browser-default',deliverySha256:createHash('sha256').update(video).digest('hex'),browser:await browser.version(),...metadata,scope:'Visible HTML video playback, muted; counts exclude seeking. No listening/creative gate'},null,2)+'\n');
  console.log(JSON.stringify({output:out,...metadata}));
 }finally{await browser.close();server.closeAllConnections();server.close();}

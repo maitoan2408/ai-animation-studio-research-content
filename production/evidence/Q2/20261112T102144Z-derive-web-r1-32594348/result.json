@@ -1,0 +1,26 @@
+{
+  "phase": "Q2",
+  "step": "derive-web-r1",
+  "run_id": "20261112T102144Z-derive-web-r1-32594348",
+  "started_at_utc": "20261112T102144Z",
+  "command": [
+    "python",
+    "production/src/media/derive_review.py",
+    "production/artifacts/Q2/review-final/R1/normalized-delivery.mp4",
+    "--sha256",
+    "098284d8e259c34ce700bac7adaeb292af67b5ab18a6b396cebb76abddad2c6e",
+    "--frames",
+    "1152"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "66f9f1fac901b7eea67400816ae1e14f22d3e6a6",
+  "tracked_diff_sha256": "6fc8dfe7061b81d7cc59a9ef9a8468df0cb4836f856a210205cc7d223ce28819",
+  "recorder_pid": 16383,
+  "source_snapshot_sha256": "e9be11f81bde491a8bd1be671e2be316bd4dfa4742cf15e79dcc9f31ad0b2c9a",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 105.848,
+  "finished_at_utc": "2026-11-12T10:23:30.594978+00:00",
+  "log_sha256": "f4920bc9e7231eda0e6c13e25a7e6e6bdee983fa7c8307dca2e3a270d0264815",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

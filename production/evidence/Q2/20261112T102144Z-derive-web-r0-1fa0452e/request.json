@@ -1,0 +1,21 @@
+{
+  "phase": "Q2",
+  "step": "derive-web-r0",
+  "run_id": "20261112T102144Z-derive-web-r0-1fa0452e",
+  "started_at_utc": "20261112T102144Z",
+  "command": [
+    "python",
+    "production/src/media/derive_review.py",
+    "production/artifacts/Q2/review-final/R0/normalized-delivery.mp4",
+    "--sha256",
+    "f1d0413c6f4970e3575bdbc8bc994dd3bc10e9e2931fcf8561767cd3b3460ea0",
+    "--frames",
+    "1152"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "66f9f1fac901b7eea67400816ae1e14f22d3e6a6",
+  "tracked_diff_sha256": "6fc8dfe7061b81d7cc59a9ef9a8468df0cb4836f856a210205cc7d223ce28819",
+  "status": "RUNNING",
+  "recorder_pid": 16377,
+  "source_snapshot_sha256": "e9be11f81bde491a8bd1be671e2be316bd4dfa4742cf15e79dcc9f31ad0b2c9a"
+}

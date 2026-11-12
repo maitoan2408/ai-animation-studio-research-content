@@ -1,0 +1,19 @@
+{
+  "phase": "Q2",
+  "step": "separate-player-encoder-color",
+  "run_id": "20261112T150609Z-separate-player-encoder-color-72f61e5f",
+  "started_at_utc": "20261112T150609Z",
+  "command": [
+    "python",
+    "production/src/media/diagnose_chart.py",
+    "production/out/color-chart/eeb0cb6f8ae14c8bafd4d773eae18402/fixture.json",
+    "production/out/native-color-chart/c09d7489cdfe45ada3b89297e19442e4/delivery.mp4",
+    "production/out/player-check/4aecbfc5-ebc2-4b7e-8997-b949a6f028aa"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "66f9f1fac901b7eea67400816ae1e14f22d3e6a6",
+  "tracked_diff_sha256": "9ccd082b89537a05c7bb3e553bd3096c63fd8e5550522f3f8dc97b7ac56d6671",
+  "status": "RUNNING",
+  "recorder_pid": 17849,
+  "source_snapshot_sha256": "b2308480b4a334caf99919cc91fbf9995e80155b29ec83064dcbfc226eb336c4"
+}

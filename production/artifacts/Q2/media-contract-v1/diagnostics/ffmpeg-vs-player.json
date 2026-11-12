@@ -1,0 +1,384 @@
+{
+  "status": "DIAGNOSTIC_NOT_APPROVAL",
+  "deliverySha256": "c97de10e47ac64ce3fc0878c591dca74cddcab8363ca2809d4f8697072990e9e",
+  "fixtureSha256": "7a2b0427ab4c582fc9f91a98317817e772ebedd9bd038901bd08eb025eaf2afe",
+  "player": {
+    "frame": 12,
+    "rate": 1,
+    "displayProfile": "srgb",
+    "deliverySha256": "c97de10e47ac64ce3fc0878c591dca74cddcab8363ca2809d4f8697072990e9e",
+    "browser": "Chrome/156.0.8078.79",
+    "presentedMediaTime": 0.5,
+    "elapsedSeconds": 2.0415,
+    "duration": 2,
+    "ended": true,
+    "width": 1920,
+    "height": 1080,
+    "decoded": 44,
+    "dropped": 0,
+    "scope": "Visible HTML video playback, muted; counts exclude seeking. No listening/creative gate"
+  },
+  "patches": [
+    {
+      "referenceRGB": [
+        0,
+        0,
+        0
+      ],
+      "ffmpegCenterRGB": [
+        0,
+        0,
+        0
+      ],
+      "playerCenterRGB": [
+        0,
+        0,
+        0
+      ],
+      "ffmpegInteriorMax": 0
+    },
+    {
+      "referenceRGB": [
+        32,
+        32,
+        32
+      ],
+      "ffmpegCenterRGB": [
+        31,
+        31,
+        31
+      ],
+      "playerCenterRGB": [
+        31,
+        31,
+        31
+      ],
+      "ffmpegInteriorMax": 1
+    },
+    {
+      "referenceRGB": [
+        64,
+        64,
+        64
+      ],
+      "ffmpegCenterRGB": [
+        64,
+        64,
+        64
+      ],
+      "playerCenterRGB": [
+        64,
+        64,
+        64
+      ],
+      "ffmpegInteriorMax": 0
+    },
+    {
+      "referenceRGB": [
+        96,
+        96,
+        96
+      ],
+      "ffmpegCenterRGB": [
+        95,
+        95,
+        95
+      ],
+      "playerCenterRGB": [
+        95,
+        95,
+        95
+      ],
+      "ffmpegInteriorMax": 1
+    },
+    {
+      "referenceRGB": [
+        128,
+        128,
+        128
+      ],
+      "ffmpegCenterRGB": [
+        128,
+        128,
+        128
+      ],
+      "playerCenterRGB": [
+        128,
+        128,
+        128
+      ],
+      "ffmpegInteriorMax": 1
+    },
+    {
+      "referenceRGB": [
+        160,
+        160,
+        160
+      ],
+      "ffmpegCenterRGB": [
+        160,
+        160,
+        160
+      ],
+      "playerCenterRGB": [
+        159,
+        159,
+        159
+      ],
+      "ffmpegInteriorMax": 0
+    },
+    {
+      "referenceRGB": [
+        192,
+        192,
+        192
+      ],
+      "ffmpegCenterRGB": [
+        192,
+        192,
+        192
+      ],
+      "playerCenterRGB": [
+        192,
+        192,
+        192
+      ],
+      "ffmpegInteriorMax": 0
+    },
+    {
+      "referenceRGB": [
+        224,
+        224,
+        224
+      ],
+      "ffmpegCenterRGB": [
+        224,
+        224,
+        224
+      ],
+      "playerCenterRGB": [
+        223,
+        223,
+        223
+      ],
+      "ffmpegInteriorMax": 1
+    },
+    {
+      "referenceRGB": [
+        255,
+        255,
+        255
+      ],
+      "ffmpegCenterRGB": [
+        255,
+        255,
+        255
+      ],
+      "playerCenterRGB": [
+        255,
+        255,
+        255
+      ],
+      "ffmpegInteriorMax": 2
+    },
+    {
+      "referenceRGB": [
+        41,
+        73,
+        87
+      ],
+      "ffmpegCenterRGB": [
+        41,
+        74,
+        87
+      ],
+      "playerCenterRGB": [
+        41,
+        74,
+        86
+      ],
+      "ffmpegInteriorMax": 2
+    },
+    {
+      "referenceRGB": [
+        126,
+        170,
+        163
+      ],
+      "ffmpegCenterRGB": [
+        127,
+        171,
+        163
+      ],
+      "playerCenterRGB": [
+        126,
+        171,
+        163
+      ],
+      "ffmpegInteriorMax": 8
+    },
+    {
+      "referenceRGB": [
+        245,
+        223,
+        179
+      ],
+      "ffmpegCenterRGB": [
+        244,
+        224,
+        178
+      ],
+      "playerCenterRGB": [
+        244,
+        224,
+        181
+      ],
+      "ffmpegInteriorMax": 7
+    },
+    {
+      "referenceRGB": [
+        213,
+        163,
+        75
+      ],
+      "ffmpegCenterRGB": [
+        214,
+        163,
+        75
+      ],
+      "playerCenterRGB": [
+        214,
+        163,
+        80
+      ],
+      "ffmpegInteriorMax": 11
+    },
+    {
+      "referenceRGB": [
+        188,
+        99,
+        81
+      ],
+      "ffmpegCenterRGB": [
+        188,
+        99,
+        81
+      ],
+      "playerCenterRGB": [
+        188,
+        99,
+        82
+      ],
+      "ffmpegInteriorMax": 8
+    },
+    {
+      "referenceRGB": [
+        34,
+        79,
+        80
+      ],
+      "ffmpegCenterRGB": [
+        34,
+        79,
+        80
+      ],
+      "playerCenterRGB": [
+        34,
+        79,
+        80
+      ],
+      "ffmpegInteriorMax": 7
+    },
+    {
+      "referenceRGB": [
+        255,
+        0,
+        0
+      ],
+      "ffmpegCenterRGB": [
+        255,
+        1,
+        0
+      ],
+      "playerCenterRGB": [
+        255,
+        1,
+        3
+      ],
+      "ffmpegInteriorMax": 7
+    },
+    {
+      "referenceRGB": [
+        0,
+        255,
+        0
+      ],
+      "ffmpegCenterRGB": [
+        0,
+        255,
+        1
+      ],
+      "playerCenterRGB": [
+        0,
+        255,
+        11
+      ],
+      "ffmpegInteriorMax": 7
+    },
+    {
+      "referenceRGB": [
+        0,
+        0,
+        255
+      ],
+      "ffmpegCenterRGB": [
+        1,
+        0,
+        255
+      ],
+      "playerCenterRGB": [
+        1,
+        0,
+        243
+      ],
+      "ffmpegInteriorMax": 11
+    },
+    {
+      "referenceRGB": [
+        0,
+        255,
+        255
+      ],
+      "ffmpegCenterRGB": [
+        0,
+        254,
+        255
+      ],
+      "playerCenterRGB": [
+        0,
+        254,
+        252
+      ],
+      "ffmpegInteriorMax": 8
+    },
+    {
+      "referenceRGB": [
+        255,
+        0,
+        255
+      ],
+      "ffmpegCenterRGB": [
+        255,
+        0,
+        254
+      ],
+      "playerCenterRGB": [
+        255,
+        0,
+        244
+      ],
+      "ffmpegInteriorMax": 9
+    }
+  ],
+  "filter": "zscale=primariesin=709:transferin=iec61966-2-1:matrixin=709:rangein=limited:primaries=709:transfer=iec61966-2-1:matrix=gbr:range=full,format=gbrp,format=rgb24"
+}

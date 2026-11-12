@@ -68,7 +68,7 @@ def main() -> int:
         if name.startswith(prefixes) or name in ('package.json', 'package-lock.json',
                 'tsconfig.json', 'tsconfig.test.json', 'production/package.json',
                 'production/package-lock.json', 'production/tsconfig.json',
-                'production/requirements-voice.lock'):
+                'production/requirements-voice.lock', 'production/requirements-qc.lock'):
             inputs.append(dict(path=name, sha256=hashlib.sha256(file.read_bytes()).hexdigest()))
     atomic_json(directory / 'inputs.json', dict(files=inputs))
     # A hash alone cannot restore an uncommitted failed attempt after editing.

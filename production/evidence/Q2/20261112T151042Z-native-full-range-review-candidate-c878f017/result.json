@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "native-full-range-review-candidate",
+  "run_id": "20261112T151042Z-native-full-range-review-candidate-c878f017",
+  "started_at_utc": "20261112T151042Z",
+  "command": [
+    "python",
+    "production/src/media/native_chart.py",
+    "production/out/color-chart/eeb0cb6f8ae14c8bafd4d773eae18402/fixture.json",
+    "--full-range"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "66f9f1fac901b7eea67400816ae1e14f22d3e6a6",
+  "tracked_diff_sha256": "9ccd082b89537a05c7bb3e553bd3096c63fd8e5550522f3f8dc97b7ac56d6671",
+  "recorder_pid": 18249,
+  "source_snapshot_sha256": "eb0ea022e59b556cfc030a62059e6169bd7024aba4c73a0869302dd3ad7fe98b",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 1.995,
+  "finished_at_utc": "2026-11-12T15:10:44.372305+00:00",
+  "log_sha256": "19c65905934f6c5c0230c0f9e36531ac531cab15b7c945c1bf37e1c21f0565d4",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,0 +1,31 @@
+
+> paper-studio-production-workbench@0.1.0 typecheck
+> tsc --noEmit
+
+src/review/catalog.ts(33,48): error TS18048: 'video' is possibly 'undefined'.
+src/review/catalog.ts(33,67): error TS18048: 'audio' is possibly 'undefined'.
+src/review/catalog.ts(33,97): error TS18048: 'audio' is possibly 'undefined'.
+src/review/catalog.ts(33,121): error TS18048: 'audio' is possibly 'undefined'.
+src/review/catalog.ts(33,154): error TS18048: 'audio' is possibly 'undefined'.
+src/review/catalog.ts(34,62): error TS18048: 'stream' is possibly 'undefined'.
+src/review/catalog.ts(34,142): error TS18048: 'stream' is possibly 'undefined'.
+src/review/domain.ts(54,21): error TS18046: 'input.artifacts' is of type 'unknown'.
+src/review/domain.ts(54,41): error TS7006: Parameter 'raw' implicitly has an 'any' type.
+src/review/domain.ts(62,19): error TS18046: 'a.shots' is of type 'unknown'.
+src/review/domain.ts(62,31): error TS7006: Parameter 'rawShot' implicitly has an 'any' type.
+src/review/domain.ts(69,48): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/review/domain.ts(74,29): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/review/domain.ts(74,92): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/review/domain.ts(118,11): error TS2322: Type 'unknown' is not assignable to type 'string'.
+src/review/server.ts(14,17): error TS18047: 'match' is possibly 'null'.
+src/review/server.ts(14,35): error TS18047: 'match' is possibly 'null'.
+src/review/server.ts(15,16): error TS18047: 'match' is possibly 'null'.
+src/review/server.ts(15,34): error TS18047: 'match' is possibly 'null'.
+src/review/server.ts(115,34): error TS18047: 'address' is possibly 'null'.
+src/review/server.ts(115,42): error TS2339: Property 'port' does not exist on type 'string | AddressInfo'.
+  Property 'port' does not exist on type 'string'.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -130,3 +130,15 @@ art/motion gate đạt mới chạy `production/brief/performance-protocol.md` (
 Q3–Q9 vẫn NOT_STARTED theo kế hoạch, không triển khai vượt gate hoặc đổi trạng thái
 chỉ vì unit tests xanh. Không còn câu hỏi quyền triển khai; người dùng đã ủy quyền.
 Câu hỏi nhận xét voice trước đó chưa có câu trả lời; không gửi lặp hoặc giả đã nghe.
+
+### Checkpoint media contract — 12/11/2026, 22:12 ICT
+
+Bounded alpha/profile negatives and real-art web color average PASS. EX-024 chart
+FAIL remains explicit; direct PNG limited-range and RGB candidates did not close
+it. Keep all failures in `artifacts/Q2/media-contract-v1/diagnostics`. Three web
+derivatives remain diagnostic/pending, not color approved. The next candidate
+tests a truthful full-range sRGB review path; BT709 limited masters stay unchanged.
+Local review tool is being implemented separately under `production/src/review`
+to record shot/frame/hash-bound opinions; not yet functionally verified. Complete
+its API/storage/UI tests before calling it delivered. Q2 remains IN_PROGRESS;
+the earlier motion/voice/handoff/performance gates are neither removed nor done.

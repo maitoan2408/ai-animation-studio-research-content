@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Review Q2 package and close outstanding gates: target-player color/alpha contract, full-motion/voice timestamp review, independent operator note; then execute locked3cold+5warm protocol. Q3–Q9 remain gated, not skipped.",
+  "nextAction": "Q2 media: EX-024 chart FAIL preserved, investigate player conversion with fixed thresholds. Finish and test local Q2 review program (not Q6 product implementation); then full motion/voice and independent handoff gates. No rerender of completed native shots.",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -89,6 +89,12 @@
       "result": "PASS_TECHNICAL",
       "evidence": "production/artifacts/Q2/review-final/R2/loudness-report.json",
       "limits": "All3normalized deliveries −16.02LUFS; TP<=−1.93dBTP; AAC lag0. No voice listening approval or full pilot sound mix."
+    },
+    {
+      "id": "Q2-bounded-alpha-and-profile-contracts",
+      "result": "PASS_TECHNICAL_PARTIAL",
+      "evidence": "production/artifacts/Q2/media-contract-v1",
+      "limits": "Real art web RGB MAE1.404/p954 and alpha positives/negatives pass; color chart fails. No complete color or art approval."
     }
   ],
   "paidBudget": 0,
@@ -98,7 +104,8 @@
     "EX-004",
     "EX-005",
     "EX-011",
-    "EX-013"
+    "EX-013",
+    "EX-024"
   ],
   "gateReport": "production/evidence/Q2/gate.json"
 }
