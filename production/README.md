@@ -38,3 +38,8 @@ Bộ xem gần nhất: [Q2 R0/R1/R2 + native + QC](artifacts/Q2/review-final/REA
 [Gate Q2](evidence/Q2/gate.json) là trạng thái hiện hành; [performance protocol](brief/performance-protocol.md)
 chưa chạy vì gate hình/chuyển động chưa đủ. Không dựng lại những clip đã pass chỉ
 vì phiên làm việc mới; kiểm RESUME, hashes và attempt outcomes trước.
+
+Raw `.log` evidence giữ nguyên bytes, gồm CR/trailing spaces từ FFmpeg. Git
+attributes tắt line-ending conversion/whitespace lint riêng cho log để hash còn
+đúng khi clone trên máy khác. Không trim log để làm sạch diff; source/docs vẫn
+chịu kiểm tra whitespace thông thường.

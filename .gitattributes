@@ -1,0 +1,4 @@
+# Evidence logs are hashed raw process bytes (including FFmpeg CR progress).
+# Never normalize line endings or trim whitespace during checkout/review.
+production/evidence/**/*.log -text -whitespace
+production/artifacts/**/*.log -text -whitespace
