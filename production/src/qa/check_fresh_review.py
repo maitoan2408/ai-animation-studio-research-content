@@ -19,10 +19,14 @@ out.mkdir(parents=True)
 # npm/Node can inspect ancestor package trees. A directory under production/out
 # is NOT isolated from this live repository even when its own node_modules is absent.
 checkout = Path(tempfile.mkdtemp(prefix='studio-q2-clean-'))
-head = subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True).strip()
+# This helper is already executing from this authorized checkout. Container CI
+# can mount it under a different UID. Trust this exact path for these read-only
+# commands only; leave global config and other repository ownership checks alone.
+git = ['git', '-c', f'safe.directory={ROOT}']
+head = subprocess.check_output([*git,'rev-parse','HEAD'], cwd=ROOT, text=True).strip()
 archive = out / 'source.tar'
 with archive.open('xb') as stream:
-    subprocess.run(['git','archive','--format=tar',head,'production'], cwd=ROOT, stdout=stream, check=True)
+    subprocess.run([*git,'archive','--format=tar',head,'production'], cwd=ROOT, stdout=stream, check=True)
 with tarfile.open(archive) as source:
     source.extractall(checkout, filter='data')
 if (checkout / 'production/node_modules').exists() or list((checkout / 'production/artifacts/Q2/web-review-v2').glob('*/review.mp4')):
@@ -47,6 +51,7 @@ report = {'status': 'PASS' if len(results) == len(commands) and all(r['exitCode'
           'completedAt': dt.datetime.now(dt.timezone.utc).isoformat(), 'checks': results,
           'lockSha256': hashlib.sha256((checkout / 'production/package-lock.json').read_bytes()).hexdigest(),
           'output': str(out), 'checkout': str(checkout),
+          'gitTrustScope': {'directory': str(ROOT), 'configScope': 'per invocation; no global change'},
           'limits': ['Same host/runtime and agent; not independent operator or clean-machine certification', 'No listening or full artistic review from functional test']}
 (out / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
 print(json.dumps(report), flush=True)

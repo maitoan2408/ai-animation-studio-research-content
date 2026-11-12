@@ -85,7 +85,7 @@ Use Ctrl+C/SIGTERM for a clean stop. A second writer is refused. After a hard ki
 that the previous process is stopped before moving that one lock **outside** the
 journal directory; preserve it with the incident log, then restart. Never remove
 a live writer's lock. Restore corrupted journals from an exported backup instead
-of editing signed records. No silent repair or overwrite is performed.
+of editing hash-linked records. No silent repair or overwrite is performed.
 
 Export while running via the UI, or stop the server and run:
 

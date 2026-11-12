@@ -39,6 +39,9 @@ CI hai workflow workbench/v0.1 trên source head065a02c đã SUCCESS; xem
 [job/step evidence](../../production/artifacts/Q2/ci-repaired-lock-20261113.json).
 CI được bổ sung ca standalone Git-only để bắt đúng lỗi EX-028 trong các lần sau;
 kết quả của workflow mở rộng được ghi riêng, không suy từ CI trước thay đổi.
+Lần mở rộng đầu run43328442441 FAIL tại ownership Git (EX-029), các bước trước
+đó PASS. Fix chỉ trust đúng ROOT ở từng lệnh đang retest; đóng EX-029 và cập nhật
+CI evidence trước khi chuyển sang phần review chất lượng còn mở bên dưới.
 
 ## Mở chương trình đã làm
 

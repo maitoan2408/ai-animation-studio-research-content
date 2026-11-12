@@ -1,0 +1,26 @@
+{
+  "phase": "Q2",
+  "step": "ci-ownership-negative-reproduction",
+  "run_id": "20261112T232653Z-ci-ownership-negative-reproduction-956407db",
+  "started_at_utc": "20261112T232653Z",
+  "command": [
+    "env",
+    "GIT_TEST_ASSUME_DIFFERENT_OWNER=1",
+    "git",
+    "-c",
+    "safe.directory=",
+    "rev-parse",
+    "HEAD"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "b51aa2a962e15db0e8e28bfb4c98052bbe1980a5",
+  "tracked_diff_sha256": "521537df4edeb441fd8ff8759a2cd47942a20f814a59745404abd229fa51eb31",
+  "recorder_pid": 6238,
+  "source_snapshot_sha256": "0ed8e0268b7bf3fac9650c68e69dddcfa599358d88219f8e268655cd4ae540ae",
+  "status": "FAIL",
+  "exit_code": 128,
+  "elapsed_seconds": 0.002,
+  "finished_at_utc": "2026-11-12T23:26:54.108297+00:00",
+  "log_sha256": "e7caeb1a1c490514a4a56ac0466a225e3e258e1ba3ab7142a3116abe6c684056",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Q2 technical color repair and local review tool complete. Finish timestamped normal/slow motion rubric and real voice listening, then independent native open/edit handoff. Only after art/motion passes run locked3cold+5warm protocol and Q3 ADR; Q4-Q9 remain NOT_STARTED. Review UI defaults to v2 restored from committed chunks.",
+  "nextAction": "Close EX-029 with actual expanded CI after scoped Git ownership fix. Then Q2 technical color repair and local review tool complete. Finish timestamped normal/slow motion rubric and real voice listening, then independent native open/edit handoff. Only after art/motion passes run locked3cold+5warm protocol and Q3 ADR; Q4-Q9 remain NOT_STARTED. Review UI defaults to v2 restored from committed chunks.",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -140,8 +140,9 @@
     "EX-004",
     "EX-005",
     "EX-011",
-    "EX-013"
+    "EX-013",
+    "EX-029"
   ],
   "gateReport": "production/evidence/Q2/gate.json",
-  "updatedAt": "2026-11-13T06:22:16.268527+07:00"
+  "updatedAt": "2026-11-13T06:27:24.808454+07:00"
 }

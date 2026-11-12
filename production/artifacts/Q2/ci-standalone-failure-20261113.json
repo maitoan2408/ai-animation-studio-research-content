@@ -1,0 +1,138 @@
+{
+  "status": "FAIL",
+  "sourceHead": "b51aa2a962e15db0e8e28bfb4c98052bbe1980a5",
+  "runId": 43328442441,
+  "jobId": 131566752258,
+  "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43328442441",
+  "observedAt": "2026-11-12T23:26:52.184Z",
+  "issue": "EX-029",
+  "failure": "git rev-parse HEAD refused mismatched ownership in container checkout before fresh npm test began",
+  "priorSteps": [
+    {
+      "id": 131566752258,
+      "name": "contracts-and-review",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 43328442441,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Install local media runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm --prefix production ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Install locked QC libraries",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npm --prefix production run typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm --prefix production test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run /tmp/q2-qc/bin/python -m unittest discover -s production/tests -p 'test_*.py' -v",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Restore exact review media from Git parts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run npm --prefix production run review -- check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Verify frozen chart in actual Chromium",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Run npm --prefix production run test:review-ui",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Verify standalone Git-only installation and review workflow",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 14
+        },
+        {
+          "name": "Upload diagnostic evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31
+        }
+      ]
+    }
+  ],
+  "logScope": "Exact standalone step excerpt; full upstream job log is not duplicated",
+  "logExcerpt": "2026-11-12T23:25:04.3050019Z ##[group]Run PATH=\"/tmp/q2-qc/bin:$PATH\" /tmp/q2-qc/bin/python production/src/qa/check_fresh_review.py\n2026-11-12T23:25:04.3050523Z \u001b[36;1mPATH=\"/tmp/q2-qc/bin:$PATH\" /tmp/q2-qc/bin/python production/src/qa/check_fresh_review.py\u001b[0m\n2026-11-12T23:25:04.3050940Z shell: sh -e {0}\n2026-11-12T23:25:04.3051112Z ##[endgroup]\n2026-11-12T23:25:04.3701622Z fatal: detected dubious ownership in repository at '/__w/ai-animation-studio-research-content/ai-animation-studio-research-content'\n2026-11-12T23:25:04.3702566Z To add an exception for this directory, call:\n2026-11-12T23:25:04.3702958Z \n2026-11-12T23:25:04.3703714Z \tgit config --global --add safe.directory /__w/ai-animation-studio-research-content/ai-animation-studio-research-content\n2026-11-12T23:25:04.3731412Z Traceback (most recent call last):\n2026-11-12T23:25:04.3753857Z   File \"/__w/ai-animation-studio-research-content/ai-animation-studio-research-content/production/src/qa/check_fresh_review.py\", line 22, in <module>\n2026-11-12T23:25:04.3755489Z     head = subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True).strip()\n2026-11-12T23:25:04.3756226Z            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n2026-11-12T23:25:04.3756791Z   File \"/usr/lib/python3.13/subprocess.py\", line 472, in check_output\n2026-11-12T23:25:04.3757387Z     return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n2026-11-12T23:25:04.3757920Z            ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n2026-11-12T23:25:04.3758402Z                **kwargs).stdout\n2026-11-12T23:25:04.3758750Z                ^^^^^^^^^\n2026-11-12T23:25:04.3759173Z   File \"/usr/lib/python3.13/subprocess.py\", line 577, in run\n2026-11-12T23:25:04.3759692Z     raise CalledProcessError(retcode, process.args,\n2026-11-12T23:25:04.3760159Z                              output=stdout, stderr=stderr)\n2026-11-12T23:25:04.3760803Z subprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.\n2026-11-12T23:25:04.3842379Z ##[error]Process completed with exit code 1.\n",
+  "repairPlan": [
+    "Preserve failure and source head; do not weaken install/review assertions",
+    "Pass safe.directory for the executable's exact known ROOT to the two read-only Git invocations; do not set wildcard/global trust",
+    "Reproduce ownership rejection with Git's different-owner test environment and empty per-command safe directory, then run the fixed complete fresh workflow in the same test condition",
+    "Commit/push and require actual expanded CI step to pass before closing EX-029"
+  ]
+}

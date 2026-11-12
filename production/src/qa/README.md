@@ -47,3 +47,10 @@ standalone checkout đã tái hiện chạy được.
 CI workbench chạy thêm `check_fresh_review.py` ngoài các ca kiểm full repo, dùng
 Python venv qua PATH và upload report riêng. Cách này giữ ca hồi quy EX-028 trong
 pipeline: việc `npm ci` ở full repo PASS không đủ chứng minh standalone PASS.
+
+EX-029: lần CI standalone đầu dừng ở kiểm ownership của Git trước khi cài npm.
+Helper hiện truyền `git -c safe.directory=<ROOT>` cho hai lệnh read-only
+`rev-parse`/`archive`, trong đó ROOT được suy từ vị trí source đang chạy. Không
+ghi global config hoặc tin cậy wildcard. Ca negative dùng
+`GIT_TEST_ASSUME_DIFFERENT_OWNER=1` và safe.directory rỗng tái hiện exit128;
+fixed full-flow phải chạy lại trong điều kiện khác owner, rồi kiểm CI thực.
