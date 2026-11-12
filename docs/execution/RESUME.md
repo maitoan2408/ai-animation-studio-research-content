@@ -101,3 +101,32 @@ R0/R1/R2 selections sharing the same new S02; preserve old polish-r0 evidence.
 Assemble and verify all rounds, package final native sources, check native edit,
 then make an explicit Q2 gate report. Q1 listening/independent handoff/full-motion
 review and post-art cold/warm samples remain unfulfilled; Q3–Q9 are not skipped.
+
+### Checkpoint bàn giao gần nhất — 12/11/2026 (thay các next steps cũ)
+
+**Các render/verify/normalize/native-edit/player jobs của checkpoint này đã xong.**
+Không chạy lại toàn bộ. Đọc `production/evidence/Q2/gate.json` và
+`production/artifacts/Q2/review-final/README.md` trước khi chọn việc tiếp.
+
+- Upright S02 native PASS, take `20261112T094341Z-S02-1920-4a4ba0a2`. EX-022 đóng
+  cho excess hip drop; không dùng nó làm full-motion score. 15 tests + typecheck PASS.
+- R1/R2 selective clips và media-scope checks PASS; final selections ở
+  `out/b-final-r0-selection.json` đến `r2`. R0/R1/R2 mới có cùng S02 đã sửa.
+- Ba sequence và cả ba bản normalized đều verify 1.152 frame exact, PCM placement
+  exact, AAC lag 0. Bản chuẩn xem/nghe: `review-final/R*/normalized-delivery.mp4`.
+  Trước gain R2 −25.66 LUFS; sau gain cả ba −16.02 LUFS, TP ≤−1.93. EX-023 đóng.
+- `review-final/native-final-r2.zip` SHA c592c64af73f1f11792a92de2893d287b211babd7648d129944777e72c55639a;
+  70 hashes + 6 frame replay exact. Native S04 pullback note sửa được/reopen đúng;
+  source gốc không thay. Same-agent, không phải operator độc lập.
+- Player R2 muted 1x/0.5x đi tới cuối. Thử compositor xác nhận color difference
+  không chỉ do canvas: reference inverse MAE0.878/p952, player MAE6.963/p9511.
+  Đây là diagnostic, **không phải color approval**. Không đổi tag/ngưỡng để ép pass.
+- Audit 125 complete attempts /77 source snapshots không hash lỗi; app verify16
+  tests PASS. Source/docs helper mới và media chọn lọc được commit/push checkpoint.
+
+**Tiếp đúng thứ tự:** hoàn tất T-MEDIA-01 target-player color/alpha contract và
+review đầy đủ motion/voice bằng package có sẵn; operator khác mở/sửa note. Sau khi
+art/motion gate đạt mới chạy `production/brief/performance-protocol.md` (3cold+5warm).
+Q3–Q9 vẫn NOT_STARTED theo kế hoạch, không triển khai vượt gate hoặc đổi trạng thái
+chỉ vì unit tests xanh. Không còn câu hỏi quyền triển khai; người dùng đã ủy quyền.
+Câu hỏi nhận xét voice trước đó chưa có câu trả lời; không gửi lặp hoặc giả đã nghe.

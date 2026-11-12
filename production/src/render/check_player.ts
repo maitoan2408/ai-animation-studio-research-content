@@ -4,11 +4,12 @@
 import {createServer} from 'node:http';
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import path from 'node:path';
-import {randomUUID} from 'node:crypto';
+import {randomUUID,createHash} from 'node:crypto';
 import puppeteer from 'puppeteer-core';
 import {root} from './server.js';
 const dir=path.resolve(process.argv[2]!),frame=Number(process.argv[3]??72);
 if(!Number.isInteger(frame)||frame<0)throw Error('INVALID_FRAME');
+const rate=Number(process.argv[4]??1);if(![.5,1].includes(rate))throw Error('INVALID_PLAYBACK_RATE');
 const video=await readFile(path.join(dir,'delivery.mp4'));
 const out=path.join(root,'out/player-check',randomUUID());await mkdir(out,{recursive:true});
 const server=createServer((req,res)=>{
@@ -28,9 +29,10 @@ const browser=await puppeteer.launch({executablePath:'/usr/bin/chromium',headles
 try{
  const page=await browser.newPage();await page.setViewport({width:1920,height:1080,deviceScaleFactor:1});await page.goto(`http://127.0.0.1:${addr.port}`);
  // A fixed browser script avoids tsx injecting Node-only __name helpers.
- const report=await page.evaluate(`(async()=>{const f=${frame};
+ const sample=await page.evaluate(`(async()=>{const f=${frame};
   const v=document.querySelector('video'),c=document.querySelector('canvas'),ctx=c.getContext('2d',{colorSpace:'srgb'});
   if(v.readyState<2)await new Promise(r=>v.addEventListener('loadeddata',()=>r(),{once:true}));
+  if(f>=Math.round(v.duration*24))throw Error('FRAME_OUT_OF_RANGE');
   // seeked alone can leave the old decoded image on an off-screen video.
   // Keep the video visible and require compositor mediaTime, not currentTime.
   const seekPresented=async(frame)=>new Promise((resolve,reject)=>{
@@ -44,11 +46,25 @@ try{
    v.requestVideoFrameCallback(observe);v.currentTime=(frame+.1)/24;
   });
   const presentedMediaTime=await seekPresented(f);ctx.drawImage(v,0,0);
-  const sampled=c.toDataURL('image/png');await seekPresented(0);
-  const began=performance.now();await v.play();await new Promise((resolve,reject)=>{v.addEventListener('ended',()=>resolve(),{once:true});v.addEventListener('error',()=>reject(Error('VIDEO_PLAYBACK_ERROR')),{once:true});});
-  const quality=v.getVideoPlaybackQuality();return {sampled,presentedMediaTime,elapsedSeconds:(performance.now()-began)/1000,duration:v.duration,ended:v.ended,width:v.videoWidth,height:v.videoHeight,decoded:quality.totalVideoFrames,dropped:quality.droppedVideoFrames};
- })()` ) as {sampled:string;presentedMediaTime:number;elapsedSeconds:number;duration:number;ended:boolean;width:number;height:number;decoded:number;dropped:number};
+  const sampled=c.toDataURL('image/png');window.seekAuditFrame=seekPresented;
+  return {sampled,presentedMediaTime};
+ })()` ) as {sampled:string;presentedMediaTime:number};
+ // Keep an actual compositor screenshot as well: canvas drawImage may use a
+ // different transfer path from displayed HTML video on a given platform.
+ await page.screenshot({path:path.join(out,'compositor.png')});
+ const playback=await page.evaluate(`(async()=>{const rate=${rate};
+  const v=document.querySelector('video');await window.seekAuditFrame(0);
+  v.playbackRate=rate;const before=v.getVideoPlaybackQuality();
+  const ended=new Promise((resolve,reject)=>{
+   const timer=setTimeout(()=>reject(Error('PLAYBACK_TIMEOUT')),1000*(v.duration/rate*2+5));
+   v.addEventListener('ended',()=>{clearTimeout(timer);resolve();},{once:true});
+   v.addEventListener('error',()=>{clearTimeout(timer);reject(Error('VIDEO_PLAYBACK_ERROR'));},{once:true});
+  });
+  const began=performance.now();await v.play();await ended;
+  const quality=v.getVideoPlaybackQuality();return {elapsedSeconds:(performance.now()-began)/1000,duration:v.duration,ended:v.ended,width:v.videoWidth,height:v.videoHeight,decoded:quality.totalVideoFrames-before.totalVideoFrames,dropped:quality.droppedVideoFrames-before.droppedVideoFrames};
+ })()` ) as {elapsedSeconds:number;duration:number;ended:boolean;width:number;height:number;decoded:number;dropped:number};
+ const report={...sample,...playback};
  await writeFile(path.join(out,'player.png'),Buffer.from(report.sampled.split(',')[1]!,'base64'));
- const {sampled,...metadata}=report;await writeFile(path.join(out,'report.json'),JSON.stringify({frame,browser:await browser.version(),...metadata,scope:'Actual 1x HTML video playback, muted; no listening/creative gate'},null,2)+'\n');
+ const {sampled,...metadata}=report;await writeFile(path.join(out,'report.json'),JSON.stringify({frame,rate,deliverySha256:createHash('sha256').update(video).digest('hex'),browser:await browser.version(),...metadata,scope:'Visible HTML video playback, muted; counts exclude seeking. No listening/creative gate'},null,2)+'\n');
  console.log(JSON.stringify({output:out,...metadata}));
 }finally{await browser.close();server.closeAllConnections();server.close();}

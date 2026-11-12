@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "target-player-compositor-sample",
+  "run_id": "20261112T095708Z-target-player-compositor-sample-d4e65479",
+  "started_at_utc": "20261112T095708Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/render/check_player.ts",
+    "production/out/candidate-a/2026-11-11T23-48-27-176Z-1920-9a530ebc/S05",
+    "72"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "842ea1de03a39f6a408e2499537b897b9ad74ec3",
+  "tracked_diff_sha256": "3633af766dd07828599905cc675b55c8e0d1437f65875fbad7eb2eea64c808a9",
+  "status": "RUNNING",
+  "recorder_pid": 14726,
+  "source_snapshot_sha256": "dde4509a9451c6ea1bab4b54f20792c31c8426c0fcc3cf5d94393a72c4787594"
+}

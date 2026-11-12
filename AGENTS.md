@@ -33,3 +33,14 @@ Kiểm thử phải gồm input lỗi và recovery khi thay state machine, khôn
 - `data/` là runtime, không commit. `examples/` là input có thể tái tạo. `artifacts/` chỉ lưu bằng chứng chọn lọc, không cache/browser/binary.
 - `reports/` giữ nghiên cứu và thẩm định gốc. `validation/` là harness nghiên cứu, tách khỏi ứng dụng.
 - Ghi rõ PASS, FAIL, BLOCKED hoặc NOT_RUN. Fixture hình học không chứng minh chất lượng phim hoàn chỉnh.
+
+## Kiểm workbench Q2 trước Q3
+
+Prototype production nằm riêng, không coi capability của nó đã có trong app v0.1.
+Chạy `npm --prefix production run typecheck`, `npm --prefix production test` và
+`python -m unittest discover -s production/tests -p 'test_*.py' -v` khi thay phần
+liên quan. Renderer/media thay đổi phải có real native render/decode và artifact.
+Các lệnh đều bọc `scripts/run-step.py`; historical fail snapshots giữ nguyên.
+Đọc `production/evidence/Q2/gate.json` và `production/artifacts/Q2/review-final`.
+Không suy voice audition từ loudness, color approval từ tags, motion score từ
+contact tests, hoặc independent handoff từ cùng agent chạy process mới.

@@ -1,0 +1,9 @@
+[Parsed_zscale_1 @ 0x7f7e08001200] code 1026: YUV color family cannot have RGB matrix coefficients
+    Last message repeated 7 times
+[vf#0:0 @ 0x55d085e9ca80] Error while filtering: Generic error in an external library
+[vf#0:0 @ 0x55d085e9ca80] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0x55d085e9ca80] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/png @ 0x55d085e96180] Could not open encoder before EOF
+[vost#0:0/png @ 0x55d085e96180] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/png @ 0x55d085e96180] Terminating thread with return code -22 (Invalid argument)
+[out#0/image2 @ 0x55d085e3d1c0] Nothing was written into output file, because at least one of its streams received no packets.

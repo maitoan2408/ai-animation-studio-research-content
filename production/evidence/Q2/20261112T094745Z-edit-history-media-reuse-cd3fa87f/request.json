@@ -1,0 +1,20 @@
+{
+  "phase": "Q2",
+  "step": "edit-history-media-reuse",
+  "run_id": "20261112T094745Z-edit-history-media-reuse-cd3fa87f",
+  "started_at_utc": "20261112T094745Z",
+  "command": [
+    "python",
+    "production/src/editorial/check_edits.py",
+    "production/out/b-final-r0-selection.json",
+    "production/out/b-final-r1-selection.json",
+    "production/out/b-final-r2-selection.json",
+    "production/artifacts/Q2/edit-history.json"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "842ea1de03a39f6a408e2499537b897b9ad74ec3",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 12595,
+  "source_snapshot_sha256": "ab59c622cc40163aa49aa0e8ba744056bf18bf5875dbd1511c521ae2beddb032"
+}

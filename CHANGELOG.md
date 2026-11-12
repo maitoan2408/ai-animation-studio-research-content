@@ -81,3 +81,17 @@ Added picture-preserving sequence assembly, exact PCM timing and all-frame
 verification; fixed rejected mono/stereo assumption. Visual review caught a
 persistent crouched walk despite planted-foot tests; new regression failed then
 passed after reach-derived pelvis correction. Replacement S02 media in progress.
+
+## Q2 review package — 2026-11-12
+
+Completed the replacement upright S02, two selective B-VSE edit rounds and three
+48-second sequences. All selected decoded frames match; PCM offsets and AAC
+transport lag are verified. Fixed low benchmark voice level from original PCM:
+all three AAC deliveries measure −16.02 LUFS with true peak below −1.9 dBTP.
+Preserved pre-gain versions and every rejected attempt.
+
+Final native package verifies 70 dependency hashes and exact random-seek pixels;
+a native camera note survives save/reopen without modifying its source. Published
+before/after scope, frame/playback/color diagnostics, integrity audit and phase
+summary. Color display, complete perceptual/acting review, independent handoff
+and post-art cold/warm samples remain open; Q3–Q9 are not marked complete.

@@ -1,0 +1,29 @@
+{
+  "phase": "Q2",
+  "step": "final-r2-loudness-measure",
+  "run_id": "20261112T095145Z-final-r2-loudness-measure-8c546100",
+  "started_at_utc": "20261112T095145Z",
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-i",
+    "production/out/sequences/R2-f93fc0bcd17841b9bc4ee835d3003314/delivery.mp4",
+    "-af",
+    "loudnorm=I=-16:TP=-1:LRA=7:print_format=json",
+    "-f",
+    "null",
+    "-"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "842ea1de03a39f6a408e2499537b897b9ad74ec3",
+  "tracked_diff_sha256": "f5e2a4d6985604e2cf7c0d25189b19bcf4f0286d605032bec202f476d7d40f07",
+  "recorder_pid": 13700,
+  "source_snapshot_sha256": "f8f00efb25054ef61e6e936af1feebfc6d84387e5a652e77b68fa665147b22f0",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 3.637,
+  "finished_at_utc": "2026-11-12T09:51:49.580414+00:00",
+  "log_sha256": "7a91ece6aedfcb9bc57922f4ca485968ad94d8406a2aa223ce8192b9b7e8b7a7",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

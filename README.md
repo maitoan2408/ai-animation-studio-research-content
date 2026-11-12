@@ -2,6 +2,8 @@
 
 Ứng dụng chạy được từ **kịch bản → phân cảnh nháp → chỉnh cảnh/voice → render → QC → review → export/import**. Có web UI tiếng Việt và CLI dùng chung workflow. Bản 0.1 dùng để duyệt khả năng kỹ thuật và hướng hình ảnh; chưa tự diễn xuất mọi kịch bản.
 
+Vòng nâng chất lượng production hiện tại: [video R0/R1/R2 và gói Blender](production/artifacts/Q2/review-final/README.md), [tổng kết đã làm](docs/execution/COMPLETED.md), [checkpoint tiếp tục](docs/execution/RESUME.md). Q2 còn các gate chất lượng; chưa phải release production.
+
 ![Bàn dựng](artifacts/ui-desktop.png)
 
 ## Chạy ngay

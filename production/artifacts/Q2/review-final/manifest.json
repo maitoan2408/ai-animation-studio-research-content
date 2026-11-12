@@ -1,0 +1,54 @@
+{
+  "status": "TECHNICAL_REVIEW_PACKAGE",
+  "versions": [
+    {
+      "revision": "R0",
+      "delivery": "R0/delivery.mp4",
+      "sha256": "d51166dc5f30dd53c7987e8109c90dfc5949ab91e7959d2bf698667ec3a91c35",
+      "frames": 1152,
+      "seconds": 48,
+      "normalizedDelivery": "R0/normalized-delivery.mp4",
+      "normalizedSha256": "f1d0413c6f4970e3575bdbc8bc994dd3bc10e9e2931fcf8561767cd3b3460ea0",
+      "integratedLUFS": -16.02,
+      "truePeakDbTP": -1.93
+    },
+    {
+      "revision": "R1",
+      "delivery": "R1/delivery.mp4",
+      "sha256": "f966f18507b33b0e98e0d62f0e22ee4edc5f2fb273679e7afc62e4a64c144ee2",
+      "frames": 1152,
+      "seconds": 48,
+      "normalizedDelivery": "R1/normalized-delivery.mp4",
+      "normalizedSha256": "098284d8e259c34ce700bac7adaeb292af67b5ab18a6b396cebb76abddad2c6e",
+      "integratedLUFS": -16.02,
+      "truePeakDbTP": -1.98
+    },
+    {
+      "revision": "R2",
+      "delivery": "R2/delivery.mp4",
+      "sha256": "de8898b12305017968ddd94eca12ce224ed53f737ffa48bad7a4e1e9c63d4457",
+      "frames": 1152,
+      "seconds": 48,
+      "normalizedDelivery": "R2/normalized-delivery.mp4",
+      "normalizedSha256": "d4d0f0e1cb017cca12829dac897c3245eefd6a0a0c86c91df6af8ca71110d1d6",
+      "integratedLUFS": -16.02,
+      "truePeakDbTP": -1.98
+    }
+  ],
+  "nativeZipSha256": "c592c64af73f1f11792a92de2893d287b211babd7648d129944777e72c55639a",
+  "nativeVerifiedFiles": 70,
+  "nativeReplayFrames": [
+    191,
+    0,
+    72,
+    48,
+    191,
+    72
+  ],
+  "reviewer": "delegated-agent",
+  "creativeGate": "PENDING",
+  "independentHandoff": "NOT_RUN",
+  "voiceListening": "PENDING",
+  "nativeEdit": "PASS_SAME_AGENT",
+  "audioLoudness": "PASS_TECHNICAL"
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "Q2",
+  "step": "final-workbench-typecheck",
+  "run_id": "20261112T095903Z-final-workbench-typecheck-ff25417a",
+  "started_at_utc": "20261112T095903Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "typecheck"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "842ea1de03a39f6a408e2499537b897b9ad74ec3",
+  "tracked_diff_sha256": "3633af766dd07828599905cc675b55c8e0d1437f65875fbad7eb2eea64c808a9",
+  "status": "RUNNING",
+  "recorder_pid": 15063,
+  "source_snapshot_sha256": "7fc7c33c4c674b964928e9d1be83b7f0ba3ba9e036c9d97de38540195d025998"
+}

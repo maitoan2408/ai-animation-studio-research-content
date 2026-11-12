@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "assemble-final-r1",
+  "run_id": "20261112T094756Z-assemble-final-r1-9a48ba75",
+  "started_at_utc": "20261112T094756Z",
+  "command": [
+    "python",
+    "production/src/editorial/assemble.py",
+    "production/out/b-final-r1-selection.json",
+    "R1"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "842ea1de03a39f6a408e2499537b897b9ad74ec3",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 12627,
+  "source_snapshot_sha256": "d262bd1d21d23d5b7fa16b9f03d48c76278ccbf2347b6f6aaeb93cd5e92b7e01",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 22.338,
+  "finished_at_utc": "2026-11-12T09:48:18.876932+00:00",
+  "log_sha256": "1f287de03372402c3e74e28100a633c0454ac6e5f5d47f8ede2d88ffbfa87040",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

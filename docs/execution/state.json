@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Finish new upright S02 native render; combine corrected baseline with R1/R2 clips, validate sequence order/audio/all-frame equality, preserve portable native package and review handoff. Full art/listening/performance gates remain open.",
+  "nextAction": "Review Q2 package and close outstanding gates: target-player color/alpha contract, full-motion/voice timestamp review, independent operator note; then execute locked3cold+5warm protocol. Q3–Q9 remain gated, not skipped.",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -65,6 +65,30 @@
       "result": "PASS_TECHNICAL",
       "evidence": "production/artifacts/Q2/polish-r0/sequence/verification.json",
       "limits": "1152 decoded frames exact, PCM placement exact, AAC lag0; initial S02 pose remains visually rejected, no final loudness/perception gate."
+    },
+    {
+      "id": "Q2-upright-walk-repair",
+      "result": "PASS_TECHNICAL_AND_SAMPLED_POSES",
+      "evidence": "production/artifacts/Q2/upright-walk",
+      "limits": "Old crouch preserved; native new pose sampled. Full-motion score remains pending."
+    },
+    {
+      "id": "Q2-two-edit-rounds-and-sequences",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/review-final/manifest.json",
+      "limits": "R0/R1/R2 each1152frames; R1 onlyS01/S03 and R2 onlyS04/S05. B-VSE branch only; not a backend acceptance."
+    },
+    {
+      "id": "Q2-native-r2-replay-and-edit",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/review-final/native-edit/report.json",
+      "limits": "70 hashes,6 random-seek frames, native camera note reopened. Same agent; independent operator pending."
+    },
+    {
+      "id": "Q2-review-audio-loudness",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/review-final/R2/loudness-report.json",
+      "limits": "All3normalized deliveries −16.02LUFS; TP<=−1.93dBTP; AAC lag0. No voice listening approval or full pilot sound mix."
     }
   ],
   "paidBudget": 0,
@@ -74,8 +98,7 @@
     "EX-004",
     "EX-005",
     "EX-011",
-    "EX-013",
-    "EX-018",
-    "EX-022"
-  ]
+    "EX-013"
+  ],
+  "gateReport": "production/evidence/Q2/gate.json"
 }

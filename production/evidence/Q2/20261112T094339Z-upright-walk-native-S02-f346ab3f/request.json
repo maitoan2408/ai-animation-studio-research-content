@@ -1,0 +1,28 @@
+{
+  "phase": "Q2",
+  "step": "upright-walk-native-S02",
+  "run_id": "20261112T094339Z-upright-walk-native-S02-f346ab3f",
+  "started_at_utc": "20261112T094339Z",
+  "command": [
+    "env",
+    "BLENDER_USER_CONFIG=/tmp/studio-blender-config",
+    "BENCHMARK_INPUT_DIR=/workspace/ai-animation-studio-research-content/production/out/blender-polish-upright",
+    "blender",
+    "--background",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "production/src/blender/vse_probe.py",
+    "--",
+    "S02",
+    "1920",
+    "all"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "2caae4ee6e513681d4bc481b771a5834e868abda",
+  "tracked_diff_sha256": "1923c325e180973d10261dcba9034ac185482b9e0c1aad779507c148a7bb8e3e",
+  "status": "RUNNING",
+  "recorder_pid": 12439,
+  "source_snapshot_sha256": "c6362db6daa2b1ba28c3dc973318ab70940ecebc508337c4a32677549da8f9bc"
+}

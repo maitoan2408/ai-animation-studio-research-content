@@ -5,7 +5,7 @@
 Người dùng đã cho phép tự quyết định, viết code, kiểm thử/sửa lỗi và push từng bước.
 Trạng thái tiếp tục ở [RESUME](docs/execution/RESUME.md), [state](docs/execution/state.json),
 [issue ledger](docs/execution/issues.md). Q0 đã khóa; Q1 art kỹ thuật sẵn sàng, còn nghe duyệt voice;
-Q2 đã có 12 blocking clip 1080p và đang hoàn tất polish/edits. [Tổng kết](docs/execution/COMPLETED.md).
+Q2 đã có 12 blocking clip 1080p, polish và hai vòng sửa B-VSE; ba sequence đã kiểm frame/audio/loudness. Các gate màu trên player, motion/voice review, handoff độc lập và performance còn mở. [Tổng kết](docs/execution/COMPLETED.md).
 Các mục nghiên cứu bên dưới là snapshot lịch sử, giữ nguyên kết quả.
 
 ## Tổng kết vòng nghiên cứu toolchain — 11/11/2026

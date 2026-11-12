@@ -54,3 +54,8 @@ baseline S02/S06. Reordering a sequence must reuse the unchanged clip hashes.
 Use result manifests (not directory existence) to select completed takes.
 Native VSE remains a bounded2D experiment with baked editable F-curves, not a
 semantic character rig or physical light/free-camera renderer.
+
+`check_native_edit.py <restored/project/S04.blend>` kiểm một note camera pullback
+trực tiếp trên native F-curves, lưu bản sao rồi mở lại. Original SHA phải giữ,
+ảnh phải thay đổi và frame đã sửa phải reopen khớp pixel. Same-agent test này đã
+PASS; yêu cầu operator khác trong Q2.4 vẫn chưa được thực hiện.

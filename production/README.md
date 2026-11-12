@@ -33,3 +33,8 @@ hash/base commit và không được backfill bằng source mới rồi gọi l�
 Không lấy status PASS của lệnh làm duyệt mỹ thuật. Các review do AI thực hiện theo
 ủy quyền được ghi `delegated-agent`, không gán danh tính người dùng hoặc người
 review độc lập. Snapshot nghiên cứu trước giữ nguyên.
+
+Bộ xem gần nhất: [Q2 R0/R1/R2 + native + QC](artifacts/Q2/review-final/README.md).
+[Gate Q2](evidence/Q2/gate.json) là trạng thái hiện hành; [performance protocol](brief/performance-protocol.md)
+chưa chạy vì gate hình/chuyển động chưa đủ. Không dựng lại những clip đã pass chỉ
+vì phiên làm việc mới; kiểm RESUME, hashes và attempt outcomes trước.

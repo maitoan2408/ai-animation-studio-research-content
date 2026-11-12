@@ -1,0 +1,39 @@
+{
+  "reviewer": "delegated-agent",
+  "status": "PARTIAL_REVIEW_NOT_ART_APPROVAL",
+  "scores": null,
+  "evidenceScope": "Native frame samples, all-frame geometry/decode/transport tests, automated muted playback at1x/.5x. No claimed audio audition or independent animator.",
+  "shots": [
+    {
+      "id": "S01",
+      "observed": "R1 concerned brows start12, changed head angle, mouth cues follow longer3.209s local voice. Paper texture visible at native closeup.",
+      "remaining": "Listen to pronunciation/prosody and assess perceptual mouth/acting at speed."
+    },
+    {
+      "id": "S02",
+      "observed": "Old24px sustained hip drop rejected; new reach-derived pelvis<=14px, fixed contacts and softened landing. Native samples17/35/69/104/139/191 saved.",
+      "remaining": "Assess weight/stride/turn cadence at actual playback speed; do not infer acting4/5 from foot-lock test."
+    },
+    {
+      "id": "S03",
+      "observed": "R1 teal cup visible, grip/placement anchors preserved; hand holds cup through lift/place.",
+      "remaining": "Review contact silhouette and settling at1x/.5x."
+    },
+    {
+      "id": "S04",
+      "observed": "R2 reduces pan amplitude to70%; native camera pullback note can be edited and reopened.",
+      "remaining": "Review depth/focus intent and choose target-player color reference."
+    },
+    {
+      "id": "S05",
+      "observed": "R2 An reaction starts168 vs156. All12 authored changed frames are exactly156..167; grip ownership is unchanged.",
+      "remaining": "Review both-hand overlap during shared handle contact and reaction readability."
+    },
+    {
+      "id": "S06",
+      "observed": "High-reach extreme separates hand from face; paper/contact shadows are present.",
+      "remaining": "Review anticipation, extreme silhouette and recovery cadence."
+    }
+  ],
+  "gate": "No >=80 or art/acting>=4 score asserted until full review; Q2 remains IN_PROGRESS."
+}

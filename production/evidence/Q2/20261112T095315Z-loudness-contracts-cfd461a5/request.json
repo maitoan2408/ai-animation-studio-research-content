@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "loudness-contracts",
+  "run_id": "20261112T095315Z-loudness-contracts-cfd461a5",
+  "started_at_utc": "20261112T095315Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_loudness.py",
+    "-v"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "842ea1de03a39f6a408e2499537b897b9ad74ec3",
+  "tracked_diff_sha256": "f5e2a4d6985604e2cf7c0d25189b19bcf4f0286d605032bec202f476d7d40f07",
+  "status": "RUNNING",
+  "recorder_pid": 13934,
+  "source_snapshot_sha256": "292a742e4853b485e9076471b888aca8496cad77b61c8c1e7a1cfd2a61af3766"
+}
