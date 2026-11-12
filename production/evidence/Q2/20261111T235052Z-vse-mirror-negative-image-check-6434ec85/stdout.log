@@ -1,0 +1,26 @@
+{
+  "status": "FAIL",
+  "thresholds": {
+    "meanRGB": 5,
+    "p95RGB": 15
+  },
+  "frames": [
+    {
+      "frame": "000072.png",
+      "maeRGB": 8.597029481738684,
+      "p95RGB": 65.0,
+      "pass": false,
+      "referenceSha256": "e8bf7d24004d02aa417e7e13df678aa14a8be0cb558ea39490e3cb79a6bc8568",
+      "candidateSha256": "ea4a94b46808f2d6f01ce9fe887cb09430e43388248c2cb993d3564b7127ac12"
+    },
+    {
+      "frame": "000191.png",
+      "maeRGB": 8.685014467592593,
+      "p95RGB": 65.0,
+      "pass": false,
+      "referenceSha256": "aa2e4fdb940e4f5cd154dd16e017aebf9470867eb5d473b1b0f247b2b5101856",
+      "candidateSha256": "0027b5c0206fae3c99aa2876694383962be2e8a41cbc363f0e979997cea7706d"
+    }
+  ],
+  "meaning": "Representation comparison, not creative or full contact gate"
+}

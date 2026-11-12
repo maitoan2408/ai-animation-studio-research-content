@@ -30,7 +30,7 @@ test('walking stance soles stay planted in world space, independent of root and 
    if(!first)first=sole;assert.ok(distance(first,sole)<=2,`${side}:${f} drift ${distance(first,sole)}`);assert.ok(Math.abs(sole[1]-860)<1e-7);
   }
  }
- assert.equal(walkPose(12).x,640);assert.equal(walkPose(132).x,980);
+ assert.equal(walkPose(12).x,640);assert.equal(walkPose(132).x,946);
 });
 test('frame evaluation does not depend on seek order; bounds fail explicitly',()=>{
  for(const shot of Object.keys(shotFrames) as ShotId[]){const baseline=benchmarkFrame(pack,shot,48);
@@ -38,4 +38,12 @@ test('frame evaluation does not depend on seek order; bounds fail explicitly',()
   assert.deepEqual(benchmarkFrame(pack,shot,48),baseline);
   assert.throws(()=>benchmarkFrame(pack,shot,-1),/FRAME_OUT_OF_RANGE/);assert.throws(()=>benchmarkFrame(pack,shot,shotFrames[shot]),/FRAME_OUT_OF_RANGE/);
  }
+});
+test('locked deceleration beat reduces root speed to a stop without a last-frame snap',()=>{
+ const speed=(f:number)=>walkPose(f+1).x-walkPose(f).x;
+ assert.ok(speed(108)>1,'walking speed at start of deceleration');
+ assert.ok(speed(130)<.25,`late speed=${speed(130)} px/frame`);
+ assert.ok(speed(131)<speed(130));
+ for(let f=109;f<132;f++)assert.ok(speed(f)<=speed(f-1)+1e-8,`nondecreasing speed at ${f}`);
+ assert.equal(speed(132),0);
 });

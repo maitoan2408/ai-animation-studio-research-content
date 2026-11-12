@@ -1,0 +1,28 @@
+{
+  "phase": "Q2",
+  "step": "blender-vse-blocking-S06",
+  "run_id": "20261112T000114Z-blender-vse-blocking-S06-499a8f39",
+  "started_at_utc": "20261112T000114Z",
+  "command": [
+    "env",
+    "BLENDER_USER_CONFIG=/tmp/studio-blender-config",
+    "BENCHMARK_INPUT_DIR=/workspace/ai-animation-studio-research-content/production/out/blender-input-blocking-r0",
+    "blender",
+    "--background",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "production/src/blender/vse_probe.py",
+    "--",
+    "S06",
+    "1920",
+    "all"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "016e5a920a0744bf9070a378ee6be317599ff224",
+  "tracked_diff_sha256": "293525406052abb90ef855b512f50a90b2337608efdbc3e424ae5ae9f24fe692",
+  "status": "RUNNING",
+  "recorder_pid": 7403,
+  "source_snapshot_sha256": "c46e6f34429d70f42a097d7e44739169410f0b4d38dd13351a8f810493a52a5f"
+}

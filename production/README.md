@@ -16,6 +16,10 @@ trước khi có kết quả sáu shot.
    ca regression; sửa; chạy lại thành attempt mới. Không thay ngưỡng sau kết quả.
 6. Mỗi checkpoint cập nhật state/RESUME/plan/CHANGELOG, commit và push branch.
 
+Từ run `20261111T234752Z`, recorder lưu thêm `source.zip` với đúng source/lock/art
+bytes và SHA; có thể phục hồi code chưa commit tại lần fail. Các run cũ chỉ có
+hash/base commit và không được backfill bằng source mới rồi gọi là snapshot cũ.
+
 ## Bố trí source và dữ liệu
 
 - `brief/`: mục tiêu, rubric, kịch bản, references, shot beats đã khóa Q0.

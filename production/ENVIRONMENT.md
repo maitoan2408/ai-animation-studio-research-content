@@ -32,12 +32,15 @@ production/node_modules/.bin/tsx production/src/art/preview.ts
 python production/src/audio/fetch_models.py
 production/.venv/bin/python production/src/audio/prepare_voice.py
 production/node_modules/.bin/tsx production/src/art/check_three.ts
-env BLENDER_USER_CONFIG=/tmp/studio-blender-config blender --background --factory-startup --python production/src/blender/environment.py
+env BLENDER_USER_CONFIG=/tmp/studio-blender-config blender --background --factory-startup --python-exit-code 1 --python production/src/blender/environment.py
 ```
 
 Chạy từng lệnh qua `scripts/run-step.py` để có log bất biến. Model tải khoảng 354 MB,
 SHA khóa trong fetch_models.py; không gửi văn bản đến dịch vụ voice. `production/out`
 và `.cache` có thể tái tạo, không phải bản nguồn. Hardware/memory benchmark nằm Q2.
+
+Blender bắt buộc `--python-exit-code 1`: mặc định có thể exit 0 dù script Python
+throw (EX-016). Kiểm cả result manifest + PNG/native project, không suy từ process.
 
 ## Các giới hạn đang mở
 

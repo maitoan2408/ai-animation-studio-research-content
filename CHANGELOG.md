@@ -49,3 +49,11 @@ Pure six-shot evaluator (1152 frames), independent actual-anchor contact/stance
 checks, explicit texture readiness, Three + actual HyperFrames seek verification.
 6 load cases and 48 captures/36 repeat comparisons PASS after fixing fixture entry
 EX-014. Blocking render and native Blender comparison still in progress.
+
+## Q2 blocking + native handoff — 2026-11-12
+
+12 actual 1080p A/B clips, 2,304 frames total, technical QC PASS. Kept initial
+blocking/rejected VSE takes. Fixed walk deceleration and native VSE flip; added
+Blender exception exit guard and exact source snapshots for new attempts. Native
+six-shot package includes relative hashed textures and source frame JSON. Full
+creative/polish/edit gates remain open; no production release claim.

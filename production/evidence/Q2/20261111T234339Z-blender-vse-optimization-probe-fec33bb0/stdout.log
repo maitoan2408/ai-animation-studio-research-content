@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/ai-animation-studio-research-content/production/src/blender/vse_probe.py", line 31, in <module>
+    strip=seq.sequences.new_image(key,str(file),channel,frame_start=1,frame_end=len(frames)+1)
+TypeError: SequencesTopLevel.new_image(): was called with invalid keyword argument(s) (frame_end), expected (name, filepath, channel, frame_start, fit_method)
+Blender 4.3.2
+
+Blender quit

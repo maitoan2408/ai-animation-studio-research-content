@@ -1,0 +1,120 @@
+{
+  "status": "BLOCKING_TECHNICAL_PASS",
+  "shots": [
+    {
+      "shot": "S01",
+      "candidate": "A",
+      "sourceTake": "production/out/candidate-a/2026-11-11T23-48-27-176Z-1920-9a530ebc/S01",
+      "deliverySha256": "7ffd70522ba456addce75f356edc6dcbff826e7609454cc444aad972c2ee70d4",
+      "width": 1920,
+      "height": 1080,
+      "frames": 192
+    },
+    {
+      "shot": "S01",
+      "candidate": "B-VSE",
+      "sourceTake": "/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261111T234824Z-S01-1920-80dfd86e",
+      "deliverySha256": "f5c50777efc91d8b1b56dac045493433a82edf7b377845feb15a41435c7f8f9d",
+      "width": 1920,
+      "height": 1080,
+      "frames": 192
+    },
+    {
+      "shot": "S02",
+      "candidate": "A",
+      "sourceTake": "production/out/candidate-a/2026-11-11T23-44-36-157Z-1920-43ae6ea7/S02",
+      "deliverySha256": "fa467a1717d8a0ff74c7c412bdebb1716234b7907754833654de5eaa36842920",
+      "width": 1920,
+      "height": 1080,
+      "frames": 192
+    },
+    {
+      "shot": "S02",
+      "candidate": "B-VSE",
+      "sourceTake": "/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261111T234922Z-S02-1920-7f6a633b",
+      "deliverySha256": "9bb70acd4013d47ccf1c028429151f419e0ed209609d3f240721e51e3f4cae16",
+      "width": 1920,
+      "height": 1080,
+      "frames": 192
+    },
+    {
+      "shot": "S03",
+      "candidate": "A",
+      "sourceTake": "production/out/candidate-a/2026-11-11T23-48-27-176Z-1920-9a530ebc/S03",
+      "deliverySha256": "67f1e54c1371c1d3981179e3b5ebcd09870da8bd711b888f3f32d115a1378207",
+      "width": 1920,
+      "height": 1080,
+      "frames": 240
+    },
+    {
+      "shot": "S03",
+      "candidate": "B-VSE",
+      "sourceTake": "/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261111T235236Z-S03-1920-bb4dce7e",
+      "deliverySha256": "06c562f6d045e65516d3d7570822943cb4e9a73b443e7990d96f289aa9ec8d96",
+      "width": 1920,
+      "height": 1080,
+      "frames": 240
+    },
+    {
+      "shot": "S04",
+      "candidate": "A",
+      "sourceTake": "production/out/candidate-a/2026-11-11T23-48-27-176Z-1920-9a530ebc/S04",
+      "deliverySha256": "ec7f2fbaf93203f8c5581eff9d2c1007bbed96fab27699cef14d6c2c3ce12f66",
+      "width": 1920,
+      "height": 1080,
+      "frames": 192
+    },
+    {
+      "shot": "S04",
+      "candidate": "B-VSE",
+      "sourceTake": "/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261111T235537Z-S04-1920-595e4ad9",
+      "deliverySha256": "744de560a407d13f083a67256ba496455d84f5db799ade5dca446c48e5793c9c",
+      "width": 1920,
+      "height": 1080,
+      "frames": 192
+    },
+    {
+      "shot": "S05",
+      "candidate": "A",
+      "sourceTake": "production/out/candidate-a/2026-11-11T23-48-27-176Z-1920-9a530ebc/S05",
+      "deliverySha256": "a01a60541f4ef56c46d7c4297d3b3a9d739fc38e3ba1bf34150d6a89677ef8cf",
+      "width": 1920,
+      "height": 1080,
+      "frames": 192
+    },
+    {
+      "shot": "S05",
+      "candidate": "B-VSE",
+      "sourceTake": "/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261111T235831Z-S05-1920-603ed0d0",
+      "deliverySha256": "b5e8c1927041295c8521f84fd029581ae6d56f56f3bd4cec40d9391de499e9e7",
+      "width": 1920,
+      "height": 1080,
+      "frames": 192
+    },
+    {
+      "shot": "S06",
+      "candidate": "A",
+      "sourceTake": "production/out/candidate-a/2026-11-11T23-48-27-176Z-1920-9a530ebc/S06",
+      "deliverySha256": "779bf8ffa801a6923dcdecd18fbffe92c1e81af280574bfc5f088728a910fd1e",
+      "width": 1920,
+      "height": 1080,
+      "frames": 144
+    },
+    {
+      "shot": "S06",
+      "candidate": "B-VSE",
+      "sourceTake": "/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T000115Z-S06-1920-3536b150",
+      "deliverySha256": "71a82fd7f67b02635de904b3536e04b4f33f709a22326e2cf15a76be23a65d2a",
+      "width": 1920,
+      "height": 1080,
+      "frames": 144
+    }
+  ],
+  "nativeArchiveSha256": "f8f980a188484bb7b91468211299794da94da1ed6e71795bc3f378ca165c9f02",
+  "limits": [
+    "No full creative gate",
+    "Listening review remains open",
+    "These timings include concurrent A/B work; not cold/warm performance samples",
+    "No independent artist/operator handoff"
+  ]
+}

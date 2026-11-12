@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Finish six-shot A blocking render, review and fix deceleration EX-015; run native Blender B samples",
+  "nextAction": "Q2 polish shadow/contact-light layers EX-018, then edit rounds R1/R2; Q1 listening review pending",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -35,6 +35,12 @@
       "result": "PASS_TECHNICAL",
       "evidence": "production/artifacts/Q2/technical-preflight/report.json",
       "limits": "6 load cases and 48 captures/36 comparisons on S05; not motion/production gate"
+    },
+    {
+      "id": "Q2-blocking-native-12-clips",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/blocking-r0/manifest.json",
+      "limits": "Blocking only; full creative gate, edits and fair performance samples pending"
     }
   ],
   "paidBudget": 0,
@@ -44,8 +50,7 @@
     "EX-004",
     "EX-005",
     "EX-011",
-    "EX-012",
     "EX-013",
-    "EX-015"
+    "EX-018"
   ]
 }

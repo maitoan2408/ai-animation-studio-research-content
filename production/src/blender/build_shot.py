@@ -1,6 +1,6 @@
 """Candidate B: native editable cutout planes and per-frame F-curves in Blender.
 
-Usage: blender -b --factory-startup --python this.py -- S01 640 8 0,48,120
+Usage: blender -b --factory-startup --python-exit-code 1 --python this.py -- S01 640 8 0,48,120
 Arguments: shot, width, Eevee samples, selected 0-based frames or 'all'.
 This is a measured candidate, not a wrapper around candidate A PNG/video output.
 Each object retains asset id/pivot metadata; camera and animation are native keys.

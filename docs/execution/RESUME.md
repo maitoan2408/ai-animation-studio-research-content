@@ -49,3 +49,14 @@ browser mới) PASS; EX-001/014 đóng. Entry /index.html đã sửa, fail log g
 All 1152 frame geometry/contact/stance tests PASS. Six-shot A blocking 640 đang
 render ở run `six-shot-blocking-a-retest`; xem result trước rerun. Tiếp: review
 blocking, bổ sung test/sửa EX-015 giảm tốc bước cuối, native Blender B samples.
+
+### Q2 blocking checkpoint — 12/11/2026 (thay các next steps cũ ở trên)
+
+12 native 1080p clips A/B đã PASS frame/profile/decode. A lấy S02 từ take
+2026-11-11T23-44-36-157Z-1920-43ae6ea7, các shot khác từ
+2026-11-11T23-48-27-176Z-1920-9a530ebc. B mapping: out/b-r0-selection.json.
+B six-shot portable native bundle và clips đã chọn vào artifacts/Q2/blocking-r0.
+EX-015 giảm tốc, EX-016 exception exit, EX-017 mirror đã sửa/retest; EX-018 bóng
+mềm/tiếp đất đang mở. Tiếp Q2 polish pack riêng (không ghi đè blocking), R1/R2,
+performance/handoff/review trước Q3. Q1 voice listening vẫn chờ nhận xét người dùng
+qua câu hỏi async đã gửi; không hỏi lại quyền triển khai. Xem COMPLETED.md.

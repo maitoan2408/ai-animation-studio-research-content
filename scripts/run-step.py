@@ -19,6 +19,7 @@ import subprocess
 import sys
 import time
 import uuid
+import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -66,9 +67,21 @@ def main() -> int:
             continue
         if name.startswith(prefixes) or name in ('package.json', 'package-lock.json',
                 'tsconfig.json', 'tsconfig.test.json', 'production/package.json',
-                'production/package-lock.json', 'production/tsconfig.json'):
+                'production/package-lock.json', 'production/tsconfig.json',
+                'production/requirements-voice.lock'):
             inputs.append(dict(path=name, sha256=hashlib.sha256(file.read_bytes()).hexdigest()))
     atomic_json(directory / 'inputs.json', dict(files=inputs))
+    # A hash alone cannot restore an uncommitted failed attempt after editing.
+    # Save the exact allowlisted source/lock/asset bytes, excluding secrets,
+    # runtime data, generated media and the recursive evidence tree.
+    snapshot = directory / 'source.zip'
+    with zipfile.ZipFile(snapshot, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+        for item in inputs:
+            payload = (ROOT / item['path']).read_bytes()
+            if hashlib.sha256(payload).hexdigest() != item['sha256']:
+                raise RuntimeError('SOURCE_CHANGED_DURING_SNAPSHOT: ' + item['path'])
+            archive.writestr(item['path'], payload)
+    request['source_snapshot_sha256'] = hashlib.sha256(snapshot.read_bytes()).hexdigest()
     atomic_json(directory / 'request.json', request)
     started = time.monotonic()
     child = None

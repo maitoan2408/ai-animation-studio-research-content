@@ -1,0 +1,27 @@
+Blender 4.3.2
+Read blend: "/workspace/ai-animation-studio-research-content/production/out/restore/e46debe59a8849839437c23d78ffbfb7/project/S05.blend"
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/e46debe59a8849839437c23d78ffbfb7/replay/0-191.png'
+Time: 00:00.25 (Saving: 00:00.07)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/e46debe59a8849839437c23d78ffbfb7/replay/1-0.png'
+Time: 00:00.49 (Saving: 00:00.05)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/e46debe59a8849839437c23d78ffbfb7/replay/2-72.png'
+Time: 00:00.34 (Saving: 00:00.06)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/e46debe59a8849839437c23d78ffbfb7/replay/3-48.png'
+Time: 00:00.31 (Saving: 00:00.05)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/e46debe59a8849839437c23d78ffbfb7/replay/4-191.png'
+Time: 00:00.28 (Saving: 00:00.05)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/e46debe59a8849839437c23d78ffbfb7/replay/5-72.png'
+Time: 00:00.30 (Saving: 00:00.05)
+
+
+Blender quit
+Traceback (most recent call last):
+  File "/workspace/ai-animation-studio-research-content/production/src/blender/check_portable.py", line 22, in <module>
+    if not exact:raise RuntimeError(f'NATIVE_REPLAY_MISMATCH {frame}')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: NATIVE_REPLAY_MISMATCH 191

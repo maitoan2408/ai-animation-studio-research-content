@@ -1,0 +1,19 @@
+EGL Error (0x3009): EGL_BAD_MATCH: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+EGL Error (0x3009): EGL_BAD_MATCH: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+Blender 4.3.2
+Fra:73 Mem:252.25M (Peak 253.80M) | Time:00:02.75 | Rendering 1 / 8 samples
+Fra:73 Mem:252.25M (Peak 253.80M) | Time:00:06.64 | Rendering 8 / 8 samples
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b/20261111T234211Z-S05-1920-8-d634506b/000072.png'
+Time: 00:06.89 (Saving: 00:00.23)
+
+Info: Saved "S05.blend"
+{"frame": 72, "seconds": 6.899784815999965, "sha256": "e8bf7d24004d02aa417e7e13df678aa14a8be0cb558ea39490e3cb79a6bc8568"}
+Fra:192 Mem:256.24M (Peak 256.24M) | Time:00:01.33 | Rendering 1 / 8 samples
+Fra:192 Mem:256.24M (Peak 256.24M) | Time:00:05.03 | Rendering 8 / 8 samples
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b/20261111T234211Z-S05-1920-8-d634506b/000191.png'
+Time: 00:05.25 (Saving: 00:00.20)
+
+{"frame": 191, "seconds": 5.2624676410000575, "sha256": "aa2e4fdb940e4f5cd154dd16e017aebf9470867eb5d473b1b0f247b2b5101856"}
+{"out": "/workspace/ai-animation-studio-research-content/production/out/candidate-b/20261111T234211Z-S05-1920-8-d634506b", "status": "PASS_RENDER_ONLY", "candidate": "B", "shot": "S05", "version": "4.3.2", "engine": "BLENDER_EEVEE_NEXT", "samples": 8, "width": 1920, "frames": 192, "rendered": [{"frame": 72, "seconds": 6.899784815999965, "sha256": "e8bf7d24004d02aa417e7e13df678aa14a8be0cb558ea39490e3cb79a6bc8568"}, {"frame": 191, "seconds": 5.2624676410000575, "sha256": "aa2e4fdb940e4f5cd154dd16e017aebf9470867eb5d473b1b0f247b2b5101856"}], "nativeFile": "S05.blend", "scope": "Native planes/F-curves; creative/QC gate separate"}
+
+Blender quit

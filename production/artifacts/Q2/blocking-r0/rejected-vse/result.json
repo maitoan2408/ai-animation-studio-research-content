@@ -1,0 +1,25 @@
+{
+  "status": "PASS_RENDER_ONLY",
+  "candidate": "B-VSE-experiment",
+  "shot": "S05",
+  "version": "4.3.2",
+  "width": 1920,
+  "frames": 192,
+  "rendered": [
+    {
+      "frame": 72,
+      "seconds": 0.831413897999937,
+      "sha256": "ea4a94b46808f2d6f01ce9fe887cb09430e43388248c2cb993d3564b7127ac12"
+    },
+    {
+      "frame": 191,
+      "seconds": 1.0142191850000017,
+      "sha256": "0027b5c0206fae3c99aa2876694383962be2e8a41cbc363f0e979997cea7706d"
+    }
+  ],
+  "nativeFile": "S05.blend",
+  "limits": [
+    "Native VSE 2D composition; no 3D camera/light/bones",
+    "Creative/QC and random-seek comparison pending"
+  ]
+}
