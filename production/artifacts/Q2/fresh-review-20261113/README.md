@@ -54,3 +54,7 @@ trust ROOT cho hai lệnh Git read-only; không đổi global config. Negative95
 tái hiện exit128. Full-flow ac207c43 trên commitabae639 với
 `GIT_TEST_ASSUME_DIFFERENT_OWNER=1` PASS cả6lệnh,19tests và13browser checks trong
 28.538s; [report](ownership-retest-report.json). Actual CI retest được lưu riêng.
+
+Actual CI retest run43329136529 PASS, gồm đầy đủ standalone6lệnh.
+[Report gốc từ stdout CI](ci-standalone-report.json) ghi GitHub test-merge HEAD;
+source head liên quan là d82da6e. [Hai workflow và từng step](../ci-standalone-repaired-20261113.json) đều SUCCESS.

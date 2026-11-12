@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "codeAndWorkflowUnchangedSinceTestedHead": "d82da6e73fc4ac710ff7d520beb0eb048d1e11b4",
+  "changedRuntimePaths": [],
+  "localLinksChecked": 105,
+  "errors": [],
+  "documentHashesAtCheck": {
+    "README.md": "0f9259878af75114c0ef727a9a53e31cf5e3cb393d75dc15ad20c0144f4c7e12",
+    "plan.md": "bf58c9293282c8b2aa7f0a037a73ab69e605f2ac49db986144d2bbfc21db4c8b",
+    "docs/execution/RESUME.md": "bef8b95e425c58a1ebeb634d790f8db4b49752b0acd05d0b7d6b85376a2d5cf9",
+    "docs/execution/COMPLETED.md": "ae20b5488d7fe4fd1a0281022c72062403576536e3ee269b308e32fb6c1bf5c9",
+    "docs/production-quality-plan.md": "985da0f954a12a36661c97a480261d0a541d61dcf27588a1f9fda22841348143",
+    "docs/toolchain-future-plan.md": "56f567eaf05ed9415700c7382015d5ef678c9076b28d93c4c14d0d8834e94576",
+    "production/src/qa/README.md": "df5f271281af1901e0bd72f0112b411874b59700565c76180f58adc8f9452988",
+    "production/src/review/README.md": "4353edb09f924c3a4c0da47c444f8db1c885478c002df6c581b65f4dcdfb6235",
+    "production/artifacts/Q2/fresh-review-20261113/README.md": "5aa0e9c546fc1d9eb6a4a2f3cbbe5821748e767ffdc9842b183fc797b96a7f4f",
+    "production/artifacts/Q2/web-review-v2/README.md": "c84b55099b51fdef8ab68957367eb22981c0526bc37b523a615af0f984d29c2c"
+  },
+  "limits": [
+    "Local path existence, not remote URL availability",
+    "Document check only; runtime CI results stored separately"
+  ]
+}

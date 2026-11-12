@@ -1,0 +1,17 @@
+{
+  "phase": "Q2",
+  "step": "final-resume-integrity",
+  "run_id": "20261112T233237Z-final-resume-integrity-7849f932",
+  "started_at_utc": "20261112T233237Z",
+  "command": [
+    "python",
+    "production/src/qa/audit_evidence.py",
+    "production/artifacts/Q2/final-audit-ci-repair-20261113.json"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "d82da6e73fc4ac710ff7d520beb0eb048d1e11b4",
+  "tracked_diff_sha256": "2e927ad431e05fe22db69a9ac5a90dd2a2124dfe4ea9bdb0a66f1d14d2d96388",
+  "status": "RUNNING",
+  "recorder_pid": 6893,
+  "source_snapshot_sha256": "3390dd7670ef41d3b4f1124dacea6d0b826a6e2b1c2d0fd6352afa582bca4889"
+}

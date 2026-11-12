@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Close EX-029 with actual expanded CI after scoped Git ownership fix. Then Q2 technical color repair and local review tool complete. Finish timestamped normal/slow motion rubric and real voice listening, then independent native open/edit handoff. Only after art/motion passes run locked3cold+5warm protocol and Q3 ADR; Q4-Q9 remain NOT_STARTED. Review UI defaults to v2 restored from committed chunks.",
+  "nextAction": "Q2 technical color repair and local review tool complete. Finish timestamped normal/slow motion rubric and real voice listening, then independent native open/edit handoff. Only after art/motion passes run locked3cold+5warm protocol and Q3 ADR; Q4-Q9 remain NOT_STARTED. Review UI defaults to v2 restored from committed chunks.",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -131,6 +131,18 @@
       "result": "PASS",
       "evidence": "production/artifacts/Q2/ci-repaired-lock-20261113.json",
       "limits": "Both GitHub workflows pass for source head065a02c. GitHub PR test merge; CI is functional/media verification, not creative or independent-operator approval."
+    },
+    {
+      "id": "Q2-standalone-ci-ownership-repair",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/fresh-review-20261113/ci-standalone-report.json",
+      "limits": "EX-029 fixed using exact per-command checkout trust; negative ownership failure retained. Local simulated-owner full flow and actual GitHub CI standalone flow pass. No global Git trust change or independent operator approval."
+    },
+    {
+      "id": "Q2-expanded-github-ci-and-final-audit",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/ci-standalone-repaired-20261113.json",
+      "limits": "Source head d82da6e; both workflows including standalone6command flow pass. Audit verifies201 complete attempts/153 source snapshots. No creative, listening or independent operator approval."
     }
   ],
   "paidBudget": 0,
@@ -140,9 +152,9 @@
     "EX-004",
     "EX-005",
     "EX-011",
-    "EX-013",
-    "EX-029"
+    "EX-013"
   ],
   "gateReport": "production/evidence/Q2/gate.json",
-  "updatedAt": "2026-11-13T06:27:24.808454+07:00"
+  "updatedAt": "2026-11-13T06:34:32.614765+07:00",
+  "completedStepSemantics": "Entries preserve observations at their checkpoints. Current phases/nextAction/gate are authoritative; later completed steps resolve historical pending limits without rewriting old evidence."
 }

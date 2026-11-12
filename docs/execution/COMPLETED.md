@@ -21,7 +21,7 @@ lập và benchmark sau art gate. Không thay những kết quả cũ đã đạ
 [code/runbook](../../production/src/review/README.md), [state](state.json),
 [gate](../../production/evidence/Q2/gate.json), [bước tiếp](RESUME.md).
 
-CI trên source head065a02c: [workbench](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43327652103) và [v0.1](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43327652106) đều SUCCESS; [job/step evidence](../../production/artifacts/Q2/ci-repaired-lock-20261113.json).
+CI mở rộng trên source headd82da6e: [workbench](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136529) và [v0.1](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136433) đều SUCCESS, gồm standalone Git-only; [job/step evidence](../../production/artifacts/Q2/ci-standalone-repaired-20261113.json). Các commit tổng kết sau đó chỉ thay tài liệu/evidence.
 
 ## Những lỗi đã sửa trong đợt này
 
@@ -39,13 +39,17 @@ CI trên source head065a02c: [workbench](https://github.com/maitoan2408/ai-anima
   chuyển vị trí12 package, giữ nguyên mọi version/URL/integrity. Bản commit mới
   chạy lại đủ sáu lệnh PASS. [Report và cách tái lập](../../production/artifacts/Q2/fresh-review-20261113/README.md).
 
+- EX-029: CI standalone không đọc được Git checkout khác UID. Đã thêm trust
+  cho đúng ROOT ở hai lệnh read-only, giữ cấu hình global; negative exit128,
+  full-flow giả lập khác owner và [actual CI standalone](../../production/artifacts/Q2/fresh-review-20261113/ci-standalone-report.json) đều được ghi nhận.
+
 R2 phát48.042s,0dropped khi không render đồng thời. Hai lần R0/R1 chạy cùng
 encoder rơi5/19frames; giữ nguyên và không gọi là số đo công bằng. Chưa có phút
 phim accepted hay giá/phút accepted; ngân sách API/GPU trả phí vẫn0.
 
-Audit cuối checkpoint kiểm198 completed attempts và150 source ZIP, không có lỗi
-hash. Attempt audit duy nhất còn INCOMPLETE trong lúc tự quét đã kết thúc PASS
-sau đó; đây không phải lỗi workflow. [Report audit](../../production/artifacts/Q2/final-audit-clean-reproduction-20261113.json).
+Audit sau sửa CI kiểm201 completed attempts và153 source ZIP,
+không có lỗi hash. Attempt audit duy nhất còn INCOMPLETE trong lúc tự quét đã
+kết thúc PASS sau đó. [Report audit](../../production/artifacts/Q2/final-audit-ci-repair-20261113.json). Các report audit trước vẫn được giữ.
 
 [Tổng kết trước đợt này](history/COMPLETED-through-2026-11-12.md), Word/PDF,
 master/native cũ, source ZIP và toàn bộ fail logs vẫn được giữ để tái lập.

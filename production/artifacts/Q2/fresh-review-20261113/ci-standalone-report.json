@@ -1,0 +1,86 @@
+{
+  "sourceHead": "d82da6e73fc4ac710ff7d520beb0eb048d1e11b4",
+  "runId": 43329136529,
+  "jobId": 131569115216,
+  "source": "Exact JSON stdout report from successful standalone CI step; commit below is GitHub PR test-merge HEAD",
+  "report": {
+    "status": "PASS",
+    "commit": "6bf854b5ae098c632087f8aa0bc6e5affaead4c6",
+    "source": "git archive production only; clean npm cache/install",
+    "completedAt": "2026-11-12T23:31:00.414024+00:00",
+    "checks": [
+      {
+        "command": [
+          "npm",
+          "--prefix",
+          "production",
+          "ci",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python",
+          "production/src/media/review_bundle.py",
+          "restore",
+          "production/artifacts/Q2/web-review-v2"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "npm",
+          "--prefix",
+          "production",
+          "run",
+          "typecheck"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "npm",
+          "--prefix",
+          "production",
+          "test"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "npm",
+          "--prefix",
+          "production",
+          "run",
+          "review",
+          "--",
+          "check"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "npm",
+          "--prefix",
+          "production",
+          "run",
+          "test:review-ui"
+        ],
+        "exitCode": 0
+      }
+    ],
+    "lockSha256": "181bd0e539d9518881a54a3d9191edd92340d503926dc748e3a238b2b8e79ee1",
+    "output": "/__w/ai-animation-studio-research-content/ai-animation-studio-research-content/production/out/fresh-review/b0239fc52cd947f2b409da0d636476b1",
+    "checkout": "/tmp/studio-q2-clean-xvpfc3yb",
+    "gitTrustScope": {
+      "directory": "/__w/ai-animation-studio-research-content/ai-animation-studio-research-content",
+      "configScope": "per invocation; no global change"
+    },
+    "limits": [
+      "Same host/runtime and agent; not independent operator or clean-machine certification",
+      "No listening or full artistic review from functional test"
+    ]
+  }
+}

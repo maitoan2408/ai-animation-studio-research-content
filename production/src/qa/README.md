@@ -54,3 +54,7 @@ Helper hiện truyền `git -c safe.directory=<ROOT>` cho hai lệnh read-only
 ghi global config hoặc tin cậy wildcard. Ca negative dùng
 `GIT_TEST_ASSUME_DIFFERENT_OWNER=1` và safe.directory rỗng tái hiện exit128;
 fixed full-flow phải chạy lại trong điều kiện khác owner, rồi kiểm CI thực.
+
+Scoped fix được xác nhận: negative956407db exit128; full-flow ac207c43 PASS
+trong điều kiện khác owner; GitHub workbench run43329136529 gồm standalone
+step PASS. [Report CI](../../artifacts/Q2/fresh-review-20261113/ci-standalone-report.json).

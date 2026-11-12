@@ -35,14 +35,15 @@ Nguồn trạng thái máy đọc: [state.json](state.json); [gate Q2](../../pro
   [report](../../production/artifacts/Q2/fresh-review-20261113/README.md) và
   [QA runbook](../../production/src/qa/README.md). Đây vẫn là cùng máy/agent.
 
-CI hai workflow workbench/v0.1 trên source head065a02c đã SUCCESS; xem
-[job/step evidence](../../production/artifacts/Q2/ci-repaired-lock-20261113.json).
+CI hai workflow workbench/v0.1 trên source headd82da6e đã SUCCESS, gồm
+standalone Git-only; xem [job/step evidence](../../production/artifacts/Q2/ci-standalone-repaired-20261113.json).
+Các commit tổng kết tiếp theo chỉ thay tài liệu/evidence, không thay runtime code.
 CI được bổ sung ca standalone Git-only để bắt đúng lỗi EX-028 trong các lần sau;
 kết quả của workflow mở rộng được ghi riêng, không suy từ CI trước thay đổi.
 Lần mở rộng đầu run43328442441 FAIL tại ownership Git (EX-029), các bước trước
-đó PASS. Fix chỉ trust đúng ROOT ở từng lệnh đã PASS local full-flow với giả lập khác
-owner (ac207c43). Còn phải xác nhận CI thực, đóng EX-029 và cập nhật evidence
-trước khi chuyển sang phần review chất lượng còn mở bên dưới.
+đó PASS. Fix chỉ trust đúng ROOT ở từng lệnh đã PASS local full-flow với giả lập
+khác owner (ac207c43) và actual CI43329136529; EX-029 CLOSED.
+[Report standalone từ runner CI](../../production/artifacts/Q2/fresh-review-20261113/ci-standalone-report.json).
 
 ## Mở chương trình đã làm
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## Q2 container reproduction repair — 13/11/2026
+
+- New standalone CI caught EX-029 before npm: Git refused container checkout ownership. Kept the actual failure and a local negative; fixed only the two read-only Git calls with trust for the exact authorized checkout path.
+- Full workflow under simulated different ownership passes, followed by actual GitHub workbench run43329136529 including the standalone installation/review step. Global and wildcard Git trust are unchanged.
+
+- Source headd82da6e passes both final GitHub workflows (workbench43329136529, v0.1run43329136433); expanded CI includes the standalone6command workflow. Latest audit verifies201 completed attempts and153source snapshots with no integrity error.
+
 ## Q2 standalone reproduction — 13/11/2026
 
 - Reproduced EX-028 with a Git-only checkout outside the parent repository. Repaired12 transitive dependency locations while preserving exact direct pins and every package/version/tarball URL/integrity identity.
