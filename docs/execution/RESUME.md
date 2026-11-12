@@ -29,6 +29,16 @@ Nguồn trạng thái máy đọc: [state.json](state.json); [gate Q2](../../pro
   tests,16Python tests,13 browser checks trên media v2 PASS. Test authors=automated-test.
 - Root v0.1 verify16, build, integration13, UI9 PASS trong thư mục tách biệt;
   deliverable cũ hash-identical. CI workbench mới có contracts, restore, chart và UI.
+- Clean Git-only reproduction commit065a02c PASS: checkout ngoài cây repo,
+  cache/npm install mới, restore3video, typecheck,19tests và13browser checks.
+  EX-028 lock layout đã sửa mà không đổi dependency tarball. Xem
+  [report](../../production/artifacts/Q2/fresh-review-20261113/README.md) và
+  [QA runbook](../../production/src/qa/README.md). Đây vẫn là cùng máy/agent.
+
+CI hai workflow workbench/v0.1 trên source head065a02c đã SUCCESS; xem
+[job/step evidence](../../production/artifacts/Q2/ci-repaired-lock-20261113.json).
+CI được bổ sung ca standalone Git-only để bắt đúng lỗi EX-028 trong các lần sau;
+kết quả của workflow mở rộng được ghi riêng, không suy từ CI trước thay đổi.
 
 ## Mở chương trình đã làm
 

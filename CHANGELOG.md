@@ -1,5 +1,13 @@
 # Changelog
 
+## Q2 standalone reproduction — 13/11/2026
+
+- Reproduced EX-028 with a Git-only checkout outside the parent repository. Repaired12 transitive dependency locations while preserving exact direct pins and every package/version/tarball URL/integrity identity.
+- Commit065a02c passes a clean-cache npm install, exact restoration of three videos, typecheck,19workbench tests, catalog/profile verification and13actual-browser checks. Kept failed attempts and added the QA runbook. Same-host reproduction does not replace the independent operator gate.
+
+- GitHub workbench run43327652103 and v0.1run43327652106 both succeed for source head065a02c. Final checkpoint audit verifies198 completed attempts and150source snapshots; creative/handoff/performance gates remain open.
+- Added the standalone Git-only reproduction to workbench CI, because the earlier full-repo CI passed despite EX-028. Its new run is tracked separately from the pre-change CI evidence.
+
 ## Q2 media/review checkpoint — 13/11/2026
 
 - Added a working local review program: exact presented-frame notes, artifact/master/revision binding, strict rubric boundary, immutable journal, idempotent retry, stale-head handling, export/restart and desktop/mobile UI.19 workbench tests and13 browser checks pass; test reviewers are explicitly automated-test.

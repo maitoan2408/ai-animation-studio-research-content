@@ -13,12 +13,15 @@ lập và benchmark sau art gate. Không thay những kết quả cũ đã đạ
 | Q2 polish/edit/native |Sáu shot48s,hai vòng sửa,1152frames/bản,normalized audio;70native hashes+6replay frames và edit/reopen | Full art/motion, independent operator còn mở |
 | Q2 media v2 |Chart max1≤3; real-art MAE0.504–0.662/P95≤2;1152decodedYUV exact và AAC/source/master không đổi cho R0/R1/R2 | SDR local Chromium reference; không mọi player/hardware |
 | Q2 review program |19workbench tests,16Python tests,13real-browser workflow checks PASS; desktop/mobile/journal/export/restart | Test records không là duyệt mỹ thuật hoặc nghe |
+| Q2 tái lập từ Git |Commit065a02c cài bằng cache mới, khôi phục ba video đúng SHA, typecheck,19tests và13browser checks PASS | Checkout ngoài repo trên cùng máy; không thay independent operator |
 | Q2.5 |Protocol3cold+5warm đã viết | NOT_RUN tới khi art/motion đạt |
 | Q3–Q9 |Kế hoạch/backlog/đường quay lại có sẵn | NOT_STARTED, không bỏ qua |
 
 [Bộ review v2 và lệnh mở](../../production/artifacts/Q2/web-review-v2/README.md),
 [code/runbook](../../production/src/review/README.md), [state](state.json),
 [gate](../../production/evidence/Q2/gate.json), [bước tiếp](RESUME.md).
+
+CI trên source head065a02c: [workbench](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43327652103) và [v0.1](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43327652106) đều SUCCESS; [job/step evidence](../../production/artifacts/Q2/ci-repaired-lock-20261113.json).
 
 ## Những lỗi đã sửa trong đợt này
 
@@ -32,10 +35,17 @@ lập và benchmark sau art gate. Không thay những kết quả cũ đã đạ
   thêm bước build, integration và UI PASS, artifact cũ không đổi.
 - Thêm chia/ghép video có hash, chặn chunk hỏng/path/symlink/overwrite và giữ
   temporary evidence. V2 mỗi video≈114MB, là bản xem local chất lượng cao.
+- EX-028: clean standalone `npm ci` từ Git phát hiện layout lock không hợp lệ;
+  chuyển vị trí12 package, giữ nguyên mọi version/URL/integrity. Bản commit mới
+  chạy lại đủ sáu lệnh PASS. [Report và cách tái lập](../../production/artifacts/Q2/fresh-review-20261113/README.md).
 
 R2 phát48.042s,0dropped khi không render đồng thời. Hai lần R0/R1 chạy cùng
 encoder rơi5/19frames; giữ nguyên và không gọi là số đo công bằng. Chưa có phút
 phim accepted hay giá/phút accepted; ngân sách API/GPU trả phí vẫn0.
+
+Audit cuối checkpoint kiểm198 completed attempts và150 source ZIP, không có lỗi
+hash. Attempt audit duy nhất còn INCOMPLETE trong lúc tự quét đã kết thúc PASS
+sau đó; đây không phải lỗi workflow. [Report audit](../../production/artifacts/Q2/final-audit-clean-reproduction-20261113.json).
 
 [Tổng kết trước đợt này](history/COMPLETED-through-2026-11-12.md), Word/PDF,
 master/native cũ, source ZIP và toàn bộ fail logs vẫn được giữ để tái lập.

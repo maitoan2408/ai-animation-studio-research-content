@@ -1,5 +1,12 @@
 # Kế hoạch thực hiện sau nghiên cứu toolchain
 
+**Cập nhật thực hiện13/11/2026:** người dùng đã ủy quyền triển khai, kiểm thử,
+sửa lỗi và push. Q0 đã hoàn tất theo ủy quyền; Q1 sẵn sàng kỹ thuật nhưng còn
+nghe voice; Q2 đã có benchmark/media và chương trình review đã kiểm, các gate
+chuyển động/nghe/handoff/performance còn mở. Q3–Q9 chưa bắt đầu. Theo
+[RESUME](execution/RESUME.md) và [state](execution/state.json) để tiếp tục.
+Đoạn ngày11/11 bên dưới là bối cảnh lúc lập kế hoạch, không phải trạng thái mới.
+
 Ngày: **11/11/2026**. Bản này bổ sung [Q0–Q9](production-quality-plan.md) và [P0–P11](roadmap-full.md); không thay thế lịch sử M0–M6, không tự đóng gate. **Mọi công việc triển khai ở đây chưa bắt đầu và chờ duyệt.** Vòng nghiên cứu hiện tại chỉ chạy harness/CLI có sẵn, giữ code/dependency/schema ứng dụng nguyên trạng.
 
 ## 1. Trình tự và nguyên tắc thực hiện

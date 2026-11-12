@@ -1,0 +1,1205 @@
+{
+  "status": "PASS_INTEGRITY",
+  "completedAttempts": 198,
+  "sourceSnapshotsChecked": 150,
+  "incompleteAttempts": [
+    "production/evidence/Q2/20261112T232029Z-evidence-integrity-clean-reproduction-ad90c7a9"
+  ],
+  "errors": [],
+  "commandElapsedSumSeconds": 6739.275,
+  "limits": [
+    "Command elapsed sums include concurrent jobs and are not human labor, elapsed project time, CPU-hours or SLA",
+    "PASS command counts do not imply creative/phase gates",
+    "No accepted film minutes or cost/minute claimed"
+  ],
+  "attempts": [
+    {
+      "run": "20261111T161057Z-baseline-072da0ab",
+      "phase": "Q0",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 9.367
+    },
+    {
+      "run": "20261111T161407Z-brief-gate-1cb5080a",
+      "phase": "Q0",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.154
+    },
+    {
+      "run": "20261111T161641Z-three-types-version-b1a72128",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.519
+    },
+    {
+      "run": "20261111T162047Z-install-workbench-3ee631e0",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 19.837
+    },
+    {
+      "run": "20261111T162313Z-author-art-pack-7ac2159d",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.053
+    },
+    {
+      "run": "20261111T162512Z-art-typecheck-dbd25120",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.772
+    },
+    {
+      "run": "20261111T162513Z-art-previews-cae6f8cc",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 20.031
+    },
+    {
+      "run": "20261111T162853Z-contact-invariant-initial-1fd6db12",
+      "phase": "Q1",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 1.112
+    },
+    {
+      "run": "20261111T163014Z-art-repair-source-7b846539",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.055
+    },
+    {
+      "run": "20261111T163014Z-contact-invariant-retest-b0fa257e",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.879
+    },
+    {
+      "run": "20261111T163015Z-art-repair-typecheck-05c6ca57",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.536
+    },
+    {
+      "run": "20261111T163017Z-art-repair-preview-b66fa78d",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 20.937
+    },
+    {
+      "run": "20261111T163335Z-install-local-voice-a6d1b600",
+      "phase": "Q1",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 0.013
+    },
+    {
+      "run": "20261111T163422Z-create-voice-venv-retry-f58c376d",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.076
+    },
+    {
+      "run": "20261111T163422Z-install-local-voice-retry-0389a2d8",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.038
+    },
+    {
+      "run": "20261111T163540Z-author-body-views-cba19fb5",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.055
+    },
+    {
+      "run": "20261111T163541Z-body-views-tests-a07b1645",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.956
+    },
+    {
+      "run": "20261111T163542Z-body-views-preview-1d494a5f",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 22.291
+    },
+    {
+      "run": "20261111T163550Z-download-local-voice-model-06ef506c",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 8.171
+    },
+    {
+      "run": "20261111T163604Z-texture-preflight-55446ef3",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.059
+    },
+    {
+      "run": "20261111T231940Z-art-extremes-typecheck-beef2772",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.345
+    },
+    {
+      "run": "20261111T231941Z-art-extremes-preview-87c1ec35",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 21.384
+    },
+    {
+      "run": "20261111T231941Z-voice-fixture-0da5ebb5",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.851
+    },
+    {
+      "run": "20261111T232003Z-art-extremes-tests-a3770428",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.613
+    },
+    {
+      "run": "20261111T232004Z-texture-preflight-final-3bdf05e6",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.115
+    },
+    {
+      "run": "20261111T232050Z-blender-environment-a61024e7",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 37.602
+    },
+    {
+      "run": "20261111T232632Z-three-environment-398e39f1",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.261
+    },
+    {
+      "run": "20261111T232643Z-environment-typecheck-f6840ef0",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.562
+    },
+    {
+      "run": "20261111T232714Z-voice-integrity-retest-12c12ea4",
+      "phase": "Q1",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.651
+    },
+    {
+      "run": "20261111T233120Z-blocking-contract-first-55f3ba79",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.115
+    },
+    {
+      "run": "20261111T233223Z-adapter-typecheck-first-0e173d42",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.335
+    },
+    {
+      "run": "20261111T233325Z-explicit-readiness-and-hf-seek-first-f0e1ee6e",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 58.806
+    },
+    {
+      "run": "20261111T233355Z-renderer-harness-typecheck-8f081a7d",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.463
+    },
+    {
+      "run": "20261111T233505Z-six-shot-blocking-a-first-d6101611",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 48.005
+    },
+    {
+      "run": "20261111T233550Z-explicit-readiness-and-hf-seek-retest-077f00de",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 24.058
+    },
+    {
+      "run": "20261111T233646Z-export-shared-blender-blocking-535cb125",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.518
+    },
+    {
+      "run": "20261111T233657Z-six-shot-blocking-a-retest-8d02fd2c",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 208.311
+    },
+    {
+      "run": "20261111T233659Z-blocking-renderer-typecheck-9bcb6d0e",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.343
+    },
+    {
+      "run": "20261111T234058Z-blender-native-blocking-sample-0986cc8b",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 26.03
+    },
+    {
+      "run": "20261111T234100Z-deceleration-regression-first-f393b7fd",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 0.656
+    },
+    {
+      "run": "20261111T234127Z-deceleration-and-arm-retest-7b518031",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.907
+    },
+    {
+      "run": "20261111T234210Z-blender-native-1080-sample-4023c944",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 13.916
+    },
+    {
+      "run": "20261111T234339Z-blender-vse-optimization-probe-fec33bb0",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.312
+    },
+    {
+      "run": "20261111T234349Z-fixed-walk-typecheck-89f6039e",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.709
+    },
+    {
+      "run": "20261111T234414Z-blender-vse-optimization-retest-6bb1b7d7",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.15
+    },
+    {
+      "run": "20261111T234434Z-corrected-walk-native-a-29cebabc",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 262.23
+    },
+    {
+      "run": "20261111T234524Z-blender-vse-local-mirror-retest-639e7cc4",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 6.085
+    },
+    {
+      "run": "20261111T234525Z-blender-failure-contract-6e6ed3cb",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.092
+    },
+    {
+      "run": "20261111T234752Z-export-corrected-blocking-for-b-9808508e",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.849
+    },
+    {
+      "run": "20261111T234823Z-blender-vse-blocking-S01-41ca2ffc",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 57.149
+    },
+    {
+      "run": "20261111T234824Z-other-five-native-a-9605bdfa",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1351.922
+    },
+    {
+      "run": "20261111T234920Z-blender-vse-blocking-S02-4fd03016",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 195.063
+    },
+    {
+      "run": "20261111T235052Z-vse-mirror-corrected-image-check-ebaab0d6",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.701
+    },
+    {
+      "run": "20261111T235052Z-vse-mirror-negative-image-check-6434ec85",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 1.766
+    },
+    {
+      "run": "20261111T235235Z-blender-vse-blocking-S03-26a54ccd",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 179.54
+    },
+    {
+      "run": "20261111T235535Z-blender-vse-blocking-S04-82e69bfb",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 174.683
+    },
+    {
+      "run": "20261111T235830Z-blender-vse-blocking-S05-6083e31f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 164.052
+    },
+    {
+      "run": "20261112T000114Z-blender-vse-blocking-S06-499a8f39",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 119.405
+    },
+    {
+      "run": "20261112T044418Z-package-native-six-shots-91851a1b",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.087
+    },
+    {
+      "run": "20261112T044604Z-native-portable-reopen-seek-58269685",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 4.146
+    },
+    {
+      "run": "20261112T044847Z-package-native-relative-path-fix-bf31c70f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.487
+    },
+    {
+      "run": "20261112T044920Z-native-portable-reopen-seek-retest-18ac17bc",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 8.23
+    },
+    {
+      "run": "20261112T045121Z-author-polish-pack-first-226c505c",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.058
+    },
+    {
+      "run": "20261112T045213Z-polish-contract-tests-f24f8f65",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.95
+    },
+    {
+      "run": "20261112T045213Z-polish-rasterize-82ca0f97",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 10.811
+    },
+    {
+      "run": "20261112T045213Z-polish-typecheck-43efd827",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 6.436
+    },
+    {
+      "run": "20261112T045307Z-export-polish-blocking-f64ebf5a",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.852
+    },
+    {
+      "run": "20261112T045307Z-polish-texture-integrity-03e1540b",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.702
+    },
+    {
+      "run": "20261112T045321Z-polish-styleframes-native-1bc4ba1f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 5.57
+    },
+    {
+      "run": "20261112T045455Z-edit-r1-longer-voice-8b1f58f0",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 5.046
+    },
+    {
+      "run": "20261112T045632Z-edit-round-contract-tests-df59ab1e",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.159
+    },
+    {
+      "run": "20261112T045632Z-edit-round-typecheck-15b92e2f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.431
+    },
+    {
+      "run": "20261112T045847Z-polish-native-S01-11b352d1",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 36.447
+    },
+    {
+      "run": "20261112T045849Z-export-edit-round-one-a687e221",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.851
+    },
+    {
+      "run": "20261112T045924Z-polish-native-S02-ab806925",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 151.302
+    },
+    {
+      "run": "20261112T045926Z-target-player-color-playback-87602c40",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 10.634
+    },
+    {
+      "run": "20261112T050155Z-polish-native-S03-6fe822df",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 143.769
+    },
+    {
+      "run": "20261112T050419Z-polish-native-S04-c681255a",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 159.791
+    },
+    {
+      "run": "20261112T050551Z-edit-player-typecheck-2fcba57e",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.257
+    },
+    {
+      "run": "20261112T050643Z-target-player-presented-frame-retest-f47e0fd9",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 2.267
+    },
+    {
+      "run": "20261112T050659Z-polish-native-S05-0cb4bfca",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 152.828
+    },
+    {
+      "run": "20261112T050713Z-target-player-presented-frame-retest2-237d60e2",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 0.241
+    },
+    {
+      "run": "20261112T050721Z-target-player-presented-frame-retest3-5ee3f948",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 11.943
+    },
+    {
+      "run": "20261112T050813Z-target-player-range-seek-retest-3d3f0a34",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 10.802
+    },
+    {
+      "run": "20261112T050825Z-export-edit-r2-070f1bfa",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.612
+    },
+    {
+      "run": "20261112T050826Z-edit-round-tests-brow-note-75af763f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.401
+    },
+    {
+      "run": "20261112T050826Z-edit-round-typecheck-brow-note-fede19dc",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.68
+    },
+    {
+      "run": "20261112T050826Z-export-edit-r1-brow-note-2853f95a",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.691
+    },
+    {
+      "run": "20261112T050932Z-polish-native-S06-92004f28",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 91.549
+    },
+    {
+      "run": "20261112T051204Z-assemble-polish-sequence-3e559018",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 0.57
+    },
+    {
+      "run": "20261112T051205Z-edit-R1-native-S01-0787913c",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 38.475
+    },
+    {
+      "run": "20261112T051244Z-edit-R1-native-S03-fffb927d",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 159.813
+    },
+    {
+      "run": "20261112T051253Z-assemble-polish-sequence-pcm-retest-da0761af",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 13.719
+    },
+    {
+      "run": "20261112T051344Z-editorial-negative-contracts-71ae3cd3",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.26
+    },
+    {
+      "run": "20261112T051358Z-verify-polish-sequence-all-frames-5083ec0f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 21.333
+    },
+    {
+      "run": "20261112T051525Z-upright-walk-regression-first-df9f659f",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 1.446
+    },
+    {
+      "run": "20261112T051601Z-upright-walk-regression-retest-f5597294",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.883
+    },
+    {
+      "run": "20261112T051601Z-upright-walk-typecheck-39b5327f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.484
+    },
+    {
+      "run": "20261112T051622Z-export-upright-walk-ecc92efb",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.712
+    },
+    {
+      "run": "20261112T051623Z-edit-R2-native-S04-0d99ace1",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 159.484
+    },
+    {
+      "run": "20261112T051903Z-edit-R2-native-S05-0a363ba8",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 146.347
+    },
+    {
+      "run": "20261112T094339Z-upright-walk-native-S02-f346ab3f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 155.32
+    },
+    {
+      "run": "20261112T094745Z-edit-history-media-reuse-cd3fa87f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.644
+    },
+    {
+      "run": "20261112T094756Z-assemble-final-r0-7b5eb7e1",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 22.681
+    },
+    {
+      "run": "20261112T094756Z-assemble-final-r1-9a48ba75",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 22.338
+    },
+    {
+      "run": "20261112T094756Z-assemble-final-r2-d808a900",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 22.096
+    },
+    {
+      "run": "20261112T094757Z-package-final-native-r2-7b838bfa",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 5.277
+    },
+    {
+      "run": "20261112T094919Z-verify-final-r0-2ba075d1",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 40.135
+    },
+    {
+      "run": "20261112T094919Z-verify-final-r1-2c33305f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 39.752
+    },
+    {
+      "run": "20261112T094919Z-verify-final-r2-c4ff7004",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 37.139
+    },
+    {
+      "run": "20261112T094921Z-replay-final-native-r2-fbf384dc",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 33.124
+    },
+    {
+      "run": "20261112T095018Z-final-player-typecheck-88bb6bce",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.233
+    },
+    {
+      "run": "20261112T095019Z-final-r2-player-normal-6ac9dead",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 51.278
+    },
+    {
+      "run": "20261112T095043Z-native-edit-reopen-note-afa47ac4",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 12.612
+    },
+    {
+      "run": "20261112T095145Z-final-r2-loudness-measure-8c546100",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.637
+    },
+    {
+      "run": "20261112T095157Z-final-r2-player-slow-7e2ac509",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 98.051
+    },
+    {
+      "run": "20261112T095315Z-loudness-contracts-cfd461a5",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.105
+    },
+    {
+      "run": "20261112T095405Z-normalize-review-r0-bbbddfdd",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 18.706
+    },
+    {
+      "run": "20261112T095405Z-normalize-review-r1-2368af96",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 18.952
+    },
+    {
+      "run": "20261112T095405Z-normalize-review-r2-699279c1",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 19.694
+    },
+    {
+      "run": "20261112T095537Z-verify-normalized-r0-be07fc19",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 32.887
+    },
+    {
+      "run": "20261112T095537Z-verify-normalized-r1-984611a6",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 32.799
+    },
+    {
+      "run": "20261112T095537Z-verify-normalized-r2-e169eced",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 30.679
+    },
+    {
+      "run": "20261112T095708Z-target-player-compositor-sample-d4e65479",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 11.044
+    },
+    {
+      "run": "20261112T095806Z-color-roundtrip-player-diagnostic-4dd8cff7",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.49
+    },
+    {
+      "run": "20261112T095902Z-audit-checkpoint-evidence-e2a3dd5d",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.826
+    },
+    {
+      "run": "20261112T095903Z-final-app-regression-f2cab495",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 10.477
+    },
+    {
+      "run": "20261112T095903Z-final-workbench-typecheck-ff25417a",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.235
+    },
+    {
+      "run": "20261112T100617Z-check-review-package-links-hashes-c6a6efed",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.216
+    },
+    {
+      "run": "20261112T101631Z-derive-web-review-sample-a2f4dd09",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 5.98
+    },
+    {
+      "run": "20261112T101753Z-alpha-contract-real-assets-e61cead6",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.441
+    },
+    {
+      "run": "20261112T101754Z-media-profile-negatives-4fea3b0e",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.088
+    },
+    {
+      "run": "20261112T101804Z-web-review-player-sample-f5fcf328",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 10.705
+    },
+    {
+      "run": "20261112T102042Z-web-player-color-positive-1e4d5719",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.577
+    },
+    {
+      "run": "20261112T102043Z-master-not-web-color-negative-f1e7a0db",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.411
+    },
+    {
+      "run": "20261112T102127Z-make-color-contract-fixture-96cd3c81",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.408
+    },
+    {
+      "run": "20261112T102144Z-derive-web-r0-1fa0452e",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 106.467
+    },
+    {
+      "run": "20261112T102144Z-derive-web-r1-32594348",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 105.848
+    },
+    {
+      "run": "20261112T102144Z-derive-web-r2-514911d2",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 106.386
+    },
+    {
+      "run": "20261112T145441Z-web-chart-player-453dbce4",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.172
+    },
+    {
+      "run": "20261112T145542Z-web-chart-color-thresholds-19d78b2b",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 0.322
+    },
+    {
+      "run": "20261112T150037Z-native-color-chart-candidate-9125c4bd",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.899
+    },
+    {
+      "run": "20261112T150056Z-native-chart-player-28351f46",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.147
+    },
+    {
+      "run": "20261112T150135Z-native-chart-thresholds-afcad2c5",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 0.306
+    },
+    {
+      "run": "20261112T150246Z-native-chart-explicit-srgb-display-59296a81",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.336
+    },
+    {
+      "run": "20261112T150452Z-native-chart-explicit-display-thresholds-2bcaafa3",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 0.316
+    },
+    {
+      "run": "20261112T150609Z-separate-player-encoder-color-72f61e5f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.503
+    },
+    {
+      "run": "20261112T150644Z-rgb-lossless-review-candidate-7d8a6210",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.584
+    },
+    {
+      "run": "20261112T150802Z-rgb-lossless-chart-player-2b5f8519",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.528
+    },
+    {
+      "run": "20261112T150804Z-review-core-typecheck-33175cd9",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 3.182
+    },
+    {
+      "run": "20261112T151014Z-review-core-typecheck-retest-52b22d3c",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.838
+    },
+    {
+      "run": "20261112T151014Z-rgb-chart-frozen-thresholds-7fe509dc",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 0.435
+    },
+    {
+      "run": "20261112T151042Z-native-full-range-review-candidate-c878f017",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.995
+    },
+    {
+      "run": "20261112T151315Z-full-range-chart-player-e55968ad",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.053
+    },
+    {
+      "run": "20261112T151350Z-review-contract-and-http-tests-2519c220",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 1.834
+    },
+    {
+      "run": "20261112T151350Z-review-tests-typecheck-0e6d3646",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.444
+    },
+    {
+      "run": "20261112T151438Z-full-range-chart-frozen-thresholds-41528e8e",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 0.319
+    },
+    {
+      "run": "20261112T151501Z-full-range-lossless-yuv-candidate-342b6d2f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.418
+    },
+    {
+      "run": "20261112T151501Z-review-browser-workflow-79cc62b2",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 19.988
+    },
+    {
+      "run": "20261112T151522Z-review-http-host-fixture-retest-4b3cca79",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.732
+    },
+    {
+      "run": "20261112T151541Z-full-range-lossless-chart-player-5b4aba8f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.01
+    },
+    {
+      "run": "20261112T151607Z-review-browser-seek-event-retest-95c904ad",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 188.358
+    },
+    {
+      "run": "20261112T151613Z-full-range-lossless-chart-thresholds-fb303f2e",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.353
+    },
+    {
+      "run": "20261112T151823Z-native-web-v2-r0-f0eada0f",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 3.823
+    },
+    {
+      "run": "20261112T151918Z-native-web-v2-r0-index-retest-510bda52",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 138.308
+    },
+    {
+      "run": "20261112T151954Z-review-browser-focus-retest-491c89f2",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 16.73
+    },
+    {
+      "run": "20261112T152040Z-media-v2-profile-negative-tests-b9214f39",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.144
+    },
+    {
+      "run": "20261112T152225Z-review-workbench-checkpoint-verify-9e95026b",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.749
+    },
+    {
+      "run": "20261112T152402Z-native-web-v2-r1-ff2c9867",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 142.673
+    },
+    {
+      "run": "20261112T152403Z-native-web-v2-r0-player-ceecaedc",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 61.433
+    },
+    {
+      "run": "20261112T152505Z-pack-web-v2-r0-7b33dae0",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.484
+    },
+    {
+      "run": "20261112T152505Z-review-bundle-recovery-negatives-98848847",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.186
+    },
+    {
+      "run": "20261112T152537Z-native-web-v2-r0-real-art-color-ea7ee75c",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.332
+    },
+    {
+      "run": "20261112T152538Z-restore-web-v2-first-bundle-755077bf",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.607
+    },
+    {
+      "run": "20261112T152539Z-review-module-current-typecheck-5bf6c41d",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 7.395
+    },
+    {
+      "run": "20261112T152741Z-native-web-v2-r1-player-ec6881d4",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 63.104
+    },
+    {
+      "run": "20261112T152741Z-native-web-v2-r2-2e9bd79c",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 146.846
+    },
+    {
+      "run": "20261112T152741Z-pack-web-v2-r1-f918e28f",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.684
+    },
+    {
+      "run": "20261112T152905Z-final-app-regression-verify-0f7074c0",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 14.632
+    },
+    {
+      "run": "20261112T152916Z-native-web-v2-r1-real-art-color-b060f784",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.809
+    },
+    {
+      "run": "20261112T153017Z-isolated-app-integration-ui-regression-bb94d604",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 78.641
+    },
+    {
+      "run": "20261112T153049Z-pack-web-v2-r2-db12e3b9",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.409
+    },
+    {
+      "run": "20261112T153059Z-restore-all-web-v2-bundles-524eee2d",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 1.039
+    },
+    {
+      "run": "20261112T153313Z-native-web-v2-r2-player-idle-902ab1f3",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 52.206
+    },
+    {
+      "run": "20261112T225725Z-isolated-app-build-integration-ui-retest-bae737bf",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 104.025
+    },
+    {
+      "run": "20261112T225725Z-native-web-v2-r2-real-art-color-b21395d7",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.576
+    },
+    {
+      "run": "20261112T225848Z-final-media-python-suite-3a766299",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 0.577
+    },
+    {
+      "run": "20261112T225848Z-final-native-review-catalog-40d0b602",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.217
+    },
+    {
+      "run": "20261112T225848Z-final-review-v2-browser-workflow-f24af63e",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 13.589
+    },
+    {
+      "run": "20261112T225912Z-current-browser-frozen-color-reference-b8e4ff0d",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 3.673
+    },
+    {
+      "run": "20261112T230609Z-evidence-integrity-final-87747996",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.929
+    },
+    {
+      "run": "20261112T230609Z-final-review-contract-regression-697405a3",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 5.152
+    },
+    {
+      "run": "20261112T230609Z-final-review-typecheck-3aa21bf6",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 4.989
+    },
+    {
+      "run": "20261112T230913Z-fresh-git-review-reproduction-52408802",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 6.124
+    },
+    {
+      "run": "20261112T231106Z-repair-workbench-lock-isolated-710140e3",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 2.362
+    },
+    {
+      "run": "20261112T231223Z-repair-lock-preserve-tarball-identities-0d07092b",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 2.398
+    },
+    {
+      "run": "20261112T231353Z-fresh-review-outside-parent-tree-2a367832",
+      "phase": "Q2",
+      "commandStatus": "FAIL",
+      "elapsedSeconds": 5.385
+    },
+    {
+      "run": "20261112T231454Z-fresh-review-repaired-lock-retest-1d3872f7",
+      "phase": "Q2",
+      "commandStatus": "PASS",
+      "elapsedSeconds": 25.213
+    }
+  ]
+}

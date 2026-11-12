@@ -119,6 +119,18 @@
       "result": "PASS",
       "evidence": "production/artifacts/Q2/app-regression-final/report.json",
       "limits": "Root verify16, build, integration13, UI9; old deliverable files hash-identical. First isolated runner omitted build; failure retained, corrected runner passes."
+    },
+    {
+      "id": "Q2-standalone-git-reproduction",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/fresh-review-20261113/report.json",
+      "limits": "Commit065a02c; outside ancestor package tree, clean npm cache/install;6commands,19tests,13browser checks. All12 relocated packages retain same versions/URLs/integrities. Same host/agent, no independent operator or listening approval."
+    },
+    {
+      "id": "Q2-and-v01-github-ci",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/ci-repaired-lock-20261113.json",
+      "limits": "Both GitHub workflows pass for source head065a02c. GitHub PR test merge; CI is functional/media verification, not creative or independent-operator approval."
     }
   ],
   "paidBudget": 0,
@@ -131,5 +143,5 @@
     "EX-013"
   ],
   "gateReport": "production/evidence/Q2/gate.json",
-  "updatedAt": "2026-11-13T06:00:54.587140+07:00"
+  "updatedAt": "2026-11-13T06:22:16.268527+07:00"
 }

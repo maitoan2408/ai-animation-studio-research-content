@@ -34,6 +34,10 @@ jobs:
       - name: Verify frozen chart in actual Chromium
         run: /tmp/q2-qc/bin/python production/src/qa/check_color_reference.py
       - run: npm --prefix production run test:review-ui
+      - name: Verify standalone Git-only installation and review workflow
+        # Full-repo npm ci passed before EX-028 was fixed. This separate checkout
+        # must remain outside the parent package tree, with its own empty cache.
+        run: PATH="/tmp/q2-qc/bin:$PATH" /tmp/q2-qc/bin/python production/src/qa/check_fresh_review.py
       - name: Upload diagnostic evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -43,4 +47,5 @@ jobs:
             production/out/review-ui/
             production/out/player-check/
             production/out/chart-results/
+            production/out/fresh-review/**/report.json
           retention-days: 14

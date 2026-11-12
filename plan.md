@@ -13,6 +13,9 @@ browser và4 nhóm contract/API/recovery. V1 chart FAIL giữ nguyên; v2 từ P
 full-range/losslessYUV đạt chart max1 dưới ngưỡng3, ba sequence khớp1.152YUV frame
 và AAC từng bản. R2 phát48s không có render đồng thời:0dropped. Đây là tiến độQ2,
 chưa là hoàn tấtQ6/production hoặc thay thế rubric chuyển động và nghe thoại.
+Kiểm Git-only sạch đã bắt và sửa EX-028 lock layout; commit065a02c đạt install,
+restore3video, typecheck,19tests và13browser checks bằng cache mới ngoài cây repo.
+[Bằng chứng](production/artifacts/Q2/fresh-review-20261113/README.md).
 
 ## Tổng kết vòng nghiên cứu toolchain — 11/11/2026
 

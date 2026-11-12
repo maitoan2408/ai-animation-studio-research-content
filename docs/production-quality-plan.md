@@ -1,5 +1,12 @@
 # Kế hoạch nâng chất lượng production — chờ duyệt trước khi triển khai
 
+**Cập nhật thực hiện13/11/2026:** người dùng đã cho phép triển khai và tự sửa lỗi.
+Q0 đã hoàn tất theo ủy quyền; Q1/Q2 đạt các phần kỹ thuật được ghi nhận, còn
+nghe thoại, chấm chuyển động, operator độc lập và benchmark sau art gate.
+Q3–Q9 vẫn chưa thực hiện. [Trạng thái hiện hành](execution/state.json) và
+[điểm tiếp tục](execution/RESUME.md) thay cho trạng thái nghiên cứu ngày11/11
+được giữ bên dưới. Không đổi các tiêu chí chất lượng chỉ để đóng giai đoạn.
+
 Ngày: **11/11/2026**. Người dùng yêu cầu vòng này nghiên cứu và lên plan, chưa code. Trạng thái hiện tại: **nghiên cứu đã lập; Q0–Q9 bên dưới chưa thực hiện**. Không dùng checklist kế hoạch làm bằng chứng PASS.
 
 Đầu vào: [nghiên cứu chất lượng](../reports/Nghien_cuu_chat_luong_production.md), Word gốc, demo tại `b79ec76497b7cb57f753f596cb60969aae3383d2`, phản hồi demo tốt nhưng chưa đạt production. Giữ nguyên kết quả M0–M6 và toàn bộ [roadmap P0–P11](roadmap-full.md).

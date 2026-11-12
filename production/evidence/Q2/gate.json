@@ -47,7 +47,21 @@
       2,
       2
     ],
-    "singleIdleR2PlaybackDroppedFrames": 0
+    "singleIdleR2PlaybackDroppedFrames": 0,
+    "freshGitReproduction": {
+      "status": "PASS",
+      "testedCommit": "065a02ca0716652be10adb0572a2255defa39a2b",
+      "commandsPassed": 6,
+      "report": "production/artifacts/Q2/fresh-review-20261113/report.json",
+      "limits": "Same host/agent; not independent operator handoff"
+    },
+    "githubCI": {
+      "status": "PASS",
+      "sourceHead": "065a02ca0716652be10adb0572a2255defa39a2b",
+      "workbenchRun": 43327652103,
+      "v01Run": 43327652106,
+      "evidence": "production/artifacts/Q2/ci-repaired-lock-20261113.json"
+    }
   },
   "openGates": [
     "Voice listening and perceptual cues",
