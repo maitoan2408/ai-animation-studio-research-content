@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/ai-animation-studio-research-content/production/src/media/native_review.py", line 108, in <module>
+    print(json.dumps({'output': str(encode(args.timeline.resolve(), args.master.resolve(), args.sha256))}))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ai-animation-studio-research-content/production/src/media/native_review.py", line 52, in encode
+    raise MediaError(f'MISSING_NATIVE_FRAME {shot["shot"]} {local_frame}')
+contracts.MediaError: MISSING_NATIVE_FRAME S01 192

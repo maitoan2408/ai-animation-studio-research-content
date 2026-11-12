@@ -57,3 +57,15 @@ Manim/F10 vẫn có điều kiện vì pilot chưa có shot giải thích; khôn
 thiếu vào pipeline chính. Chưa có phút phim accepted nên cost/accepted-minute
 chưa xác định. Tổng command elapsed trong audit gồm job song song, không phải giờ
 animator, CPU-hours, thời gian lịch hoặc SLA. Paid API/GPU budget vẫn bằng 0.
+# Bổ sung checkpoint Q2 — 12/11/2026, 22:27 ICT
+
+- Công cụ review local đã có code, CLI/HTTP/UI và hướng dẫn.19 workbench tests
+  (15 cũ+4 nhóm review) PASS;13 kiểm tra Chromium UI PASS, gồm seek/step,2 tốc độ,
+  lưu/reload, hash/revision isolation, xung đột2 cửa sổ, export, restart,390px.
+- Fix EX-025: kết hợp presented-frame proof với seeked, không gán sai frame khi
+  browser phát sự kiện khác thứ tự. Nhật ký test ghi automated-test, không giả human.
+- Media chart v1 FAIL được giữ. V2 native full-range/losslessYUV đạt max1 với
+  ngưỡng3/inset2 không đổi. R0 đã khớp1152decodedYUV và AAC; EX-026 indexing đóng.
+  R1/R2 và player real-art vẫn đang kiểm; chưa tuyên bố color gate toàn bộ xong.
+- Git checkpoint933c611 đã giữ failures. Xem state/RESUME mới nhất thay vì suy
+  phase DONE từ các kết quả kỹ thuật trong phần lịch sử dưới đây.

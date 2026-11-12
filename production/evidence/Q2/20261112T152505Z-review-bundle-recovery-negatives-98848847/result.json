@@ -1,0 +1,28 @@
+{
+  "phase": "Q2",
+  "step": "review-bundle-recovery-negatives",
+  "run_id": "20261112T152505Z-review-bundle-recovery-negatives-98848847",
+  "started_at_utc": "20261112T152505Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_review_bundle.py",
+    "-v"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "9aa05b6b719936a0f23186aae89626c57ba2605725285f3accfb27d3b33a3ccc",
+  "recorder_pid": 20319,
+  "source_snapshot_sha256": "a9cc40830958c74cc0a2d17dc1c267afef57c993da8f3e10bdfc038f9e1f073f",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.186,
+  "finished_at_utc": "2026-11-12T15:25:05.374287+00:00",
+  "log_sha256": "583e52ee26763d8b905f4f22654f370e028405135c24fd065008a458fc3fa9b8",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -42,6 +42,24 @@ class MediaProfiles(unittest.TestCase):
         with self.assertRaisesRegex(MediaError, 'DURATION_MISMATCH'):
             validate_probe(changed, 'master', 1152)
 
+    def test_nonfinite_duration_cannot_bypass_boundary(self):
+        for value in ['nan', 'inf', '-inf']:
+            changed = copy.deepcopy(self.probe)
+            changed['streams'][0]['duration'] = value
+            with self.assertRaisesRegex(MediaError, 'DURATION_MISMATCH'):
+                validate_probe(changed, 'master', 1152)
+
+    def test_full_range_review_is_distinct_from_master_and_old_web_profile(self):
+        actual = json.loads((ROOT / 'artifacts/Q2/media-contract-v2/chart/result.json').read_text())['probe']
+        validate_probe(actual, 'review_v2', 48)
+        for profile in ['master', 'review']:
+            with self.assertRaisesRegex(MediaError, 'PROFILE_MISMATCH'):
+                validate_probe(actual, profile, 48)
+        changed = copy.deepcopy(actual)
+        changed['streams'][0]['color_range'] = 'tv'
+        with self.assertRaisesRegex(MediaError, 'color_range'):
+            validate_probe(changed, 'review_v2', 48)
+
 
 if __name__ == '__main__':
     unittest.main()

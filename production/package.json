@@ -6,7 +6,10 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts tests/*.test.mjs",
-    "assets": "python src/art/build_assets.py"
+    "assets": "python src/art/build_assets.py",
+    "review": "tsx src/review/cli.ts",
+    "test:review": "tsx --test tests/review.test.ts",
+    "test:review-ui": "tsx tests/review-ui.mjs"
   },
   "dependencies": {
     "@hyperframes/engine": "0.9.33",

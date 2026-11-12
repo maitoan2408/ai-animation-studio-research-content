@@ -142,3 +142,14 @@ Local review tool is being implemented separately under `production/src/review`
 to record shot/frame/hash-bound opinions; not yet functionally verified. Complete
 its API/storage/UI tests before calling it delivered. Q2 remains IN_PROGRESS;
 the earlier motion/voice/handoff/performance gates are neither removed nor done.
+
+### Checkpoint công cụ review — 12/11/2026, 22:27 ICT
+
+Review program source/docs ready:19 workbench tests and13 browser checks PASS.
+Selected screenshots/report/test-only export in `artifacts/Q2/review-workbench-v1`.
+CLI currently uses diagnostic v1 catalog; Q2 media-v2 chart now max1 PASS, keeping
+original max3/inset2. Native R0 export1152YUV frames/AAC/source exact (out/native-web-review/
+175ae2b1233046af9c84ad138ca3d1d7). R1 running; R2 next. Check current run results
+before any rerender. Final media are large because lossless YUV; Git transport
+uses32MiB parts plus manifest via review_bundle.py, restore must match whole SHA.
+Do not change the BT709 masters or mark motion/voice/independent operator complete.

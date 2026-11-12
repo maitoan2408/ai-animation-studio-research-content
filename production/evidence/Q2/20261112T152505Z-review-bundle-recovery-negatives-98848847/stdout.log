@@ -1,0 +1,8 @@
+test_corrupted_chunk_never_publishes (test_review_bundle.ReviewBundle.test_corrupted_chunk_never_publishes) ... ok
+test_exact_restore_retry_and_interrupted_temp (test_review_bundle.ReviewBundle.test_exact_restore_retry_and_interrupted_temp) ... ok
+test_traversal_symlink_and_overwrite_rejected (test_review_bundle.ReviewBundle.test_traversal_symlink_and_overwrite_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.007s
+
+OK

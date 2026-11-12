@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "review-browser-seek-event-retest",
+  "run_id": "20261112T151607Z-review-browser-seek-event-retest-95c904ad",
+  "started_at_utc": "20261112T151607Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/tests/review-ui.mjs"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "2324907c28f1daf5699bbe8e9de6d05861f1b227dc9d4f17e8a7028c16d411c7",
+  "status": "RUNNING",
+  "recorder_pid": 19197,
+  "source_snapshot_sha256": "7ba5cca1d73cd4ed962638d0c29ba6e9f92db2723a822c7831e698f6ba4c2972"
+}

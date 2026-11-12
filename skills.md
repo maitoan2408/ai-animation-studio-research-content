@@ -22,6 +22,8 @@ Các mục sau thuộc `production/`, chưa phải capability của API/UI v0.1:
 | benchmark-six-shots | Brief/packs/cues khóa → native A/B media và source | Readiness/contact/seek/decode + review; `production/src/render/README.md`, `src/blender/README.md` |
 | benchmark-edit-rounds | R0 + notes R1/R2 → selective takes, before/after SHA và sequence | Không đổi clip ngoài scope; `production/src/editorial/README.md` |
 | benchmark-audio-qc | Verified PCM timeline → delivery gain, loudness/TP và sync reports | Nghe duyệt riêng; `production/src/audio/README.md` |
+| benchmark-review-workbench | Catalog media/hash → note theo shot/frame, journal và export | `production/src/review/README.md`; input/range/hash/conflict/restart + actual browser checks; không tự đóng gate |
+| benchmark-media-contract | Native PNG/alpha/master → profile/color/packet checks và web derivative riêng | `production/src/media/README.md`; giữ failures và ngưỡng; v1 chart FAIL, v2 chart max1 PASS; ba bản thực còn đang kiểm |
 | resume-production | Git/state/evidence → đúng bước chưa xong, giữ attempts cũ | `docs/execution/RESUME.md`, `production/evidence/Q2/gate.json` |
 
 Ủy quyền hiện hành cho phép agent triển khai và quyết định thường lệ. Mọi review

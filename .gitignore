@@ -25,3 +25,5 @@ validation/scripts/__pycache__/
 /production/.cache/
 /production/.venv/
 **/__pycache__/
+/production/artifacts/Q2/web-review-v2/*/review.mp4
+/production/artifacts/Q2/web-review-v2/*/restore-*.tmp

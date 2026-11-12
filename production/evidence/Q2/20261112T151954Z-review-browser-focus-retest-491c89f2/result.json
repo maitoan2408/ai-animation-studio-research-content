@@ -1,0 +1,21 @@
+{
+  "phase": "Q2",
+  "step": "review-browser-focus-retest",
+  "run_id": "20261112T151954Z-review-browser-focus-retest-491c89f2",
+  "started_at_utc": "20261112T151954Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/tests/review-ui.mjs"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "89d34e68e888c5f7dacad6e6250f521f261c391594f68b8c1ef99f2ce7d46c6a",
+  "recorder_pid": 19594,
+  "source_snapshot_sha256": "8675f1745fe916b366fb39c837ec8b7cfb94a4d2244032a46bd19bf9daea2190",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 16.73,
+  "finished_at_utc": "2026-11-12T15:20:11.274115+00:00",
+  "log_sha256": "abede112725f8e3a383e5f3bae9e4a4d1f756859b9609f20e90330cd06b6684b",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

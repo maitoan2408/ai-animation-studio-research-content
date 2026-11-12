@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Q2 media: EX-024 chart FAIL preserved, investigate player conversion with fixed thresholds. Finish and test local Q2 review program (not Q6 product implementation); then full motion/voice and independent handoff gates. No rerender of completed native shots.",
+  "nextAction": "Complete Q2 media-v2 three native-PNG review exports: frozen chart max1 passes, R0 all1152YUV/AAC/source checks pass, R1 in progress, R2 next. Local review program works; promote default catalog only after final artifact/player tests. Then remaining motion/voice/independent handoff; post-art performance protocol remains gated.",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -95,6 +95,12 @@
       "result": "PASS_TECHNICAL_PARTIAL",
       "evidence": "production/artifacts/Q2/media-contract-v1",
       "limits": "Real art web RGB MAE1.404/p954 and alpha positives/negatives pass; color chart fails. No complete color or art approval."
+    },
+    {
+      "id": "Q2-local-review-program-v1",
+      "result": "PASS_FUNCTIONAL",
+      "evidence": "production/artifacts/Q2/review-workbench-v1/report.json",
+      "limits": "13 browser checks,4 contract/API methods; test-only reviewers, muted playback. Does not close motion, listening, handoff or phase gates."
     }
   ],
   "paidBudget": 0,

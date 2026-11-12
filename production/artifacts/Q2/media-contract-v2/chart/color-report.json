@@ -1,0 +1,410 @@
+{
+  "status": "PASS_TECHNICAL",
+  "limits": {
+    "absoluteMax": 3,
+    "excludeBoundaryPixels": 2
+  },
+  "patches": [
+    {
+      "sample": "player.png",
+      "rgb": [
+        0,
+        0,
+        0
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        32,
+        32,
+        32
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        64,
+        64,
+        64
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        96,
+        96,
+        96
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        128,
+        128,
+        128
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        160,
+        160,
+        160
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        192,
+        192,
+        192
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        224,
+        224,
+        224
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        41,
+        73,
+        87
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        126,
+        170,
+        163
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        245,
+        223,
+        179
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        213,
+        163,
+        75
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        188,
+        99,
+        81
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        34,
+        79,
+        80
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        255,
+        0,
+        0
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        0,
+        255,
+        0
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        0,
+        0,
+        255
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        0,
+        255,
+        255
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "player.png",
+      "rgb": [
+        255,
+        0,
+        255
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        0,
+        0,
+        0
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        32,
+        32,
+        32
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        64,
+        64,
+        64
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        96,
+        96,
+        96
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        128,
+        128,
+        128
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        160,
+        160,
+        160
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        192,
+        192,
+        192
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        224,
+        224,
+        224
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        41,
+        73,
+        87
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        126,
+        170,
+        163
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        245,
+        223,
+        179
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        213,
+        163,
+        75
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        188,
+        99,
+        81
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        34,
+        79,
+        80
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        255,
+        0,
+        0
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        0,
+        255,
+        0
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        0,
+        0,
+        255
+      ],
+      "maxAbsoluteRGB": 1,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        0,
+        255,
+        255
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    },
+    {
+      "sample": "compositor.png",
+      "rgb": [
+        255,
+        0,
+        255
+      ],
+      "maxAbsoluteRGB": 0,
+      "withinLimit": true
+    }
+  ],
+  "scope": "Frozen patch interiors; scene-edge tests are separate"
+}

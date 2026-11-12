@@ -8,6 +8,11 @@ Trạng thái tiếp tục ở [RESUME](docs/execution/RESUME.md), [state](docs/
 Q2 đã có 12 blocking clip 1080p, polish và hai vòng sửa B-VSE; ba sequence đã kiểm frame/audio/loudness. Các gate màu trên player, motion/voice review, handoff độc lập và performance còn mở. [Tổng kết](docs/execution/COMPLETED.md).
 Các mục nghiên cứu bên dưới là snapshot lịch sử, giữ nguyên kết quả.
 
+Checkpoint bổ sung Q2: đã viết công cụ review local (`production/src/review`),
+kiểm13 thao tác browser và4 nhóm contract/API/recovery. Bản màu v1 bị chart từ
+chối; profile v2 từ PNG với full-range/lossless YUV đã đạt chart max1 dưới ngưỡng3,
+đang kiểm ba sequence thực. Đây là tiến độ Q2, chưa là hoàn tất Q6 hay production.
+
 ## Tổng kết vòng nghiên cứu toolchain — 11/11/2026
 
 - **Đã hoàn thành trong vòng nghiên cứu:** đối chiếu Word/kế hoạch/code/tests; khảo sát Three.js, HyperFrames, FFmpeg, Manim CE/GL và các ứng viên liên quan; chạy test/harness/CLI được phép; soạn kế hoạch chi tiết, backlog và đường quay lại khi fail.

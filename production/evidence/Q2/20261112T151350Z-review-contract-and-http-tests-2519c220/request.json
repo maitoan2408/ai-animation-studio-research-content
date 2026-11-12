@@ -1,0 +1,17 @@
+{
+  "phase": "Q2",
+  "step": "review-contract-and-http-tests",
+  "run_id": "20261112T151350Z-review-contract-and-http-tests-2519c220",
+  "started_at_utc": "20261112T151350Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/review.test.ts"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 18545,
+  "source_snapshot_sha256": "bb833a469ea7f05d3d796d5a995410ccd978c039c1a5e9e0cbb2899d9fda08ee"
+}

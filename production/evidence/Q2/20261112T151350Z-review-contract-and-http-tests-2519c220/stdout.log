@@ -1,0 +1,32 @@
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (20.240432ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (38.871403ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (3.964989ms)
+✖ real HTTP media, origin/token, persistence, stale head and changed-file rejection (990.829972ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1605.301359
+
+✖ failing tests:
+
+test at production/tests/review.test.ts:91:1
+✖ real HTTP media, origin/token, persistence, stale head and changed-file rejection (990.829972ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 403
+  
+      at TestContext.<anonymous> (/workspace/ai-animation-studio-research-content/production/tests/review.test.ts:106:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

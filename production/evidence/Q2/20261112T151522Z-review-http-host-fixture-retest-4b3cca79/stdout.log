@@ -1,0 +1,12 @@
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (2.470877ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (18.294538ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (2.77043ms)
+✔ real HTTP media, origin/token, persistence, stale head and changed-file rejection (418.325655ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 626.714697
