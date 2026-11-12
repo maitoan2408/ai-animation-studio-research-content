@@ -9,7 +9,12 @@ const exec = promisify(execFile);
 export async function verifiedBytes(root: string, relative: string, sha: string): Promise<Buffer> {
   if (path.isAbsolute(relative) || relative.split(/[\\/]/).some(p => p === '..' || p === '') || relative.includes('\0')) fail('UNSAFE_MEDIA_PATH');
   const base = await realpath(root);
-  const file = await realpath(path.resolve(base, relative));
+  let file: string;
+  try { file = await realpath(path.resolve(base, relative)); }
+  catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') fail('MEDIA_MISSING_RESTORE_REQUIRED', 409);
+    throw error;
+  }
   if (!file.startsWith(base + path.sep)) fail('MEDIA_PATH_ESCAPES_ROOT');
   const metadata = await stat(file);
   if (!metadata.isFile() || metadata.size > 200 * 1024 * 1024) fail('MEDIA_SIZE_LIMIT');

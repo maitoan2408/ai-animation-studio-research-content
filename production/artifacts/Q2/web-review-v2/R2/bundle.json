@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "output": "review.mp4",
+  "bytes": 114057969,
+  "sha256": "263aa0d7a7b486098c4d246a84169629a71bd2fae1cc9c835e7f2a001eddc4d1",
+  "chunks": [
+    {
+      "file": "part-000.bin",
+      "bytes": 33554432,
+      "sha256": "5b76beadc37f0593e7dbfb7c90e37628bbee276b173acafba040967cb69c1c9e"
+    },
+    {
+      "file": "part-001.bin",
+      "bytes": 33554432,
+      "sha256": "bcaf4c326e2c1342a95f332f37fc815a7229603db39dc7c94106d6f7252633ac"
+    },
+    {
+      "file": "part-002.bin",
+      "bytes": 33554432,
+      "sha256": "ab3112c9a84172c9c17426244bcf929bce98208480699bd776268a151772b0b1"
+    },
+    {
+      "file": "part-003.bin",
+      "bytes": 13394673,
+      "sha256": "00b63eadcc65eac580252aa886da711ab7ccb3b90a82e86f2c20b1bff754756c"
+    }
+  ]
+}

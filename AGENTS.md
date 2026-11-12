@@ -44,3 +44,14 @@ Các lệnh đều bọc `scripts/run-step.py`; historical fail snapshots giữ 
 Đọc `production/evidence/Q2/gate.json` và `production/artifacts/Q2/review-final`.
 Không suy voice audition từ loudness, color approval từ tags, motion score từ
 contact tests, hoặc independent handoff từ cùng agent chạy process mới.
+
+## Công cụ review Q2 và tái lập media
+
+`production/src/review/README.md` là hướng dẫn code/API/journal. Catalog mặc định
+v2 có media chia32MiB parts; chạy review_bundle.py restore trước review/check/UI.
+Không commit lại MP4 đã ghép hoặc sửa các phần/manifest để khớp video khác.
+Mọi review cần đúng artifact SHA/master SHA/revision/shot/frame; test phải dùng
+automated-test và thư mục dữ liệu riêng. Không coi checkbox xem/nghe là xác minh
+danh tính hoặc bằng chứng người độc lập. CI workbench không đóng gate mỹ thuật.
+Các helper kiểm v0.1 dùng run_app_regression.py để giữ hash deliverables cũ;
+helper phải build CLI trong workspace tách biệt trước integration/UI tests.

@@ -1,5 +1,12 @@
 # Changelog
 
+## Q2 media/review checkpoint — 13/11/2026
+
+- Added a working local review program: exact presented-frame notes, artifact/master/revision binding, strict rubric boundary, immutable journal, idempotent retry, stale-head handling, export/restart and desktop/mobile UI.19 workbench tests and13 browser checks pass; test reviewers are explicitly automated-test.
+- Preserved failed color experiments; native full-range sRGB YUV420/CRF0 passes the unchanged chart threshold(max1≤3) and real-art samples. All3review sequences retain1152exactYUV frames and unchanged AAC/master/source. R2 idle playback has0dropped; loaded runs remain diagnostic.
+- Added32MiB Git media parts, checked restoration/recovery,6profile tests and3bundle tests; full Python suite16passes. Original v0.1verify16/build/integration13/UI9 pass with old deliverables hash-identical. EX-024–027 fixed within their recorded scope.
+- Added workbench CI and current runbook/resume/phase summaries, keeping previous histories and failures. Q2 remains open for real listening, full-motion rubric, independent handoff and then3cold+5warm; Q3–Q9 not started.
+
 ## Q0 — bắt đầu thực hiện production theo ủy quyền
 
 - Khóa brief paper-cut/multiplane, pilot 72 giây, sáu shot/48 giây, rubric và output profile.

@@ -50,3 +50,15 @@ throw (EX-016). Kiểm cả result manifest + PNG/native project, không suy t�
 - Timings là dự đoán của model, không phải forced alignment độc lập.
 - Eevee smoke 320×320 mất 35.864 s/render, chưa là benchmark sáu shot/1080p.
 - Không có người tái tạo/reviewer độc lập; kiểm sạch do cùng agent không thay vai đó.
+
+## Bổ sung Q2 review — 13/11/2026
+
+- Node24.22.1/npm11.9, FFmpeg7.1.5, Chromium156.0.8078.79 là môi trường đã đo.
+- Python QC khóa NumPy2.3.5/Pillow13.0.0 trong requirements-qc.lock; cài vào venv
+  riêng khi cần. review_bundle.py chỉ cần Python standard library.
+- `npm ci --prefix production`; restore ba bundle theo README review, rồi
+  `npm --prefix production run review -- serve`. Không cần voice model/Blender
+  chỉ để xem, ghi chú và tải source. Native regeneration dùng các module riêng.
+- CI `.github/workflows/production.yml` cài runtime, chạy contracts, restore,
+  frozen chart và UI; browser thực trên runner được ghi trong report. Phiên bản
+  apt trên CI không được tự nhận là trùng môi trường tham chiếu ở trên.

@@ -1,0 +1,21 @@
+{
+  "phase": "Q2",
+  "step": "isolated-app-integration-ui-regression",
+  "run_id": "20261112T153017Z-isolated-app-integration-ui-regression-bb94d604",
+  "started_at_utc": "20261112T153017Z",
+  "command": [
+    "python",
+    "production/src/qa/run_app_regression.py"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "198b1f90060bc9f805f93a8e611a487b5028dc01",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 21073,
+  "source_snapshot_sha256": "583cd4b270f9594ff47f0a06c7a0d816f85ec1a35eaee50121597ec0a2fc2b59",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 78.641,
+  "finished_at_utc": "2026-11-12T15:31:35.929434+00:00",
+  "log_sha256": "7a5d340d83ebec406616266ec5c87bc59628d5845a376c0ebbbfdc7f88a69d02",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

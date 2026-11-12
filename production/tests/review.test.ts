@@ -81,6 +81,7 @@ test('range and filesystem boundaries reject traversal, symlink escape and chang
   for (const value of ['bytes=10-','bytes=-0','bytes=5-2','bytes=1-2,4-5','items=1-3','bytes=9007199254740993-']) assert.throws(() => byteRange(value,10));
   const directory = await mkdtemp(path.join(tmpdir(),'review-files-'));
   try {
+    await assert.rejects(verifiedBytes(directory,'not-restored.mp4',artifact.id), /MEDIA_MISSING_RESTORE_REQUIRED/);
     await assert.rejects(verifiedBytes(root,'../plan.md',artifact.id), /UNSAFE_MEDIA_PATH/);
     await symlink(path.join(root,artifact.file),path.join(directory,'escape.mp4'));
     await assert.rejects(verifiedBytes(directory,'escape.mp4',artifact.id), /MEDIA_PATH_ESCAPES_ROOT/);

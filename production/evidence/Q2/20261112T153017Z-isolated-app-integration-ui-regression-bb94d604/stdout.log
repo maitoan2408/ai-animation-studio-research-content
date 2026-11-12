@@ -1,0 +1,126 @@
+
+> paper-studio@0.1.0 test:integration
+> tsx tests/integration.ts
+
+PASS real Vietnamese draft voice is audible and fits every scene
+PASS browser seeks reproduce pixels in reverse order
+[SystemMemory] cgroup memory limit detected: 8192 MiB. It governs memory-adaptive render behaviour instead of host RAM.
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (1ms)
+[initSession:screenshot] page.goto complete (151ms)
+[initSession:screenshot] GSAP proxy flush complete (154ms)
+[HyperFrames] render runtime fps {"canonicalFps":24,"source":"render-options","rawFpsSource":"render-options","rawFps":24}
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[initSession:screenshot] pollHfReady complete (259ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (261ms)
+[initSession:screenshot] applyVideoMetadataHints complete (261ms)
+[initSession:screenshot] media + fonts + tailwind ready (264ms)
+[initSession:screenshot] static-frame dedup: disabled (eligible) (278ms)
+PASS HyperFrames strict multi-scene render + full decode/QC
+PASS QC rejects output whose frame count disagrees with the revision
+PASS encoded speech remains aligned to mixed PCM at zero sample lag
+PASS real artifact cache hit after hash verification
+PASS export and reopen preserve exact spec and audio hashes
+PASS tampered audio rejected before queueing
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (0ms)
+[initSession:screenshot] page.goto complete (108ms)
+[initSession:screenshot] GSAP proxy flush complete (111ms)
+[HyperFrames] render runtime fps {"canonicalFps":24,"source":"render-options","rawFpsSource":"render-options","rawFps":24}
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[initSession:screenshot] pollHfReady complete (259ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (262ms)
+[initSession:screenshot] applyVideoMetadataHints complete (262ms)
+[initSession:screenshot] media + fonts + tailwind ready (264ms)
+[initSession:screenshot] static-frame dedup: disabled (eligible) (278ms)
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (0ms)
+[initSession:screenshot] page.goto complete (118ms)
+[HyperFrames] render runtime fps {"canonicalFps":24,"source":"render-options","rawFpsSource":"render-options","rawFps":24}
+[initSession:screenshot] GSAP proxy flush complete (148ms)
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[initSession:screenshot] pollHfReady complete (253ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (255ms)
+[initSession:screenshot] applyVideoMetadataHints complete (255ms)
+[initSession:screenshot] media + fonts + tailwind ready (256ms)
+[initSession:screenshot] static-frame dedup: disabled (eligible) (268ms)
+PASS real renderer cancellation publishes nothing; manual retry succeeds
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (0ms)
+[initSession:screenshot] page.goto complete (106ms)
+[initSession:screenshot] GSAP proxy flush complete (109ms)
+[HyperFrames] render runtime fps {"canonicalFps":24,"source":"render-options","rawFpsSource":"render-options","rawFps":24}
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[initSession:screenshot] pollHfReady complete (255ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (257ms)
+[initSession:screenshot] applyVideoMetadataHints complete (257ms)
+[initSession:screenshot] media + fonts + tailwind ready (259ms)
+[initSession:screenshot] static-frame dedup: disabled (eligible) (277ms)
+PASS real multiplane render
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (0ms)
+[initSession:screenshot] page.goto complete (129ms)
+[initSession:screenshot] GSAP proxy flush complete (130ms)
+[HyperFrames] render runtime fps {"canonicalFps":24,"source":"render-options","rawFpsSource":"render-options","rawFps":24}
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[initSession:screenshot] pollHfReady complete (234ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (235ms)
+[initSession:screenshot] applyVideoMetadataHints complete (235ms)
+[initSession:screenshot] media + fonts + tailwind ready (237ms)
+[initSession:screenshot] static-frame dedup: disabled (eligible) (250ms)
+PASS real shadow-box render
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[BrowserManager] Browser launched (Chrome/156.0.8078.79, screenshot, gl=--use-gl=angle --use-angle=swiftshader, headlessShell=true, platform=linux)
+[initSession:screenshot] page.goto start (0ms)
+[initSession:screenshot] page.goto complete (277ms)
+[initSession:screenshot] GSAP proxy flush complete (287ms)
+[HyperFrames] render runtime fps {"canonicalFps":24,"source":"render-options","rawFpsSource":"render-options","rawFps":24}
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[initSession:screenshot] pollHfReady complete (391ms)
+[initSession:screenshot] pollSubCompositionTimelines complete (ready) (398ms)
+[initSession:screenshot] applyVideoMetadataHints complete (398ms)
+[initSession:screenshot] media + fonts + tailwind ready (401ms)
+[initSession:screenshot] static-frame dedup: disabled (eligible) (437ms)
+PASS 1080p pilot with three scenes and local voice
+Integration data: /tmp/studio-integration-IRflbl
+/workspace/ai-animation-studio-research-content/src/process.ts:22
+            new StudioError(
+            ^
+
+StudioError: /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node exited 1: node:internal/modules/cjs/loader:1568
+  throw err;
+  ^
+
+Error: Cannot find module '/workspace/ai-animation-studio-research-content/production/out/app-regression/9255194bba65471aa25702a33b85c7ad/dist/cli.js'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+    at Module._load (node:internal/modules/cjs/loader:1341:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v24.22.1
+
+    at ChildProcess.<anonymous> (/workspace/ai-animation-studio-research-content/src/process.ts:22:13)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1172:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:335:5) {
+  code: 'PROCESS_FAILED',
+  status: 500
+}
+
+Node.js v24.22.1
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+{"status": "FAIL", "checks": [{"script": "test:integration", "exitCode": 1}], "oldArtifactsUnchanged": true, "output": "/workspace/ai-animation-studio-research-content/production/out/app-regression/9255194bba65471aa25702a33b85c7ad", "limits": ["Existing integration voice assertions measure PCM, not listening review", "v0.1 regression, not production Q2 artistic approval"]}

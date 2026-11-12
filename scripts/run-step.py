@@ -58,7 +58,7 @@ def main() -> int:
     names = subprocess.check_output(
         ['git', 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], cwd=ROOT
     ).decode().split('\0')
-    prefixes = ('src/', 'web/', 'tests/', 'scripts/', 'production/src/',
+    prefixes = ('src/', 'web/', 'tests/', 'scripts/', '.github/workflows/', 'production/src/',
                 'production/tests/', 'production/assets/', 'production/brief/')
     inputs = []
     for name in sorted(set(names)):

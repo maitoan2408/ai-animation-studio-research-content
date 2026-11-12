@@ -5,13 +5,14 @@
 Người dùng đã cho phép tự quyết định, viết code, kiểm thử/sửa lỗi và push từng bước.
 Trạng thái tiếp tục ở [RESUME](docs/execution/RESUME.md), [state](docs/execution/state.json),
 [issue ledger](docs/execution/issues.md). Q0 đã khóa; Q1 art kỹ thuật sẵn sàng, còn nghe duyệt voice;
-Q2 đã có 12 blocking clip 1080p, polish và hai vòng sửa B-VSE; ba sequence đã kiểm frame/audio/loudness. Các gate màu trên player, motion/voice review, handoff độc lập và performance còn mở. [Tổng kết](docs/execution/COMPLETED.md).
+Q2 đã có 12 blocking clip 1080p, polish và hai vòng sửa B-VSE; ba sequence đã kiểm frame/audio/loudness. Màu trên player tham chiếu và công cụ review đã kiểm xong; motion/voice review, handoff độc lập và performance còn mở. [Tổng kết](docs/execution/COMPLETED.md).
 Các mục nghiên cứu bên dưới là snapshot lịch sử, giữ nguyên kết quả.
 
-Checkpoint bổ sung Q2: đã viết công cụ review local (`production/src/review`),
-kiểm13 thao tác browser và4 nhóm contract/API/recovery. Bản màu v1 bị chart từ
-chối; profile v2 từ PNG với full-range/lossless YUV đã đạt chart max1 dưới ngưỡng3,
-đang kiểm ba sequence thực. Đây là tiến độ Q2, chưa là hoàn tất Q6 hay production.
+Checkpoint13/11/2026: công cụ review local (`production/src/review`) đạt13 thao tác
+browser và4 nhóm contract/API/recovery. V1 chart FAIL giữ nguyên; v2 từ PNG với
+full-range/losslessYUV đạt chart max1 dưới ngưỡng3, ba sequence khớp1.152YUV frame
+và AAC từng bản. R2 phát48s không có render đồng thời:0dropped. Đây là tiến độQ2,
+chưa là hoàn tấtQ6/production hoặc thay thế rubric chuyển động và nghe thoại.
 
 ## Tổng kết vòng nghiên cứu toolchain — 11/11/2026
 

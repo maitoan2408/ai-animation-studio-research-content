@@ -10,7 +10,7 @@ import {startReviewServer} from '../src/review/server.ts';
 
 const production = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(production,'out/review-ui',randomUUID()); await mkdir(out,{recursive:true});
-const options = {root:path.join(production,'artifacts/Q2'),catalogFile:path.join(production,'artifacts/Q2/web-review/catalog.json'),dataDir:path.join(out,'journal'),port:0,mode:'test'};
+const options = {root:path.join(production,'artifacts/Q2'),catalogFile:process.argv[2] ? path.resolve(process.argv[2]) : path.join(production,'artifacts/Q2/web-review-v2/catalog.json'),dataDir:path.join(out,'journal'),port:0,mode:'test'};
 let app = await startReviewServer(options);
 const browser = await puppeteer.launch({executablePath:'/usr/bin/chromium',headless:true,protocolTimeout:25_000,args:['--no-sandbox','--disable-dev-shm-usage']});
 const checks = [], errors = [];
@@ -33,8 +33,8 @@ try {
   await page.setViewport({width:1440,height:1080,deviceScaleFactor:1});
   await page.goto(app.origin); await ready(page);
   checked('Initial frame0 presented; annotation enabled only after pause/settle');
-  assert.equal(await page.$eval('#decision option[value="accepted"]',element => element.disabled),true);
-  checked('Pending color gate disables acceptance');
+  assert.equal(await page.$eval('#decision option[value="accepted"]',element => element.disabled),app.catalog.artifacts[0].colorStatus !== 'pass');
+  checked('Acceptance availability follows exact catalog color status');
   await seek(page,72); assert.match(await page.$eval('#position',element => element.textContent),/S01/);
   await page.click('#next'); await page.waitForFunction("document.querySelector('#position').dataset.frame === '73' && !document.querySelector('#save').disabled");
   await page.click('#previous'); await page.waitForFunction("document.querySelector('#position').dataset.frame === '72' && !document.querySelector('#save').disabled");

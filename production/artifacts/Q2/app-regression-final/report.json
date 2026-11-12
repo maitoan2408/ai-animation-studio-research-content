@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "script": "build",
+      "exitCode": 0
+    },
+    {
+      "script": "test:integration",
+      "exitCode": 0
+    },
+    {
+      "script": "test:ui",
+      "exitCode": 0
+    }
+  ],
+  "oldArtifactsUnchanged": true,
+  "output": "/workspace/ai-animation-studio-research-content/production/out/app-regression/694ce3d31aa34d18ad36041acf314d65",
+  "limits": [
+    "Existing integration voice assertions measure PCM, not listening review",
+    "v0.1 regression, not production Q2 artistic approval"
+  ]
+}

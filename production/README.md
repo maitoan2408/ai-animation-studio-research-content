@@ -34,7 +34,10 @@ Không lấy status PASS của lệnh làm duyệt mỹ thuật. Các review do 
 ủy quyền được ghi `delegated-agent`, không gán danh tính người dùng hoặc người
 review độc lập. Snapshot nghiên cứu trước giữ nguyên.
 
-Bộ xem gần nhất: [Q2 R0/R1/R2 + native + QC](artifacts/Q2/review-final/README.md).
+Bộ xem gần nhất: [Q2 web review v2](artifacts/Q2/web-review-v2/README.md),
+[chương trình review](src/review/README.md). [Master/native/QC gốc](artifacts/Q2/review-final/README.md)
+giữ nguyên. Chạy `python production/src/media/review_bundle.py restore production/artifacts/Q2/web-review-v2`
+từ repo root để ghép các phần đã kiểm hash; sau đó `npm --prefix production run review -- serve`.
 [Gate Q2](evidence/Q2/gate.json) là trạng thái hiện hành; [performance protocol](brief/performance-protocol.md)
 chưa chạy vì gate hình/chuyển động chưa đủ. Không dựng lại những clip đã pass chỉ
 vì phiên làm việc mới; kiểm RESUME, hashes và attempt outcomes trước.

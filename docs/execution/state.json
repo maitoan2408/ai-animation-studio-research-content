@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Complete Q2 media-v2 three native-PNG review exports: frozen chart max1 passes, R0 all1152YUV/AAC/source checks pass, R1 in progress, R2 next. Local review program works; promote default catalog only after final artifact/player tests. Then remaining motion/voice/independent handoff; post-art performance protocol remains gated.",
+  "nextAction": "Q2 technical color repair and local review tool complete. Finish timestamped normal/slow motion rubric and real voice listening, then independent native open/edit handoff. Only after art/motion passes run locked3cold+5warm protocol and Q3 ADR; Q4-Q9 remain NOT_STARTED. Review UI defaults to v2 restored from committed chunks.",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -101,6 +101,24 @@
       "result": "PASS_FUNCTIONAL",
       "evidence": "production/artifacts/Q2/review-workbench-v1/report.json",
       "limits": "13 browser checks,4 contract/API methods; test-only reviewers, muted playback. Does not close motion, listening, handoff or phase gates."
+    },
+    {
+      "id": "Q2-native-web-media-v2",
+      "result": "PASS_BOUNDED_TECHNICAL",
+      "evidence": "production/artifacts/Q2/media-contract-v2",
+      "limits": "Frozen chart max1 (limit3); R0/R1/R2 real sample MAE0.504/0.657/0.662, P951/2/2. 1152exactYUV frames each, AAC/master/source unchanged. R2 idle playback0drops; under-load runs are not fair performance samples. No universal player or artistic approval."
+    },
+    {
+      "id": "Q2-review-program-v2",
+      "result": "PASS_FUNCTIONAL",
+      "evidence": "production/artifacts/Q2/review-workbench-v2/report.json",
+      "limits": "13 real-browser checks on repaired media;19 workbench methods and16Python methods. All synthetic test records label automated-test; no phase approval."
+    },
+    {
+      "id": "Q2-v01-regression-preserving-artifacts",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/app-regression-final/report.json",
+      "limits": "Root verify16, build, integration13, UI9; old deliverable files hash-identical. First isolated runner omitted build; failure retained, corrected runner passes."
     }
   ],
   "paidBudget": 0,
@@ -110,8 +128,8 @@
     "EX-004",
     "EX-005",
     "EX-011",
-    "EX-013",
-    "EX-024"
+    "EX-013"
   ],
-  "gateReport": "production/evidence/Q2/gate.json"
+  "gateReport": "production/evidence/Q2/gate.json",
+  "updatedAt": "2026-11-13T06:00:54.587140+07:00"
 }

@@ -10,6 +10,7 @@ From the repository root, Node24/npm11, FFprobe/FFmpeg7.1 and the committed medi
 
 ```bash
 npm --prefix production ci
+python production/src/media/review_bundle.py restore production/artifacts/Q2/web-review-v2
 npm --prefix production run review -- check
 npm --prefix production run review -- serve
 ```
@@ -22,9 +23,12 @@ The pinned test browser is Chromium156.0.8078.79. No external APIs or paid servi
 CLI options: `--root` fixes the media allowlist root; `--catalog` selects a JSON
 catalog; `--data` selects a journal directory; `--port` selects the local port.
 Defaults resolve from the module location, so commands work from another cwd.
-Current default catalog is `production/artifacts/Q2/web-review/catalog.json`.
-It contains diagnostic v1 color-pending copies. A separately verified v2 catalog
-will be selected explicitly when all corresponding media tests finish.
+Current default catalog is `production/artifacts/Q2/web-review-v2/catalog.json`.
+The unchanged diagnostic v1 catalog remains available via `--catalog` for regression.
+V2 review MP4s are restored from Git chunks, then verified before serving. Each
+is about114MB; this is a local review profile, not a distribution bitrate preset.
+Restoring only requires Python's standard library. No native rerender is needed
+to review the committed media. The original BT709 masters are separate downloads.
 
 Choose a revision, play at1×/0.5×, pause, then use the slider or arrow buttons.
 The frame index is zero-based; shot intervals are `[startFrame,endFrame)`. Notes
@@ -86,11 +90,10 @@ of editing signed records. No silent repair or overwrite is performed.
 Export while running via the UI, or stop the server and run:
 
 ```bash
-npm --prefix production run review -- export > /tmp/q2-review-export.json
+production/node_modules/.bin/tsx production/src/review/cli.ts export > /tmp/q2-review-export.json
 ```
 
-For machine-readable JSON without npm banners use
-`production/node_modules/.bin/tsx production/src/review/cli.ts export`.
+This direct CLI command writes JSON without npm banners.
 Back up the whole journal and an external export/head. Hashes detect modified
 records and missing internal links; without an external head they cannot detect
 deleting an entire valid suffix or maliciously rebuilding a complete chain.

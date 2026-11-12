@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "current-browser-frozen-color-reference",
+  "run_id": "20261112T225912Z-current-browser-frozen-color-reference-b8e4ff0d",
+  "started_at_utc": "20261112T225912Z",
+  "command": [
+    "python",
+    "production/src/qa/check_color_reference.py"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "198b1f90060bc9f805f93a8e611a487b5028dc01",
+  "tracked_diff_sha256": "1a8753f3354167a9253222bf913d39d85ea49403410416f628d6efe948c4fdc2",
+  "status": "RUNNING",
+  "recorder_pid": 4581,
+  "source_snapshot_sha256": "9cb9460d66c30eacc5c8d048d580548987ab1604186fa850d4b2c0708f0cafb6"
+}

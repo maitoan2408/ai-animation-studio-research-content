@@ -1,0 +1,28 @@
+{
+  "phase": "Q2",
+  "step": "final-media-python-suite",
+  "run_id": "20261112T225848Z-final-media-python-suite-3a766299",
+  "started_at_utc": "20261112T225848Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "198b1f90060bc9f805f93a8e611a487b5028dc01",
+  "tracked_diff_sha256": "1a8753f3354167a9253222bf913d39d85ea49403410416f628d6efe948c4fdc2",
+  "recorder_pid": 3486,
+  "source_snapshot_sha256": "0bce2e6fe7f8bacd734fa3aaff21030d1a974c183cbe76b551ea2269d66fcc80",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.577,
+  "finished_at_utc": "2026-11-12T22:58:48.995240+00:00",
+  "log_sha256": "466fda90e69a9ab8b5dc070e55b782b8df34e9d97974dcecd9d5bed929afb47c",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

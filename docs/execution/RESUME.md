@@ -1,155 +1,79 @@
-# Điểm tiếp tục — production Q0–Q9
+# Điểm tiếp tục hiện hành — 13/11/2026 (Asia/Saigon)
 
-- Branch: `codex/production-q0-q9`; baseline `6862c9e`.
-- Chỉ thị hiện hành của người dùng: thực hiện từng giai đoạn, kiểm thử từng bước,
-  lập plan/sửa lỗi tự động, toàn quyền quyết định, đẩy Git và lưu log sau mỗi bước.
-- Phạm vi đã được phép: chọn brief/art/backend, viết prototype/harness và code
-  sản phẩm theo gates; không cần hỏi lại các quyết định triển khai thường lệ.
-- Các quyết định nghệ thuật do agent thực hiện theo ủy quyền phải ghi đúng reviewer.
-  Không tạo review dưới tên người dùng. Không tuyên bố có người độc lập đã xem phim.
-- Giữ ngân sách dịch vụ trả phí bằng 0; dùng môi trường/công cụ local có sẵn.
+Nhánh `codex/production-q0-q9`; draft PR4. Người dùng đã ủy quyền code, kiểm thử,
+sửa lỗi, chọn hướng triển khai và push từng bước. Không hỏi lại quyền thường lệ.
+Không giả người dùng đã xem/nghe hoặc có operator độc lập. Ngân sách dịch vụ trả phí0.
+Nguồn trạng thái máy đọc: [state.json](state.json); [gate Q2](../../production/evidence/Q2/gate.json).
 
-## Trạng thái gần nhất
+## Đã hoàn thành và phải giữ
 
-Q0 DONE_DELEGATED: brief/rubric/source references khóa, 16 app tests + brief gate PASS.
-Q1 TECHNICAL_READY_REVIEW_PENDING: 64 SVG, draft-3 và textures/hash/IK/typecheck PASS;
-Blender + Three thực sự render được, local voice đã tạo và kiểm dữ liệu.
-EX-006–010 đã đóng. EX-011 nghe duyệt voice còn mở vì tool không hỗ trợ audio input.
-Q2 IN_PROGRESS ở phần hợp đồng kỹ thuật, chưa có six-shot video/gate mỹ thuật.
-Q3–Q9 chưa bắt đầu. Không coi technical ready là Q1/Q2 hoàn thành toàn bộ.
-Nguồn trạng thái máy đọc: [state.json](state.json). Các phase và điều kiện đầy đủ:
-[kế hoạch](../toolchain-future-plan.md); snapshot này không bị sửa lại thành DONE.
+- Q0 DONE_DELEGATED: brief The Last Lantern, paper-cut/multiplane, pilot72s và
+  benchmark sáu shot48s, rubric/source references. App v0.1 vẫn nguyên source.
+- Q1 technical ready:64 SVG gốc, rig/contact và local voice fixture. Polish thêm
+  thành117 assets riêng; giữ các phiên bản bị từ chối. Nghe voice chưa duyệt.
+- Q2.1 readiness/seek:6 ca load,48 captures/36 comparisons. Media v2 đã đạt hợp
+  đồng kỹ thuật có giới hạn ở Chromium tham chiếu, không suy mọi màn hình/player.
+- Q2.2–4:12 blocking clip A/B native1080p; B polish sáu shot; sửa S02 hết excess
+  crouch; R1 chỉS01/S03, R2 chỉS04/S05+reorder. Ba sequence1152frames, âm lượng
+  −16.02LUFS/TP≤−1.93, AAC lag0. Master BT709 giữ nguyên.
+- Native R2 ZIP SHA c592c64af73f1f11792a92de2893d287b211babd7648d129944777e72c55639a:
+  70file hashes,6replay frames exact và native camera note sửa/reopen được.
+  Đây là cùng agent, không là independent handoff.
+- V1 web chart FAIL giữ nguyên. V2 lấy PNG native→sRGB full-rangeYUV420→CRF0:
+  chart max1 dưới ngưỡng3/inset2; ba bản đều1152decodedYUV exact, AAC/master/source
+  không đổi. MAE mẫu ảnh thật R0/R1/R2=0.504/0.657/0.662, P95=1/2/2. R2 khi máy
+  không encode đồng thời:48.042s,0dropped. R0/R1 đo cùng encoder rơi5/19frames;
+  không dùng làm benchmark công bằng hoặc cam kết máy khác.
+- Công cụ review local đã chạy: CLI, HTTP/UI, seek/step, notes theo SHA/revision/
+  shot/frame, journal bất biến, conflict/idempotency/export/restart.19 workbench
+  tests,16Python tests,13 browser checks trên media v2 PASS. Test authors=automated-test.
+- Root v0.1 verify16, build, integration13, UI9 PASS trong thư mục tách biệt;
+  deliverable cũ hash-identical. CI workbench mới có contracts, restore, chart và UI.
 
-## Lệnh tiếp theo
+## Mở chương trình đã làm
+
+Từ repo root (Node24, FFprobe/FFmpeg và Chromium theo ENVIRONMENT):
 
 ```bash
-git status --short --branch
-cat production/evidence/Q0/gate.json
-cat production/brief/Q0-brief.md
+npm --prefix production ci
+python production/src/media/review_bundle.py restore production/artifacts/Q2/web-review-v2
+npm --prefix production run review -- check
+npm --prefix production run review -- serve
 ```
 
-Tiếp tục Q2.1: explicit asset readiness/hash/timeout + random seek adapter Three/HF.
-Sau đó Q2.2 action evaluator cho sáu shot; kiểm contact/ground độc lập trước render.
-Blender Eevee smoke 320×320 mất 35.864 s; đo cấu hình full scene trước batch.
-Q1 voice fixture cố định dùng cho đối chứng kỹ thuật; nghe duyệt vẫn mở. Không
-đóng gate âm thanh bằng kiểm PCM hoặc cho rằng AI đã nghe. Dependencies workbench
-đã khóa; textures generated trong production/out/art-q1, có lệnh tái tạo ENVIRONMENT.md.
+Mở URL loopback được in ra. [Runbook/API/storage](../../production/src/review/README.md),
+[media/metrics](../../production/artifacts/Q2/web-review-v2/README.md),
+[ảnh UI và kết quả test](../../production/artifacts/Q2/review-workbench-v2/report.json).
+Các MP4 lớn được ghép từ parts≤32MiB có SHA; file ghép được gitignore. Không render
+lại native shots để mở review. Đọc result.json trước khi chạy lại job cũ.
 
-## Quy tắc phục hồi
+## Phần tiếp theo — đúng thứ tự, chưa được đánh dấu hoàn thành
 
-`request.json` được ghi trước process. Thiếu `result.json` = INCOMPLETE, không phải
-PASS; giữ thư mục và tạo run mới. Không chạy lại vào artifacts/logs cũ. Nếu remote
-đã có checkpoint mới, đọc delta trước khi tiếp tục. Tiến độ test tự động không đóng
-gate hình/chuyển động nếu chưa có media và review tương ứng.
+1. Q1/Q2: nghe voice thật và review chuyển động đầy đủ1×/0.5× từng shot, ghi
+   timestamp/rubric/lý do đúng reviewer. UI hỗ trợ lưu nhưng không tự duyệt.
+   Tool của agent chưa hỗ trợ nghe; câu hỏi voice cũ chưa có phản hồi, không gửi
+   lặp hoặc suy PCM/loudness thành đã nghe. Nếu art/acting fail, quay Q1 sửa đúng
+   shot/asset, tạo revision mới, giữ các take/review cũ.
+2. Q2.4: operator khác mở native bundle và sửa một note; ghi thời gian/lỗi và
+   hash trước/sau. Same-agent process mới hoặc test UI không đóng điều kiện này.
+3. Q2.5: sau art/motion pass, chạy3cold+5warm theo performance-protocol.md. Không
+   lấy tổng elapsed của jobs song song làm CPU-hours, chi phí/phút accepted hoặc SLA.
+4. Q3: ADR backend dựa trên đủ evidence, capability/error matrix, giới hạn và ngân
+   sách Q4–Q9. Q3 hiện NOT_STARTED, không chọn từ một test xanh.
+5. Q4 contracts/registry → Q5 motions/cues/voice/stems → Q6 editing/review/preview
+   parity → Q7 QC/cache/recovery → Q8 pilot72s → Q9 release/operator acceptance.
+   Tất cả vẫn NOT_STARTED; chương trình nghiên cứu Q2 không thay các phase này.
 
-### Q2.1 checkpoint
+[Toàn bộ kế hoạch](../toolchain-future-plan.md); [issues](issues.md). EX-002 production
+QC, EX-004 preview parity, EX-005 cache/recovery, EX-011 listening và EX-013 fair
+performance còn mở. Manim/EX-003 chỉ mở khi pilot có shot giải thích tương ứng.
 
-Explicit readiness 6 ca + 48 HyperFrames captures (36 repeat comparisons, gồm
-browser mới) PASS; EX-001/014 đóng. Entry /index.html đã sửa, fail log giữ nguyên.
-All 1152 frame geometry/contact/stance tests PASS. Six-shot A blocking 640 đang
-render ở run `six-shot-blocking-a-retest`; xem result trước rerun. Tiếp: review
-blocking, bổ sung test/sửa EX-015 giảm tốc bước cuối, native Blender B samples.
+## Phục hồi khi gián đoạn
 
-### Q2 blocking checkpoint — 12/11/2026 (thay các next steps cũ ở trên)
-
-12 native 1080p clips A/B đã PASS frame/profile/decode. A lấy S02 từ take
-2026-11-11T23-44-36-157Z-1920-43ae6ea7, các shot khác từ
-2026-11-11T23-48-27-176Z-1920-9a530ebc. B mapping: out/b-r0-selection.json.
-B six-shot portable native bundle và clips đã chọn vào artifacts/Q2/blocking-r0.
-EX-015 giảm tốc, EX-016 exception exit, EX-017 mirror đã sửa/retest; EX-018 bóng
-mềm/tiếp đất đang mở. Tiếp Q2 polish pack riêng (không ghi đè blocking), R1/R2,
-performance/handoff/review trước Q3. Q1 voice listening vẫn chờ nhận xét người dùng
-qua câu hỏi async đã gửi; không hỏi lại quyền triển khai. Xem COMPLETED.md.
-
-Native package correction EX-019: Save As remapped already-relative paths and
-first replay was magenta/FAIL. Fixed with relative_remap=False; accepted ZIP now
-077dd0be2875b274a8bca1ba5b1b7312c1a1be0f2384e03c466ff9c7dc1dbe8f.
-Retest native-portable-reopen-seek-retest-18ac17bc PASS: 52 hashes, 6 S05 frames
-exact pixels. Bad ZIP retained as rejected-native-paths.zip. Same agent replay.
-Polish source/tests/raster are in progress and not yet a completed visual gate.
-
-### Q2 polish/edit-source checkpoint — 12/11/2026, 12:10 ICT
-
-117-asset separate pack preserves all 64 original SVGs. Soft paper and contact
-shadows, alpha/source/dim checks and 14 contracts PASS. Six B native polish takes
-are running (session 90932); inspect per-run result before restarting. R1 voice
-is 3.209s vs1.689s,64/117 assets remain separately versioned. R1 also moves brow
-concern onset28→12 and head/eye-line−3°, changes cup accent. Use frozen
-out/blender-edit-R1-v2 (old export lacks brow note) and out/blender-edit-R2.
-R1/R2 videos are NOT rendered yet. Native package EX-019 stays verified.
-
-Player diagnostic EX-020 found stale frame0 after seeking72: local HTTP lacked
-Range responses. Added Range/206 + requestVideoFrameCallback mediaTime proof;
-range-seek-retest-3d3f0a34 PASS at3.0s. Failed helper attempts are retained.
-Correct frame's RGB MAE6.963/p9511 remains diagnostic, not a color gate; Q7
-profile/color work remains open. Playback muted, quality counters include seek,
-no audio audition or full artistic approval claimed. See artifacts/Q2/player-check.
-
-### Q2 media/edit checkpoint — 12/11/2026 (supersedes earlier next steps)
-
-Six B polish clips complete. R0 sequence preserves all1152 decoded frames and
-PCM offsets exactly; AAC transport lag0. Four negative editorial tests PASS.
-EX-021 mono-source handling fixed with explicit rematrix, failure preserved.
-R1 S01/S03 and R2 S04/S05 native clips all completed technical QC; selected
-clips/stills saved under artifacts/Q2/edit-R1 and edit-R2. Do not rerender them.
-
-Visual review found persistent S02 crouch EX-022. New regression first FAIL24px
-hip drop; reach-derived pelvis +soft landing now15 tests/typecheck PASS. Frozen
-out/blender-polish-upright exported; upright-walk-native-S02 is currently rendering
-(session23439). Read result before restarting. Once complete, build corrected
-R0/R1/R2 selections sharing the same new S02; preserve old polish-r0 evidence.
-Assemble and verify all rounds, package final native sources, check native edit,
-then make an explicit Q2 gate report. Q1 listening/independent handoff/full-motion
-review and post-art cold/warm samples remain unfulfilled; Q3–Q9 are not skipped.
-
-### Checkpoint bàn giao gần nhất — 12/11/2026 (thay các next steps cũ)
-
-**Các render/verify/normalize/native-edit/player jobs của checkpoint này đã xong.**
-Không chạy lại toàn bộ. Đọc `production/evidence/Q2/gate.json` và
-`production/artifacts/Q2/review-final/README.md` trước khi chọn việc tiếp.
-
-- Upright S02 native PASS, take `20261112T094341Z-S02-1920-4a4ba0a2`. EX-022 đóng
-  cho excess hip drop; không dùng nó làm full-motion score. 15 tests + typecheck PASS.
-- R1/R2 selective clips và media-scope checks PASS; final selections ở
-  `out/b-final-r0-selection.json` đến `r2`. R0/R1/R2 mới có cùng S02 đã sửa.
-- Ba sequence và cả ba bản normalized đều verify 1.152 frame exact, PCM placement
-  exact, AAC lag 0. Bản chuẩn xem/nghe: `review-final/R*/normalized-delivery.mp4`.
-  Trước gain R2 −25.66 LUFS; sau gain cả ba −16.02 LUFS, TP ≤−1.93. EX-023 đóng.
-- `review-final/native-final-r2.zip` SHA c592c64af73f1f11792a92de2893d287b211babd7648d129944777e72c55639a;
-  70 hashes + 6 frame replay exact. Native S04 pullback note sửa được/reopen đúng;
-  source gốc không thay. Same-agent, không phải operator độc lập.
-- Player R2 muted 1x/0.5x đi tới cuối. Thử compositor xác nhận color difference
-  không chỉ do canvas: reference inverse MAE0.878/p952, player MAE6.963/p9511.
-  Đây là diagnostic, **không phải color approval**. Không đổi tag/ngưỡng để ép pass.
-- Audit 125 complete attempts /77 source snapshots không hash lỗi; app verify16
-  tests PASS. Source/docs helper mới và media chọn lọc được commit/push checkpoint.
-
-**Tiếp đúng thứ tự:** hoàn tất T-MEDIA-01 target-player color/alpha contract và
-review đầy đủ motion/voice bằng package có sẵn; operator khác mở/sửa note. Sau khi
-art/motion gate đạt mới chạy `production/brief/performance-protocol.md` (3cold+5warm).
-Q3–Q9 vẫn NOT_STARTED theo kế hoạch, không triển khai vượt gate hoặc đổi trạng thái
-chỉ vì unit tests xanh. Không còn câu hỏi quyền triển khai; người dùng đã ủy quyền.
-Câu hỏi nhận xét voice trước đó chưa có câu trả lời; không gửi lặp hoặc giả đã nghe.
-
-### Checkpoint media contract — 12/11/2026, 22:12 ICT
-
-Bounded alpha/profile negatives and real-art web color average PASS. EX-024 chart
-FAIL remains explicit; direct PNG limited-range and RGB candidates did not close
-it. Keep all failures in `artifacts/Q2/media-contract-v1/diagnostics`. Three web
-derivatives remain diagnostic/pending, not color approved. The next candidate
-tests a truthful full-range sRGB review path; BT709 limited masters stay unchanged.
-Local review tool is being implemented separately under `production/src/review`
-to record shot/frame/hash-bound opinions; not yet functionally verified. Complete
-its API/storage/UI tests before calling it delivered. Q2 remains IN_PROGRESS;
-the earlier motion/voice/handoff/performance gates are neither removed nor done.
-
-### Checkpoint công cụ review — 12/11/2026, 22:27 ICT
-
-Review program source/docs ready:19 workbench tests and13 browser checks PASS.
-Selected screenshots/report/test-only export in `artifacts/Q2/review-workbench-v1`.
-CLI currently uses diagnostic v1 catalog; Q2 media-v2 chart now max1 PASS, keeping
-original max3/inset2. Native R0 export1152YUV frames/AAC/source exact (out/native-web-review/
-175ae2b1233046af9c84ad138ca3d1d7). R1 running; R2 next. Check current run results
-before any rerender. Final media are large because lossless YUV; Git transport
-uses32MiB parts plus manifest via review_bundle.py, restore must match whole SHA.
-Do not change the BT709 masters or mark motion/voice/independent operator complete.
+Request/source ZIP được ghi trước process; không có result=INCOMPLETE, không tự
+coi PASS. Kiểm process thật trước rerun; attempt mới luôn có thư mục mới. Các
+bằng chứng fail không chỉnh hoặc xóa. Journal có .writer.lock: chỉ chuyển lock
+ra ngoài sau khi xác nhận process chủ đã dừng, theo runbook; không lấy lock live.
+Mỗi checkpoint cập nhật state/plan/docs/log, commit và push; không tự merge PR.
+Lịch sử các checkpoint được giữ tại [RESUME cũ](history/RESUME-through-2026-11-12.md)
+và [tổng kết cũ](history/COMPLETED-through-2026-11-12.md); văn bản này thay next steps cũ.

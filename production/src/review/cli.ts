@@ -11,7 +11,7 @@ const {values, positionals} = parseArgs({allowPositionals:true, options:{
   root:{type:'string'},catalog:{type:'string'},data:{type:'string'},port:{type:'string'},
 }});
 const artifactRoot = path.resolve(values.root ?? path.join(root, 'artifacts/Q2'));
-const catalogFile = path.resolve(values.catalog ?? path.join(artifactRoot, 'web-review/catalog.json'));
+const catalogFile = path.resolve(values.catalog ?? path.join(artifactRoot, 'web-review-v2/catalog.json'));
 const dataDir = path.resolve(values.data ?? path.join(root, 'out/review-data'));
 const command = positionals[0] ?? 'serve';
 try {
