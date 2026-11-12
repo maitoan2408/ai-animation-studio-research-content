@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "export-edit-round-one",
+  "run_id": "20261112T045849Z-export-edit-round-one-a687e221",
+  "started_at_utc": "20261112T045849Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/blender/export_frames.ts",
+    "production/brief/edit-R1.json",
+    "production/out/blender-edit-R1"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "239a10de090cf698680dce070d0c7d24ae2b4aed",
+  "tracked_diff_sha256": "55568d28d93f11919c666f6585ed12e64aba5800af0bb112d21459539dc5ff6b",
+  "status": "RUNNING",
+  "recorder_pid": 9248,
+  "source_snapshot_sha256": "74ae5d773d0e296bfe342167ac85a87aa9f36cd18577e585317eb509664471ba"
+}

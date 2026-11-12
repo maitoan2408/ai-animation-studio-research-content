@@ -65,11 +65,14 @@ report={'status':'PASS_RENDER_ONLY','candidate':'B-VSE-experiment','shot':shot,'
 if selection=='all':
  argv=['ffmpeg','-v','error','-nostdin','-y','-framerate','24','-i',str(out/'%06d.png'),'-vf','zscale=primariesin=709:transferin=iec61966-2-1:matrixin=gbr:rangein=full:primaries=709:transfer=709:matrix=709:range=limited,format=yuv420p','-c:v','libx264','-preset','fast','-crf','18','-threads','2','-color_primaries','bt709','-color_trc','bt709','-colorspace','bt709','-color_range','tv',str(out/'picture.mp4')]
  (out/'encode-argv.json').write_text(json.dumps(argv,indent=2));subprocess.run(argv,check=True)
- audio=['-i',str(ROOT/'artifacts/Q1/draft-3/voice/scene.wav')] if shot=='S01' else ['-f','lavfi','-i','anullsrc=r=48000:cl=stereo']
+ voice_dir=ROOT/('artifacts/Q2/edit-R1/voice' if data['edit'].get('voiceTake')=='R1' else 'artifacts/Q1/draft-3/voice')
+ voice_manifest=json.loads((voice_dir/'manifest.json').read_text());voice_sha=hashlib.sha256((voice_dir/'scene.wav').read_bytes()).hexdigest()
+ if voice_sha!=voice_manifest['files']['scene.wav']:raise RuntimeError('VOICE_FIXTURE_HASH')
+ audio=['-i',str(voice_dir/'scene.wav')] if shot=='S01' else ['-f','lavfi','-i','anullsrc=r=48000:cl=stereo']
  subprocess.run(['ffmpeg','-v','error','-nostdin','-y','-i',str(out/'picture.mp4'),*audio,'-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-ar','48000','-ac','2','-b:a','192k','-t',str(len(frames)/24),'-movflags','+faststart',str(out/'delivery.mp4')],check=True)
  subprocess.run(['ffmpeg','-v','error','-nostdin','-i',str(out/'delivery.mp4'),'-f','null','-'],check=True)
  probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-count_frames','-show_streams','-show_format','-of','json',str(out/'delivery.mp4')]))
  v=next(s for s in probe['streams'] if s['codec_type']=='video');a=next(s for s in probe['streams'] if s['codec_type']=='audio')
  if (v['nb_read_frames']!=str(len(frames)) or v['width']!=width or v['height']!=width*9//16 or v['r_frame_rate']!='24/1' or v['color_space']!='bt709' or v['color_range']!='tv' or a['channels']!=2 or a['sample_rate']!='48000'):raise RuntimeError('MEDIA_PROFILE_FAILED')
- report.update(status='PASS_TECHNICAL',probe=probe,deliverySha256=hashlib.sha256((out/'delivery.mp4').read_bytes()).hexdigest())
+ report.update(status='PASS_TECHNICAL',probe=probe,audioInputSha256=voice_sha if shot=='S01' else None,deliverySha256=hashlib.sha256((out/'delivery.mp4').read_bytes()).hexdigest())
 (out/'result.json').write_text(json.dumps(report,indent=2));print(json.dumps({'out':str(out),**report}),flush=True)

@@ -10,11 +10,12 @@ import {type RenderConfig,type TextureSpec} from './browser.js';
 import {type ShotId,type Edit} from '../scene/benchmark.js';
 import type {ArtPack} from '../scene/types.js';
 import {phonemeCues} from '../audio/cues.js';
+import {voiceFixture} from '../audio/fixture.js';
 export const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 export type Fault='none'|'slow'|'404'|'corrupt'|'hash'|'timeout';
 export async function serve(shot:ShotId,options:{width?:number;height?:number;edit?:Edit;fault?:Fault}={}){
- const pack=JSON.parse(await readFile(path.join(root,'assets/lantern-v1/manifest.json'),'utf8')) as ArtPack;
- const manifest=JSON.parse(await readFile(path.join(root,'out/art-q1/textures.json'),'utf8')) as {textures:{id:string;file:string;sha256:string;width:number;height:number}[]};
+ const pack=JSON.parse(await readFile(path.join(root,options.edit?.polish?'assets/lantern-polish-1/manifest.json':'assets/lantern-v1/manifest.json'),'utf8')) as ArtPack;
+ const manifest=JSON.parse(await readFile(path.join(root,options.edit?.polish?'out/art-q2-polish/textures.json':'out/art-q1/textures.json'),'utf8')) as {textures:{id:string;file:string;sha256:string;width:number;height:number}[]};
  const fault=options.fault??'none',faultId='mai/head-quarter-neutral';
  const files=new Map<string,Buffer>(),textures:TextureSpec[]=[];
  for(const t of manifest.textures){
@@ -23,7 +24,7 @@ export async function serve(shot:ShotId,options:{width?:number;height?:number;ed
   if(t.id===faultId&&fault==='corrupt')bytes=Buffer.from('not a PNG');
   files.set(url,bytes);textures.push({id:t.id,url,sha256:fault==='corrupt'&&t.id===faultId?createHash('sha256').update(bytes).digest('hex'):t.sha256,width:t.width,height:t.height});
  }
- const voice=JSON.parse(await readFile(path.join(root,'artifacts/Q1/draft-3/voice/manifest.json'),'utf8'));
+ const {manifest:voice}=await voiceFixture(options.edit);
  const config:RenderConfig={pack,textures,shot,edit:{cues:phonemeCues(voice.timings),...options.edit},width:options.width??640,height:options.height??360,timeoutMs:fault==='timeout'?200:10000};
  const script=await build({entryPoints:[path.join(root,'src/render/browser.ts')],bundle:true,write:false,format:'esm',platform:'browser',target:'es2022'});
  const server=createServer(async(req,res)=>{

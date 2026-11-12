@@ -1,0 +1,12 @@
+{
+  "frame": 72,
+  "browser": "Chrome/156.0.8078.79",
+  "elapsedSeconds": 8.296800000000745,
+  "duration": 8,
+  "ended": true,
+  "width": 1920,
+  "height": 1080,
+  "decoded": 192,
+  "dropped": 0,
+  "scope": "Actual 1x HTML video playback, muted; no listening/creative gate"
+}

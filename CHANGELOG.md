@@ -65,3 +65,11 @@ Preserved failed package, repaired destination-relative paths, and verified the
 new package in a fresh path/process: 52 hashes and 6 S05 frames match pixels.
 The earlier commit subject said "verified" prematurely; the test logs and this
 correction are authoritative. Independent operator handoff remains pending.
+
+## Q2 polish/edit-source checkpoint — 2026-11-12
+
+Separate 117-asset pack adds soft paper/contact shadows without changing the
+original64 assets. Added deterministic R1/R2 authoring, longer local voice,
+fixture hash guards and edit-locality tests. Polish videos are in progress;
+no full creative gate or edit-round completion claimed. Fixed stale target-player
+seek diagnostic with byte-range serving and actual presented-frame verification.

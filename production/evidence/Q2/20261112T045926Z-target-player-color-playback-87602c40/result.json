@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "target-player-color-playback",
+  "run_id": "20261112T045926Z-target-player-color-playback-87602c40",
+  "started_at_utc": "20261112T045926Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/render/check_player.ts",
+    "production/out/candidate-a/2026-11-11T23-48-27-176Z-1920-9a530ebc/S05",
+    "72"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "239a10de090cf698680dce070d0c7d24ae2b4aed",
+  "tracked_diff_sha256": "55568d28d93f11919c666f6585ed12e64aba5800af0bb112d21459539dc5ff6b",
+  "recorder_pid": 9364,
+  "source_snapshot_sha256": "fbce9d6c8aa164c52a65aa5ca96d476eec0775128b15eeca961c7150a4ad5514",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 10.634,
+  "finished_at_utc": "2026-11-12T04:59:36.874154+00:00",
+  "log_sha256": "02252b194ba4ecb262377f839b63592d21b7997c289caf287248714023e1650e",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

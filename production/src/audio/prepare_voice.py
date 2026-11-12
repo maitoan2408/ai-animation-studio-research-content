@@ -10,6 +10,7 @@ import hashlib
 import json
 import subprocess
 import time
+import argparse
 
 import numpy as np
 import onnxruntime as ort
@@ -24,6 +25,14 @@ REQUEST={'id':'S01','text':'I thought we had lost the light.','voice':'af_heart'
          'fps':24,'speechStartFrame':48,'slotFrames':192}
 
 def main():
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--request',type=Path)
+ args=parser.parse_args()
+ if args.request:
+  patch=json.loads(args.request.read_text())
+  if not isinstance(patch,dict) or set(patch)-{'text','speed','voice'}:raise ValueError('UNSUPPORTED_VOICE_PATCH')
+  REQUEST.update(patch)
+ if not isinstance(REQUEST['text'],str) or not 1<=len(REQUEST['text'])<=500:raise ValueError('INVALID_TEXT')
+ if not isinstance(REQUEST['speed'],(int,float)) or not .5<=REQUEST['speed']<=2:raise ValueError('INVALID_SPEED')
  identity=hashlib.sha256(json.dumps(REQUEST,sort_keys=True).encode()).hexdigest()
  out=ROOT/'out/audio'/identity[:16];out.mkdir(parents=True,exist_ok=True)
  model=MODEL/REQUEST['model'];voices=MODEL/'voices-v1.0.bin'

@@ -38,3 +38,19 @@ PASS nhưng semantic FAIL (EX-016), được giữ để audit.
 
 Khi handoff: texture PNG phải đi cùng native file hoặc được tái tạo bằng manifest
 và source SVG. Reopen/portable packaging vẫn là test riêng ở Q2/Q7/Q8.
+
+## Q2 polish and selective edit exports
+
+Export inputs once into a fresh directory before a batch; a run copies its
+inputs into the output take. Example (repo root):
+
+```bash
+python scripts/run-step.py Q2 export-r1 -- production/node_modules/.bin/tsx production/src/blender/export_frames.ts production/brief/edit-R1.json production/out/blender-edit-R1-new
+python scripts/run-step.py Q2 render-r1-s01 -- env BLENDER_USER_CONFIG=/tmp/studio-blender-config BENCHMARK_INPUT_DIR="$PWD/production/out/blender-edit-R1-new" blender --background --factory-startup --python-exit-code 1 --python production/src/blender/vse_probe.py -- S01 1920 all
+```
+
+For R1 render only S01/S03. R2 renders only S04/S05, retaining R1 S01/S03 and
+baseline S02/S06. Reordering a sequence must reuse the unchanged clip hashes.
+Use result manifests (not directory existence) to select completed takes.
+Native VSE remains a bounded2D experiment with baked editable F-curves, not a
+semantic character rig or physical light/free-camera renderer.

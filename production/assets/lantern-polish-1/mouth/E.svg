@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="28" viewBox="0 0 36 28"><defs><filter id="paper" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency=".58" numOctaves="2" seed="31" result="noise"/>
+<feColorMatrix in="noise" type="matrix" values="0 0 0 0 .22 0 0 0 0 .18 0 0 0 0 .12 0 0 0 .13 0"/>
+<feComposite in2="SourceAlpha" operator="in" result="grain"/>
+<feBlend in="SourceGraphic" in2="grain" mode="soft-light"/></filter></defs><g ><path d="M6 9Q17 7 28 9L26 17Q17 23 8 17Z" fill="#623b35" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M8 9H26L25 13H9Z" fill="#f8e4be" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>

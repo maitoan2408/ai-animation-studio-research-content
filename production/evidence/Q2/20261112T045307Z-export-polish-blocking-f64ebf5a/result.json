@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "export-polish-blocking",
+  "run_id": "20261112T045307Z-export-polish-blocking-f64ebf5a",
+  "started_at_utc": "20261112T045307Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/blender/export_frames.ts",
+    "production/brief/polish.json",
+    "production/out/blender-polish-r0"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "239a10de090cf698680dce070d0c7d24ae2b4aed",
+  "tracked_diff_sha256": "57238a682c4a9c6f699aef0f6d989be54f0c93d46bf543198b61330107fc1215",
+  "recorder_pid": 8842,
+  "source_snapshot_sha256": "23e1b3751f5b19f29fa4caa8e926988882d6f59e726fbf997d7f01545a19462a",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.852,
+  "finished_at_utc": "2026-11-12T04:53:08.565768+00:00",
+  "log_sha256": "96823127c8c484cc0a20c6c60b9809beb4ed8a4651ecb6058ead11c247e6a608",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

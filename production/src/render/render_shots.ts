@@ -9,6 +9,7 @@ import {createHash,randomUUID} from 'node:crypto';
 import {createCaptureSession,initializeSession,captureFrameToBuffer,closeCaptureSession,drainBrowserPool} from '@hyperframes/engine';
 import {serve,root} from './server.js';
 import {shotFrames,type ShotId,type Edit} from '../scene/benchmark.js';
+import {voiceFixture} from '../audio/fixture.js';
 
 const ids=(process.argv[2]??'S01,S02,S03,S04,S05,S06').split(',') as ShotId[];
 if(!ids.length||ids.some(s=>!Object.hasOwn(shotFrames,s)))throw Error('UNKNOWN_SHOT');
@@ -52,14 +53,15 @@ for(const shot of ids){
    encoder.stdin.end();const [code]=await encoderExit;if(code!==0)throw Error(`ENCODE_FAILED ${code} ${encoderError}`);
   }finally{if(encoder.exitCode===null)encoder.kill('SIGTERM');await writeFile(path.join(dir,'encode.log'),encoderError);}
   const duration=shotFrames[shot]/24;
-  const audio=shot==='S01'?['-i',path.join(root,'artifacts/Q1/draft-3/voice/scene.wav')]:['-f','lavfi','-i','anullsrc=r=48000:cl=stereo'];
+  const fixture=await voiceFixture(edit);
+  const audio=shot==='S01'?['-i',fixture.audioPath]:['-f','lavfi','-i','anullsrc=r=48000:cl=stereo'];
   await run(['-v','error','-nostdin','-y','-i',path.join(dir,'picture.mp4'),...audio,'-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-ar','48000','-ac','2','-b:a','192k','-t',String(duration),'-movflags','+faststart',path.join(dir,'delivery.mp4')]);
   await run(['-v','error','-nostdin','-i',path.join(dir,'delivery.mp4'),'-f','null','-']);
   const probe=JSON.parse((await run(['-v','error','-count_frames','-show_streams','-show_format','-of','json',path.join(dir,'delivery.mp4')],'ffprobe')).out);
   const v=probe.streams.find((s:{codec_type:string})=>s.codec_type==='video'),a=probe.streams.find((s:{codec_type:string})=>s.codec_type==='audio');
   if(v.nb_read_frames!==String(shotFrames[shot])||v.width!==width||v.height!==width*9/16||v.r_frame_rate!=='24/1'||v.pix_fmt!=='yuv420p'||v.color_space!=='bt709'||v.color_range!=='tv'||a.channels!==2||a.sample_rate!=='48000')throw Error(`MEDIA_PROFILE_FAILED ${JSON.stringify(probe)}`);
   const report={shot,status:'PASS_TECHNICAL',width,height:width*9/16,frames:shotFrames[shot],elapsedSeconds:(performance.now()-started)/1000,
-   imageHashes:hashes,configSha256:sha(JSON.stringify(server.config)),deliverySha256:sha(await readFile(path.join(dir,'delivery.mp4'))),probe,
+   imageHashes:hashes,configSha256:sha(JSON.stringify(server.config)),audioInputSha256:shot==='S01'?fixture.sha256:null,deliverySha256:sha(await readFile(path.join(dir,'delivery.mp4'))),probe,
    diagnostics:await session.page.evaluate('window.studio.diagnostics'),limits:['Blocking candidate; no art approval','Q7 final loudness not applied','Q1 listening review open']};
   await writeFile(path.join(dir,'result.json'),JSON.stringify(report,null,2)+'\n');reports.push(report);console.log(`${shot} complete ${report.elapsedSeconds.toFixed(2)} seconds`);
  }catch(e){await writeFile(path.join(dir,'result.json'),JSON.stringify({shot,status:'FAIL',error:String(e),capturedFrames:hashes.length},null,2)+'\n');throw e;}

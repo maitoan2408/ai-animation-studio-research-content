@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Q2 polish shadow/contact-light layers EX-018, then edit rounds R1/R2; Q1 listening review pending",
+  "nextAction": "Finish Q2 six-shot B polish; execute R1/R2 using frozen v2/R2 exports, review sequence and edits. Q1 listening and Q2 art/motion/performance/handoff gates remain open.",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -47,6 +47,12 @@
       "result": "PASS_TECHNICAL",
       "evidence": "production/artifacts/Q2/blocking-r0/native-replay-report.json",
       "limits": "52 file hashes +6 actual S05 frames exact pixels in new path/process; same agent, not independent operator"
+    },
+    {
+      "id": "Q2-polish-source-edit-contracts",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/evidence/Q2/20261112T045632Z-edit-round-contract-tests-df59ab1e/result.json",
+      "limits": "117 asset pack preserves original64;14 tests. Six polish clips still running; R1/R2 not yet executed. Latest eyebrow-note tests recorded separately."
     }
   ],
   "paidBudget": 0,

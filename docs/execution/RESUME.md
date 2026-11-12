@@ -67,3 +67,20 @@ first replay was magenta/FAIL. Fixed with relative_remap=False; accepted ZIP now
 Retest native-portable-reopen-seek-retest-18ac17bc PASS: 52 hashes, 6 S05 frames
 exact pixels. Bad ZIP retained as rejected-native-paths.zip. Same agent replay.
 Polish source/tests/raster are in progress and not yet a completed visual gate.
+
+### Q2 polish/edit-source checkpoint — 12/11/2026, 12:10 ICT
+
+117-asset separate pack preserves all 64 original SVGs. Soft paper and contact
+shadows, alpha/source/dim checks and 14 contracts PASS. Six B native polish takes
+are running (session 90932); inspect per-run result before restarting. R1 voice
+is 3.209s vs1.689s,64/117 assets remain separately versioned. R1 also moves brow
+concern onset28→12 and head/eye-line−3°, changes cup accent. Use frozen
+out/blender-edit-R1-v2 (old export lacks brow note) and out/blender-edit-R2.
+R1/R2 videos are NOT rendered yet. Native package EX-019 stays verified.
+
+Player diagnostic EX-020 found stale frame0 after seeking72: local HTTP lacked
+Range responses. Added Range/206 + requestVideoFrameCallback mediaTime proof;
+range-seek-retest-3d3f0a34 PASS at3.0s. Failed helper attempts are retained.
+Correct frame's RGB MAE6.963/p9511 remains diagnostic, not a color gate; Q7
+profile/color work remains open. Playback muted, quality counters include seek,
+no audio audition or full artistic approval claimed. See artifacts/Q2/player-check.

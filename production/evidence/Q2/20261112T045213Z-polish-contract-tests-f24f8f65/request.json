@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "polish-contract-tests",
+  "run_id": "20261112T045213Z-polish-contract-tests-f24f8f65",
+  "started_at_utc": "20261112T045213Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "f4bc1e8c78836d09d92a3a94f07fcccd552e55af",
+  "tracked_diff_sha256": "e813063fe1a2cea3f11d5ff4e3dc9daa560462e9d41612ad31b30a3797b5d411",
+  "status": "RUNNING",
+  "recorder_pid": 8509,
+  "source_snapshot_sha256": "57908a5b9612d645c09592047641284682aacb482e8c27873f33f9e539a49291"
+}

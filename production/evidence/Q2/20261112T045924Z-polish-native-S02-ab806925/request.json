@@ -1,0 +1,28 @@
+{
+  "phase": "Q2",
+  "step": "polish-native-S02",
+  "run_id": "20261112T045924Z-polish-native-S02-ab806925",
+  "started_at_utc": "20261112T045924Z",
+  "command": [
+    "env",
+    "BLENDER_USER_CONFIG=/tmp/studio-blender-config",
+    "BENCHMARK_INPUT_DIR=/workspace/ai-animation-studio-research-content/production/out/blender-polish-r0",
+    "blender",
+    "--background",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "production/src/blender/vse_probe.py",
+    "--",
+    "S02",
+    "1920",
+    "all"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "239a10de090cf698680dce070d0c7d24ae2b4aed",
+  "tracked_diff_sha256": "55568d28d93f11919c666f6585ed12e64aba5800af0bb112d21459539dc5ff6b",
+  "status": "RUNNING",
+  "recorder_pid": 9332,
+  "source_snapshot_sha256": "d9b2f39ce053ffe40fbcb05047d2888b2aa573cf4d1f8baec0a69ecfcfc39364"
+}

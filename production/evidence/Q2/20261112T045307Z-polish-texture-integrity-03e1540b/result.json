@@ -1,0 +1,22 @@
+{
+  "phase": "Q2",
+  "step": "polish-texture-integrity",
+  "run_id": "20261112T045307Z-polish-texture-integrity-03e1540b",
+  "started_at_utc": "20261112T045307Z",
+  "command": [
+    "python",
+    "production/src/art/check_textures.py",
+    "polish"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "239a10de090cf698680dce070d0c7d24ae2b4aed",
+  "tracked_diff_sha256": "57238a682c4a9c6f699aef0f6d989be54f0c93d46bf543198b61330107fc1215",
+  "recorder_pid": 8847,
+  "source_snapshot_sha256": "23e1b3751f5b19f29fa4caa8e926988882d6f59e726fbf997d7f01545a19462a",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 1.702,
+  "finished_at_utc": "2026-11-12T04:53:09.432114+00:00",
+  "log_sha256": "74a4712696907da311a4d555a4055cb4621e6f85c63af0d134980919baf95658",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

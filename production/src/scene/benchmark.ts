@@ -3,13 +3,14 @@
  * not an inference model and not yet a production planner. */
 import { actorSprites } from './rig.js';
 import { anchorPoint } from './geometry.js';
+import {polishFrame} from './polish.js';
 import { mix, mixPoint, smooth, rotate, add } from './math.js';
 import { sprite, type ActorPose, type ArtPack, type Point, type SceneFrame, type Sprite } from './types.js';
 
 export const shotFrames={S01:192,S02:192,S03:240,S04:192,S05:192,S06:144} as const;
 export type ShotId=keyof typeof shotFrames;
 export type Cue={start:number;end:number;mouth:NonNullable<ActorPose['mouth']>};
-export type Edit={propAccent?:boolean;cameraAmplitude?:number;reactionDelay?:number;eyeLine?:number;cues?:Cue[]};
+export type Edit={polish?:boolean;propAccent?:boolean;cameraAmplitude?:number;reactionDelay?:number;eyeLine?:number;concernStartsAt?:number;cues?:Cue[];voiceTake?:'R1'};
 const beat=(f:number,a:number,b:number)=>smooth((f-a)/(b-a));
 const floor=860;
 const rest=(x:number,angle=0,hip:Point=[0,0]):Point=>add(add([0,-258],hip),rotate([x,47],angle));
@@ -56,7 +57,7 @@ export function benchmarkFrame(pack:ArtPack,shot:ShotId,f:number,edit:Edit={}):S
   if(shot==='S01'){
     camera={x:795,y:430,zoom:2.35};
     actors.push({...mai,torsoAngle:mix(0,-2,beat(f,24,47)),headAngle:mix(-4,2,beat(f,24,47))+(edit.eyeLine??0),
-      mood:f>=22&&f<=25?'blink':f<28?'neutral':f<130?'worried':'happy',mouth:mouthAt(f,edit.cues??[])});
+      mood:f>=22&&f<=25?'blink':f<(edit.concernStartsAt??28)?'neutral':f<130?'worried':'happy',mouth:mouthAt(f,edit.cues??[])});
     props.push(sprite('lamp','props/lantern-dark',1100,667,6,0,.65));
   }else if(shot==='S02'){
     const p=walkPose(f);actors.push(p);camera={x:850+(p.x-640)*.16,y:550,zoom:1.1};
@@ -89,9 +90,9 @@ export function benchmarkFrame(pack:ArtPack,shot:ShotId,f:number,edit:Edit={}):S
     const releaseLamp=sprite('lamp','props/lantern-lit',927,565+186*.6,6,0,.6);
     actors.push({...mai,rightWrist:f<=107?maiGrip:mixPoint(wristFor(pack,releaseLamp,mai),rest(108),beat(f,108,143)),
       rightHand:f<=107?'grip':'open',rightHandAngle:f<=107?0:mix(0,180,beat(f,108,143)),
-      headAngle:f<144?2:mix(2,-3,beat(f,144+(edit.reactionDelay??0),167+(edit.reactionDelay??0))),mood:f>=144+(edit.reactionDelay??0)?'happy':'neutral'},
+      headAngle:f<144?2:mix(2,-3,beat(f,144,167)),mood:f>=144?'happy':'neutral'},
       {...an,rightWrist:f<72?mixPoint(rest(108),anGrip,beat(f,36,72)):anGrip,rightHand:f<72?'open':'grip',
-      rightHandAngle:f<72?mix(180,0,beat(f,36,72)):0,headAngle:mix(5,-2,beat(f,12,35)),mood:f>155?'happy':'neutral'});
+      rightHandAngle:f<72?mix(180,0,beat(f,36,72)):0,headAngle:mix(5,-2,beat(f,12,35)),mood:f>155+(edit.reactionDelay??0)?'happy':'neutral'});
     props.push(lamp);
   }else{
     camera={x:900,y:550,zoom:1.3};const anticipate=beat(f,0,23),reach=beat(f,24,59),recover=beat(f,84,119);
@@ -104,5 +105,5 @@ export function benchmarkFrame(pack:ArtPack,shot:ShotId,f:number,edit:Edit={}):S
   for(const actor of actors){const r=actorSprites(pack,actor);sprites.push(...r.sprites);markers.push(...r.markers);}
   // Fingers may sit in front of the prop body; both transforms still share grip.
   for(const s of sprites)if(s.asset.endsWith('/hand-grip'))s.z=7;
-  return {sprites,markers,camera};
+  const frame={sprites,markers,camera};return edit.polish?polishFrame(pack,frame):frame;
 }

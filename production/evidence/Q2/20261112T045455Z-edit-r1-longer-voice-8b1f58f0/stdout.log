@@ -1,0 +1,2 @@
+[0;93m2026-11-12 04:54:55.454974914 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+{"output": "/workspace/ai-animation-studio-research-content/production/out/audio/5999655243677bf7", "speechSeconds": 3.2093333333333334, "timings": 61, "elapsedSeconds": 1.8675678769977822}
