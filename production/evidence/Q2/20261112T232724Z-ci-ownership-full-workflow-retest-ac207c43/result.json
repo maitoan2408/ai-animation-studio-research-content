@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "ci-ownership-full-workflow-retest",
+  "run_id": "20261112T232724Z-ci-ownership-full-workflow-retest-ac207c43",
+  "started_at_utc": "20261112T232724Z",
+  "command": [
+    "env",
+    "GIT_TEST_ASSUME_DIFFERENT_OWNER=1",
+    "python",
+    "production/src/qa/check_fresh_review.py"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "abae639260caa516c698ea1082c5ecbeabcb63b8",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 6271,
+  "source_snapshot_sha256": "1606ebcbe9e7d1dd04f49970c51dd57c3254d78b11337c60f3aef588ef566c02",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 28.538,
+  "finished_at_utc": "2026-11-12T23:27:53.487357+00:00",
+  "log_sha256": "5454dbe4fc6ed7a89dd7bcf00e402f5271910f9c11f72e7ea82612b8baa73025",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

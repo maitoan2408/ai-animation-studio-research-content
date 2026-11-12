@@ -46,3 +46,11 @@ Tên đầy đủ có timestamp để không ghi đè lần thử cũ.
 Chạy lại bằng [QA runbook](../../../src/qa/README.md). Không cần render lại1152
 native frame chỉ để mở chương trình review. Không chạy repair_lock.py như một
 bước cài đặt thường lệ; `npm ci` dùng lock đã sửa là đường cài đặt chuẩn.
+
+## Container Git ownership — EX-029
+
+CI mở rộng đầu FAIL ở Git trước npm do owner checkout khác UID. Scoped fix chỉ
+trust ROOT cho hai lệnh Git read-only; không đổi global config. Negative956407db
+tái hiện exit128. Full-flow ac207c43 trên commitabae639 với
+`GIT_TEST_ASSUME_DIFFERENT_OWNER=1` PASS cả6lệnh,19tests và13browser checks trong
+28.538s; [report](ownership-retest-report.json). Actual CI retest được lưu riêng.
