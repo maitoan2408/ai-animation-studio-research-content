@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/workspace/ai-animation-studio-research-content/production/src/editorial/assemble.py", line 107, in <module>
+    assemble(Path(sys.argv[1]),sys.argv[2])
+  File "/workspace/ai-animation-studio-research-content/production/src/editorial/assemble.py", line 77, in assemble
+    raise ValueError('VOICE_PCM_PROFILE')
+ValueError: VOICE_PCM_PROFILE

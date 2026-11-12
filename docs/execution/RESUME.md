@@ -84,3 +84,20 @@ range-seek-retest-3d3f0a34 PASS at3.0s. Failed helper attempts are retained.
 Correct frame's RGB MAE6.963/p9511 remains diagnostic, not a color gate; Q7
 profile/color work remains open. Playback muted, quality counters include seek,
 no audio audition or full artistic approval claimed. See artifacts/Q2/player-check.
+
+### Q2 media/edit checkpoint — 12/11/2026 (supersedes earlier next steps)
+
+Six B polish clips complete. R0 sequence preserves all1152 decoded frames and
+PCM offsets exactly; AAC transport lag0. Four negative editorial tests PASS.
+EX-021 mono-source handling fixed with explicit rematrix, failure preserved.
+R1 S01/S03 and R2 S04/S05 native clips all completed technical QC; selected
+clips/stills saved under artifacts/Q2/edit-R1 and edit-R2. Do not rerender them.
+
+Visual review found persistent S02 crouch EX-022. New regression first FAIL24px
+hip drop; reach-derived pelvis +soft landing now15 tests/typecheck PASS. Frozen
+out/blender-polish-upright exported; upright-walk-native-S02 is currently rendering
+(session23439). Read result before restarting. Once complete, build corrected
+R0/R1/R2 selections sharing the same new S02; preserve old polish-r0 evidence.
+Assemble and verify all rounds, package final native sources, check native edit,
+then make an explicit Q2 gate report. Q1 listening/independent handoff/full-motion
+review and post-art cold/warm samples remain unfulfilled; Q3–Q9 are not skipped.

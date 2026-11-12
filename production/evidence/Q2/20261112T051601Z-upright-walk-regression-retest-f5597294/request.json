@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "upright-walk-regression-retest",
+  "run_id": "20261112T051601Z-upright-walk-regression-retest-f5597294",
+  "started_at_utc": "20261112T051601Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "2caae4ee6e513681d4bc481b771a5834e868abda",
+  "tracked_diff_sha256": "1923c325e180973d10261dcba9034ac185482b9e0c1aad779507c148a7bb8e3e",
+  "status": "RUNNING",
+  "recorder_pid": 11717,
+  "source_snapshot_sha256": "03fa78e154a0664c1f840be819c5bec5eca10e924eb717eac241142363f0cabe"
+}

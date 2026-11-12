@@ -73,3 +73,11 @@ original64 assets. Added deterministic R1/R2 authoring, longer local voice,
 fixture hash guards and edit-locality tests. Polish videos are in progress;
 no full creative gate or edit-round completion claimed. Fixed stale target-player
 seek diagnostic with byte-range serving and actual presented-frame verification.
+
+## Q2 media and sequence checkpoint — 2026-11-12
+
+Six native polish clips and four selective edit clips completed technical QC.
+Added picture-preserving sequence assembly, exact PCM timing and all-frame
+verification; fixed rejected mono/stereo assumption. Visual review caught a
+persistent crouched walk despite planted-foot tests; new regression failed then
+passed after reach-derived pelvis correction. Replacement S02 media in progress.

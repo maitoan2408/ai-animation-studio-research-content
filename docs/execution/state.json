@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Finish Q2 six-shot B polish; execute R1/R2 using frozen v2/R2 exports, review sequence and edits. Q1 listening and Q2 art/motion/performance/handoff gates remain open.",
+  "nextAction": "Finish new upright S02 native render; combine corrected baseline with R1/R2 clips, validate sequence order/audio/all-frame equality, preserve portable native package and review handoff. Full art/listening/performance gates remain open.",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -53,6 +53,18 @@
       "result": "PASS_TECHNICAL",
       "evidence": "production/evidence/Q2/20261112T045632Z-edit-round-contract-tests-df59ab1e/result.json",
       "limits": "117 asset pack preserves original64;14 tests. Six polish clips still running; R1/R2 not yet executed. Latest eyebrow-note tests recorded separately."
+    },
+    {
+      "id": "Q2-six-shot-polish-render",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/polish-r0/manifest.json",
+      "limits": "S02 crouch found on visual samples; corrected pose passes15 tests but native replacement still rendering. Full art gate open."
+    },
+    {
+      "id": "Q2-polish-sequence",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/polish-r0/sequence/verification.json",
+      "limits": "1152 decoded frames exact, PCM placement exact, AAC lag0; initial S02 pose remains visually rejected, no final loudness/perception gate."
     }
   ],
   "paidBudget": 0,
@@ -63,6 +75,7 @@
     "EX-005",
     "EX-011",
     "EX-013",
-    "EX-018"
+    "EX-018",
+    "EX-022"
   ]
 }

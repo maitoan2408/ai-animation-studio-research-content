@@ -1,0 +1,22 @@
+{
+  "phase": "Q2",
+  "step": "verify-polish-sequence-all-frames",
+  "run_id": "20261112T051358Z-verify-polish-sequence-all-frames-5083ec0f",
+  "started_at_utc": "20261112T051358Z",
+  "command": [
+    "python",
+    "production/src/editorial/check_sequence.py",
+    "production/out/sequences/R0-a17b8480f1384c7fa87642b206bc1168"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "2caae4ee6e513681d4bc481b771a5834e868abda",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 11372,
+  "source_snapshot_sha256": "2b55bce5d2451f4884401bc79eb10678d0513869fc6a4752229a8b30605f82d0",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 21.333,
+  "finished_at_utc": "2026-11-12T05:14:20.387455+00:00",
+  "log_sha256": "5cdf0440bb634655852cc20e0249bdc07476954b9a148cbe428e1e8e7f5a77ae",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

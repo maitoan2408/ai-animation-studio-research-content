@@ -37,9 +37,16 @@ export function walkPose(f:number):ActorPose{
   for(let i=0;i<step;i++){if(i%2===0)left+=136;else right+=136;}
   // Shortened final step stops under the pelvis. Ease-out root keeps incoming
   // velocity continuous, then reduces monotonically during frames 108–131.
-  const finalStep=step===4,swing=Math.sin(Math.PI*u)*(finalStep?20:34),travel=smooth(u)*(finalStep?34:136);
+  const finalStep=step===4,swing=Math.sin(Math.PI*u)**2*(finalStep?20:34),travel=smooth(u)*(finalStep?34:136);
   if(step%2===0)left+=travel;else right+=travel;
-  const x=finalStep?912+34*(2*u-u*u):640+68*(step+u),hipY=f<12?mix(0,24,beat(f,0,12)):f<132?24:mix(24,0,beat(f,132,155));
+  const x=finalStep?912+34*(2*u-u*u):640+68*(step+u);
+  const leftLift=step%2===0&&f>=12&&f<132?swing:0,rightLift=step%2===1&&f>=12&&f<132?swing:0;
+  // Lower the pelvis only as required by each leg's current horizontal reach.
+  // 228px keeps a 2px bend reserve in the 230px two-bone chain. The old fixed
+  // 24px drop passed contact tests but produced a persistent crouch (EX-022).
+  const drop=(dx:number,lift:number)=>229-lift-Math.sqrt(228**2-dx**2);
+  const walkingDrop=Math.max(4,drop(left-x+30,leftLift),drop(right-x-30,rightLift));
+  const hipY=f<12?mix(0,4,beat(f,0,12)):f<132?walkingDrop:mix(4,0,beat(f,132,155));
   const angle=f>=12&&f<132?2*Math.sin(t*Math.PI/24):0;
   const armSwing=f>=12&&f<132?12*Math.sin(t*Math.PI/24)*(finalStep?1-u:1):0;
   const arm=(side:'left'|'right'):Point=>add([0,-258+hipY],rotate(add(side==='right'?[17,-139]:[-21,-139],rotate(side==='right'?[58,186]:[-41,186],side==='right'?-armSwing:armSwing)),angle));
@@ -47,8 +54,8 @@ export function walkPose(f:number):ActorPose{
     hipOffset:[0,hipY],torsoAngle:angle,headAngle:f<132?-2:mix(-2,4,beat(f,132,155)),
     rightWrist:f<140?arm('right'):undefined,leftWrist:f<140?arm('left'):undefined,
     rightHandAngle:180+angle-armSwing,leftHandAngle:180+angle+armSwing,
-    leftAnkle:[left-x,-29-(step%2===0&&f>=12&&f<132?swing:0)],
-    rightAnkle:[right-x,-29-(step%2===1&&f>=12&&f<132?swing:0)],mood:f>155?'happy':'neutral'};
+    leftAnkle:[left-x,-29-leftLift],
+    rightAnkle:[right-x,-29-rightLift],mood:f>155?'happy':'neutral'};
 }
 export function benchmarkFrame(pack:ArtPack,shot:ShotId,f:number,edit:Edit={}):SceneFrame{
   if(!Number.isInteger(f)||f<0||f>=shotFrames[shot])throw Error(`FRAME_OUT_OF_RANGE ${shot}:${f}`);

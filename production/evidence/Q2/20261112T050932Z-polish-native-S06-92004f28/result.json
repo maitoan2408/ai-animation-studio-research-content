@@ -1,0 +1,33 @@
+{
+  "phase": "Q2",
+  "step": "polish-native-S06",
+  "run_id": "20261112T050932Z-polish-native-S06-92004f28",
+  "started_at_utc": "20261112T050932Z",
+  "command": [
+    "env",
+    "BLENDER_USER_CONFIG=/tmp/studio-blender-config",
+    "BENCHMARK_INPUT_DIR=/workspace/ai-animation-studio-research-content/production/out/blender-polish-r0",
+    "blender",
+    "--background",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "production/src/blender/vse_probe.py",
+    "--",
+    "S06",
+    "1920",
+    "all"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "239a10de090cf698680dce070d0c7d24ae2b4aed",
+  "tracked_diff_sha256": "96d4a81adbc13fff7fb9849d8ce69b8a836d931d791014b19ec9cb7fd7d29c7d",
+  "recorder_pid": 10956,
+  "source_snapshot_sha256": "ac8cc26dd26c21e72a0f6cad2e756ee4a1c7d81d98ee39c9fc7b46b6c05669af",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 91.549,
+  "finished_at_utc": "2026-11-12T05:11:04.228774+00:00",
+  "log_sha256": "a36acea000ebf21c0c61e039d12160b94ba3055e7a9426a3b8e1432b03610b9e",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

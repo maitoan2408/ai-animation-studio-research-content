@@ -47,3 +47,9 @@ test('locked deceleration beat reduces root speed to a stop without a last-frame
  for(let f=109;f<132;f++)assert.ok(speed(f)<=speed(f-1)+1e-8,`nondecreasing speed at ${f}`);
  assert.equal(speed(132),0);
 });
+
+test('upright walk uses only the hip drop required for planted-foot reach',()=>{
+ for(let f=12;f<132;f++){
+  const pose=walkPose(f);assert.ok(pose.hipOffset![1]<=14,`S02:${f} excessive hip drop ${pose.hipOffset![1]}px`);
+ }
+});

@@ -1,0 +1,54 @@
+{
+  "status": "PASS_TECHNICAL",
+  "candidate": "B-VSE",
+  "clips": [
+    {
+      "shot": "S01",
+      "take": "20261112T045849Z-S01-1920-1b87fe68",
+      "path": "S01/delivery.mp4",
+      "sha256": "d03fc6c33b95796a6aba070164edbd5bb18c5f996ad8a2b9f192398d54665de5"
+    },
+    {
+      "shot": "S02",
+      "take": "20261112T045925Z-S02-1920-a1874117",
+      "path": "S02/delivery.mp4",
+      "sha256": "9266f6e6211365fd6631cd886c65325d9633909ef1470aa17ad466d2f214b91e"
+    },
+    {
+      "shot": "S03",
+      "take": "20261112T050156Z-S03-1920-0213e113",
+      "path": "S03/delivery.mp4",
+      "sha256": "1243173c2ac002bbfd7984d93aa828d285dd32194a7128a9c0cb36277626614e"
+    },
+    {
+      "shot": "S04",
+      "take": "20261112T050420Z-S04-1920-0d5a598b",
+      "path": "S04/delivery.mp4",
+      "sha256": "6c047825ad020c3437ed20f3e43a04f06f582e1eeb18ddef6fb06ef1413348fb"
+    },
+    {
+      "shot": "S05",
+      "take": "20261112T050700Z-S05-1920-e23d8c20",
+      "path": "S05/delivery.mp4",
+      "sha256": "9f12d8d8e6c8c524764e3144be2c62acdb11eb94ff0e62e7bc9c6681bc5ac110"
+    },
+    {
+      "shot": "S06",
+      "take": "20261112T050933Z-S06-1920-b9c5cf2d",
+      "path": "S06/delivery.mp4",
+      "sha256": "164ba9f4c4367a302f12e3ead424ef32b76cc6779934d1e8d8e446cba43656e5"
+    }
+  ],
+  "frames": 1152,
+  "seconds": 48,
+  "native": [
+    1920,
+    1080
+  ],
+  "fps": "24/1",
+  "limits": [
+    "Full motion/listening review pending",
+    "No production approval",
+    "Fair performance samples not measured"
+  ]
+}
