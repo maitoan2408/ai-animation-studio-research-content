@@ -12,8 +12,10 @@ và các phase. Phát hiện và sửa EX-030 mất draft khi response cũ về,
 sau mất response/refresh tạo note trùng. Before FAIL giữ nguyên; sau sửa3ca
 recovery mới,13ca UI cũ,19tests/typecheck production và root verify16 PASS.
 [Bằng chứng](../../production/artifacts/Q2/review-followup-20261113/README.md).
-CI đã thêm test:review-recovery; cần xác nhận kết quả trên commit sửa mới trước
-khi chốt checkpoint này. Không lấy CI checkpoint cũ làm kết quả của code mới.
+Hai workflow CI trên source71213e9 đã SUCCESS, gồm3ca recovery và standalone
+Git-only. [CI evidence](../../production/artifacts/Q2/review-followup-20261113/ci-workflows.json).
+Audit210completed attempts/162source ZIP PASS integrity. Các commit chốt sau
+source71213e9 chỉ bổ sung tài liệu/evidence; không thay runtime code.
 
 ## Đã hoàn thành và phải giữ
 

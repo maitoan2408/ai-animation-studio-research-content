@@ -7,6 +7,9 @@ lập và benchmark sau art gate. Không thay những kết quả cũ đã đạ
 Review bổ sung13/11 đã phát hiện và sửa hai lỗi UI về giữ draft và retry sau mất
 response. Ba ca recovery mới và13ca UI cũ PASS; [review chi tiết](REVIEW-2026-11-13.md)
 phân biệt kết quả kỹ thuật, nhận xét hình tĩnh và những điều kiện production còn mở.
+[Hai workflow CI](../../production/artifacts/Q2/review-followup-20261113/ci-workflows.json)
+trên source71213e9 đều SUCCESS; [audit mới](../../production/artifacts/Q2/review-followup-20261113/integrity-report.json)
+kiểm210completed attempts/162source ZIP không lỗi hash.
 
 | Phạm vi | Kết quả đã có | Giới hạn còn lại |
 | --- | --- | --- |
@@ -51,7 +54,7 @@ R2 phát48.042s,0dropped khi không render đồng thời. Hai lần R0/R1 chạ
 encoder rơi5/19frames; giữ nguyên và không gọi là số đo công bằng. Chưa có phút
 phim accepted hay giá/phút accepted; ngân sách API/GPU trả phí vẫn0.
 
-Audit sau sửa CI kiểm201 completed attempts và153 source ZIP,
+Audit checkpoint trước review bổ sung kiểm201 completed attempts và153 source ZIP,
 không có lỗi hash. Attempt audit duy nhất còn INCOMPLETE trong lúc tự quét đã
 kết thúc PASS sau đó. [Report audit](../../production/artifacts/Q2/final-audit-ci-repair-20261113.json). Các report audit trước vẫn được giữ.
 

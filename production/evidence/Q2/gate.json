@@ -57,27 +57,30 @@
     },
     "githubCI": {
       "status": "PASS",
-      "sourceHead": "d82da6e73fc4ac710ff7d520beb0eb048d1e11b4",
-      "workbenchRun": 43329136529,
-      "v01Run": 43329136433,
+      "sourceHead": "71213e96b70de56cda2856b58d48cba4faac103f",
+      "workbenchRun": 43355147608,
+      "v01Run": 43355147643,
       "standaloneStep": "PASS",
-      "evidence": "production/artifacts/Q2/ci-standalone-repaired-20261113.json"
+      "reviewRecoveryStep": "PASS",
+      "evidence": "production/artifacts/Q2/review-followup-20261113/ci-workflows.json"
     },
     "evidenceIntegrity": {
       "status": "PASS_INTEGRITY",
-      "completedAttempts": 201,
-      "sourceSnapshotsChecked": 153,
-      "evidence": "production/artifacts/Q2/final-audit-ci-repair-20261113.json"
+      "completedAttempts": 210,
+      "sourceSnapshotsChecked": 162,
+      "evidence": "production/artifacts/Q2/review-followup-20261113/integrity-report.json"
     },
     "reviewRecoveryBrowserChecks": 3,
     "reviewFollowup": {
-      "status": "PASS_LOCAL_CI_PENDING",
+      "status": "PASS",
       "evidence": "production/artifacts/Q2/review-followup-20261113/after/report.json",
       "resolvedIssues": [
         "EX-030",
         "EX-031"
       ],
-      "limits": "Synthetic workflow recovery checks; no art/listening approval"
+      "limits": "Synthetic workflow recovery checks; no art/listening approval",
+      "testedSource": "71213e96b70de56cda2856b58d48cba4faac103f",
+      "ciEvidence": "production/artifacts/Q2/review-followup-20261113/ci-workflows.json"
     }
   },
   "openGates": [

@@ -1,0 +1,50 @@
+{
+  "sourceHead": "71213e96b70de56cda2856b58d48cba4faac103f",
+  "workflowRun": 43355147608,
+  "job": 131655308550,
+  "source": "Actual JSON stdout report from GitHub recovery verification step",
+  "report": {
+    "status": "PASS",
+    "findings": [],
+    "observations": [
+      {
+        "case": "pending-save-new-revision-draft",
+        "expected": "New R2 draft typed while the previous R0 save is pending.",
+        "actual": "New R2 draft typed while the previous R0 save is pending.",
+        "duringSave": "New R2 draft typed while the previous R0 save is pending.",
+        "originalRevision": "R0",
+        "selectedRevision": "R2",
+        "savedRecords": 1,
+        "originalSavedOn": "R0"
+      },
+      {
+        "case": "lost-response-refresh-retry",
+        "expectedMatchingRecords": 1,
+        "actualMatchingRecords": 1,
+        "retainedAfterError": "Audit lost-response note: a retry must not duplicate this record.",
+        "initialRequestId": "13ad4a85-8573-4cd3-93c6-611071c15d1a",
+        "initialCommittedHash": "92f12793bb43982a02c70656181471f1ae10b9453357700d5e82e7f8a7eb3a26",
+        "matchingRequestIds": [
+          "13ad4a85-8573-4cd3-93c6-611071c15d1a"
+        ]
+      },
+      {
+        "case": "committed-save-refresh-failure",
+        "expectedMatchingRecords": 1,
+        "actualMatchingRecords": 1,
+        "statusConfirmsSave": true,
+        "statusRequestsRefresh": true,
+        "acknowledgedStatus": "Đã lưu ghi chú cho R0 · frame 0. Chưa nạp được nhật ký; hãy bấm Nạp lại nhật ký.",
+        "draftCleared": true
+      }
+    ],
+    "browser": "Chrome/156.0.8078.79",
+    "browserErrors": [],
+    "mode": "automated-test",
+    "output": "/__w/ai-animation-studio-research-content/ai-animation-studio-research-content/production/out/review-audit/6c976122-2469-4950-94e7-6cb75e026cc5",
+    "limits": [
+      "Controlled request timing with real Chromium and HTTP; not a throughput benchmark",
+      "No production journal/media changes and no artistic or listening approval"
+    ]
+  }
+}

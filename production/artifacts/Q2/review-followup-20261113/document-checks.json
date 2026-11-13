@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "localLinksChecked": 60,
+  "errors": [],
+  "runtimeUnchangedSinceCISource": "71213e96b70de56cda2856b58d48cba4faac103f",
+  "changedRuntimeFiles": [],
+  "documentHashes": {
+    "docs/execution/REVIEW-2026-11-13.md": "d6ab96d9174c4795bd5af938a7add13db3df6213d708d256f2a21ec49aa83ac9",
+    "docs/execution/RESUME.md": "655c0a31ef7714aefb3c45eb8fa77f2ec325241a69f6bc0a2e044d23a3973749",
+    "docs/execution/COMPLETED.md": "35074da454c062cc1e78ef5279a3b85d410880aee4273e465747168edbb3b767",
+    "production/artifacts/Q2/review-followup-20261113/README.md": "37959a01fa0ff7499b36577b7a85638e2531f3ce76c113739d71cfe6dbab7981",
+    "production/src/review/README.md": "2ff8c8fcdf5198a1e2d25e4fc9b095471204c7b1657c9dfee31b49752ddf461c",
+    "production/src/qa/README.md": "893f31f52aee8dc79b02eae39407fda4a9c08d826893e8d3537793f690960319",
+    "plan.md": "a3452af9ab650e41bdf528f349366d069fb5a0409f79d4c1800c045a3459fef7"
+  }
+}

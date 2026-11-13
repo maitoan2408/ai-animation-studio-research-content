@@ -29,3 +29,8 @@ lỗi sản phẩm. Source ZIP của từng attempt cho phép đối chiếu tr�
 [Bản review đầy đủ](../../../../docs/execution/REVIEW-2026-11-13.md),
 [mã và quy trình lưu](../../../src/review/README.md),
 [gate Q2](../../../evidence/Q2/gate.json).
+
+CI source71213e9: [hai workflow và từng step](ci-workflows.json) đều SUCCESS;
+[recovery report từ runner](ci-recovery-report.json) có đủ3ca PASS.
+[Audit](integrity-report.json) kiểm210 completed attempts/162source ZIP, không
+lỗi hash. Attempt audit xuất hiện INCOMPLETE trong lúc tự quét rồi kết thúc PASS.
