@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "full-range-chart-player",
+  "run_id": "20261112T151315Z-full-range-chart-player-e55968ad",
+  "started_at_utc": "20261112T151315Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/render/check_player.ts",
+    "production/out/native-color-chart/a90ac37eb916425cbc48371a5dd5a555",
+    "12"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 18340,
+  "source_snapshot_sha256": "69a7f61f946430fe0b2911d43e6fd23881ba34bca220bcc72e848274c59e19be"
+}

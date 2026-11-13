@@ -1,5 +1,58 @@
 # Changelog
 
+## Q2 S05 R3 — 13/11/2026
+
+- Both GitHub workflows pass on source6c36e93, including standalone install/recovery and v0.1 integration/UI. Final checkpoint checks artifact/source/log integrity and local links; no additional phase approval.
+
+- Fixed EX-032 as an opt-in shot revision: both hands now grip separate drawn sides of the lantern handle. Prop trajectory, camera, timing and R2 reaction remain unchanged; archived1,152 scene frames still replay exactly as JSON.
+- Rendered192 native1080p frames and a separate8s web candidate. Full decode/converted-YUV/AAC checks pass; player1x/0.5x has0drops in these runs; two color samples pass unchanged thresholds.
+- Portable S05 package verifies41 dependency hashes and6 pixel-exact native replays.21workbench tests, typecheck and root verify16 pass. Failed contact regression and two corrected harness assumptions remain logged.
+- Preserved R0/R1/R2 catalog/media. Full creative/listening/independent-handoff/performance gates remain open; no Q3 backend or production release claim.
+
+## Kế hoạch tiếp tục và prompt bàn giao — 13/11/2026
+
+- Bổ sung kế hoạch từ các gate Q1/Q2 còn mở đến Q3–Q9, có dependency, vai trò, đầu ra, tiêu chí kiểm thử, sửa lỗi và checkpoint; đối chiếu P0–P11 cùng các nhánh F01–F11.
+- Tách lỗi đã đóng khỏi quan sát hình cần kiểm video, rủi ro serving chưa đo và chức năng production chưa triển khai. Giữ phạm vi v0.1/workbench và bằng chứng cũ.
+- Viết prompt tiếng Việt hoàn chỉnh để AI khác đọc Git, kiểm trạng thái và tiếp tục đúng quy trình; nối từ README/plan/skills/RESUME/state.
+- Đây là thay đổi tài liệu/kế hoạch. Kiểm JSON, link nội bộ và invariants trạng thái/source; không chạy lại phần mềm hoặc nhận thêm gate mỹ thuật, nghe, handoff hay performance.
+
+## Q2 follow-up review — 13/11/2026
+
+- Reproduced EX-030: an older save response erased a new draft after switching revisions. Draft generation now guards clearing and the status identifies the saved revision/frame.
+- Reproduced EX-031: a committed POST with a lost response, followed by refresh/retry, created duplicate notes. Retry retains the original ID/body across head refresh; definite stale-head rejection allows rebasing. A known commit remains clearly acknowledged if the next refresh fails.
+- Added three real-browser recovery cases and CI coverage; all pass, along with the existing13 UI checks,19 workbench tests/typecheck and root verify16. Failed product reproductions and the initial harness syntax failure are preserved separately.
+- Added a critical progress review with sampled-art observations, production limits and phase-by-phase next steps. Full motion/listening/handoff/performance gates remain open.
+- Both GitHub workflows pass on source71213e9, including the new recovery step and standalone installation. Audit verifies210 completed attempts and162 source snapshots; raw failures and earlier results remain intact.
+
+## Q2 container reproduction repair — 13/11/2026
+
+- New standalone CI caught EX-029 before npm: Git refused container checkout ownership. Kept the actual failure and a local negative; fixed only the two read-only Git calls with trust for the exact authorized checkout path.
+- Full workflow under simulated different ownership passes, followed by actual GitHub workbench run43329136529 including the standalone installation/review step. Global and wildcard Git trust are unchanged.
+
+- Source headd82da6e passes both final GitHub workflows (workbench43329136529, v0.1run43329136433); expanded CI includes the standalone6command workflow. Latest audit verifies201 completed attempts and153source snapshots with no integrity error.
+
+## Q2 standalone reproduction — 13/11/2026
+
+- Reproduced EX-028 with a Git-only checkout outside the parent repository. Repaired12 transitive dependency locations while preserving exact direct pins and every package/version/tarball URL/integrity identity.
+- Commit065a02c passes a clean-cache npm install, exact restoration of three videos, typecheck,19workbench tests, catalog/profile verification and13actual-browser checks. Kept failed attempts and added the QA runbook. Same-host reproduction does not replace the independent operator gate.
+
+- GitHub workbench run43327652103 and v0.1run43327652106 both succeed for source head065a02c. Final checkpoint audit verifies198 completed attempts and150source snapshots; creative/handoff/performance gates remain open.
+- Added the standalone Git-only reproduction to workbench CI, because the earlier full-repo CI passed despite EX-028. Its new run is tracked separately from the pre-change CI evidence.
+
+## Q2 media/review checkpoint — 13/11/2026
+
+- Added a working local review program: exact presented-frame notes, artifact/master/revision binding, strict rubric boundary, immutable journal, idempotent retry, stale-head handling, export/restart and desktop/mobile UI.19 workbench tests and13 browser checks pass; test reviewers are explicitly automated-test.
+- Preserved failed color experiments; native full-range sRGB YUV420/CRF0 passes the unchanged chart threshold(max1≤3) and real-art samples. All3review sequences retain1152exactYUV frames and unchanged AAC/master/source. R2 idle playback has0dropped; loaded runs remain diagnostic.
+- Added32MiB Git media parts, checked restoration/recovery,6profile tests and3bundle tests; full Python suite16passes. Original v0.1verify16/build/integration13/UI9 pass with old deliverables hash-identical. EX-024–027 fixed within their recorded scope.
+- Added workbench CI and current runbook/resume/phase summaries, keeping previous histories and failures. Q2 remains open for real listening, full-motion rubric, independent handoff and then3cold+5warm; Q3–Q9 not started.
+
+## Q0 — bắt đầu thực hiện production theo ủy quyền
+
+- Khóa brief paper-cut/multiplane, pilot 72 giây, sáu shot/48 giây, rubric và output profile.
+- Baseline verify 16 tests PASS; brief gate PASS. Chưa đóng gate art/motion Q1/Q2.
+- Thêm recorder lưu request trước chạy, log/result riêng mỗi attempt và source hashes; có RESUME/state/issue ledger.
+- Review ghi delegated-agent theo quyền người dùng giao; không tạo approval giả dưới tên người dùng.
+
 ## Nghiên cứu toolchain và kế hoạch mở rộng — 11/11/2026
 
 - Đối chiếu Word/PDF, kế hoạch P0–P11/Q0–Q9, code và evidence; công khai phạm vi đã đọc và phần chưa kiểm chứng.
@@ -27,3 +80,64 @@
 - Clean checkout PASS: 16 tests nhanh, 13 integration checks, 9 browser checks; pilot 13 giây/312 frames 1080p.
 - Thêm runbook, API/capability docs, sáu skill contracts, đối chiếu đủ P0–P11, dependency notices/BOM và CI.
 - Chưa duyệt art, chưa tích hợp LLM/phoneme lip-sync, chưa vận hành multi-user/production; các gate giữ mở trong roadmap.
+
+## Production Q1 technical checkpoint — 2026-11-12
+
+64 native SVGs, three body views, rig extremes, texture integrity and hand/prop
+contact verified. Q1 draft-3 preserves new art beside prior drafts. Blender/Three
+rendered real alpha art. Pinned local Kokoro voice fixture generated; listening
+review remains OPEN (tool cannot hear). Q2 technical preflight starts with this
+fixed fixture; no production voice/motion approval claimed. See execution state.
+
+## Q2.1 checkpoint — 2026-11-12
+
+Pure six-shot evaluator (1152 frames), independent actual-anchor contact/stance
+checks, explicit texture readiness, Three + actual HyperFrames seek verification.
+6 load cases and 48 captures/36 repeat comparisons PASS after fixing fixture entry
+EX-014. Blocking render and native Blender comparison still in progress.
+
+## Q2 blocking + native handoff — 2026-11-12
+
+12 actual 1080p A/B clips, 2,304 frames total, technical QC PASS. Kept initial
+blocking/rejected VSE takes. Fixed walk deceleration and native VSE flip; added
+Blender exception exit guard and exact source snapshots for new attempts. Native
+six-shot package includes relative hashed textures and source frame JSON. Full
+creative/polish/edit gates remain open; no production release claim.
+
+### Correct native package replay claim
+
+First fresh-path replay failed EX-019 (missing textures after Save As path remap).
+Preserved failed package, repaired destination-relative paths, and verified the
+new package in a fresh path/process: 52 hashes and 6 S05 frames match pixels.
+The earlier commit subject said "verified" prematurely; the test logs and this
+correction are authoritative. Independent operator handoff remains pending.
+
+## Q2 polish/edit-source checkpoint — 2026-11-12
+
+Separate 117-asset pack adds soft paper/contact shadows without changing the
+original64 assets. Added deterministic R1/R2 authoring, longer local voice,
+fixture hash guards and edit-locality tests. Polish videos are in progress;
+no full creative gate or edit-round completion claimed. Fixed stale target-player
+seek diagnostic with byte-range serving and actual presented-frame verification.
+
+## Q2 media and sequence checkpoint — 2026-11-12
+
+Six native polish clips and four selective edit clips completed technical QC.
+Added picture-preserving sequence assembly, exact PCM timing and all-frame
+verification; fixed rejected mono/stereo assumption. Visual review caught a
+persistent crouched walk despite planted-foot tests; new regression failed then
+passed after reach-derived pelvis correction. Replacement S02 media in progress.
+
+## Q2 review package — 2026-11-12
+
+Completed the replacement upright S02, two selective B-VSE edit rounds and three
+48-second sequences. All selected decoded frames match; PCM offsets and AAC
+transport lag are verified. Fixed low benchmark voice level from original PCM:
+all three AAC deliveries measure −16.02 LUFS with true peak below −1.9 dBTP.
+Preserved pre-gain versions and every rejected attempt.
+
+Final native package verifies 70 dependency hashes and exact random-seek pixels;
+a native camera note survives save/reopen without modifying its source. Published
+before/after scope, frame/playback/color diagnostics, integrity audit and phase
+summary. Color display, complete perceptual/acting review, independent handoff
+and post-art cold/warm samples remain open; Q3–Q9 are not marked complete.

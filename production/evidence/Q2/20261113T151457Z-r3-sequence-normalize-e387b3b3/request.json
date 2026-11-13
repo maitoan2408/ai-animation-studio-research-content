@@ -1,0 +1,17 @@
+{
+  "phase": "Q2",
+  "step": "r3-sequence-normalize",
+  "run_id": "20261113T151457Z-r3-sequence-normalize-e387b3b3",
+  "started_at_utc": "20261113T151457Z",
+  "command": [
+    "python",
+    "production/src/audio/normalize_review.py",
+    "production/out/sequences/R3-66e7327f9f8c461f93f49867a9a97f3b"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "173905d88f0cd717e53be4f9f8550a082dd0feec",
+  "tracked_diff_sha256": "098b0c3b2a8a4607880fd4da2dc453c441c03bd5d5c48008c5c6a7939d251e20",
+  "status": "RUNNING",
+  "recorder_pid": 12607,
+  "source_snapshot_sha256": "9631fd88a264a59b8bebd7d6f99fc579ea9c496682e5e844fbd57dfc4fb874bb"
+}

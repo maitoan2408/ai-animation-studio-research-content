@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/workspace/ai-animation-studio-research-content/production/src/media/rebuild_r3.py", line 99, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/ai-animation-studio-research-content/production/src/media/rebuild_r3.py", line 71, in main
+    validate_probe(probe(out/'review.mp4'),'review_v2',1152)
+  File "/workspace/ai-animation-studio-research-content/production/src/media/contracts.py", line 70, in validate_probe
+    raise MediaError(f'PROFILE_MISMATCH {kind}.{field}: '
+contracts.MediaError: PROFILE_MISMATCH video.avg_frame_rate: '384000000/15986111' != '24/1'

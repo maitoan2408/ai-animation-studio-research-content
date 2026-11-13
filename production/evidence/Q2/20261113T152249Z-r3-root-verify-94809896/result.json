@@ -1,0 +1,22 @@
+{
+  "phase": "Q2",
+  "step": "r3-root-verify",
+  "run_id": "20261113T152249Z-r3-root-verify-94809896",
+  "started_at_utc": "20261113T152249Z",
+  "command": [
+    "npm",
+    "run",
+    "verify"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "173905d88f0cd717e53be4f9f8550a082dd0feec",
+  "tracked_diff_sha256": "25e592d99fbcdd7f49e15745428fd3300aecd312446459b2e25bba3ea7112410",
+  "recorder_pid": 13359,
+  "source_snapshot_sha256": "8986180cb2fb42f4c46389089087fe9b8744674ba9fc377b237d9beadd831f21",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 16.077,
+  "finished_at_utc": "2026-11-13T15:23:06.098078+00:00",
+  "log_sha256": "0cfe7bb36dc84362777febd5dcef1b6aa18a5a7023f04a08da039fd536bd2154",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

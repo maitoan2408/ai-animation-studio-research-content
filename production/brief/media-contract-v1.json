@@ -1,0 +1,18 @@
+{
+  "version": "media-contract-1",
+  "authority": "delegated-agent; bounded Q2 technical output contract, no artistic approval",
+  "authoring": {"representation": "display-referred sRGB artwork", "intermediate": "PNG RGBA straight alpha"},
+  "master": {"id": "master-rec709", "codec": "h264", "pixelFormat": "yuv420p", "primaries": "bt709", "transfer": "bt709", "matrix": "bt709", "range": "tv", "width": 1920, "height": 1080, "fps": "24/1", "audioCodec": "aac", "sampleRate": "48000", "channels": 2},
+  "review": {"id": "web-review-srgb-1", "codec": "h264", "pixelFormat": "yuv420p", "primaries": "bt709", "transfer": "iec61966-2-1", "matrix": "bt709", "range": "tv", "width": 1920, "height": 1080, "fps": "24/1", "audioCodec": "aac", "sampleRate": "48000", "channels": 2},
+  "reviewDerivation": "Explicit zscale BT709 transfer to sRGB transfer; keep 709 primaries/matrix and limited range. Encode new video, copy AAC without altering timing. Never relabel master values or overwrite a master.",
+  "testsLockedBeforeExecution": {
+    "playerReference": "Chromium software environment; sRGB canvas plus visible compositor captured at verified presentedMediaTime",
+    "realArtworkRGB": {"maeMax": 3.0, "p95Max": 6.0, "rationale": "Bounded 8-bit quantization and two lossy 4:2:0 encodes; no threshold changes after observing a failure."},
+    "flatPatchInteriorRGB": {"absoluteMax": 3, "excludeBoundaryPixels": 2},
+    "straightAlphaComposition": {"meanAbsoluteMax": 0.6, "absoluteMax": 2, "space": "display-referred encoded sRGB fixture; not a linear-light renderer claim"},
+    "alphaRoundtrip": "exact 8-bit alpha bytes",
+    "audioPackets": "AAC elementary stream SHA identical",
+    "frames": "count/fps/dimensions identical; no interpolation/retiming"
+  },
+  "limits": ["Web review copy is not the BT709 master", "No guarantee for untested players/displays", "No full compositor/artist approval from profile tests"]
+}

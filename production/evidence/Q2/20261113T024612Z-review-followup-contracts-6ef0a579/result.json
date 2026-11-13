@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "review-followup-contracts",
+  "run_id": "20261113T024612Z-review-followup-contracts-6ef0a579",
+  "started_at_utc": "20261113T024612Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "cb4e08476ae831775d1ae0b485e71fd1455be13a",
+  "tracked_diff_sha256": "630562fa473fd8286ff0ef38bc7c169e9cfe61bfc165b790a0090fc2ffad0d26",
+  "recorder_pid": 7932,
+  "source_snapshot_sha256": "54acf5876cc678dd7bbab9ce058471e2e87bb6fa53a41c504710b1e2495d92e0",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 5.919,
+  "finished_at_utc": "2026-11-13T02:46:18.725922+00:00",
+  "log_sha256": "c0d3bd5e15dab5eabbc8faa7a2e83c364477c5abc72b52bf6d5160c8f0a1cf05",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

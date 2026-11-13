@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "export-polish-blocking",
+  "run_id": "20261112T045307Z-export-polish-blocking-f64ebf5a",
+  "started_at_utc": "20261112T045307Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/blender/export_frames.ts",
+    "production/brief/polish.json",
+    "production/out/blender-polish-r0"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "239a10de090cf698680dce070d0c7d24ae2b4aed",
+  "tracked_diff_sha256": "57238a682c4a9c6f699aef0f6d989be54f0c93d46bf543198b61330107fc1215",
+  "status": "RUNNING",
+  "recorder_pid": 8842,
+  "source_snapshot_sha256": "23e1b3751f5b19f29fa4caa8e926988882d6f59e726fbf997d7f01545a19462a"
+}

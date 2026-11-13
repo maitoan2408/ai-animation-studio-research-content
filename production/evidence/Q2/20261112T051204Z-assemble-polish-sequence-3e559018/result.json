@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "assemble-polish-sequence",
+  "run_id": "20261112T051204Z-assemble-polish-sequence-3e559018",
+  "started_at_utc": "20261112T051204Z",
+  "command": [
+    "python",
+    "production/src/editorial/assemble.py",
+    "production/out/b-polish-r0-selection.json",
+    "R0"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "2caae4ee6e513681d4bc481b771a5834e868abda",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 11113,
+  "source_snapshot_sha256": "d9fe87b2871cc7cfab5fb57b86b0727cb6edccfc217af79b72271866c1996ad6",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 0.57,
+  "finished_at_utc": "2026-11-12T05:12:05.417500+00:00",
+  "log_sha256": "5403a477ecfc4d928cf388cf2664b1f42ab0d50d375391530e6a88d79ba6eed7",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

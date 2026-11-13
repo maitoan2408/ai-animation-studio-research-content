@@ -1,0 +1,9 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  2  310M    2 7755k    0     0  13.5M      0  0:00:22 --:--:--  0:00:22 13.5M 17  310M   17 55.7M    0     0  35.8M      0  0:00:08  0:00:01  0:00:07 48.3M 33  310M   33  103M    0     0  40.2M      0  0:00:07  0:00:02  0:00:05 47.7M 48  310M   48  149M    0     0  42.0M      0  0:00:07  0:00:03  0:00:04 47.3M 62  310M   62  195M    0     0  42.8M      0  0:00:07  0:00:04  0:00:03 46.9M 78  310M   78  244M    0     0  44.0M      0  0:00:07  0:00:05  0:00:02 47.4M 94  310M   94  294M    0     0  44.8M      0  0:00:06  0:00:06 --:--:-- 47.6M100  310M  100  310M    0     0  45.0M      0  0:00:06  0:00:06 --:--:-- 47.9M
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+ 13 26.9M   13 3856k    0     0  9073k      0  0:00:03 --:--:--  0:00:03 9073k100 26.9M  100 26.9M    0     0  27.8M      0 --:--:-- --:--:-- --:--:-- 42.8M
+[{"file": "kokoro-v1.0.onnx", "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.onnx", "sha256": "beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a", "bytes": 325505369}, {"file": "voices-v1.0.bin", "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.0.bin", "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d", "bytes": 28214398}]

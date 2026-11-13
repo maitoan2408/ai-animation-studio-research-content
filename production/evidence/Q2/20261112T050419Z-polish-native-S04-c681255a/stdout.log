@@ -1,0 +1,557 @@
+Blender 4.3.2
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000000.png'
+Time: 00:01.05 (Saving: 00:00.15)
+
+Info: Saved "S04.blend"
+{"frame": 0, "seconds": 1.0678238430009515, "reusedFrame": null, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 1, "seconds": 7.690599886700511e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 2, "seconds": 0.00010698099868022837, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 3, "seconds": 4.711099973064847e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 4, "seconds": 4.445700324140489e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 5, "seconds": 4.561900277622044e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 6, "seconds": 4.565899871522561e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 7, "seconds": 4.417600212036632e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 8, "seconds": 9.797800157684833e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 9, "seconds": 4.321500091464259e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 10, "seconds": 5.805700129712932e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 11, "seconds": 4.394600182422437e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 12, "seconds": 3.990000186604448e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 13, "seconds": 7.327999992412515e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 14, "seconds": 4.237400207784958e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 15, "seconds": 4.3815998651552945e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 16, "seconds": 3.867900159093551e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 17, "seconds": 5.153800157131627e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 18, "seconds": 4.894400262855925e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 19, "seconds": 4.769199949805625e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 20, "seconds": 4.5679000322707e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 21, "seconds": 4.753199755214155e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 22, "seconds": 4.34949979535304e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 23, "seconds": 4.131199966650456e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+{"frame": 24, "seconds": 4.569900193018839e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000025.png'
+Time: 00:01.16 (Saving: 00:00.16)
+
+{"frame": 25, "seconds": 1.1705027800016978, "reusedFrame": null, "sha256": "facc8374dcb5f27b646605c4b1ca90329252caccb84f168f6a48bb45aa04e5ab"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000026.png'
+Time: 00:01.11 (Saving: 00:00.15)
+
+{"frame": 26, "seconds": 1.1270129300028202, "reusedFrame": null, "sha256": "9e4f1910927023316ec6343c27c20d865ef8e21097ed3ab9612de1324fcbb877"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000027.png'
+Time: 00:01.17 (Saving: 00:00.15)
+
+{"frame": 27, "seconds": 1.1922211410019372, "reusedFrame": null, "sha256": "7fd4aaeb3436a8c99e5b1ce4dda5d72856191994acd15819a5f93a6f4f7c1e97"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000028.png'
+Time: 00:01.11 (Saving: 00:00.16)
+
+{"frame": 28, "seconds": 1.1268678919986996, "reusedFrame": null, "sha256": "11a2470bb09850596ce0fab31699272081c4908dc0d612923a91287e1addd7a2"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000029.png'
+Time: 00:01.28 (Saving: 00:00.14)
+
+{"frame": 29, "seconds": 1.2952413939965481, "reusedFrame": null, "sha256": "8f416ebada55eb24ca9ae75701d0afb3c8055517abf3448145d187bce2603c91"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000030.png'
+Time: 00:01.09 (Saving: 00:00.15)
+
+{"frame": 30, "seconds": 1.107953850998456, "reusedFrame": null, "sha256": "7d99e7ff88d1e3a3cc4993fac089771687f985f5ccd1db6ccb8bc3298cd65d55"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000031.png'
+Time: 00:01.06 (Saving: 00:00.15)
+
+{"frame": 31, "seconds": 1.0723001030019077, "reusedFrame": null, "sha256": "02e1f2e7edec25898cba90f506143c9f529660ddf133853254721bda3a12b052"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000032.png'
+Time: 00:01.08 (Saving: 00:00.15)
+
+{"frame": 32, "seconds": 1.0987974790004955, "reusedFrame": null, "sha256": "8574dc70f38adda12d4f8c18bfb3d6aaa4bbf655831eaaca608a1de8fdedf0a6"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000033.png'
+Time: 00:01.07 (Saving: 00:00.15)
+
+{"frame": 33, "seconds": 1.0891427530004876, "reusedFrame": null, "sha256": "00569393a0a42c84eb2167d82d41ab5ba3ddf6fa73384f62e08fbd4b785dca1e"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000034.png'
+Time: 00:01.22 (Saving: 00:00.16)
+
+{"frame": 34, "seconds": 1.2409475429994927, "reusedFrame": null, "sha256": "d06a1abc0c0587afb3080d4661585c46473819b9369b08a8512347814cfd2be3"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000035.png'
+Time: 00:01.08 (Saving: 00:00.15)
+
+{"frame": 35, "seconds": 1.1014407769980608, "reusedFrame": null, "sha256": "2358e78d9a92bda8664ec9d803da47c698211bd61158da4ac8ecb575ddb9b5ee"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000036.png'
+Time: 00:01.19 (Saving: 00:00.16)
+
+{"frame": 36, "seconds": 1.2045203679990664, "reusedFrame": null, "sha256": "ec80a2603e41a9aefc4e8daadace26ae23cb77ce13b5421155e83e3a3e5d6cef"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000037.png'
+Time: 00:01.07 (Saving: 00:00.15)
+
+{"frame": 37, "seconds": 1.0921576519976952, "reusedFrame": null, "sha256": "fbbe634fad467c217af844deb92853027edc24b16918fa7ac381fbf619e946cd"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000038.png'
+Time: 00:01.22 (Saving: 00:00.15)
+
+{"frame": 38, "seconds": 1.2348849750014779, "reusedFrame": null, "sha256": "c92b356195c04b33c6bfa62254aa076683ccd2bf82b37a93d400ca2ef36e4c16"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000039.png'
+Time: 00:01.10 (Saving: 00:00.16)
+
+{"frame": 39, "seconds": 1.1163998199990601, "reusedFrame": null, "sha256": "432dfa58c18ddb03dbcd80bbfb77874c836a3ecb71997cf9e3dbb40830810d81"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000040.png'
+Time: 00:01.05 (Saving: 00:00.15)
+
+{"frame": 40, "seconds": 1.0710160339986032, "reusedFrame": null, "sha256": "3bdbc08c1bfcef72cdf7d9e43c7e82c6ae75f2d22f6b12c3072196f7ed1ef48f"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000041.png'
+Time: 00:01.12 (Saving: 00:00.16)
+
+{"frame": 41, "seconds": 1.14226552800028, "reusedFrame": null, "sha256": "109224a9b1971cbd2b0bb1dfebfedaeb4e3b56714e407103b0ead098f227f898"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000042.png'
+Time: 00:01.12 (Saving: 00:00.17)
+
+{"frame": 42, "seconds": 1.1436853600025643, "reusedFrame": null, "sha256": "dc155638b19baacc11ca73e4db87002b4900b0ce61f93159b8b3dd451197d57f"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000043.png'
+Time: 00:01.18 (Saving: 00:00.14)
+
+{"frame": 43, "seconds": 1.203941253002995, "reusedFrame": null, "sha256": "91076e92d1076699c4a5cb3d7b2502f3adc23a3e7b0378c2177e1f3aec6588a5"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000044.png'
+Time: 00:01.09 (Saving: 00:00.15)
+
+{"frame": 44, "seconds": 1.1103859080030816, "reusedFrame": null, "sha256": "54516128f2e73292742755fadb40d62ddc979f6217f337adfc80d5186be2c5ac"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000045.png'
+Time: 00:01.19 (Saving: 00:00.15)
+
+{"frame": 45, "seconds": 1.207788078001613, "reusedFrame": null, "sha256": "9cf08bf7cc0e757297cdad6f4a716c177067140fff9391c7d21c889ee4c553e4"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000046.png'
+Time: 00:01.07 (Saving: 00:00.15)
+
+{"frame": 46, "seconds": 1.0849436960015737, "reusedFrame": null, "sha256": "7fc4d350b08bca6777d544294daee4522258364a2f81d8c9d373764726b29af0"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000047.png'
+Time: 00:01.14 (Saving: 00:00.16)
+
+{"frame": 47, "seconds": 1.162150591997488, "reusedFrame": null, "sha256": "f57fa7df489f1771ee4237a8730d4454f6fc0874187f82e5277728d3baeb3897"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000048.png'
+Time: 00:01.10 (Saving: 00:00.15)
+
+{"frame": 48, "seconds": 1.1248253420017136, "reusedFrame": null, "sha256": "19aee04a68debfe31ec864c8e1ed98e093556667e4bff388fb5b95f142aef67c"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000049.png'
+Time: 00:01.09 (Saving: 00:00.15)
+
+{"frame": 49, "seconds": 1.1080227799975546, "reusedFrame": null, "sha256": "dad506a0613a459d1c11dbe3037f79985da2e71247c63be1cdc8b52314a3d8bf"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000050.png'
+Time: 00:01.19 (Saving: 00:00.17)
+
+{"frame": 50, "seconds": 1.2071880479998072, "reusedFrame": null, "sha256": "12a3b0f003d9be0c6d57c73a942f5ba543647e61c724752e591eef33b45f3387"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000051.png'
+Time: 00:01.11 (Saving: 00:00.15)
+
+{"frame": 51, "seconds": 1.1329593519985792, "reusedFrame": null, "sha256": "1228526f59aa6c3331fe628e10a923801de8d7eb10370270eaab8a69ea08eb40"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000052.png'
+Time: 00:01.22 (Saving: 00:00.15)
+
+{"frame": 52, "seconds": 1.2464938820012321, "reusedFrame": null, "sha256": "10dfa41a0f6be2c147033417043f319da16662cfbfabf6f024e7463b60226a7f"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000053.png'
+Time: 00:01.17 (Saving: 00:00.15)
+
+{"frame": 53, "seconds": 1.1881686819979222, "reusedFrame": null, "sha256": "99a39279fbcf7c93dc3c9729c520c26a5157ded7c00c820442366f62fba19d4b"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000054.png'
+Time: 00:01.29 (Saving: 00:00.16)
+
+{"frame": 54, "seconds": 1.3089521160000004, "reusedFrame": null, "sha256": "3a0692c4f27354ab57e2e4680a5f991fba517d05a2dc2b9e568b1d1190ab4256"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000055.png'
+Time: 00:01.16 (Saving: 00:00.15)
+
+{"frame": 55, "seconds": 1.196300132000033, "reusedFrame": null, "sha256": "5c1d3c503d372b27b8146292ca3420895d8e899af3bd8c79c05dddc6081cd6d8"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000056.png'
+Time: 00:01.07 (Saving: 00:00.15)
+
+{"frame": 56, "seconds": 1.0903274439988309, "reusedFrame": null, "sha256": "3199cf1b195a399e248c83aa2c511f2f7fae98a16f887bee9d0b3d8a8bab03df"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000057.png'
+Time: 00:01.21 (Saving: 00:00.15)
+
+{"frame": 57, "seconds": 1.2313104470013059, "reusedFrame": null, "sha256": "4a139498c6afb9e252105846ffc7860535a6fa000cbbdc0bd5b2c803ee657d6a"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000058.png'
+Time: 00:01.12 (Saving: 00:00.14)
+
+{"frame": 58, "seconds": 1.1361745630019868, "reusedFrame": null, "sha256": "140da8defde76113c844389f96f95f604473a1bd80744c736f9bcd387b69460d"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000059.png'
+Time: 00:01.16 (Saving: 00:00.16)
+
+{"frame": 59, "seconds": 1.176462597999489, "reusedFrame": null, "sha256": "c921dee164d6a20a6a36df2c3f6badacf5d3176aec3cd39e4d6b5750dcf3dfa1"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000060.png'
+Time: 00:01.13 (Saving: 00:00.15)
+
+{"frame": 60, "seconds": 1.145002237000881, "reusedFrame": null, "sha256": "92c7a8eeabad184c8dd0a0bf505304bdee07b7c0e0a0a1be1691c7df9a4a227f"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000061.png'
+Time: 00:01.10 (Saving: 00:00.16)
+
+{"frame": 61, "seconds": 1.1231420019976213, "reusedFrame": null, "sha256": "85de5e447a9c9b888f6c9516d0d2620b4d18f82c54677803c737ed4419a9b370"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000062.png'
+Time: 00:01.10 (Saving: 00:00.15)
+
+{"frame": 62, "seconds": 1.1149562999999034, "reusedFrame": null, "sha256": "611d0d887619ee65eebc8c4f3f2b7e1ed608e9ba134e6afcec16592baab6ded4"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000063.png'
+Time: 00:01.08 (Saving: 00:00.15)
+
+{"frame": 63, "seconds": 1.095333268000104, "reusedFrame": null, "sha256": "35412121bb800fb8c09cf14a1acfde27cc3acec9595d63396493cad52da30f2b"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000064.png'
+Time: 00:01.13 (Saving: 00:00.15)
+
+{"frame": 64, "seconds": 1.15080012999897, "reusedFrame": null, "sha256": "ff9daae9b64fbaeb3748ffd3e51ee8725994d3851f4784d6ab3b521f002b9afd"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000065.png'
+Time: 00:01.05 (Saving: 00:00.15)
+
+{"frame": 65, "seconds": 1.0710709289996885, "reusedFrame": null, "sha256": "910684df9d9770cbc02ffa23989d6251e77c33ee7a53d5d75a7301604dcec5bb"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000066.png'
+Time: 00:01.18 (Saving: 00:00.15)
+
+{"frame": 66, "seconds": 1.1945999790004862, "reusedFrame": null, "sha256": "c07aa6c88d538756eae32294f98f920ceb18981bc070cd14b86e2caee4818276"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000067.png'
+Time: 00:01.11 (Saving: 00:00.15)
+
+{"frame": 67, "seconds": 1.128606142996432, "reusedFrame": null, "sha256": "63763eec4d367efb24f7ea9baf44f7909bb04d3d41f37cc05405b84ddbe816fb"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000068.png'
+Time: 00:01.22 (Saving: 00:00.15)
+
+{"frame": 68, "seconds": 1.2417370549992484, "reusedFrame": null, "sha256": "0cbaf36aa6a132c3bf7b713d1cbd1a6851e325b71773b63cca91c43b2d54ea06"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000069.png'
+Time: 00:01.21 (Saving: 00:00.18)
+
+{"frame": 69, "seconds": 1.2370903240007465, "reusedFrame": null, "sha256": "6dced835e4364032778dfe9074d9559fbc5c786dd279de4167e170acea57a90a"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000070.png'
+Time: 00:01.04 (Saving: 00:00.14)
+
+{"frame": 70, "seconds": 1.0730848660023184, "reusedFrame": null, "sha256": "fa8b8d44befb35622ee9e2e5b093a954daaadbe2a084cc296590ffbef65d1d97"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000071.png'
+Time: 00:01.08 (Saving: 00:00.15)
+
+{"frame": 71, "seconds": 1.0996767689975968, "reusedFrame": null, "sha256": "0c260ec6682eea41a50e08030261ab16a3341f676a488d49d85692d270c4ecfb"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000072.png'
+Time: 00:01.12 (Saving: 00:00.15)
+
+{"frame": 72, "seconds": 1.1394370939997316, "reusedFrame": null, "sha256": "02c2af623b6a20463e1f89139b7618fc27eaba24a1551c743a9460b4f12bed57"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000073.png'
+Time: 00:01.23 (Saving: 00:00.16)
+
+{"frame": 73, "seconds": 1.2481142610013194, "reusedFrame": null, "sha256": "0b4aeb8ff989ee8a3c406c8db8472bc9782e7068212308638373524ccddaf17c"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000074.png'
+Time: 00:01.15 (Saving: 00:00.16)
+
+{"frame": 74, "seconds": 1.1702654299988353, "reusedFrame": null, "sha256": "b0b5e4e0b7b5a71c5769acafd9dc62db0c28b61f8247675b752fe2da70d77910"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000075.png'
+Time: 00:01.24 (Saving: 00:00.15)
+
+{"frame": 75, "seconds": 1.2547412180028914, "reusedFrame": null, "sha256": "6afabd2e2856285b8b89e0494466e6743add3c788f537624c5365fe10a05c783"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000076.png'
+Time: 00:01.16 (Saving: 00:00.15)
+
+{"frame": 76, "seconds": 1.1802139459978207, "reusedFrame": null, "sha256": "d4c54e5046f186fa272686a0638c35e01fe9c5c4477a72b697d4b8f461ff4851"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000077.png'
+Time: 00:01.08 (Saving: 00:00.15)
+
+{"frame": 77, "seconds": 1.1042519430011453, "reusedFrame": null, "sha256": "c09816e27de52391b073595c3df479c26f8ec89acc4ea1d843039029fe36a500"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000078.png'
+Time: 00:01.19 (Saving: 00:00.15)
+
+{"frame": 78, "seconds": 1.2127111289992172, "reusedFrame": null, "sha256": "950f58cade437c76494935108fe4a3cff35dfffbad7ccf248dc77c721597d892"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000079.png'
+Time: 00:01.13 (Saving: 00:00.15)
+
+{"frame": 79, "seconds": 1.149615313999675, "reusedFrame": null, "sha256": "86bca288254c5a93437f74adde413dd18545117950a9f1570f4bf1318fcbcdde"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000080.png'
+Time: 00:01.20 (Saving: 00:00.15)
+
+{"frame": 80, "seconds": 1.2187130290003552, "reusedFrame": null, "sha256": "08717585dd7db4f42a7c7fdaf8388274bd152b763c9eac950018c07b45446957"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000081.png'
+Time: 00:01.10 (Saving: 00:00.14)
+
+{"frame": 81, "seconds": 1.1221562150021782, "reusedFrame": null, "sha256": "fa56a9476f4fe991ffc88fdde4cef593f3e5b7d5fe0bc48151caa06a1bb39cc1"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000082.png'
+Time: 00:01.19 (Saving: 00:00.15)
+
+{"frame": 82, "seconds": 1.2123354260002088, "reusedFrame": null, "sha256": "6e4eaceb38f54e53f04395a57bdcfb11598ea1b0edd3996ad876e60605e2d786"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000083.png'
+Time: 00:01.16 (Saving: 00:00.15)
+
+{"frame": 83, "seconds": 1.181298378000065, "reusedFrame": null, "sha256": "feda3c005fa150e0f6a4883c8fbdf57ed60f17bf8e9e4aa4b2b86f0438d37cae"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000084.png'
+Time: 00:01.08 (Saving: 00:00.15)
+
+{"frame": 84, "seconds": 1.0977979250019416, "reusedFrame": null, "sha256": "44081de2e7a72db6db3a2f07206293a39dcbcea11df503694059e6ef0fa4dc74"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000085.png'
+Time: 00:01.22 (Saving: 00:00.14)
+
+{"frame": 85, "seconds": 1.2409531060002337, "reusedFrame": null, "sha256": "b4f1412f79da55c1f7588df82d9f126a8294770c56ede3299b952921c5b5fa2a"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000086.png'
+Time: 00:01.11 (Saving: 00:00.15)
+
+{"frame": 86, "seconds": 1.129018482999527, "reusedFrame": null, "sha256": "8b388640fe103377cb1e650d4cd2ac08454824faf83c1f0e22f145c69fb030aa"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000087.png'
+Time: 00:01.21 (Saving: 00:00.16)
+
+{"frame": 87, "seconds": 1.2249503109997022, "reusedFrame": null, "sha256": "4cf5e13bebb34110fc1d8e6390d553629c8669cbc67b059962e4510160e7a79f"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000088.png'
+Time: 00:01.10 (Saving: 00:00.15)
+
+{"frame": 88, "seconds": 1.1214145560006727, "reusedFrame": null, "sha256": "49d68799d1773c54f0d1c45b49c70f698b28dc544cf751dbce5d669384708ad9"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000089.png'
+Time: 00:01.13 (Saving: 00:00.15)
+
+{"frame": 89, "seconds": 1.1510164739993343, "reusedFrame": null, "sha256": "7cb963d25ffe8dfd736def1eb2249b6847e10c9e383e350cea7f7caf67400e49"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000090.png'
+Time: 00:01.09 (Saving: 00:00.15)
+
+{"frame": 90, "seconds": 1.1094159679996665, "reusedFrame": null, "sha256": "fb4bdad5c9b3d7f310999b4bc0446a9d1274071b6435aaac0ab831a95c2153ef"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000091.png'
+Time: 00:01.06 (Saving: 00:00.15)
+
+{"frame": 91, "seconds": 1.0836649150005542, "reusedFrame": null, "sha256": "b97b11b8fd2c0f622b233fa2b98c061c449d0e9f90ada5a6e3eb75198f777e57"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000092.png'
+Time: 00:01.10 (Saving: 00:00.20)
+
+{"frame": 92, "seconds": 1.1472462340025231, "reusedFrame": null, "sha256": "e96a63d393eacf1ef4756868a428017ec080d101709719c39226a22f6bb14946"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000093.png'
+Time: 00:01.09 (Saving: 00:00.15)
+
+{"frame": 93, "seconds": 1.1202588559972355, "reusedFrame": null, "sha256": "433f0e206722d83282b0bcbb042386ff7e4ef7b5c79415f9a53b5e786053ccb1"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000094.png'
+Time: 00:01.09 (Saving: 00:00.14)
+
+{"frame": 94, "seconds": 1.109092991999205, "reusedFrame": null, "sha256": "2d0ad27d38723fb0895a8890728e5b0d744ba2989c6ad442ef73cbadb38efbb4"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000095.png'
+Time: 00:01.09 (Saving: 00:00.15)
+
+{"frame": 95, "seconds": 1.1086636309992173, "reusedFrame": null, "sha256": "c92e5590443364323c51eb97a5cc1aa56b22627c1315ec57cca563bd11b61f8d"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000096.png'
+Time: 00:01.29 (Saving: 00:00.15)
+
+{"frame": 96, "seconds": 1.3051483159979398, "reusedFrame": null, "sha256": "af10a96150709fa5414b565d12f832a2c561efc84b0886576605da3d0e611a22"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000097.png'
+Time: 00:01.12 (Saving: 00:00.15)
+
+{"frame": 97, "seconds": 1.1445045889995527, "reusedFrame": null, "sha256": "e7a8cd6d588c4d6a221a2f62a5c454e02a24cfb0827f71e49f98c2278ec4ba08"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000098.png'
+Time: 00:01.19 (Saving: 00:00.14)
+
+{"frame": 98, "seconds": 1.2056769720002194, "reusedFrame": null, "sha256": "52b0b2b89af7ec0d7ad6edf559a1bd3c2dd2f3cfc43b0da3bbe90e8818805d48"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000099.png'
+Time: 00:01.37 (Saving: 00:00.20)
+
+{"frame": 99, "seconds": 1.3923126950030564, "reusedFrame": null, "sha256": "dc48501651cb3fbf12691753c53fa14927edf6dc91a6a00e90cb37bcd139099e"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000100.png'
+Time: 00:01.64 (Saving: 00:00.18)
+
+{"frame": 100, "seconds": 1.663152799999807, "reusedFrame": null, "sha256": "9523240fe451676537d237a7384fd77d460eb5e4ca5602939fe663e27da371d8"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000101.png'
+Time: 00:01.59 (Saving: 00:00.15)
+
+{"frame": 101, "seconds": 1.6056487100031518, "reusedFrame": null, "sha256": "eafe191638fcac1aeb2755d7b17e30fde2b8bb0c3524ef77c1b6e4bb2241b3d3"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000102.png'
+Time: 00:01.24 (Saving: 00:00.14)
+
+{"frame": 102, "seconds": 1.2574994610004069, "reusedFrame": null, "sha256": "d079cdb662f7d30173c69a7119d88b55189ee15724055776ae492582c176e56a"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000103.png'
+Time: 00:01.11 (Saving: 00:00.15)
+
+{"frame": 103, "seconds": 1.1259057890019903, "reusedFrame": null, "sha256": "5ebd29a2cd8e9f8ba1fd6a0157775a402029362218363a6dd2ee6e09819502f5"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000104.png'
+Time: 00:01.26 (Saving: 00:00.15)
+
+{"frame": 104, "seconds": 1.2796706490007637, "reusedFrame": null, "sha256": "86a65189dc8d8b4282e5828a4eda5d3a4d8e78ffcfa675a08fab088ee4c1944a"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000105.png'
+Time: 00:01.28 (Saving: 00:00.15)
+
+{"frame": 105, "seconds": 1.3041819169993687, "reusedFrame": null, "sha256": "060b30df17745207730bd8a9a6d04bcf572ff02609cb233a8bb01beb8aea2dce"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000106.png'
+Time: 00:01.17 (Saving: 00:00.15)
+
+{"frame": 106, "seconds": 1.1933225769971614, "reusedFrame": null, "sha256": "c4a697d1f221ed14bbe93fd25e872b94521fe5b2f4d919d2d0ee27799e21c339"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000107.png'
+Time: 00:01.24 (Saving: 00:00.15)
+
+{"frame": 107, "seconds": 1.2606121419994452, "reusedFrame": null, "sha256": "d65ffeb05aef9e91659bee6bdc0da836123d8d4197e030480e49bda77673f27a"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000108.png'
+Time: 00:01.11 (Saving: 00:00.15)
+
+{"frame": 108, "seconds": 1.1259263889987778, "reusedFrame": null, "sha256": "8dcc3e0d3363cd573ce7275d69915702d314f4236429f50a55e48afa4b38ec66"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000109.png'
+Time: 00:01.23 (Saving: 00:00.15)
+
+{"frame": 109, "seconds": 1.2491785969978082, "reusedFrame": null, "sha256": "858ee35ac354a070b3c72cfbae489d1be522c1abb42231751e2175102e2f5177"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000110.png'
+Time: 00:01.10 (Saving: 00:00.14)
+
+{"frame": 110, "seconds": 1.1182874580008502, "reusedFrame": null, "sha256": "1e6d9a006e953245a032afdf9d2909ab616d924c7f4facf772f0dfd6c414d015"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000111.png'
+Time: 00:01.07 (Saving: 00:00.15)
+
+{"frame": 111, "seconds": 1.092322686999978, "reusedFrame": null, "sha256": "0a831c03b91a2a36f9eb7536b509f7d3fafe245a12565894ea9be70bce54dd93"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000112.png'
+Time: 00:01.17 (Saving: 00:00.15)
+
+{"frame": 112, "seconds": 1.1961511519984924, "reusedFrame": null, "sha256": "87d1d6a512d4818b2573e892a3c03c65fe6da656bffb81705add209dc16d390e"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000113.png'
+Time: 00:01.13 (Saving: 00:00.15)
+
+{"frame": 113, "seconds": 1.1498138919996563, "reusedFrame": null, "sha256": "a3aded317b642cfa9f9d6970b57c31f976fe9f3c202c6d27da9b01ba5c33cc16"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000114.png'
+Time: 00:01.18 (Saving: 00:00.17)
+
+{"frame": 114, "seconds": 1.1958151090002502, "reusedFrame": null, "sha256": "f6e01adcb2ce459bf91a896a7d68291d80a1532aa672131c9e3efcf2f4ef77f1"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000115.png'
+Time: 00:01.03 (Saving: 00:00.15)
+
+{"frame": 115, "seconds": 1.053316936999181, "reusedFrame": null, "sha256": "237029757925e10a9ceb987cff8d5ffa40202832803b3568df566ef0361775a8"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000116.png'
+Time: 00:01.18 (Saving: 00:00.15)
+
+{"frame": 116, "seconds": 1.1957091549993493, "reusedFrame": null, "sha256": "d815b6f492a11eadbd9fdfb336c17a2c8753f4bd5a00e52055d956c852259c5e"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000117.png'
+Time: 00:01.09 (Saving: 00:00.15)
+
+{"frame": 117, "seconds": 1.1164300509990426, "reusedFrame": null, "sha256": "ac38ad2eace3d6acfe5ccf88ed282b578ef560d0a577a0ae58c204fd63f85b82"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000118.png'
+Time: 00:01.09 (Saving: 00:00.15)
+
+{"frame": 118, "seconds": 1.1108997789997375, "reusedFrame": null, "sha256": "8c5b31857ea92f0ae39c693ce96255c6c549f4eb73a977d788d46843786ee8da"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000119.png'
+Time: 00:01.12 (Saving: 00:00.15)
+
+{"frame": 119, "seconds": 1.1349815590001526, "reusedFrame": null, "sha256": "5658d4773829a1c0ef2686c70229e0467a0c762493912d79ad43c2b60edb603c"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000120.png'
+Time: 00:01.08 (Saving: 00:00.15)
+
+{"frame": 120, "seconds": 1.102518992000114, "reusedFrame": null, "sha256": "547abc75b30282c7a3f2a8a9e0600d5986e86e683b6ce76b75ac02b69fa3a715"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000121.png'
+Time: 00:01.18 (Saving: 00:00.15)
+
+{"frame": 121, "seconds": 1.2044521159987198, "reusedFrame": null, "sha256": "d348cf1683606b86484a471d54a67c107d361d6b62ace4bc0618f4c33cf3b4e5"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000122.png'
+Time: 00:01.07 (Saving: 00:00.15)
+
+{"frame": 122, "seconds": 1.0908615330008615, "reusedFrame": null, "sha256": "70d7e23fc679c52d3f2860c5ff1e888c38cef0e18df46c7d992ba6db57d89ff2"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000123.png'
+Time: 00:01.19 (Saving: 00:00.17)
+
+{"frame": 123, "seconds": 1.2130391149985371, "reusedFrame": null, "sha256": "1f84b6d4af4982e93f60f5493f16852748f81940bf3e136ec1d47ff171b46d7f"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000124.png'
+Time: 00:01.16 (Saving: 00:00.16)
+
+{"frame": 124, "seconds": 1.1794922950030013, "reusedFrame": null, "sha256": "9240f3eca89999ed232962c6c78c4f7aeebe9adf60573bc4c2dbe4f0e36bdc76"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000125.png'
+Time: 00:01.22 (Saving: 00:00.16)
+
+{"frame": 125, "seconds": 1.2466588349998347, "reusedFrame": null, "sha256": "2f1e4ffbdeb04e4eef60ae6a6036c1edbd0654638d120b6e9d102cc57dcfb5ea"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000126.png'
+Time: 00:01.20 (Saving: 00:00.15)
+
+{"frame": 126, "seconds": 1.2306676619991777, "reusedFrame": null, "sha256": "1926e32dfa5ce6ee468cee66f73e4f881fa9c47d1f7288700206a3bc44b75782"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000127.png'
+Time: 00:01.07 (Saving: 00:00.15)
+
+{"frame": 127, "seconds": 1.085817313996813, "reusedFrame": null, "sha256": "e306bea45ba49785ea76037f0bab970b624b8da40b9b1cf7aeaf39c03486d741"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000128.png'
+Time: 00:01.10 (Saving: 00:00.15)
+
+{"frame": 128, "seconds": 1.124283134999132, "reusedFrame": null, "sha256": "8c073f5f44131e2dda8527f9f9ab31724f321abc97651b03a9151def0b737d0f"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000129.png'
+Time: 00:01.05 (Saving: 00:00.15)
+
+{"frame": 129, "seconds": 1.0709080890010227, "reusedFrame": null, "sha256": "eb4e78f6787f9ab8d37b1f9c443d5a472ee6720a756bdb515373d461954b4e76"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000130.png'
+Time: 00:01.20 (Saving: 00:00.15)
+
+{"frame": 130, "seconds": 1.22234599100193, "reusedFrame": null, "sha256": "fb1c5b64895acbb67857f19b93912893aabcd10325aecbba780412021310fae3"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000131.png'
+Time: 00:01.10 (Saving: 00:00.15)
+
+{"frame": 131, "seconds": 1.1160577510017902, "reusedFrame": null, "sha256": "e704f651fde179b04125049a503cf63b9b17cbb509524303d31b0e1e5c958a12"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000132.png'
+Time: 00:01.18 (Saving: 00:00.16)
+
+{"frame": 132, "seconds": 1.200873027999478, "reusedFrame": null, "sha256": "65c114cb9e42dd2308c75c4c4c9e18871d6bad4a6111626a062ce017549e61d6"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000133.png'
+Time: 00:01.20 (Saving: 00:00.16)
+
+{"frame": 133, "seconds": 1.2293257689998427, "reusedFrame": null, "sha256": "722726b7731b2ba76d74858715d491ce3b9193efeb1a69175623cd2221bd6e5f"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000134.png'
+Time: 00:01.10 (Saving: 00:00.15)
+
+{"frame": 134, "seconds": 1.1238039240015496, "reusedFrame": null, "sha256": "a900d54d1ca1c6187ecdbca625cee5247313e7448536ddaf1b7578c9072a6f5d"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000135.png'
+Time: 00:01.13 (Saving: 00:00.16)
+
+{"frame": 135, "seconds": 1.1486340860028577, "reusedFrame": null, "sha256": "520f4311e64ad102e6d48058fde8cf7d7b41570f1dfa140b57580583ec3064af"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000136.png'
+Time: 00:01.08 (Saving: 00:00.17)
+
+{"frame": 136, "seconds": 1.1042710250003438, "reusedFrame": null, "sha256": "7a5f6ad6c3a1aa148d2b1bd9b1c0487d1def1388789b3d2e1c4f89c2ce485419"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000137.png'
+Time: 00:01.18 (Saving: 00:00.14)
+
+{"frame": 137, "seconds": 1.1996382380020805, "reusedFrame": null, "sha256": "c27f9bc6b61ee64eae10b87810fa5decdf34b0466ab9234a66e7e26ca37c31d8"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000138.png'
+Time: 00:01.11 (Saving: 00:00.15)
+
+{"frame": 138, "seconds": 1.1255720949993702, "reusedFrame": null, "sha256": "11ae40ea5f8d1d97091ccabd564f0c1c11a8d9dc7d748b70dad261f182c7bdaf"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000139.png'
+Time: 00:01.17 (Saving: 00:00.15)
+
+{"frame": 139, "seconds": 1.192342529000598, "reusedFrame": null, "sha256": "574168dc1dfd02f7a0ffd0c0c3533690f5c592d77370d22477daf8a982fd9be2"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000140.png'
+Time: 00:01.08 (Saving: 00:00.15)
+
+{"frame": 140, "seconds": 1.0957331489989883, "reusedFrame": null, "sha256": "ddf6163bd4602dc66a3674074913e9257b4040b477a1d1d49c27d67dff1cec1d"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000141.png'
+Time: 00:01.09 (Saving: 00:00.15)
+
+{"frame": 141, "seconds": 1.1094947359997605, "reusedFrame": null, "sha256": "7564553ac14c1fcf0309c5ab1d1ec16e1b8205d9b77f69af8861a12869f6e1ae"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000142.png'
+Time: 00:01.22 (Saving: 00:00.16)
+
+{"frame": 142, "seconds": 1.2366534780012444, "reusedFrame": null, "sha256": "b5aff0b176cdf7e83ae0105ce0ac94718391f79c0cf215361fae4fb197028071"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/000143.png'
+Time: 00:01.76 (Saving: 00:00.39)
+
+{"frame": 143, "seconds": 1.7855790219982737, "reusedFrame": null, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 144, "seconds": 5.3501000365940854e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 145, "seconds": 4.776300193043426e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 146, "seconds": 6.949499947950244e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 147, "seconds": 9.898899952531792e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 148, "seconds": 6.153299909783527e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 149, "seconds": 0.00010617999942041934, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 150, "seconds": 0.00015396199887618423, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 151, "seconds": 0.0010460689991305117, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 152, "seconds": 0.00024967699937405996, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 153, "seconds": 5.0726001063594595e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 154, "seconds": 9.419200068805367e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 155, "seconds": 7.075699977576733e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 156, "seconds": 7.075699977576733e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 157, "seconds": 4.7370998800033703e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 158, "seconds": 8.466700091958046e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 159, "seconds": 7.329099753405899e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 160, "seconds": 5.778700142400339e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 161, "seconds": 0.00038721400051144883, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 162, "seconds": 0.00010339599975850433, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 163, "seconds": 0.00013536500046029687, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 164, "seconds": 0.00014462800027104095, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 165, "seconds": 6.624999878113158e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 166, "seconds": 0.00011058699965360574, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 167, "seconds": 8.897400039131753e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 168, "seconds": 4.898399856756441e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 169, "seconds": 0.00010260499766445719, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 170, "seconds": 5.3480998758459464e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 171, "seconds": 7.46830010029953e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 172, "seconds": 5.519399928743951e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 173, "seconds": 8.122199869831093e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 174, "seconds": 4.944499960402027e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 175, "seconds": 5.342100121197291e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 176, "seconds": 0.0001589900020917412, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 177, "seconds": 8.455699935439043e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 178, "seconds": 4.521799928625114e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 179, "seconds": 5.00960013596341e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 180, "seconds": 4.423700011102483e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 181, "seconds": 0.00011573399751796387, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 182, "seconds": 0.00010016099986387417, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 183, "seconds": 7.54630018491298e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 184, "seconds": 7.818800077075139e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 185, "seconds": 5.2528997912304476e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 186, "seconds": 5.21180008945521e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 187, "seconds": 9.052599853021093e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 188, "seconds": 4.716100011137314e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 189, "seconds": 5.467199662234634e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 190, "seconds": 5.16479994985275e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"frame": 191, "seconds": 4.9043999752029777e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}
+{"out": "/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b", "status": "PASS_TECHNICAL", "candidate": "B-VSE-experiment", "shot": "S04", "version": "4.3.2", "width": 1920, "frames": 192, "rendered": [{"frame": 0, "seconds": 1.0678238430009515, "reusedFrame": null, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 1, "seconds": 7.690599886700511e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 2, "seconds": 0.00010698099868022837, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 3, "seconds": 4.711099973064847e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 4, "seconds": 4.445700324140489e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 5, "seconds": 4.561900277622044e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 6, "seconds": 4.565899871522561e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 7, "seconds": 4.417600212036632e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 8, "seconds": 9.797800157684833e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 9, "seconds": 4.321500091464259e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 10, "seconds": 5.805700129712932e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 11, "seconds": 4.394600182422437e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 12, "seconds": 3.990000186604448e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 13, "seconds": 7.327999992412515e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 14, "seconds": 4.237400207784958e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 15, "seconds": 4.3815998651552945e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 16, "seconds": 3.867900159093551e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 17, "seconds": 5.153800157131627e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 18, "seconds": 4.894400262855925e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 19, "seconds": 4.769199949805625e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 20, "seconds": 4.5679000322707e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 21, "seconds": 4.753199755214155e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 22, "seconds": 4.34949979535304e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 23, "seconds": 4.131199966650456e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 24, "seconds": 4.569900193018839e-05, "reusedFrame": 0, "sha256": "b7b44506cc227b84207d74036c11a27c24249957b1c405145964d2c43ab0f9a3"}, {"frame": 25, "seconds": 1.1705027800016978, "reusedFrame": null, "sha256": "facc8374dcb5f27b646605c4b1ca90329252caccb84f168f6a48bb45aa04e5ab"}, {"frame": 26, "seconds": 1.1270129300028202, "reusedFrame": null, "sha256": "9e4f1910927023316ec6343c27c20d865ef8e21097ed3ab9612de1324fcbb877"}, {"frame": 27, "seconds": 1.1922211410019372, "reusedFrame": null, "sha256": "7fd4aaeb3436a8c99e5b1ce4dda5d72856191994acd15819a5f93a6f4f7c1e97"}, {"frame": 28, "seconds": 1.1268678919986996, "reusedFrame": null, "sha256": "11a2470bb09850596ce0fab31699272081c4908dc0d612923a91287e1addd7a2"}, {"frame": 29, "seconds": 1.2952413939965481, "reusedFrame": null, "sha256": "8f416ebada55eb24ca9ae75701d0afb3c8055517abf3448145d187bce2603c91"}, {"frame": 30, "seconds": 1.107953850998456, "reusedFrame": null, "sha256": "7d99e7ff88d1e3a3cc4993fac089771687f985f5ccd1db6ccb8bc3298cd65d55"}, {"frame": 31, "seconds": 1.0723001030019077, "reusedFrame": null, "sha256": "02e1f2e7edec25898cba90f506143c9f529660ddf133853254721bda3a12b052"}, {"frame": 32, "seconds": 1.0987974790004955, "reusedFrame": null, "sha256": "8574dc70f38adda12d4f8c18bfb3d6aaa4bbf655831eaaca608a1de8fdedf0a6"}, {"frame": 33, "seconds": 1.0891427530004876, "reusedFrame": null, "sha256": "00569393a0a42c84eb2167d82d41ab5ba3ddf6fa73384f62e08fbd4b785dca1e"}, {"frame": 34, "seconds": 1.2409475429994927, "reusedFrame": null, "sha256": "d06a1abc0c0587afb3080d4661585c46473819b9369b08a8512347814cfd2be3"}, {"frame": 35, "seconds": 1.1014407769980608, "reusedFrame": null, "sha256": "2358e78d9a92bda8664ec9d803da47c698211bd61158da4ac8ecb575ddb9b5ee"}, {"frame": 36, "seconds": 1.2045203679990664, "reusedFrame": null, "sha256": "ec80a2603e41a9aefc4e8daadace26ae23cb77ce13b5421155e83e3a3e5d6cef"}, {"frame": 37, "seconds": 1.0921576519976952, "reusedFrame": null, "sha256": "fbbe634fad467c217af844deb92853027edc24b16918fa7ac381fbf619e946cd"}, {"frame": 38, "seconds": 1.2348849750014779, "reusedFrame": null, "sha256": "c92b356195c04b33c6bfa62254aa076683ccd2bf82b37a93d400ca2ef36e4c16"}, {"frame": 39, "seconds": 1.1163998199990601, "reusedFrame": null, "sha256": "432dfa58c18ddb03dbcd80bbfb77874c836a3ecb71997cf9e3dbb40830810d81"}, {"frame": 40, "seconds": 1.0710160339986032, "reusedFrame": null, "sha256": "3bdbc08c1bfcef72cdf7d9e43c7e82c6ae75f2d22f6b12c3072196f7ed1ef48f"}, {"frame": 41, "seconds": 1.14226552800028, "reusedFrame": null, "sha256": "109224a9b1971cbd2b0bb1dfebfedaeb4e3b56714e407103b0ead098f227f898"}, {"frame": 42, "seconds": 1.1436853600025643, "reusedFrame": null, "sha256": "dc155638b19baacc11ca73e4db87002b4900b0ce61f93159b8b3dd451197d57f"}, {"frame": 43, "seconds": 1.203941253002995, "reusedFrame": null, "sha256": "91076e92d1076699c4a5cb3d7b2502f3adc23a3e7b0378c2177e1f3aec6588a5"}, {"frame": 44, "seconds": 1.1103859080030816, "reusedFrame": null, "sha256": "54516128f2e73292742755fadb40d62ddc979f6217f337adfc80d5186be2c5ac"}, {"frame": 45, "seconds": 1.207788078001613, "reusedFrame": null, "sha256": "9cf08bf7cc0e757297cdad6f4a716c177067140fff9391c7d21c889ee4c553e4"}, {"frame": 46, "seconds": 1.0849436960015737, "reusedFrame": null, "sha256": "7fc4d350b08bca6777d544294daee4522258364a2f81d8c9d373764726b29af0"}, {"frame": 47, "seconds": 1.162150591997488, "reusedFrame": null, "sha256": "f57fa7df489f1771ee4237a8730d4454f6fc0874187f82e5277728d3baeb3897"}, {"frame": 48, "seconds": 1.1248253420017136, "reusedFrame": null, "sha256": "19aee04a68debfe31ec864c8e1ed98e093556667e4bff388fb5b95f142aef67c"}, {"frame": 49, "seconds": 1.1080227799975546, "reusedFrame": null, "sha256": "dad506a0613a459d1c11dbe3037f79985da2e71247c63be1cdc8b52314a3d8bf"}, {"frame": 50, "seconds": 1.2071880479998072, "reusedFrame": null, "sha256": "12a3b0f003d9be0c6d57c73a942f5ba543647e61c724752e591eef33b45f3387"}, {"frame": 51, "seconds": 1.1329593519985792, "reusedFrame": null, "sha256": "1228526f59aa6c3331fe628e10a923801de8d7eb10370270eaab8a69ea08eb40"}, {"frame": 52, "seconds": 1.2464938820012321, "reusedFrame": null, "sha256": "10dfa41a0f6be2c147033417043f319da16662cfbfabf6f024e7463b60226a7f"}, {"frame": 53, "seconds": 1.1881686819979222, "reusedFrame": null, "sha256": "99a39279fbcf7c93dc3c9729c520c26a5157ded7c00c820442366f62fba19d4b"}, {"frame": 54, "seconds": 1.3089521160000004, "reusedFrame": null, "sha256": "3a0692c4f27354ab57e2e4680a5f991fba517d05a2dc2b9e568b1d1190ab4256"}, {"frame": 55, "seconds": 1.196300132000033, "reusedFrame": null, "sha256": "5c1d3c503d372b27b8146292ca3420895d8e899af3bd8c79c05dddc6081cd6d8"}, {"frame": 56, "seconds": 1.0903274439988309, "reusedFrame": null, "sha256": "3199cf1b195a399e248c83aa2c511f2f7fae98a16f887bee9d0b3d8a8bab03df"}, {"frame": 57, "seconds": 1.2313104470013059, "reusedFrame": null, "sha256": "4a139498c6afb9e252105846ffc7860535a6fa000cbbdc0bd5b2c803ee657d6a"}, {"frame": 58, "seconds": 1.1361745630019868, "reusedFrame": null, "sha256": "140da8defde76113c844389f96f95f604473a1bd80744c736f9bcd387b69460d"}, {"frame": 59, "seconds": 1.176462597999489, "reusedFrame": null, "sha256": "c921dee164d6a20a6a36df2c3f6badacf5d3176aec3cd39e4d6b5750dcf3dfa1"}, {"frame": 60, "seconds": 1.145002237000881, "reusedFrame": null, "sha256": "92c7a8eeabad184c8dd0a0bf505304bdee07b7c0e0a0a1be1691c7df9a4a227f"}, {"frame": 61, "seconds": 1.1231420019976213, "reusedFrame": null, "sha256": "85de5e447a9c9b888f6c9516d0d2620b4d18f82c54677803c737ed4419a9b370"}, {"frame": 62, "seconds": 1.1149562999999034, "reusedFrame": null, "sha256": "611d0d887619ee65eebc8c4f3f2b7e1ed608e9ba134e6afcec16592baab6ded4"}, {"frame": 63, "seconds": 1.095333268000104, "reusedFrame": null, "sha256": "35412121bb800fb8c09cf14a1acfde27cc3acec9595d63396493cad52da30f2b"}, {"frame": 64, "seconds": 1.15080012999897, "reusedFrame": null, "sha256": "ff9daae9b64fbaeb3748ffd3e51ee8725994d3851f4784d6ab3b521f002b9afd"}, {"frame": 65, "seconds": 1.0710709289996885, "reusedFrame": null, "sha256": "910684df9d9770cbc02ffa23989d6251e77c33ee7a53d5d75a7301604dcec5bb"}, {"frame": 66, "seconds": 1.1945999790004862, "reusedFrame": null, "sha256": "c07aa6c88d538756eae32294f98f920ceb18981bc070cd14b86e2caee4818276"}, {"frame": 67, "seconds": 1.128606142996432, "reusedFrame": null, "sha256": "63763eec4d367efb24f7ea9baf44f7909bb04d3d41f37cc05405b84ddbe816fb"}, {"frame": 68, "seconds": 1.2417370549992484, "reusedFrame": null, "sha256": "0cbaf36aa6a132c3bf7b713d1cbd1a6851e325b71773b63cca91c43b2d54ea06"}, {"frame": 69, "seconds": 1.2370903240007465, "reusedFrame": null, "sha256": "6dced835e4364032778dfe9074d9559fbc5c786dd279de4167e170acea57a90a"}, {"frame": 70, "seconds": 1.0730848660023184, "reusedFrame": null, "sha256": "fa8b8d44befb35622ee9e2e5b093a954daaadbe2a084cc296590ffbef65d1d97"}, {"frame": 71, "seconds": 1.0996767689975968, "reusedFrame": null, "sha256": "0c260ec6682eea41a50e08030261ab16a3341f676a488d49d85692d270c4ecfb"}, {"frame": 72, "seconds": 1.1394370939997316, "reusedFrame": null, "sha256": "02c2af623b6a20463e1f89139b7618fc27eaba24a1551c743a9460b4f12bed57"}, {"frame": 73, "seconds": 1.2481142610013194, "reusedFrame": null, "sha256": "0b4aeb8ff989ee8a3c406c8db8472bc9782e7068212308638373524ccddaf17c"}, {"frame": 74, "seconds": 1.1702654299988353, "reusedFrame": null, "sha256": "b0b5e4e0b7b5a71c5769acafd9dc62db0c28b61f8247675b752fe2da70d77910"}, {"frame": 75, "seconds": 1.2547412180028914, "reusedFrame": null, "sha256": "6afabd2e2856285b8b89e0494466e6743add3c788f537624c5365fe10a05c783"}, {"frame": 76, "seconds": 1.1802139459978207, "reusedFrame": null, "sha256": "d4c54e5046f186fa272686a0638c35e01fe9c5c4477a72b697d4b8f461ff4851"}, {"frame": 77, "seconds": 1.1042519430011453, "reusedFrame": null, "sha256": "c09816e27de52391b073595c3df479c26f8ec89acc4ea1d843039029fe36a500"}, {"frame": 78, "seconds": 1.2127111289992172, "reusedFrame": null, "sha256": "950f58cade437c76494935108fe4a3cff35dfffbad7ccf248dc77c721597d892"}, {"frame": 79, "seconds": 1.149615313999675, "reusedFrame": null, "sha256": "86bca288254c5a93437f74adde413dd18545117950a9f1570f4bf1318fcbcdde"}, {"frame": 80, "seconds": 1.2187130290003552, "reusedFrame": null, "sha256": "08717585dd7db4f42a7c7fdaf8388274bd152b763c9eac950018c07b45446957"}, {"frame": 81, "seconds": 1.1221562150021782, "reusedFrame": null, "sha256": "fa56a9476f4fe991ffc88fdde4cef593f3e5b7d5fe0bc48151caa06a1bb39cc1"}, {"frame": 82, "seconds": 1.2123354260002088, "reusedFrame": null, "sha256": "6e4eaceb38f54e53f04395a57bdcfb11598ea1b0edd3996ad876e60605e2d786"}, {"frame": 83, "seconds": 1.181298378000065, "reusedFrame": null, "sha256": "feda3c005fa150e0f6a4883c8fbdf57ed60f17bf8e9e4aa4b2b86f0438d37cae"}, {"frame": 84, "seconds": 1.0977979250019416, "reusedFrame": null, "sha256": "44081de2e7a72db6db3a2f07206293a39dcbcea11df503694059e6ef0fa4dc74"}, {"frame": 85, "seconds": 1.2409531060002337, "reusedFrame": null, "sha256": "b4f1412f79da55c1f7588df82d9f126a8294770c56ede3299b952921c5b5fa2a"}, {"frame": 86, "seconds": 1.129018482999527, "reusedFrame": null, "sha256": "8b388640fe103377cb1e650d4cd2ac08454824faf83c1f0e22f145c69fb030aa"}, {"frame": 87, "seconds": 1.2249503109997022, "reusedFrame": null, "sha256": "4cf5e13bebb34110fc1d8e6390d553629c8669cbc67b059962e4510160e7a79f"}, {"frame": 88, "seconds": 1.1214145560006727, "reusedFrame": null, "sha256": "49d68799d1773c54f0d1c45b49c70f698b28dc544cf751dbce5d669384708ad9"}, {"frame": 89, "seconds": 1.1510164739993343, "reusedFrame": null, "sha256": "7cb963d25ffe8dfd736def1eb2249b6847e10c9e383e350cea7f7caf67400e49"}, {"frame": 90, "seconds": 1.1094159679996665, "reusedFrame": null, "sha256": "fb4bdad5c9b3d7f310999b4bc0446a9d1274071b6435aaac0ab831a95c2153ef"}, {"frame": 91, "seconds": 1.0836649150005542, "reusedFrame": null, "sha256": "b97b11b8fd2c0f622b233fa2b98c061c449d0e9f90ada5a6e3eb75198f777e57"}, {"frame": 92, "seconds": 1.1472462340025231, "reusedFrame": null, "sha256": "e96a63d393eacf1ef4756868a428017ec080d101709719c39226a22f6bb14946"}, {"frame": 93, "seconds": 1.1202588559972355, "reusedFrame": null, "sha256": "433f0e206722d83282b0bcbb042386ff7e4ef7b5c79415f9a53b5e786053ccb1"}, {"frame": 94, "seconds": 1.109092991999205, "reusedFrame": null, "sha256": "2d0ad27d38723fb0895a8890728e5b0d744ba2989c6ad442ef73cbadb38efbb4"}, {"frame": 95, "seconds": 1.1086636309992173, "reusedFrame": null, "sha256": "c92e5590443364323c51eb97a5cc1aa56b22627c1315ec57cca563bd11b61f8d"}, {"frame": 96, "seconds": 1.3051483159979398, "reusedFrame": null, "sha256": "af10a96150709fa5414b565d12f832a2c561efc84b0886576605da3d0e611a22"}, {"frame": 97, "seconds": 1.1445045889995527, "reusedFrame": null, "sha256": "e7a8cd6d588c4d6a221a2f62a5c454e02a24cfb0827f71e49f98c2278ec4ba08"}, {"frame": 98, "seconds": 1.2056769720002194, "reusedFrame": null, "sha256": "52b0b2b89af7ec0d7ad6edf559a1bd3c2dd2f3cfc43b0da3bbe90e8818805d48"}, {"frame": 99, "seconds": 1.3923126950030564, "reusedFrame": null, "sha256": "dc48501651cb3fbf12691753c53fa14927edf6dc91a6a00e90cb37bcd139099e"}, {"frame": 100, "seconds": 1.663152799999807, "reusedFrame": null, "sha256": "9523240fe451676537d237a7384fd77d460eb5e4ca5602939fe663e27da371d8"}, {"frame": 101, "seconds": 1.6056487100031518, "reusedFrame": null, "sha256": "eafe191638fcac1aeb2755d7b17e30fde2b8bb0c3524ef77c1b6e4bb2241b3d3"}, {"frame": 102, "seconds": 1.2574994610004069, "reusedFrame": null, "sha256": "d079cdb662f7d30173c69a7119d88b55189ee15724055776ae492582c176e56a"}, {"frame": 103, "seconds": 1.1259057890019903, "reusedFrame": null, "sha256": "5ebd29a2cd8e9f8ba1fd6a0157775a402029362218363a6dd2ee6e09819502f5"}, {"frame": 104, "seconds": 1.2796706490007637, "reusedFrame": null, "sha256": "86a65189dc8d8b4282e5828a4eda5d3a4d8e78ffcfa675a08fab088ee4c1944a"}, {"frame": 105, "seconds": 1.3041819169993687, "reusedFrame": null, "sha256": "060b30df17745207730bd8a9a6d04bcf572ff02609cb233a8bb01beb8aea2dce"}, {"frame": 106, "seconds": 1.1933225769971614, "reusedFrame": null, "sha256": "c4a697d1f221ed14bbe93fd25e872b94521fe5b2f4d919d2d0ee27799e21c339"}, {"frame": 107, "seconds": 1.2606121419994452, "reusedFrame": null, "sha256": "d65ffeb05aef9e91659bee6bdc0da836123d8d4197e030480e49bda77673f27a"}, {"frame": 108, "seconds": 1.1259263889987778, "reusedFrame": null, "sha256": "8dcc3e0d3363cd573ce7275d69915702d314f4236429f50a55e48afa4b38ec66"}, {"frame": 109, "seconds": 1.2491785969978082, "reusedFrame": null, "sha256": "858ee35ac354a070b3c72cfbae489d1be522c1abb42231751e2175102e2f5177"}, {"frame": 110, "seconds": 1.1182874580008502, "reusedFrame": null, "sha256": "1e6d9a006e953245a032afdf9d2909ab616d924c7f4facf772f0dfd6c414d015"}, {"frame": 111, "seconds": 1.092322686999978, "reusedFrame": null, "sha256": "0a831c03b91a2a36f9eb7536b509f7d3fafe245a12565894ea9be70bce54dd93"}, {"frame": 112, "seconds": 1.1961511519984924, "reusedFrame": null, "sha256": "87d1d6a512d4818b2573e892a3c03c65fe6da656bffb81705add209dc16d390e"}, {"frame": 113, "seconds": 1.1498138919996563, "reusedFrame": null, "sha256": "a3aded317b642cfa9f9d6970b57c31f976fe9f3c202c6d27da9b01ba5c33cc16"}, {"frame": 114, "seconds": 1.1958151090002502, "reusedFrame": null, "sha256": "f6e01adcb2ce459bf91a896a7d68291d80a1532aa672131c9e3efcf2f4ef77f1"}, {"frame": 115, "seconds": 1.053316936999181, "reusedFrame": null, "sha256": "237029757925e10a9ceb987cff8d5ffa40202832803b3568df566ef0361775a8"}, {"frame": 116, "seconds": 1.1957091549993493, "reusedFrame": null, "sha256": "d815b6f492a11eadbd9fdfb336c17a2c8753f4bd5a00e52055d956c852259c5e"}, {"frame": 117, "seconds": 1.1164300509990426, "reusedFrame": null, "sha256": "ac38ad2eace3d6acfe5ccf88ed282b578ef560d0a577a0ae58c204fd63f85b82"}, {"frame": 118, "seconds": 1.1108997789997375, "reusedFrame": null, "sha256": "8c5b31857ea92f0ae39c693ce96255c6c549f4eb73a977d788d46843786ee8da"}, {"frame": 119, "seconds": 1.1349815590001526, "reusedFrame": null, "sha256": "5658d4773829a1c0ef2686c70229e0467a0c762493912d79ad43c2b60edb603c"}, {"frame": 120, "seconds": 1.102518992000114, "reusedFrame": null, "sha256": "547abc75b30282c7a3f2a8a9e0600d5986e86e683b6ce76b75ac02b69fa3a715"}, {"frame": 121, "seconds": 1.2044521159987198, "reusedFrame": null, "sha256": "d348cf1683606b86484a471d54a67c107d361d6b62ace4bc0618f4c33cf3b4e5"}, {"frame": 122, "seconds": 1.0908615330008615, "reusedFrame": null, "sha256": "70d7e23fc679c52d3f2860c5ff1e888c38cef0e18df46c7d992ba6db57d89ff2"}, {"frame": 123, "seconds": 1.2130391149985371, "reusedFrame": null, "sha256": "1f84b6d4af4982e93f60f5493f16852748f81940bf3e136ec1d47ff171b46d7f"}, {"frame": 124, "seconds": 1.1794922950030013, "reusedFrame": null, "sha256": "9240f3eca89999ed232962c6c78c4f7aeebe9adf60573bc4c2dbe4f0e36bdc76"}, {"frame": 125, "seconds": 1.2466588349998347, "reusedFrame": null, "sha256": "2f1e4ffbdeb04e4eef60ae6a6036c1edbd0654638d120b6e9d102cc57dcfb5ea"}, {"frame": 126, "seconds": 1.2306676619991777, "reusedFrame": null, "sha256": "1926e32dfa5ce6ee468cee66f73e4f881fa9c47d1f7288700206a3bc44b75782"}, {"frame": 127, "seconds": 1.085817313996813, "reusedFrame": null, "sha256": "e306bea45ba49785ea76037f0bab970b624b8da40b9b1cf7aeaf39c03486d741"}, {"frame": 128, "seconds": 1.124283134999132, "reusedFrame": null, "sha256": "8c073f5f44131e2dda8527f9f9ab31724f321abc97651b03a9151def0b737d0f"}, {"frame": 129, "seconds": 1.0709080890010227, "reusedFrame": null, "sha256": "eb4e78f6787f9ab8d37b1f9c443d5a472ee6720a756bdb515373d461954b4e76"}, {"frame": 130, "seconds": 1.22234599100193, "reusedFrame": null, "sha256": "fb1c5b64895acbb67857f19b93912893aabcd10325aecbba780412021310fae3"}, {"frame": 131, "seconds": 1.1160577510017902, "reusedFrame": null, "sha256": "e704f651fde179b04125049a503cf63b9b17cbb509524303d31b0e1e5c958a12"}, {"frame": 132, "seconds": 1.200873027999478, "reusedFrame": null, "sha256": "65c114cb9e42dd2308c75c4c4c9e18871d6bad4a6111626a062ce017549e61d6"}, {"frame": 133, "seconds": 1.2293257689998427, "reusedFrame": null, "sha256": "722726b7731b2ba76d74858715d491ce3b9193efeb1a69175623cd2221bd6e5f"}, {"frame": 134, "seconds": 1.1238039240015496, "reusedFrame": null, "sha256": "a900d54d1ca1c6187ecdbca625cee5247313e7448536ddaf1b7578c9072a6f5d"}, {"frame": 135, "seconds": 1.1486340860028577, "reusedFrame": null, "sha256": "520f4311e64ad102e6d48058fde8cf7d7b41570f1dfa140b57580583ec3064af"}, {"frame": 136, "seconds": 1.1042710250003438, "reusedFrame": null, "sha256": "7a5f6ad6c3a1aa148d2b1bd9b1c0487d1def1388789b3d2e1c4f89c2ce485419"}, {"frame": 137, "seconds": 1.1996382380020805, "reusedFrame": null, "sha256": "c27f9bc6b61ee64eae10b87810fa5decdf34b0466ab9234a66e7e26ca37c31d8"}, {"frame": 138, "seconds": 1.1255720949993702, "reusedFrame": null, "sha256": "11ae40ea5f8d1d97091ccabd564f0c1c11a8d9dc7d748b70dad261f182c7bdaf"}, {"frame": 139, "seconds": 1.192342529000598, "reusedFrame": null, "sha256": "574168dc1dfd02f7a0ffd0c0c3533690f5c592d77370d22477daf8a982fd9be2"}, {"frame": 140, "seconds": 1.0957331489989883, "reusedFrame": null, "sha256": "ddf6163bd4602dc66a3674074913e9257b4040b477a1d1d49c27d67dff1cec1d"}, {"frame": 141, "seconds": 1.1094947359997605, "reusedFrame": null, "sha256": "7564553ac14c1fcf0309c5ab1d1ec16e1b8205d9b77f69af8861a12869f6e1ae"}, {"frame": 142, "seconds": 1.2366534780012444, "reusedFrame": null, "sha256": "b5aff0b176cdf7e83ae0105ce0ac94718391f79c0cf215361fae4fb197028071"}, {"frame": 143, "seconds": 1.7855790219982737, "reusedFrame": null, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 144, "seconds": 5.3501000365940854e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 145, "seconds": 4.776300193043426e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 146, "seconds": 6.949499947950244e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 147, "seconds": 9.898899952531792e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 148, "seconds": 6.153299909783527e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 149, "seconds": 0.00010617999942041934, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 150, "seconds": 0.00015396199887618423, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 151, "seconds": 0.0010460689991305117, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 152, "seconds": 0.00024967699937405996, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 153, "seconds": 5.0726001063594595e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 154, "seconds": 9.419200068805367e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 155, "seconds": 7.075699977576733e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 156, "seconds": 7.075699977576733e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 157, "seconds": 4.7370998800033703e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 158, "seconds": 8.466700091958046e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 159, "seconds": 7.329099753405899e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 160, "seconds": 5.778700142400339e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 161, "seconds": 0.00038721400051144883, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 162, "seconds": 0.00010339599975850433, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 163, "seconds": 0.00013536500046029687, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 164, "seconds": 0.00014462800027104095, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 165, "seconds": 6.624999878113158e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 166, "seconds": 0.00011058699965360574, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 167, "seconds": 8.897400039131753e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 168, "seconds": 4.898399856756441e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 169, "seconds": 0.00010260499766445719, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 170, "seconds": 5.3480998758459464e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 171, "seconds": 7.46830010029953e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 172, "seconds": 5.519399928743951e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 173, "seconds": 8.122199869831093e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 174, "seconds": 4.944499960402027e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 175, "seconds": 5.342100121197291e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 176, "seconds": 0.0001589900020917412, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 177, "seconds": 8.455699935439043e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 178, "seconds": 4.521799928625114e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 179, "seconds": 5.00960013596341e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 180, "seconds": 4.423700011102483e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 181, "seconds": 0.00011573399751796387, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 182, "seconds": 0.00010016099986387417, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 183, "seconds": 7.54630018491298e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 184, "seconds": 7.818800077075139e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 185, "seconds": 5.2528997912304476e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 186, "seconds": 5.21180008945521e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 187, "seconds": 9.052599853021093e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 188, "seconds": 4.716100011137314e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 189, "seconds": 5.467199662234634e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 190, "seconds": 5.16479994985275e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}, {"frame": 191, "seconds": 4.9043999752029777e-05, "reusedFrame": 143, "sha256": "4cfb0b737a7b02dd846e6e5b43d49d36b241a38ef09c58663ff8dffa2349ff2c"}], "nativeFile": "S04.blend", "limits": ["Native VSE 2D composition; no 3D camera/light/bones", "Creative and random-seek comparison pending"], "probe": {"streams": [{"index": 0, "codec_name": "h264", "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10", "profile": "High", "codec_type": "video", "codec_tag_string": "avc1", "codec_tag": "0x31637661", "width": 1920, "height": 1080, "coded_width": 1920, "coded_height": 1088, "closed_captions": 0, "film_grain": 0, "has_b_frames": 2, "sample_aspect_ratio": "1:1", "display_aspect_ratio": "16:9", "pix_fmt": "yuv420p", "level": 40, "color_range": "tv", "color_space": "bt709", "color_transfer": "bt709", "color_primaries": "bt709", "chroma_location": "left", "field_order": "progressive", "refs": 4, "is_avc": "true", "nal_length_size": "4", "id": "0x1", "r_frame_rate": "24/1", "avg_frame_rate": "24/1", "time_base": "1/12288", "start_pts": 0, "start_time": "0.000000", "duration_ts": 98304, "duration": "8.000000", "bit_rate": "2522897", "bits_per_raw_sample": "8", "nb_frames": "192", "nb_read_frames": "192", "extradata_size": 51, "disposition": {"default": 1, "dub": 0, "original": 0, "comment": 0, "lyrics": 0, "karaoke": 0, "forced": 0, "hearing_impaired": 0, "visual_impaired": 0, "clean_effects": 0, "attached_pic": 0, "timed_thumbnails": 0, "non_diegetic": 0, "captions": 0, "descriptions": 0, "metadata": 0, "dependent": 0, "still_image": 0, "multilayer": 0}, "tags": {"language": "und", "handler_name": "VideoHandler", "vendor_id": "[0][0][0][0]", "encoder": "Lavc61.19.101 libx264"}}, {"index": 1, "codec_name": "aac", "codec_long_name": "AAC (Advanced Audio Coding)", "profile": "LC", "codec_type": "audio", "codec_tag_string": "mp4a", "codec_tag": "0x6134706d", "sample_fmt": "fltp", "sample_rate": "48000", "channels": 2, "channel_layout": "stereo", "bits_per_sample": 0, "initial_padding": 0, "id": "0x2", "r_frame_rate": "0/0", "avg_frame_rate": "0/0", "time_base": "1/48000", "start_pts": 0, "start_time": "0.000000", "duration_ts": 384000, "duration": "8.000000", "bit_rate": "2283", "nb_frames": "376", "nb_read_frames": "375", "extradata_size": 5, "disposition": {"default": 1, "dub": 0, "original": 0, "comment": 0, "lyrics": 0, "karaoke": 0, "forced": 0, "hearing_impaired": 0, "visual_impaired": 0, "clean_effects": 0, "attached_pic": 0, "timed_thumbnails": 0, "non_diegetic": 0, "captions": 0, "descriptions": 0, "metadata": 0, "dependent": 0, "still_image": 0, "multilayer": 0}, "tags": {"language": "und", "handler_name": "SoundHandler", "vendor_id": "[0][0][0][0]"}}], "format": {"filename": "/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261112T050420Z-S04-1920-0d5a598b/delivery.mp4", "nb_streams": 2, "nb_programs": 0, "nb_stream_groups": 0, "format_name": "mov,mp4,m4a,3gp,3g2,mj2", "format_long_name": "QuickTime / MOV", "start_time": "0.000000", "duration": "8.000000", "size": "2532202", "bit_rate": "2532202", "probe_score": 100, "tags": {"major_brand": "isom", "minor_version": "512", "compatible_brands": "isomiso2avc1mp41", "encoder": "Lavf61.7.103"}}}, "audioInputSha256": null, "deliverySha256": "6c047825ad020c3437ed20f3e43a04f06f582e1eeb18ddef6fb06ef1413348fb"}
+
+Blender quit

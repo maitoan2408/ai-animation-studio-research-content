@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "s05-r3-legacy-replay",
+  "run_id": "20261113T100801Z-s05-r3-legacy-replay-3d398bf2",
+  "started_at_utc": "20261113T100801Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/qa/check_handoff_legacy.ts",
+    "production/out/b-final-r2-selection.json",
+    "production/artifacts/Q2/s05-r3/legacy-report.json"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "bc3c7894875cfb9e97f984eb359f4d9d92114cca",
+  "tracked_diff_sha256": "8e2d4eb1ae76cb95c1a02274eb28b6d3da56348cfaaefabf36531014011dd1ad",
+  "status": "RUNNING",
+  "recorder_pid": 10916,
+  "source_snapshot_sha256": "e9f549d01edda5a30d9da78fbcd6384e111d30bc51e1ca0ed8681968f7998d81"
+}

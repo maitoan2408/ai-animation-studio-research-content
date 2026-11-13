@@ -1,0 +1,8 @@
+test_peak_limited_voice_does_not_silently_change_dynamics (test_loudness.LoudnessContracts.test_peak_limited_voice_does_not_silently_change_dynamics) ... ok
+test_silent_or_nonfinite_audio_is_rejected (test_loudness.LoudnessContracts.test_silent_or_nonfinite_audio_is_rejected) ... ok
+test_sparse_voice_can_reach_target_with_peak_reserve (test_loudness.LoudnessContracts.test_sparse_voice_can_reach_target_with_peak_reserve) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

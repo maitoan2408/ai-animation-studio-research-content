@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "restoredFiles": 70,
+  "order": [
+    191,
+    0,
+    72,
+    48,
+    191,
+    72
+  ],
+  "samples": [
+    {
+      "frame": 191,
+      "pixelsExact": true,
+      "fileSha256": "1f1bf98184d9d4f9673ef565f4327fee3c88681289e6ee4049ac80ad71820aa9"
+    },
+    {
+      "frame": 0,
+      "pixelsExact": true,
+      "fileSha256": "e469271ca534790d99df8adb0111e6902d9e354b09b927057b689f272d65e420"
+    },
+    {
+      "frame": 72,
+      "pixelsExact": true,
+      "fileSha256": "af7fc78ffa25a3e56b3a6ae6a3b6e1492289ec4e7af4ff3d8b190c42538b9633"
+    },
+    {
+      "frame": 48,
+      "pixelsExact": true,
+      "fileSha256": "251d736462a2ede74f90d2f58211f50d21b4f55e402b4ec49f67f94f2aeb58e4"
+    },
+    {
+      "frame": 191,
+      "pixelsExact": true,
+      "fileSha256": "ce3e80a7584e010e54cde4949e1a1e6c938dbdf3eab12bfcd8e4217be9854427"
+    },
+    {
+      "frame": 72,
+      "pixelsExact": true,
+      "fileSha256": "9a9c3da649dacda45bf3432d7fd01d559b3dbf6913cae87ce59792df013a6211"
+    }
+  ],
+  "scope": "Fresh path/process native replay; same agent, not an independent operator"
+}

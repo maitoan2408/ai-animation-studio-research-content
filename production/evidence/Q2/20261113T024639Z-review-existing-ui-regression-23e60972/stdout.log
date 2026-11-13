@@ -1,0 +1,23 @@
+
+> paper-studio-production-workbench@0.1.0 test:review-ui
+> tsx tests/review-ui.mjs
+
+PASS Initial frame0 presented; annotation enabled only after pause/settle
+PASS Acceptance availability follows exact catalog color status
+PASS Range seek and individual forward/back steps use presented frame72
+PASS Persisted annotation renders markup as text
+PASS Reload preserves saved review
+PASS R2 reordered timeline maps frame400 to S01, with no inherited R0 notes
+PASS Actual muted playback at1x; recording disabled during playback
+PASS Actual muted playback at0.5x; recording disabled during playback
+PASS Saved second annotation on R2
+PASS Two-window stale revision rejects, retains text, reloads and saves safely
+PASS Export retains exact artifact/frame bindings and test-only authorship
+PASS 390px mobile layout fits without horizontal overflow
+PASS Server restart verifies hash chain and restores prior notes
+{"output":"/workspace/ai-animation-studio-research-content/production/out/review-ui/f155c32e-2330-4f17-b278-e686d966b678","status":"PASS","checks":["Initial frame0 presented; annotation enabled only after pause/settle","Acceptance availability follows exact catalog color status","Range seek and individual forward/back steps use presented frame72","Persisted annotation renders markup as text","Reload preserves saved review","R2 reordered timeline maps frame400 to S01, with no inherited R0 notes","Actual muted playback at1x; recording disabled during playback","Actual muted playback at0.5x; recording disabled during playback","Saved second annotation on R2","Two-window stale revision rejects, retains text, reloads and saves safely","Export retains exact artifact/frame bindings and test-only authorship","390px mobile layout fits without horizontal overflow","Server restart verifies hash chain and restores prior notes"],"browser":"Chrome/156.0.8078.79","errors":[],"mode":"automated-test","journalHead":"5dd11c8eb737cd52ba36ae7d1bcd28725b3870c1ca2274349176d4732f648089","records":4,"limits":["Functional UI verification; muted playback, no listening or artistic approval","Same agent; not independent operator handoff"]}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

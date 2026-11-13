@@ -1,0 +1,25 @@
+{
+  "phase": "Q1",
+  "status": "TECHNICAL_READY_REVIEW_PENDING",
+  "reviewer": "delegated-agent",
+  "inputs": "lantern-brief-1",
+  "artAssets": 64,
+  "artManifestSha256": "24303d52f098ab77f382bc897f04d961594152a474222ad55f72d2c1101e0024",
+  "evidence": "production/artifacts/Q1/draft-3/review.json",
+  "passed": [
+    "source hashes/bounds/rig/contact/texture alpha",
+    "typecheck",
+    "Three real texture render WebGL2 SwiftShader",
+    "Blender 4.3.2 Eevee real texture render",
+    "local voice PCM/length/predicted timing checks"
+  ],
+  "open": [
+    "EX-011 listening review"
+  ],
+  "permittedNext": "Q2 technical contracts/blocking with fixed voice fixture, without claiming production voice acceptance",
+  "notClaimed": [
+    "Full Q1 creative approval",
+    "Q2 motion or performance gate",
+    "Independent reviewer or human hours"
+  ]
+}

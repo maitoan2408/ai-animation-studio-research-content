@@ -1,0 +1,19 @@
+{
+  "phase": "Q2",
+  "step": "pack-web-v2-r1",
+  "run_id": "20261112T152741Z-pack-web-v2-r1-f918e28f",
+  "started_at_utc": "20261112T152741Z",
+  "command": [
+    "python",
+    "production/src/media/review_bundle.py",
+    "pack",
+    "production/out/native-web-review/affaf7db5cb543bdb124989c2f41a3df",
+    "production/artifacts/Q2/web-review-v2/R1"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "d4335130d727049325443d5b91ae6a2421e075756b4882e7705968db57412b5f",
+  "status": "RUNNING",
+  "recorder_pid": 20554,
+  "source_snapshot_sha256": "4d1ebf057fed4692e89d548441b584341d4b63e699c9aad553af3ab1b24c33f4"
+}

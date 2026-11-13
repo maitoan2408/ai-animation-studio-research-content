@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "s05-r3-native-replay",
+  "run_id": "20261113T100918Z-s05-r3-native-replay-f4741a91",
+  "started_at_utc": "20261113T100918Z",
+  "command": [
+    "python",
+    "production/src/blender/check_portable.py",
+    "production/out/s05-r3-publication/native.zip",
+    "production/out/candidate-b-vse/20261113T100531Z-S05-1920-5f9c6931"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "bc3c7894875cfb9e97f984eb359f4d9d92114cca",
+  "tracked_diff_sha256": "8e2d4eb1ae76cb95c1a02274eb28b6d3da56348cfaaefabf36531014011dd1ad",
+  "status": "RUNNING",
+  "recorder_pid": 11212,
+  "source_snapshot_sha256": "a77d032b74a1b0fbd37aa9894f9f95f3f41ada26ac5501ca2a750a786af51140"
+}

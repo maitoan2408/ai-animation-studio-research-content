@@ -1,0 +1,20 @@
+{
+  "status": "PARTIAL_ART_GATE",
+  "reviewer": "delegated-agent",
+  "viewed": [
+    "wide.png",
+    "contact.png"
+  ],
+  "fixed": [
+    "EX-006: grounded neutral stance and resting hand direction",
+    "EX-007: same 2px contact assertion now passes; source initial gap 31.4006px retained"
+  ],
+  "limits": [
+    "Head profile exists but torso profile still requires its own drawing before Q1 closes",
+    "Motion has not started"
+  ],
+  "remaining": [
+    "EX-008 profile review",
+    "EX-009 dedicated torso views"
+  ]
+}

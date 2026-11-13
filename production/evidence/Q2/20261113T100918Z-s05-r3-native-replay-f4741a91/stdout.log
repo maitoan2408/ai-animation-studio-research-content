@@ -1,0 +1,23 @@
+Blender 4.3.2
+Read blend: "/workspace/ai-animation-studio-research-content/production/out/restore/7e6c2c6da2814fe0aeec715a90131285/project/S05.blend"
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/7e6c2c6da2814fe0aeec715a90131285/replay/0-191.png'
+Time: 00:01.07 (Saving: 00:00.18)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/7e6c2c6da2814fe0aeec715a90131285/replay/1-0.png'
+Time: 00:01.43 (Saving: 00:00.17)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/7e6c2c6da2814fe0aeec715a90131285/replay/2-72.png'
+Time: 00:01.18 (Saving: 00:00.16)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/7e6c2c6da2814fe0aeec715a90131285/replay/3-48.png'
+Time: 00:01.12 (Saving: 00:00.16)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/7e6c2c6da2814fe0aeec715a90131285/replay/4-191.png'
+Time: 00:01.16 (Saving: 00:00.15)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/restore/7e6c2c6da2814fe0aeec715a90131285/replay/5-72.png'
+Time: 00:01.07 (Saving: 00:00.15)
+
+
+Blender quit
+{"output": "/workspace/ai-animation-studio-research-content/production/out/restore/7e6c2c6da2814fe0aeec715a90131285", "status": "PASS", "restoredFiles": 41, "order": [191, 0, 72, 48, 191, 72], "samples": [{"frame": 191, "pixelsExact": true, "fileSha256": "e4d9357bf30ee1c42699cdf4b27858d6f035359dc704354895b420d60199259f"}, {"frame": 0, "pixelsExact": true, "fileSha256": "42154ba1252bff10dbf1167ad292d18374df743c2435c16e3b31dfb7c403efbd"}, {"frame": 72, "pixelsExact": true, "fileSha256": "fe919af7ee17109c997235dedd2ca209ed64425c0a2d53763fb12c3dad1a1817"}, {"frame": 48, "pixelsExact": true, "fileSha256": "dabe53f6628cd98b5a6975af97a8183728d9049cc5557abc7e5c5fd001537ba4"}, {"frame": 191, "pixelsExact": true, "fileSha256": "00ee01c5d67decb4fd3ab0a269b31ed4c40f8437071b2d99c2226c659efc1360"}, {"frame": 72, "pixelsExact": true, "fileSha256": "bde2b6f2dfa8533dcb8b17ed327c6163729c4425c1ecebd9c362b22a7a39ef26"}], "scope": "Fresh path/process native replay; same agent, not an independent operator"}

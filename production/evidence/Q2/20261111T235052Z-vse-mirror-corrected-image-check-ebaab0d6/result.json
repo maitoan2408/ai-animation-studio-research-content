@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "vse-mirror-corrected-image-check",
+  "run_id": "20261111T235052Z-vse-mirror-corrected-image-check-ebaab0d6",
+  "started_at_utc": "20261111T235052Z",
+  "command": [
+    "python",
+    "production/src/blender/compare_frames.py",
+    "production/out/candidate-b/20261111T234211Z-S05-1920-8-d634506b",
+    "production/out/candidate-b-vse/20261111T234525Z-S05-1920-6a98e489"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "016e5a920a0744bf9070a378ee6be317599ff224",
+  "tracked_diff_sha256": "293525406052abb90ef855b512f50a90b2337608efdbc3e424ae5ae9f24fe692",
+  "recorder_pid": 6652,
+  "source_snapshot_sha256": "bb85bbcb6e7fa62e67b6d611f1eb64b3ae80b2a674a02e8e6537988a3c5ab0a4",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 1.701,
+  "finished_at_utc": "2026-11-11T23:50:54.549270+00:00",
+  "log_sha256": "0e729137810b3c5006f830ebba61d7cc0b75f4873b4fad5151db9161f5ff715e",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

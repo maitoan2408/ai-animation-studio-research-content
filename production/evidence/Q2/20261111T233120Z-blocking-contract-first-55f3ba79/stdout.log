@@ -1,0 +1,25 @@
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ art source hashes, explicit pivots, views and local references remain intact (21.821704ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (1.317666ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (1.103764ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (71.163238ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (10.142999ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (2.462943ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (3.112011ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (5.085856ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 614.868639
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -1,0 +1,13 @@
+{
+  "status": "PASS_TECHNICAL",
+  "changedPixels": 1905436,
+  "sourceProjectSha256": "8c6b233d1cb84d11f610ae99a264b88e7c11bf4016c9c625b99d0463c4c26430",
+  "editedProjectSha256": "0c97cad8fcb778568d6add80ed46b52f51a86237aabd843756cb53acc044e5a1",
+  "sourceUnchanged": true,
+  "editedFrameReopensExactly": true,
+  "operator": "delegated-agent",
+  "limits": [
+    "Same-agent fresh-process test; not an independent operator",
+    "No full native semantic rig UI"
+  ]
+}

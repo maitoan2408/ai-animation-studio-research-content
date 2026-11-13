@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "checkedAtUtc": "2026-11-12T23:33:40.927Z",
+  "status": "PASS",
+  "sourceHead": "d82da6e73fc4ac710ff7d520beb0eb048d1e11b4",
+  "ciStandaloneMergeCommit": "6bf854b5ae098c632087f8aa0bc6e5affaead4c6",
+  "runs": [
+    {
+      "id": 43329136529,
+      "name": "Q2 workbench verification",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 4,
+      "jobs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136529/jobs",
+      "logs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136529/logs",
+      "workflow_id": 416678554,
+      "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136529"
+    },
+    {
+      "id": 43329136433,
+      "name": "Paper Studio verification",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 23,
+      "jobs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136433/jobs",
+      "logs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136433/logs",
+      "workflow_id": 413980343,
+      "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136433"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 131569115216,
+      "name": "contracts-and-review",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43329136529,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Install local media runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm --prefix production ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Install locked QC libraries",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npm --prefix production run typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm --prefix production test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run /tmp/q2-qc/bin/python -m unittest discover -s production/tests -p 'test_*.py' -v",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Restore exact review media from Git parts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run npm --prefix production run review -- check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Verify frozen chart in actual Chromium",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Run npm --prefix production run test:review-ui",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Verify standalone Git-only installation and review workflow",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Upload diagnostic evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31
+        }
+      ]
+    },
+    {
+      "id": 131569115587,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43329136433,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Install media runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npm run studio -- doctor",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npm run verify",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run npm run test:integration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run test:ui",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Upload evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23
+        }
+      ]
+    }
+  ],
+  "standaloneReport": "fresh-review-20261113/ci-standalone-report.json",
+  "supersedesFailureRun": 43328442441,
+  "limits": [
+    "All workflows and standalone step succeeded; no failed/skipped verification step relabelled",
+    "GitHub PR tests use the test-merge commit; source head is separately recorded",
+    "Functional/media/installation verification does not close listening, full artistic review or independent-operator gates"
+  ]
+}

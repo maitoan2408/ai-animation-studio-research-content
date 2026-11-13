@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "web-chart-color-thresholds",
+  "run_id": "20261112T145542Z-web-chart-color-thresholds-19d78b2b",
+  "started_at_utc": "20261112T145542Z",
+  "command": [
+    "python",
+    "production/src/media/check_chart.py",
+    "production/out/color-chart/eeb0cb6f8ae14c8bafd4d773eae18402/fixture.json",
+    "production/out/player-check/b7a53000-14ce-4a14-8d08-9bb8d664cbfc"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "66f9f1fac901b7eea67400816ae1e14f22d3e6a6",
+  "tracked_diff_sha256": "6fc8dfe7061b81d7cc59a9ef9a8468df0cb4836f856a210205cc7d223ce28819",
+  "status": "RUNNING",
+  "recorder_pid": 17092,
+  "source_snapshot_sha256": "fa6919de929c9b0b99e725155b668b25a52d36840725328f42bf7a3db46a5310"
+}

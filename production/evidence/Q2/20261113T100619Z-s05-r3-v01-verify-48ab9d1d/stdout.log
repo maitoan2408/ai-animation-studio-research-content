@@ -1,0 +1,62 @@
+
+> paper-studio@0.1.0 verify
+> npm run format:check && npm run typecheck && npm test
+
+
+> paper-studio@0.1.0 format:check
+> prettier --check src tests web package.json tsconfig.json tsconfig.test.json
+
+Checking formatting...
+All matched files use Prettier code style!
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> paper-studio@0.1.0 typecheck
+> tsc --noEmit && tsc -p tsconfig.test.json
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> paper-studio@0.1.0 test
+> tsx --test tests/*.test.ts
+
+✔ mixer places audio at scene frame boundary and rejects overflow instead of trimming (71.293477ms)
+✔ planner rejects malformed and duplicate directives (0.473184ms)
+✔ script produces explicit scenes, stable IDs and frame durations (5.046582ms)
+✔ reject invalid duration, unsupported directions and excessive scene count (1.545321ms)
+✔ narration edits invalidate generated voice binding (2.479491ms)
+✔ duplicate scene IDs and unknown fields are rejected (0.557771ms)
+✔ optimistic revision updates serialize; old revision remains unchanged (36.594627ms)
+✔ store blocks traversal and detects changed asset bytes (31.493423ms)
+✔ startup marks a running job interrupted rather than successful (5.174345ms)
+✔ HTTP boundary rejects cross-origin writes, unknown fields and revision conflicts (148.005311ms)
+✔ one data owner; failed attempt retries without overwriting history (265.300629ms)
+✔ duplicate submit, active cancellation and manual retry (231.911962ms)
+✔ cache verifies bytes and binds reused output to the requested revision (322.322458ms)
+✔ portable package checks all hashes before importing and does not inherit approval (16.750676ms)
+✔ WAV parsing rejects format confusion and truncated chunks (0.610281ms)
+✔ reopening persisted running state interrupts its attempt and keeps the next owner locked (282.345198ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2479.262323
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

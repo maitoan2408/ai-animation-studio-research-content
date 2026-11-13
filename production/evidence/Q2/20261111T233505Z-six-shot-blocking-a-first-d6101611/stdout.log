@@ -1,0 +1,14 @@
+[SystemMemory] cgroup memory limit detected: 8192 MiB. It governs memory-adaptive render behaviour instead of host RAM.
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+/workspace/ai-animation-studio-research-content/production/node_modules/@hyperframes/engine/dist/services/frameCapture.js:1337
+    throw new Error(`[FrameCapture] window.__hf not ready after ${timeoutMs}ms. ` +
+          ^
+
+Error: [FrameCapture] window.__hf not ready after 45000ms. Page must expose window.__hf = { duration, seek }.
+  State: __hf=false, seek=false, player=false, renderReady=false, duration=-1
+    at pollHfReady (/workspace/ai-animation-studio-research-content/production/node_modules/@hyperframes/engine/dist/services/frameCapture.js:1337:11)
+    at async initializeSession (/workspace/ai-animation-studio-research-content/production/node_modules/@hyperframes/engine/dist/services/frameCapture.js:2288:9)
+    at async <anonymous> (/workspace/ai-animation-studio-research-content/production/src/render/render_shots.ts:35:3)
+
+Node.js v24.22.1

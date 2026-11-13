@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "rgb-lossless-chart-player",
+  "run_id": "20261112T150802Z-rgb-lossless-chart-player-2b5f8519",
+  "started_at_utc": "20261112T150802Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/render/check_player.ts",
+    "production/out/native-color-chart/adbf34dbfc344a9ba2a293c438d0237a",
+    "12"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "66f9f1fac901b7eea67400816ae1e14f22d3e6a6",
+  "tracked_diff_sha256": "9ccd082b89537a05c7bb3e553bd3096c63fd8e5550522f3f8dc97b7ac56d6671",
+  "status": "RUNNING",
+  "recorder_pid": 17931,
+  "source_snapshot_sha256": "aa66a5e1c225a14369c62ef7e3737518ab5e9f84f424b80e7e7ebe7505902b56"
+}

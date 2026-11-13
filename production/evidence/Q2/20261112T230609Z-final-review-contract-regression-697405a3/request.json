@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "final-review-contract-regression",
+  "run_id": "20261112T230609Z-final-review-contract-regression-697405a3",
+  "started_at_utc": "20261112T230609Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "198b1f90060bc9f805f93a8e611a487b5028dc01",
+  "tracked_diff_sha256": "ccc7dd06f52ef9aaa641d34df0d841b1b16f32a757d9019c72297f2b4939fb0f",
+  "status": "RUNNING",
+  "recorder_pid": 4890,
+  "source_snapshot_sha256": "b7adbb46f6575c47dfc26ebe2541ff4188103dee0a57da4bec9a88dd09a0ebd0"
+}

@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "assemble-polish-sequence",
+  "run_id": "20261112T051204Z-assemble-polish-sequence-3e559018",
+  "started_at_utc": "20261112T051204Z",
+  "command": [
+    "python",
+    "production/src/editorial/assemble.py",
+    "production/out/b-polish-r0-selection.json",
+    "R0"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "2caae4ee6e513681d4bc481b771a5834e868abda",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 11113,
+  "source_snapshot_sha256": "d9fe87b2871cc7cfab5fb57b86b0727cb6edccfc217af79b72271866c1996ad6"
+}

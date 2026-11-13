@@ -1,0 +1,19 @@
+{
+  "phase": "Q2",
+  "step": "r3-browser",
+  "run_id": "20261113T152426Z-r3-browser-488e1e48",
+  "started_at_utc": "20261113T152426Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "test:review-r3"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "173905d88f0cd717e53be4f9f8550a082dd0feec",
+  "tracked_diff_sha256": "5bab73cc687fce7a111db9af517e981529372105dbe740995eb9e463218a807b",
+  "status": "RUNNING",
+  "recorder_pid": 14042,
+  "source_snapshot_sha256": "11106c6d61fa37008bf202281b222861e5ad8dad41efe7c03d19f1b6b7ab8416"
+}

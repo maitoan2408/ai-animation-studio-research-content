@@ -1,0 +1,28 @@
+{
+  "phase": "Q2",
+  "step": "s05-r3-native-full",
+  "run_id": "20261113T100529Z-s05-r3-native-full-c98ae091",
+  "started_at_utc": "20261113T100529Z",
+  "command": [
+    "env",
+    "BLENDER_USER_CONFIG=/tmp/studio-blender-config",
+    "BENCHMARK_INPUT_DIR=/workspace/ai-animation-studio-research-content/production/out/blender-edit-R3-separate-grips",
+    "blender",
+    "--background",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "production/src/blender/vse_probe.py",
+    "--",
+    "S05",
+    "1920",
+    "all"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "bc3c7894875cfb9e97f984eb359f4d9d92114cca",
+  "tracked_diff_sha256": "8d1a1905fbf0a975fd7b4a9f0bd177774773a631e1ee577221827c5059649898",
+  "status": "RUNNING",
+  "recorder_pid": 10631,
+  "source_snapshot_sha256": "165458b2a46b3ad39ee02a8a5be0401df445f03ffac18e60ab66739827de0a0a"
+}

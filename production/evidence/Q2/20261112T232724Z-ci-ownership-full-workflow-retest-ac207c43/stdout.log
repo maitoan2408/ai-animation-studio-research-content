@@ -1,0 +1,73 @@
+RUN ["npm", "--prefix", "production", "ci", "--no-audit", "--no-fund"]
+
+added 189 packages in 5s
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+RUN ["python", "production/src/media/review_bundle.py", "restore", "production/artifacts/Q2/web-review-v2"]
+{"status": "PASS_EXACT_RESTORE", "files": ["/tmp/studio-q2-clean-2ndmbure/production/artifacts/Q2/web-review-v2/R0/review.mp4", "/tmp/studio-q2-clean-2ndmbure/production/artifacts/Q2/web-review-v2/R1/review.mp4", "/tmp/studio-q2-clean-2ndmbure/production/artifacts/Q2/web-review-v2/R2/review.mp4"]}
+RUN ["npm", "--prefix", "production", "run", "typecheck"]
+
+> paper-studio-production-workbench@0.1.0 typecheck
+> tsc --noEmit
+
+RUN ["npm", "--prefix", "production", "test"]
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ art source hashes, explicit pivots, views and local references remain intact (16.286582ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (1.170686ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (0.642248ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (63.814078ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (10.787879ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (2.221621ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (2.452579ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (0.428967ms)
+✔ upright walk uses only the hip drop required for planted-foot reach (0.459964ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (4.862462ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (161.592478ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (132.394074ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (1.732793ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (22.863951ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (143.440283ms)
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (2.765651ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (16.25182ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (2.735435ms)
+✔ real HTTP media, origin/token, persistence, stale head and changed-file rejection (387.829131ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1839.334577
+RUN ["npm", "--prefix", "production", "run", "review", "--", "check"]
+
+> paper-studio-production-workbench@0.1.0 review
+> tsx src/review/cli.ts check
+
+{"status":"PASS_CATALOG_HASH_AND_PROFILE","artifacts":[{"id":"0c578593e9376aa9295c0022a5e1c4a352861e74293b716081cce7a28fb8921f","revision":"R0","colorStatus":"pass"},{"id":"9e87348bdd1f34d2a5853ed3228b7e7110fe83ba55c0b6d7f5852aa9d87de02b","revision":"R1","colorStatus":"pass"},{"id":"263aa0d7a7b486098c4d246a84169629a71bd2fae1cc9c835e7f2a001eddc4d1","revision":"R2","colorStatus":"pass"}],"phaseApproval":false}
+RUN ["npm", "--prefix", "production", "run", "test:review-ui"]
+
+> paper-studio-production-workbench@0.1.0 test:review-ui
+> tsx tests/review-ui.mjs
+
+PASS Initial frame0 presented; annotation enabled only after pause/settle
+PASS Acceptance availability follows exact catalog color status
+PASS Range seek and individual forward/back steps use presented frame72
+PASS Persisted annotation renders markup as text
+PASS Reload preserves saved review
+PASS R2 reordered timeline maps frame400 to S01, with no inherited R0 notes
+PASS Actual muted playback at1x; recording disabled during playback
+PASS Actual muted playback at0.5x; recording disabled during playback
+PASS Saved second annotation on R2
+PASS Two-window stale revision rejects, retains text, reloads and saves safely
+PASS Export retains exact artifact/frame bindings and test-only authorship
+PASS 390px mobile layout fits without horizontal overflow
+PASS Server restart verifies hash chain and restores prior notes
+{"output":"/tmp/studio-q2-clean-2ndmbure/production/out/review-ui/a3650c82-e586-4178-9d4f-e3151b7075e5","status":"PASS","checks":["Initial frame0 presented; annotation enabled only after pause/settle","Acceptance availability follows exact catalog color status","Range seek and individual forward/back steps use presented frame72","Persisted annotation renders markup as text","Reload preserves saved review","R2 reordered timeline maps frame400 to S01, with no inherited R0 notes","Actual muted playback at1x; recording disabled during playback","Actual muted playback at0.5x; recording disabled during playback","Saved second annotation on R2","Two-window stale revision rejects, retains text, reloads and saves safely","Export retains exact artifact/frame bindings and test-only authorship","390px mobile layout fits without horizontal overflow","Server restart verifies hash chain and restores prior notes"],"browser":"Chrome/156.0.8078.79","errors":[],"mode":"automated-test","journalHead":"d86d2c4ffd4758f65b0afef04cdc50d5b826adaf2544ffd66fc580bc7076c0c0","records":4,"limits":["Functional UI verification; muted playback, no listening or artistic approval","Same agent; not independent operator handoff"]}
+{"status": "PASS", "commit": "abae639260caa516c698ea1082c5ecbeabcb63b8", "source": "git archive production only; clean npm cache/install", "completedAt": "2026-11-12T23:27:53.461647+00:00", "checks": [{"command": ["npm", "--prefix", "production", "ci", "--no-audit", "--no-fund"], "exitCode": 0}, {"command": ["python", "production/src/media/review_bundle.py", "restore", "production/artifacts/Q2/web-review-v2"], "exitCode": 0}, {"command": ["npm", "--prefix", "production", "run", "typecheck"], "exitCode": 0}, {"command": ["npm", "--prefix", "production", "test"], "exitCode": 0}, {"command": ["npm", "--prefix", "production", "run", "review", "--", "check"], "exitCode": 0}, {"command": ["npm", "--prefix", "production", "run", "test:review-ui"], "exitCode": 0}], "lockSha256": "181bd0e539d9518881a54a3d9191edd92340d503926dc748e3a238b2b8e79ee1", "output": "/workspace/ai-animation-studio-research-content/production/out/fresh-review/25d9a42c05e84b12a831ffc6f719ffde", "checkout": "/tmp/studio-q2-clean-2ndmbure", "gitTrustScope": {"directory": "/workspace/ai-animation-studio-research-content", "configScope": "per invocation; no global change"}, "limits": ["Same host/runtime and agent; not independent operator or clean-machine certification", "No listening or full artistic review from functional test"]}

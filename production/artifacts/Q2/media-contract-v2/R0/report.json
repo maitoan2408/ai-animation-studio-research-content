@@ -1,0 +1,16 @@
+{
+  "frame": 72,
+  "rate": 1,
+  "displayProfile": "browser-default",
+  "deliverySha256": "0c578593e9376aa9295c0022a5e1c4a352861e74293b716081cce7a28fb8921f",
+  "browser": "Chrome/156.0.8078.79",
+  "presentedMediaTime": 3,
+  "elapsedSeconds": 57.124,
+  "duration": 48,
+  "ended": true,
+  "width": 1920,
+  "height": 1080,
+  "decoded": 1151,
+  "dropped": 5,
+  "scope": "Visible HTML video playback, muted; counts exclude seeking. No listening/creative gate"
+}

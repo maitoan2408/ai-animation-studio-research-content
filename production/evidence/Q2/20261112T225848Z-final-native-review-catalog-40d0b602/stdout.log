@@ -1,0 +1,10 @@
+
+> paper-studio-production-workbench@0.1.0 review
+> tsx src/review/cli.ts check
+
+{"status":"PASS_CATALOG_HASH_AND_PROFILE","artifacts":[{"id":"0c578593e9376aa9295c0022a5e1c4a352861e74293b716081cce7a28fb8921f","revision":"R0","colorStatus":"pass"},{"id":"9e87348bdd1f34d2a5853ed3228b7e7110fe83ba55c0b6d7f5852aa9d87de02b","revision":"R1","colorStatus":"pass"},{"id":"263aa0d7a7b486098c4d246a84169629a71bd2fae1cc9c835e7f2a001eddc4d1","revision":"R2","colorStatus":"pass"}],"phaseApproval":false}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

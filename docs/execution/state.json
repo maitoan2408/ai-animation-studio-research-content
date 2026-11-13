@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "baseline": "6862c9e1e495a9f6b3518a3b68d97d8e22cfcf1d",
+  "branch": "codex/production-q0-q9",
+  "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
+  "currentPhase": "Q2",
+  "nextAction": "R3 48s technical sequence/catalog complete. Finish real creative/listening, independent operator and performance gates; execute the newly supplied quality upgrade on a separate branch with its own U0-U8 status, preserving Q2.",
+  "phases": {
+    "Q0": "DONE_DELEGATED",
+    "Q1": "TECHNICAL_READY_REVIEW_PENDING",
+    "Q2": "IN_PROGRESS",
+    "Q3": "NOT_STARTED",
+    "Q4": "NOT_STARTED",
+    "Q5": "NOT_STARTED",
+    "Q6": "NOT_STARTED",
+    "Q7": "NOT_STARTED",
+    "Q8": "NOT_STARTED",
+    "Q9": "NOT_STARTED"
+  },
+  "completedSteps": [
+    {
+      "id": "Q0",
+      "result": "DONE_DELEGATED",
+      "evidence": "production/evidence/Q0/gate.json",
+      "limits": "No user viewing or independent animator review claimed; art/motion gates remain in Q1/Q2"
+    },
+    {
+      "id": "Q1-art-and-environments",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/evidence/Q1/gate.json",
+      "limits": "Q1 audio listening remains open; no full creative gate"
+    },
+    {
+      "id": "Q2.1-readiness-seek",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/technical-preflight/report.json",
+      "limits": "6 load cases and 48 captures/36 comparisons on S05; not motion/production gate"
+    },
+    {
+      "id": "Q2-blocking-native-12-clips",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/blocking-r0/manifest.json",
+      "limits": "Blocking only; full creative gate, edits and fair performance samples pending"
+    },
+    {
+      "id": "Q2-native-portable-replay",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/blocking-r0/native-replay-report.json",
+      "limits": "52 file hashes +6 actual S05 frames exact pixels in new path/process; same agent, not independent operator"
+    },
+    {
+      "id": "Q2-polish-source-edit-contracts",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/evidence/Q2/20261112T045632Z-edit-round-contract-tests-df59ab1e/result.json",
+      "limits": "117 asset pack preserves original64;14 tests. Six polish clips still running; R1/R2 not yet executed. Latest eyebrow-note tests recorded separately."
+    },
+    {
+      "id": "Q2-six-shot-polish-render",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/polish-r0/manifest.json",
+      "limits": "S02 crouch found on visual samples; corrected pose passes15 tests but native replacement still rendering. Full art gate open."
+    },
+    {
+      "id": "Q2-polish-sequence",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/polish-r0/sequence/verification.json",
+      "limits": "1152 decoded frames exact, PCM placement exact, AAC lag0; initial S02 pose remains visually rejected, no final loudness/perception gate."
+    },
+    {
+      "id": "Q2-upright-walk-repair",
+      "result": "PASS_TECHNICAL_AND_SAMPLED_POSES",
+      "evidence": "production/artifacts/Q2/upright-walk",
+      "limits": "Old crouch preserved; native new pose sampled. Full-motion score remains pending."
+    },
+    {
+      "id": "Q2-two-edit-rounds-and-sequences",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/review-final/manifest.json",
+      "limits": "R0/R1/R2 each1152frames; R1 onlyS01/S03 and R2 onlyS04/S05. B-VSE branch only; not a backend acceptance."
+    },
+    {
+      "id": "Q2-native-r2-replay-and-edit",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/review-final/native-edit/report.json",
+      "limits": "70 hashes,6 random-seek frames, native camera note reopened. Same agent; independent operator pending."
+    },
+    {
+      "id": "Q2-review-audio-loudness",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/review-final/R2/loudness-report.json",
+      "limits": "All3normalized deliveries −16.02LUFS; TP<=−1.93dBTP; AAC lag0. No voice listening approval or full pilot sound mix."
+    },
+    {
+      "id": "Q2-bounded-alpha-and-profile-contracts",
+      "result": "PASS_TECHNICAL_PARTIAL",
+      "evidence": "production/artifacts/Q2/media-contract-v1",
+      "limits": "Real art web RGB MAE1.404/p954 and alpha positives/negatives pass; color chart fails. No complete color or art approval."
+    },
+    {
+      "id": "Q2-local-review-program-v1",
+      "result": "PASS_FUNCTIONAL",
+      "evidence": "production/artifacts/Q2/review-workbench-v1/report.json",
+      "limits": "13 browser checks,4 contract/API methods; test-only reviewers, muted playback. Does not close motion, listening, handoff or phase gates."
+    },
+    {
+      "id": "Q2-native-web-media-v2",
+      "result": "PASS_BOUNDED_TECHNICAL",
+      "evidence": "production/artifacts/Q2/media-contract-v2",
+      "limits": "Frozen chart max1 (limit3); R0/R1/R2 real sample MAE0.504/0.657/0.662, P951/2/2. 1152exactYUV frames each, AAC/master/source unchanged. R2 idle playback0drops; under-load runs are not fair performance samples. No universal player or artistic approval."
+    },
+    {
+      "id": "Q2-review-program-v2",
+      "result": "PASS_FUNCTIONAL",
+      "evidence": "production/artifacts/Q2/review-workbench-v2/report.json",
+      "limits": "13 real-browser checks on repaired media;19 workbench methods and16Python methods. All synthetic test records label automated-test; no phase approval."
+    },
+    {
+      "id": "Q2-v01-regression-preserving-artifacts",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/app-regression-final/report.json",
+      "limits": "Root verify16, build, integration13, UI9; old deliverable files hash-identical. First isolated runner omitted build; failure retained, corrected runner passes."
+    },
+    {
+      "id": "Q2-standalone-git-reproduction",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/fresh-review-20261113/report.json",
+      "limits": "Commit065a02c; outside ancestor package tree, clean npm cache/install;6commands,19tests,13browser checks. All12 relocated packages retain same versions/URLs/integrities. Same host/agent, no independent operator or listening approval."
+    },
+    {
+      "id": "Q2-and-v01-github-ci",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/ci-repaired-lock-20261113.json",
+      "limits": "Both GitHub workflows pass for source head065a02c. GitHub PR test merge; CI is functional/media verification, not creative or independent-operator approval."
+    },
+    {
+      "id": "Q2-standalone-ci-ownership-repair",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/fresh-review-20261113/ci-standalone-report.json",
+      "limits": "EX-029 fixed using exact per-command checkout trust; negative ownership failure retained. Local simulated-owner full flow and actual GitHub CI standalone flow pass. No global Git trust change or independent operator approval."
+    },
+    {
+      "id": "Q2-expanded-github-ci-and-final-audit",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/ci-standalone-repaired-20261113.json",
+      "limits": "Source head d82da6e; both workflows including standalone6command flow pass. Audit verifies201 complete attempts/153 source snapshots. No creative, listening or independent operator approval."
+    },
+    {
+      "id": "Q2-review-followup-ui-recovery",
+      "result": "PASS_LOCAL",
+      "evidence": "production/artifacts/Q2/review-followup-20261113/after/report.json",
+      "limits": "EX-030/031 reproduced in Chromium before fixing.3recovery cases,13existing UI checks,19workbench tests/typecheck and root verify16 PASS. Follow-up CI pending; no new creative/listening approval."
+    },
+    {
+      "id": "Q2-review-followup-ci",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/review-followup-20261113/ci-workflows.json",
+      "limits": "Both workflows pass on source71213e9, including3recovery cases, original UI checks and standalone install. Audit210completed attempts/162source snapshots. No creative/listening/independent-handoff approval."
+    },
+    {
+      "id": "Q2-S05-R3-separated-grips",
+      "result": "PASS_SCOPED_TECHNICAL_AND_SAMPLED_REPAIR",
+      "evidence": "production/artifacts/Q2/s05-r3/report.json",
+      "limits": "21tests,192native/convertedYUV frames,41native hashes/6replay samples and1152legacy JSON frames verified. New8s candidate only; full creative/listening/independent handoff/performance open. CI for new source tracked separately."
+    },
+    {
+      "id": "Q2-S05-R3-CI-and-checkpoint",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/s05-r3/ci-workflows.json",
+      "limits": "Both workflows succeed on source6c36e93, including standalone install, recovery and root render/UI. Integrity audit checks18 artifacts/18 completed attempts/131links; Q2 creative/listening/handoff/performance gates unchanged."
+    },
+    {
+      "id": "Q2-R3-sequence-catalog",
+      "result": "PASS_TECHNICAL",
+      "evidence": "production/artifacts/Q2/web-review-v3/README.md",
+      "limits": "No human creative/listening or independent operator approval"
+    }
+  ],
+  "paidBudget": 0,
+  "openIssues": [
+    "EX-002",
+    "EX-003",
+    "EX-004",
+    "EX-005",
+    "EX-011",
+    "EX-013"
+  ],
+  "gateReport": "production/evidence/Q2/gate.json",
+  "updatedAt": "2026-11-13T17:18:30.319233+07:00",
+  "completedStepSemantics": "Entries preserve observations at their checkpoints. Current phases/nextAction/gate are authoritative; later completed steps resolve historical pending limits without rewriting old evidence.",
+  "reviewReport": "docs/execution/REVIEW-2026-11-13.md",
+  "continuationPlan": "docs/execution/NEXT-PLAN.md",
+  "handoffPrompt": "docs/execution/AI-HANDOFF-PROMPT.md"
+}

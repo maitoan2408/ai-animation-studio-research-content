@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "check-review-package-links-hashes",
+  "run_id": "20261112T100617Z-check-review-package-links-hashes-c6a6efed",
+  "started_at_utc": "20261112T100617Z",
+  "command": [
+    "python",
+    "production/src/qa/check_review_package.py"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "842ea1de03a39f6a408e2499537b897b9ad74ec3",
+  "tracked_diff_sha256": "1363cc4be8c24ff08c92cc410f202817893c302f860bd01298ca1683b76e89da",
+  "status": "RUNNING",
+  "recorder_pid": 15309,
+  "source_snapshot_sha256": "0967c4aa132d3b56032ce89449e60a0a2648dba9417b3d352e089ae0a11436bf"
+}

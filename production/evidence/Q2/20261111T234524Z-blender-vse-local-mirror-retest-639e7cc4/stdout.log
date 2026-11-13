@@ -1,0 +1,13 @@
+Blender 4.3.2
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261111T234525Z-S05-1920-6a98e489/000072.png'
+Time: 00:01.21 (Saving: 00:00.17)
+
+Info: Saved "S05.blend"
+{"frame": 72, "seconds": 1.2141385590000482, "sha256": "34562da6cb0f1d30718fe9ab680f868fa637ef90f512fb210d859476f283114f"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261111T234525Z-S05-1920-6a98e489/000191.png'
+Time: 00:01.24 (Saving: 00:00.38)
+
+{"frame": 191, "seconds": 1.2448867250000148, "sha256": "0f5fc46b01ac584a78b196363d5c1fbe065ffea21525aca94d258949a4b4d309"}
+{"out": "/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261111T234525Z-S05-1920-6a98e489", "status": "PASS_RENDER_ONLY", "candidate": "B-VSE-experiment", "shot": "S05", "version": "4.3.2", "width": 1920, "frames": 192, "rendered": [{"frame": 72, "seconds": 1.2141385590000482, "sha256": "34562da6cb0f1d30718fe9ab680f868fa637ef90f512fb210d859476f283114f"}, {"frame": 191, "seconds": 1.2448867250000148, "sha256": "0f5fc46b01ac584a78b196363d5c1fbe065ffea21525aca94d258949a4b4d309"}], "nativeFile": "S05.blend", "limits": ["Native VSE 2D composition; no 3D camera/light/bones", "Creative/QC and random-seek comparison pending"]}
+
+Blender quit

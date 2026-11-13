@@ -20,3 +20,13 @@ validation/scripts/__pycache__/
 /.env.*
 !/.env.example
 /artifacts/tmp/
+/production/node_modules/
+/production/out/
+/production/.cache/
+/production/.venv/
+**/__pycache__/
+/production/artifacts/Q2/web-review-v2/*/review.mp4
+/production/artifacts/Q2/web-review-v2/*/restore-*.tmp
+
+# Reconstructed R3 media/catalog, verified from committed R2 + S05 inputs
+production/artifacts/Q2/web-review-v3/generated/

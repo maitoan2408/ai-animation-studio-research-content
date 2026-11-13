@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "rgb-chart-frozen-thresholds",
+  "run_id": "20261112T151014Z-rgb-chart-frozen-thresholds-7fe509dc",
+  "started_at_utc": "20261112T151014Z",
+  "command": [
+    "python",
+    "production/src/media/check_chart.py",
+    "production/out/color-chart/eeb0cb6f8ae14c8bafd4d773eae18402/fixture.json",
+    "production/out/player-check/deee7afd-0236-4e71-92b7-b65403ffcbe9"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "66f9f1fac901b7eea67400816ae1e14f22d3e6a6",
+  "tracked_diff_sha256": "9ccd082b89537a05c7bb3e553bd3096c63fd8e5550522f3f8dc97b7ac56d6671",
+  "recorder_pid": 18199,
+  "source_snapshot_sha256": "d016d0f8dda43123a6e5bd4424a1789b4328ca7bcb997ef1f714dfd9d7e7d9af",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 0.435,
+  "finished_at_utc": "2026-11-12T15:10:15.126277+00:00",
+  "log_sha256": "45253f0b3ae68860fed7796635971ea668d84c4b9d2370ed500056582a3cddc5",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

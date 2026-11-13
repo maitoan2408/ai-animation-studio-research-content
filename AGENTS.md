@@ -1,5 +1,12 @@
 # Hướng dẫn làm việc trong repo
 
+## Vòng thực hiện hiện hành
+
+Người dùng đã ủy quyền thực hiện/ra quyết định từng phase và tự sửa lỗi. Đọc
+`docs/execution/RESUME.md` và `state.json` trước khi tiếp tục. Review theo ủy quyền
+phải ghi `delegated-agent`, không giả là người dùng hoặc chuyên gia độc lập đã duyệt.
+Sau từng bước có evidence, cập nhật checkpoint và push nhánh; giữ toàn bộ kết quả cũ.
+
 ## Mục tiêu
 
 Xây studio nội bộ tạo hoạt hình 2D/2.5D từ kịch bản. Sản phẩm phải chạy lại được, có bằng chứng kiểm thử và review gắn đúng revision/artifact. Đọc `plan.md`, `docs/architecture.md`, `skills.md` trước khi đổi workflow.
@@ -26,3 +33,28 @@ Kiểm thử phải gồm input lỗi và recovery khi thay state machine, khôn
 - `data/` là runtime, không commit. `examples/` là input có thể tái tạo. `artifacts/` chỉ lưu bằng chứng chọn lọc, không cache/browser/binary.
 - `reports/` giữ nghiên cứu và thẩm định gốc. `validation/` là harness nghiên cứu, tách khỏi ứng dụng.
 - Ghi rõ PASS, FAIL, BLOCKED hoặc NOT_RUN. Fixture hình học không chứng minh chất lượng phim hoàn chỉnh.
+
+## Kiểm workbench Q2 trước Q3
+
+Prototype production nằm riêng, không coi capability của nó đã có trong app v0.1.
+Chạy `npm --prefix production run typecheck`, `npm --prefix production test` và
+`python -m unittest discover -s production/tests -p 'test_*.py' -v` khi thay phần
+liên quan. Renderer/media thay đổi phải có real native render/decode và artifact.
+Các lệnh đều bọc `scripts/run-step.py`; historical fail snapshots giữ nguyên.
+Đọc `production/evidence/Q2/gate.json` và `production/artifacts/Q2/review-final`.
+Không suy voice audition từ loudness, color approval từ tags, motion score từ
+contact tests, hoặc independent handoff từ cùng agent chạy process mới.
+
+## Công cụ review Q2 và tái lập media
+
+`production/src/review/README.md` là hướng dẫn code/API/journal. Catalog mặc định
+v2 có media chia32MiB parts; chạy review_bundle.py restore trước review/check/UI.
+Không commit lại MP4 đã ghép hoặc sửa các phần/manifest để khớp video khác.
+Mọi review cần đúng artifact SHA/master SHA/revision/shot/frame; test phải dùng
+automated-test và thư mục dữ liệu riêng. Không coi checkbox xem/nghe là xác minh
+danh tính hoặc bằng chứng người độc lập. CI workbench không đóng gate mỹ thuật.
+Các helper kiểm v0.1 dùng run_app_regression.py để giữ hash deliverables cũ;
+helper phải build CLI trong workspace tách biệt trước integration/UI tests.
+Khi đổi lưu note/retry/draft UI, chạy thêm `npm --prefix production run test:review-recovery`.
+Giữ nguyên requestId lẫn body sau response không rõ đã commit; STALE_HEAD là
+rejection xác định mới được rebase. Response cũ không được xóa draft mới.

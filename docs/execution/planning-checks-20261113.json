@@ -1,0 +1,675 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUTC": "2026-11-13T03:27:47.724054+00:00",
+  "scope": "Documentation and continuation plan only; no new runtime or artistic validation",
+  "baseline": "7147487294fd49a083375cb1bc0ba12b43dea6c4",
+  "status": "PASS_DOCUMENTATION",
+  "orchestrationNotes": [
+    "Initial tools orchestration failed before shell execution: JavaScript SyntaxError: Unexpected token {, caused by unescaped Markdown backticks in the code string. Corrected using chr(96) in the Python regex; no product code or runtime command was involved."
+  ],
+  "documentHashes": {
+    "docs/execution/NEXT-PLAN.md": "d80419904bb0334985c731b44aaf208acbbac8cfa2a4fb0e749abaf00e00fbdc",
+    "docs/execution/AI-HANDOFF-PROMPT.md": "2ef0b175ac73b468e56fb5eaaf597477a5533a5686bff4ea0eeec4be4d0b4f3e",
+    "docs/execution/RESUME.md": "5e125e0fc6ffb90ff7ce16396bd8ad444a23e825c19234cd90eb019609a9dcc2",
+    "docs/execution/state.json": "6815fdd23061f0945e358864c18415b3ad3838fd35ba6e381ca53c23fb2f83f2",
+    "plan.md": "9b385407eec4f53ea053764033a69d4c2c1a4d3389a0de9d52fede35594a57e7",
+    "README.md": "5c1f3bb01c985553b1c612686fd8a8aa22696a88fc7db6a0d143265fbceaadc3",
+    "skills.md": "33e31ff1f7d1f584e5c5301d11af8af3f1e3c2c87dd979abfe82ff4c6c0b18b3",
+    "CHANGELOG.md": "a63e249b904ce72446871ae9f1e078501d4769fe698ffc3a77b7c65a5ec73d3f"
+  },
+  "internalLinksChecked": 103,
+  "links": [
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 4,
+      "target": "REVIEW-2026-11-13.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 11,
+      "target": "state.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 11,
+      "target": "../../production/evidence/Q2/gate.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 12,
+      "target": "RESUME.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 12,
+      "target": "issues.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 14,
+      "target": "AI-HANDOFF-PROMPT.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 20,
+      "target": "../../production/brief/pilot.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 22,
+      "target": "../../production/brief/Q0-brief.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 88,
+      "target": "../../production/ENVIRONMENT.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 180,
+      "target": "../../production/src/scene/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 180,
+      "target": "../../production/src/art/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 181,
+      "target": "../../production/src/editorial/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 181,
+      "target": "../../production/src/media/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 182,
+      "target": "../../production/src/blender/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 214,
+      "target": "../../production/brief/performance-protocol.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 342,
+      "target": "../../production/brief/pilot.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 392,
+      "target": "../../AGENTS.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/NEXT-PLAN.md",
+      "line": 435,
+      "target": "../toolchain-future-plan.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/AI-HANDOFF-PROMPT.md",
+      "line": 5,
+      "target": "NEXT-PLAN.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 6,
+      "target": "state.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 6,
+      "target": "../../production/evidence/Q2/gate.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 10,
+      "target": "NEXT-PLAN.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 12,
+      "target": "AI-HANDOFF-PROMPT.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 16,
+      "target": "planning-checks-20261113.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 20,
+      "target": "REVIEW-2026-11-13.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 24,
+      "target": "../../production/artifacts/Q2/review-followup-20261113/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 26,
+      "target": "../../production/artifacts/Q2/review-followup-20261113/ci-workflows.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 57,
+      "target": "../../production/artifacts/Q2/fresh-review-20261113/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 58,
+      "target": "../../production/src/qa/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 61,
+      "target": "../../production/artifacts/Q2/ci-standalone-repaired-20261113.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 68,
+      "target": "../../production/artifacts/Q2/fresh-review-20261113/ci-standalone-report.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 81,
+      "target": "../../production/src/review/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 82,
+      "target": "../../production/artifacts/Q2/web-review-v2/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 83,
+      "target": "../../production/artifacts/Q2/review-workbench-v2/report.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 104,
+      "target": "../toolchain-future-plan.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 104,
+      "target": "issues.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 115,
+      "target": "history/RESUME-through-2026-11-12.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "docs/execution/RESUME.md",
+      "line": 116,
+      "target": "history/COMPLETED-through-2026-11-12.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 6,
+      "target": "docs/execution/RESUME.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 6,
+      "target": "docs/execution/state.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 7,
+      "target": "docs/execution/issues.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 8,
+      "target": "docs/execution/COMPLETED.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 11,
+      "target": "docs/execution/NEXT-PLAN.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 12,
+      "target": "docs/execution/AI-HANDOFF-PROMPT.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 22,
+      "target": "production/artifacts/Q2/fresh-review-20261113/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 25,
+      "target": "docs/execution/REVIEW-2026-11-13.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 33,
+      "target": "reports/Nghien_cuu_toolchain_va_ke_hoach_mo_rong.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 33,
+      "target": "docs/toolchain-future-plan.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 33,
+      "target": "docs/research/toolchain-verification.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 33,
+      "target": "docs/research/toolchain-reading-and-sources.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 38,
+      "target": "reports/Nghien_cuu_chat_luong_production.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 38,
+      "target": "docs/production-quality-plan.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 38,
+      "target": "docs/research/production-quality-sources.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 38,
+      "target": "docs/research/production-quality-evidence.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "plan.md",
+      "line": 60,
+      "target": "docs/roadmap-full.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 5,
+      "target": "production/artifacts/Q2/web-review-v2/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 5,
+      "target": "production/src/review/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 5,
+      "target": "production/artifacts/Q2/review-final/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 5,
+      "target": "docs/execution/COMPLETED.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 5,
+      "target": "docs/execution/RESUME.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 7,
+      "target": "docs/execution/NEXT-PLAN.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 8,
+      "target": "docs/execution/AI-HANDOFF-PROMPT.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 21,
+      "target": "artifacts/ui-desktop.png",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 34,
+      "target": "docs/reproduction.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 34,
+      "target": "docs/user-guide.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 46,
+      "target": "artifacts/morning-final.mp4",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 46,
+      "target": "artifacts/morning.studio.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 47,
+      "target": "artifacts/integration-results.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 47,
+      "target": "artifacts/ui-results.json",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 47,
+      "target": "docs/verification.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 48,
+      "target": "artifacts/morning-frame.png",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 70,
+      "target": "docs/capabilities.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 70,
+      "target": "docs/roadmap-full.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 74,
+      "target": "reports/Nghien_cuu_toolchain_va_ke_hoach_mo_rong.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 74,
+      "target": "docs/toolchain-future-plan.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 74,
+      "target": "docs/research/toolchain-verification.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 74,
+      "target": "docs/research/toolchain-reading-and-sources.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 75,
+      "target": "reports/Nghien_cuu_chat_luong_production.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 75,
+      "target": "docs/production-quality-plan.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 75,
+      "target": "docs/research/production-quality-sources.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 75,
+      "target": "reports/Nghien_cuu_va_ke_hoach_chat_luong_production.docx?raw=true",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 76,
+      "target": "plan.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 76,
+      "target": "docs/phases/",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 77,
+      "target": "AGENTS.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 77,
+      "target": "agent.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 77,
+      "target": "skills.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 77,
+      "target": "skills/",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 78,
+      "target": "docs/architecture.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 78,
+      "target": "docs/api.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 78,
+      "target": "docs/adr/0001-renderer.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 79,
+      "target": "docs/runbook.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 79,
+      "target": "docs/development.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 79,
+      "target": "THIRD_PARTY_NOTICES.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 85,
+      "target": "reports/Bao_cao_Studio_hoat_hinh_AI_HyperFrames_Remotion.docx?raw=true",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 85,
+      "target": "reports/Bao_cao_Studio_hoat_hinh_AI_HyperFrames_Remotion.pdf?raw=true",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 85,
+      "target": "SHA256SUMS",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 86,
+      "target": "reports/Tham_dinh_ky_thuat.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 86,
+      "target": "reports/Ke_hoach_trien_khai.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 86,
+      "target": "reports/Tham_dinh_va_ke_hoach_Studio_AI.docx?raw=true",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 87,
+      "target": "validation/README.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "README.md",
+      "line": 88,
+      "target": "reports/Ban_giao_Studio_noi_bo_v0.1.docx?raw=true",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "skills.md",
+      "line": 27,
+      "target": "docs/execution/NEXT-PLAN.md",
+      "existsOrThisReport": true
+    },
+    {
+      "file": "skills.md",
+      "line": 27,
+      "target": "docs/execution/AI-HANDOFF-PROMPT.md",
+      "existsOrThisReport": true
+    }
+  ],
+  "stateKeysChanged": [
+    "continuationPlan",
+    "handoffPrompt",
+    "updatedAt"
+  ],
+  "phaseStatusesUnchanged": true,
+  "trackedChangesOutsideDocuments": [],
+  "roadmapMappingIdsPresent": [
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8",
+    "P9",
+    "P10",
+    "P11",
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F07",
+    "F08",
+    "F09",
+    "F10",
+    "F11"
+  ],
+  "runtimeTests": "NOT_RUN_THIS_CHECKPOINT; existing evidence remains tied to its tested source SHA",
+  "failures": []
+}

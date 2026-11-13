@@ -1,0 +1,12 @@
+{
+  "version": "media-contract-2",
+  "reason": "EX-024: limited-range browser path shifts saturated blue; full-range CRF12 still max4. Native full-range lossless YUV passes original max3/inset2 chart with max1. Failed versions remain immutable.",
+  "authority": "delegated-agent; Q2 local Chromium review derivative only",
+  "thresholds": "Exactly media-contract-v1 testsLockedBeforeExecution; no change",
+  "review": {"id":"web-review-srgb-full-2","codec":"h264","pixelFormat":"yuvj420p","primaries":"bt709","transfer":"iec61966-2-1","matrix":"bt709","range":"pc","width":1920,"height":1080,"fps":"24/1","audioCodec":"aac","sampleRate":"48000","channels":2},
+  "source": "Native display-referred sRGB PNGs, not a previously lossy MP4",
+  "conversion": "Explicit sRGB RGB/full to sRGB-transfer 709-matrix YUV/full, 4:2:0. libx264 CRF0 preserves resulting YUV samples exactly; not lossless RGB because of chroma subsampling.",
+  "master": "Original BT709 limited normalized master unchanged; copy AAC elementary packets exactly",
+  "verification": ["Native PNG SHA list before/after", "All decoded output YUV frame MD5 equal corresponding source-converted YUV frame MD5", "ffprobe/full decode", "AAC elementary packets exact", "Frozen chart and native-art canvas/compositor tests", "Actual target-player playback"],
+  "limits": ["Larger local review files; not a distribution preset", "H264 High444Predictive profile can contain 4:2:0; software browser support tested only on pinned Chromium", "No portability claim for other players, displays or hardware decoders", "Native scene-edge aesthetics and full artistic/audio approval remain separate"]
+}

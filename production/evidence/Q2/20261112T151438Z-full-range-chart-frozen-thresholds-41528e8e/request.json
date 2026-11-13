@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "full-range-chart-frozen-thresholds",
+  "run_id": "20261112T151438Z-full-range-chart-frozen-thresholds-41528e8e",
+  "started_at_utc": "20261112T151438Z",
+  "command": [
+    "python",
+    "production/src/media/check_chart.py",
+    "production/out/color-chart/eeb0cb6f8ae14c8bafd4d773eae18402/fixture.json",
+    "production/out/player-check/0462712b-e2d5-4673-9e42-86095656f443"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 18623,
+  "source_snapshot_sha256": "d5d25ef8e881427b5d9d3c15798bcc85530418cd4ce0fba7daaba87d54eb482d"
+}

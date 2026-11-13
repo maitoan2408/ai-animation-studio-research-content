@@ -1,0 +1,31 @@
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ art source hashes, explicit pivots, views and local references remain intact (81.293537ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (6.645655ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (0.722278ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (188.38376ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (15.194667ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (3.951308ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (6.589931ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (0.383908ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (16.777568ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (458.973575ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (431.940742ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (16.723872ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (65.477153ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (312.340833ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3494.689457
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

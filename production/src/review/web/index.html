@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Lantern · Phòng review</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+  <header><div><p class="eyebrow">PAPER STUDIO / Q2</p><h1>Phòng review</h1><p id="project">Đang kiểm tra thư viện…</p></div><div class="header-actions"><a href="/api/export" download>Xuất nhật ký</a><a href="/native" download>Source Blender của bộ review</a></div></header>
+  <main>
+    <section class="viewer" aria-label="Xem và chọn frame">
+      <div class="toolbar"><label>Phiên bản <select id="revision" aria-label="Phiên bản"></select></label><label>Tốc độ <select id="rate"><option value="1">1× bình thường</option><option value="0.5">0,5× chậm</option></select></label><a id="master" download>Master BT.709</a></div>
+      <p id="color-status" class="notice"></p>
+      <video id="video" controls preload="auto" playsinline aria-label="Video review"></video>
+      <div class="frame-controls"><button id="previous" type="button" aria-label="Frame trước">←</button><input id="frame" type="range" min="0" max="0" value="0" aria-label="Frame trong video"><button id="next" type="button" aria-label="Frame sau">→</button></div>
+      <div class="time-row"><strong id="position">Chưa có frame</strong><span id="time">00:00.000</span></div>
+      <p class="subtle" id="identity"></p>
+      <p id="status" role="status" aria-live="polite">Đang tải…</p>
+    </section>
+    <aside aria-label="Ghi nhận đánh giá">
+      <form id="review-form">
+        <h2>Ghi chú tại frame</h2><p class="subtle">Dừng video để ghi nhận đúng hình đang hiển thị.</p>
+        <label>Người review <input id="reviewer" maxlength="120" required autocomplete="name"></label>
+        <label>Vai trò <select id="reviewer-kind"><option value="human">Người xem (tự khai báo)</option><option value="delegated-agent">AI được ủy quyền</option></select></label>
+        <label>Kết luận <select id="decision"><option value="note">Ghi chú</option><option value="needs-changes">Cần chỉnh sửa</option><option value="accepted">Đạt rubric của shot</option></select></label>
+        <label>Nhận xét và lý do <textarea id="note" rows="4" maxlength="4000" required placeholder="Ví dụ: tay che miệng ở nhịp quay đầu; cần hạ cổ tay."></textarea></label>
+        <fieldset><legend>Điểm rubric · 1–5</legend><p class="subtle">Để trống nếu chưa chấm. Khi chấm, điền đủ 5 mục.</p><div class="scores">
+          <label>Art · 30% <input id="score-art" type="number" min="1" max="5" step="1"></label>
+          <label>Diễn xuất · 35% <input id="score-acting" type="number" min="1" max="5" step="1"></label>
+          <label>Bố cục · 15% <input id="score-layout" type="number" min="1" max="5" step="1"></label>
+          <label>Liền mạch · 10% <input id="score-continuity" type="number" min="1" max="5" step="1"></label>
+          <label>Khả năng sửa · 10% <input id="score-editability" type="number" min="1" max="5" step="1"></label>
+        </div></fieldset>
+        <fieldset><legend>Đã thực sự kiểm tra shot này</legend>
+          <label class="check"><input id="normal" type="checkbox">Xem đủ ở tốc độ 1×</label>
+          <label class="check"><input id="slow" type="checkbox">Xem đủ ở tốc độ 0,5×</label>
+          <label class="check"><input id="listened" type="checkbox">Nghe và kiểm tra thoại</label>
+          <label class="check"><input id="blocking" type="checkbox">Còn lỗi chặn chất lượng</label>
+        </fieldset>
+        <button id="save" type="submit" disabled>Lưu ghi chú</button>
+        <button id="refresh" type="button">Nạp lại nhật ký</button>
+        <p class="subtle">Lưu là thêm bản ghi mới. Nhận xét cũ không bị sửa. Điểm số không tự đóng gate production.</p>
+      </form>
+    </aside>
+    <section class="history"><div class="history-title"><h2>Nhật ký phiên bản này</h2><span id="count">0 ghi chú</span></div><div id="notes"></div></section>
+  </main>
+  <footer>Q2 · Công cụ nghiên cứu nội bộ. Khai báo xem/nghe do reviewer chịu trách nhiệm; chưa xác thực danh tính độc lập.</footer>
+</body></html>

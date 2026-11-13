@@ -1,4 +1,42 @@
+## Tiến độ hiện hành — R3 sequence 13/11/2026
+
+Đã hoàn thành ghép/tái tạo R3 đủ48s, giữ năm shot và audio R2; catalog mới,
+14ca browser, native70hash/6replay PASS. [Hướng dẫn và evidence](production/artifacts/Q2/web-review-v3/README.md).
+Các mục S05 R3 “chưa có full sequence” bên dưới là snapshot trước checkpoint này.
+Q2 vẫn mở review nghệ thuật/nghe/operator/performance. Kế hoạch nâng cấp mới
+được triển khai trên nhánh riêng sau checkpoint, không đổi gate cũ thành DONE.
+
 # Kế hoạch xây dựng Studio nội bộ
+
+## Thực hiện theo ủy quyền — hiện hành
+
+**Tiến độ mới:** [S05 R3](production/artifacts/Q2/s05-r3/README.md) đã triển khai
+sửa tay chồng khi chuyền đèn; có video8s, source portable và kiểm thử. Đây là
+Q2-REPAIR hoàn tất trong phạm vi lỗi EX-032, chưa đóng toàn Q2. Không triển khai
+các nhánh Manim/style/scale không cần cho sửa này.
+
+Người dùng đã cho phép tự quyết định, viết code, kiểm thử/sửa lỗi và push từng bước.
+Trạng thái tiếp tục ở [RESUME](docs/execution/RESUME.md), [state](docs/execution/state.json),
+[issue ledger](docs/execution/issues.md). Q0 đã khóa; Q1 art kỹ thuật sẵn sàng, còn nghe duyệt voice;
+Q2 đã có 12 blocking clip 1080p, polish và hai vòng sửa B-VSE; ba sequence đã kiểm frame/audio/loudness. Màu trên player tham chiếu và công cụ review đã kiểm xong; motion/voice review, handoff độc lập và performance còn mở. [Tổng kết](docs/execution/COMPLETED.md).
+Các mục nghiên cứu bên dưới là snapshot lịch sử, giữ nguyên kết quả.
+
+**Kế hoạch tiếp tục ngày 13/11:** [từng task còn thiếu và Q3–Q9](docs/execution/NEXT-PLAN.md),
+[prompt hoàn chỉnh cho AI tiếp quản](docs/execution/AI-HANDOFF-PROMPT.md). Kế hoạch
+này chưa được thực thi; Q1/Q2 vẫn còn các gate trên, Q3–Q9 chưa bắt đầu.
+
+Checkpoint13/11/2026: công cụ review local (`production/src/review`) đạt13 thao tác
+browser và4 nhóm contract/API/recovery. V1 chart FAIL giữ nguyên; v2 từ PNG với
+full-range/losslessYUV đạt chart max1 dưới ngưỡng3, ba sequence khớp1.152YUV frame
+và AAC từng bản. R2 phát48s không có render đồng thời:0dropped. Đây là tiến độQ2,
+chưa là hoàn tấtQ6/production hoặc thay thế rubric chuyển động và nghe thoại.
+Kiểm Git-only sạch đã bắt và sửa EX-028 lock layout; commit065a02c đạt install,
+restore3video, typecheck,19tests và13browser checks bằng cache mới ngoài cây repo.
+[Bằng chứng](production/artifacts/Q2/fresh-review-20261113/README.md).
+
+Review bổ sung13/11: EX-030/031 về mất draft và trùng note khi retry đã được tái
+hiện/sửa; thêm3ca recovery,13ca UI cũ vẫn PASS. [Bản review](docs/execution/REVIEW-2026-11-13.md)
+đề nghị ưu tiên review chất lượng từng shot trước các phase production còn lại.
 
 ## Tổng kết vòng nghiên cứu toolchain — 11/11/2026
 
@@ -56,3 +94,9 @@ Ghi command, phiên bản, exit status, input/output hash và giới hạn trong
 - Draft PR: https://github.com/maitoan2408/ai-animation-studio-research-content/pull/1
 - Review chương trình/demo theo `docs/review-checklist.md`; kế hoạch production đầy đủ ở `docs/roadmap-full.md`.
 - Word/PDF gốc và evidence các mốc đã hoàn thành được giữ nguyên. Bản Word bàn giao mới nằm trong `reports/Ban_giao_Studio_noi_bo_v0.1.docx`.
+
+### Checkpoint Q1 — 2026-11-12
+
+Art/rig/environment technical inputs are ready (64 SVG); Q1 voice listening is
+still open. Q2 technical contracts now in progress. Full phase gates are tracked
+in `docs/execution/state.json`, not inferred from this checklist.

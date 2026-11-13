@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "export-upright-walk",
+  "run_id": "20261112T051622Z-export-upright-walk-ecc92efb",
+  "started_at_utc": "20261112T051622Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/blender/export_frames.ts",
+    "production/brief/polish.json",
+    "production/out/blender-polish-upright"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "2caae4ee6e513681d4bc481b771a5834e868abda",
+  "tracked_diff_sha256": "1923c325e180973d10261dcba9034ac185482b9e0c1aad779507c148a7bb8e3e",
+  "status": "RUNNING",
+  "recorder_pid": 11858,
+  "source_snapshot_sha256": "f1e952425856de51f5be9030747f4b58902aa2ea9a97e13cf05ae417b41c1434"
+}

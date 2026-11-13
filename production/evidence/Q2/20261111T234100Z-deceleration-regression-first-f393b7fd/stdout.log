@@ -1,0 +1,33 @@
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (95.819532ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (12.456921ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (1.868075ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (3.150868ms)
+✖ locked deceleration beat reduces root speed to a stop without a last-frame snap (1.014449ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 453.19966
+
+✖ failing tests:
+
+test at production/tests/benchmark.test.ts:42:1
+✖ locked deceleration beat reduces root speed to a stop without a last-frame snap (1.014449ms)
+  AssertionError [ERR_ASSERTION]: late speed=2.8333333333332575 px/frame
+      at TestContext.<anonymous> (/workspace/ai-animation-studio-research-content/production/tests/benchmark.test.ts:45:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

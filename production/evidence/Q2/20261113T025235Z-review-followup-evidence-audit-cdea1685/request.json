@@ -1,0 +1,17 @@
+{
+  "phase": "Q2",
+  "step": "review-followup-evidence-audit",
+  "run_id": "20261113T025235Z-review-followup-evidence-audit-cdea1685",
+  "started_at_utc": "20261113T025235Z",
+  "command": [
+    "python",
+    "production/src/qa/audit_evidence.py",
+    "production/artifacts/Q2/review-followup-20261113/integrity-report.json"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "71213e96b70de56cda2856b58d48cba4faac103f",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 8870,
+  "source_snapshot_sha256": "f8274f653708cd81497c247087be93c07c119e335b6ccf54cd0e3691eff5635b"
+}

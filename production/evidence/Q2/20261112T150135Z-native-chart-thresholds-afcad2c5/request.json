@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "native-chart-thresholds",
+  "run_id": "20261112T150135Z-native-chart-thresholds-afcad2c5",
+  "started_at_utc": "20261112T150135Z",
+  "command": [
+    "python",
+    "production/src/media/check_chart.py",
+    "production/out/color-chart/eeb0cb6f8ae14c8bafd4d773eae18402/fixture.json",
+    "production/out/player-check/bc3d86d0-1c6a-4b3b-bc87-ccf047add7be"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "66f9f1fac901b7eea67400816ae1e14f22d3e6a6",
+  "tracked_diff_sha256": "6e4dbb19045e1f45848bde3496b4e37eefd3218fd376c21f4cfcc83bd48237f0",
+  "status": "RUNNING",
+  "recorder_pid": 17512,
+  "source_snapshot_sha256": "de6489019530f99f5dbfe0b4672663c72d81487cb12a4ea7abceef6db6649896"
+}

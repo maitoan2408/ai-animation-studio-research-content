@@ -1,0 +1,68 @@
+[SystemMemory] cgroup memory limit detected: 8192 MiB. It governs memory-adaptive render behaviour instead of host RAM.
+[Browser:WARN] [.WebGL-0x40c001d7800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Browser:WARN] THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+[Browser:WARN] [.WebGL-0x40c001d7800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x40c001d7800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x40c001d7800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+S01 frame 0/192
+S01 frame 48/192
+S01 frame 96/192
+S01 frame 144/192
+S01 complete 35.49 seconds
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Browser:WARN] [.WebGL-0x32cc001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+[Browser:WARN] [.WebGL-0x32cc001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x32cc001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x32cc001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+S02 frame 0/192
+S02 frame 48/192
+S02 frame 96/192
+S02 frame 144/192
+S02 complete 34.35 seconds
+[Browser:WARN] [.WebGL-0x11f4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Browser:WARN] THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+[Browser:WARN] [.WebGL-0x11f4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x11f4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x11f4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+S03 frame 0/240
+S03 frame 48/240
+S03 frame 96/240
+S03 frame 144/240
+S03 frame 192/240
+S03 complete 42.44 seconds
+[Browser:WARN] [.WebGL-0x1c8c0040ac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Browser:WARN] THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+[Browser:WARN] [.WebGL-0x1c8c0040ac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x1c8c0040ac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x1c8c0040ac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+S04 frame 0/192
+S04 frame 48/192
+S04 frame 96/192
+S04 frame 144/192
+S04 complete 34.06 seconds
+[Browser:WARN] [.WebGL-0x2d6c001ca000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Browser:WARN] THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+[Browser:WARN] [.WebGL-0x2d6c001ca000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x2d6c001ca000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x2d6c001ca000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+S05 frame 0/192
+S05 frame 48/192
+S05 frame 96/192
+S05 frame 144/192
+S05 complete 33.62 seconds
+[Browser:WARN] [.WebGL-0x30f4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Browser:WARN] THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+[Browser:WARN] [.WebGL-0x30f4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x30f4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x30f4001bac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+S06 frame 0/144
+S06 frame 48/144
+S06 frame 96/144
+S06 complete 25.48 seconds
+{"take":"/workspace/ai-animation-studio-research-content/production/out/candidate-a/2026-11-11T23-36-58-995Z-640-e58ddbcd","status":"PASS_TECHNICAL"}

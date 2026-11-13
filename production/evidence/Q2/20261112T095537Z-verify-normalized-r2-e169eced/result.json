@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "verify-normalized-r2",
+  "run_id": "20261112T095537Z-verify-normalized-r2-e169eced",
+  "started_at_utc": "20261112T095537Z",
+  "command": [
+    "python",
+    "production/src/editorial/check_sequence.py",
+    "production/out/sequences/R2-f93fc0bcd17841b9bc4ee835d3003314",
+    "production/out/normalized/R2-b5997b593ad343e7a95a3c06ddcf4c1f/delivery.mp4"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "842ea1de03a39f6a408e2499537b897b9ad74ec3",
+  "tracked_diff_sha256": "9567d819664e53097f7dbe9faed01755a72774a4fceaead50f410b7e6835d1ee",
+  "recorder_pid": 14236,
+  "source_snapshot_sha256": "a447a5b0e55b6d5a966b6116eb0c24397a325b7d2a288e0896cb3bda07b2b919",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 30.679,
+  "finished_at_utc": "2026-11-12T09:56:07.779277+00:00",
+  "log_sha256": "17dc6fd8e41533cb7fa028bf7c7dff08d6a78642efdc6059857e9c7c545e033c",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,0 +1,33 @@
+{
+  "phase": "Q2",
+  "step": "s05-r3-native-samples",
+  "run_id": "20261113T100453Z-s05-r3-native-samples-84e945e0",
+  "started_at_utc": "20261113T100453Z",
+  "command": [
+    "env",
+    "BLENDER_USER_CONFIG=/tmp/studio-blender-config",
+    "BENCHMARK_INPUT_DIR=/workspace/ai-animation-studio-research-content/production/out/blender-edit-R3-separate-grips",
+    "blender",
+    "--background",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "production/src/blender/vse_probe.py",
+    "--",
+    "S05",
+    "1920",
+    "60,72,95,107,108,120,144"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "bc3c7894875cfb9e97f984eb359f4d9d92114cca",
+  "tracked_diff_sha256": "8d1a1905fbf0a975fd7b4a9f0bd177774773a631e1ee577221827c5059649898",
+  "recorder_pid": 10590,
+  "source_snapshot_sha256": "6bbb4e04eb687a4750a94c5b5e2f9bba6afc90684a06007b496dd9ebd3cd3ad0",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 9.593,
+  "finished_at_utc": "2026-11-13T10:05:03.301837+00:00",
+  "log_sha256": "763d27f6527e21181dc996068f444ac24436bf6fdff54bd1b3e9855a26bdba8a",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

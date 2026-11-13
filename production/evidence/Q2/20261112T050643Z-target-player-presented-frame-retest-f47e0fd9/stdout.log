@@ -1,0 +1,14 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+Error [ReferenceError]: __name is not defined
+    at evaluate (evaluate at file:///workspace/ai-animation-studio-research-content/production/src/render/check_player.ts:1:1466, <anonymous>:0:242)
+    at ExecutionContext.#evaluate (/workspace/ai-animation-studio-research-content/production/node_modules/puppeteer-core/src/cdp/ExecutionContext.ts:456:13)
+    at async ExecutionContext.evaluate (/workspace/ai-animation-studio-research-content/production/node_modules/puppeteer-core/src/cdp/ExecutionContext.ts:293:12)
+    at async IsolatedWorld.evaluate (/workspace/ai-animation-studio-research-content/production/node_modules/puppeteer-core/src/cdp/IsolatedWorld.ts:196:12)
+    at async CdpFrame.evaluate (/workspace/ai-animation-studio-research-content/production/node_modules/puppeteer-core/src/api/Frame.ts:488:12)
+    at async CdpPage.evaluate (/workspace/ai-animation-studio-research-content/production/node_modules/puppeteer-core/src/api/Page.ts:2362:12)
+    at async <anonymous> (/workspace/ai-animation-studio-research-content/production/src/render/check_player.ts:22:15)
+
+Node.js v24.22.1

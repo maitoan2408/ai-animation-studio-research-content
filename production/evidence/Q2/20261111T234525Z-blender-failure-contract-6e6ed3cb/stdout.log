@@ -1,0 +1,1 @@
+{'status': 'PASS', 'expectedExit': 1, 'actualExit': 1, 'scope': 'Deliberate Blender Python exception rejects process'}

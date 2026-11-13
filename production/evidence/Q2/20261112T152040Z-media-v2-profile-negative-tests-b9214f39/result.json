@@ -1,0 +1,28 @@
+{
+  "phase": "Q2",
+  "step": "media-v2-profile-negative-tests",
+  "run_id": "20261112T152040Z-media-v2-profile-negative-tests-b9214f39",
+  "started_at_utc": "20261112T152040Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_media_profiles.py",
+    "-v"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "4af19e04879db23e8e9df398b878d9fd8e08e0777b3915705e522e7a2fdc01ff",
+  "recorder_pid": 19895,
+  "source_snapshot_sha256": "676a3144f59437b6e39d185ac65eb895d04f5a440d13c83e13d1b967e1a190e8",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.144,
+  "finished_at_utc": "2026-11-12T15:20:40.668125+00:00",
+  "log_sha256": "047121842b9be6827b4c0f3d072116fe75f1f361e5614f5c416942c07bda05eb",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

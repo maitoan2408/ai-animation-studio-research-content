@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "edit-r1-longer-voice",
+  "run_id": "20261112T045455Z-edit-r1-longer-voice-8b1f58f0",
+  "started_at_utc": "20261112T045455Z",
+  "command": [
+    "production/.venv/bin/python",
+    "production/src/audio/prepare_voice.py",
+    "--request",
+    "production/brief/voice-R1.json"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "239a10de090cf698680dce070d0c7d24ae2b4aed",
+  "tracked_diff_sha256": "55568d28d93f11919c666f6585ed12e64aba5800af0bb112d21459539dc5ff6b",
+  "recorder_pid": 8987,
+  "source_snapshot_sha256": "0afa5482e0aa11e44f67d3eec29139b9ec0ac975cfde96203ab6b6efb272de1e",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 5.046,
+  "finished_at_utc": "2026-11-12T04:55:00.280918+00:00",
+  "log_sha256": "4398373ab89de86ee4eeb3c7411e74f75224dae25df3fcbad448b4cd2876ae59",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

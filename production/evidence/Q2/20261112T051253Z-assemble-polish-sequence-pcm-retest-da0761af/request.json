@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "assemble-polish-sequence-pcm-retest",
+  "run_id": "20261112T051253Z-assemble-polish-sequence-pcm-retest-da0761af",
+  "started_at_utc": "20261112T051253Z",
+  "command": [
+    "python",
+    "production/src/editorial/assemble.py",
+    "production/out/b-polish-r0-selection.json",
+    "R0"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "2caae4ee6e513681d4bc481b771a5834e868abda",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 11247,
+  "source_snapshot_sha256": "bc36d5d6712c88ce5e54d5939614a7d2d0d9b05bfcf3d53999b9b1d6805c52a9"
+}

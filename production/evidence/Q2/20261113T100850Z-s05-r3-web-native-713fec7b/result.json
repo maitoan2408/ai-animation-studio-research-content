@@ -1,0 +1,25 @@
+{
+  "phase": "Q2",
+  "step": "s05-r3-web-native",
+  "run_id": "20261113T100850Z-s05-r3-web-native-713fec7b",
+  "started_at_utc": "20261113T100850Z",
+  "command": [
+    "python",
+    "production/src/media/native_review.py",
+    "production/out/s05-r3-publication/timeline.json",
+    "production/out/candidate-b-vse/20261113T100531Z-S05-1920-5f9c6931/delivery.mp4",
+    "--sha256",
+    "1eb5d70eb0ec16b9d76fc625e298de206f4185a01f89fb257d92a44b82e51a73"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "bc3c7894875cfb9e97f984eb359f4d9d92114cca",
+  "tracked_diff_sha256": "8e2d4eb1ae76cb95c1a02274eb28b6d3da56348cfaaefabf36531014011dd1ad",
+  "recorder_pid": 11092,
+  "source_snapshot_sha256": "5d32f6b9e36ed03e3bc8f8d0970476e67e4657569092bed0e3c0dab90522fdd0",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 20.524,
+  "finished_at_utc": "2026-11-13T10:09:11.368467+00:00",
+  "log_sha256": "bd01c3ae6a231a33b8076acf8f789deaf9abd30410f33b6097650efa081fe163",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

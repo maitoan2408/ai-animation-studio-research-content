@@ -1,0 +1,11 @@
+test_full_range_review_is_distinct_from_master_and_old_web_profile (test_media_profiles.MediaProfiles.test_full_range_review_is_distinct_from_master_and_old_web_profile) ... ok
+test_missing_transfer_wrong_range_frame_rate_or_channels_reject (test_media_profiles.MediaProfiles.test_missing_transfer_wrong_range_frame_rate_or_channels_reject) ... ok
+test_nonfinite_duration_cannot_bypass_boundary (test_media_profiles.MediaProfiles.test_nonfinite_duration_cannot_bypass_boundary) ... ok
+test_review_cannot_accept_master_transfer_tag (test_media_profiles.MediaProfiles.test_review_cannot_accept_master_transfer_tag) ... ok
+test_verified_master_has_the_locked_profile (test_media_profiles.MediaProfiles.test_verified_master_has_the_locked_profile) ... ok
+test_wrong_frames_extra_stream_and_audio_duration_reject (test_media_profiles.MediaProfiles.test_wrong_frames_extra_stream_and_audio_duration_reject) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+OK

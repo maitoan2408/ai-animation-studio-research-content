@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "commit": "065a02ca0716652be10adb0572a2255defa39a2b",
+  "source": "git archive production only; clean npm cache/install",
+  "completedAt": "2026-11-12T23:15:20.029368+00:00",
+  "checks": [
+    {
+      "command": [
+        "npm",
+        "--prefix",
+        "production",
+        "ci",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "python",
+        "production/src/media/review_bundle.py",
+        "restore",
+        "production/artifacts/Q2/web-review-v2"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "--prefix",
+        "production",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "--prefix",
+        "production",
+        "test"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "--prefix",
+        "production",
+        "run",
+        "review",
+        "--",
+        "check"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "npm",
+        "--prefix",
+        "production",
+        "run",
+        "test:review-ui"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "lockSha256": "181bd0e539d9518881a54a3d9191edd92340d503926dc748e3a238b2b8e79ee1",
+  "output": "/workspace/ai-animation-studio-research-content/production/out/fresh-review/b681290bb05f4b3fa7efeadebd05f61b",
+  "checkout": "/tmp/studio-q2-clean-5s2en1ai",
+  "limits": [
+    "Same host/runtime and agent; not independent operator or clean-machine certification",
+    "No listening or full artistic review from functional test"
+  ]
+}

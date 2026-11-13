@@ -1,0 +1,52 @@
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ art source hashes, explicit pivots, views and local references remain intact (17.526281ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (1.194682ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (0.663521ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (59.699431ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (9.883105ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (1.962469ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (2.357225ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (0.362376ms)
+✖ upright walk uses only the hip drop required for planted-foot reach (0.712665ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (5.147123ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (159.711606ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (136.183384ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (2.342433ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (25.26401ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (121.033907ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 14
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1069.101652
+
+✖ failing tests:
+
+test at tests/benchmark.test.ts:51:1
+✖ upright walk uses only the hip drop required for planted-foot reach (0.712665ms)
+  AssertionError [ERR_ASSERTION]: S02:12 excessive hip drop 24px
+      at TestContext.<anonymous> (/workspace/ai-animation-studio-research-content/production/tests/benchmark.test.ts:53:33)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

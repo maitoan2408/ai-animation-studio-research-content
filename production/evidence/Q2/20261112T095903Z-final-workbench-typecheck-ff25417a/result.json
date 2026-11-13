@@ -1,0 +1,24 @@
+{
+  "phase": "Q2",
+  "step": "final-workbench-typecheck",
+  "run_id": "20261112T095903Z-final-workbench-typecheck-ff25417a",
+  "started_at_utc": "20261112T095903Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "typecheck"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "842ea1de03a39f6a408e2499537b897b9ad74ec3",
+  "tracked_diff_sha256": "3633af766dd07828599905cc675b55c8e0d1437f65875fbad7eb2eea64c808a9",
+  "recorder_pid": 15063,
+  "source_snapshot_sha256": "7fc7c33c4c674b964928e9d1be83b7f0ba3ba9e036c9d97de38540195d025998",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 4.235,
+  "finished_at_utc": "2026-11-12T09:59:07.564238+00:00",
+  "log_sha256": "e81d56aa6430287c019266cfe3e9c03d477abffe1f1e3ccdbaae08b17fae9c63",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

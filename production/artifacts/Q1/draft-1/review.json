@@ -1,0 +1,27 @@
+{
+  "status": "CHANGES_REQUESTED",
+  "reviewer": "delegated-agent",
+  "viewed": [
+    "wide.png",
+    "close.png",
+    "model-sheet.png"
+  ],
+  "issues": [
+    {
+      "id": "EX-006",
+      "problem": "Neutral legs visibly crouched and default open hands face upward",
+      "plan": "Raise hip within leg reach and rotate resting hands, keeping soles fixed; re-view whole puppet"
+    },
+    {
+      "id": "EX-007",
+      "problem": "Contact styleframe hand marker differs from cup grip by about 31px in stage coordinates",
+      "plan": "Add invariant from both asset anchors; derive wrist from cup grip and hand local grip offset; keep initial failure"
+    },
+    {
+      "id": "EX-008",
+      "problem": "Worried eyebrow slopes read as angry; profile mouth protrudes",
+      "plan": "Reverse inner eyebrow slope and reduce profile mouth width; keep identity and compare views"
+    }
+  ],
+  "limits": "Static art review only; motion and production acceptance remain open"
+}

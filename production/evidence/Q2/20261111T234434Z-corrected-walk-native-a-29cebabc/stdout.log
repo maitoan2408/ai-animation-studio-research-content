@@ -1,0 +1,13 @@
+[SystemMemory] cgroup memory limit detected: 8192 MiB. It governs memory-adaptive render behaviour instead of host RAM.
+[non-blocking] Failed to load resource: the server responded with a status of 404 (Not Found)
+[Browser:WARN] [.WebGL-0x2fd40019c400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+[Browser:WARN] [.WebGL-0x2fd40019c400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x2fd40019c400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[Browser:WARN] [.WebGL-0x2fd40019c400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+S02 frame 0/192
+S02 frame 48/192
+S02 frame 96/192
+S02 frame 144/192
+S02 complete 260.41 seconds
+{"take":"/workspace/ai-animation-studio-research-content/production/out/candidate-a/2026-11-11T23-44-36-157Z-1920-43ae6ea7","status":"PASS_TECHNICAL"}

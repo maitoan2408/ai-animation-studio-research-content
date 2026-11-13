@@ -1,0 +1,65 @@
+{
+  "status": "FAIL_CONFIRMED",
+  "findings": [
+    {
+      "id": "EX-030",
+      "severity": "P2",
+      "title": "An old save response clears a new editable draft",
+      "case": "pending-save-new-revision-draft",
+      "expected": "New R2 draft typed while the previous R0 save is pending.",
+      "actual": "",
+      "duringSave": "New R2 draft typed while the previous R0 save is pending.",
+      "originalRevision": "R0",
+      "selectedRevision": "R2",
+      "savedRecords": 1,
+      "originalSavedOn": "R0"
+    },
+    {
+      "id": "EX-031",
+      "severity": "P2",
+      "title": "Refreshing after an uncertain save changes the retry identity",
+      "case": "lost-response-refresh-retry",
+      "expectedMatchingRecords": 1,
+      "actualMatchingRecords": 2,
+      "retainedAfterError": "Audit lost-response note: a retry must not duplicate this record.",
+      "initialRequestId": "1f2d4cea-d770-4a64-8532-cc085c9bc20a",
+      "initialCommittedHash": "8d3f66a12bcdea3ccb9bcc77fbb3d98edf03f1c9074178ee15aea79e252cc6de",
+      "matchingRequestIds": [
+        "1f2d4cea-d770-4a64-8532-cc085c9bc20a",
+        "7a0a9d76-3a7b-425b-a32f-794ef1cfb6b0"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "case": "pending-save-new-revision-draft",
+      "expected": "New R2 draft typed while the previous R0 save is pending.",
+      "actual": "",
+      "duringSave": "New R2 draft typed while the previous R0 save is pending.",
+      "originalRevision": "R0",
+      "selectedRevision": "R2",
+      "savedRecords": 1,
+      "originalSavedOn": "R0"
+    },
+    {
+      "case": "lost-response-refresh-retry",
+      "expectedMatchingRecords": 1,
+      "actualMatchingRecords": 2,
+      "retainedAfterError": "Audit lost-response note: a retry must not duplicate this record.",
+      "initialRequestId": "1f2d4cea-d770-4a64-8532-cc085c9bc20a",
+      "initialCommittedHash": "8d3f66a12bcdea3ccb9bcc77fbb3d98edf03f1c9074178ee15aea79e252cc6de",
+      "matchingRequestIds": [
+        "1f2d4cea-d770-4a64-8532-cc085c9bc20a",
+        "7a0a9d76-3a7b-425b-a32f-794ef1cfb6b0"
+      ]
+    }
+  ],
+  "browser": "Chrome/156.0.8078.79",
+  "browserErrors": [],
+  "mode": "automated-test",
+  "output": "/workspace/ai-animation-studio-research-content/production/out/review-audit/349524df-9d93-4118-ad2b-20231e814875",
+  "limits": [
+    "Controlled request timing with real Chromium and HTTP; not a throughput benchmark",
+    "No production journal/media changes and no artistic or listening approval"
+  ]
+}

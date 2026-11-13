@@ -1,0 +1,31 @@
+{
+  "status": "PASS_TECHNICAL",
+  "observed": "ACCEPT_COLOR_SAMPLE",
+  "expected": "ACCEPT_COLOR_SAMPLE",
+  "referenceSha256": "bddd75761825dc97bbd7bec9d186969244e7318169a6f236d00bc8070309d256",
+  "deliverySha256": "a4a1b34d5c3a69f3edc20f6d840fb2c776dd4132bb15fe1cf18f0c2dc0a41d3f",
+  "frame": 1032,
+  "browser": "Chrome/156.0.8078.79",
+  "limits": {
+    "maeMax": 3.0,
+    "p95Max": 6.0,
+    "rationale": "Bounded 8-bit quantization and two lossy 4:2:0 encodes; no threshold changes after observing a failure."
+  },
+  "samples": [
+    {
+      "sample": "player.png",
+      "sha256": "a9eb1d7432ecd4d2263509890c1033cbb24e555ac066fad3f007447142d7b4bd",
+      "maeRGB": 0.6625337577160494,
+      "p95RGB": 2.0,
+      "withinLimits": true
+    },
+    {
+      "sample": "compositor.png",
+      "sha256": "9c2e1874696474b2088949161ac45754b30552fe7f1ce2b883839de5de3bea0c",
+      "maeRGB": 0.6625337577160494,
+      "p95RGB": 2.0,
+      "withinLimits": true
+    }
+  ],
+  "scope": "Locked software Chromium/reference samples only, not artistic approval or every display"
+}

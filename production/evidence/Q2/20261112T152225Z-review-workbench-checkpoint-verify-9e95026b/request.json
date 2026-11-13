@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "review-workbench-checkpoint-verify",
+  "run_id": "20261112T152225Z-review-workbench-checkpoint-verify-9e95026b",
+  "started_at_utc": "20261112T152225Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "dcb0d01ac9e68b9276b3d25ed66efdb71d528242be8a7bb7c127c6f2e9e8e22d",
+  "status": "RUNNING",
+  "recorder_pid": 19955,
+  "source_snapshot_sha256": "9de04e1e83232fe0b83c91cb7706e002591e63fb08658f70f6455fa1177979ae"
+}

@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "catalog": {
+    "schemaVersion": 1,
+    "title": "The Last Lantern — Q2 review",
+    "artifacts": [
+      {
+        "id": "0c578593e9376aa9295c0022a5e1c4a352861e74293b716081cce7a28fb8921f",
+        "revision": "R0",
+        "file": "web-review-v2/R0/review.mp4",
+        "masterFile": "review-final/R0/normalized-delivery.mp4",
+        "masterSha256": "f1d0413c6f4970e3575bdbc8bc994dd3bc10e9e2931fcf8561767cd3b3460ea0",
+        "profile": "web-review-srgb-full-2",
+        "fps": 24,
+        "frames": 1152,
+        "width": 1920,
+        "height": 1080,
+        "loudnessLUFS": -16.02,
+        "truePeakDbTP": -1.93,
+        "shots": [
+          {
+            "id": "S01",
+            "startFrame": 0,
+            "endFrame": 192,
+            "hasSpeech": true
+          },
+          {
+            "id": "S02",
+            "startFrame": 192,
+            "endFrame": 384,
+            "hasSpeech": false
+          },
+          {
+            "id": "S03",
+            "startFrame": 384,
+            "endFrame": 624,
+            "hasSpeech": false
+          },
+          {
+            "id": "S04",
+            "startFrame": 624,
+            "endFrame": 816,
+            "hasSpeech": false
+          },
+          {
+            "id": "S05",
+            "startFrame": 816,
+            "endFrame": 1008,
+            "hasSpeech": false
+          },
+          {
+            "id": "S06",
+            "startFrame": 1008,
+            "endFrame": 1152,
+            "hasSpeech": false
+          }
+        ],
+        "colorStatus": "pass"
+      },
+      {
+        "id": "9e87348bdd1f34d2a5853ed3228b7e7110fe83ba55c0b6d7f5852aa9d87de02b",
+        "revision": "R1",
+        "file": "web-review-v2/R1/review.mp4",
+        "masterFile": "review-final/R1/normalized-delivery.mp4",
+        "masterSha256": "098284d8e259c34ce700bac7adaeb292af67b5ab18a6b396cebb76abddad2c6e",
+        "profile": "web-review-srgb-full-2",
+        "fps": 24,
+        "frames": 1152,
+        "width": 1920,
+        "height": 1080,
+        "loudnessLUFS": -16.02,
+        "truePeakDbTP": -1.98,
+        "shots": [
+          {
+            "id": "S01",
+            "startFrame": 0,
+            "endFrame": 192,
+            "hasSpeech": true
+          },
+          {
+            "id": "S02",
+            "startFrame": 192,
+            "endFrame": 384,
+            "hasSpeech": false
+          },
+          {
+            "id": "S03",
+            "startFrame": 384,
+            "endFrame": 624,
+            "hasSpeech": false
+          },
+          {
+            "id": "S04",
+            "startFrame": 624,
+            "endFrame": 816,
+            "hasSpeech": false
+          },
+          {
+            "id": "S05",
+            "startFrame": 816,
+            "endFrame": 1008,
+            "hasSpeech": false
+          },
+          {
+            "id": "S06",
+            "startFrame": 1008,
+            "endFrame": 1152,
+            "hasSpeech": false
+          }
+        ],
+        "colorStatus": "pass"
+      },
+      {
+        "id": "263aa0d7a7b486098c4d246a84169629a71bd2fae1cc9c835e7f2a001eddc4d1",
+        "revision": "R2",
+        "file": "web-review-v2/R2/review.mp4",
+        "masterFile": "review-final/R2/normalized-delivery.mp4",
+        "masterSha256": "d4d0f0e1cb017cca12829dac897c3245eefd6a0a0c86c91df6af8ca71110d1d6",
+        "profile": "web-review-srgb-full-2",
+        "fps": 24,
+        "frames": 1152,
+        "width": 1920,
+        "height": 1080,
+        "loudnessLUFS": -16.02,
+        "truePeakDbTP": -1.98,
+        "shots": [
+          {
+            "id": "S04",
+            "startFrame": 0,
+            "endFrame": 192,
+            "hasSpeech": false
+          },
+          {
+            "id": "S02",
+            "startFrame": 192,
+            "endFrame": 384,
+            "hasSpeech": false
+          },
+          {
+            "id": "S01",
+            "startFrame": 384,
+            "endFrame": 576,
+            "hasSpeech": true
+          },
+          {
+            "id": "S03",
+            "startFrame": 576,
+            "endFrame": 816,
+            "hasSpeech": false
+          },
+          {
+            "id": "S06",
+            "startFrame": 816,
+            "endFrame": 960,
+            "hasSpeech": false
+          },
+          {
+            "id": "S05",
+            "startFrame": 960,
+            "endFrame": 1152,
+            "hasSpeech": false
+          }
+        ],
+        "colorStatus": "pass"
+      }
+    ],
+    "native": {
+      "file": "review-final/native-final-r2.zip",
+      "sha256": "c592c64af73f1f11792a92de2893d287b211babd7648d129944777e72c55639a"
+    }
+  },
+  "head": "1511767ddeecec056fb7f1ad361a409c28bf8610842e8edb83c0d007554c1eaf",
+  "records": [
+    {
+      "sequence": 1,
+      "previous": null,
+      "createdAt": "2026-11-13T02:41:16.977Z",
+      "request": {
+        "requestId": "3d9e0947-93df-4937-970d-9f2e1b60a902",
+        "expectedHead": null,
+        "artifactId": "0c578593e9376aa9295c0022a5e1c4a352861e74293b716081cce7a28fb8921f",
+        "masterSha256": "f1d0413c6f4970e3575bdbc8bc994dd3bc10e9e2931fcf8561767cd3b3460ea0",
+        "revision": "R0",
+        "shotId": "S01",
+        "frame": 0,
+        "reviewer": {
+          "name": "Automated browser test",
+          "kind": "automated-test"
+        },
+        "decision": "note",
+        "note": "Audit original R0 note; synthetic, not artistic approval.",
+        "scores": null,
+        "observed": {
+          "normalSpeed": false,
+          "slowSpeed": false,
+          "listened": false
+        },
+        "blockingIssue": false
+      },
+      "hash": "d3271cd844cc07e4d2058b564c716851fc220896d3a186473c0f84913fe499cf"
+    },
+    {
+      "sequence": 2,
+      "previous": "d3271cd844cc07e4d2058b564c716851fc220896d3a186473c0f84913fe499cf",
+      "createdAt": "2026-11-13T02:41:17.777Z",
+      "request": {
+        "requestId": "1f2d4cea-d770-4a64-8532-cc085c9bc20a",
+        "expectedHead": "d3271cd844cc07e4d2058b564c716851fc220896d3a186473c0f84913fe499cf",
+        "artifactId": "0c578593e9376aa9295c0022a5e1c4a352861e74293b716081cce7a28fb8921f",
+        "masterSha256": "f1d0413c6f4970e3575bdbc8bc994dd3bc10e9e2931fcf8561767cd3b3460ea0",
+        "revision": "R0",
+        "shotId": "S01",
+        "frame": 0,
+        "reviewer": {
+          "name": "Automated browser test",
+          "kind": "automated-test"
+        },
+        "decision": "note",
+        "note": "Audit lost-response note: a retry must not duplicate this record.",
+        "scores": null,
+        "observed": {
+          "normalSpeed": false,
+          "slowSpeed": false,
+          "listened": false
+        },
+        "blockingIssue": false
+      },
+      "hash": "8d3f66a12bcdea3ccb9bcc77fbb3d98edf03f1c9074178ee15aea79e252cc6de"
+    },
+    {
+      "sequence": 3,
+      "previous": "8d3f66a12bcdea3ccb9bcc77fbb3d98edf03f1c9074178ee15aea79e252cc6de",
+      "createdAt": "2026-11-13T02:41:18.037Z",
+      "request": {
+        "requestId": "7a0a9d76-3a7b-425b-a32f-794ef1cfb6b0",
+        "expectedHead": "8d3f66a12bcdea3ccb9bcc77fbb3d98edf03f1c9074178ee15aea79e252cc6de",
+        "artifactId": "0c578593e9376aa9295c0022a5e1c4a352861e74293b716081cce7a28fb8921f",
+        "masterSha256": "f1d0413c6f4970e3575bdbc8bc994dd3bc10e9e2931fcf8561767cd3b3460ea0",
+        "revision": "R0",
+        "shotId": "S01",
+        "frame": 0,
+        "reviewer": {
+          "name": "Automated browser test",
+          "kind": "automated-test"
+        },
+        "decision": "note",
+        "note": "Audit lost-response note: a retry must not duplicate this record.",
+        "scores": null,
+        "observed": {
+          "normalSpeed": false,
+          "slowSpeed": false,
+          "listened": false
+        },
+        "blockingIssue": false
+      },
+      "hash": "1511767ddeecec056fb7f1ad361a409c28bf8610842e8edb83c0d007554c1eaf"
+    }
+  ],
+  "mode": "test",
+  "phaseApproval": false
+}

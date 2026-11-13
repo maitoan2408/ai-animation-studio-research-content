@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "review-followup-contracts",
+  "run_id": "20261113T024612Z-review-followup-contracts-6ef0a579",
+  "started_at_utc": "20261113T024612Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "cb4e08476ae831775d1ae0b485e71fd1455be13a",
+  "tracked_diff_sha256": "630562fa473fd8286ff0ef38bc7c169e9cfe61bfc165b790a0090fc2ffad0d26",
+  "status": "RUNNING",
+  "recorder_pid": 7932,
+  "source_snapshot_sha256": "54acf5876cc678dd7bbab9ce058471e2e87bb6fa53a41c504710b1e2495d92e0"
+}

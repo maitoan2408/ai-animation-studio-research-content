@@ -1,0 +1,17 @@
+{
+  "phase": "Q2",
+  "step": "final-app-regression-verify",
+  "run_id": "20261112T152905Z-final-app-regression-verify-0f7074c0",
+  "started_at_utc": "20261112T152905Z",
+  "command": [
+    "npm",
+    "run",
+    "verify"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "198b1f90060bc9f805f93a8e611a487b5028dc01",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 20827,
+  "source_snapshot_sha256": "4dac378dbd830246e1fb091d4d9fff49a9cb605b4d732dd4069761e9c3c31523"
+}

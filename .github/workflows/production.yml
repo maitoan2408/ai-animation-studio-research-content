@@ -1,0 +1,59 @@
+name: Q2 workbench verification
+on:
+  pull_request:
+    paths: ['production/**', 'scripts/run-step.py', '.github/workflows/production.yml']
+  push:
+    branches: [main]
+    paths: ['production/**', 'scripts/run-step.py', '.github/workflows/production.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: q2-workbench-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  contracts-and-review:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install local media runtime
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation python3 python3-venv
+      - run: npm --prefix production ci
+      - name: Install locked QC libraries
+        run: |
+          python3 -m venv /tmp/q2-qc
+          /tmp/q2-qc/bin/pip install -r production/requirements-qc.lock
+      - run: npm --prefix production run typecheck
+      - run: npm --prefix production test
+      - run: /tmp/q2-qc/bin/python -m unittest discover -s production/tests -p 'test_*.py' -v
+      - name: Restore exact review media from Git parts
+        run: /tmp/q2-qc/bin/python production/src/media/review_bundle.py restore production/artifacts/Q2/web-review-v2
+      - run: npm --prefix production run review -- check
+      - name: Verify frozen chart in actual Chromium
+        run: /tmp/q2-qc/bin/python production/src/qa/check_color_reference.py
+      - run: npm --prefix production run test:review-ui
+      - name: Rebuild R3 from committed inputs and verify review binding
+        run: |
+          /tmp/q2-qc/bin/python production/src/media/rebuild_r3.py
+          npm --prefix production run review:r3 -- check
+          npm --prefix production run test:review-r3
+      - name: Verify delayed and uncertain review-save recovery
+        run: npm --prefix production run test:review-recovery
+      - name: Verify standalone Git-only installation and review workflow
+        # Full-repo npm ci passed before EX-028 was fixed. This separate checkout
+        # must remain outside the parent package tree, with its own empty cache.
+        run: PATH="/tmp/q2-qc/bin:$PATH" /tmp/q2-qc/bin/python production/src/qa/check_fresh_review.py
+      - name: Upload diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: q2-workbench-${{ github.run_number }}
+          path: |
+            production/out/review-ui/
+            production/out/review-audit/
+            production/out/player-check/
+            production/out/chart-results/
+            production/out/fresh-review/**/report.json
+          retention-days: 14

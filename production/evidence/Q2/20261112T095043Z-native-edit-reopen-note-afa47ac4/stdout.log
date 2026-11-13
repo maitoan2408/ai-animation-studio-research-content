@@ -1,0 +1,35 @@
+Blender 4.3.2
+Read blend: "/workspace/ai-animation-studio-research-content/production/out/restore/b1a3f759ee7e4306aa96bc196cf0fa78/project/S04.blend"
+Saved: '/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3/before.png'
+Time: 00:01.13 (Saving: 00:00.16)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3/after.png'
+Time: 00:01.34 (Saving: 00:00.16)
+
+Info: Saved "edited.blend"
+{"output": "/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3", "modifiedCurves": 292}
+
+Blender quit
+Blender 4.3.2
+Read blend: "/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3/edited.blend"
+Saved: '/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3/reopen/0-191.png'
+Time: 00:01.10 (Saving: 00:00.16)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3/reopen/1-0.png'
+Time: 00:01.27 (Saving: 00:00.15)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3/reopen/2-72.png'
+Time: 00:01.18 (Saving: 00:00.15)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3/reopen/3-48.png'
+Time: 00:01.16 (Saving: 00:00.16)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3/reopen/4-191.png'
+Time: 00:01.18 (Saving: 00:00.15)
+
+Saved: '/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3/reopen/5-72.png'
+Time: 00:01.17 (Saving: 00:00.17)
+
+
+Blender quit
+{"output": "/workspace/ai-animation-studio-research-content/production/out/native-edit/6faee12d1e924c2e9749f187f54c39a3", "status": "PASS_TECHNICAL", "changedPixels": 1905436, "sourceProjectSha256": "8c6b233d1cb84d11f610ae99a264b88e7c11bf4016c9c625b99d0463c4c26430", "editedProjectSha256": "0c97cad8fcb778568d6add80ed46b52f51a86237aabd843756cb53acc044e5a1", "sourceUnchanged": true, "editedFrameReopensExactly": true, "operator": "delegated-agent", "limits": ["Same-agent fresh-process test; not an independent operator", "No full native semantic rig UI"]}

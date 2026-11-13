@@ -1,0 +1,88 @@
+{
+  "status": "PASS_TECHNICAL",
+  "contract": "media-contract-1",
+  "alphaRoundtripsExact": 2,
+  "cases": [
+    {
+      "asset": "props/cup-accent",
+      "sourceSha256": "05e4ba835a3916581cc987c4fd83f1941dacb1a513f6b46242aa47c6e24ebd1b",
+      "background": 0,
+      "interpretation": "straight",
+      "meanAbsoluteRGB": 0.0,
+      "maxAbsoluteRGB": 0,
+      "expected": "PASS",
+      "expectedObserved": true
+    },
+    {
+      "asset": "props/cup-accent",
+      "sourceSha256": "05e4ba835a3916581cc987c4fd83f1941dacb1a513f6b46242aa47c6e24ebd1b",
+      "background": 0,
+      "interpretation": "premultiplied",
+      "meanAbsoluteRGB": 0.518452380952381,
+      "maxAbsoluteRGB": 254,
+      "expected": "REJECT",
+      "expectedObserved": true
+    },
+    {
+      "asset": "props/cup-accent",
+      "sourceSha256": "05e4ba835a3916581cc987c4fd83f1941dacb1a513f6b46242aa47c6e24ebd1b",
+      "background": 255,
+      "interpretation": "straight",
+      "meanAbsoluteRGB": 0.0,
+      "maxAbsoluteRGB": 0,
+      "expected": "PASS",
+      "expectedObserved": true
+    },
+    {
+      "asset": "props/cup-accent",
+      "sourceSha256": "05e4ba835a3916581cc987c4fd83f1941dacb1a513f6b46242aa47c6e24ebd1b",
+      "background": 255,
+      "interpretation": "premultiplied",
+      "meanAbsoluteRGB": 0.23864087301587303,
+      "maxAbsoluteRGB": 63,
+      "expected": "REJECT",
+      "expectedObserved": true
+    },
+    {
+      "asset": "shadow/props/cup-accent",
+      "sourceSha256": "91b0bc4eb2b37946f352238186f9b600dce500d2ed2d6c6107239a1ec33bca1a",
+      "background": 0,
+      "interpretation": "straight",
+      "meanAbsoluteRGB": 0.0,
+      "maxAbsoluteRGB": 0,
+      "expected": "PASS",
+      "expectedObserved": true
+    },
+    {
+      "asset": "shadow/props/cup-accent",
+      "sourceSha256": "91b0bc4eb2b37946f352238186f9b600dce500d2ed2d6c6107239a1ec33bca1a",
+      "background": 0,
+      "interpretation": "premultiplied",
+      "meanAbsoluteRGB": 3.7794899164244184,
+      "maxAbsoluteRGB": 127,
+      "expected": "REJECT",
+      "expectedObserved": true
+    },
+    {
+      "asset": "shadow/props/cup-accent",
+      "sourceSha256": "91b0bc4eb2b37946f352238186f9b600dce500d2ed2d6c6107239a1ec33bca1a",
+      "background": 255,
+      "interpretation": "straight",
+      "meanAbsoluteRGB": 0.0,
+      "maxAbsoluteRGB": 0,
+      "expected": "PASS",
+      "expectedObserved": true
+    },
+    {
+      "asset": "shadow/props/cup-accent",
+      "sourceSha256": "91b0bc4eb2b37946f352238186f9b600dce500d2ed2d6c6107239a1ec33bca1a",
+      "background": 255,
+      "interpretation": "premultiplied",
+      "meanAbsoluteRGB": 2.725849634609173,
+      "maxAbsoluteRGB": 36,
+      "expected": "REJECT",
+      "expectedObserved": true
+    }
+  ],
+  "scope": "Two authored assets at the PNG/FFmpeg boundary; no full scene-art approval"
+}

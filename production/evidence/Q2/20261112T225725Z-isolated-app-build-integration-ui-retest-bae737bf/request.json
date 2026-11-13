@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "isolated-app-build-integration-ui-retest",
+  "run_id": "20261112T225725Z-isolated-app-build-integration-ui-retest-bae737bf",
+  "started_at_utc": "20261112T225725Z",
+  "command": [
+    "python",
+    "production/src/qa/run_app_regression.py"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "198b1f90060bc9f805f93a8e611a487b5028dc01",
+  "tracked_diff_sha256": "1a8753f3354167a9253222bf913d39d85ea49403410416f628d6efe948c4fdc2",
+  "status": "RUNNING",
+  "recorder_pid": 620,
+  "source_snapshot_sha256": "2911a6d3768a7bd97b6441241beece181b5367bfbf69974cbb6b669d00817df8"
+}

@@ -1,0 +1,137 @@
+{
+  "phase": "Q2",
+  "status": "IN_PROGRESS_CREATIVE_HANDOFF_AND_PERFORMANCE_GATES_OPEN",
+  "reviewer": "delegated-agent",
+  "reviewPackage": "production/artifacts/Q2/web-review-v3/README.md",
+  "substeps": {
+    "Q2.1": "PASS_BOUNDED_TECHNICAL — readiness/seek, pinned Chromium color/reference and straight-alpha contract. Not every player/display.",
+    "Q2.2": "PASS_TECHNICAL — original12 native A/B clips; authored contact/stance tests",
+    "Q2.3": "MEDIA_DONE_B — six polished clips and48s sequences; full-motion artistic score pending",
+    "Q2.4": "EDIT_ROUNDS_DONE_B — R1/R2 scope verified; same-agent native edit/reopen PASS, independent operator NOT_RUN",
+    "Q2.5": "NOT_RUN — after art/motion gate, protocol written"
+  },
+  "latestValidation": {
+    "workbenchTests": 21,
+    "editorialNegativeTests": 5,
+    "loudnessContracts": 3,
+    "appRegressionTests": 16,
+    "typechecks": "PASS",
+    "sequenceFramesPerVersion": 1152,
+    "versions": [
+      "R0",
+      "R1",
+      "R2",
+      "R3"
+    ],
+    "normalizedIntegratedLUFS": -16.02,
+    "normalizedTruePeakRangeDbTP": [
+      -1.98,
+      -1.93
+    ],
+    "aacTransportLagSamples": 0,
+    "nativeFilesVerified": 70,
+    "nativeReplayFrames": 6,
+    "pythonContractTests": 17,
+    "reviewBrowserChecks": 14,
+    "appIntegrationChecks": 13,
+    "appBrowserChecks": 9,
+    "chartMaxRGB": 1,
+    "chartMaxLimit": 3,
+    "nativeReviewExactYuvFramesPerVersion": 1152,
+    "reviewColorMAE": [
+      0.5035429527,
+      0.6566157086,
+      0.6615782536
+    ],
+    "reviewColorP95": [
+      1,
+      2,
+      2
+    ],
+    "singleIdleR2PlaybackDroppedFrames": 0,
+    "freshGitReproduction": {
+      "status": "PASS",
+      "testedCommit": "065a02ca0716652be10adb0572a2255defa39a2b",
+      "commandsPassed": 6,
+      "report": "production/artifacts/Q2/fresh-review-20261113/report.json",
+      "limits": "Same host/agent; not independent operator handoff"
+    },
+    "githubCI": {
+      "status": "PASS",
+      "sourceHead": "71213e96b70de56cda2856b58d48cba4faac103f",
+      "workbenchRun": 43355147608,
+      "v01Run": 43355147643,
+      "standaloneStep": "PASS",
+      "reviewRecoveryStep": "PASS",
+      "evidence": "production/artifacts/Q2/review-followup-20261113/ci-workflows.json"
+    },
+    "evidenceIntegrity": {
+      "status": "PASS_INTEGRITY",
+      "completedAttempts": 210,
+      "sourceSnapshotsChecked": 162,
+      "evidence": "production/artifacts/Q2/review-followup-20261113/integrity-report.json"
+    },
+    "reviewRecoveryBrowserChecks": 3,
+    "reviewFollowup": {
+      "status": "PASS",
+      "evidence": "production/artifacts/Q2/review-followup-20261113/after/report.json",
+      "resolvedIssues": [
+        "EX-030",
+        "EX-031"
+      ],
+      "limits": "Synthetic workflow recovery checks; no art/listening approval",
+      "testedSource": "71213e96b70de56cda2856b58d48cba4faac103f",
+      "ciEvidence": "production/artifacts/Q2/review-followup-20261113/ci-workflows.json"
+    },
+    "s05R3": {
+      "status": "PASS_SCOPED_REPAIR",
+      "evidence": "production/artifacts/Q2/s05-r3/report.json",
+      "fullPhaseApproval": false,
+      "catalogPromoted": true,
+      "githubCI": {
+        "sourceHead": "6c36e93f849724c0393a4a7e97f9eae737e1b964",
+        "status": "PASS",
+        "evidence": "production/artifacts/Q2/s05-r3/ci-workflows.json",
+        "workbenchRun": 43407467125,
+        "v01Run": 43407467082
+      }
+    },
+    "r3Sequence": {
+      "status": "PASS_TECHNICAL",
+      "frames": 1152,
+      "reusedFrames": 960,
+      "masterDecodedExact": true,
+      "webDecodedExact": true,
+      "aacUnchanged": true,
+      "evidence": "production/artifacts/Q2/web-review-v3/rebuild-report.json"
+    }
+  },
+  "openGates": [
+    "Voice listening and perceptual cues",
+    "Full-speed/slow artistic review with timestamp rubric",
+    "Independent operator opens and edits one note",
+    "3cold+5warm measurements after art/motion pass"
+  ],
+  "notClaimed": [
+    "Production readiness",
+    "Q3 backend selection",
+    "72-second pilot",
+    "Accepted duration/cost per accepted minute",
+    "Independent human review"
+  ],
+  "nextPhases": {
+    "Q3": "NOT_STARTED",
+    "Q4": "NOT_STARTED",
+    "Q5": "NOT_STARTED",
+    "Q6": "NOT_STARTED",
+    "Q7": "NOT_STARTED",
+    "Q8": "NOT_STARTED",
+    "Q9": "NOT_STARTED"
+  },
+  "limits": [
+    "V2 full-range browser profile is separate from unchanged BT709 limited master",
+    "Single idle R2 playback is not the formal3cold+5warm measurement",
+    "R0/R1 under concurrent encoding dropped5/19 frames; preserve those measurements",
+    "Review records do not automatically change this gate; no human listening or independent operator asserted"
+  ]
+}

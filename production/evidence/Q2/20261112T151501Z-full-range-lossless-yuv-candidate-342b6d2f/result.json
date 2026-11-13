@@ -1,0 +1,24 @@
+{
+  "phase": "Q2",
+  "step": "full-range-lossless-yuv-candidate",
+  "run_id": "20261112T151501Z-full-range-lossless-yuv-candidate-342b6d2f",
+  "started_at_utc": "20261112T151501Z",
+  "command": [
+    "python",
+    "production/src/media/native_chart.py",
+    "production/out/color-chart/eeb0cb6f8ae14c8bafd4d773eae18402/fixture.json",
+    "--full-range",
+    "--lossless-yuv"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "2324907c28f1daf5699bbe8e9de6d05861f1b227dc9d4f17e8a7028c16d411c7",
+  "recorder_pid": 18655,
+  "source_snapshot_sha256": "042e844be810ad3ff0fd87b5e991b02aa4328c61e4d45e65315fee96120f31de",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 2.418,
+  "finished_at_utc": "2026-11-12T15:15:03.932256+00:00",
+  "log_sha256": "65b05e92525dda624bbbe8f3b080deceeace00f50bda588beaf9e04a1fdbe6f5",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "review-response-order-fixed",
+  "run_id": "20261113T024409Z-review-response-order-fixed-a24c7542",
+  "started_at_utc": "20261113T024409Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/qa/audit_review_workflow.mjs"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "cb4e08476ae831775d1ae0b485e71fd1455be13a",
+  "tracked_diff_sha256": "74e77d9e8b4a929889724ef384b184af5609d980c100a56bf625569c45542d09",
+  "status": "RUNNING",
+  "recorder_pid": 7630,
+  "source_snapshot_sha256": "b0e91a511c928855685843a76a6b2e0d4bff9d784d5c403b6d55262a3d9886a8"
+}

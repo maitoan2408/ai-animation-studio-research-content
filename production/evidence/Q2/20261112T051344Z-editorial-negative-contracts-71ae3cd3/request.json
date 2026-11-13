@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "editorial-negative-contracts",
+  "run_id": "20261112T051344Z-editorial-negative-contracts-71ae3cd3",
+  "started_at_utc": "20261112T051344Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_editorial.py",
+    "-v"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "2caae4ee6e513681d4bc481b771a5834e868abda",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 11345,
+  "source_snapshot_sha256": "126a3dd57dbd865554257627852aca4b5f7c3146b461833d4167b78e0ac8c1f9"
+}

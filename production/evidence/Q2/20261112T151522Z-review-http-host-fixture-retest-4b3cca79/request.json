@@ -1,0 +1,17 @@
+{
+  "phase": "Q2",
+  "step": "review-http-host-fixture-retest",
+  "run_id": "20261112T151522Z-review-http-host-fixture-retest-4b3cca79",
+  "started_at_utc": "20261112T151522Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/review.test.ts"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "933c61178f988c9b585c08f4e5ba9c797db4b47b",
+  "tracked_diff_sha256": "2324907c28f1daf5699bbe8e9de6d05861f1b227dc9d4f17e8a7028c16d411c7",
+  "status": "RUNNING",
+  "recorder_pid": 18912,
+  "source_snapshot_sha256": "f8da9111c94e7a092ce68efb93a487d46ebbd7f57d70fda9a4406c72a39f10c5"
+}

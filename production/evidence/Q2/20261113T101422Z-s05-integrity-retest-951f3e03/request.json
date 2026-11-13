@@ -1,0 +1,17 @@
+{
+  "phase": "Q2",
+  "step": "s05-integrity-retest",
+  "run_id": "20261113T101422Z-s05-integrity-retest-951f3e03",
+  "started_at_utc": "20261113T101422Z",
+  "command": [
+    "python",
+    "-c",
+    "import hashlib,json,re,subprocess,zipfile,os\nfrom pathlib import Path\nfrom urllib.parse import urlsplit,unquote\nroot=Path.cwd(); out=root/'production/artifacts/Q2/s05-r3'\nerrors=[]; checked=0; attempts=0; links=0\nr=json.loads((out/'report.json').read_text())\nfor name,digest in r['files'].items():\n if hashlib.sha256((out/name).read_bytes()).hexdigest()!=digest: errors.append('ARTIFACT_HASH '+name)\n checked+=1\nfor p in (root/'production/evidence/Q2').glob('20261113T10*-s05-*'):\n req=json.loads((p/'request.json').read_text())\n if not (p/'result.json').exists():\n  if req['recorder_pid']!=os.getppid():errors.append('UNEXPECTED_INCOMPLETE '+str(p))\n  continue\n res=json.loads((p/'result.json').read_text())\n if hashlib.sha256((p/'stdout.log').read_bytes()).hexdigest()!=res['log_sha256']:errors.append('LOG_HASH '+str(p))\n if hashlib.sha256((p/'source.zip').read_bytes()).hexdigest()!=req['source_snapshot_sha256']:errors.append('ZIP_HASH '+str(p))\n with zipfile.ZipFile(p/'source.zip') as z:\n  for item in json.loads((p/'inputs.json').read_text())['files']:\n   if hashlib.sha256(z.read(item['path'])).hexdigest()!=item['sha256']:errors.append('INPUT_HASH '+item['path'])\n attempts+=1\nchanges=subprocess.check_output(['git','diff','--name-status','bc3c789','HEAD'],text=True).splitlines()\nfor row in changes:\n status,name=row.split('\\t',1)\n if status!='A' and name.startswith(('production/artifacts/','production/assets/','reports/','artifacts/','src/','web/')):\n  errors.append('HISTORIC_OUTPUT_MODIFIED '+name)\n if name.endswith('.md'):\n  path=root/name\n  for target in re.findall(r'\\]\\(([^)]+)\\)',path.read_text()):\n   u=urlsplit(target)\n   if u.scheme or not u.path:continue\n   links+=1\n   if not (path.parent/unquote(u.path)).exists():errors.append('MISSING_LINK '+name+':'+target)\nstate=json.loads((root/'docs/execution/state.json').read_text())\nassert state['currentPhase']=='Q2'\nassert all(state['phases'][f'Q{i}']=='NOT_STARTED' for i in range(3,10))\nreport={'status':'PASS_CHECKPOINT_INTEGRITY' if not errors else 'FAIL','sourceCommit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'artifactFilesChecked':checked,'newAttemptsChecked':attempts,'localLinksChecked':links,'errors':errors,'limits':['Integrity and documentation check; no additional artistic/listening approval.','Only this S05 checkpoint attempts audited; earlier audits are retained. Current live recorder is excluded because its result is written after this command exits. Initial auditor failed reading its own pending result; failure retained.']}\nwith (out/'checkpoint-checks.json').open('x') as f:json.dump(report,f,indent=2);f.write('\\n')\nprint(json.dumps(report))\nraise SystemExit(1 if errors else 0)"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "6c36e93f849724c0393a4a7e97f9eae737e1b964",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 11848,
+  "source_snapshot_sha256": "320f1e3210986a8a62c02562ece0deb40bc9adbbfeeea6282cc5f15e57834462"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS_TECHNICAL",
+  "decodedFramesCompared": 1152,
+  "allFramePixelsExact": true,
+  "pcmPlacementExact": true,
+  "aacLagSamples": 0,
+  "aacLagFrames": 0.0,
+  "aacRMSError": 0.08339138165281254,
+  "deliverySha256": "098284d8e259c34ce700bac7adaeb292af67b5ab18a6b396cebb76abddad2c6e",
+  "scope": "Decode/order/transport only. PCM placement checks source timeline; RMS includes any later delivery gain. No perceptual approval."
+}

@@ -1,0 +1,21 @@
+{
+  "version": "lantern-benchmark-1",
+  "fps": 24,
+  "width": 1920,
+  "height": 1080,
+  "style": "paper-cut-multiplane",
+  "contactTolerancePixels": 2,
+  "totalFrames": 1152,
+  "shots": [
+    {"id": "S01", "frames": 192, "action": "listen-talk", "camera": "close", "dialogue": "I thought we had lost the light.", "beats": {"listen": [0, 23], "emotion": [24, 47], "speech": [48, 143], "hold": [144, 191]}},
+    {"id": "S02", "frames": 192, "action": "walk-stop-turn", "camera": "pan", "beats": {"anticipate": [0, 11], "walk": [12, 107], "decelerate": [108, 131], "turn": [132, 155], "settle": [156, 191]}},
+    {"id": "S03", "frames": 240, "action": "pick-place", "camera": "medium", "beats": {"anticipate": [0, 23], "reach": [24, 59], "grip": [60, 71], "lift": [72, 107], "hold": [108, 143], "place": [144, 179], "release": [180, 191], "settle": [192, 239]}},
+    {"id": "S04", "frames": 192, "action": "depth", "camera": "dolly-pan", "beats": {"establish": [0, 23], "move": [24, 143], "settle": [144, 191]}},
+    {"id": "S05", "frames": 192, "action": "handoff", "camera": "two-shot", "beats": {"look": [0, 23], "offer": [24, 71], "both-contact": [72, 95], "transfer": [96, 107], "receive": [108, 143], "reaction": [144, 191]}},
+    {"id": "S06", "frames": 144, "action": "reach-high", "camera": "medium", "beats": {"anticipate": [0, 23], "reach": [24, 59], "extreme": [60, 83], "recover": [84, 119], "settle": [120, 143]}}
+  ],
+  "editRounds": [
+    {"id": "R1", "changes": ["S03 prop accent color", "S01 longer dialogue", "S01 eyebrow and eye-line"]},
+    {"id": "R2", "changes": ["S04 camera amplitude", "S05 reaction +12 frames", "reorder independent benchmark shots"]}
+  ]
+}
