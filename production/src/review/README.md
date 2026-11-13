@@ -37,6 +37,16 @@ the requested video time. Pending seek/playback blocks saving. Shot changes clea
 viewing/listening declarations; version changes reset the unsubmitted form.
 Save an unfinished note before switching versions.
 
+If an earlier save finishes while another draft is being edited, only its
+original unchanged draft can be cleared. The result identifies the saved
+revision/frame. A new draft typed after switching versions is preserved.
+After a lost POST response, retrying the same intent retains both request ID
+and original body even if the journal was refreshed. A definite STALE_HEAD
+rejection permits a new request after explicit refresh. This pending request
+is held in browser memory; it is not a durable offline queue across page reloads.
+If POST succeeds but the following GET fails, the UI confirms the saved record
+and asks to reload the journal instead of reporting a failed save.
+
 Reviewer role and viewing/listening declarations are self-reported. Accepted
 requires the catalog color gate, all five rubric scores, total≥80, art/acting≥4,
 normal+slow viewing, listening for a speech shot, no blocking issue, and a reason.
@@ -105,6 +115,7 @@ Local file locks and fsync are not a distributed database guarantee.
 python scripts/run-step.py Q2 review-typecheck -- npm --prefix production run typecheck
 python scripts/run-step.py Q2 review-tests -- npm --prefix production run test:review
 python scripts/run-step.py Q2 review-ui -- npm --prefix production run test:review-ui
+python scripts/run-step.py Q2 review-recovery -- npm --prefix production run test:review-recovery
 ```
 
 Tests cover domain rejection, idempotency, conflicting writes, lock, restart,
@@ -114,3 +125,5 @@ version isolation, export and390px mobile layout. Browser test output includes
 screenshots, report and a clearly labelled test-only journal under
 `production/out/review-ui/<uuid>`. Successful playback is muted and is not audio
 audition. Historical first failures are retained in `production/evidence/Q2`.
+The recovery suite adds delayed-save draft preservation, lost-response plus
+refresh/retry deduplication, and acknowledged-save/failed-refresh status checks.

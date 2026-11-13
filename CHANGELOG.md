@@ -1,5 +1,12 @@
 # Changelog
 
+## Q2 follow-up review — 13/11/2026
+
+- Reproduced EX-030: an older save response erased a new draft after switching revisions. Draft generation now guards clearing and the status identifies the saved revision/frame.
+- Reproduced EX-031: a committed POST with a lost response, followed by refresh/retry, created duplicate notes. Retry retains the original ID/body across head refresh; definite stale-head rejection allows rebasing. A known commit remains clearly acknowledged if the next refresh fails.
+- Added three real-browser recovery cases and CI coverage; all pass, along with the existing13 UI checks,19 workbench tests/typecheck and root verify16. Failed product reproductions and the initial harness syntax failure are preserved separately.
+- Added a critical progress review with sampled-art observations, production limits and phase-by-phase next steps. Full motion/listening/handoff/performance gates remain open.
+
 ## Q2 container reproduction repair — 13/11/2026
 
 - New standalone CI caught EX-029 before npm: Git refused container checkout ownership. Kept the actual failure and a local negative; fixed only the two read-only Git calls with trust for the exact authorized checkout path.

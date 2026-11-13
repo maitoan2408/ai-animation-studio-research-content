@@ -5,6 +5,16 @@ sửa lỗi, chọn hướng triển khai và push từng bước. Không hỏi 
 Không giả người dùng đã xem/nghe hoặc có operator độc lập. Ngân sách dịch vụ trả phí0.
 Nguồn trạng thái máy đọc: [state.json](state.json); [gate Q2](../../production/evidence/Q2/gate.json).
 
+## Review bổ sung — 13/11/2026
+
+[Bản review đầy đủ](REVIEW-2026-11-13.md) đối chiếu code, evidence, bốn mẫu hình
+và các phase. Phát hiện và sửa EX-030 mất draft khi response cũ về, EX-031 retry
+sau mất response/refresh tạo note trùng. Before FAIL giữ nguyên; sau sửa3ca
+recovery mới,13ca UI cũ,19tests/typecheck production và root verify16 PASS.
+[Bằng chứng](../../production/artifacts/Q2/review-followup-20261113/README.md).
+CI đã thêm test:review-recovery; cần xác nhận kết quả trên commit sửa mới trước
+khi chốt checkpoint này. Không lấy CI checkpoint cũ làm kết quả của code mới.
+
 ## Đã hoàn thành và phải giữ
 
 - Q0 DONE_DELEGATED: brief The Last Lantern, paper-cut/multiplane, pilot72s và
@@ -35,9 +45,9 @@ Nguồn trạng thái máy đọc: [state.json](state.json); [gate Q2](../../pro
   [report](../../production/artifacts/Q2/fresh-review-20261113/README.md) và
   [QA runbook](../../production/src/qa/README.md). Đây vẫn là cùng máy/agent.
 
-CI hai workflow workbench/v0.1 trên source headd82da6e đã SUCCESS, gồm
+Ở checkpoint trước review bổ sung, CI workbench/v0.1 trên source headd82da6e đã SUCCESS, gồm
 standalone Git-only; xem [job/step evidence](../../production/artifacts/Q2/ci-standalone-repaired-20261113.json).
-Các commit tổng kết tiếp theo chỉ thay tài liệu/evidence, không thay runtime code.
+Sau đó cb4e084 chỉ tổng kết; đợt review bổ sung hiện tại có sửa UI như mục trên.
 CI được bổ sung ca standalone Git-only để bắt đúng lỗi EX-028 trong các lần sau;
 kết quả của workflow mở rộng được ghi riêng, không suy từ CI trước thay đổi.
 Lần mở rộng đầu run43328442441 FAIL tại ownership Git (EX-029), các bước trước

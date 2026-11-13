@@ -9,7 +9,8 @@
     "assets": "python src/art/build_assets.py",
     "review": "tsx src/review/cli.ts",
     "test:review": "tsx --test tests/review.test.ts",
-    "test:review-ui": "tsx tests/review-ui.mjs"
+    "test:review-ui": "tsx tests/review-ui.mjs",
+    "test:review-recovery": "tsx src/qa/audit_review_workflow.mjs"
   },
   "dependencies": {
     "@hyperframes/engine": "0.9.33",

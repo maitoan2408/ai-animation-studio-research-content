@@ -17,6 +17,10 @@ Kiểm Git-only sạch đã bắt và sửa EX-028 lock layout; commit065a02c đ
 restore3video, typecheck,19tests và13browser checks bằng cache mới ngoài cây repo.
 [Bằng chứng](production/artifacts/Q2/fresh-review-20261113/README.md).
 
+Review bổ sung13/11: EX-030/031 về mất draft và trùng note khi retry đã được tái
+hiện/sửa; thêm3ca recovery,13ca UI cũ vẫn PASS. [Bản review](docs/execution/REVIEW-2026-11-13.md)
+đề nghị ưu tiên review chất lượng từng shot trước các phase production còn lại.
+
 ## Tổng kết vòng nghiên cứu toolchain — 11/11/2026
 
 - **Đã hoàn thành trong vòng nghiên cứu:** đối chiếu Word/kế hoạch/code/tests; khảo sát Three.js, HyperFrames, FFmpeg, Manim CE/GL và các ứng viên liên quan; chạy test/harness/CLI được phép; soạn kế hoạch chi tiết, backlog và đường quay lại khi fail.

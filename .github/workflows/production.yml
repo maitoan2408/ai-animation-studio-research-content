@@ -34,6 +34,8 @@ jobs:
       - name: Verify frozen chart in actual Chromium
         run: /tmp/q2-qc/bin/python production/src/qa/check_color_reference.py
       - run: npm --prefix production run test:review-ui
+      - name: Verify delayed and uncertain review-save recovery
+        run: npm --prefix production run test:review-recovery
       - name: Verify standalone Git-only installation and review workflow
         # Full-repo npm ci passed before EX-028 was fixed. This separate checkout
         # must remain outside the parent package tree, with its own empty cache.
@@ -45,6 +47,7 @@ jobs:
           name: q2-workbench-${{ github.run_number }}
           path: |
             production/out/review-ui/
+            production/out/review-audit/
             production/out/player-check/
             production/out/chart-results/
             production/out/fresh-review/**/report.json

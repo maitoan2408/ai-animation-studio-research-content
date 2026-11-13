@@ -1,0 +1,36 @@
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ art source hashes, explicit pivots, views and local references remain intact (41.829747ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (1.434733ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (0.619645ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (102.85065ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (48.542909ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (2.603185ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (3.444784ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (0.44471ms)
+✔ upright walk uses only the hip drop required for planted-foot reach (0.399102ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (30.139632ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (470.413668ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (509.740412ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (4.162156ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (80.219287ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (521.120599ms)
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (2.672499ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (42.76064ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (4.550972ms)
+✔ real HTTP media, origin/token, persistence, stale head and changed-file rejection (1085.800968ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4820.700783
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

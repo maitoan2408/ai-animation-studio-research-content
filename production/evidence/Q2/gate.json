@@ -68,6 +68,16 @@
       "completedAttempts": 201,
       "sourceSnapshotsChecked": 153,
       "evidence": "production/artifacts/Q2/final-audit-ci-repair-20261113.json"
+    },
+    "reviewRecoveryBrowserChecks": 3,
+    "reviewFollowup": {
+      "status": "PASS_LOCAL_CI_PENDING",
+      "evidence": "production/artifacts/Q2/review-followup-20261113/after/report.json",
+      "resolvedIssues": [
+        "EX-030",
+        "EX-031"
+      ],
+      "limits": "Synthetic workflow recovery checks; no art/listening approval"
     }
   },
   "openGates": [

@@ -1,0 +1,10 @@
+
+> paper-studio-production-workbench@0.1.0 test:review-recovery
+> tsx src/qa/audit_review_workflow.mjs
+
+{"status":"PASS","findings":[],"observations":[{"case":"pending-save-new-revision-draft","expected":"New R2 draft typed while the previous R0 save is pending.","actual":"New R2 draft typed while the previous R0 save is pending.","duringSave":"New R2 draft typed while the previous R0 save is pending.","originalRevision":"R0","selectedRevision":"R2","savedRecords":1,"originalSavedOn":"R0"},{"case":"lost-response-refresh-retry","expectedMatchingRecords":1,"actualMatchingRecords":1,"retainedAfterError":"Audit lost-response note: a retry must not duplicate this record.","initialRequestId":"2a809c70-4ac6-4711-8942-d197ec4effab","initialCommittedHash":"99e49fcbfc06b507b59eaa3c87f9bec9e87cdc976c0ed464ac68f21f921be39c","matchingRequestIds":["2a809c70-4ac6-4711-8942-d197ec4effab"]},{"case":"committed-save-refresh-failure","expectedMatchingRecords":1,"actualMatchingRecords":1,"statusConfirmsSave":true,"statusRequestsRefresh":true,"acknowledgedStatus":"Đã lưu ghi chú cho R0 · frame 0. Chưa nạp được nhật ký; hãy bấm Nạp lại nhật ký.","draftCleared":true}],"browser":"Chrome/156.0.8078.79","browserErrors":[],"mode":"automated-test","output":"/workspace/ai-animation-studio-research-content/production/out/review-audit/16fc760d-0441-426a-acea-4b2133868db5","limits":["Controlled request timing with real Chromium and HTTP; not a throughput benchmark","No production journal/media changes and no artistic or listening approval"]}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

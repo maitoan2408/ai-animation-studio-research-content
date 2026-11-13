@@ -4,6 +4,10 @@
 chưa production-ready:** còn nghe thoại, chấm chuyển động, bàn giao operator độc
 lập và benchmark sau art gate. Không thay những kết quả cũ đã đạt.
 
+Review bổ sung13/11 đã phát hiện và sửa hai lỗi UI về giữ draft và retry sau mất
+response. Ba ca recovery mới và13ca UI cũ PASS; [review chi tiết](REVIEW-2026-11-13.md)
+phân biệt kết quả kỹ thuật, nhận xét hình tĩnh và những điều kiện production còn mở.
+
 | Phạm vi | Kết quả đã có | Giới hạn còn lại |
 | --- | --- | --- |
 | Prototype v0.1 M0–M6 | Studio từ script→scene/audio→render/QC→review/export; pilot13s; verify16/integration13/UI9 tái kiểm PASS | Không thay productionQ0–Q9 |
@@ -21,7 +25,7 @@ lập và benchmark sau art gate. Không thay những kết quả cũ đã đạ
 [code/runbook](../../production/src/review/README.md), [state](state.json),
 [gate](../../production/evidence/Q2/gate.json), [bước tiếp](RESUME.md).
 
-CI mở rộng trên source headd82da6e: [workbench](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136529) và [v0.1](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136433) đều SUCCESS, gồm standalone Git-only; [job/step evidence](../../production/artifacts/Q2/ci-standalone-repaired-20261113.json). Các commit tổng kết sau đó chỉ thay tài liệu/evidence.
+CI checkpoint trước review bổ sung trên source headd82da6e: [workbench](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136529) và [v0.1](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43329136433) đều SUCCESS, gồm standalone Git-only; [job/step evidence](../../production/artifacts/Q2/ci-standalone-repaired-20261113.json). CI cho sửa UI mới được ghi riêng, không kế thừa kết quả cũ.
 
 ## Những lỗi đã sửa trong đợt này
 

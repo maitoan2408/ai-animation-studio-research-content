@@ -55,3 +55,6 @@ automated-test và thư mục dữ liệu riêng. Không coi checkbox xem/nghe l
 danh tính hoặc bằng chứng người độc lập. CI workbench không đóng gate mỹ thuật.
 Các helper kiểm v0.1 dùng run_app_regression.py để giữ hash deliverables cũ;
 helper phải build CLI trong workspace tách biệt trước integration/UI tests.
+Khi đổi lưu note/retry/draft UI, chạy thêm `npm --prefix production run test:review-recovery`.
+Giữ nguyên requestId lẫn body sau response không rõ đã commit; STALE_HEAD là
+rejection xác định mới được rebase. Response cũ không được xóa draft mới.
