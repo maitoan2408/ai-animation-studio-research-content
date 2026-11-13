@@ -1,3 +1,11 @@
+## Đọc checkpoint mới trước prompt lịch sử
+
+Nhánh hiện hành `codex/quality-physics-bake`, draft PR #5, từ R3/Q2 `4f6b97c`.
+Đã triển khai bake vật lý cho S05, native 1080p, kiểm replay/media và CI.
+[Plan/kết quả mới](../quality/PLAN.md); trạng thái U0–U8 nằm trong `docs/quality/state.json`.
+Q2 vẫn còn gate nghệ thuật/nghe/operator/performance; không đổi thành DONE.
+Các snapshot bên dưới giữ nguyên để truy vết, không dùng thay checkpoint mới.
+
 # Prompt bàn giao cho AI tiếp tục dự án
 
 Sao chép toàn bộ nội dung trong khối dưới đây. Các SHA là mốc đối chiếu ngày

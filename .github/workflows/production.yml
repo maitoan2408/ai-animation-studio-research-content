@@ -30,7 +30,8 @@ jobs:
       - name: Compare physics bakes with locked cross-runner reference
         run: |
           npm --prefix production run physics:spike
-          npm --prefix production run quality:hero
+          python3 production/src/motion/prepare_textures.py
+          npm --prefix production run quality:hero -- --native-input --textures out/hero-textures/d5a8aa9c807b9c95f4ddcfbc9c1b0591f6035e601e285053d614a7e7ed06c309/textures.json
       - run: /tmp/q2-qc/bin/python -m unittest discover -s production/tests -p 'test_*.py' -v
       - name: Restore exact review media from Git parts
         run: /tmp/q2-qc/bin/python production/src/media/review_bundle.py restore production/artifacts/Q2/web-review-v2

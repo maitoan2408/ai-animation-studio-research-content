@@ -1,0 +1,21 @@
+{
+  "phase": "U6",
+  "step": "exact-textures-from-git",
+  "run_id": "20261113T183704Z-exact-textures-from-git-bfed53f5",
+  "started_at_utc": "20261113T183704Z",
+  "command": [
+    "python",
+    "production/src/motion/prepare_textures.py"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "535296e917db171381b18078ee9a0b79fd3985e2",
+  "tracked_diff_sha256": "a20081c39a6821b52fbef01f367d1ec00c67726c37d8e0346940c246f77ed96c",
+  "recorder_pid": 20590,
+  "source_snapshot_sha256": "55cae0b9c524f56434bf739a5063bc28b3201bafd15fea7dc026ff15ffd3e819",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.412,
+  "finished_at_utc": "2026-11-13T18:37:04.638857+00:00",
+  "log_sha256": "db2b3b5b4db22f358b2a6dbdb0e35b8b267731d7a419f701d89620c0eae1edf3",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

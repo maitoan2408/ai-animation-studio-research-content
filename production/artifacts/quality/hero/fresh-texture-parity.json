@@ -1,0 +1,7 @@
+{
+  "status": "PASS_EXACT_EXPORT_PARITY",
+  "frames": 192,
+  "textureBindings": 51,
+  "bakeUnchanged": true,
+  "scope": "Fresh hash-verified Git textures and existing full native render have identical frame data and texture bytes; not art approval"
+}

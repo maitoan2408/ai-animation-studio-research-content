@@ -58,3 +58,15 @@ helper phải build CLI trong workspace tách biệt trước integration/UI tes
 Khi đổi lưu note/retry/draft UI, chạy thêm `npm --prefix production run test:review-recovery`.
 Giữ nguyên requestId lẫn body sau response không rõ đã commit; STALE_HEAD là
 rejection xác định mới được rebase. Response cũ không được xóa draft mới.
+
+## Nâng cấp chất lượng hiện hành U0–U8
+
+Đọc `docs/quality/PLAN.md`, `state.json`, `RESULTS.md` trước khi tiếp tục.
+U0–U8 ứng với kế hoạch mới đính kèm, không thay Q0–Q9 hoặc P0–P11 lịch sử.
+Giữ R3; candidate secondary S05 là development art, chưa là production approval.
+Engine/input/golden được khóa; không cập nhật golden để che lỗi chưa giải thích.
+Dùng `run-step.py U<n>` để lưu attempt; QA auditor kiểm cả Q và U.
+Texture bootstrap chính xác: `production/src/motion/prepare_textures.py`; không
+phụ thuộc cache hoặc raster lại asset nếu chỉ cần tái tạo candidate đã khóa.
+Tài liệu module ở `production/src/physics/README.md` và `src/motion/README.md`.
+Không thêm video/native ZIP lớn vào regular Git; giữ recipe/source/report nhỏ.

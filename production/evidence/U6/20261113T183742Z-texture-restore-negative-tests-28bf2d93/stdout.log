@@ -1,0 +1,8 @@
+test_changed_archive_is_rejected_before_reading_zip (test_hero_textures.HeroTextures.test_changed_archive_is_rejected_before_reading_zip) ... ok
+test_changed_art_is_rejected_before_publish (test_hero_textures.HeroTextures.test_changed_art_is_rejected_before_publish) ... ok
+test_fresh_restore_reuse_and_corrupt_cache (test_hero_textures.HeroTextures.test_fresh_restore_reuse_and_corrupt_cache) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.537s
+
+OK

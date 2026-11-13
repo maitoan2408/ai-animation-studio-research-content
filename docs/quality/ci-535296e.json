@@ -1,0 +1,170 @@
+{
+  "sourceHead": "535296e917db171381b18078ee9a0b79fd3985e2",
+  "workflows": [
+    {
+      "id": 43455211354,
+      "name": "Q2 workbench verification",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 13,
+      "jobs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43455211354/jobs",
+      "logs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43455211354/logs",
+      "workflow_id": 416678554
+    },
+    {
+      "id": 43455211359,
+      "name": "Paper Studio verification",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 32,
+      "jobs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43455211359/jobs",
+      "logs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43455211359/logs",
+      "workflow_id": 413980343
+    }
+  ],
+  "jobs": [
+    {
+      "id": 131987410620,
+      "name": "contracts-and-review",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43455211354,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Install local media runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm --prefix production ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Install locked QC libraries",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npm --prefix production run typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npm --prefix production test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Compare physics bakes with locked cross-runner reference",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run /tmp/q2-qc/bin/python -m unittest discover -s production/tests -p 'test_*.py' -v",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Restore exact review media from Git parts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Run npm --prefix production run review -- check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Verify frozen chart in actual Chromium",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Run npm --prefix production run test:review-ui",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Rebuild R3 from committed inputs and verify review binding",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Verify delayed and uncertain review-save recovery",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Verify standalone Git-only installation and review workflow",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Upload diagnostic evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 36
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 37
+        }
+      ]
+    }
+  ],
+  "physicsLogLines": [
+    "{\"output\":\"/__w/ai-animation-studio-research-content/ai-animation-studio-research-content/production/out/physics-spike/b99729b7-596a-43c3-86ab-b6039c6977f1\",\"status\":\"PASS_ENGINEERING\",\"referenceHashMatches\":true,\"results\":[{\"engine\":\"planck\",\"version\":\"1.5.1\",\"solver\":{\"velocityIterations\":12,\"positionIterations\":8,\"contactSkin\":0},\"metrics\":{\"period\":2.006378666896112,\"expectedPeriod\":2.006066680710647,\"periodRelativeError\":0.00015552134356489056,\"fallSeconds\":0.625,\"expectedFallSeconds\":0.6223823880068597,\"fallRelativeError\":0.004205793807120717,\"bounceHeight\":0.8145984374999943,\"expectedBounceHeight\":0.8027500000000001,\"bounceRelativeError\":0.014759810028021514,\"maxPenetrationMeters\":0.0032421875000109707,\"penetrationSteps\":2,\"strictZeroPenetration\":false,\"dampedEnergyRatio\":0.0008904814690539289,\"cycles\":9,\"simulatedSeconds\":52},\"checks\":{\"period\":true,\"fall\":true,\"bounce\":true,\"engineeringPenetration\":true,\"damping\":true},\"engineeringPass\":true,\"sameRunHash\":true,\"bakeSha256\":\"9e9d7d3f13883d71ab5c095cdb87cc9f77e1245fa7d00c302827b518951c199e\",\"elapsedMs\":296.083468},{\"engine\":\"rapier\",\"version\":\"0.21.0-deterministic-compat\",\"solver\":{\"solverIterations\":12,\"allowedLinearError\":0.001,\"contactSkin\":0.002},\"metrics\":{\"period\":2.0063920601268146,\"expectedPeriod\":2.006066680710647,\"periodRelativeError\":0.0001621977072328029,\"fallSeconds\":0.625,\"expectedFallSeconds\":0.6223823880068597,\"fallRelativeError\":0.004205793807120717,\"bounceHeight\":0.8000335931777954,\"expectedBounceHeight\":0.8027500000000001,\"bounceRelativeError\":0.0033838764524505294,\"maxPenetrationMeters\":0,\"penetrationSteps\":0,\"strictZeroPenetration\":true,\"dampedEnergyRatio\":0.0008363767695675786,\"cycles\":9,\"simulatedSeconds\":52},\"checks\":{\"period\":true,\"fall\":true,\"bounce\":true,\"engineeringPenetration\":true,\"damping\":true},\"engineeringPass\":true,\"sameRunHash\":true,\"bakeSha256\":\"168251948acafb3122ea934af6620b61eacf3af3fcbad2774a7a31cc2133b686\",\"elapsedMs\":558.3697929999998}],\"contract\":{\"schemaVersion\":1,\"frozenBeforeExperiment\":\"2026-11-13\",\"fps\":24,\"hz\":240,\"gravity\":9.81,\"pixelsPerMeter\":200,\"pendulum\":{\"x\":0.05,\"y\":-0.998749217771909,\"radius\":0.005,\"seconds\":20},\"drop\":{\"height\":2,\"radius\":0.1,\"restitution\":0.65,\"seconds\":12},\"limits\":{\"periodRelativeError\":0.02,\"fallRelativeError\":0.02,\"bounceRelativeError\":0.1,\"engineeringPenetrationMeters\":0.005,\"strictPenetrationMeters\":0,\"heroContactPixels\":1,\"heroFootDriftPixels\":1},\"scope\":\"Engineering experiment; strict zero penetration remains separately reported, no creative approval.\"},\"lockSha256\":\"9b3f053d885c2d4c0a190433febc14b8609e82ede2c48a3d8da13d06a3b9a9ae\",\"host\":{\"node\":\"v24.22.1\",\"platform\":\"linux\",\"arch\":\"x64\",\"hostname\":\"ec01d062f83b\"},\"limits\":[\"Strict zero penetration is separately reported and is not relaxed by the engineering tolerance.\",\"Two runs on this host do not alone establish cross-platform determinism or independent operator acceptance.\",\"No creative approval, broad scene benchmark, or production engine selection.\"]}",
+    "{\"output\":\"/__w/ai-animation-studio-research-content/ai-animation-studio-research-content/production/out/quality-hero/c6363312-88a5-4bc4-9826-0f8a2454c93a\",\"status\":\"PASS_GEOMETRY\",\"frames\":192,\"maxGripPixels\":1.5347723092418165e-13,\"maxAnchorPixels\":0.000822468202403572,\"maxFootDriftPixels\":0,\"maxRotationDegrees\":25.142418108437177,\"kinematics\":{\"peakStagePixelsPerSecond\":164.85562035751275,\"peakStagePixelsPerSecondSquared\":673.9408179940049,\"peakStagePixelsPerSecondCubed\":8741.3203141317},\"violations\":[],\"limits\":[\"Contact/stance limits are frozen; kinematics are descriptive, not an artistic score.\",\"Lantern/hand joint only; no character-body collision volumes or cloth/hair solver.\",\"No new final art, voice audition, or independent operator approval.\"],\"bakeSha256\":\"ef8f0bd3d1a0fa920e4a5f20388f673521b83f06cfbbfbbbb9396f6a5dae195a\",\"inputSha256\":\"9abce4669d9c4877830167771c97a198a5594a0d40c0eb090d3dcaea6fff9129\",\"sameRunHash\":true}"
+  ],
+  "limits": [
+    "CI on another Linux x64 runner verifies the locked hashes; no universal architecture guarantee or artistic approval."
+  ]
+}

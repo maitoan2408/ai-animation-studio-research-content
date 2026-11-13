@@ -1,0 +1,28 @@
+{
+  "phase": "U6",
+  "step": "hero-export-exact-textures",
+  "run_id": "20261113T183704Z-hero-export-exact-textures-ccb1220e",
+  "started_at_utc": "20261113T183704Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "quality:hero",
+    "--",
+    "--native-input",
+    "--textures",
+    "out/hero-textures/d5a8aa9c807b9c95f4ddcfbc9c1b0591f6035e601e285053d614a7e7ed06c309/textures.json"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "535296e917db171381b18078ee9a0b79fd3985e2",
+  "tracked_diff_sha256": "a20081c39a6821b52fbef01f367d1ec00c67726c37d8e0346940c246f77ed96c",
+  "recorder_pid": 20587,
+  "source_snapshot_sha256": "55cae0b9c524f56434bf739a5063bc28b3201bafd15fea7dc026ff15ffd3e819",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 1.969,
+  "finished_at_utc": "2026-11-13T18:37:06.723400+00:00",
+  "log_sha256": "0c15b5013f933f08161f9a957c62f3d974b5fb9f0c39e6e3b6a5a6923cb7a8d4",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

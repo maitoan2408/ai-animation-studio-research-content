@@ -5,6 +5,7 @@
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
+import { parseArgs } from 'node:util';
 import path from 'node:path';
 import { heroInput, heroFrame, performanceIR, r3 } from './hero.js';
 import { bakeHero } from '../physics/hero.js';
@@ -13,7 +14,10 @@ const root = fileURLToPath(new URL('../../', import.meta.url));
 const out = path.join(root, 'out/quality-hero', randomUUID());
 await mkdir(out, { recursive: true });
 try {
-  if (process.argv.slice(2).some((x) => x !== '--native-input')) throw Error('UNKNOWN_ARGUMENT');
+  const { values } = parseArgs({
+    options: { 'native-input': { type: 'boolean' }, textures: { type: 'string' } },
+  });
+  if (values.textures && !values['native-input']) throw Error('TEXTURES_REQUIRE_NATIVE_INPUT');
   const pack = JSON.parse(
     await readFile(path.join(root, 'assets/lantern-polish-1/manifest.json'), 'utf8'),
   );
@@ -39,9 +43,14 @@ try {
   };
   await writeFile(path.join(out, 'critic.json'), JSON.stringify(report, null, 2) + '\n');
   if (report.status !== 'PASS_GEOMETRY') throw Error('HERO_CRITIC_FAILED');
-  if (process.argv.includes('--native-input')) {
+  if (values['native-input']) {
     const textures = JSON.parse(
-      await readFile(path.join(root, 'out/art-q2-polish/textures.json'), 'utf8'),
+      await readFile(
+        values.textures
+          ? path.resolve(values.textures)
+          : path.join(root, 'out/art-q2-polish/textures.json'),
+        'utf8',
+      ),
     );
     const frames = Array.from({ length: 192 }, (_, f) => heroFrame(pack, input, bake, f));
     await writeFile(
