@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "baseline": "6862c9e1e495a9f6b3518a3b68d97d8e22cfcf1d",
-  "branch": "codex/production-q0-q9",
+  "branch": "codex/quality-physics-bake",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "R3 48s technical sequence/catalog complete. Finish real creative/listening, independent operator and performance gates; execute the newly supplied quality upgrade on a separate branch with its own U0-U8 status, preserving Q2.",
+  "nextAction": "Continue the supplied U0-U8 quality plan from its state.json; bounded S05 physics/native review candidate is implemented. Obtain/validate remaining final-art, acting-reference, listening and independent-operator inputs; preserve Q2 open gates and all existing evidence.",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -189,5 +189,11 @@
   "completedStepSemantics": "Entries preserve observations at their checkpoints. Current phases/nextAction/gate are authoritative; later completed steps resolve historical pending limits without rewriting old evidence.",
   "reviewReport": "docs/execution/REVIEW-2026-11-13.md",
   "continuationPlan": "docs/execution/NEXT-PLAN.md",
-  "handoffPrompt": "docs/execution/AI-HANDOFF-PROMPT.md"
+  "handoffPrompt": "docs/execution/AI-HANDOFF-PROMPT.md",
+  "qualityUpgrade": {
+    "plan": "docs/quality/PLAN.md",
+    "state": "docs/quality/state.json",
+    "result": "docs/quality/RESULTS.md",
+    "pullRequest": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/5"
+  }
 }

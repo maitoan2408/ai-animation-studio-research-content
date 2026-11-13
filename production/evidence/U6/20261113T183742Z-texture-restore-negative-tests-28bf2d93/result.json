@@ -1,0 +1,28 @@
+{
+  "phase": "U6",
+  "step": "texture-restore-negative-tests",
+  "run_id": "20261113T183742Z-texture-restore-negative-tests-28bf2d93",
+  "started_at_utc": "20261113T183742Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_hero_textures.py",
+    "-v"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "535296e917db171381b18078ee9a0b79fd3985e2",
+  "tracked_diff_sha256": "c6c9ca8a0a026089f897a54b2c2d1d9182657f49989323057fd30fe127fa8a1a",
+  "recorder_pid": 20669,
+  "source_snapshot_sha256": "471a879f62ed37e91b927e4d563e8478f526a49719f73e324a5bd9a60d3ba27a",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.668,
+  "finished_at_utc": "2026-11-13T18:37:43.476143+00:00",
+  "log_sha256": "043169a6a017a83b55a904158fea845a6fae77bea50ec9093a9704e6966acfb6",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

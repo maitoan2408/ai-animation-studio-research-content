@@ -7,7 +7,7 @@ import hashlib,json,sys,zipfile
 ROOT=Path(__file__).resolve().parents[3]
 files=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 rows=[];errors=[];incomplete=[];snapshots=0
-for request in sorted((ROOT/'production/evidence').glob('Q*/*/request.json')):
+for request in sorted((ROOT/'production/evidence').glob('[QU]*/*/request.json')):
     directory=request.parent;req=json.loads(request.read_text());result=directory/'result.json'
     if not result.exists():incomplete.append(str(directory.relative_to(ROOT)));continue
     data=json.loads(result.read_text())

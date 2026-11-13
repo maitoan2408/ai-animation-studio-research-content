@@ -36,7 +36,9 @@ def atomic_json(path: Path, value: dict) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('phase', choices=[f'Q{i}' for i in range(10)])
+    # U phases are the separately tracked November quality upgrade, not the
+    # historical Word P phases or a claim that Q2 creative gates have passed.
+    parser.add_argument('phase', choices=[f'Q{i}' for i in range(10)]+[f'U{i}' for i in range(9)])
     parser.add_argument('step')
     parser.add_argument('command', nargs=argparse.REMAINDER)
     args = parser.parse_args()

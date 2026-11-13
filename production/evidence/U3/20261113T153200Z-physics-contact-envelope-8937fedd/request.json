@@ -1,0 +1,16 @@
+{
+  "phase": "U3",
+  "step": "physics-contact-envelope",
+  "run_id": "20261113T153200Z-physics-contact-envelope-8937fedd",
+  "started_at_utc": "20261113T153200Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/physics/spike.ts"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "36fe062a203b6e6ec5f26b4c2cd8ab0da3abbbd4",
+  "tracked_diff_sha256": "0bbc8045252c5dc678212b3b9f926c809e7e2fc522e35a7670b209780c12a816",
+  "status": "RUNNING",
+  "recorder_pid": 18671,
+  "source_snapshot_sha256": "75f502e59446e0f2f54042e34f637951e4d5f821b8d71355a2adc0dcecd46c54"
+}

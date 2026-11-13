@@ -1,3 +1,11 @@
+## Kế hoạch bổ sung đang áp dụng — 14/11/2026
+
+Nhánh hiện hành `codex/quality-physics-bake`, draft PR #5, từ R3/Q2 `4f6b97c`.
+Đã triển khai bake vật lý cho S05, native 1080p, kiểm replay/media và CI.
+[Plan/kết quả mới](../quality/PLAN.md); trạng thái U0–U8 nằm trong `docs/quality/state.json`.
+Q2 vẫn còn gate nghệ thuật/nghe/operator/performance; không đổi thành DONE.
+Các snapshot bên dưới giữ nguyên để truy vết, không dùng thay checkpoint mới.
+
 # Kế hoạch tiếp tục từ Q2 đến release nội bộ
 
 Ngày lập: 13/11/2026, Asia/Saigon. Đây là **kế hoạch chưa thực thi**, cập nhật sau

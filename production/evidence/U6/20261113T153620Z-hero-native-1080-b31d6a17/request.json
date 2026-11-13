@@ -1,0 +1,28 @@
+{
+  "phase": "U6",
+  "step": "hero-native-1080",
+  "run_id": "20261113T153620Z-hero-native-1080-b31d6a17",
+  "started_at_utc": "20261113T153620Z",
+  "command": [
+    "env",
+    "BENCHMARK_INPUT_DIR=/workspace/ai-animation-studio-research-content/production/out/quality-hero/97c9e02f-1e31-4ab0-9a74-fb79e321ae31",
+    "BLENDER_USER_CONFIG=/tmp/studio-blender-config",
+    "blender",
+    "--background",
+    "--factory-startup",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "production/src/blender/vse_probe.py",
+    "--",
+    "S05",
+    "1920",
+    "all"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "36fe062a203b6e6ec5f26b4c2cd8ab0da3abbbd4",
+  "tracked_diff_sha256": "d1ba24825e2849c8d28bfd3512bf73e620b53c0b41d21e1ae1629a36fabf0bf4",
+  "status": "RUNNING",
+  "recorder_pid": 18936,
+  "source_snapshot_sha256": "b517e693f5cdc531e00a05224a91bbc53c82f408afb6367f86b0cd825ca4b819"
+}

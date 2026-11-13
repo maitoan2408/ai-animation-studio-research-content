@@ -1,0 +1,22 @@
+{
+  "phase": "U6",
+  "step": "exact-texture-frame-parity",
+  "run_id": "20261113T183809Z-exact-texture-frame-parity-7cc8aff9",
+  "started_at_utc": "20261113T183809Z",
+  "command": [
+    "python",
+    "-c",
+    "from pathlib import Path\nimport json,hashlib\nold=Path(\"production/out/quality-hero/97c9e02f-1e31-4ab0-9a74-fb79e321ae31\")\nnew=Path(\"production/out/quality-hero/455ff5ca-7180-4063-893e-93f288b3e58b\")\na=json.loads((old/\"S05.json\").read_text());b=json.loads((new/\"S05.json\").read_text())\nassert a[\"frames\"]==b[\"frames\"] and a[\"pack\"]==b[\"pack\"] and a[\"edit\"]==b[\"edit\"]\nassert json.loads((old/\"bake.json\").read_text())==json.loads((new/\"bake.json\").read_text())\nfor t in b[\"textures\"][\"textures\"]:\n p=Path(\"production/out/art-q1\")/t[\"file\"]\n assert hashlib.sha256(p.read_bytes()).hexdigest()==t[\"sha256\"]\nreport={\"status\":\"PASS_EXACT_EXPORT_PARITY\",\"frames\":192,\"textureBindings\":len(b[\"textures\"][\"textures\"]),\"bakeUnchanged\":True,\"scope\":\"Fresh hash-verified Git textures and existing full native render have identical frame data and texture bytes; not art approval\"}\nPath(\"production/artifacts/quality/hero/fresh-texture-parity.json\").write_text(json.dumps(report,indent=2)+\"\\n\")\nprint(json.dumps(report))"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "535296e917db171381b18078ee9a0b79fd3985e2",
+  "tracked_diff_sha256": "e7c274f00a69b4e8a5c77eed554351619a401ea3bfc0b0d70d38c8dc11c0f0a9",
+  "recorder_pid": 20716,
+  "source_snapshot_sha256": "076b0a0b55c84a4e7371f86e6bf67f3953246ebc891a7918e491c7929ba9a6ca",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.164,
+  "finished_at_utc": "2026-11-13T18:38:09.756098+00:00",
+  "log_sha256": "7c4b3ba012b639511ffa16fa51c0731d2345475af0c54ea49804d14933b481f4",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -28,3 +28,12 @@ Các mục sau thuộc `production/`, chưa phải capability của API/UI v0.1:
 
 Ủy quyền hiện hành cho phép agent triển khai và quyết định thường lệ. Mọi review
 phải ghi đúng `delegated-agent`; không giả người dùng hoặc operator độc lập.
+
+## Quality bake workbench
+
+`physics:spike` kiểm analytic fixtures, solver/contact và golden hash;
+`quality:hero` tạo PerformanceIR + input + immutable bake + critic cho S05.
+`prepare_textures.py` khôi phục asset byte-exact từ Git; Blender nhận frame JSON,
+không simulate khi seek. Runbook ở `production/src/physics/README.md` và
+`production/src/motion/README.md`. Đây là capability workbench, không tự suy
+v0.1 planner có diễn xuất tổng quát hoặc output đã được duyệt nghệ thuật.

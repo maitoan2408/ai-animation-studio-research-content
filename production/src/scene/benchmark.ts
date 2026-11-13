@@ -10,7 +10,7 @@ import { sprite, type ActorPose, type ArtPack, type Point, type SceneFrame, type
 export const shotFrames={S01:192,S02:192,S03:240,S04:192,S05:192,S06:144} as const;
 export type ShotId=keyof typeof shotFrames;
 export type Cue={start:number;end:number;mouth:NonNullable<ActorPose['mouth']>};
-export type Edit={polish?:boolean;propAccent?:boolean;cameraAmplitude?:number;reactionDelay?:number;eyeLine?:number;concernStartsAt?:number;cues?:Cue[];voiceTake?:'R1';separateHandoffGrips?:boolean};
+export type Edit={polish?:boolean;propAccent?:boolean;cameraAmplitude?:number;reactionDelay?:number;eyeLine?:number;concernStartsAt?:number;cues?:Cue[];voiceTake?:'R1';separateHandoffGrips?:boolean;handoffSecondaryTransform?:{x:number;y:number;rotation:number}};
 const beat=(f:number,a:number,b:number)=>smooth((f-a)/(b-a));
 const floor=860;
 const rest=(x:number,angle=0,hip:Point=[0,0]):Point=>add(add([0,-258],hip),rotate([x,47],angle));
@@ -59,6 +59,10 @@ export function walkPose(f:number):ActorPose{
 }
 export function benchmarkFrame(pack:ArtPack,shot:ShotId,f:number,edit:Edit={}):SceneFrame{
   if(!Number.isInteger(f)||f<0||f>=shotFrames[shot])throw Error(`FRAME_OUT_OF_RANGE ${shot}:${f}`);
+  if(edit.handoffSecondaryTransform){
+    const t=edit.handoffSecondaryTransform;
+    if(shot!=='S05'||f<108||!edit.separateHandoffGrips||![t.x,t.y,t.rotation].every(Number.isFinite)||Math.abs(t.rotation)>90||Math.abs(t.x)>3840||Math.abs(t.y)>2160)throw Error('SECONDARY_TRANSFORM_RANGE');
+  }
   let camera={x:960,y:540,zoom:1};const actors:ActorPose[]=[],props:Sprite[]=[];
   const mai:ActorPose={id:'mai',character:'mai',x:760,floor,facing:1,view:'quarter'};
   if(shot==='S01'){
@@ -92,6 +96,7 @@ export function benchmarkFrame(pack:ArtPack,shot:ShotId,f:number,edit:Edit={}):S
     const an:ActorPose={id:'an',character:'an',x:1140,floor,facing:-1,view:'quarter'};
     const offer=beat(f,24,71),receive=beat(f,108,143),grip:Point=[mix(mix(900,927,offer),1030,receive),mix(565,580,receive)];
     const lamp=sprite('lamp','props/lantern-lit',grip[0],grip[1]+186*.6,6,0,.6);
+    if(edit.handoffSecondaryTransform)Object.assign(lamp,edit.handoffSecondaryTransform);
     // R3 binds each palm to a different drawn side of the existing handle.
     // Coordinates are in lantern SVG space (left/right vertical strokes),
     // transformed through the actual prop; not screen offsets or rig scaling.

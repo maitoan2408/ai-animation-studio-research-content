@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "shot": "S05",
+  "intent": "offer-light-receive",
+  "primaryClip": "Q2-R3-authored",
+  "fps": 24,
+  "frames": 192,
+  "beats": [
+    {
+      "start": 0,
+      "end": 24,
+      "intent": "hold"
+    },
+    {
+      "start": 24,
+      "end": 72,
+      "intent": "offer"
+    },
+    {
+      "start": 72,
+      "end": 108,
+      "intent": "share-grip"
+    },
+    {
+      "start": 108,
+      "end": 144,
+      "intent": "receive"
+    },
+    {
+      "start": 144,
+      "end": 192,
+      "intent": "settle-and-react"
+    }
+  ],
+  "secondary": [
+    "lantern"
+  ],
+  "releaseFrame": 108,
+  "artStatus": "development-asset-not-final-approved"
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "U6",
+  "step": "hero-player-slow",
+  "run_id": "20261113T154232Z-hero-player-slow-e82c41af",
+  "started_at_utc": "20261113T154232Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/render/check_player.ts",
+    "production/out/native-web-review/c8944e617eb944f48d27df640a02d1af",
+    "168",
+    "0.5"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "535296e917db171381b18078ee9a0b79fd3985e2",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 19791,
+  "source_snapshot_sha256": "1cdc80282987099c1e6fdff685e789f01e4bcf7b6ff9ff1182d68293ccef4e6c"
+}

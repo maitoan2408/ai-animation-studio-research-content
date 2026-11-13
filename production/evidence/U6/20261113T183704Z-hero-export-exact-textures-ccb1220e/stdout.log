@@ -1,0 +1,10 @@
+
+> paper-studio-production-workbench@0.1.0 quality:hero
+> tsx src/motion/build_hero.ts --native-input --textures out/hero-textures/d5a8aa9c807b9c95f4ddcfbc9c1b0591f6035e601e285053d614a7e7ed06c309/textures.json
+
+{"output":"/workspace/ai-animation-studio-research-content/production/out/quality-hero/455ff5ca-7180-4063-893e-93f288b3e58b","status":"PASS_GEOMETRY","frames":192,"maxGripPixels":1.5347723092418165e-13,"maxAnchorPixels":0.000822468202403572,"maxFootDriftPixels":0,"maxRotationDegrees":25.142418108437177,"kinematics":{"peakStagePixelsPerSecond":164.85562035751275,"peakStagePixelsPerSecondSquared":673.9408179940049,"peakStagePixelsPerSecondCubed":8741.3203141317},"violations":[],"limits":["Contact/stance limits are frozen; kinematics are descriptive, not an artistic score.","Lantern/hand joint only; no character-body collision volumes or cloth/hair solver.","No new final art, voice audition, or independent operator approval."],"bakeSha256":"ef8f0bd3d1a0fa920e4a5f20388f673521b83f06cfbbfbbbb9396f6a5dae195a","inputSha256":"9abce4669d9c4877830167771c97a198a5594a0d40c0eb090d3dcaea6fff9129","sameRunHash":true}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

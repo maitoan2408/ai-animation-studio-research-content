@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "baseline": "4f6b97c",
+  "branch": "codex/quality-physics-bake",
+  "sourceDocumentSha256": "c7de9e1cd05a84eff4aa56e5c429dc8a147d9ca6e6b77e58282dabff2ce749dc",
+  "authority": "delegated-agent",
+  "phases": {
+    "U0": "TECHNICAL_AUDIT_DONE_REFERENCE_AND_LICENSE_DECISIONS_OPEN",
+    "U1": "AUDITED_ART_SELECTION_AND_REFERENCE_PENDING",
+    "U2": "PARTIAL_HERO_PERFORMANCE_IR_AND_REPLAY",
+    "U3": "PASS_BOUNDED_FIXTURES_AND_HERO_TWO_LINUX_X64_RUNNERS",
+    "U4": "BLOCKED_REFERENCE_INPUT",
+    "U5": "PARTIAL_EXISTING_AUDIO_QC_LISTENING_PENDING",
+    "U6": "PARTIAL_NATIVE_HERO_WEB_AND_REPLAY_PASS_AB_AND_FAIR_PERFORMANCE_PENDING",
+    "U7": "PARTIAL_GEOMETRY_CRITIC_AND_NEGATIVE_TESTS",
+    "U8": "BLOCKED_HERO_AND_HUMAN_GATES"
+  },
+  "q2Status": "IN_PROGRESS_CREATIVE_HANDOFF_PERFORMANCE",
+  "completed": [
+    "Q2 R3 48s technical sequence/catalog; CI 43452758968 and43452758764 success on4f6b97c",
+    "U0 audit/plan and locked pre-experiment criteria",
+    "U1 current art inventory/gap analysis; final selection remains open",
+    "Planck/Rapier measured comparison, Rapier contact envelope repair",
+    "Hero192frame immutable bake, measured constraint error0.000823px, real negative tests",
+    "All1152 archived R3 source frames preserved",
+    "Native S05 192 frames at1080p; web192YUV exact; muted1x/0.5x0dropped; color samples pass",
+    "Portable41hash/6frame replay exact, same agent",
+    "Source535296e both CI workflows SUCCESS, matching Rapier and hero golden hashes on separate runner",
+    "Fresh exact texture restore and corrupt-cache/art/archive rejection tested; export192frames equals existing rendered candidate",
+    "Final source ce1c138: both workflows SUCCESS, including exact texture bootstrap,20Python tests,R3 rebuild/review recovery and standalone Git-only workflow"
+  ],
+  "updatedDateClient": "2026-11-14",
+  "nextAction": "Review U3 hero full motion and obtain final art/acting/voice inputs for U1/U4/U5, then expand six clips and match shot end states. Do not repeat completed physics/render tests without a code/input change or an unexplained failure. Q2 artistic/listening/operator/performance gates remain open.",
+  "ci": {
+    "sourceHead": "ce1c13830b7c43c0fef2c7492e8735fc2901fe91",
+    "status": "PASS",
+    "evidence": "docs/quality/ci-workflows.json",
+    "workbenchRun": 43484911444,
+    "applicationRun": 43484911623,
+    "limits": "Separate Linux x64 runner; no artistic/listening/independent operator approval"
+  }
+}

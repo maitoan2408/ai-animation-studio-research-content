@@ -1,3 +1,11 @@
+## Bổ sung nâng cấp — 14/11/2026
+
+Nhánh hiện hành `codex/quality-physics-bake`, draft PR #5, từ R3/Q2 `4f6b97c`.
+Đã triển khai bake vật lý cho S05, native 1080p, kiểm replay/media và CI.
+[Plan/kết quả mới](../quality/RESULTS.md); trạng thái U0–U8 nằm trong `docs/quality/state.json`.
+Q2 vẫn còn gate nghệ thuật/nghe/operator/performance; không đổi thành DONE.
+Các snapshot bên dưới giữ nguyên để truy vết, không dùng thay checkpoint mới.
+
 ## Kết quả bổ sung — R3 sequence 13/11/2026
 
 Đã hoàn thành ghép/tái tạo R3 đủ48s, giữ năm shot và audio R2; catalog mới,
