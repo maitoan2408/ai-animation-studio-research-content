@@ -26,14 +26,17 @@
     "Native S05 192 frames at1080p; web192YUV exact; muted1x/0.5x0dropped; color samples pass",
     "Portable41hash/6frame replay exact, same agent",
     "Source535296e both CI workflows SUCCESS, matching Rapier and hero golden hashes on separate runner",
-    "Fresh exact texture restore and corrupt-cache/art/archive rejection tested; export192frames equals existing rendered candidate"
+    "Fresh exact texture restore and corrupt-cache/art/archive rejection tested; export192frames equals existing rendered candidate",
+    "Final source ce1c138: both workflows SUCCESS, including exact texture bootstrap,20Python tests,R3 rebuild/review recovery and standalone Git-only workflow"
   ],
   "updatedDateClient": "2026-11-14",
   "nextAction": "Review U3 hero full motion and obtain final art/acting/voice inputs for U1/U4/U5, then expand six clips and match shot end states. Do not repeat completed physics/render tests without a code/input change or an unexplained failure. Q2 artistic/listening/operator/performance gates remain open.",
   "ci": {
-    "sourceHead": "535296e917db171381b18078ee9a0b79fd3985e2",
+    "sourceHead": "ce1c13830b7c43c0fef2c7492e8735fc2901fe91",
     "status": "PASS",
-    "evidence": "docs/quality/ci-535296e.json",
-    "limits": "Fresh-texture helper added afterward; its new CI result must be recorded separately."
+    "evidence": "docs/quality/ci-workflows.json",
+    "workbenchRun": 43484911444,
+    "applicationRun": 43484911623,
+    "limits": "Separate Linux x64 runner; no artistic/listening/independent operator approval"
   }
 }

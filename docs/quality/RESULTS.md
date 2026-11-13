@@ -14,7 +14,7 @@ trên nhánh mới. Toàn bộ Q2 và kế hoạch chín giai đoạn vẫn còn
 
 26 test TypeScript và typecheck đã đạt. 17 contract Python cũ đạt; thêm 3 ca
 texture bootstrap đạt: tái tạo ở thư mục mới, cache hỏng, art/archive bị đổi.
-CI mới chạy chung cả 20 ca. Các ca physics gồm analytic measurement, golden hash,
+CI đã chạy chung cả 20 ca và đạt. Các ca physics gồm analytic measurement, golden hash,
 seek, immutability, bake bị sửa, sai input/art, timebase/events, NaN, mass lỗi,
 IK không thể với tới và khớp vật lý bị cố ý tách khỏi tay.
 
@@ -23,10 +23,11 @@ Toàn bộ 1.152 frame nguồn R3 đã lưu từ trước được so lại chí
 bytes của candidate đã render, không cần cache hay rasterize lại. Media mới
 ở `production/out/`; Git lưu code, input, bake, báo cáo và ảnh so sánh nhỏ.
 
-Hai workflow trên source `535296e` đã thành công; Rapier và hero khớp golden
-trên runner Linux x64 khác. Xem [CI đã xác minh](ci-535296e.json). Helper khôi
-phục texture được bổ sung sau source này; kết quả CI mới được lưu riêng khi
-hoàn tất, không suy từ workflow cũ.
+Hai workflow cuối trên source `ce1c138` đã thành công, gồm cả helper khôi phục
+texture, 20 ca Python, tái tạo R3, browser/recovery và cài riêng từ Git.
+Rapier và hero khớp golden trên runner Linux x64 khác. Xem [CI cuối](ci-workflows.json)
+và [CI checkpoint trước](ci-535296e.json). Thay đổi sau source này chỉ bổ sung
+báo cáo kết quả, không thay implementation đã kiểm.
 
 Các lỗi đã xử lý: concat làm sai average fps (EX-033), physics drop xuyên nền
 (U-001), critic nhầm boot shadow là boot thật (U-002). Các lần lỗi giữ nguyên.
