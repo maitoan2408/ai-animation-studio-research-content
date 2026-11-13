@@ -2,6 +2,8 @@
 
 ## Q2 S05 R3 — 13/11/2026
 
+- Both GitHub workflows pass on source6c36e93, including standalone install/recovery and v0.1 integration/UI. Final checkpoint checks artifact/source/log integrity and local links; no additional phase approval.
+
 - Fixed EX-032 as an opt-in shot revision: both hands now grip separate drawn sides of the lantern handle. Prop trajectory, camera, timing and R2 reaction remain unchanged; archived1,152 scene frames still replay exactly as JSON.
 - Rendered192 native1080p frames and a separate8s web candidate. Full decode/converted-YUV/AAC checks pass; player1x/0.5x has0drops in these runs; two color samples pass unchanged thresholds.
 - Portable S05 package verifies41 dependency hashes and6 pixel-exact native replays.21workbench tests, typecheck and root verify16 pass. Failed contact regression and two corrected harness assumptions remain logged.

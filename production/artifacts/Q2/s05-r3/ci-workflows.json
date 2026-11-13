@@ -1,0 +1,126 @@
+{
+  "sourceCommit": "6c36e93f849724c0393a4a7e97f9eae737e1b964",
+  "workflow_runs": [
+    {
+      "id": 43407467125,
+      "name": "Q2 workbench verification",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 9,
+      "jobs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43407467125/jobs",
+      "logs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43407467125/logs",
+      "workflow_id": 416678554
+    },
+    {
+      "id": 43407467082,
+      "name": "Paper Studio verification",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 28,
+      "jobs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43407467082/jobs",
+      "logs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43407467082/logs",
+      "workflow_id": 413980343
+    }
+  ],
+  "rootJobs": {
+    "jobs": [
+      {
+        "id": 131825227165,
+        "name": "verify",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 43407467082,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Initialize containers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Install media runtime",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run npm ci",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run npm run studio -- doctor",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Run npm run verify",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Run npm run build",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Run npm run test:integration",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Run npm run test:ui",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Upload evidence",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 21
+          },
+          {
+            "name": "Stop containers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23
+          }
+        ]
+      }
+    ]
+  },
+  "limits": [
+    "CI validates code/media workflows; no artistic/listening or independent-operator approval."
+  ]
+}

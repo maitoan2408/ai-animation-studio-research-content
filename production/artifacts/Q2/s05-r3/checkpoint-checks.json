@@ -1,0 +1,12 @@
+{
+  "status": "PASS_CHECKPOINT_INTEGRITY",
+  "sourceCommit": "6c36e93f849724c0393a4a7e97f9eae737e1b964",
+  "artifactFilesChecked": 18,
+  "newAttemptsChecked": 18,
+  "localLinksChecked": 131,
+  "errors": [],
+  "limits": [
+    "Integrity and documentation check; no additional artistic/listening approval.",
+    "Only this S05 checkpoint attempts audited; earlier audits are retained. Current live recorder is excluded because its result is written after this command exits. Initial auditor failed reading its own pending result; failure retained."
+  ]
+}

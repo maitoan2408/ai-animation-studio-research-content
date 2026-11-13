@@ -10,6 +10,8 @@ Nguồn trạng thái máy đọc: [state.json](state.json); [gate Q2](../../pro
 **Checkpoint mới nhất:** [S05 R3](../../production/artifacts/Q2/s05-r3/README.md)
 đã sửa hai bàn tay chồng tại điểm chung của quai đèn;21tests/typecheck/root verify16,
 192native frames, webQC, player1×/0.5× và native replay PASS trong phạm vi mô tả.
+CI trên source6c36e93 đã SUCCESS cả workbench/standalone và v0.1 integration/UI;
+[CI evidence](../../production/artifacts/Q2/s05-r3/ci-workflows.json).
 Đã giữ nguyên1.152 frame nguồn cũ. R3 là candidate shot riêng, catalog R0/R1/R2
 không đổi; full creative/listening/handoff/performance vẫn mở. Tiếp theo review
 candidate và các shot còn lại; khi ghép R3 phải tạo revision/catalog mới, giữ

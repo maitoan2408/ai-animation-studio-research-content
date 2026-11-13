@@ -86,7 +86,14 @@
       "status": "PASS_SCOPED_REPAIR",
       "evidence": "production/artifacts/Q2/s05-r3/report.json",
       "fullPhaseApproval": false,
-      "catalogPromoted": false
+      "catalogPromoted": false,
+      "githubCI": {
+        "sourceHead": "6c36e93f849724c0393a4a7e97f9eae737e1b964",
+        "status": "PASS",
+        "evidence": "production/artifacts/Q2/s05-r3/ci-workflows.json",
+        "workbenchRun": 43407467125,
+        "v01Run": 43407467082
+      }
     }
   },
   "openGates": [

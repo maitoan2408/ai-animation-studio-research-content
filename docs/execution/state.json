@@ -161,6 +161,12 @@
       "result": "PASS_SCOPED_TECHNICAL_AND_SAMPLED_REPAIR",
       "evidence": "production/artifacts/Q2/s05-r3/report.json",
       "limits": "21tests,192native/convertedYUV frames,41native hashes/6replay samples and1152legacy JSON frames verified. New8s candidate only; full creative/listening/independent handoff/performance open. CI for new source tracked separately."
+    },
+    {
+      "id": "Q2-S05-R3-CI-and-checkpoint",
+      "result": "PASS",
+      "evidence": "production/artifacts/Q2/s05-r3/ci-workflows.json",
+      "limits": "Both workflows succeed on source6c36e93, including standalone install, recovery and root render/UI. Integrity audit checks18 artifacts/18 completed attempts/131links; Q2 creative/listening/handoff/performance gates unchanged."
     }
   ],
   "paidBudget": 0,
@@ -173,7 +179,7 @@
     "EX-013"
   ],
   "gateReport": "production/evidence/Q2/gate.json",
-  "updatedAt": "2026-11-13T17:12:39.679110+07:00",
+  "updatedAt": "2026-11-13T17:18:30.319233+07:00",
   "completedStepSemantics": "Entries preserve observations at their checkpoints. Current phases/nextAction/gate are authoritative; later completed steps resolve historical pending limits without rewriting old evidence.",
   "reviewReport": "docs/execution/REVIEW-2026-11-13.md",
   "continuationPlan": "docs/execution/NEXT-PLAN.md",

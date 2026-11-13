@@ -58,3 +58,12 @@ voice để xem/sửa shot này. [Kế hoạch sửa](../../../../docs/execution
 Chỉ nhận **sampled visual repair** cho EX-032. Còn full1×/0.5× artistic review,
 voice listening, operator độc lập và3cold+5warm sau art gate. Không chạy survey
 công cụ/style/Manim ngoài phạm vi sửa này.
+
+## CI checkpoint
+
+Cả [hai workflow](ci-workflows.json) trên source `6c36e93` SUCCESS, gồm root
+verify/build/integration/UI và workbench contracts/media/browser/recovery/standalone
+Git-only. [Chi tiết workbench](ci-workbench.json). [Audit checkpoint](checkpoint-checks.json)
+kiểm18 artifacts,18 attempts đã kết thúc và131 links; log lỗi auditor đọc result
+của chính nó khi còn chạy giữ nguyên, retest loại đúng recorder đang sống đã PASS.
+Commit chốt sau source trên chỉ thêm tài liệu/evidence, không sửa runtime.
