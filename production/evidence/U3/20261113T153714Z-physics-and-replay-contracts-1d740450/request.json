@@ -1,0 +1,18 @@
+{
+  "phase": "U3",
+  "step": "physics-and-replay-contracts",
+  "run_id": "20261113T153714Z-physics-and-replay-contracts-1d740450",
+  "started_at_utc": "20261113T153714Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "36fe062a203b6e6ec5f26b4c2cd8ab0da3abbbd4",
+  "tracked_diff_sha256": "d1ba24825e2849c8d28bfd3512bf73e620b53c0b41d21e1ae1629a36fabf0bf4",
+  "status": "RUNNING",
+  "recorder_pid": 19039,
+  "source_snapshot_sha256": "94b37ff5dd70992911ebe0a20b51bf45cfbcc21b17c9c969429a3a0a0cbe2953"
+}

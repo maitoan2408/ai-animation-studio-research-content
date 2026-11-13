@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "rapierFixtureSha256": "168251948acafb3122ea934af6620b61eacf3af3fcbad2774a7a31cc2133b686",
+  "heroBakeSha256": "ef8f0bd3d1a0fa920e4a5f20388f673521b83f06cfbbfbbbb9396f6a5dae195a",
+  "scope": "Cross-runner check of exact locked inputs/version; not a universal platform guarantee"
+}

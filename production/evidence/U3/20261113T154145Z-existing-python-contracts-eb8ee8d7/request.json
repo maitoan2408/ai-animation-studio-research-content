@@ -1,0 +1,23 @@
+{
+  "phase": "U3",
+  "step": "existing-python-contracts",
+  "run_id": "20261113T154145Z-existing-python-contracts-eb8ee8d7",
+  "started_at_utc": "20261113T154145Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "36fe062a203b6e6ec5f26b4c2cd8ab0da3abbbd4",
+  "tracked_diff_sha256": "6cdc23355dc80e8fdc4505725e59905b8155288404680727f22aa496657df309",
+  "status": "RUNNING",
+  "recorder_pid": 19481,
+  "source_snapshot_sha256": "40b057feb513bf05aaf7f467d1f340ccfb5b935c12c24f3d6cb7c494449c80c4"
+}

@@ -1,0 +1,24 @@
+{
+  "phase": "U3",
+  "step": "physics-final-reference",
+  "run_id": "20261113T153953Z-physics-final-reference-357f4cc9",
+  "started_at_utc": "20261113T153953Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "physics:spike"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "36fe062a203b6e6ec5f26b4c2cd8ab0da3abbbd4",
+  "tracked_diff_sha256": "488e146a420ec48bffc687aab23ae69075dc63fd69d098bdd6932087beaa8c70",
+  "recorder_pid": 19328,
+  "source_snapshot_sha256": "7ff98139412b4a7befcdd7966b95532fc797c1d3400fcf55871675dd556df69e",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 2.386,
+  "finished_at_utc": "2026-11-13T15:39:56.310041+00:00",
+  "log_sha256": "fcfa4183a6b5cbd9f4f348e6e4a50615890e9a347cf9e970163c86c77c0f73c0",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

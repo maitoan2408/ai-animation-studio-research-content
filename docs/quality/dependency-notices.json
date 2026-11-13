@@ -1,0 +1,26 @@
+[
+  {
+    "package": "planck",
+    "version": "1.5.1",
+    "license": "MIT",
+    "licenseFiles": {
+      "LICENSE.txt": "49fd3df949edd5f294edafb22e8905263dd7560b514bee6df2f17538069aafca"
+    }
+  },
+  {
+    "package": "stage-js",
+    "version": "1.0.2",
+    "license": "MIT",
+    "licenseFiles": {
+      "LICENSE.md": "86b02dda463abad5ad2ebc35d1dbfb1e26cb5535ec91eb742d143ce4e21f6725"
+    }
+  },
+  {
+    "package": "@dimforge/rapier2d-deterministic-compat",
+    "version": "0.21.0",
+    "license": "Apache-2.0",
+    "licenseFiles": {
+      "LICENSE": "4c05555705e3efde601fb1252ae48f1d63992af8a8fb8947745b7fa834e8f519"
+    }
+  }
+]

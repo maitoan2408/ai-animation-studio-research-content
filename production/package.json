@@ -12,12 +12,17 @@
     "test:review-ui": "tsx tests/review-ui.mjs",
     "test:review-recovery": "tsx src/qa/audit_review_workflow.mjs",
     "review:r3": "tsx src/review/cli.ts --catalog artifacts/Q2/web-review-v3/generated/catalog.json",
-    "test:review-r3": "tsx tests/review-ui.mjs artifacts/Q2/web-review-v3/generated/catalog.json"
+    "test:review-r3": "tsx tests/review-ui.mjs artifacts/Q2/web-review-v3/generated/catalog.json",
+    "physics:spike": "tsx src/physics/spike.ts",
+    "quality:hero": "tsx src/motion/build_hero.ts",
+    "test:physics": "tsx --test tests/physics.test.ts"
   },
   "dependencies": {
+    "@dimforge/rapier2d-deterministic-compat": "0.21.0",
     "@hyperframes/engine": "0.9.33",
     "@hyperframes/producer": "0.9.33",
     "gsap": "3.15.0",
+    "planck": "1.5.1",
     "puppeteer-core": "24.37.2",
     "three": "0.187.0"
   },

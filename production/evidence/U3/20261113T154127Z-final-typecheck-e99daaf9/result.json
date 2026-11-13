@@ -1,0 +1,24 @@
+{
+  "phase": "U3",
+  "step": "final-typecheck",
+  "run_id": "20261113T154127Z-final-typecheck-e99daaf9",
+  "started_at_utc": "20261113T154127Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "typecheck"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "36fe062a203b6e6ec5f26b4c2cd8ab0da3abbbd4",
+  "tracked_diff_sha256": "6cdc23355dc80e8fdc4505725e59905b8155288404680727f22aa496657df309",
+  "recorder_pid": 19484,
+  "source_snapshot_sha256": "02b848e307a17349be8e8057738b934349e94859f193fea4dba3d75b14e00d27",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 8.808,
+  "finished_at_utc": "2026-11-13T15:41:36.826390+00:00",
+  "log_sha256": "e81d56aa6430287c019266cfe3e9c03d477abffe1f1e3ccdbaae08b17fae9c63",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,0 +1,17 @@
+{
+  "phase": "U3",
+  "step": "hero-bake-first",
+  "run_id": "20261113T153457Z-hero-bake-first-4d2e3da7",
+  "started_at_utc": "20261113T153457Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/motion/build_hero.ts",
+    "--native-input"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "36fe062a203b6e6ec5f26b4c2cd8ab0da3abbbd4",
+  "tracked_diff_sha256": "d1ba24825e2849c8d28bfd3512bf73e620b53c0b41d21e1ae1629a36fabf0bf4",
+  "status": "RUNNING",
+  "recorder_pid": 18771,
+  "source_snapshot_sha256": "be819c529741a9500fcb39f7f0dd618e31f07f97638b4ea972299f0057a5ee10"
+}

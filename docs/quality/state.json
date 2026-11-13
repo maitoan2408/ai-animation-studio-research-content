@@ -7,14 +7,21 @@
   "phases": {
     "U0": "TECHNICAL_AUDIT_DONE",
     "U1": "AUDITED_ART_SELECTION_AND_REFERENCE_PENDING",
-    "U2": "PLANNED",
-    "U3": "PLANNED",
+    "U2": "PARTIAL_HERO_PERFORMANCE_IR_AND_REPLAY",
+    "U3": "PASS_BOUNDED_PHYSICS_HERO_CROSS_RUNNER_PENDING",
     "U4": "BLOCKED_REFERENCE_INPUT",
     "U5": "PARTIAL_EXISTING_AUDIO_QC_LISTENING_PENDING",
-    "U6": "PLANNED",
-    "U7": "PLANNED",
+    "U6": "PARTIAL_NATIVE_HERO_RENDERED_MEDIA_REPLAY_IN_PROGRESS",
+    "U7": "PARTIAL_GEOMETRY_CRITIC_AND_NEGATIVE_TESTS",
     "U8": "BLOCKED_HERO_AND_HUMAN_GATES"
   },
   "q2Status": "IN_PROGRESS_CREATIVE_HANDOFF_PERFORMANCE",
-  "completed": []
+  "completed": [
+    "Q2 R3 48s technical sequence/catalog; CI 43452758968 and43452758764 success on4f6b97c",
+    "U0 audit/plan and locked pre-experiment criteria",
+    "U1 current art inventory/gap analysis; final selection remains open",
+    "Planck/Rapier measured comparison, Rapier contact envelope repair",
+    "Hero192frame immutable bake, measured constraint error0.000823px, real negative tests",
+    "All1152 archived R3 source frames preserved"
+  ]
 }

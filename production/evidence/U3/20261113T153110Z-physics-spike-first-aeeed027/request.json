@@ -1,0 +1,16 @@
+{
+  "phase": "U3",
+  "step": "physics-spike-first",
+  "run_id": "20261113T153110Z-physics-spike-first-aeeed027",
+  "started_at_utc": "20261113T153110Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/physics/spike.ts"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "36fe062a203b6e6ec5f26b4c2cd8ab0da3abbbd4",
+  "tracked_diff_sha256": "0bbc8045252c5dc678212b3b9f926c809e7e2fc522e35a7670b209780c12a816",
+  "status": "RUNNING",
+  "recorder_pid": 18567,
+  "source_snapshot_sha256": "6cbb980ce4110a345edaf9181c303f3c063cb73b103cd5aa64c1b8be2cdb29c2"
+}

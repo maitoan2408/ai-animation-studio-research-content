@@ -1,0 +1,23 @@
+{
+  "phase": "U3",
+  "step": "install-locked-physics-engines",
+  "run_id": "20261113T152916Z-install-locked-physics-engines-315f75f7",
+  "started_at_utc": "20261113T152916Z",
+  "command": [
+    "npm",
+    "--cache",
+    "/tmp/studio-npm-cache",
+    "--prefix",
+    "production",
+    "install",
+    "--save-exact",
+    "planck@1.5.1",
+    "@dimforge/rapier2d-deterministic-compat@0.21.0"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "36fe062a203b6e6ec5f26b4c2cd8ab0da3abbbd4",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 18493,
+  "source_snapshot_sha256": "a538a5f5df6812d677c7435f2e9506af00bbc89d92c2945f667b5dcf96a17dfe"
+}
