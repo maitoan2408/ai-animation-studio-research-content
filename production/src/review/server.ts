@@ -90,7 +90,7 @@ export async function startReviewServer(options: ServerOptions) {
           try { range = byteRange(req.headers.range, bytes.length); }
           catch (error) { res.setHeader('content-range', `bytes */${bytes.length}`); throw error; }
           res.setHeader('content-type', artifact ? 'video/mp4' : 'application/zip');
-          if (master || !artifact) res.setHeader('content-disposition', `attachment; filename="${artifact ? artifact.id + '-master.mp4' : 'native-r2.zip'}"`);
+          if (master || !artifact) res.setHeader('content-disposition', `attachment; filename="${artifact ? artifact.id + '-master.mp4' : 'native-source.zip'}"`);
           if (range) {
             res.writeHead(206, {'content-range':`bytes ${range.start}-${range.end}/${bytes.length}`, 'content-length':range.end-range.start+1});
             res.end(req.method === 'HEAD' ? undefined : bytes.subarray(range.start, range.end+1));

@@ -10,7 +10,9 @@
     "review": "tsx src/review/cli.ts",
     "test:review": "tsx --test tests/review.test.ts",
     "test:review-ui": "tsx tests/review-ui.mjs",
-    "test:review-recovery": "tsx src/qa/audit_review_workflow.mjs"
+    "test:review-recovery": "tsx src/qa/audit_review_workflow.mjs",
+    "review:r3": "tsx src/review/cli.ts --catalog artifacts/Q2/web-review-v3/generated/catalog.json",
+    "test:review-r3": "tsx tests/review-ui.mjs artifacts/Q2/web-review-v3/generated/catalog.json"
   },
   "dependencies": {
     "@hyperframes/engine": "0.9.33",

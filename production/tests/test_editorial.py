@@ -6,6 +6,31 @@ spec=importlib.util.spec_from_file_location('editorial',Path(__file__).resolve()
 editorial=importlib.util.module_from_spec(spec);spec.loader.exec_module(editorial)
 
 class EditorialContracts(unittest.TestCase):
+    def test_r3_requires_parent_and_preserves_order_and_five_shots(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);rows={};timeline=[];cursor=0
+            order=json.loads((editorial.ROOT/'brief/edit-R2-order.json').read_text())
+            for shot in order:
+                take=root/shot;take.mkdir();(take/'picture.mp4').write_bytes(shot.encode())
+                (take/'inputs.json').write_text(json.dumps({'edit':{'separateHandoffGrips':True}}))
+                result={'deliverySha256':shot+'-old','audioInputSha256':'voice' if shot=='S01' else None}
+                rows[shot]=(take,result)
+                timeline.append({'shot':shot,'startFrame':cursor,'endFrameExclusive':cursor+editorial.FRAMES[shot],'pictureSha256':editorial.digest(take/'picture.mp4'),**result})
+                cursor+=editorial.FRAMES[shot]
+            parent=root/'parent.json';parent.write_text(json.dumps({'status':'PASS_TECHNICAL','revision':'R2','frames':1152,'timeline':timeline}))
+            with self.assertRaisesRegex(ValueError,'R3_PARENT_REQUIRED'):editorial.revision_order(rows,'R3')
+            with self.assertRaisesRegex(ValueError,'R3_S05_NOT_REPLACED'):editorial.revision_order(rows,'R3',parent)
+            rows['S05'][1]['deliverySha256']='new-s05'
+            self.assertEqual(editorial.revision_order(rows,'R3',parent),order)
+            rows['S01'][1]['audioInputSha256']='old-short-voice'
+            with self.assertRaisesRegex(ValueError,'R3_VOICE_CHANGED'):editorial.revision_order(rows,'R3',parent)
+            rows['S01'][1]['audioInputSha256']='voice'
+            rows['S03'][1]['deliverySha256']='lost-cup-edit'
+            with self.assertRaisesRegex(ValueError,'R3_UNRELATED_SHOT_CHANGED S03'):editorial.revision_order(rows,'R3',parent)
+            rows['S03'][1]['deliverySha256']='S03-old'
+            (rows['S05'][0]/'inputs.json').write_text('{"edit":{}}')
+            with self.assertRaisesRegex(ValueError,'R3_HANDOFF_EDIT_REQUIRED'):editorial.revision_order(rows,'R3',parent)
+
     def test_mono_is_explicit_stereo_without_timing_shift(self):
         with tempfile.TemporaryDirectory() as d:
             file=Path(d)/'mono.wav';samples=np.zeros(48000,dtype='<i2');samples[12345]=12000

@@ -2,7 +2,7 @@
   "phase": "Q2",
   "status": "IN_PROGRESS_CREATIVE_HANDOFF_AND_PERFORMANCE_GATES_OPEN",
   "reviewer": "delegated-agent",
-  "reviewPackage": "production/artifacts/Q2/web-review-v2/README.md",
+  "reviewPackage": "production/artifacts/Q2/web-review-v3/README.md",
   "substeps": {
     "Q2.1": "PASS_BOUNDED_TECHNICAL — readiness/seek, pinned Chromium color/reference and straight-alpha contract. Not every player/display.",
     "Q2.2": "PASS_TECHNICAL — original12 native A/B clips; authored contact/stance tests",
@@ -12,7 +12,7 @@
   },
   "latestValidation": {
     "workbenchTests": 21,
-    "editorialNegativeTests": 4,
+    "editorialNegativeTests": 5,
     "loudnessContracts": 3,
     "appRegressionTests": 16,
     "typechecks": "PASS",
@@ -20,7 +20,8 @@
     "versions": [
       "R0",
       "R1",
-      "R2"
+      "R2",
+      "R3"
     ],
     "normalizedIntegratedLUFS": -16.02,
     "normalizedTruePeakRangeDbTP": [
@@ -30,8 +31,8 @@
     "aacTransportLagSamples": 0,
     "nativeFilesVerified": 70,
     "nativeReplayFrames": 6,
-    "pythonContractTests": 16,
-    "reviewBrowserChecks": 13,
+    "pythonContractTests": 17,
+    "reviewBrowserChecks": 14,
     "appIntegrationChecks": 13,
     "appBrowserChecks": 9,
     "chartMaxRGB": 1,
@@ -86,7 +87,7 @@
       "status": "PASS_SCOPED_REPAIR",
       "evidence": "production/artifacts/Q2/s05-r3/report.json",
       "fullPhaseApproval": false,
-      "catalogPromoted": false,
+      "catalogPromoted": true,
       "githubCI": {
         "sourceHead": "6c36e93f849724c0393a4a7e97f9eae737e1b964",
         "status": "PASS",
@@ -94,6 +95,15 @@
         "workbenchRun": 43407467125,
         "v01Run": 43407467082
       }
+    },
+    "r3Sequence": {
+      "status": "PASS_TECHNICAL",
+      "frames": 1152,
+      "reusedFrames": 960,
+      "masterDecodedExact": true,
+      "webDecodedExact": true,
+      "aacUnchanged": true,
+      "evidence": "production/artifacts/Q2/web-review-v3/rebuild-report.json"
     }
   },
   "openGates": [

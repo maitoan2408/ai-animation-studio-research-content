@@ -1,0 +1,38 @@
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ art source hashes, explicit pivots, views and local references remain intact (18.618888ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (1.186128ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (0.694777ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (137.780788ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (11.604037ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (2.32257ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (2.845868ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (0.510079ms)
+✔ upright walk uses only the hip drop required for planted-foot reach (0.437399ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (9.492846ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (583.629406ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (332.121153ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (7.536192ms)
+✔ S05 R3 hands contact separate visible sides of the drawn lantern handle (27.267934ms)
+✔ S05 R3 keeps prop path, reaction delay, other shots and deterministic seeks (289.619023ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (27.22584ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (210.007141ms)
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (2.194721ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (19.593118ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (2.401342ms)
+✔ real HTTP media, origin/token, persistence, stale head and changed-file rejection (727.992424ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3595.489491
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

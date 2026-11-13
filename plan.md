@@ -1,3 +1,11 @@
+## Tiến độ hiện hành — R3 sequence 13/11/2026
+
+Đã hoàn thành ghép/tái tạo R3 đủ48s, giữ năm shot và audio R2; catalog mới,
+14ca browser, native70hash/6replay PASS. [Hướng dẫn và evidence](production/artifacts/Q2/web-review-v3/README.md).
+Các mục S05 R3 “chưa có full sequence” bên dưới là snapshot trước checkpoint này.
+Q2 vẫn mở review nghệ thuật/nghe/operator/performance. Kế hoạch nâng cấp mới
+được triển khai trên nhánh riêng sau checkpoint, không đổi gate cũ thành DONE.
+
 # Kế hoạch xây dựng Studio nội bộ
 
 ## Thực hiện theo ủy quyền — hiện hành

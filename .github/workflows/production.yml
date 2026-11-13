@@ -34,6 +34,11 @@ jobs:
       - name: Verify frozen chart in actual Chromium
         run: /tmp/q2-qc/bin/python production/src/qa/check_color_reference.py
       - run: npm --prefix production run test:review-ui
+      - name: Rebuild R3 from committed inputs and verify review binding
+        run: |
+          /tmp/q2-qc/bin/python production/src/media/rebuild_r3.py
+          npm --prefix production run review:r3 -- check
+          npm --prefix production run test:review-r3
       - name: Verify delayed and uncertain review-save recovery
         run: npm --prefix production run test:review-recovery
       - name: Verify standalone Git-only installation and review workflow

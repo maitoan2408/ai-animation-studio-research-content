@@ -37,3 +37,10 @@ ca lỗi lẫn regression liên quan đã chạy; chưa chạy ghi OPEN/BLOCKED.
 | EX-030 | Q2 review UI | Pending R0 save completes after user switches to R2 and types a new draft; response clears the new note | Track draft generation across input/frame/version changes; clear only the submitted unchanged draft; identify saved revision/frame | b0c9a244 FAIL_CONFIRMED (new draft becomes empty); a24c7542 and78b8842e PASS, 23e60972 old13browser checks PASS | CLOSED — scoped UI draft preservation; not durable offline drafting |
 | EX-031 | Q2 review UI | POST commits but response is lost; refresh changes head, retry creates a new request ID and duplicate record | Separate intent signature from head; retry exact original body/ID; rebase only after definite STALE_HEAD. Keep committed-save status when following GET fails | b0c9a244 FAIL_CONFIRMED (2records); a24c7542 and78b8842e PASS (1record); old two-window conflict regression PASS | CLOSED — in-session recovery; page-reload queue persistence remains outside scope |
 | EX-032 | Q2 S05 | Hai bàn tay nắm cùng một điểm nên chồng hình trong frames72–107 | R3 opt-in: giữ hai bên quai thật, wrist solve theo prop; giữ path/timing/reaction và legacy source | production/artifacts/Q2/s05-r3:21tests,192native/YUV frames, samples60/72/95/107/108/120/144,41hashes/6native replays | CLOSED_SCOPED — sampled readability repair; full-motion/voice gate remains open |
+
+## EX-033 — R3 concat timebase (CLOSED)
+
+First reconstruction failed profile avg_frame_rate (384000000/15986111).
+Explicit CFR24 / MP4 timescale12288 fixes timestamp rounding. Unchanged strict
+frame/decode/audio/profile gates PASS; failed attempt151908 remains immutable,
+fixed attempt152238. No timing tolerance loosened and no review inherited.

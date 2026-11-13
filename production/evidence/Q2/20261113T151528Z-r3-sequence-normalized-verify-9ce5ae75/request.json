@@ -1,0 +1,18 @@
+{
+  "phase": "Q2",
+  "step": "r3-sequence-normalized-verify",
+  "run_id": "20261113T151528Z-r3-sequence-normalized-verify-9ce5ae75",
+  "started_at_utc": "20261113T151528Z",
+  "command": [
+    "python",
+    "production/src/editorial/check_sequence.py",
+    "production/out/sequences/R3-66e7327f9f8c461f93f49867a9a97f3b",
+    "production/out/normalized/R3-225bb185ced04e9ea4d769b7d0e97004/delivery.mp4"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "173905d88f0cd717e53be4f9f8550a082dd0feec",
+  "tracked_diff_sha256": "5c1160663747f9cf580fd9ddea23f204b5f4d9d8675c319112fae1b7d387b607",
+  "status": "RUNNING",
+  "recorder_pid": 12885,
+  "source_snapshot_sha256": "7cdb2c8062dfb0f90ac9c8b2f3f02411b8778ef5b16e530a72d543be68fa136d"
+}

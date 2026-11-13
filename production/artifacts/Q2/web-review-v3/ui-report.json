@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Initial frame0 presented; annotation enabled only after pause/settle",
+    "Acceptance availability follows exact catalog color status",
+    "Range seek and individual forward/back steps use presented frame72",
+    "Persisted annotation renders markup as text",
+    "Reload preserves saved review",
+    "R2 reordered timeline maps frame400 to S01, with no inherited R0 notes",
+    "Actual muted playback at1x; recording disabled during playback",
+    "Actual muted playback at0.5x; recording disabled during playback",
+    "Saved second annotation on R2",
+    "Two-window stale revision rejects, retains text, reloads and saves safely",
+    "Export retains exact artifact/frame bindings and test-only authorship",
+    "390px mobile layout fits without horizontal overflow",
+    "Server restart verifies hash chain and restores prior notes",
+    "R3 S05 frame1032 binds its own artifact/master without inheriting or leaking R2 notes"
+  ],
+  "browser": "Chrome/156.0.8078.79",
+  "errors": [],
+  "mode": "automated-test",
+  "journalHead": "01dd82c8f934dfde3e2f389ef5b3f2eacfedb04c15f5bbb72145c1c6b742b2d4",
+  "records": 5,
+  "limits": [
+    "Functional UI verification; muted playback, no listening or artistic approval",
+    "Same agent; not independent operator handoff"
+  ]
+}

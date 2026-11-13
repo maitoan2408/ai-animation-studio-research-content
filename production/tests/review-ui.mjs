@@ -74,7 +74,7 @@ try {
   checked('Two-window stale revision rejects, retains text, reloads and saves safely');
   await other.close();
   await page.bringToFront();
-  const exported = await (await fetch(app.origin+'/api/export')).json();
+  let exported = await (await fetch(app.origin+'/api/export')).json();
   assert.equal(exported.records.length,4); assert.equal(exported.phaseApproval,false);
   assert.ok(exported.records.every(r => r.request.reviewer.kind==='automated-test' && r.request.decision==='note'));
   assert.equal(exported.records[0].request.frame,72); assert.equal(exported.records[1].request.frame,400);
@@ -89,8 +89,26 @@ try {
   page = await browser.newPage(); await page.goto(app.origin); await ready(page);
   assert.match(await page.$eval('#count',element => element.textContent),/^2 /);
   checked('Server restart verifies hash chain and restores prior notes');
+  const r3 = app.catalog.artifacts.find(a => a.revision === 'R3');
+  if (r3) {
+    await page.select('#revision',r3.id); await ready(page);
+    assert.match(await page.$eval('#count',e => e.textContent),/^0 /);
+    await seek(page,1032); assert.match(await page.$eval('#position',e => e.textContent),/R3 · S05/);
+    await save(page,'R3 S05 local72: synthetic binding check, not creative approval.');
+    exported = await (await fetch(app.origin+'/api/export')).json();
+    const record=exported.records.at(-1).request;
+    assert.equal(record.artifactId,r3.id); assert.equal(record.masterSha256,r3.masterSha256);
+    assert.equal(record.shotId,'S05'); assert.equal(record.frame,1032);
+    await page.select('#revision',app.catalog.artifacts[2].id); await ready(page);
+    assert.ok(!(await page.$eval('#notes',e=>e.textContent)).includes('R3 S05 local72'));
+    const native=await fetch(app.origin+'/native');
+    assert.equal(native.status,200);
+    assert.match(native.headers.get('content-disposition'),/native-source.zip/);
+    checked('R3 S05 frame1032 binds its own artifact/master without inheriting or leaking R2 notes');
+    await writeFile(path.join(out,'test-journal-export.json'),JSON.stringify(exported,null,2)+'\n');
+  }
   assert.deepEqual(errors,[]);
-  const report = {status:'PASS',checks,browser:await browser.version(),errors,mode:'automated-test',journalHead:exported.head,records:4,limits:['Functional UI verification; muted playback, no listening or artistic approval','Same agent; not independent operator handoff']};
+  const report = {status:'PASS',checks,browser:await browser.version(),errors,mode:'automated-test',journalHead:exported.head,records:exported.records.length,limits:['Functional UI verification; muted playback, no listening or artistic approval','Same agent; not independent operator handoff']};
   await writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify({output:out,...report}));
 } catch(error) {

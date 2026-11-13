@@ -1,0 +1,23 @@
+{
+  "phase": "Q2",
+  "step": "r3-overlay-native-replay",
+  "run_id": "20261113T152424Z-r3-overlay-native-replay-803edc29",
+  "started_at_utc": "20261113T152424Z",
+  "command": [
+    "python",
+    "production/src/blender/check_portable.py",
+    "production/artifacts/Q2/web-review-v3/generated/native.zip",
+    "production/out/candidate-b-vse/20261113T100531Z-S05-1920-5f9c6931"
+  ],
+  "cwd": "/workspace/ai-animation-studio-research-content",
+  "base_commit": "173905d88f0cd717e53be4f9f8550a082dd0feec",
+  "tracked_diff_sha256": "5bab73cc687fce7a111db9af517e981529372105dbe740995eb9e463218a807b",
+  "recorder_pid": 13992,
+  "source_snapshot_sha256": "78c7b32808d9c7b5879e4ea42d4b54772b17c19c0f978e690d5d16c5cf82b1f6",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 12.919,
+  "finished_at_utc": "2026-11-13T15:24:37.628104+00:00",
+  "log_sha256": "db5fb453eeb274fe102462d4e30c2671c5d7b449dddf5ebc4e5eb21dc23752a6",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}
