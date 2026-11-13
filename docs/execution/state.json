@@ -167,7 +167,9 @@
     "EX-013"
   ],
   "gateReport": "production/evidence/Q2/gate.json",
-  "updatedAt": "2026-11-13T09:59:15.357333+07:00",
+  "updatedAt": "2026-11-13T10:25:43.210564+07:00",
   "completedStepSemantics": "Entries preserve observations at their checkpoints. Current phases/nextAction/gate are authoritative; later completed steps resolve historical pending limits without rewriting old evidence.",
-  "reviewReport": "docs/execution/REVIEW-2026-11-13.md"
+  "reviewReport": "docs/execution/REVIEW-2026-11-13.md",
+  "continuationPlan": "docs/execution/NEXT-PLAN.md",
+  "handoffPrompt": "docs/execution/AI-HANDOFF-PROMPT.md"
 }

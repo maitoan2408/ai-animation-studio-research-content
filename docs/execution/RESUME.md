@@ -5,6 +5,16 @@ sửa lỗi, chọn hướng triển khai và push từng bước. Không hỏi 
 Không giả người dùng đã xem/nghe hoặc có operator độc lập. Ngân sách dịch vụ trả phí0.
 Nguồn trạng thái máy đọc: [state.json](state.json); [gate Q2](../../production/evidence/Q2/gate.json).
 
+## Kế hoạch và prompt tiếp quản — 13/11/2026
+
+[NEXT-PLAN](NEXT-PLAN.md) chia phần còn thiếu thành task Q1/Q2 và giai đoạn Q3–Q9,
+có đầu vào, vai trò, đầu ra, tiêu chí đạt và đường sửa khi fail; đối chiếu đủ
+P0–P11/F01–F11. [Prompt đầy đủ cho AI khác](AI-HANDOFF-PROMPT.md) chứa link Git,
+thứ tự đọc, bước bắt đầu, quy trình test/sửa/commit/push và cách ghi blocker thật.
+Đợt này chỉ lập kế hoạch/bàn giao; không thay code hoặc đóng thêm gate production.
+AI mới phải kiểm khả năng nghe/xem của môi trường mình, không mặc định hạn chế
+của agent trước. [Kiểm tra tài liệu](planning-checks-20261113.json).
+
 ## Review bổ sung — 13/11/2026
 
 [Bản review đầy đủ](REVIEW-2026-11-13.md) đối chiếu code, evidence, bốn mẫu hình

@@ -8,6 +8,10 @@ Trạng thái tiếp tục ở [RESUME](docs/execution/RESUME.md), [state](docs/
 Q2 đã có 12 blocking clip 1080p, polish và hai vòng sửa B-VSE; ba sequence đã kiểm frame/audio/loudness. Màu trên player tham chiếu và công cụ review đã kiểm xong; motion/voice review, handoff độc lập và performance còn mở. [Tổng kết](docs/execution/COMPLETED.md).
 Các mục nghiên cứu bên dưới là snapshot lịch sử, giữ nguyên kết quả.
 
+**Kế hoạch tiếp tục ngày 13/11:** [từng task còn thiếu và Q3–Q9](docs/execution/NEXT-PLAN.md),
+[prompt hoàn chỉnh cho AI tiếp quản](docs/execution/AI-HANDOFF-PROMPT.md). Kế hoạch
+này chưa được thực thi; Q1/Q2 vẫn còn các gate trên, Q3–Q9 chưa bắt đầu.
+
 Checkpoint13/11/2026: công cụ review local (`production/src/review`) đạt13 thao tác
 browser và4 nhóm contract/API/recovery. V1 chart FAIL giữ nguyên; v2 từ PNG với
 full-range/losslessYUV đạt chart max1 dưới ngưỡng3, ba sequence khớp1.152YUV frame

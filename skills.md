@@ -24,7 +24,7 @@ Các mục sau thuộc `production/`, chưa phải capability của API/UI v0.1:
 | benchmark-audio-qc | Verified PCM timeline → delivery gain, loudness/TP và sync reports | Nghe duyệt riêng; `production/src/audio/README.md` |
 | benchmark-review-workbench | Catalog media/hash → note theo shot/frame, journal và export | `production/src/review/README.md`; input/range/hash/conflict/restart + actual browser checks; không tự đóng gate |
 | benchmark-media-contract | Native PNG/alpha/master → profile/color/packet checks và web derivative riêng | `production/src/media/README.md`; giữ failures/ngưỡng; v1 FAIL, v2 chart max1 PASS, ba bản1152YUV/AAC exact; không là full art approval |
-| resume-production | Git/state/evidence → đúng bước chưa xong, giữ attempts cũ | `docs/execution/RESUME.md`, `production/evidence/Q2/gate.json` |
+| resume-production | Git/state/evidence → đúng bước chưa xong, giữ attempts cũ | `docs/execution/RESUME.md`, `production/evidence/Q2/gate.json`; [kế hoạch tiếp tục](docs/execution/NEXT-PLAN.md), [prompt bàn giao](docs/execution/AI-HANDOFF-PROMPT.md) |
 
 Ủy quyền hiện hành cho phép agent triển khai và quyết định thường lệ. Mọi review
 phải ghi đúng `delegated-agent`; không giả người dùng hoặc operator độc lập.

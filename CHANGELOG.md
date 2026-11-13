@@ -1,5 +1,12 @@
 # Changelog
 
+## Kế hoạch tiếp tục và prompt bàn giao — 13/11/2026
+
+- Bổ sung kế hoạch từ các gate Q1/Q2 còn mở đến Q3–Q9, có dependency, vai trò, đầu ra, tiêu chí kiểm thử, sửa lỗi và checkpoint; đối chiếu P0–P11 cùng các nhánh F01–F11.
+- Tách lỗi đã đóng khỏi quan sát hình cần kiểm video, rủi ro serving chưa đo và chức năng production chưa triển khai. Giữ phạm vi v0.1/workbench và bằng chứng cũ.
+- Viết prompt tiếng Việt hoàn chỉnh để AI khác đọc Git, kiểm trạng thái và tiếp tục đúng quy trình; nối từ README/plan/skills/RESUME/state.
+- Đây là thay đổi tài liệu/kế hoạch. Kiểm JSON, link nội bộ và invariants trạng thái/source; không chạy lại phần mềm hoặc nhận thêm gate mỹ thuật, nghe, handoff hay performance.
+
 ## Q2 follow-up review — 13/11/2026
 
 - Reproduced EX-030: an older save response erased a new draft after switching revisions. Draft generation now guards clearing and the status identifies the saved revision/frame.
