@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "frozenBeforeExperiment": "2026-11-13",
+  "fps": 24,
+  "hz": 240,
+  "gravity": 9.81,
+  "pixelsPerMeter": 200,
+  "pendulum": {"x": 0.05, "y": -0.998749217771909, "radius": 0.005, "seconds": 20},
+  "drop": {"height": 2, "radius": 0.1, "restitution": 0.65, "seconds": 12},
+  "limits": {"periodRelativeError": 0.02, "fallRelativeError": 0.02, "bounceRelativeError": 0.1, "engineeringPenetrationMeters": 0.005, "strictPenetrationMeters": 0, "heroContactPixels": 1, "heroFootDriftPixels": 1},
+  "scope": "Engineering experiment; strict zero penetration remains separately reported, no creative approval."
+}
