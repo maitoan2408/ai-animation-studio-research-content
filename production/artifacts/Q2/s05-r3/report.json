@@ -1,0 +1,75 @@
+{
+  "status": "PASS_SCOPED_REPAIR",
+  "reviewer": "delegated-agent",
+  "revision": "R3-S05-candidate",
+  "baselineCommit": "bc3c7894875cfb9e97f984eb359f4d9d92114cca",
+  "issue": "EX-032",
+  "scope": "S05 two-hand silhouette readability at transfer; not complete Q2 artistic acceptance",
+  "sampledFrames": [
+    60,
+    72,
+    95,
+    107,
+    108,
+    120,
+    144
+  ],
+  "observations": [
+    "R2 both hands share one grip and overlap during frames72-107.",
+    "R3 binds the two existing hand drawings to opposite drawn handle sides; both palms and centre of handle now read separately.",
+    "Approach and release sampled at60/108/120/144 retain handle attachment and return pose. Full-speed artistic viewing is not claimed."
+  ],
+  "checks": {
+    "workbenchTests": 21,
+    "typecheck": "PASS",
+    "rootVerifyTests": 16,
+    "legacyArchivedFramesExact": 1152,
+    "nativeFrames": 192,
+    "nativeSize": [
+      1920,
+      1080
+    ],
+    "fps": 24,
+    "seconds": 8,
+    "exactConvertedYuvFrames": 192,
+    "nativeReplaySamples": 6,
+    "nativeDependenciesVerified": 41,
+    "gripTargetHorizontalSeparationPixels": 47.79,
+    "playerDroppedFramesAt1xAndHalf": [
+      0,
+      0
+    ]
+  },
+  "failuresPreserved": [
+    "Initial proposed R3 contact regression fails on legacy shared-grip implementation.",
+    "Initial release assertion wrongly compared a closed-hand grip marker with an unconstrained open-hand marker. Corrected to physical wrist pivot continuity; did not change contact tolerance.",
+    "Legacy source replay initially used in-memory deep equality: -0 differed from JSON-persisted 0. Corrected to the original JSON export representation; all1152 stored frames match exactly."
+  ],
+  "limits": [
+    "S05 has silent AAC by design; no voice audition or sound-design approval.",
+    "Muted browser playback is functional verification only, not a motion score.",
+    "New-path Blender replay uses the same agent; independent operator gate remains open.",
+    "R3 is a separate shot candidate, not a new48s catalog sequence; R0/R1/R2 catalog unchanged.",
+    "Full Q2 creative/listening/handoff/performance gates remain open; Q3-Q9 not started."
+  ],
+  "files": {
+    "native-render.json": "a8f24d1d71d483b40308ea6381fd530ee6c2758cf6551247a50c7ce69bfea5f3",
+    "web-review.mp4": "fababbd7bb9a5ab030f329a34a45e5ba13da2b14ab8be37f2436648de3641cff",
+    "decoded-yuv.framemd5": "56ee761d9e6a411e37d67c754ae971fcad343684823689ffc581be9c7a55c314",
+    "R3-frame72.png": "bddd75761825dc97bbd7bec9d186969244e7318169a6f236d00bc8070309d256",
+    "master.mp4": "1eb5d70eb0ec16b9d76fc625e298de206f4185a01f89fb257d92a44b82e51a73",
+    "playback-half.json": "512b7ce86ecde63f4b00ff89e3c9795838cf67f6b7ee8511b1f3652b02fd9493",
+    "source-frames.json": "e579f38c1356ed844e34f5779970f79d13914c03d146f65777a5d1d6f69c5767",
+    "playback-1x.json": "af0e47e88db5d3b10fac8c4de47ca981ca9901e9cd8d0d21c0897e0f3f5c21e9",
+    "R3-frame108.png": "68977da2d6e7ed8b042b8bb4888874474d44deee7b00e56d466e65d36df8c0f3",
+    "contact-comparison.png": "ad2c3a093e26c62c9c93a5a3746eceb557a46611734cb19f8f1c030c6a7b1ec7",
+    "R2-frame72.png": "e9b91c881b5f8b6fd264b6cb6b88d60b3ebe73d574c9c4d4cba4b957d9a932ad",
+    "color-frame72.json": "0c2be171563a49dcfe3f310b10f0e16561ed16a9ec9852c8b6c7b9d24eee667b",
+    "native-replay.json": "50ca5939da90a83faedfe9186fa2b9bfa540d859ae510d0e4c3c543813631484",
+    "web-qc.json": "bceb5e6047051adea2b42396d05bee935b0b5e47ee9d88cdc2e8c0c1acab7fcc",
+    "legacy-report.json": "47cfae9eba79783f14b05a0e42128f51bda80cd1677fed29677133803d637c1b",
+    "color-frame108.json": "5c3b9dd8fe561aca4bbecf11e03ea07610546711a3979160738d37bb3fb02037",
+    "source-yuv.framemd5": "56ee761d9e6a411e37d67c754ae971fcad343684823689ffc581be9c7a55c314",
+    "native-S05-R3.zip": "d5a8aa9c807b9c95f4ddcfbc9c1b0591f6035e601e285053d614a7e7ed06c309"
+  }
+}

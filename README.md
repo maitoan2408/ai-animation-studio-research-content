@@ -8,6 +8,8 @@ Tiếp quản công việc: [kế hoạch chi tiết phần còn thiếu](docs/e
 và [prompt hoàn chỉnh cho AI khác](docs/execution/AI-HANDOFF-PROMPT.md). Đây là
 kế hoạch Q1/Q2 còn dở → Q3–Q9, không phải báo cáo các phase đã hoàn thành.
 
+Bản sửa mới: [S05 R3 — video8s, ảnh trước/sau và source Blender](production/artifacts/Q2/s05-r3/README.md). Hai tay chuyền đèn đã được tách rõ; đây là candidate riêng, chưa thay catalog R0/R1/R2.
+
 Mở chương trình review mới sau khi cài dependencies workbench:
 
 ```bash

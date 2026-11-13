@@ -3,6 +3,12 @@
 Ngày lập: 13/11/2026, Asia/Saigon. Đây là **kế hoạch chưa thực thi**, cập nhật sau
 [review](REVIEW-2026-11-13.md), không phải bằng chứng hoàn thành phase mới.
 
+**Cập nhật thực thi sau khi lập kế hoạch:** Q2-REPAIR S05 đã có candidate R3 tách
+hai bàn tay sang hai bên quai,192frames và native/web/replay checks. Xem
+[kết quả](../../production/artifacts/Q2/s05-r3/README.md). Những mục khác chưa tự
+chuyển trạng thái; Q2 đầy đủ vẫn IN_PROGRESS. Ưu tiên review candidate/shot còn lại,
+không lặp khảo sát hoặc render toàn bộ chỉ để có log mới.
+
 - Repo: https://github.com/maitoan2408/ai-animation-studio-research-content
 - Nhánh: `codex/production-q0-q9`; [draft PR4](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/4).
 - Checkpoint đối chiếu: `7147487294fd49a083375cb1bc0ba12b43dea6c4`.

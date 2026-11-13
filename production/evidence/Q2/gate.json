@@ -11,7 +11,7 @@
     "Q2.5": "NOT_RUN — after art/motion gate, protocol written"
   },
   "latestValidation": {
-    "workbenchTests": 19,
+    "workbenchTests": 21,
     "editorialNegativeTests": 4,
     "loudnessContracts": 3,
     "appRegressionTests": 16,
@@ -81,6 +81,12 @@
       "limits": "Synthetic workflow recovery checks; no art/listening approval",
       "testedSource": "71213e96b70de56cda2856b58d48cba4faac103f",
       "ciEvidence": "production/artifacts/Q2/review-followup-20261113/ci-workflows.json"
+    },
+    "s05R3": {
+      "status": "PASS_SCOPED_REPAIR",
+      "evidence": "production/artifacts/Q2/s05-r3/report.json",
+      "fullPhaseApproval": false,
+      "catalogPromoted": false
     }
   },
   "openGates": [

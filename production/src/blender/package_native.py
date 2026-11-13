@@ -29,7 +29,7 @@ for shot,take_path in selection.items():
  # and rewrite them into broken paths during Save As (EX-019).
  bpy.ops.wm.save_as_mainfile(filepath=str(out/'project'/f'{shot}.blend'),relative_remap=False)
  shutil.copy2(take/'inputs.json',out/'source'/f'{shot}.json')
-(out/'README.txt').write_text('Q2 blocking native VSE projects, Blender 4.3.2. Open project/S01.blend etc.\nTextures are relative and SHA256-addressed. Source JSON preserves authored frames.\nThese are benchmark fixtures, not the story pilot or production release.\nOriginal artwork belongs to this project; voice is not embedded in these image-strip files.\nRepository: https://github.com/maitoan2408/ai-animation-studio-research-content\nSee production/ENVIRONMENT.md for licenses; Q1 listening review remains open.\n')
+(out/'README.txt').write_text('Q2 native VSE projects, Blender 4.3.2. Open '+', '.join(f'project/{shot}.blend' for shot in selection)+'.\nTextures are relative and SHA256-addressed. Source JSON preserves authored frames.\nThese are benchmark fixtures, not the story pilot or production release.\nOriginal artwork belongs to this project; voice is not embedded in these image-strip files.\nRepository: https://github.com/maitoan2408/ai-animation-studio-research-content\nSee production/ENVIRONMENT.md for licenses; Q1 listening review remains open.\n')
 files={str(f.relative_to(out)):hashlib.sha256(f.read_bytes()).hexdigest() for f in out.rglob('*') if f.is_file()}
 (out/'manifest.json').write_text(json.dumps({'schemaVersion':1,'files':files,'shots':list(selection),'blender':bpy.app.version_string},indent=2))
 archive=out.with_suffix('.zip')

@@ -24,3 +24,24 @@ The all-frame test enforces this for every one of the1,152 benchmark frames.
 These are trusted research fixtures, not a production input API/schema. Q4 is
 responsible for validated persisted revisions and production dependency graphs.
 Unit tests cannot decide if acting is good or the voice sounds natural.
+
+## R3 S05 handoff readability
+
+`brief/edit-R3.json` opts into `separateHandoffGrips`. Apply it to S05 only;
+other selected takes remain R2's selection (including R1 S01/S03).
+The existing lantern's SVG handle has left/right strokes at (51,25)/(110,27).
+Their actual prop transforms define the two contact targets. `wristFor` solves
+each wrist with its character facing and hand pivot; no limb scaling or image
+offset conceals contact errors. Legacy configs retain the shared grip anchor.
+
+At 1080p the two target points have 47.79 px horizontal separation during
+frames 72–107. This is a geometric readability constraint, not a motion score.
+The prop path, 192-frame duration, R2 reaction delay and camera remain unchanged.
+On release, continuity checks use the wrist pivot: the replacement open-hand
+drawing has different finger geometry and is no longer a constrained grip.
+
+Run `tsx --test production/tests/handoff.test.ts` from the repo through the
+recorder. Export with `export_frames.ts production/brief/edit-R3.json <new-dir>`,
+then render S05 with that `BENCHMARK_INPUT_DIR`. Exporting all fixtures does not
+authorize replacing the R1 voice/cup or rerendering other shots. Candidate
+delivery and review evidence are in `production/artifacts/Q2/s05-r3/`.

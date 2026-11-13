@@ -1,5 +1,13 @@
 # Tổng kết hiện hành — 13/11/2026
 
+Checkpoint S05 R3: [video/source/before-after](../../production/artifacts/Q2/s05-r3/README.md).
+Đã tách hai grip sang hai bên quai đèn, giữ đường đi/timing/reaction và source
+frame cũ.21tests/typecheck/root verify16,192native frames,192exactYUV, hai lượt
+player1×/0.5× và6native replay samples PASS. Chỉ đóng lỗi đọc hình EX-032 ở phạm vi
+sampled repair; các gate Q2 bên dưới không đổi. R3 chưa ghép vào sequence48s.
+
+Các số liệu bên dưới là checkpoint trước R3 và tiếp tục được giữ làm bằng chứng.
+
 Đã hoàn tất phần kỹ thuật màu/media và chương trình review Q2. **Q2 chưa DONE và
 chưa production-ready:** còn nghe thoại, chấm chuyển động, bàn giao operator độc
 lập và benchmark sau art gate. Không thay những kết quả cũ đã đạt.

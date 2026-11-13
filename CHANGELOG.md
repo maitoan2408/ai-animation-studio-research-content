@@ -1,5 +1,12 @@
 # Changelog
 
+## Q2 S05 R3 — 13/11/2026
+
+- Fixed EX-032 as an opt-in shot revision: both hands now grip separate drawn sides of the lantern handle. Prop trajectory, camera, timing and R2 reaction remain unchanged; archived1,152 scene frames still replay exactly as JSON.
+- Rendered192 native1080p frames and a separate8s web candidate. Full decode/converted-YUV/AAC checks pass; player1x/0.5x has0drops in these runs; two color samples pass unchanged thresholds.
+- Portable S05 package verifies41 dependency hashes and6 pixel-exact native replays.21workbench tests, typecheck and root verify16 pass. Failed contact regression and two corrected harness assumptions remain logged.
+- Preserved R0/R1/R2 catalog/media. Full creative/listening/independent-handoff/performance gates remain open; no Q3 backend or production release claim.
+
 ## Kế hoạch tiếp tục và prompt bàn giao — 13/11/2026
 
 - Bổ sung kế hoạch từ các gate Q1/Q2 còn mở đến Q3–Q9, có dependency, vai trò, đầu ra, tiêu chí kiểm thử, sửa lỗi và checkpoint; đối chiếu P0–P11 cùng các nhánh F01–F11.

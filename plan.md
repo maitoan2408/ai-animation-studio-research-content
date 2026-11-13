@@ -2,6 +2,11 @@
 
 ## Thực hiện theo ủy quyền — hiện hành
 
+**Tiến độ mới:** [S05 R3](production/artifacts/Q2/s05-r3/README.md) đã triển khai
+sửa tay chồng khi chuyền đèn; có video8s, source portable và kiểm thử. Đây là
+Q2-REPAIR hoàn tất trong phạm vi lỗi EX-032, chưa đóng toàn Q2. Không triển khai
+các nhánh Manim/style/scale không cần cho sửa này.
+
 Người dùng đã cho phép tự quyết định, viết code, kiểm thử/sửa lỗi và push từng bước.
 Trạng thái tiếp tục ở [RESUME](docs/execution/RESUME.md), [state](docs/execution/state.json),
 [issue ledger](docs/execution/issues.md). Q0 đã khóa; Q1 art kỹ thuật sẵn sàng, còn nghe duyệt voice;

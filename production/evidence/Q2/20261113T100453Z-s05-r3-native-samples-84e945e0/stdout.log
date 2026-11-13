@@ -1,0 +1,27 @@
+Blender 4.3.2
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261113T100455Z-S05-1920-7781d1cb/000060.png'
+Time: 00:01.13 (Saving: 00:00.15)
+
+Info: Saved "S05.blend"
+{"frame": 60, "seconds": 1.1398621939952136, "reusedFrame": null, "sha256": "d5762240d7e076f55feb67669a02c290ae0d1826390be134c38f3c6ada8f176b"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261113T100455Z-S05-1920-7781d1cb/000072.png'
+Time: 00:01.32 (Saving: 00:00.16)
+
+{"frame": 72, "seconds": 1.3366438899975037, "reusedFrame": null, "sha256": "deb9d75b6ec553ed517674d77ab9ca52fde4807274574b03efedc5fc094735e6"}
+{"frame": 95, "seconds": 0.0009266569977626204, "reusedFrame": 72, "sha256": "deb9d75b6ec553ed517674d77ab9ca52fde4807274574b03efedc5fc094735e6"}
+{"frame": 107, "seconds": 4.376599827082828e-05, "reusedFrame": 72, "sha256": "deb9d75b6ec553ed517674d77ab9ca52fde4807274574b03efedc5fc094735e6"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261113T100455Z-S05-1920-7781d1cb/000108.png'
+Time: 00:01.24 (Saving: 00:00.15)
+
+{"frame": 108, "seconds": 1.2542932430005749, "reusedFrame": null, "sha256": "df2848a4f30adfbc6da829c1c3d71204f0975587292d0b71aec5d7e392524898"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261113T100455Z-S05-1920-7781d1cb/000120.png'
+Time: 00:01.21 (Saving: 00:00.15)
+
+{"frame": 120, "seconds": 1.2247308629957843, "reusedFrame": null, "sha256": "4eefcbe34eb5a61ac618225d33e9214a323c66caacfa118e71951c21db172972"}
+Saved: '/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261113T100455Z-S05-1920-7781d1cb/000144.png'
+Time: 00:01.05 (Saving: 00:00.15)
+
+{"frame": 144, "seconds": 1.0627826890049619, "reusedFrame": null, "sha256": "ff4155bb3f3f7ff2379dd9e11d6c14da3faf0bde7d1231b008ab10b62d9024c6"}
+{"out": "/workspace/ai-animation-studio-research-content/production/out/candidate-b-vse/20261113T100455Z-S05-1920-7781d1cb", "status": "PASS_RENDER_ONLY", "candidate": "B-VSE-experiment", "shot": "S05", "version": "4.3.2", "width": 1920, "frames": 192, "rendered": [{"frame": 60, "seconds": 1.1398621939952136, "reusedFrame": null, "sha256": "d5762240d7e076f55feb67669a02c290ae0d1826390be134c38f3c6ada8f176b"}, {"frame": 72, "seconds": 1.3366438899975037, "reusedFrame": null, "sha256": "deb9d75b6ec553ed517674d77ab9ca52fde4807274574b03efedc5fc094735e6"}, {"frame": 95, "seconds": 0.0009266569977626204, "reusedFrame": 72, "sha256": "deb9d75b6ec553ed517674d77ab9ca52fde4807274574b03efedc5fc094735e6"}, {"frame": 107, "seconds": 4.376599827082828e-05, "reusedFrame": 72, "sha256": "deb9d75b6ec553ed517674d77ab9ca52fde4807274574b03efedc5fc094735e6"}, {"frame": 108, "seconds": 1.2542932430005749, "reusedFrame": null, "sha256": "df2848a4f30adfbc6da829c1c3d71204f0975587292d0b71aec5d7e392524898"}, {"frame": 120, "seconds": 1.2247308629957843, "reusedFrame": null, "sha256": "4eefcbe34eb5a61ac618225d33e9214a323c66caacfa118e71951c21db172972"}, {"frame": 144, "seconds": 1.0627826890049619, "reusedFrame": null, "sha256": "ff4155bb3f3f7ff2379dd9e11d6c14da3faf0bde7d1231b008ab10b62d9024c6"}], "nativeFile": "S05.blend", "limits": ["Native VSE 2D composition; no 3D camera/light/bones", "Creative and random-seek comparison pending"]}
+
+Blender quit

@@ -7,11 +7,19 @@ Nguồn trạng thái máy đọc: [state.json](state.json); [gate Q2](../../pro
 
 ## Kế hoạch và prompt tiếp quản — 13/11/2026
 
+**Checkpoint mới nhất:** [S05 R3](../../production/artifacts/Q2/s05-r3/README.md)
+đã sửa hai bàn tay chồng tại điểm chung của quai đèn;21tests/typecheck/root verify16,
+192native frames, webQC, player1×/0.5× và native replay PASS trong phạm vi mô tả.
+Đã giữ nguyên1.152 frame nguồn cũ. R3 là candidate shot riêng, catalog R0/R1/R2
+không đổi; full creative/listening/handoff/performance vẫn mở. Tiếp theo review
+candidate và các shot còn lại; khi ghép R3 phải tạo revision/catalog mới, giữ
+R1 voice/cup và R2 order. Không khảo sát lại tool hoặc rerender năm shot cũ.
+
 [NEXT-PLAN](NEXT-PLAN.md) chia phần còn thiếu thành task Q1/Q2 và giai đoạn Q3–Q9,
 có đầu vào, vai trò, đầu ra, tiêu chí đạt và đường sửa khi fail; đối chiếu đủ
 P0–P11/F01–F11. [Prompt đầy đủ cho AI khác](AI-HANDOFF-PROMPT.md) chứa link Git,
 thứ tự đọc, bước bắt đầu, quy trình test/sửa/commit/push và cách ghi blocker thật.
-Đợt này chỉ lập kế hoạch/bàn giao; không thay code hoặc đóng thêm gate production.
+Đợt lập kế hoạch bc3c789 chỉ bổ sung tài liệu; checkpoint S05 R3 sau đó có sửa code.
 AI mới phải kiểm khả năng nghe/xem của môi trường mình, không mặc định hạn chế
 của agent trước. [Kiểm tra tài liệu](planning-checks-20261113.json).
 
@@ -25,7 +33,8 @@ recovery mới,13ca UI cũ,19tests/typecheck production và root verify16 PASS.
 Hai workflow CI trên source71213e9 đã SUCCESS, gồm3ca recovery và standalone
 Git-only. [CI evidence](../../production/artifacts/Q2/review-followup-20261113/ci-workflows.json).
 Audit210completed attempts/162source ZIP PASS integrity. Các commit chốt sau
-source71213e9 chỉ bổ sung tài liệu/evidence; không thay runtime code.
+source71213e9 ở các mốc7147487/bc3c789 chỉ bổ sung tài liệu/evidence. S05 R3 có
+source mới; CI của71213e9 không đại diện code R3.
 
 ## Đã hoàn thành và phải giữ
 

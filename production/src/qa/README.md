@@ -59,3 +59,12 @@ fixed full-flow phải chạy lại trong điều kiện khác owner, rồi ki�
 Scoped fix được xác nhận: negative956407db exit128; full-flow ac207c43 PASS
 trong điều kiện khác owner; GitHub workbench run43329136529 gồm standalone
 step PASS. [Report CI](../../artifacts/Q2/fresh-review-20261113/ci-standalone-report.json).
+# Preserve archived scene output when repairing a shot
+
+`check_handoff_legacy.ts selection.json new-report.json` re-evaluates each of
+the six archived native `inputs.json` files with the current scene code. It
+compares the JSON-export representation against all1,152 saved frame objects;
+it does not compare two evaluations of the same new implementation. JSON
+normalizes negative zero, so the check uses that exact persisted representation.
+The report is exclusive-created and includes input hashes. Run via the recorder.
+This is source compatibility, not artistic approval or independent handoff.

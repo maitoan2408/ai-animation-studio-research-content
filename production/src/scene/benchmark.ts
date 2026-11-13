@@ -2,7 +2,7 @@
  * random generator, prior-frame integration or DOM. Source is editable blocking,
  * not an inference model and not yet a production planner. */
 import { actorSprites } from './rig.js';
-import { anchorPoint } from './geometry.js';
+import { anchorPoint, assetPoint } from './geometry.js';
 import {polishFrame} from './polish.js';
 import { mix, mixPoint, smooth, rotate, add } from './math.js';
 import { sprite, type ActorPose, type ArtPack, type Point, type SceneFrame, type Sprite } from './types.js';
@@ -10,7 +10,7 @@ import { sprite, type ActorPose, type ArtPack, type Point, type SceneFrame, type
 export const shotFrames={S01:192,S02:192,S03:240,S04:192,S05:192,S06:144} as const;
 export type ShotId=keyof typeof shotFrames;
 export type Cue={start:number;end:number;mouth:NonNullable<ActorPose['mouth']>};
-export type Edit={polish?:boolean;propAccent?:boolean;cameraAmplitude?:number;reactionDelay?:number;eyeLine?:number;concernStartsAt?:number;cues?:Cue[];voiceTake?:'R1'};
+export type Edit={polish?:boolean;propAccent?:boolean;cameraAmplitude?:number;reactionDelay?:number;eyeLine?:number;concernStartsAt?:number;cues?:Cue[];voiceTake?:'R1';separateHandoffGrips?:boolean};
 const beat=(f:number,a:number,b:number)=>smooth((f-a)/(b-a));
 const floor=860;
 const rest=(x:number,angle=0,hip:Point=[0,0]):Point=>add(add([0,-258],hip),rotate([x,47],angle));
@@ -21,8 +21,8 @@ export function background(camera:SceneFrame['camera']):Sprite[]{
     sprite('tree-left','background/tree-left',30,500,50),sprite('tree-right','background/tree-right',1890,500,51,0,-1,1),
     sprite('grass','background/foreground-grass',800,1110,60)].map(s=>({...s,x:s.x-(camera.x-960)*s.z/2000}));
 }
-function wristFor(pack:ArtPack,prop:Sprite,actor:ActorPose):Point{
-  const grip=anchorPoint(pack,prop,'grip'),scale=actor.scale??1;
+function wristFor(pack:ArtPack,prop:Sprite,actor:ActorPose,contact?:Point):Point{
+  const grip=contact??anchorPoint(pack,prop,'grip'),scale=actor.scale??1;
   const hand=pack.assets.find(a=>a.id===`${actor.character}/hand-grip`);
   if(!hand?.anchors.grip)throw Error('HAND_GRIP_METADATA_MISSING');
   const offset:Point=[hand.anchors.grip[0]-hand.pivot[0],hand.anchors.grip[1]-hand.pivot[1]];
@@ -92,10 +92,16 @@ export function benchmarkFrame(pack:ArtPack,shot:ShotId,f:number,edit:Edit={}):S
     const an:ActorPose={id:'an',character:'an',x:1140,floor,facing:-1,view:'quarter'};
     const offer=beat(f,24,71),receive=beat(f,108,143),grip:Point=[mix(mix(900,927,offer),1030,receive),mix(565,580,receive)];
     const lamp=sprite('lamp','props/lantern-lit',grip[0],grip[1]+186*.6,6,0,.6);
-    const maiGrip=wristFor(pack,lamp,mai),anGrip=wristFor(pack,lamp,an);
+    // R3 binds each palm to a different drawn side of the existing handle.
+    // Coordinates are in lantern SVG space (left/right vertical strokes),
+    // transformed through the actual prop; not screen offsets or rig scaling.
+    // Legacy takes keep their shared centre anchor when the edit is absent.
+    const handoffWrist=(prop:Sprite,actor:ActorPose):Point=>wristFor(pack,prop,actor,
+      edit.separateHandoffGrips?assetPoint(pack,prop,actor.id==='mai'?[51,25]:[110,27]):undefined);
+    const maiGrip=handoffWrist(lamp,mai),anGrip=handoffWrist(lamp,an);
     // On release the giver returns from the transfer pose, not the moving prop.
     const releaseLamp=sprite('lamp','props/lantern-lit',927,565+186*.6,6,0,.6);
-    actors.push({...mai,rightWrist:f<=107?maiGrip:mixPoint(wristFor(pack,releaseLamp,mai),rest(108),beat(f,108,143)),
+    actors.push({...mai,rightWrist:f<=107?maiGrip:mixPoint(handoffWrist(releaseLamp,mai),rest(108),beat(f,108,143)),
       rightHand:f<=107?'grip':'open',rightHandAngle:f<=107?0:mix(0,180,beat(f,108,143)),
       headAngle:f<144?2:mix(2,-3,beat(f,144,167)),mood:f>=144?'happy':'neutral'},
       {...an,rightWrist:f<72?mixPoint(rest(108),anGrip,beat(f,36,72)):anGrip,rightHand:f<72?'open':'grip',

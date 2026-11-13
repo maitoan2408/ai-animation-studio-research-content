@@ -4,7 +4,7 @@
   "branch": "codex/production-q0-q9",
   "authority": "User explicitly delegates implementation and decisions; reviews identify delegated-agent, not human approval",
   "currentPhase": "Q2",
-  "nextAction": "Q2 technical color repair and local review tool complete. Finish timestamped normal/slow motion rubric and real voice listening, then independent native open/edit handoff. Only after art/motion passes run locked3cold+5warm protocol and Q3 ADR; Q4-Q9 remain NOT_STARTED. Review UI defaults to v2 restored from committed chunks.",
+  "nextAction": "Q2 S05 R3 scoped handoff readability repair is implemented, rendered and tested as a separate8s candidate. Review it and the remaining shots with real1x/0.5x rubric and listening. For an R3 sequence preserve R1 S01/S03 and R2 order, create new revision/media/catalog binding. Independent operator and3cold+5warm after art gate remain open; Q3-Q9 NOT_STARTED. Avoid unrelated tool surveys and full rerenders.",
   "phases": {
     "Q0": "DONE_DELEGATED",
     "Q1": "TECHNICAL_READY_REVIEW_PENDING",
@@ -155,6 +155,12 @@
       "result": "PASS",
       "evidence": "production/artifacts/Q2/review-followup-20261113/ci-workflows.json",
       "limits": "Both workflows pass on source71213e9, including3recovery cases, original UI checks and standalone install. Audit210completed attempts/162source snapshots. No creative/listening/independent-handoff approval."
+    },
+    {
+      "id": "Q2-S05-R3-separated-grips",
+      "result": "PASS_SCOPED_TECHNICAL_AND_SAMPLED_REPAIR",
+      "evidence": "production/artifacts/Q2/s05-r3/report.json",
+      "limits": "21tests,192native/convertedYUV frames,41native hashes/6replay samples and1152legacy JSON frames verified. New8s candidate only; full creative/listening/independent handoff/performance open. CI for new source tracked separately."
     }
   ],
   "paidBudget": 0,
@@ -167,7 +173,7 @@
     "EX-013"
   ],
   "gateReport": "production/evidence/Q2/gate.json",
-  "updatedAt": "2026-11-13T10:25:43.210564+07:00",
+  "updatedAt": "2026-11-13T17:12:39.679110+07:00",
   "completedStepSemantics": "Entries preserve observations at their checkpoints. Current phases/nextAction/gate are authoritative; later completed steps resolve historical pending limits without rewriting old evidence.",
   "reviewReport": "docs/execution/REVIEW-2026-11-13.md",
   "continuationPlan": "docs/execution/NEXT-PLAN.md",

@@ -1,0 +1,1867 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: S04:0 legacy changed
++ actual - expected
+... Skipped lines
+
+  {
+    camera: {
+      x: 880,
+      y: 540,
+      zoom: 1
+...
+        opacity: 0.17,
++       rotation: -0,
+-       rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        x: 1406.6,
+        y: 837.16,
+        z: 1.18
+...
+        opacity: 0.17,
++       rotation: -0,
+-       rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        x: 1326.92,
+        y: 837.16,
+        z: 2.18
+...
+        opacity: 0.17,
++       rotation: -0,
+-       rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        x: 1373,
+        y: 617.32,
+        z: 2.98
+...
+        opacity: 0.17,
++       rotation: -0,
+-       rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        x: 1369.16,
+        y: 468.52000000000004,
+        z: 3.98
+...
+        opacity: 1,
++       rotation: -0,
+-       rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        x: 1403.6,
+        y: 832.16,
+        z: 1.2
+...
+        opacity: 1,
++       rotation: -0,
+-       rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        x: 1323.92,
+        y: 832.16,
+        z: 2.2
+...
+        opacity: 1,
++       rotation: -0,
+-       rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        x: 1370,
+        y: 612.32,
+        z: 3
+...
+        opacity: 1,
++       rotation: -0,
+-       rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        x: 1366.16,
+        y: 463.52000000000004,
+        z: 4
+...
+        opacity: 1,
++       rotation: -0,
+-       rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        x: 1337.36,
+        y: 430.88,
+        z: 4.1
+
+    at <anonymous> (/workspace/ai-animation-studio-research-content/production/src/qa/check_handoff_legacy.ts:21:12) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: {
+    sprites: [
+      {
+        id: 'bench.paper-shadow',
+        asset: 'shadow/props/workbench',
+        x: 1103,
+        y: 865,
+        z: -1.02,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'lamp.paper-shadow',
+        asset: 'shadow/props/lantern-lit',
+        x: 1103,
+        y: 674,
+        z: 5.98,
+        rotation: 0,
+        scaleX: 0.65,
+        scaleY: 0.65,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-thigh.paper-shadow',
+        asset: 'shadow/mai/thigh',
+        x: 733,
+        y: 607,
+        z: 0.98,
+        rotation: -3.9459906801755125,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-shin.paper-shadow',
+        asset: 'shadow/mai/shin',
+        x: 740.9138513457476,
+        y: 721.7273766669377,
+        z: 1.08,
+        rotation: 6.447592309706366,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-boot.paper-shadow',
+        asset: 'shadow/mai/boot',
+        x: 728,
+        y: 836,
+        z: 1.18,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-boot.contact-shadow',
+        asset: 'effects/contact-shadow',
+        x: 741,
+        y: 863,
+        z: 0.5,
+        rotation: 0,
+        scaleX: 0.48,
+        scaleY: 0.45,
+        opacity: 0.25
+      },
+      {
+        id: 'mai.right-thigh.paper-shadow',
+        asset: 'shadow/mai/thigh',
+        x: 793,
+        y: 607,
+        z: 1.98,
+        rotation: -7.390011022701998,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-shin.paper-shadow',
+        asset: 'shadow/mai/shin',
+        x: 807.7916112052266,
+        y: 721.044764184742,
+        z: 2.08,
+        rotation: -1.5987042825619824,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-boot.paper-shadow',
+        asset: 'shadow/mai/boot',
+        x: 811,
+        y: 836,
+        z: 2.18,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-boot.contact-shadow',
+        asset: 'effects/contact-shadow',
+        x: 824,
+        y: 863,
+        z: 0.5,
+        rotation: 0,
+        scaleX: 0.48,
+        scaleY: 0.45,
+        opacity: 0.25
+      },
+      {
+        id: 'mai.left-upper.paper-shadow',
+        asset: 'shadow/mai/upper-arm',
+        x: 710,
+        y: 468,
+        z: 2.48,
+        rotation: 32.50082146076525,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-forearm.paper-shadow',
+        asset: 'shadow/mai/forearm',
+        x: 653.5822714832791,
+        y: 556.5552929474777,
+        z: 2.58,
+        rotation: -6.1022634488903265,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-hand.paper-shadow',
+        asset: 'shadow/mai/hand-open',
+        x: 664,
+        y: 654,
+        z: 2.68,
+        rotation: 180,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.torso.paper-shadow',
+        asset: 'shadow/mai/torso',
+        x: 763,
+        y: 607,
+        z: 2.98,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.head.paper-shadow',
+        asset: 'shadow/mai/head-quarter-happy',
+        x: 767,
+        y: 452,
+        z: 3.98,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-upper.paper-shadow',
+        asset: 'shadow/mai/upper-arm',
+        x: 816,
+        y: 468,
+        z: 4.98,
+        rotation: -33.0348415200361,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-forearm.paper-shadow',
+        asset: 'shadow/mai/forearm',
+        x: 873.2406375680845,
+        y: 556.0256179234159,
+        z: 5.08,
+        rotation: 1.3101047311452305,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-hand.paper-shadow',
+        asset: 'shadow/mai/hand-open',
+        x: 871,
+        y: 654,
+        z: 5.180000000000001,
+        rotation: 180,
+        scaleX: -1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-thigh.paper-shadow',
+        asset: 'shadow/an/thigh',
+        x: 1401.8,
+        y: 617.32,
+        z: 0.98,
+        rotation: 3.9459906801755125,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-shin.paper-shadow',
+        asset: 'shadow/an/shin',
+        x: 1394.2027027080821,
+        y: 727.4582816002602,
+        z: 1.08,
+        rotation: -6.447592309706366,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-boot.paper-shadow',
+        asset: 'shadow/an/boot',
+        x: 1406.6,
+        y: 837.16,
+        z: 1.18,
+        rotation: -0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-boot.contact-shadow',
+        asset: 'effects/contact-shadow',
+        x: 1388.24,
+        y: 863,
+        z: 0.5,
+        rotation: 0,
+        scaleX: 0.4608,
+        scaleY: 0.432,
+        opacity: 0.25
+      },
+      {
+        id: 'an.right-thigh.paper-shadow',
+        asset: 'shadow/an/thigh',
+        x: 1344.2,
+        y: 617.32,
+        z: 1.98,
+        rotation: 7.390011022701998,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-shin.paper-shadow',
+        asset: 'shadow/an/shin',
+        x: 1330.0000532429824,
+        y: 726.8029736173523,
+        z: 2.08,
+        rotation: 1.5987042825619824,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-boot.paper-shadow',
+        asset: 'shadow/an/boot',
+        x: 1326.92,
+        y: 837.16,
+        z: 2.18,
+        rotation: -0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-boot.contact-shadow',
+        asset: 'effects/contact-shadow',
+        x: 1308.5600000000002,
+        y: 863,
+        z: 0.5,
+        rotation: 0,
+        scaleX: 0.4608,
+        scaleY: 0.432,
+        opacity: 0.25
+      },
+      {
+        id: 'an.left-upper.paper-shadow',
+        asset: 'shadow/an/upper-arm',
+        x: 1423.88,
+        y: 483.88,
+        z: 2.48,
+        rotation: -32.50082146076525,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-forearm.paper-shadow',
+        asset: 'shadow/an/forearm',
+        x: 1478.041019376052,
+        y: 568.8930812295786,
+        z: 2.58,
+        rotation: 6.1022634488903265,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-hand.paper-shadow',
+        asset: 'shadow/an/hand-open',
+        x: 1468.04,
+        y: 662.44,
+        z: 2.68,
+        rotation: -180,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.torso.paper-shadow',
+        asset: 'shadow/an/torso',
+        x: 1373,
+        y: 617.32,
+        z: 2.98,
+        rotation: -0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.head.paper-shadow',
+        asset: 'shadow/an/head-quarter-neutral',
+        x: 1369.16,
+        y: 468.52000000000004,
+        z: 3.98,
+        rotation: -0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-upper.paper-shadow',
+        asset: 'shadow/an/upper-arm',
+        x: 1322.12,
+        y: 483.88,
+        z: 4.98,
+        rotation: 33.0348415200361,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-forearm.paper-shadow',
+        asset: 'shadow/an/forearm',
+        x: 1267.1689879346388,
+        y: 568.3845932064792,
+        z: 5.08,
+        rotation: -1.3101047311452305,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-hand.paper-shadow',
+        asset: 'shadow/an/hand-open',
+        x: 1269.32,
+        y: 662.44,
+        z: 5.180000000000001,
+        rotation: -180,
+        scaleX: 0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'sky',
+        asset: 'background/sky',
+        x: 936,
+        y: 540,
+        z: -600,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'village',
+        asset: 'background/village',
+        x: 944,
+        y: 540,
+        z: -400,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'workshop',
+        asset: 'background/workshop',
+        x: 952,
+        y: 540,
+        z: -200,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'ground',
+        asset: 'background/ground',
+        x: 959.6,
+        y: 540,
+        z: -10,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'tree-left',
+        asset: 'background/tree-left',
+        x: 32,
+        y: 500,
+        z: 50,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'tree-right',
+        asset: 'background/tree-right',
+        x: 1892.04,
+        y: 500,
+        z: 51,
+        rotation: 0,
+        scaleX: -1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'grass',
+        asset: 'background/foreground-grass',
+        x: 802.4,
+        y: 1110,
+        z: 60,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'bench',
+        asset: 'props/workbench',
+        x: 1100,
+        y: 860,
+        z: -1,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'lamp',
+        asset: 'props/lantern-lit',
+        x: 1100,
+        y: 669,
+        z: 6,
+        rotation: 0,
+        scaleX: 0.65,
+        scaleY: 0.65,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-thigh',
+        asset: 'mai/thigh',
+        x: 730,
+        y: 602,
+        z: 1,
+        rotation: -3.9459906801755125,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-shin',
+        asset: 'mai/shin',
+        x: 737.9138513457476,
+        y: 716.7273766669377,
+        z: 1.1,
+        rotation: 6.447592309706366,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-boot',
+        asset: 'mai/boot',
+        x: 725,
+        y: 831,
+        z: 1.2,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-thigh',
+        asset: 'mai/thigh',
+        x: 790,
+        y: 602,
+        z: 2,
+        rotation: -7.390011022701998,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-shin',
+        asset: 'mai/shin',
+        x: 804.7916112052266,
+        y: 716.044764184742,
+        z: 2.1,
+        rotation: -1.5987042825619824,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-boot',
+        asset: 'mai/boot',
+        x: 808,
+        y: 831,
+        z: 2.2,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-upper',
+        asset: 'mai/upper-arm',
+        x: 707,
+        y: 463,
+        z: 2.5,
+        rotation: 32.50082146076525,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-forearm',
+        asset: 'mai/forearm',
+        x: 650.5822714832791,
+        y: 551.5552929474777,
+        z: 2.6,
+        rotation: -6.1022634488903265,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-hand',
+        asset: 'mai/hand-open',
+        x: 661,
+        y: 649,
+        z: 2.7,
+        rotation: 180,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.torso',
+        asset: 'mai/torso',
+        x: 760,
+        y: 602,
+        z: 3,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.head',
+        asset: 'mai/head-quarter-happy',
+        x: 764,
+        y: 447,
+        z: 4,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.mouth',
+        asset: 'mouth/rest',
+        x: 794,
+        y: 413,
+        z: 4.1,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-upper',
+        asset: 'mai/upper-arm',
+        x: 813,
+        y: 463,
+        z: 5,
+        rotation: -33.0348415200361,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-forearm',
+        asset: 'mai/forearm',
+        x: 870.2406375680845,
+        y: 551.0256179234159,
+        z: 5.1,
+        rotation: 1.3101047311452305,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-hand',
+        asset: 'mai/hand-open',
+        x: 868,
+        y: 649,
+        z: 5.2,
+        rotation: 180,
+        scaleX: -1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'an.left-thigh',
+        asset: 'an/thigh',
+        x: 1398.8,
+        y: 612.32,
+        z: 1,
+        rotation: 3.9459906801755125,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.left-shin',
+        asset: 'an/shin',
+        x: 1391.2027027080821,
+        y: 722.4582816002602,
+        z: 1.1,
+        rotation: -6.447592309706366,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.left-boot',
+        asset: 'an/boot',
+        x: 1403.6,
+        y: 832.16,
+        z: 1.2,
+        rotation: -0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-thigh',
+        asset: 'an/thigh',
+        x: 1341.2,
+        y: 612.32,
+        z: 2,
+        rotation: 7.390011022701998,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-shin',
+        asset: 'an/shin',
+        x: 1327.0000532429824,
+        y: 721.8029736173523,
+        z: 2.1,
+        rotation: 1.5987042825619824,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-boot',
+        asset: 'an/boot',
+        x: 1323.92,
+        y: 832.16,
+        z: 2.2,
+        rotation: -0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.left-upper',
+        asset: 'an/upper-arm',
+        x: 1420.88,
+        y: 478.88,
+        z: 2.5,
+        rotation: -32.50082146076525,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.left-forearm',
+        asset: 'an/forearm',
+        x: 1475.041019376052,
+        y: 563.8930812295786,
+        z: 2.6,
+        rotation: 6.1022634488903265,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.left-hand',
+        asset: 'an/hand-open',
+        x: 1465.04,
+        y: 657.44,
+        z: 2.7,
+        rotation: -180,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.torso',
+        asset: 'an/torso',
+        x: 1370,
+        y: 612.32,
+        z: 3,
+        rotation: -0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.head',
+        asset: 'an/head-quarter-neutral',
+        x: 1366.16,
+        y: 463.52000000000004,
+        z: 4,
+        rotation: -0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.mouth',
+        asset: 'mouth/rest',
+        x: 1337.36,
+        y: 430.88,
+        z: 4.1,
+        rotation: -0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-upper',
+        asset: 'an/upper-arm',
+        x: 1319.12,
+        y: 478.88,
+        z: 5,
+        rotation: 33.0348415200361,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-forearm',
+        asset: 'an/forearm',
+        x: 1264.1689879346388,
+        y: 563.3845932064792,
+        z: 5.1,
+        rotation: -1.3101047311452305,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-hand',
+        asset: 'an/hand-open',
+        x: 1266.32,
+        y: 657.44,
+        z: 5.2,
+        rotation: -180,
+        scaleX: 0.96,
+        scaleY: 0.96,
+        opacity: 1
+      }
+    ],
+    markers: [
+      {
+        id: 'mai.left-sole',
+        point: [ 725, 860 ],
+        kind: 'ground',
+        z: 1.2
+      },
+      {
+        id: 'mai.right-sole',
+        point: [ 808, 860 ],
+        kind: 'ground',
+        z: 2.2
+      },
+      {
+        id: 'mai.left-grip',
+        point: [ 647, 666 ],
+        kind: 'contact',
+        z: 2.7
+      },
+      {
+        id: 'mai.left-wrist',
+        point: [ 661, 649 ],
+        kind: 'joint',
+        z: 2.7
+      },
+      {
+        id: 'mai.right-grip',
+        point: [ 882, 666 ],
+        kind: 'contact',
+        z: 5.2
+      },
+      {
+        id: 'mai.right-wrist',
+        point: [ 868, 649 ],
+        kind: 'joint',
+        z: 5.2
+      },
+      {
+        id: 'an.left-sole',
+        point: [ 1403.6, 860 ],
+        kind: 'ground',
+        z: 1.2
+      },
+      {
+        id: 'an.right-sole',
+        point: [ 1323.92, 860 ],
+        kind: 'ground',
+        z: 2.2
+      },
+      {
+        id: 'an.left-grip',
+        point: [ 1478.48, 673.76 ],
+        kind: 'contact',
+        z: 2.7
+      },
+      {
+        id: 'an.left-wrist',
+        point: [ 1465.04, 657.44 ],
+        kind: 'joint',
+        z: 2.7
+      },
+      {
+        id: 'an.right-grip',
+        point: [ 1252.88, 673.76 ],
+        kind: 'contact',
+        z: 5.2
+      },
+      {
+        id: 'an.right-wrist',
+        point: [ 1266.32, 657.44 ],
+        kind: 'joint',
+        z: 5.2
+      }
+    ],
+    camera: { x: 880, y: 540, zoom: 1 }
+  },
+  expected: {
+    sprites: [
+      {
+        id: 'bench.paper-shadow',
+        asset: 'shadow/props/workbench',
+        x: 1103,
+        y: 865,
+        z: -1.02,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'lamp.paper-shadow',
+        asset: 'shadow/props/lantern-lit',
+        x: 1103,
+        y: 674,
+        z: 5.98,
+        rotation: 0,
+        scaleX: 0.65,
+        scaleY: 0.65,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-thigh.paper-shadow',
+        asset: 'shadow/mai/thigh',
+        x: 733,
+        y: 607,
+        z: 0.98,
+        rotation: -3.9459906801755125,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-shin.paper-shadow',
+        asset: 'shadow/mai/shin',
+        x: 740.9138513457476,
+        y: 721.7273766669377,
+        z: 1.08,
+        rotation: 6.447592309706366,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-boot.paper-shadow',
+        asset: 'shadow/mai/boot',
+        x: 728,
+        y: 836,
+        z: 1.18,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-boot.contact-shadow',
+        asset: 'effects/contact-shadow',
+        x: 741,
+        y: 863,
+        z: 0.5,
+        rotation: 0,
+        scaleX: 0.48,
+        scaleY: 0.45,
+        opacity: 0.25
+      },
+      {
+        id: 'mai.right-thigh.paper-shadow',
+        asset: 'shadow/mai/thigh',
+        x: 793,
+        y: 607,
+        z: 1.98,
+        rotation: -7.390011022701998,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-shin.paper-shadow',
+        asset: 'shadow/mai/shin',
+        x: 807.7916112052266,
+        y: 721.044764184742,
+        z: 2.08,
+        rotation: -1.5987042825619824,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-boot.paper-shadow',
+        asset: 'shadow/mai/boot',
+        x: 811,
+        y: 836,
+        z: 2.18,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-boot.contact-shadow',
+        asset: 'effects/contact-shadow',
+        x: 824,
+        y: 863,
+        z: 0.5,
+        rotation: 0,
+        scaleX: 0.48,
+        scaleY: 0.45,
+        opacity: 0.25
+      },
+      {
+        id: 'mai.left-upper.paper-shadow',
+        asset: 'shadow/mai/upper-arm',
+        x: 710,
+        y: 468,
+        z: 2.48,
+        rotation: 32.50082146076525,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-forearm.paper-shadow',
+        asset: 'shadow/mai/forearm',
+        x: 653.5822714832791,
+        y: 556.5552929474777,
+        z: 2.58,
+        rotation: -6.1022634488903265,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.left-hand.paper-shadow',
+        asset: 'shadow/mai/hand-open',
+        x: 664,
+        y: 654,
+        z: 2.68,
+        rotation: 180,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.torso.paper-shadow',
+        asset: 'shadow/mai/torso',
+        x: 763,
+        y: 607,
+        z: 2.98,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.head.paper-shadow',
+        asset: 'shadow/mai/head-quarter-happy',
+        x: 767,
+        y: 452,
+        z: 3.98,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-upper.paper-shadow',
+        asset: 'shadow/mai/upper-arm',
+        x: 816,
+        y: 468,
+        z: 4.98,
+        rotation: -33.0348415200361,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-forearm.paper-shadow',
+        asset: 'shadow/mai/forearm',
+        x: 873.2406375680845,
+        y: 556.0256179234159,
+        z: 5.08,
+        rotation: 1.3101047311452305,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'mai.right-hand.paper-shadow',
+        asset: 'shadow/mai/hand-open',
+        x: 871,
+        y: 654,
+        z: 5.180000000000001,
+        rotation: 180,
+        scaleX: -1,
+        scaleY: 1,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-thigh.paper-shadow',
+        asset: 'shadow/an/thigh',
+        x: 1401.8,
+        y: 617.32,
+        z: 0.98,
+        rotation: 3.9459906801755125,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-shin.paper-shadow',
+        asset: 'shadow/an/shin',
+        x: 1394.2027027080821,
+        y: 727.4582816002602,
+        z: 1.08,
+        rotation: -6.447592309706366,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-boot.paper-shadow',
+        asset: 'shadow/an/boot',
+        x: 1406.6,
+        y: 837.16,
+        z: 1.18,
+        rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-boot.contact-shadow',
+        asset: 'effects/contact-shadow',
+        x: 1388.24,
+        y: 863,
+        z: 0.5,
+        rotation: 0,
+        scaleX: 0.4608,
+        scaleY: 0.432,
+        opacity: 0.25
+      },
+      {
+        id: 'an.right-thigh.paper-shadow',
+        asset: 'shadow/an/thigh',
+        x: 1344.2,
+        y: 617.32,
+        z: 1.98,
+        rotation: 7.390011022701998,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-shin.paper-shadow',
+        asset: 'shadow/an/shin',
+        x: 1330.0000532429824,
+        y: 726.8029736173523,
+        z: 2.08,
+        rotation: 1.5987042825619824,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-boot.paper-shadow',
+        asset: 'shadow/an/boot',
+        x: 1326.92,
+        y: 837.16,
+        z: 2.18,
+        rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-boot.contact-shadow',
+        asset: 'effects/contact-shadow',
+        x: 1308.5600000000002,
+        y: 863,
+        z: 0.5,
+        rotation: 0,
+        scaleX: 0.4608,
+        scaleY: 0.432,
+        opacity: 0.25
+      },
+      {
+        id: 'an.left-upper.paper-shadow',
+        asset: 'shadow/an/upper-arm',
+        x: 1423.88,
+        y: 483.88,
+        z: 2.48,
+        rotation: -32.50082146076525,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-forearm.paper-shadow',
+        asset: 'shadow/an/forearm',
+        x: 1478.041019376052,
+        y: 568.8930812295786,
+        z: 2.58,
+        rotation: 6.1022634488903265,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.left-hand.paper-shadow',
+        asset: 'shadow/an/hand-open',
+        x: 1468.04,
+        y: 662.44,
+        z: 2.68,
+        rotation: -180,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.torso.paper-shadow',
+        asset: 'shadow/an/torso',
+        x: 1373,
+        y: 617.32,
+        z: 2.98,
+        rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.head.paper-shadow',
+        asset: 'shadow/an/head-quarter-neutral',
+        x: 1369.16,
+        y: 468.52000000000004,
+        z: 3.98,
+        rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-upper.paper-shadow',
+        asset: 'shadow/an/upper-arm',
+        x: 1322.12,
+        y: 483.88,
+        z: 4.98,
+        rotation: 33.0348415200361,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-forearm.paper-shadow',
+        asset: 'shadow/an/forearm',
+        x: 1267.1689879346388,
+        y: 568.3845932064792,
+        z: 5.08,
+        rotation: -1.3101047311452305,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'an.right-hand.paper-shadow',
+        asset: 'shadow/an/hand-open',
+        x: 1269.32,
+        y: 662.44,
+        z: 5.180000000000001,
+        rotation: -180,
+        scaleX: 0.96,
+        scaleY: 0.96,
+        opacity: 0.17
+      },
+      {
+        id: 'sky',
+        asset: 'background/sky',
+        x: 936,
+        y: 540,
+        z: -600,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'village',
+        asset: 'background/village',
+        x: 944,
+        y: 540,
+        z: -400,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'workshop',
+        asset: 'background/workshop',
+        x: 952,
+        y: 540,
+        z: -200,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'ground',
+        asset: 'background/ground',
+        x: 959.6,
+        y: 540,
+        z: -10,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'tree-left',
+        asset: 'background/tree-left',
+        x: 32,
+        y: 500,
+        z: 50,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'tree-right',
+        asset: 'background/tree-right',
+        x: 1892.04,
+        y: 500,
+        z: 51,
+        rotation: 0,
+        scaleX: -1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'grass',
+        asset: 'background/foreground-grass',
+        x: 802.4,
+        y: 1110,
+        z: 60,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'bench',
+        asset: 'props/workbench',
+        x: 1100,
+        y: 860,
+        z: -1,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'lamp',
+        asset: 'props/lantern-lit',
+        x: 1100,
+        y: 669,
+        z: 6,
+        rotation: 0,
+        scaleX: 0.65,
+        scaleY: 0.65,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-thigh',
+        asset: 'mai/thigh',
+        x: 730,
+        y: 602,
+        z: 1,
+        rotation: -3.9459906801755125,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-shin',
+        asset: 'mai/shin',
+        x: 737.9138513457476,
+        y: 716.7273766669377,
+        z: 1.1,
+        rotation: 6.447592309706366,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-boot',
+        asset: 'mai/boot',
+        x: 725,
+        y: 831,
+        z: 1.2,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-thigh',
+        asset: 'mai/thigh',
+        x: 790,
+        y: 602,
+        z: 2,
+        rotation: -7.390011022701998,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-shin',
+        asset: 'mai/shin',
+        x: 804.7916112052266,
+        y: 716.044764184742,
+        z: 2.1,
+        rotation: -1.5987042825619824,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-boot',
+        asset: 'mai/boot',
+        x: 808,
+        y: 831,
+        z: 2.2,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-upper',
+        asset: 'mai/upper-arm',
+        x: 707,
+        y: 463,
+        z: 2.5,
+        rotation: 32.50082146076525,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-forearm',
+        asset: 'mai/forearm',
+        x: 650.5822714832791,
+        y: 551.5552929474777,
+        z: 2.6,
+        rotation: -6.1022634488903265,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.left-hand',
+        asset: 'mai/hand-open',
+        x: 661,
+        y: 649,
+        z: 2.7,
+        rotation: 180,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.torso',
+        asset: 'mai/torso',
+        x: 760,
+        y: 602,
+        z: 3,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.head',
+        asset: 'mai/head-quarter-happy',
+        x: 764,
+        y: 447,
+        z: 4,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.mouth',
+        asset: 'mouth/rest',
+        x: 794,
+        y: 413,
+        z: 4.1,
+        rotation: 0,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-upper',
+        asset: 'mai/upper-arm',
+        x: 813,
+        y: 463,
+        z: 5,
+        rotation: -33.0348415200361,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-forearm',
+        asset: 'mai/forearm',
+        x: 870.2406375680845,
+        y: 551.0256179234159,
+        z: 5.1,
+        rotation: 1.3101047311452305,
+        scaleX: 1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'mai.right-hand',
+        asset: 'mai/hand-open',
+        x: 868,
+        y: 649,
+        z: 5.2,
+        rotation: 180,
+        scaleX: -1,
+        scaleY: 1,
+        opacity: 1
+      },
+      {
+        id: 'an.left-thigh',
+        asset: 'an/thigh',
+        x: 1398.8,
+        y: 612.32,
+        z: 1,
+        rotation: 3.9459906801755125,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.left-shin',
+        asset: 'an/shin',
+        x: 1391.2027027080821,
+        y: 722.4582816002602,
+        z: 1.1,
+        rotation: -6.447592309706366,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.left-boot',
+        asset: 'an/boot',
+        x: 1403.6,
+        y: 832.16,
+        z: 1.2,
+        rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-thigh',
+        asset: 'an/thigh',
+        x: 1341.2,
+        y: 612.32,
+        z: 2,
+        rotation: 7.390011022701998,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-shin',
+        asset: 'an/shin',
+        x: 1327.0000532429824,
+        y: 721.8029736173523,
+        z: 2.1,
+        rotation: 1.5987042825619824,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-boot',
+        asset: 'an/boot',
+        x: 1323.92,
+        y: 832.16,
+        z: 2.2,
+        rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.left-upper',
+        asset: 'an/upper-arm',
+        x: 1420.88,
+        y: 478.88,
+        z: 2.5,
+        rotation: -32.50082146076525,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.left-forearm',
+        asset: 'an/forearm',
+        x: 1475.041019376052,
+        y: 563.8930812295786,
+        z: 2.6,
+        rotation: 6.1022634488903265,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.left-hand',
+        asset: 'an/hand-open',
+        x: 1465.04,
+        y: 657.44,
+        z: 2.7,
+        rotation: -180,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.torso',
+        asset: 'an/torso',
+        x: 1370,
+        y: 612.32,
+        z: 3,
+        rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.head',
+        asset: 'an/head-quarter-neutral',
+        x: 1366.16,
+        y: 463.52000000000004,
+        z: 4,
+        rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.mouth',
+        asset: 'mouth/rest',
+        x: 1337.36,
+        y: 430.88,
+        z: 4.1,
+        rotation: 0,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-upper',
+        asset: 'an/upper-arm',
+        x: 1319.12,
+        y: 478.88,
+        z: 5,
+        rotation: 33.0348415200361,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-forearm',
+        asset: 'an/forearm',
+        x: 1264.1689879346388,
+        y: 563.3845932064792,
+        z: 5.1,
+        rotation: -1.3101047311452305,
+        scaleX: -0.96,
+        scaleY: 0.96,
+        opacity: 1
+      },
+      {
+        id: 'an.right-hand',
+        asset: 'an/hand-open',
+        x: 1266.32,
+        y: 657.44,
+        z: 5.2,
+        rotation: -180,
+        scaleX: 0.96,
+        scaleY: 0.96,
+        opacity: 1
+      }
+    ],
+    markers: [
+      {
+        id: 'mai.left-sole',
+        point: [ 725, 860 ],
+        kind: 'ground',
+        z: 1.2
+      },
+      {
+        id: 'mai.right-sole',
+        point: [ 808, 860 ],
+        kind: 'ground',
+        z: 2.2
+      },
+      {
+        id: 'mai.left-grip',
+        point: [ 647, 666 ],
+        kind: 'contact',
+        z: 2.7
+      },
+      {
+        id: 'mai.left-wrist',
+        point: [ 661, 649 ],
+        kind: 'joint',
+        z: 2.7
+      },
+      {
+        id: 'mai.right-grip',
+        point: [ 882, 666 ],
+        kind: 'contact',
+        z: 5.2
+      },
+      {
+        id: 'mai.right-wrist',
+        point: [ 868, 649 ],
+        kind: 'joint',
+        z: 5.2
+      },
+      {
+        id: 'an.left-sole',
+        point: [ 1403.6, 860 ],
+        kind: 'ground',
+        z: 1.2
+      },
+      {
+        id: 'an.right-sole',
+        point: [ 1323.92, 860 ],
+        kind: 'ground',
+        z: 2.2
+      },
+      {
+        id: 'an.left-grip',
+        point: [ 1478.48, 673.76 ],
+        kind: 'contact',
+        z: 2.7
+      },
+      {
+        id: 'an.left-wrist',
+        point: [ 1465.04, 657.44 ],
+        kind: 'joint',
+        z: 2.7
+      },
+      {
+        id: 'an.right-grip',
+        point: [ 1252.88, 673.76 ],
+        kind: 'contact',
+        z: 5.2
+      },
+      {
+        id: 'an.right-wrist',
+        point: [ 1266.32, 657.44 ],
+        kind: 'joint',
+        z: 5.2
+      }
+    ],
+    camera: { x: 880, y: 540, zoom: 1 }
+  },
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1
