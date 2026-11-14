@@ -25,3 +25,7 @@ Exporter hero đã kiểm ground độc lập cho bốn chân × 192 frame trư�
 ## S05 bounds thật
 
 Đã quan sát 192 frame S05: canvas đèn chồng canvas torso Mai 41 frame, An 66 frame. Đây là broad-phase conservatively có thể false positive, không chứng minh xuyên vật; cần silhouette/depth và review. Contacts lấy PerformanceScript, không suy quyền sở hữu. Xem F1 report và hero-bounds-observation.json.
+
+## Alpha S05
+
+Mask alpha texture R3 xác minh hash, chiếu 1920×1080, alpha ≥128 và nearest: đèn không trùng pixel đục với torso Mai/An trong 192 frame. Đây không chứng minh va chạm 3D hay art; owner và ý đồ seam còn thiếu. Xem F1 report, alpha-overlap-observation.json và failure/retry f1-alpha.

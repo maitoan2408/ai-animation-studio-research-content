@@ -93,3 +93,6 @@ Three SVG path + extrusion và SVG raster face; 1080p so flat/mesh, test hai pix
 
 ### F1 S05 asset bounds — 14/11/2026
 Đã kiểm vùng bao SVG xoay trên S05 bake: Mai 41, An 66 frame có chồng vùng bao; không suy kết quả xuyên do transparency/depth. Contacts trích PerformanceScript, owner chưa có contract. F1 tiếp tục mở.
+
+### F1 mask alpha S05 — 14/11/2026
+So alpha≥128 từ texture R3 có hash trong 192 frame: không có pixel đục trùng giữa đèn và torso Mai/An. Hình chiếu 2D không suy 3D hay approval. Owner/seam còn mở.
