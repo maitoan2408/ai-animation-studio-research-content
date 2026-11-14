@@ -17,3 +17,7 @@ S02 alternating stance khai báo trước đã được kiểm hai chân trên 1
 ## S05 ground gate
 
 Exporter hero đã kiểm ground độc lập cho bốn chân × 192 frame trước xuất native input, giữ fixture và bake hash, fail đóng cổng; alias preservation tách phép so baseline khỏi slip thật. F1 còn owner, proxy torso/prop thực và quyết định seam; gate hiện chỉ cho fixture S05, chưa là art approval. Xem F1 report.
+
+## F2 spike torso
+
+Đã tạo 3 render thử một torso, lần 1–2 bị board che, lần 3 sửa và kiểm hai pixel + decode 1080p. Ảnh và failure lưu tại `production/artifacts/quality/v2-f2/spike`; source `production/src/art/paper-spike`. Mới thí nghiệm 1 asset, chưa rig, chưa styleframe S05 hay duyệt mỹ thuật; F2 vẫn IN_PROGRESS. Xem F2 report.

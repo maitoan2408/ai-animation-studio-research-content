@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F1-real-seam-and-F2-diorama",
-    "nextAction": "F1: integrate actual scene contract owner and real prop/torso collision proxy, resolve transition intent; F2: build and render comparable 1080p paper spike.",
+    "nextAction": "F2: validate silhouette, pivot/rig and comparative styleframe with all required effects; F1: semantic owner and real collision proxy.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -196,7 +196,8 @@
       "f1RealStance": "PASS_S02_DECLARED_RANGES_192_FRAMES",
       "f1EditorialSeam": "OBSERVED_S06_TO_S05_INTENT_UNCLASSIFIED",
       "f1HeroGroundGate": "PASS_PROVISIONAL_S05_4_FEET_192_FRAMES",
-      "f1PreservationMetric": "RENAMED_WITH_LEGACY_ALIASES"
+      "f1PreservationMetric": "RENAMED_WITH_LEGACY_ALIASES",
+      "f2Spike": "PARTIAL_1080P_TORSO_3D_VS_FLAT_NOT_RIGGED"
     }
   }
 }

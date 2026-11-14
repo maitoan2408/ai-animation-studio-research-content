@@ -87,3 +87,6 @@ S02 hai chân 192 frame với stance xen kẽ khai báo trước PASS; inject tr
 
 ### F1 S05 ground gate — 14/11/2026
 Candidate exporter kiểm ground 4 chân × 192 frame trước native input, ghi hash fixture/bake; fixture sai hoặc drift bị từ chối. Alias preservation giữ tên cũ cho tương thích. F1 chưa có collision proxy thực hoặc owner.
+
+### F2 spike torso — 14/11/2026
+Three SVG path + extrusion và SVG raster face; 1080p so flat/mesh, test hai pixel phát hiện clipping lần 1 và pass lần 3. Chưa chứng minh rig, đầy đủ effects hoặc chất lượng art; F2 PARTIAL. Xem F2 report.

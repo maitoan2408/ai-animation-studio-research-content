@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/studio-audit/production/src/art/paper-spike/verify_image.py", line 27, in <module>
+    print(json.dumps(verify(Path(sys.argv[1]))))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/studio-audit/production/src/art/paper-spike/verify_image.py", line 20, in verify
+    raise ValueError(f'SPIKE_EDGE_OCCLUDED {values}')
+ValueError: SPIKE_EDGE_OCCLUDED [(220, 211, 191), (220, 211, 191)]
