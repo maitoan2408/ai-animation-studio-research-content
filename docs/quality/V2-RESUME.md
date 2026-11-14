@@ -47,3 +47,5 @@ T4–T6 thử thêm: edge-alpha chỉ prop 1080; bump vật liệu 0,6/2 có ả
 T4 shader edge-alpha không tăng alpha trong fixture texture đèn offscreen; chưa chứng minh toàn rig. T5 bump 0,6 có preview S05 192 frame 640×360: decode/seek PASS, hai crop tĩnh không đổi; không suy toàn cảnh hết flicker hoặc duyệt art. F2 còn IN_PROGRESS.
 
 T6 point light 0 khớp byte control ở một frame. Regression mới 79 TS, 49 Python, typecheck/root verify PASS; không suy F2 PASS.
+
+Có bảng so các thử nghiệm riêng và checklist `F2-REVIEW-PREPARATION.md`; người tự xem là delegated-agent, phần lớn tiêu chí chưa đạt, chưa có styleframe final hoặc điểm HQ-02.
