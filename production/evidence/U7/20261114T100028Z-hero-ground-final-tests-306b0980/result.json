@@ -1,0 +1,23 @@
+{
+  "phase": "U7",
+  "step": "hero-ground-final-tests",
+  "run_id": "20261114T100028Z-hero-ground-final-tests-306b0980",
+  "started_at_utc": "20261114T100028Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "840c77ac7259802eaa396b041cdac7d9671bd044",
+  "tracked_diff_sha256": "bfe41ee1878fe3f80e111bbd866ae645711b22db51b7f49e5b4cc48ed8c4b14e",
+  "recorder_pid": 37551,
+  "source_snapshot_sha256": "15d95b7e904c66d101c82ae62c4d5d8f5eaa92ccc23f01867cbd13f3013ba5b9",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 22.752,
+  "finished_at_utc": "2026-11-14T10:00:51.341668+00:00",
+  "log_sha256": "6c64cd9b0dd959083e07f7879be045f2e6d92b3b636da3aef6f7995c0662fa1c",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

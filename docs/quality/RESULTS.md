@@ -84,3 +84,6 @@ Test âm tái hiện zoom 0,5 làm khuất trượt world 1,5 px; sau sửa cả
 
 ### F1 stance và biên dựng — 14/11/2026
 S02 hai chân 192 frame với stance xen kẽ khai báo trước PASS; inject trượt phát hiện. R2 order S06 → S05 được đo trên evaluator; đèn vắng phía S06 nên không tự suy continuity. 48 production TS, 25 Python, root verify PASS. Xem `docs/reports/F1.md`.
+
+### F1 S05 ground gate — 14/11/2026
+Candidate exporter kiểm ground 4 chân × 192 frame trước native input, ghi hash fixture/bake; fixture sai hoặc drift bị từ chối. Alias preservation giữ tên cũ cho tương thích. F1 chưa có collision proxy thực hoặc owner.

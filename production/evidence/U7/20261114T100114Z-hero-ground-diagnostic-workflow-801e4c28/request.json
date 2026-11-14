@@ -1,0 +1,16 @@
+{
+  "phase": "U7",
+  "step": "hero-ground-diagnostic-workflow",
+  "run_id": "20261114T100114Z-hero-ground-diagnostic-workflow-801e4c28",
+  "started_at_utc": "20261114T100114Z",
+  "command": [
+    "python",
+    "production/src/qa/check_quality_diagnostics.py"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "840c77ac7259802eaa396b041cdac7d9671bd044",
+  "tracked_diff_sha256": "936bd7e11b9f2ccb46f6bcf4f824b5e05faa987a3a81da378ecddc0878c47f3f",
+  "status": "RUNNING",
+  "recorder_pid": 38112,
+  "source_snapshot_sha256": "86400e26780aa09c296a962ab4fc0034e800d55890497f64c3e4894b071f961d"
+}

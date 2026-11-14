@@ -74,3 +74,12 @@ python scripts/run-step.py U7 diagnostic-workflow -- python production/src/qa/ch
 
 No new media/native ZIP is committed. Human art/voice/reference and six acted
 clips remain open; this instrumentation does not advance Q3 or close Q2.
+
+The S05 candidate exporter now validates all four declared sole tracks against
+`brief/quality/ground-fixture.json` before generating native input; it writes
+`ground-critic.json` with fixture and bake hashes, and aborts on ground failure.
+The test gate checks declared stance only: it does not check torso/prop overlap,
+other shots, artistic quality or final approval. Legacy `footPixels` and
+`maxFootDriftPixels` remain for compatibility; the identical explicitly named
+`footPreservationPixels` / `maxFootPreservationPixels` describe difference from
+the authored baseline, not actual ground contact or measured foot slip.

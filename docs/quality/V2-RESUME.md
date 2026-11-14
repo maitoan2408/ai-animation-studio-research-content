@@ -13,3 +13,7 @@ Giữ kế hoạch lõi và state, chọn lọc đề xuất tại `PLAN-REVIEW-
 ## Tiếp tục 14/11 — S02 và biên dựng thật
 
 S02 alternating stance khai báo trước đã được kiểm hai chân trên 192 frame và inject trượt; R2 order thực S06 → S05. Quan sát evaluator R3 tại biên cho thấy torso Mai lệch 10 px, đầu đổi biểu cảm/góc, đèn không hiện ở S06. Chưa suy cut hay lỗi từ quan sát; xem F1 report và editorial-seam-observation.json. F1 tiếp tục cần contract owner, proxy thực, ngữ nghĩa seam và gate; F2 cần spike diorama 1080p.
+
+## S05 ground gate
+
+Exporter hero đã kiểm ground độc lập cho bốn chân × 192 frame trước xuất native input, giữ fixture và bake hash, fail đóng cổng; alias preservation tách phép so baseline khỏi slip thật. F1 còn owner, proxy torso/prop thực và quyết định seam; gate hiện chỉ cho fixture S05, chưa là art approval. Xem F1 report.

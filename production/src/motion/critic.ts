@@ -20,6 +20,7 @@ export function critic(pack: ArtPack, input: HeroInput, bake: BakeEnvelope) {
       gripPixels: number;
       anchorPixels: number;
       footPixels: number;
+      footPreservationPixels: number;
     }[] = [],
     violations: { frame: number; code: string; value: number }[] = [];
   for (let f = 0; f < 192; f++) {
@@ -78,6 +79,7 @@ export function critic(pack: ArtPack, input: HeroInput, bake: BakeEnvelope) {
       gripPixels,
       anchorPixels: jointError,
       footPixels,
+      footPreservationPixels: footPixels,
     });
   }
   const differences = (p: Point[]): Point[] =>
@@ -92,6 +94,7 @@ export function critic(pack: ArtPack, input: HeroInput, bake: BakeEnvelope) {
     maxGripPixels,
     maxAnchorPixels,
     maxFootDriftPixels,
+    maxFootPreservationPixels: maxFootDriftPixels,
     maxRotationDegrees,
     samples,
     kinematics: {
@@ -101,6 +104,7 @@ export function critic(pack: ArtPack, input: HeroInput, bake: BakeEnvelope) {
     },
     violations,
     limits: [
+      'Foot preservation measures deviation from authored baseline, not ground contact or foot slip.',
       'Contact/stance limits are frozen; kinematics are descriptive, not an artistic score.',
       'Lantern/hand joint only; no character-body collision volumes or cloth/hair solver.',
       'No new final art, voice audition, or independent operator approval.',

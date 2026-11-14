@@ -1,0 +1,17 @@
+{
+  "phase": "U7",
+  "step": "hero-ground-gate-retest",
+  "run_id": "20261114T095953Z-hero-ground-gate-retest-e6664e82",
+  "started_at_utc": "20261114T095953Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/hero-ground-gate.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "840c77ac7259802eaa396b041cdac7d9671bd044",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 37422,
+  "source_snapshot_sha256": "3ed46382a47b906559d59ae1e4f38349dccd2e3ae5b1510e373e0d6af982619f"
+}

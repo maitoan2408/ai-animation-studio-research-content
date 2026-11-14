@@ -11,6 +11,8 @@ import { heroInput, heroFrame, performanceIR, validateHeroPerformance, r3 } from
 import { bakeHero } from '../physics/hero.js';
 import { digest } from '../physics/bake.js';
 import { critic } from './critic.js';
+import { inspectHeroGround } from '../continuity/hero-ground.js';
+import { createHash } from 'node:crypto';
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const out = path.join(root, 'out/quality-hero', randomUUID());
 await mkdir(out, { recursive: true });
@@ -44,6 +46,11 @@ try {
   };
   await writeFile(path.join(out, 'critic.json'), JSON.stringify(report, null, 2) + '\n');
   if (report.status !== 'PASS_GEOMETRY') throw Error('HERO_CRITIC_FAILED');
+  const groundBytes = await readFile(path.join(root, 'brief/quality/ground-fixture.json'));
+  const ground = { ...inspectHeroGround(pack, JSON.parse(groundBytes.toString()), f => heroFrame(pack, input, bake, f)),
+    fixtureSha256: createHash('sha256').update(groundBytes).digest('hex'), bakeSha256: bake.sha256 };
+  await writeFile(path.join(out, 'ground-critic.json'), JSON.stringify(ground, null, 2) + '\n');
+  if (ground.status !== 'PASS') throw Error('HERO_GROUND_CRITIC_FAILED');
   if (values['native-input']) {
     const textures = JSON.parse(
       await readFile(
