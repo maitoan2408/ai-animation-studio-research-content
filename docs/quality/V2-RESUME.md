@@ -53,3 +53,5 @@ Có bảng so các thử nghiệm riêng và checklist `F2-REVIEW-PREPARATION.md
 Bump preview 192 frame đã render lần hai cùng máy/browser: mọi hash frame và MP4 trùng; không suy ra chất lượng hay parity đa máy.
 
 CI source 7184935: app PASS, workbench FAIL vì alpha critic gọi Python hệ thống thiếu Pillow. Workflow sửa PATH đến venv QC; retest diagnostics qua venv cục bộ PASS, CI source sửa chưa có kết quả.
+
+CI source e6d705e sau sửa Python PATH: workbench 43638665678 và app 43638665774 PASS; workbench 79 TS, 51 Python. F2 vẫn IN_PROGRESS theo visual và HQ-02, xem F2 report.
