@@ -76,12 +76,12 @@
     "sourceSha256": "e800b86d13c71de19249aa54728528a4278b3c2612b268fb1b040adc085a0cbd",
     "baseline": "ce4f912",
     "branch": "codex/v2-continuous",
-    "currentPhase": "F0",
+    "currentPhase": "F1",
     "tasks": [
       {
         "id": "F0",
         "dependencies": [],
-        "status": "VALIDATING",
+        "status": "PASS_TECHNICAL_PROVISIONAL",
         "attempts": 1
       },
       {
@@ -89,7 +89,7 @@
         "dependencies": [
           "F0"
         ],
-        "status": "TODO",
+        "status": "IN_PROGRESS",
         "attempts": 0
       },
       {
@@ -167,8 +167,8 @@
         "attempts": 0
       }
     ],
-    "currentTask": "F0-ci-validation",
-    "nextAction": "Push checkpoint and observe CI. If green, record F0 technical gate with user/threshold decisions PROVISIONAL, then immediately begin F1 boundary and independent critic; F2 can start independently from F0.",
+    "currentTask": "F1-shot-boundary",
+    "nextAction": "Implement F1 ShotBoundaryState and seam validator with before-fix negative tests, independent ground and collision critic, preserving baseline; F2 is now eligible for independent work.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -183,7 +183,7 @@
       "navigationRace": "PASS_INCLUDING_RETURN_TO_PROJECT",
       "productionPython": "PASS_23",
       "recovery": "PASS_THREE_SUCCESSIVE_RUNS",
-      "remoteCI": "PENDING",
+      "remoteCI": "PASS_SOURCE_ae508cb",
       "pixelThreshold": "UNVERIFIED_CALIBRATION_REQUIRED",
       "testFlake": "REPRODUCED_FIXED_RETESTED",
       "f1Research": "PREPARATORY_SOURCES_RECORDED_NO_F1_IMPLEMENTATION",

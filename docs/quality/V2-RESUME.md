@@ -1,3 +1,7 @@
+# V2 current checkpoint — F1 IN_PROGRESS
+
+F0 technical gate PASS on CI source ae508cb; human/art/voice/license and calibrated raster threshold remain PROVISIONAL. See docs/reports/F0.md and F0-ci.json. Next: F1 ShotBoundaryState and seam validator, before-fix negative tests, then independent ground/collision critic. F2 is eligible independently. Never mark creative gates passed from tests.
+
 # V2 resume
 
 Baseline `ce4f912`, branch `codex/v2-continuous`. Kế hoạch gốc: `V2-USER-PLAN.md`; hàng đợi máy đọc: `state.json` mục `v2`; các quyết định người: `HUMAN-QUEUE.md`.
