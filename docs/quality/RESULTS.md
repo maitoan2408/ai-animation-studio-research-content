@@ -138,3 +138,6 @@ Receiver-only ẩn 29 bóng giấy cũ, giữ contact và receiver VSM; mới fr
 
 ### F2 T0–T2 theo kế hoạch bổ sung — 14/11/2026
 Khóa baseline/crop và công cụ ΔE00; ba thử chiếu sáng thân và ba thử depth/alpha/shadow chưa qua gate. Một bản depth-lit lệch màu toàn cảnh; bản alpha blend chưa chứng minh bóng lớp. 74 TS, 41 Python, typecheck và root verify PASS; F2 vẫn IN_PROGRESS. Xem `docs/reports/F2.md` và `F2-DECISIONS.md`.
+
+### F2 T3–T6 thử độc lập — 14/11/2026
+Đã thử contact ở bốn sole, cạnh sau có seed, sợi màu UV và glow tại anchor đèn; chưa đạt bóng lớp, chuyển động ổn định, preset hay duyệt styleframe. Snapshot dedup thử bản sao PASS audit/tar/corruption nhưng chưa đủ để đổi recorder. F2 tiếp tục IN_PROGRESS; xem F2 report.

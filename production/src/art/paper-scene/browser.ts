@@ -1,13 +1,16 @@
 /** Bounded S05 still comparison. 22 parts are extruded; background remains flat. */
 import * as THREE from 'three';
 import {makeContourBody} from './contour-body.js';
+import {contactPoints} from './contact.js';
+import {roughenBack} from './paper-edge.js';
 import {shearDepth} from './depth.js';
 import {requireForegroundContour} from './coverage.js';
+import {anchorPoint} from '../../scene/geometry.js';
 import type {ArtPack,SceneFrame} from '../../scene/types.js';
-type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';coverage:'foreground'|'physical';look:'basic'|'standard'|'lambert'|'fold'|'depth'|'depth-lit'|'depth-soft';profile:'preview'|'1080';textureUrls:Record<string,string>};
+type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';coverage:'foreground'|'physical';look:'basic'|'standard'|'lambert'|'fold'|'depth'|'depth-lit'|'depth-soft'|'edge'|'fiber'|'glow'|'contact';lanternIntensity:number;groundY?:number;profile:'preview'|'1080';textureUrls:Record<string,string>};
 declare global { interface Window { sceneInput:Info; sceneReady?:boolean;sceneError?:string;sceneStats?:unknown; } }
 async function main(){
- const {pack,frame,contours,mode,shadowMode,coverage,look,profile,textureUrls}=window.sceneInput;
+ const {pack,frame,contours,mode,shadowMode,coverage,look,profile,lanternIntensity,groundY,textureUrls}=window.sceneInput;
  const depthMode=mode==='volume'&&(look==='depth'||look==='depth-lit'||look==='depth-soft');
  const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
  renderer.setPixelRatio(1);renderer.setSize(profile==='preview'?640:1920,profile==='preview'?360:1080);renderer.setClearColor('#e8ddbe',1);
@@ -24,13 +27,22 @@ async function main(){
  const ids=[...new Set(frame.sprites.map(s=>s.asset))];
  await Promise.all(ids.map(async id=>{const url=textureUrls[id];if(!url)throw Error(`SCENE_TEXTURE_MISSING ${id}`);
    let t:THREE.Texture;try {t=await loader.loadAsync(url);}catch {throw Error(`SCENE_TEXTURE_LOAD ${id} ${url}`);}t.colorSpace=THREE.SRGBColorSpace;t.minFilter=THREE.LinearFilter;t.magFilter=THREE.LinearFilter;t.generateMipmaps=false;textures.set(id,t);}));
- let plates=0,extruded=0,hiddenPaperShadows=0,requiredContours=0;
+ let plates=0,extruded=0,hiddenPaperShadows=0,requiredContours=0,replacedContactShadows=0;
  const ordered=[...frame.sprites].sort((a,b)=>a.z-b.z);
+ const contact=mode==='volume'&&look==='contact'?contactPoints(pack,frame,groundY!):undefined;
  const firstForeground=ordered.findIndex(s=>s.z>=0);if(firstForeground<0)throw Error('SCENE_FOREGROUND');
  const receiver=new THREE.Mesh(new THREE.PlaneGeometry(3200,2000),new THREE.ShadowMaterial({opacity:.23,depthTest:false,depthWrite:false}));
  receiver.position.z=-5;receiver.receiveShadow=true;receiver.renderOrder=firstForeground*2;scene.add(receiver);
  for(const [order,s] of ordered.entries()){
   if(mode==='volume'&&shadowMode==='receiver-only'&&s.id.endsWith('.paper-shadow')){hiddenPaperShadows++;continue;}
+  if(contact&&s.id.endsWith('.contact-shadow')){
+   const foot=s.id.slice(0,-'.contact-shadow'.length),point=contact.get(foot);if(!point)throw Error(`PAPER_CONTACT_SHADOW ${s.id}`);
+   const canvas=document.createElement('canvas');canvas.width=128;canvas.height=128;
+   const c=canvas.getContext('2d');if(!c)throw Error('PAPER_CONTACT_CANVAS');
+   const g=c.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,'rgba(35,29,24,0.50)');g.addColorStop(1,'rgba(35,29,24,0)');c.fillStyle=g;c.fillRect(0,0,128,128);
+   const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(canvas),transparent:true,depthTest:false,depthWrite:false}));
+   sprite.position.set(point[0]-960,540-point[1],s.z);sprite.scale.set(100,25,1);sprite.renderOrder=order*2+1;scene.add(sprite);plates++;replacedContactShadows++;continue;
+  }
   const asset=pack.assets.find(a=>a.id===s.asset);if(!asset)throw Error(`SCENE_ASSET ${s.asset}`);
   const folded=mode==='volume'&&look==='fold'&&s.asset==='mai/torso';
   const face=new THREE.PlaneGeometry(asset.width,asset.height,folded?32:1,1);
@@ -52,19 +64,44 @@ async function main(){
      contour.pivot[0]!==asset.pivot[0]||contour.pivot[1]!==asset.pivot[1])throw Error(`SCENE_CONTOUR_METADATA ${s.asset}`);
    const body=makeContourBody(contour.loops,contour,3);
    shearDepth(body,.25);
+   if(look==='edge'&&!s.asset.startsWith('background/'))roughenBack(body,s.asset,1);
    const background=s.asset.startsWith('background/');
    const mesh=new THREE.Mesh(body,new THREE.MeshStandardMaterial({color:background?'#ffffff':'#ad8d60',map:background?textures.get(s.asset):undefined,roughness:1,side:THREE.DoubleSide,transparent:!depthMode,depthTest:depthMode,depthWrite:depthMode}));
    mesh.renderOrder=order*2;mesh.castShadow=shadowMode!=='authored-only';group.add(mesh);extruded++;
   }
   const options={map:textures.get(s.asset)!,transparent:!depthMode||look==='depth-soft',depthTest:depthMode,depthWrite:depthMode&&look!=='depth-soft',alphaTest:depthMode&&look!=='depth-soft'?.5:0,side:THREE.DoubleSide,opacity:s.opacity};
-  const material=mode==='volume'&&s.asset==='mai/torso'&&look!=='basic'&&look!=='depth'&&look!=='depth-lit'&&look!=='depth-soft'
+  const material=mode==='volume'&&s.asset==='mai/torso'&&['standard','lambert','fold'].includes(look)
    ?(look==='lambert'?new THREE.MeshLambertMaterial(options):new THREE.MeshStandardMaterial({...options,roughness:1,...(look==='fold'?{emissive:0xffffff,emissiveMap:options.map,emissiveIntensity:.25}:{})}))
    :new THREE.MeshBasicMaterial(options);
+  if(mode==='volume'&&look==='fiber'&&['mai/torso','mai/upper-arm','mai/forearm'].includes(s.asset)){
+   material.onBeforeCompile=shader=>{
+    const marker='#include <map_fragment>';
+    if(!shader.fragmentShader.includes(marker))throw Error('PAPER_FIBER_SHADER');
+    shader.fragmentShader=shader.fragmentShader.replace(marker,marker+`
+      float paperFiber = sin(vMapUv.x * 192.0 + sin(vMapUv.y * 81.0)*1.7)
+                       * sin(vMapUv.y * 131.0 + vMapUv.x * 29.0);
+      diffuseColor.rgb *= 1.0 + paperFiber * 0.035;
+    `);
+   };
+   material.customProgramCacheKey=()=> 'f2-fiber-v1';
+  }
   const plate=new THREE.Mesh(face,look==='depth-lit'&&mode==='volume'?new THREE.MeshStandardMaterial({...options,roughness:1}):material);if(depthMode)plate.position.z=.05;
   if(look==='depth-lit'&&mode==='volume'){plate.receiveShadow=true;plate.castShadow=!!contour&&!s.asset.startsWith('background/');}
   plate.renderOrder=order*2+1;group.add(plate);scene.add(group);plates++;
  }
+ if(mode==='volume'&&look==='glow'&&lanternIntensity>0){
+  const lamp=frame.sprites.find(s=>s.id==='lamp');if(!lamp)throw Error('PAPER_LANTERN_MISSING');
+  const canvas=document.createElement('canvas');canvas.width=128;canvas.height=128;
+  const context=canvas.getContext('2d');if(!context)throw Error('PAPER_GLOW_CANVAS');
+  const gradient=context.createRadialGradient(64,64,0,64,64,64);
+  gradient.addColorStop(0,'rgba(255,200,110,0.62)');gradient.addColorStop(.35,'rgba(255,175,80,0.2)');gradient.addColorStop(1,'rgba(255,160,60,0)');
+  context.fillStyle=gradient;context.fillRect(0,0,128,128);
+  const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+  const glow=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,transparent:true,opacity:lanternIntensity,blending:THREE.AdditiveBlending,depthTest:false,depthWrite:false}));
+  const [lightX,lightY]=anchorPoint(pack,lamp,'light');glow.position.set(lightX-960,540-lightY,lamp.z);glow.scale.set(360,360,1);glow.renderOrder=ordered.length*2+10;scene.add(glow);
+ }
+ if(contact&&replacedContactShadows!==contact.size)throw Error('PAPER_CONTACT_SHADOW_COVERAGE');
  await renderer.compileAsync(scene,camera);renderer.render(scene,camera);renderer.getContext().finish();
- window.sceneStats={mode,shadowMode,coverage,plates,extruded,requiredContours,hiddenPaperShadows,three:THREE.REVISION};window.sceneReady=true;
+ window.sceneStats={mode,shadowMode,coverage,plates,extruded,requiredContours,hiddenPaperShadows,replacedContactShadows,three:THREE.REVISION};window.sceneReady=true;
 }
 main().catch(e=>{window.sceneError=String(e);});

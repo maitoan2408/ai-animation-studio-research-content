@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-t5-fiber-preview",
+  "run_id": "20261114T195208Z-f2-t5-fiber-preview-3a4d7738",
+  "started_at_utc": "20261114T195208Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx production/src/art/paper-scene/render.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 108 production/artifacts/quality/v2-f2/overlay-physical-contours.json authored-only physical fiber preview"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "a8acf804a8b5a2127dd5115ab44cce69c248cf10",
+  "tracked_diff_sha256": "00ba231196d4a4dc7cddf4ffca233b622e5ad289358f8829491db5be269fd2d5",
+  "status": "RUNNING",
+  "recorder_pid": 11420,
+  "source_snapshot_sha256": "6accd3c96e775ace3280005081b458c53b4c4aa69969d2c3d93485ffadfe9a92"
+}

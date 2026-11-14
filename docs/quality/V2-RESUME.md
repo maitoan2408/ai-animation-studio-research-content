@@ -29,3 +29,5 @@ F2: native-size silent 192-frame candidate decoded and independently checked; us
 F2: 86-contour scene đã chạy preview im lặng 192 frame tại 640×360, seek nhiều thứ tự khớp; frame 24 đủ 38/38 contour bắt buộc. Chưa render đủ 1080 với nền đùn.
 
 Kế hoạch chi tiết F2 mới được lưu `PROPOSED-Q0-Q9-F2-DETAIL-20261114.md`. T0 baseline/công cụ ΔE hoàn tất mức kỹ thuật, ngưỡng chưa xác minh; T0b ADR đề xuất, chưa triển khai. T1 và T2 mỗi mục có ba thử nghiệm nhưng chưa đạt visual/parity/shadow: xem F2 report và ảnh `t1/`, `t2/`; giữ F2 IN_PROGRESS và không mở F3.
+
+T3–T6 đã thử riêng: contact lấy bốn sole/ground fixture, back-edge seed, màu sợi UV và glow ở anchor đèn. Chỉ là prototype partial, chưa chứng minh bóng lớp/flicker hoặc ghép preset. T0b có thử audit trên tám bản sao dedup nhưng chưa chạy full fresh review/security; recorder giữ nguyên. T1/T2 và các cổng F2 còn mở, xem F2 report.

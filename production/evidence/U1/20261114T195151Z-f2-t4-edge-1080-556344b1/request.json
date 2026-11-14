@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-t4-edge-1080",
+  "run_id": "20261114T195151Z-f2-t4-edge-1080-556344b1",
+  "started_at_utc": "20261114T195151Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json",
+    "108",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "authored-only",
+    "physical",
+    "edge",
+    "1080"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "a8acf804a8b5a2127dd5115ab44cce69c248cf10",
+  "tracked_diff_sha256": "6ee5e9c06f705401af36850266fb0963c6aafcc812fe26156d56dde25ed8b21e",
+  "status": "RUNNING",
+  "recorder_pid": 11210,
+  "source_snapshot_sha256": "086ecdf3762f703a342379ac64894e2ee9f4514762bf630b5db2860b76d4dfd8"
+}
