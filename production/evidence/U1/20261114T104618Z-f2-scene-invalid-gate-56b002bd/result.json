@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-scene-invalid-gate",
+  "run_id": "20261114T104618Z-f2-scene-invalid-gate-56b002bd",
+  "started_at_utc": "20261114T104618Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "/tmp/paper-scene-bad-gate/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b64a05569a156ab8ee14e586c782e54349f192c3",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 46882,
+  "source_snapshot_sha256": "69b76c181dc696ca32dab82a713f7c6133c69e272091734b3625fe0c687a401a",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 2.84,
+  "finished_at_utc": "2026-11-14T10:46:22.633998+00:00",
+  "log_sha256": "07e1eb97b969ec775bcd789a08df9cd447c021153edf3e8d3c1f4b5171c9c727",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

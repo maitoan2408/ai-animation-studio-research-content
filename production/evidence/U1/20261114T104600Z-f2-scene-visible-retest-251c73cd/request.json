@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-scene-visible-retest",
+  "run_id": "20261114T104600Z-f2-scene-visible-retest-251c73cd",
+  "started_at_utc": "20261114T104600Z",
+  "command": [
+    "python",
+    "production/src/art/paper-scene/verify_comparison.py",
+    "production/out/paper-scene/dc15e250-b14f-4247-a784-b2d71cebca75"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b64a05569a156ab8ee14e586c782e54349f192c3",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 46520,
+  "source_snapshot_sha256": "0c69f6371fb9de161fb9138e3e8af9c8748c3a38bde9ae1c70f768a88d865663"
+}

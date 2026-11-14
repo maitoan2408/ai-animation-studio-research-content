@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/studio-audit/production/src/art/paper-scene/verify_comparison.py", line 29, in <module>
+    print(json.dumps(verify(sys.argv[1])))
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/studio-audit/production/src/art/paper-scene/verify_comparison.py", line 22, in verify
+    if changed==0:raise ValueError('SCENE_NO_VISIBLE_DIFFERENCE')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: SCENE_NO_VISIBLE_DIFFERENCE

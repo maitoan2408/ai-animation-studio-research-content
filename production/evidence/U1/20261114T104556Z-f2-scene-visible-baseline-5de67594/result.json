@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-scene-visible-baseline",
+  "run_id": "20261114T104556Z-f2-scene-visible-baseline-5de67594",
+  "started_at_utc": "20261114T104556Z",
+  "command": [
+    "python",
+    "production/src/art/paper-scene/verify_comparison.py",
+    "production/out/paper-scene/e4cc4cc0-1dd2-48d4-8326-6e9c2470f415"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b64a05569a156ab8ee14e586c782e54349f192c3",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 46505,
+  "source_snapshot_sha256": "e75b155fd822306adccf4be2d3bc208947eea0797af14f3029e2a6b591ee3b6f",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 0.331,
+  "finished_at_utc": "2026-11-14T10:45:56.850853+00:00",
+  "log_sha256": "13c5e65bc1da882061b433f625e1dfa0dd99c868b432149b2a87e03c60bf635a",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

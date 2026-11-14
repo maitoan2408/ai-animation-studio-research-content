@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F2-diorama-and-rig",
-    "nextAction": "F2: validate generalized layered art/effects with actual S05 rig and generate 1080p full scene for review; F3 remains gated.",
+    "nextAction": "F2: remove illustrative per-part yaw or verify true anchor invariance, add directional lighting/contact shadows, validate remaining 117 assets and motion, prepare reviewed styleframe before F3.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -204,7 +204,9 @@
       "f1Ownership": "PASS_EXPLICIT_PROVISIONAL_S05_CONTACT_VALIDATED",
       "f1RealSeam": "PASS_REAL_TRANSFORMS_PROVISIONAL_INTENTIONAL_CUT",
       "f1ProjectedAlphaGate": "PASS_192_FRAMES_ALPHA128_NATIVE_INPUT_ONLY",
-      "f2Pivot": "PASS_TORSO_GEOMETRY_AND_ANCHOR_TRANSFORMS_ONLY"
+      "f2Pivot": "PASS_TORSO_GEOMETRY_AND_ANCHOR_TRANSFORMS_ONLY",
+      "f2S05Scene": "PARTIAL_FRAME108_31_EXTRUDED_NO_NEW_SHADOWS",
+      "f2Contour": "PASS_BINARY_ROUNDTRIP_22_PARTS_ART_NOT_VALIDATED"
     }
   }
 }

@@ -105,3 +105,6 @@ S05 native input nay fail closed trên ground, ownership và overlap alpha ≥12
 
 ### F2 pivot torso — 14/11/2026
 Face và extrusion dùng pivot native; test tọa độ anchor với rig bao gồm quay/lật và render 1080p anti-clipping PASS. Mới một asset, không đóng F2.
+
+### F2 S05 frame thử — 14/11/2026
+Contour nhị phân 22 part roundtrip; render frame 108 có 31/71 sprite đùn, 1080p flat/volume khác 9.501 pixel. Yaw từng phần, bóng, motion và art chưa đạt gate; F2 PARTIAL.
