@@ -195,5 +195,13 @@
     "state": "docs/quality/state.json",
     "result": "docs/quality/RESULTS.md",
     "pullRequest": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/5"
+  },
+  "qualityUpgradeContinuation": {
+    "branch": "codex/quality-motion-contracts",
+    "base": "bad116c",
+    "status": "TECHNICAL_CONTRACTS_AND_DIAGNOSTICS",
+    "priority": "U0-U8 before Q3-Q9",
+    "userSelection": "No final art/reference yet; development assets authorized",
+    "evidence": "production/artifacts/quality/contracts-20261114/README.md"
   }
 }

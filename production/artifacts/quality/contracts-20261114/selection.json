@@ -1,0 +1,25 @@
+{
+  "kept": [
+    "workflow.json",
+    "manifest.json",
+    "measurements.json",
+    "contact-sheet.jpg",
+    "onion-trail.svg",
+    "rotation.svg",
+    "contact.svg",
+    "foot.svg",
+    "velocity.svg",
+    "acceleration.svg",
+    "jerk.svg",
+    "input.json",
+    "bake.json",
+    "performance.json"
+  ],
+  "notCommitted": [
+    "contact-sheet.svg"
+  ],
+  "reason": "Large repeated inline asset source is reproducible; small JPEG and curves retained",
+  "sourceHead": "bad116ce4230f27a55bd060ffc4ccf0ae444beb5",
+  "newSource": "working tree snapshotted by run-step",
+  "implementationCommit": "a1a142a"
+}

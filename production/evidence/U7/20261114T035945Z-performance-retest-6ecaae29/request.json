@@ -1,0 +1,18 @@
+{
+  "phase": "U7",
+  "step": "performance-retest",
+  "run_id": "20261114T035945Z-performance-retest-6ecaae29",
+  "started_at_utc": "20261114T035945Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "bad116ce4230f27a55bd060ffc4ccf0ae444beb5",
+  "tracked_diff_sha256": "dfb8f492ef586c6d37a89f3360cffb140909b2ca300d14b3a70ca4730ef742c5",
+  "status": "RUNNING",
+  "recorder_pid": 1287,
+  "source_snapshot_sha256": "2458c4e276f7e68fdcb6f8d7b697b0fc7ca50d9002d76807bb68192bf70dac73"
+}

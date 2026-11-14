@@ -1,0 +1,27 @@
+{
+  "phase": "U7",
+  "step": "hero-diagnostics",
+  "run_id": "20261114T040042Z-hero-diagnostics-24342557",
+  "started_at_utc": "20261114T040042Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "quality:diagnostics",
+    "--",
+    "--hero",
+    "/workspace/studio-audit/production/out/quality-hero/3c5ef33c-81aa-42f9-b9e1-6f78faf8f46d"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "bad116ce4230f27a55bd060ffc4ccf0ae444beb5",
+  "tracked_diff_sha256": "a812c60250336edaf32754b556efe7dff154acf65fd4f1aa5a890e04dd8745d0",
+  "recorder_pid": 1592,
+  "source_snapshot_sha256": "c803152e587c0ab61b707ba1c019479cdae17a6afaa656eee228066def2c053c",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 6.931,
+  "finished_at_utc": "2026-11-14T04:00:50.001287+00:00",
+  "log_sha256": "889adb7f3b80dc827ff2a4b08294d4f043b9004fd2d0f8c948733f3a8a78023d",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

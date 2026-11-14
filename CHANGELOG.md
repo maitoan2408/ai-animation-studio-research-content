@@ -1,5 +1,16 @@
 # Changelog
 
+## Quality contracts and diagnostics — 14/11/2026
+
+- Bound hero replay to gravity/solver/engine/implementation/lock without changing
+  archived motion data or golden. Kept legacy inspection explicit.
+- Validated Performance Script capabilities, timeline and contacts; corrected
+  secondary instance metadata and rejected unsupported acting variations.
+- Added source-verified contact sheets, onion skin, trails, per-frame curves and
+  a reproducible Chromium/hash workflow in CI. Final art/voice gates remain open.
+- Added quality standard/reference register, tests and immutable failure/retest
+  evidence. No new MP4/native ZIP or Q3 advancement.
+
 ## Q2 S05 R3 — 13/11/2026
 
 - Both GitHub workflows pass on source6c36e93, including standalone install/recovery and v0.1 integration/UI. Final checkpoint checks artifact/source/log integrity and local links; no additional phase approval.

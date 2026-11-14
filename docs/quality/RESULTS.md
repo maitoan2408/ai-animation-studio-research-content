@@ -1,5 +1,18 @@
 # Kết quả nâng cấp — cập nhật 14/11/2026
 
+## Checkpoint hợp đồng và diagnostics — tiếp tục từ bad116c
+
+Nhánh `codex/quality-motion-contracts`: execution receipt cho gravity/solver/
+engine/implementation/lock, strict Performance Script và công cụ chẩn đoán
+10frame/onion/trail/curves đã chạy. Input và motion bake giữ nguyên toàn bộ so
+với candidate đã render; golden và ngưỡng không đổi.31 TS tests,20 Python,
+typecheck và root verify16 PASS. [Báo cáo/ảnh/đồ thị](../../production/artifacts/quality/contracts-20261114/README.md).
+User chưa chọn art/reference, cho phép tiếp tục kỹ thuật bằng asset thử nghiệm.
+[Chuẩn và trạng thái duyệt](standard.md), [reference register](../../references/manifest.json).
+Q3–Q9 chưa bắt đầu; Q2/U1/U4/U5/U8 vẫn giữ các gate đang mở.
+
+Các kết quả bên dưới là checkpoint bad116c/ce1c138, giữ nguyên để truy vết.
+
 Đã chốt phần kỹ thuật R3/Q2 và triển khai chuyển động phụ có vật lý cho S05
 trên nhánh mới. Toàn bộ Q2 và kế hoạch chín giai đoạn vẫn còn các điều kiện mở.
 

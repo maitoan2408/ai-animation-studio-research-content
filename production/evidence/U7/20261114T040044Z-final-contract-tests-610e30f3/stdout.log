@@ -1,0 +1,48 @@
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ art source hashes, explicit pivots, views and local references remain intact (45.802696ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (3.430256ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (6.405844ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (333.652868ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (47.814842ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (3.888115ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (5.048712ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (0.801527ms)
+✔ upright walk uses only the hip drop required for planted-foot reach (0.724156ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (10.183153ms)
+✔ diagnostic figures retain real frame indices, escape labels and reject invalid numeric data (3.147895ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (534.117ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (439.66895ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (4.876596ms)
+✔ S05 R3 hands contact separate visible sides of the drawn lantern handle (72.30895ms)
+✔ S05 R3 keeps prop path, reaction delay, other shots and deterministic seeks (392.494886ms)
+✔ performance authoring contract is immutable, covers the shot and preserves shared grip intervals (5.453887ms)
+✔ performance rejects gaps, overlap, unknown capabilities and invalid semantic references (2.268887ms)
+✔ schema-valid unimplemented acting variations fail before rendering instead of being ignored (0.99058ms)
+✔ Rapier measured pendulum/drop/bounce/damping meet locked criteria and exact reference hash (453.204565ms)
+✔ baked hero preserves dual hold, grips, stance and arbitrary seeks without live physics (319.454007ms)
+✔ bake boundary rejects tampering, wrong revision, malformed timebase/events and nonfinite data (5.301178ms)
+✔ critic rejects a detached physics joint even when IK still keeps the palm on the prop (111.806178ms)
+✔ execution binding rejects stale gravity, toolchain and legacy receipts without changing baseline motion (21.486766ms)
+✔ hero input and legacy opt-in reject invalid mass, unsupported phases and stretched contacts (1.301735ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (41.639566ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (204.053755ms)
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (4.227877ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (29.070329ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (5.461575ms)
+✔ real HTTP media, origin/token, persistence, stale head and changed-file rejection (616.728543ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6692.857326
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
