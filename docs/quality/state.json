@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F2-diorama-and-rig",
-    "nextAction": "F2: inspect shadow alternative in motion, implement layer-aware contact shadows, prepare full animation/styleframe and human review; F3 still gated.",
+    "nextAction": "F2: inspect full motion and per-layer/contact shadows, assess 4x edge fidelity and obtain art review; preserve human and Q2 gates before opening F3.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -216,7 +216,10 @@
       "f2OverlayV2": "PASS_PROVISIONAL_156_ASSETS_18_DRAFT_SHADOWS_BOUND_BAKE",
       "f2OverlayRasters": "PASS_HASH_DECODE_156_AND_79_BINARY_CONTOURS",
       "f2DraftPreview": "PARTIAL_1080P_FRAME108_ONLY_SIX_SELECTORS",
-      "f2ShadowAlternative": "PARTIAL_RECEIVER_ONLY_29_AUTHORED_SHADOWS_HIDDEN_SINGLE_FRAME"
+      "f2ShadowAlternative": "PARTIAL_RECEIVER_ONLY_29_AUTHORED_SHADOWS_HIDDEN_SINGLE_FRAME",
+      "f2Grid4x": "PASS_79_BINARY_ROUNDTRIP_TRIANGULATION_AND_ONE_STILL_NOT_AA_GATE",
+      "f2ModelSheets": "PASS_FILES_PROVISIONAL_VECTOR_NOT_ART_REVIEW",
+      "f2StyleBible": "DRAFT_PROVISIONAL"
     }
   }
 }

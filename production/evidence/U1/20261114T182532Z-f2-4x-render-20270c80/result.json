@@ -1,0 +1,25 @@
+{
+  "phase": "U1",
+  "step": "f2-4x-render",
+  "run_id": "20261114T182532Z-f2-4x-render-20270c80",
+  "started_at_utc": "20261114T182532Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/f2-face-preview/be2124e3-373a-4aac-9692-56dfcca2d5b1/S05.json",
+    "108",
+    "production/artifacts/quality/v2-f2/overlay-foreground-contours-4x.json",
+    "authored-only"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "0ac23f876e1a2d8b11f92f6edc48ee3ba44144c9",
+  "tracked_diff_sha256": "57955b2a071e84343ca2cdd9a7618f7b1223be6b6d250450faa920eb0ea8d94e",
+  "recorder_pid": 826,
+  "source_snapshot_sha256": "b7c239de25e29bfa09895e13a1c8bbf057bc5f4ade3f432497011f81cb615f4f",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 19.755,
+  "finished_at_utc": "2026-11-14T18:25:52.756554+00:00",
+  "log_sha256": "5ad5558d4c0675ead9e1ab371649d599270e4d6fa00b271df13f87ef69649401",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,10 +1,10 @@
 /** Bounded S05 still comparison. 22 parts are extruded; background remains flat. */
 import * as THREE from 'three';
-import {contourShapes} from '../paper-silhouette/shapes.js';
+import {makeContourBody} from './contour-body.js';
 import {shearDepth} from './depth.js';
 import {requireForegroundContour} from './coverage.js';
 import type {ArtPack,SceneFrame} from '../../scene/types.js';
-type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only';textureUrls:Record<string,string>};
+type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';textureUrls:Record<string,string>};
 declare global { interface Window { sceneInput:Info; sceneReady?:boolean;sceneError?:string;sceneStats?:unknown; } }
 async function main(){
  const {pack,frame,contours,mode,shadowMode,textureUrls}=window.sceneInput;
@@ -37,12 +37,12 @@ async function main(){
   const contour=contours.find(c=>c.id===s.asset);
   if(mode==='volume')requireForegroundContour(s.asset,!!contour);
   if(mode==='volume'&&contour){
-   const shapes=contourShapes(contour.loops);
-   const body=new THREE.ExtrudeGeometry(shapes,{depth:3,bevelEnabled:false,curveSegments:1});
-   body.scale(1,-1,1);body.translate(-asset.pivot[0],asset.pivot[1],-3);
+   if(contour.dimensions[0]!==asset.width||contour.dimensions[1]!==asset.height||
+     contour.pivot[0]!==asset.pivot[0]||contour.pivot[1]!==asset.pivot[1])throw Error(`SCENE_CONTOUR_METADATA ${s.asset}`);
+   const body=makeContourBody(contour.loops,contour,3);
    shearDepth(body,.25);
    const mesh=new THREE.Mesh(body,new THREE.MeshStandardMaterial({color:'#ad8d60',roughness:1,side:THREE.DoubleSide,transparent:true,depthTest:false,depthWrite:false}));
-   mesh.renderOrder=order*2;mesh.castShadow=true;group.add(mesh);extruded++;
+   mesh.renderOrder=order*2;mesh.castShadow=shadowMode!=='authored-only';group.add(mesh);extruded++;
   }
   const plate=new THREE.Mesh(face,new THREE.MeshBasicMaterial({map:textures.get(s.asset)!,transparent:true,depthTest:false,depthWrite:false,side:THREE.DoubleSide,opacity:s.opacity}));
   plate.renderOrder=order*2+1;group.add(plate);scene.add(group);plates++;

@@ -129,3 +129,6 @@ Overlay 156 asset rebake, 156 PNG verify, 79 contour; preview frame 108 thay 6 s
 
 ### F2 shadow alternative — 14/11/2026
 Receiver-only ẩn 29 bóng giấy cũ, giữ contact và receiver VSM; mới frame 108, không xác nhận bóng vật lý/art.
+
+### F2 contour 4× và model sheet — 15/11/2026
+79 alpha contour 4× roundtrip/triangulation; render S05 1×/4× so được, 1× giữ SHA. Style bible và 3 sheet vector tạm; F2 vẫn mở chất lượng/motion/review.

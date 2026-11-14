@@ -21,3 +21,5 @@ F2 overlay riêng 138 asset được build từ 117 cũ + 21 draft, test rig 288
 F2 overlay v2: 156 asset gồm 18 shadow draft; bake mới khớp 192 frame số gốc, 156 texture hash/decode và 79 foreground contour; preview frame 108 thay đúng 6 selector tại `production/artifacts/quality/v2-f2/overlay-preview`. Chưa animation, cue, layer-aware shadow hay art review; F2 IN_PROGRESS.
 
 F2 thử receiver-only: ẩn 29 paper shadows, giữ contact cũ, một VSM receiver chung; ảnh `production/artifacts/quality/v2-f2/receiver-only/volume.png`. Chưa layer-aware/ground physical, chưa motion hay art review.
+
+F2: 79 contour overlay 4× binary roundtrip/triangulation và render S05 1080p; 1× regression giữ SHA, so hai lưới khác 7.810 pixel. Có style bible, 3 vector model sheets và board bóng; chưa chứng minh anti-alias, animation, shadow layer/contact hay art approval. Xem F2 report.

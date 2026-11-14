@@ -9,7 +9,7 @@ import puppeteer from 'puppeteer-core';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
 const sha=(x:Buffer)=>createHash('sha256').update(x).digest('hex');
 const source=process.argv[2];if(!source)throw Error('USAGE_S05_JSON_REQUIRED');
-const shadowMode=process.argv[5]??'combined';if(shadowMode!=='combined'&&shadowMode!=='receiver-only')throw Error('SCENE_SHADOW_MODE');
+const shadowMode=process.argv[5]??'combined';if(shadowMode!=='combined'&&shadowMode!=='receiver-only'&&shadowMode!=='authored-only')throw Error('SCENE_SHADOW_MODE');
 const frameNumber=process.argv[3]===undefined?108:Number(process.argv[3]);
 if(!Number.isInteger(frameNumber)||frameNumber<0||frameNumber>=192)throw Error('SCENE_FRAME_RANGE');
 const bytes=await readFile(path.resolve(source)),data=JSON.parse(bytes.toString());
@@ -57,7 +57,7 @@ try{
   images:reports,browser:await browser.version(),output,
   limitations:['One S05 frame only; oblique per-sprite depth shear is a 2.5D projection, not a shared physically consistent camera or 3D; no animation or backend parity claim',
    'Raster alpha >=128 silhouettes for actors/prop; translucency and subpixel edge details are not modeled by extrusion',
-   shadowMode==='combined'?'Adds one shared directional shadow receiver plus authored shadow sprites; possible double shadow.':'Volume hides authored paper-shadow sprites and uses shared directional receiver; contact-shadow sprites remain.',
+   shadowMode==='combined'?'Adds one shared directional shadow receiver plus authored shadow sprites; possible double shadow.':shadowMode==='receiver-only'?'Volume hides authored paper-shadow sprites and uses shared directional receiver; contact-shadow sprites remain.':'Volume keeps existing authored layer/contact shadows; mesh shadow casting disabled.',
    'No per-layer shadow or true ground contact shadow',
    'No final art, full 3D physical collision or artistic approval']};
  await writeFile(path.join(output,'report.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

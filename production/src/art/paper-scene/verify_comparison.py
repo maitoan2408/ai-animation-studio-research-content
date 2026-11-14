@@ -17,8 +17,8 @@ def verify(folder):
             images.append(image.convert('RGB'))
     flat,volume=report['images']
     mode=report.get('shadowMode','combined');hidden=volume.get('hiddenPaperShadows',0)
-    if mode not in ('combined','receiver-only') or not isinstance(hidden,int) or hidden<0:raise ValueError('SCENE_COVERAGE')
-    if mode=='combined' and hidden!=0:raise ValueError('SCENE_COVERAGE')
+    if mode not in ('combined','receiver-only','authored-only') or not isinstance(hidden,int) or hidden<0:raise ValueError('SCENE_COVERAGE')
+    if mode in ('combined','authored-only') and hidden!=0:raise ValueError('SCENE_COVERAGE')
     if mode=='receiver-only' and hidden==0:raise ValueError('SCENE_COVERAGE')
     if flat['plates']!=volume['plates']+hidden or flat['extruded']!=0 or volume['extruded']<1:raise ValueError('SCENE_COVERAGE')
     difference=ImageChops.difference(*images)
