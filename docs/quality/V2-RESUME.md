@@ -1,35 +1,5 @@
-# V2 current checkpoint — F1 và F2 IN_PROGRESS
+# V2 checkpoint — F1 technical provisional, F2 IN_PROGRESS
 
-Kế hoạch gốc: `V2-USER-PLAN.md`; hàng đợi: `state.json` mục `v2`; quyết định người: `HUMAN-QUEUE.md`. Branch `codex/v2-continuous`; PR #7. F0 technical PASS trên CI source ae508cb; art/voice/license và threshold raster vẫn PROVISIONAL (`docs/reports/F0.md`).
+F1: native S05 frame stream publish now gates declared ground, ownership and projected alpha overlap with source and texture hashes. Real S02 stance and S06→S05 declared cut tested. Scope is limited: 2D alpha ≥128, no 3D collision or artistic approval; those remain open. See `docs/reports/F1.md` and F1 evidence.
 
-F1 có boundary validator và contact critic với negative tests, kiểm 4 chân S05 qua 192 frame và kiểm nối tổng hợp. Xem `docs/reports/F1.md`, `production/artifacts/quality/v2-f1/report.json` và evidence U2/U7. Không gọi F1 hoàn thành: cần nối 2 shot thực, trích owner/body/prop từ scene, đổi tên metric preservation và tích hợp gate. F2 độc lập từ F0: đã inventory 117 SVG, 116 có filter và 51 có ảnh nhúng; xem `docs/reports/F2.md`. Tiếp tục pipeline mesh bảo toàn hiệu ứng, material/render và nghiên cứu texture. F3 chờ F1/F2. Không tự duyệt mỹ thuật hoặc thay golden để che lỗi.
-
-Đã giữ checkpoint trước và log trong Git; F0: save/voice/upload/detach/navigation race được kiểm Chromium, comparator dữ liệu và raster có test, ngưỡng production chưa hiệu chuẩn. F1: TypeScript 42, Python 23, root verify PASS; failure injection được giữ.
-
-## Tiếp tục 14/11 — đối chiếu đề xuất Q0–Q9
-
-Giữ kế hoạch lõi và state, chọn lọc đề xuất tại `PLAN-REVIEW-20261114.md`. Critic F1 đã sửa để kiểm world và projected drift độc lập; zoom out không che trượt chân, có test đổi stance tổng hợp. Giữ ngưỡng fixture 1 px. F1/F2 vẫn IN_PROGRESS, real seam/collision proxy và F2 render chưa xong.
-
-## Tiếp tục 14/11 — S02 và biên dựng thật
-
-S02 alternating stance khai báo trước đã được kiểm hai chân trên 192 frame và inject trượt; R2 order thực S06 → S05. Quan sát evaluator R3 tại biên cho thấy torso Mai lệch 10 px, đầu đổi biểu cảm/góc, đèn không hiện ở S06. Chưa suy cut hay lỗi từ quan sát; xem F1 report và editorial-seam-observation.json. F1 tiếp tục cần contract owner, proxy thực, ngữ nghĩa seam và gate; F2 cần spike diorama 1080p.
-
-## S05 ground gate
-
-Exporter hero đã kiểm ground độc lập cho bốn chân × 192 frame trước xuất native input, giữ fixture và bake hash, fail đóng cổng; alias preservation tách phép so baseline khỏi slip thật. F1 còn owner, proxy torso/prop thực và quyết định seam; gate hiện chỉ cho fixture S05, chưa là art approval. Xem F1 report.
-
-## F2 spike torso
-
-Đã tạo 3 render thử một torso, lần 1–2 bị board che, lần 3 sửa và kiểm hai pixel + decode 1080p. Ảnh và failure lưu tại `production/artifacts/quality/v2-f2/spike`; source `production/src/art/paper-spike`. Mới thí nghiệm 1 asset, chưa rig, chưa styleframe S05 hay duyệt mỹ thuật; F2 vẫn IN_PROGRESS. Xem F2 report.
-
-## S05 bounds thật
-
-Đã quan sát 192 frame S05: canvas đèn chồng canvas torso Mai 41 frame, An 66 frame. Đây là broad-phase conservatively có thể false positive, không chứng minh xuyên vật; cần silhouette/depth và review. Contacts lấy PerformanceScript, không suy quyền sở hữu. Xem F1 report và hero-bounds-observation.json.
-
-## Alpha S05
-
-Mask alpha texture R3 xác minh hash, chiếu 1920×1080, alpha ≥128 và nearest: đèn không trùng pixel đục với torso Mai/An trong 192 frame. Đây không chứng minh va chạm 3D hay art; owner và ý đồ seam còn thiếu. Xem F1 report, alpha-overlap-observation.json và failure/retry f1-alpha.
-
-## F1 ownership và seam tạm thời
-
-Ownership S05 là fixture tác giả Mai [0,108), An [108,192), được validator so với PerformanceScript và exporter kiểm; không suy owner từ grip đơn thuần. Cut S06→S05 được khai báo tạm thời theo benchmark độc lập; validator test hai frame thật. F1 còn thiếu gate collision native/3D; F2 còn diorama, rig/styleframe; không mở F3. Xem F1 report.
+F2: one torso 1080p mesh spike only; still needs rig/pivot validation, preservation of SVG effects and full S05 diorama/styleframe. See `docs/reports/F2.md`. F3 depends on F1 and F2 and remains unopened until F2 technical gate. Human art, voice, license and independent handoff remain open. Core plan and previous history unchanged.

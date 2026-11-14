@@ -1,0 +1,22 @@
+{
+  "phase": "U7",
+  "step": "f1-alpha-gate-retest",
+  "run_id": "20261114T103505Z-f1-alpha-gate-retest-09f20a7b",
+  "started_at_utc": "20261114T103505Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/alpha-gate.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e97d6d6c807e0657bae72c13a59f71229e4de980",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 42973,
+  "source_snapshot_sha256": "6443e8cad963330cb7a00d2b9294e553ab98989f2327920356321169dc04b78f",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.71,
+  "finished_at_utc": "2026-11-14T10:35:06.048762+00:00",
+  "log_sha256": "5581a57210d4089aa5d3e3583476d143d84bcd16480c6cd070f72976d963edc6",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

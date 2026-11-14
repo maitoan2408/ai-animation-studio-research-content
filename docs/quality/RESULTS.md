@@ -99,3 +99,6 @@ So alpha≥128 từ texture R3 có hash trong 192 frame: không có pixel đục
 
 ### F1 owner và seam — 14/11/2026
 Fixture ownership S05 kiểm contact và coverage; cut S06→S05 tạm thời dựa benchmark độc lập, comparator test frame thực. F1 vẫn PARTIAL vì collision alpha offline chưa thành gate vật lý.
+
+### F1 technical provisional — 14/11/2026
+S05 native input nay fail closed trên ground, ownership và overlap alpha ≥128 sau khi kiểm hash; case inject phát hiện. Scope 2D, không đóng F4 hay gate người; F2 đang làm trước F3.

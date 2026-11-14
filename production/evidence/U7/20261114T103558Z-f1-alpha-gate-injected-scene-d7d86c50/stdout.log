@@ -1,0 +1,1 @@
+{"status": "PASS_INJECTED_OVERLAP_DETECTED", "frame": 80, "pixels": 5947, "inputSha256": "4db61d79e6802a597de2b23b3d0ba94e6cb21c07217ed9485167e6201ef49389", "mutatedSha256": "a9df9c0e4ac172966ee693992c63b546c833692fb20232f973111d745c81bf81", "scope": "Projected alpha only; not a physical penetration test."}

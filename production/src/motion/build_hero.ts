@@ -2,7 +2,9 @@
  * Optional --native-input uses existing verified texture metadata for Blender.
  * Outputs are never overwritten; a failed attempt remains inspectable.
  */
-import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import { readFile, mkdir, writeFile, rename } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
 import { parseArgs } from 'node:util';
@@ -13,7 +15,9 @@ import { digest } from '../physics/bake.js';
 import { critic } from './critic.js';
 import { inspectHeroGround } from '../continuity/hero-ground.js';
 import { validateOwnership } from '../continuity/ownership.js';
+import { validateAlphaGate } from '../continuity/alpha-gate.js';
 import { createHash } from 'node:crypto';
+const runFile = promisify(execFile);
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const out = path.join(root, 'out/quality-hero', randomUUID());
 await mkdir(out, { recursive: true });
@@ -66,17 +70,18 @@ try {
       ),
     );
     const frames = Array.from({ length: 192 }, (_, f) => heroFrame(pack, input, bake, f));
-    await writeFile(
-      path.join(out, 'S05.json'),
-      JSON.stringify({
-        shot: 'S05',
-        fps: 24,
-        pack,
-        textures,
-        edit: { ...r3, qualityCandidate: 'U3-secondary-v1', bakeSha256: bake.sha256 },
-        frames,
-      }),
-    );
+    const pending = path.join(out, 'S05.pending.json');
+    const source = JSON.stringify({
+      shot: 'S05', fps: 24, pack, textures,
+      edit: { ...r3, qualityCandidate: 'U3-secondary-v1', bakeSha256: bake.sha256 }, frames,
+    });
+    await writeFile(pending, source, { flag: 'wx' });
+    const { stdout } = await runFile('python3', [path.join(root, 'src/continuity/alpha_overlap.py'), pending],
+      { timeout: 120000, maxBuffer: 4 * 1024 * 1024 });
+    const alpha = JSON.parse(stdout);
+    await writeFile(path.join(out, 'alpha-critic.json'), JSON.stringify(alpha, null, 2) + '\n');
+    validateAlphaGate(alpha, createHash('sha256').update(source).digest('hex'));
+    await rename(pending, path.join(out, 'S05.json'));
   }
   console.log(JSON.stringify({ output: out, ...report }));
 } catch (error) {
