@@ -7,7 +7,7 @@ import {shearDepth} from './depth.js';
 import {requireForegroundContour} from './coverage.js';
 import {anchorPoint} from '../../scene/geometry.js';
 import type {ArtPack,SceneFrame} from '../../scene/types.js';
-type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';coverage:'foreground'|'physical';look:'basic'|'standard'|'lambert'|'fold'|'depth'|'depth-lit'|'depth-soft'|'edge'|'fiber'|'glow'|'contact';lanternIntensity:number;groundY?:number;profile:'preview'|'1080';textureUrls:Record<string,string>};
+type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';coverage:'foreground'|'physical';look:'basic'|'standard'|'lambert'|'fold'|'depth'|'depth-lit'|'depth-soft'|'edge'|'fiber'|'glow'|'contact'|'shadow-card';lanternIntensity:number;groundY?:number;profile:'preview'|'1080';textureUrls:Record<string,string>};
 declare global { interface Window { sceneInput:Info; sceneReady?:boolean;sceneError?:string;sceneStats?:unknown; } }
 async function main(){
  const {pack,frame,contours,mode,shadowMode,coverage,look,profile,lanternIntensity,groundY,textureUrls}=window.sceneInput;
@@ -27,14 +27,14 @@ async function main(){
  const ids=[...new Set(frame.sprites.map(s=>s.asset))];
  await Promise.all(ids.map(async id=>{const url=textureUrls[id];if(!url)throw Error(`SCENE_TEXTURE_MISSING ${id}`);
    let t:THREE.Texture;try {t=await loader.loadAsync(url);}catch {throw Error(`SCENE_TEXTURE_LOAD ${id} ${url}`);}t.colorSpace=THREE.SRGBColorSpace;t.minFilter=THREE.LinearFilter;t.magFilter=THREE.LinearFilter;t.generateMipmaps=false;textures.set(id,t);}));
- let plates=0,extruded=0,hiddenPaperShadows=0,requiredContours=0,replacedContactShadows=0;
+ let plates=0,extruded=0,hiddenPaperShadows=0,requiredContours=0,replacedContactShadows=0,shadowCards=0;
  const ordered=[...frame.sprites].sort((a,b)=>a.z-b.z);
  const contact=mode==='volume'&&look==='contact'?contactPoints(pack,frame,groundY!):undefined;
  const firstForeground=ordered.findIndex(s=>s.z>=0);if(firstForeground<0)throw Error('SCENE_FOREGROUND');
  const receiver=new THREE.Mesh(new THREE.PlaneGeometry(3200,2000),new THREE.ShadowMaterial({opacity:.23,depthTest:false,depthWrite:false}));
  receiver.position.z=-5;receiver.receiveShadow=true;receiver.renderOrder=firstForeground*2;scene.add(receiver);
  for(const [order,s] of ordered.entries()){
-  if(mode==='volume'&&shadowMode==='receiver-only'&&s.id.endsWith('.paper-shadow')){hiddenPaperShadows++;continue;}
+  if(mode==='volume'&&(shadowMode==='receiver-only'||look==='shadow-card')&&s.id.endsWith('.paper-shadow')){hiddenPaperShadows++;continue;}
   if(contact&&s.id.endsWith('.contact-shadow')){
    const foot=s.id.slice(0,-'.contact-shadow'.length),point=contact.get(foot);if(!point)throw Error(`PAPER_CONTACT_SHADOW ${s.id}`);
    const canvas=document.createElement('canvas');canvas.width=128;canvas.height=128;
@@ -69,6 +69,22 @@ async function main(){
    const mesh=new THREE.Mesh(body,new THREE.MeshStandardMaterial({color:background?'#ffffff':'#ad8d60',map:background?textures.get(s.asset):undefined,roughness:1,side:THREE.DoubleSide,transparent:!depthMode,depthTest:depthMode,depthWrite:depthMode}));
    mesh.renderOrder=order*2;mesh.castShadow=shadowMode!=='authored-only';group.add(mesh);extruded++;
   }
+  if(mode==='volume'&&look==='shadow-card'&&contour&&!s.asset.startsWith('background/')){
+   const shadow=new THREE.MeshBasicMaterial({map:textures.get(s.asset)!,color:'#241a13',transparent:true,opacity:.28,depthTest:false,depthWrite:false,side:THREE.DoubleSide});
+   const ux=(3/asset.width).toFixed(9),uy=(3/asset.height).toFixed(9);
+   shadow.onBeforeCompile=shader=>{
+    const marker='#include <map_fragment>';if(!shader.fragmentShader.includes(marker))throw Error('PAPER_SHADOW_SHADER');
+    shader.fragmentShader=shader.fragmentShader.replace(marker,`
+     vec2 du = vec2(${ux},0.0), dv = vec2(0.0,${uy});
+     float a = texture2D(map,vMapUv).a * 0.28;
+     a += (texture2D(map,vMapUv+du).a + texture2D(map,vMapUv-du).a + texture2D(map,vMapUv+dv).a + texture2D(map,vMapUv-dv).a) * 0.12;
+     a += (texture2D(map,vMapUv+du+dv).a + texture2D(map,vMapUv+du-dv).a + texture2D(map,vMapUv-du+dv).a + texture2D(map,vMapUv-du-dv).a) * 0.06;
+     diffuseColor.a *= a;
+    `);
+   };
+   shadow.customProgramCacheKey=()=>`f2-shadow-card:${ux}:${uy}`;
+   const card=new THREE.Mesh(face,shadow);card.position.set(7,-8,-.1);card.renderOrder=order*2-.5;group.add(card);shadowCards++;
+  }
   const options={map:textures.get(s.asset)!,transparent:!depthMode||look==='depth-soft',depthTest:depthMode,depthWrite:depthMode&&look!=='depth-soft',alphaTest:depthMode&&look!=='depth-soft'?.5:0,side:THREE.DoubleSide,opacity:s.opacity};
   const material=mode==='volume'&&s.asset==='mai/torso'&&['standard','lambert','fold'].includes(look)
    ?(look==='lambert'?new THREE.MeshLambertMaterial(options):new THREE.MeshStandardMaterial({...options,roughness:1,...(look==='fold'?{emissive:0xffffff,emissiveMap:options.map,emissiveIntensity:.25}:{})}))
@@ -102,6 +118,6 @@ async function main(){
  }
  if(contact&&replacedContactShadows!==contact.size)throw Error('PAPER_CONTACT_SHADOW_COVERAGE');
  await renderer.compileAsync(scene,camera);renderer.render(scene,camera);renderer.getContext().finish();
- window.sceneStats={mode,shadowMode,coverage,plates,extruded,requiredContours,hiddenPaperShadows,replacedContactShadows,three:THREE.REVISION};window.sceneReady=true;
+ window.sceneStats={mode,shadowMode,coverage,plates,extruded,requiredContours,hiddenPaperShadows,replacedContactShadows,shadowCards,three:THREE.REVISION};window.sceneReady=true;
 }
 main().catch(e=>{window.sceneError=String(e);});

@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-t3-shadow-cards-repeat",
+  "run_id": "20261114T195937Z-f2-t3-shadow-cards-repeat-38fee054",
+  "started_at_utc": "20261114T195937Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx production/src/art/paper-scene/render.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 108 production/artifacts/quality/v2-f2/overlay-physical-contours.json authored-only physical shadow-card preview"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "ab157a7b5787e9328c6b066ab6fa99f2adbcd9a9",
+  "tracked_diff_sha256": "51b9444efe6579e2147626e023abfca0db6dac1fbb79ffeda5654b0fafc71ad1",
+  "status": "RUNNING",
+  "recorder_pid": 14555,
+  "source_snapshot_sha256": "b15f76761268651b81b59cf41ad1c1b927bd4f21c07b4a972b72ddc7f2570715"
+}

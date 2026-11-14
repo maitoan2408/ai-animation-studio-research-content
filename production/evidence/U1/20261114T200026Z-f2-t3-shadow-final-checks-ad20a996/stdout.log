@@ -1,0 +1,162 @@
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ S05 projected-alpha gate accepts only a bound clear report (2.33461ms)
+✔ art source hashes, explicit pivots, views and local references remain intact (70.644931ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (2.24596ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (2.261764ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (163.470599ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (28.404483ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (4.30757ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (15.192569ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (0.772122ms)
+✔ upright walk uses only the hip drop required for planted-foot reach (1.059029ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (11.971732ms)
+✔ valid continuation matches state without mutating snapshots (2.603568ms)
+✔ unintended rotation reset, attachment and data mismatch fail with evidence (1.21851ms)
+✔ invalid provenance, nonfinite pose and missing controls cannot pass (1.846087ms)
+✔ intentional cuts record an explicit reason (0.188322ms)
+✔ diagnostic figures retain real frame indices, escape labels and reject invalid numeric data (1.768369ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (336.780549ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (336.552161ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (2.656913ms)
+✔ separate development overlay assembles every draft pose using unchanged rig anchors (19.315543ms)
+✔ old locked hero bake cannot silently consume the new art revision (20.340678ms)
+✔ draft heads have correctly bound paper shadows without moving rig sprites (8.325208ms)
+✔ S05 declared ground and stance check all four actual sole anchors in all frames (2.42876ms)
+✔ independent S05 track detects injected foot slip without changing baseline evaluator (1.010738ms)
+✔ real S02 walk passes declared alternating stance intervals without false slip on swing (1.997598ms)
+✔ slip injected during S02 planted interval is detected (0.949321ms)
+✔ camera pan does not create a world-space planted-foot failure (1.371149ms)
+✔ independent ground catches slip, gap, penetration and prop/body overlap (0.590825ms)
+✔ invalid frames and unpaired collision shapes fail closed (0.741853ms)
+✔ world-space slip cannot be hidden by camera zooming out (0.455251ms)
+✔ a new stance uses a new anchor after an airborne interval (0.337497ms)
+✔ S05 R3 hands contact separate visible sides of the drawn lantern handle (44.526454ms)
+✔ S05 R3 keeps prop path, reaction delay, other shots and deterministic seeks (283.623416ms)
+✔ hero ground gate checks four soles in every declared frame (243.147921ms)
+✔ hero ground gate fails a planted-foot drift and rejects malformed fixture (101.301233ms)
+✔ explicit owner covers the handoff and differs from shared contact (1.628317ms)
+✔ ownership cannot claim a control without contact or have gaps (0.333643ms)
+✔ contact blobs use declared ground and actual sole anchors (8.956305ms)
+✔ missing foot, nonfinite and foot above ground reject (0.630081ms)
+✔ all 22 S05 part masks triangulate to their exact binary pixel area (21.289663ms)
+✔ malformed area, diagonal edges and orphan holes reject (1.224861ms)
+✔ all 58 development foreground masks triangulate to the exact binary pixel area (27.322785ms)
+✔ all 79 overlay foreground masks triangulate to their binary pixel area (19.306835ms)
+✔ all 79 four-times grid masks triangulate to the exact source-grid area (52.818102ms)
+✔ seven background masks triangulate to exact binary area in their declared grid (51.41797ms)
+✔ oblique depth moves the back while preserving the actual face and pivots (7.462108ms)
+✔ edge variation preserves front coordinates and is deterministic (5.21726ms)
+✔ edge inputs fail closed (0.753756ms)
+✔ paper plate and extruded shape share the authored native pivot (9.032092ms)
+✔ paper geometry rejects missing pivot, nonfinite dimensions and depth (1.218509ms)
+✔ Three geometry convention matches scene anchor transforms under rotation and mirrored scale (15.635599ms)
+✔ 4x grid converts to the same native asset scale and pivot (429.602238ms)
+✔ invalid contour scale or metadata fails closed (0.945302ms)
+✔ contour UVs address the original asset under 1x and 4x grids (0.955001ms)
+✔ S05 paper faces cover all actor/prop sprites and preserve rig anchors across every frame (171.408807ms)
+✔ missing foreground silhouettes reject while explicit background plates remain allowed (0.845769ms)
+✔ performance authoring contract is immutable, covers the shot and preserves shared grip intervals (2.859248ms)
+✔ performance rejects gaps, overlap, unknown capabilities and invalid semantic references (2.752198ms)
+✔ schema-valid unimplemented acting variations fail before rendering instead of being ignored (0.562125ms)
+✔ Rapier measured pendulum/drop/bounce/damping meet locked criteria and exact reference hash (618.953625ms)
+✔ baked hero preserves dual hold, grips, stance and arbitrary seeks without live physics (394.736794ms)
+✔ bake boundary rejects tampering, wrong revision, malformed timebase/events and nonfinite data (7.923648ms)
+✔ critic rejects a detached physics joint even when IK still keeps the palm on the prop (148.793442ms)
+✔ execution binding rejects stale gravity, toolchain and legacy receipts without changing baseline motion (43.6778ms)
+✔ hero input and legacy opt-in reject invalid mass, unsupported phases and stretched contacts (2.418324ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (44.656287ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (275.13171ms)
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (2.874121ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (29.420277ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (6.023371ms)
+✔ real HTTP media, origin/token, persistence, stale head and changed-file rejection (721.25323ms)
+✔ real R2 editorial boundary is S06 to S05; a missing lamp is explicit (3.851587ms)
+✔ seam inventory refuses ambiguous selection and duplicate sprite identity (1.201159ms)
+✔ real S06 to S05 torso change is reported unless an explicit provisional cut is declared (10.579825ms)
+✔ actual S05 end state rejects a synthetic upright snap and permits an explicit cut (1.802209ms)
+✔ declared matching continuation preserves actual end transform and velocity (1.398527ms)
+✔ actual S05 transforms produce finite bounded observations for both torsos (110.291528ms)
+✔ injected lamp inside real torso bounds is flagged and invalid transforms reject (1.144693ms)
+ℹ tests 78
+ℹ suites 0
+ℹ pass 78
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12036.572124
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+.........................................
+----------------------------------------------------------------------
+Ran 41 tests in 2.324s
+
+OK
+
+> paper-studio@0.1.0 verify
+> npm run format:check && npm run typecheck && npm test
+
+
+> paper-studio@0.1.0 format:check
+> prettier --check src tests web package.json tsconfig.json tsconfig.test.json
+
+Checking formatting...
+All matched files use Prettier code style!
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> paper-studio@0.1.0 typecheck
+> tsc --noEmit && tsc -p tsconfig.test.json
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> paper-studio@0.1.0 test
+> tsx --test tests/*.test.ts
+
+✔ mixer places audio at scene frame boundary and rejects overflow instead of trimming (60.103354ms)
+✔ planner rejects malformed and duplicate directives (0.896181ms)
+✔ script produces explicit scenes, stable IDs and frame durations (7.620417ms)
+✔ reject invalid duration, unsupported directions and excessive scene count (2.24689ms)
+✔ narration edits invalidate generated voice binding (3.769529ms)
+✔ duplicate scene IDs and unknown fields are rejected (0.873405ms)
+✔ optimistic revision updates serialize; old revision remains unchanged (49.693412ms)
+✔ store blocks traversal and detects changed asset bytes (7.14846ms)
+✔ startup marks a running job interrupted rather than successful (6.449656ms)
+✔ HTTP boundary rejects cross-origin writes, unknown fields and revision conflicts (131.082091ms)
+✔ one data owner; failed attempt retries without overwriting history (259.836424ms)
+✔ duplicate submit, active cancellation and manual retry (231.938744ms)
+✔ cache verifies bytes and binds reused output to the requested revision (327.580024ms)
+✔ portable package checks all hashes before importing and does not inherit approval (27.816792ms)
+✔ WAV parsing rejects format confusion and truncated chunks (0.690903ms)
+✔ reopening persisted running state interrupts its attempt and keeps the next owner locked (221.846911ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2584.905188
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

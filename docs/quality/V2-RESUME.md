@@ -31,3 +31,5 @@ F2: 86-contour scene đã chạy preview im lặng 192 frame tại 640×360, see
 Kế hoạch chi tiết F2 mới được lưu `PROPOSED-Q0-Q9-F2-DETAIL-20261114.md`. T0 baseline/công cụ ΔE hoàn tất mức kỹ thuật, ngưỡng chưa xác minh; T0b ADR đề xuất, chưa triển khai. T1 và T2 mỗi mục có ba thử nghiệm nhưng chưa đạt visual/parity/shadow: xem F2 report và ảnh `t1/`, `t2/`; giữ F2 IN_PROGRESS và không mở F3.
 
 T3–T6 đã thử riêng: contact lấy bốn sole/ground fixture, back-edge seed, màu sợi UV và glow ở anchor đèn. Chỉ là prototype partial, chưa chứng minh bóng lớp/flicker hoặc ghép preset. T0b có thử audit trên tám bản sao dedup nhưng chưa chạy full fresh review/security; recorder giữ nguyên. T1/T2 và các cổng F2 còn mở, xem F2 report.
+
+T3 có thêm thử shadow-card (31 card, 29 paper-shadow ẩn; 640p frame 108 render lặp chính xác). Có thể đổ lên sai lớp và chưa kiểm contact/motion, nên vẫn PARTIAL; xem F2 report và `t3/shadow-cards-compare/`.
