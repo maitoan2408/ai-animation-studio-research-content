@@ -9,3 +9,7 @@ F1 có boundary validator và contact critic với negative tests, kiểm 4 châ
 ## Tiếp tục 14/11 — đối chiếu đề xuất Q0–Q9
 
 Giữ kế hoạch lõi và state, chọn lọc đề xuất tại `PLAN-REVIEW-20261114.md`. Critic F1 đã sửa để kiểm world và projected drift độc lập; zoom out không che trượt chân, có test đổi stance tổng hợp. Giữ ngưỡng fixture 1 px. F1/F2 vẫn IN_PROGRESS, real seam/collision proxy và F2 render chưa xong.
+
+## Tiếp tục 14/11 — S02 và biên dựng thật
+
+S02 alternating stance khai báo trước đã được kiểm hai chân trên 192 frame và inject trượt; R2 order thực S06 → S05. Quan sát evaluator R3 tại biên cho thấy torso Mai lệch 10 px, đầu đổi biểu cảm/góc, đèn không hiện ở S06. Chưa suy cut hay lỗi từ quan sát; xem F1 report và editorial-seam-observation.json. F1 tiếp tục cần contract owner, proxy thực, ngữ nghĩa seam và gate; F2 cần spike diorama 1080p.

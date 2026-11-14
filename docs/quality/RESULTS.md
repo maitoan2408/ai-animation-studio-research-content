@@ -81,3 +81,6 @@ Boundary và ground critic đã có negative tests; S05 fixture 4 chân × 192 f
 
 ### F1 world/screen drift — 14/11/2026
 Test âm tái hiện zoom 0,5 làm khuất trượt world 1,5 px; sau sửa cả hai metric đều được kiểm độc lập theo ngưỡng fixture 1 px. Test stance tổng hợp reset anchor khi chân nhấc. Chưa thay thế kiểm stance của một shot thật. Xem `PLAN-REVIEW-20261114.md`.
+
+### F1 stance và biên dựng — 14/11/2026
+S02 hai chân 192 frame với stance xen kẽ khai báo trước PASS; inject trượt phát hiện. R2 order S06 → S05 được đo trên evaluator; đèn vắng phía S06 nên không tự suy continuity. 48 production TS, 25 Python, root verify PASS. Xem `docs/reports/F1.md`.

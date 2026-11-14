@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F1-real-seam-and-F2-diorama",
-    "nextAction": "Complete F1 real seam, collision proxy, preservation naming and gate integration; F2 preserve SVG effects while implementing and rendering diorama with same rig, then compare 1080p.",
+    "nextAction": "Complete F1 semantic seam/owner and real collision proxies, preservation naming and gate; continue F2 1080p diorama spike without changing old art or golden.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -192,7 +192,9 @@
       "f1Integration": "PARTIAL_S06_SYNTHETIC_COLLISION_PROXY_SYNTHETIC",
       "f2Inventory": "PASS_117_SVG_SEMANTICS_INVENTORIED",
       "f1WorldAndScreenDrift": "PASS_TESTS_ZOOM_OUT_AND_STANCE_FIXTURE",
-      "newPlanReview": "SELECTIVE_ADOPTION_CORE_AND_HISTORY_PRESERVED"
+      "newPlanReview": "SELECTIVE_ADOPTION_CORE_AND_HISTORY_PRESERVED",
+      "f1RealStance": "PASS_S02_DECLARED_RANGES_192_FRAMES",
+      "f1EditorialSeam": "OBSERVED_S06_TO_S05_INTENT_UNCLASSIFIED"
     }
   }
 }

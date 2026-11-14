@@ -1,0 +1,23 @@
+{
+  "phase": "U7",
+  "step": "s02-seam-python",
+  "run_id": "20261114T095624Z-s02-seam-python-06ef8f38",
+  "started_at_utc": "20261114T095624Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "5781250b7a26767be845636a15de357b559ed80f",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 36526,
+  "source_snapshot_sha256": "aa2fe887b70576ba3c9a6e8ec65324806bc271b31d15bb5169c11ec7ddac04fb"
+}

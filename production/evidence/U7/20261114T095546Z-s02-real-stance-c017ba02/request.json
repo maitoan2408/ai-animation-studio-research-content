@@ -1,0 +1,17 @@
+{
+  "phase": "U7",
+  "step": "s02-real-stance",
+  "run_id": "20261114T095546Z-s02-real-stance-c017ba02",
+  "started_at_utc": "20261114T095546Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/ground-walk.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "5781250b7a26767be845636a15de357b559ed80f",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 36408,
+  "source_snapshot_sha256": "ddd0c75891e72cf08708bf92f48c619681e746b6ef1c5d6653c1896ca2c80b1a"
+}
