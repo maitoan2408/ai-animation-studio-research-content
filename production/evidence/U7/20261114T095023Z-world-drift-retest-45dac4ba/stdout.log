@@ -1,0 +1,13 @@
+✔ camera pan does not create a world-space planted-foot failure (2.267104ms)
+✔ independent ground catches slip, gap, penetration and prop/body overlap (0.669302ms)
+✔ invalid frames and unpaired collision shapes fail closed (0.878093ms)
+✔ world-space slip cannot be hidden by camera zooming out (0.274683ms)
+✔ a new stance uses a new anchor after an airborne interval (0.714566ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 349.717014

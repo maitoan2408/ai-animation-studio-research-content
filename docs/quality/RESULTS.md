@@ -78,3 +78,6 @@ Boundary và ground critic đã có negative tests; S05 fixture 4 chân × 192 f
 
 ### V2 F2 checkpoint 14/11/2026
 Đã kiểm kê 117 SVG (116 filter, 58 stroke, 51 image nhúng), kèm hash/pivot. Chưa có mesh/render 1080p hoặc duyệt art; xem `docs/reports/F2.md`.
+
+### F1 world/screen drift — 14/11/2026
+Test âm tái hiện zoom 0,5 làm khuất trượt world 1,5 px; sau sửa cả hai metric đều được kiểm độc lập theo ngưỡng fixture 1 px. Test stance tổng hợp reset anchor khi chân nhấc. Chưa thay thế kiểm stance của một shot thật. Xem `PLAN-REVIEW-20261114.md`.

@@ -76,6 +76,8 @@ export function analyzeContacts(samples: ContactSample[], limits: Limits) {
       projected = drift * s.camera.zoom;
     maxWorldDrift = Math.max(maxWorldDrift, drift);
     maxProjectedDrift = Math.max(maxProjectedDrift, projected);
+    if (drift > limits.driftPx)
+      issues.push({ frame: s.frame, code: 'FOOT_SLIDE_WORLD', actual: drift, limit: limits.driftPx });
     if (projected > limits.driftPx)
       issues.push({ frame: s.frame, code: 'FOOT_SLIDE', actual: projected, limit: limits.driftPx });
     const gap = (s.groundY - s.foot.y) * s.camera.zoom;
@@ -99,6 +101,7 @@ export function analyzeContacts(samples: ContactSample[], limits: Limits) {
     limits: [
       'Ground, stance and collision proxies are declared inputs; no artistic approval',
       'Camera translation cancels in same-frame projection; zoom scales error',
+      'World and projected drift are checked independently using the declared driftPx limit',
     ],
   };
 }
