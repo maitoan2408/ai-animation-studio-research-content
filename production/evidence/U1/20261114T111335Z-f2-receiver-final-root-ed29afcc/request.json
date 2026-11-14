@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-receiver-final-root",
+  "run_id": "20261114T111335Z-f2-receiver-final-root-ed29afcc",
+  "started_at_utc": "20261114T111335Z",
+  "command": [
+    "npm",
+    "run",
+    "verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "eff91a309b72b3805b4674098717ba12e5724c3a",
+  "tracked_diff_sha256": "d84bee8ee11c878a98ceb43ed72ddd24c4f28a5f03dde790b4cad172961aa320",
+  "status": "RUNNING",
+  "recorder_pid": 55562,
+  "source_snapshot_sha256": "5c6149a42a3616743bde8916967cb8071e406664531ff810ff9dd92e9d682254"
+}

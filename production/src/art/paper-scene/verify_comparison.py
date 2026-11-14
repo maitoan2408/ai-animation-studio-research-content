@@ -16,7 +16,11 @@ def verify(folder):
             if image.format!='PNG' or image.size!=(1920,1080):raise ValueError('SCENE_IMAGE_FORMAT')
             images.append(image.convert('RGB'))
     flat,volume=report['images']
-    if flat['plates']!=volume['plates'] or flat['extruded']!=0 or volume['extruded']<1:raise ValueError('SCENE_COVERAGE')
+    mode=report.get('shadowMode','combined');hidden=volume.get('hiddenPaperShadows',0)
+    if mode not in ('combined','receiver-only') or not isinstance(hidden,int) or hidden<0:raise ValueError('SCENE_COVERAGE')
+    if mode=='combined' and hidden!=0:raise ValueError('SCENE_COVERAGE')
+    if mode=='receiver-only' and hidden==0:raise ValueError('SCENE_COVERAGE')
+    if flat['plates']!=volume['plates']+hidden or flat['extruded']!=0 or volume['extruded']<1:raise ValueError('SCENE_COVERAGE')
     difference=ImageChops.difference(*images)
     histogram=difference.convert('L').histogram(); changed=sum(histogram[1:])
     if changed==0:raise ValueError('SCENE_NO_VISIBLE_DIFFERENCE')

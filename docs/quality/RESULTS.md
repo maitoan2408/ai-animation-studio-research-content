@@ -126,3 +126,6 @@ Revision riêng 138 asset; kiểm 288 tổ hợp rig/anchor và bake cũ từ ch
 
 ### F2 overlay v2 — 14/11/2026
 Overlay 156 asset rebake, 156 PNG verify, 79 contour; preview frame 108 thay 6 selector, 1080p flat/volume. Chưa animation/voice/art review; F2 còn mở.
+
+### F2 shadow alternative — 14/11/2026
+Receiver-only ẩn 29 bóng giấy cũ, giữ contact và receiver VSM; mới frame 108, không xác nhận bóng vật lý/art.

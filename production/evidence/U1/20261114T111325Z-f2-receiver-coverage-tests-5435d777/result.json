@@ -1,0 +1,28 @@
+{
+  "phase": "U1",
+  "step": "f2-receiver-coverage-tests",
+  "run_id": "20261114T111325Z-f2-receiver-coverage-tests-5435d777",
+  "started_at_utc": "20261114T111325Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_paper_comparison.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "eff91a309b72b3805b4674098717ba12e5724c3a",
+  "tracked_diff_sha256": "d84bee8ee11c878a98ceb43ed72ddd24c4f28a5f03dde790b4cad172961aa320",
+  "recorder_pid": 55522,
+  "source_snapshot_sha256": "f33467bf51ba0e33a8ebf6837621e795137933ef2476656c1d4a3e2626edd787",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.402,
+  "finished_at_utc": "2026-11-14T11:13:26.084279+00:00",
+  "log_sha256": "43ce099f1cba73d7b8f7b68eeadbc0113e81f1e65ba620fdc6cb8bf493766ef4",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

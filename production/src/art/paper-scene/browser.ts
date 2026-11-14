@@ -4,10 +4,10 @@ import {contourShapes} from '../paper-silhouette/shapes.js';
 import {shearDepth} from './depth.js';
 import {requireForegroundContour} from './coverage.js';
 import type {ArtPack,SceneFrame} from '../../scene/types.js';
-type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown}[];mode:'flat'|'volume';textureUrls:Record<string,string>};
+type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only';textureUrls:Record<string,string>};
 declare global { interface Window { sceneInput:Info; sceneReady?:boolean;sceneError?:string;sceneStats?:unknown; } }
 async function main(){
- const {pack,frame,contours,mode,textureUrls}=window.sceneInput;
+ const {pack,frame,contours,mode,shadowMode,textureUrls}=window.sceneInput;
  const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
  renderer.setPixelRatio(1);renderer.setSize(1920,1080);renderer.setClearColor('#e8ddbe',1);
  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.VSMShadowMap;
@@ -23,12 +23,13 @@ async function main(){
  const ids=[...new Set(frame.sprites.map(s=>s.asset))];
  await Promise.all(ids.map(async id=>{const url=textureUrls[id];if(!url)throw Error(`SCENE_TEXTURE_MISSING ${id}`);
    let t:THREE.Texture;try {t=await loader.loadAsync(url);}catch {throw Error(`SCENE_TEXTURE_LOAD ${id} ${url}`);}t.colorSpace=THREE.SRGBColorSpace;t.minFilter=THREE.LinearFilter;t.magFilter=THREE.LinearFilter;t.generateMipmaps=false;textures.set(id,t);}));
- let plates=0,extruded=0;
+ let plates=0,extruded=0,hiddenPaperShadows=0;
  const ordered=[...frame.sprites].sort((a,b)=>a.z-b.z);
  const firstForeground=ordered.findIndex(s=>s.z>=0);if(firstForeground<0)throw Error('SCENE_FOREGROUND');
  const receiver=new THREE.Mesh(new THREE.PlaneGeometry(3200,2000),new THREE.ShadowMaterial({opacity:.23,depthTest:false,depthWrite:false}));
  receiver.position.z=-5;receiver.receiveShadow=true;receiver.renderOrder=firstForeground*2;scene.add(receiver);
  for(const [order,s] of ordered.entries()){
+  if(mode==='volume'&&shadowMode==='receiver-only'&&s.id.endsWith('.paper-shadow')){hiddenPaperShadows++;continue;}
   const asset=pack.assets.find(a=>a.id===s.asset);if(!asset)throw Error(`SCENE_ASSET ${s.asset}`);
   const face=new THREE.PlaneGeometry(asset.width,asset.height);
   face.translate(asset.width/2-asset.pivot[0],asset.pivot[1]-asset.height/2,0);
@@ -47,6 +48,6 @@ async function main(){
   plate.renderOrder=order*2+1;group.add(plate);scene.add(group);plates++;
  }
  await renderer.compileAsync(scene,camera);renderer.render(scene,camera);renderer.getContext().finish();
- window.sceneStats={mode,plates,extruded,three:THREE.REVISION};window.sceneReady=true;
+ window.sceneStats={mode,shadowMode,plates,extruded,hiddenPaperShadows,three:THREE.REVISION};window.sceneReady=true;
 }
 main().catch(e=>{window.sceneError=String(e);});
