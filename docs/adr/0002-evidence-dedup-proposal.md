@@ -7,3 +7,9 @@ Quyết định tạm thời: chưa đổi schema hoặc evidence lịch sử. �
 ## Thử bản sao
 
 `snapshot_dedup_trial.py` tạo tám bản sao tổng hợp cùng source.zip, đưa archive vào kho hash và thay file ở mỗi bản sao bằng symlink tương đối. Audit hiện tại đọc được; tar extract + audit được; sửa archive bị từ chối. Giảm 87,5% bytes archive trong mô phỏng tám bản. Đây chưa là tám attempt mới hoặc full `check_fresh_review`; symlink có rủi ro path traversal và khác biệt nền tảng, chưa được kiểm. Quyết định vẫn **chưa bật**, không sửa evidence cũ hay recorder.
+
+## Bản opt-in thử trong Git tạm
+
+`PAPER_EVIDENCE_SNAPSHOT=dedup-v1` nay là lựa chọn thử nghiệm, **mặc định vẫn legacy**. ZIP được ghi chuẩn hóa thời gian để cùng input có cùng hash; lưu theo hash và symlink tương đối cho audit cũ. Năm test dùng Git tạm kiểm tám attempt mới trùng snapshot, input thay đổi, bốn attempt đồng thời, source bị sửa, symlink ra ngoài và `git archive`/extract. Audit thật trên 645 attempt hoàn tất/597 snapshot cũ PASS. Test đầu FAIL vì test tái dùng đường output audit `open('x')`; đã sửa bằng tên duy nhất và giữ snapshot lỗi.
+
+Chưa chạy đủ workflow `check_fresh_review.py` từ Git sạch và chưa kiểm Windows; không bật mặc định. Git symlink và tính nguyên tử của filesystem cần được đánh giá trong môi trường vận hành. Không sửa evidence lịch sử.

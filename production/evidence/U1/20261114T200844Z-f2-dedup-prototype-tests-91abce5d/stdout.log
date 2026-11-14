@@ -1,0 +1,25 @@
+test_archive_extract_keeps_dedup (test_evidence_dedup.DedupTest.test_archive_extract_keeps_dedup) ... ok
+test_dedup_is_opt_in_replays_and_rejects_corruption (test_evidence_dedup.DedupTest.test_dedup_is_opt_in_replays_and_rejects_corruption) ... FAIL
+test_legacy_and_symlink_escape (test_evidence_dedup.DedupTest.test_legacy_and_symlink_escape) ... FAIL
+
+======================================================================
+FAIL: test_dedup_is_opt_in_replays_and_rejects_corruption (test_evidence_dedup.DedupTest.test_dedup_is_opt_in_replays_and_rejects_corruption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/studio-audit/production/tests/test_evidence_dedup.py", line 25, in test_dedup_is_opt_in_replays_and_rejects_corruption
+    self.assertEqual(self.audit().returncode,0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_legacy_and_symlink_escape (test_evidence_dedup.DedupTest.test_legacy_and_symlink_escape)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/studio-audit/production/tests/test_evidence_dedup.py", line 29, in test_legacy_and_symlink_escape
+    p.unlink();p.symlink_to('/etc/passwd');result=self.audit();self.assertNotEqual(result.returncode,0);self.assertIn('SNAPSHOT_PATH',result.stdout)
+                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SNAPSHOT_PATH' not found in ''
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.410s
+
+FAILED (failures=2)

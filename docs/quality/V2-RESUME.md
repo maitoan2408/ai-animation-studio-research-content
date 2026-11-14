@@ -35,3 +35,5 @@ T3–T6 đã thử riêng: contact lấy bốn sole/ground fixture, back-edge se
 T3 có thêm thử shadow-card (31 card, 29 paper-shadow ẩn; 640p frame 108 render lặp chính xác). Có thể đổ lên sai lớp và chưa kiểm contact/motion, nên vẫn PARTIAL; xem F2 report và `t3/shadow-cards-compare/`.
 
 T3 lần ba ghép contact và shadow-card trong mode riêng; 1080 và motion chưa được xác minh. Ba cách thử chưa qua gate, giữ PARTIAL.
+
+T0b có dedup ZIP opt-in, kiểm tám attempt mới và Git archive trong repo tạm, audit evidence cũ PASS; mặc định legacy vì full `check_fresh_review`/Windows chưa chứng minh. T1/T2/T3 vẫn PARTIAL, đề xuất fixture và phân tích Lambert tại `docs/research/f2-lighting-investigation.md`. Không nhận F2 hoàn thành.

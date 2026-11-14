@@ -3,7 +3,7 @@ Incomplete historical attempts are listed; never rewrite their status. The
 currently running recorder for this audit is also necessarily incomplete.
 """
 from pathlib import Path
-import hashlib,json,sys,zipfile
+import hashlib,json,sys,zipfile,re
 ROOT=Path(__file__).resolve().parents[3]
 files=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 rows=[];errors=[];incomplete=[];snapshots=0
@@ -15,6 +15,17 @@ for request in sorted((ROOT/'production/evidence').glob('[QU]*/*/request.json'))
     expected=req.get('source_snapshot_sha256')
     if expected:
         archive=directory/'source.zip'
+        if archive.is_symlink():
+            # Never follow a forged symlink outside the evidence snapshot store.
+            store_path=ROOT/'production/evidence/_snapshots'
+            try:
+                store=store_path.resolve();target=archive.resolve()
+                valid=(not store_path.is_symlink() and store.parent==(ROOT/'production/evidence').resolve()
+                       and re.fullmatch(r'[0-9a-f]{64}',str(expected))
+                       and target.parent==store and target.name==str(expected)+'.zip')
+            except (RuntimeError,OSError):valid=False
+            if not valid:
+                errors.append(directory.name+':SNAPSHOT_PATH');continue
         if not archive.exists() or files(archive)!=expected:errors.append(directory.name+':SNAPSHOT_HASH')
         else:
             inputs=json.loads((directory/'inputs.json').read_text())['files']
