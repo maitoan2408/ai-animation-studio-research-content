@@ -173,7 +173,7 @@
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "NOT_RUN",
       "rootVerify": "PASS",
-      "integrationUI": "IN_PROGRESS",
+      "integrationUI": "PASS",
       "licenseResearch": "NOT_RUN",
       "determinismContracts": "NOT_RUN"
     }

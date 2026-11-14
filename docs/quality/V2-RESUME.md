@@ -6,4 +6,4 @@ F0 IN_PROGRESS: bước kế tiếp tái hiện và sửa T11 mất bản nháp 
 
 ## Checkpoint F0 — 14/11
 
-Save delayed-response data loss reproduced FAIL then retested PASS. Implemented draft generation preservation for save/voice/upload, with project ID guard and explicit detach tracking. Voice/upload/project-switch and detach races remain NOT_RUN and must be tested before calling T11 done. Root verify passed; integration/UI running. First typecheck failed on new test nullability, corrected and rerun. Do not treat initial save-only fix as F0 completion.
+Save delayed-response data loss reproduced FAIL then retested PASS. Implemented draft generation preservation for save/voice/upload, with project ID guard and explicit detach tracking. Voice/upload/project-switch and detach races remain NOT_RUN and must be tested before calling T11 done. Root verify and isolated build/integration/UI passed; old artifacts unchanged. First typecheck failed on new test nullability, corrected and rerun. Do not treat initial save-only fix as F0 completion.
