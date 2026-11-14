@@ -27,3 +27,5 @@ F2: 79 contour overlay 4× binary roundtrip/triangulation và render S05 1080p; 
 F2: native-size silent 192-frame candidate decoded and independently checked; uses 79 foreground contours and flat background. A separate 1080p still includes all seven background contours (86 assets, 38 required instances). No art/audio/physical-shadow approval. See F2 report; F2 IN_PROGRESS.
 
 F2: 86-contour scene đã chạy preview im lặng 192 frame tại 640×360, seek nhiều thứ tự khớp; frame 24 đủ 38/38 contour bắt buộc. Chưa render đủ 1080 với nền đùn.
+
+Kế hoạch chi tiết F2 mới được lưu `PROPOSED-Q0-Q9-F2-DETAIL-20261114.md`. T0 baseline/công cụ ΔE hoàn tất mức kỹ thuật, ngưỡng chưa xác minh; T0b ADR đề xuất, chưa triển khai. T1 và T2 mỗi mục có ba thử nghiệm nhưng chưa đạt visual/parity/shadow: xem F2 report và ảnh `t1/`, `t2/`; giữ F2 IN_PROGRESS và không mở F3.

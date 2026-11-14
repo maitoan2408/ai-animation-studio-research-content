@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F2-diorama-and-rig",
-    "nextAction": "F2: validate 86-contour motion at native size and edge fidelity, design layer-aware/contact shadows and obtain creative review; retain human/Q2 gates before F3.",
+    "nextAction": "F2 T0b: test compatible evidence dedup on a copy; resolve T1 shading and T2 depth/shadow partial results within plan stop-loss; T3–T12 and real HQ-02 remain open. Do not claim F2, Q1-ART, F3 or Q3 complete.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -223,8 +223,15 @@
       "f2Animation1080": "PASS_PROVISIONAL_192_SILENT_FRAMES_79_FOREGROUND_FLAT_BACKGROUND_NO_ART_AUDIO_REVIEW",
       "f2PhysicalContours": "PASS_BINARY_86_ASSETS_38_REQUIRED_INSTANCES_ONE_STILL_ONLY",
       "f2AlphaLoss": "MEASURED_ONLY_NOT_EDGE_QUALITY_GATE",
-      "f2EvidenceBudget": "OVER_25MB_PROPOSED_LIMIT_PRESERVED_HISTORY_DEDUP_DESIGN_PENDING",
-      "f2PhysicalAnimation": "PASS_PROVISIONAL_192_FRAMES_640_SILENT_SEEK_1080_AND_ART_PENDING"
-    }
+      "f2EvidenceBudget": "OVER_5MB_PER_TASK_RETAINED_SNAPSHOTS_DEDUP_PENDING",
+      "f2PhysicalAnimation": "PASS_PROVISIONAL_192_FRAMES_640_SILENT_SEEK_1080_AND_ART_PENDING",
+      "f2DetailT0": "PASS_BASELINE_AND_COLOR_TOOL_THRESHOLDS_UNVERIFIED",
+      "f2DetailT0b": "PARTIAL_ADR_ONLY_AUDIT_COMPATIBILITY_NOT_TESTED",
+      "f2DetailT1": "PARTIAL_THREE_EXPERIMENTS_FAILED_VISUAL_GATE",
+      "f2DetailT2": "PARTIAL_THREE_EXPERIMENTS_DEPTH_SHADOW_PARITY_NOT_PROVEN",
+      "f2DetailT3T12": "NOT_DONE"
+    },
+    "detailPlan": "docs/quality/PROPOSED-Q0-Q9-F2-DETAIL-20261114.md",
+    "detailPlanSha256": "7a0d796dfac0e49b1e16767270c388eb1aadfd51ae9dfb5587f8b3c7d7b7535c"
   }
 }

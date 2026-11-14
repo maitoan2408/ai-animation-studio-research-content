@@ -135,3 +135,6 @@ Receiver-only ẩn 29 bóng giấy cũ, giữ contact và receiver VSM; mới fr
 
 ### F2 192-frame candidate and background contours — 14/11/2026
 192 silent S05 frames at 1080p decoded/hash-checked; separate 86-contour still has 38/38 required bodies, with 69 shadow and one effect assets kept as plates. Alpha loss quantified; this is not an edge/art/audio/physical-shadow gate. 74 TS, 39 Python, typecheck and root verify PASS for the recorded source snapshot. F2 remains IN_PROGRESS; see F2 report for exact scope and evidence.
+
+### F2 T0–T2 theo kế hoạch bổ sung — 14/11/2026
+Khóa baseline/crop và công cụ ΔE00; ba thử chiếu sáng thân và ba thử depth/alpha/shadow chưa qua gate. Một bản depth-lit lệch màu toàn cảnh; bản alpha blend chưa chứng minh bóng lớp. 74 TS, 41 Python, typecheck và root verify PASS; F2 vẫn IN_PROGRESS. Xem `docs/reports/F2.md` và `F2-DECISIONS.md`.
