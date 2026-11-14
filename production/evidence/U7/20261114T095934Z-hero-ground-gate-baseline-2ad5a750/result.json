@@ -1,0 +1,22 @@
+{
+  "phase": "U7",
+  "step": "hero-ground-gate-baseline",
+  "run_id": "20261114T095934Z-hero-ground-gate-baseline-2ad5a750",
+  "started_at_utc": "20261114T095934Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/hero-ground-gate.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "840c77ac7259802eaa396b041cdac7d9671bd044",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 37373,
+  "source_snapshot_sha256": "59b8a8f87e40b003e2388f237643ed9119892cb9f18990f5af6c6e09e86cd80b",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 0.546,
+  "finished_at_utc": "2026-11-14T09:59:35.067965+00:00",
+  "log_sha256": "e8389771c7b8270b8b3a2384ff45510879b74e49d3d36033d05207cc8fe09a61",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

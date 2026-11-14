@@ -1,0 +1,7 @@
+test_exact_data_detects_change (test_determinism_tiers.DeterminismTiers.test_exact_data_detects_change) ... ok
+test_raster_requires_explicit_threshold_and_detects_visual_change (test_determinism_tiers.DeterminismTiers.test_raster_requires_explicit_threshold_and_detects_visual_change) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.849s
+
+OK

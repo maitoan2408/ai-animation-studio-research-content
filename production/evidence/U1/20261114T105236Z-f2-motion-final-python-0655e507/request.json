@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-motion-final-python",
+  "run_id": "20261114T105236Z-f2-motion-final-python-0655e507",
+  "started_at_utc": "20261114T105236Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "bcb714f25b59a1024b3fcaeb9ab88cfeed3269ee",
+  "tracked_diff_sha256": "f46334a7c8e479d5eeb59bc72bcd65d59d6166be778ac8bbb775b86fa91b91ba",
+  "status": "RUNNING",
+  "recorder_pid": 49068,
+  "source_snapshot_sha256": "e6df33352c9383ed3b1b413b700a0152977a087c0c9a8a4969ae743668b86ded"
+}

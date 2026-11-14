@@ -1,0 +1,21 @@
+{
+  "phase": "Q2",
+  "step": "v2-draft-baseline",
+  "run_id": "20261114T043252Z-v2-draft-baseline-a8280147",
+  "started_at_utc": "20261114T043252Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/draft-recovery.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "88700aefbd590c6d53795f4592f0afe85b59da7e",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 3519,
+  "source_snapshot_sha256": "c150cf017eeb8b6d7d3fa5b0d0d18ae293cee453119a7f456f992a690fa88b1b",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 3.262,
+  "finished_at_utc": "2026-11-14T04:32:55.545836+00:00",
+  "log_sha256": "5b2e55d96341ddc503833895f3a3fca7b6a57b15dfcdd1e68f31d84dea5ec4c8",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

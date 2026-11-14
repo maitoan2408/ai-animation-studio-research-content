@@ -72,3 +72,60 @@ phát triển cũ và audio im lặng có chủ đích, chưa phải phim produc
 [Plan chi tiết](PLAN.md), [state](state.json), [issues](ISSUES.md),
 [evidence](../../production/artifacts/quality/README.md),
 [runbook](../../production/src/motion/README.md).
+
+### V2 F1 checkpoint 14/11/2026
+Boundary và ground critic đã có negative tests; S05 fixture 4 chân × 192 frame PASS, snap đèn tổng hợp bị phát hiện. 42 production TS, 23 Python, root verify PASS. F1 vẫn IN_PROGRESS vì S06/proxy collision còn tổng hợp và chưa tích hợp gate; xem `docs/reports/F1.md`.
+
+### V2 F2 checkpoint 14/11/2026
+Đã kiểm kê 117 SVG (116 filter, 58 stroke, 51 image nhúng), kèm hash/pivot. Chưa có mesh/render 1080p hoặc duyệt art; xem `docs/reports/F2.md`.
+
+### F1 world/screen drift — 14/11/2026
+Test âm tái hiện zoom 0,5 làm khuất trượt world 1,5 px; sau sửa cả hai metric đều được kiểm độc lập theo ngưỡng fixture 1 px. Test stance tổng hợp reset anchor khi chân nhấc. Chưa thay thế kiểm stance của một shot thật. Xem `PLAN-REVIEW-20261114.md`.
+
+### F1 stance và biên dựng — 14/11/2026
+S02 hai chân 192 frame với stance xen kẽ khai báo trước PASS; inject trượt phát hiện. R2 order S06 → S05 được đo trên evaluator; đèn vắng phía S06 nên không tự suy continuity. 48 production TS, 25 Python, root verify PASS. Xem `docs/reports/F1.md`.
+
+### F1 S05 ground gate — 14/11/2026
+Candidate exporter kiểm ground 4 chân × 192 frame trước native input, ghi hash fixture/bake; fixture sai hoặc drift bị từ chối. Alias preservation giữ tên cũ cho tương thích. F1 chưa có collision proxy thực hoặc owner.
+
+### F2 spike torso — 14/11/2026
+Three SVG path + extrusion và SVG raster face; 1080p so flat/mesh, test hai pixel phát hiện clipping lần 1 và pass lần 3. Chưa chứng minh rig, đầy đủ effects hoặc chất lượng art; F2 PARTIAL. Xem F2 report.
+
+### F1 S05 asset bounds — 14/11/2026
+Đã kiểm vùng bao SVG xoay trên S05 bake: Mai 41, An 66 frame có chồng vùng bao; không suy kết quả xuyên do transparency/depth. Contacts trích PerformanceScript, owner chưa có contract. F1 tiếp tục mở.
+
+### F1 mask alpha S05 — 14/11/2026
+So alpha≥128 từ texture R3 có hash trong 192 frame: không có pixel đục trùng giữa đèn và torso Mai/An. Hình chiếu 2D không suy 3D hay approval. Owner/seam còn mở.
+
+### F1 owner và seam — 14/11/2026
+Fixture ownership S05 kiểm contact và coverage; cut S06→S05 tạm thời dựa benchmark độc lập, comparator test frame thực. F1 vẫn PARTIAL vì collision alpha offline chưa thành gate vật lý.
+
+### F1 technical provisional — 14/11/2026
+S05 native input nay fail closed trên ground, ownership và overlap alpha ≥128 sau khi kiểm hash; case inject phát hiện. Scope 2D, không đóng F4 hay gate người; F2 đang làm trước F3.
+
+### F2 pivot torso — 14/11/2026
+Face và extrusion dùng pivot native; test tọa độ anchor với rig bao gồm quay/lật và render 1080p anti-clipping PASS. Mới một asset, không đóng F2.
+
+### F2 S05 frame thử — 14/11/2026
+Contour nhị phân 22 part roundtrip; render frame 108 có 31/71 sprite đùn, 1080p flat/volume khác 9.501 pixel. Yaw từng phần, bóng, motion và art chưa đạt gate; F2 PARTIAL.
+
+### F2 oblique và bóng — 14/11/2026
+Bỏ yaw từng part, face z=0 không đổi; thêm VSM receiver chung. So ảnh có/không bóng khác 41.497 pixel nhưng chưa chứng minh bóng đúng hay motion. F2 PARTIAL.
+
+### F2 rig all-frame — 14/11/2026
+Face anchors và contour coverage trên 192 frame S05 PASS; chỉ render rời 0, 108, 191, không nhận motion hay art approval.
+
+### F2 coverage art — 14/11/2026
+117 PNG phát triển hash/decode; 58 foreground contour binary/triangulation; 59 shadow/background/effect chưa mesh. Không nhận art/motion approval.
+
+### F2 draft mouth/expression — 14/11/2026
+Tạo 3 mouth SVG và 18 đầu draft độc lập; preview 1080p, giữ revision đầu, không đổi pack cũ. Chưa tích hợp rig/phoneme hay duyệt art.
+
+### F2 overlay draft — 14/11/2026
+Revision riêng 138 asset; kiểm 288 tổ hợp rig/anchor và bake cũ từ chối art khác. Chưa có render chuyển động/voice, shadow draft hay duyệt art.
+
+### F2 overlay v2 — 14/11/2026
+Overlay 156 asset rebake, 156 PNG verify, 79 contour; preview frame 108 thay 6 selector, 1080p flat/volume. Chưa animation/voice/art review; F2 còn mở.
+
+### F2 shadow alternative — 14/11/2026
+Receiver-only ẩn 29 bóng giấy cũ, giữ contact và receiver VSM; mới frame 108, không xác nhận bóng vật lý/art.

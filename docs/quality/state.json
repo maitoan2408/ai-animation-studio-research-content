@@ -70,5 +70,153 @@
     "nextTask": "T01",
     "taskState": "PLANNED_NOT_EXECUTED",
     "limits": "Technical review; no creative approval or new test run"
+  },
+  "v2": {
+    "source": "docs/quality/V2-USER-PLAN.md",
+    "sourceSha256": "e800b86d13c71de19249aa54728528a4278b3c2612b268fb1b040adc085a0cbd",
+    "baseline": "ce4f912",
+    "branch": "codex/v2-continuous",
+    "currentPhase": "F2",
+    "tasks": [
+      {
+        "id": "F0",
+        "dependencies": [],
+        "status": "PASS_TECHNICAL_PROVISIONAL",
+        "attempts": 1
+      },
+      {
+        "id": "F1",
+        "dependencies": [
+          "F0"
+        ],
+        "status": "PASS_TECHNICAL_PROVISIONAL",
+        "attempts": 1
+      },
+      {
+        "id": "F2",
+        "dependencies": [
+          "F0"
+        ],
+        "status": "IN_PROGRESS",
+        "attempts": 1
+      },
+      {
+        "id": "F3",
+        "dependencies": [
+          "F1",
+          "F2"
+        ],
+        "status": "TODO",
+        "attempts": 0
+      },
+      {
+        "id": "F4",
+        "dependencies": [
+          "F3"
+        ],
+        "status": "TODO",
+        "attempts": 0
+      },
+      {
+        "id": "F5",
+        "dependencies": [
+          "F3"
+        ],
+        "status": "TODO",
+        "attempts": 0
+      },
+      {
+        "id": "F6",
+        "dependencies": [
+          "F3"
+        ],
+        "status": "TODO",
+        "attempts": 0
+      },
+      {
+        "id": "F7",
+        "dependencies": [
+          "F2",
+          "F4"
+        ],
+        "status": "TODO",
+        "attempts": 0
+      },
+      {
+        "id": "F8",
+        "dependencies": [
+          "F3",
+          "F4"
+        ],
+        "status": "TODO",
+        "attempts": 0
+      },
+      {
+        "id": "F9",
+        "dependencies": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "F6",
+          "F7",
+          "F8"
+        ],
+        "status": "TODO",
+        "attempts": 0
+      }
+    ],
+    "currentTask": "F2-diorama-and-rig",
+    "nextAction": "F2: inspect shadow alternative in motion, implement layer-aware contact shadows, prepare full animation/styleframe and human review; F3 still gated.",
+    "progress": {
+      "saveRace": "REPRODUCED_AND_RETESTED_PASS",
+      "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
+      "rootVerify": "PASS",
+      "integrationUI": "PASS",
+      "licenseResearch": "PARTIAL_PROVIDER_USE_CASE",
+      "determinismContracts": "PASS_SYNTHETIC_THRESHOLDS_ONLY",
+      "determinismResearch": "PARTIAL_NO_CALIBRATED_PROJECT_THRESHOLD",
+      "explicitDetach": "PASS_PERSISTENCE",
+      "voiceDurationMerge": "PASS_TARGETED_CHROMIUM",
+      "nextRequired": "Complete real F1 integration and independent F2 work; do not mark final art approved.",
+      "navigationRace": "PASS_INCLUDING_RETURN_TO_PROJECT",
+      "productionPython": "PASS_23",
+      "recovery": "PASS_THREE_SUCCESSIVE_RUNS",
+      "remoteCI": "PASS_SOURCE_ae508cb",
+      "pixelThreshold": "UNVERIFIED_CALIBRATION_REQUIRED",
+      "testFlake": "REPRODUCED_FIXED_RETESTED",
+      "f1Research": "RECORDED_PRIMARY_SOURCES",
+      "f2Research": "PREPARATORY_EXTRUDE_PRIMITIVE_ONLY",
+      "f1Contracts": "PASS_SYNTHETIC_NEGATIVES_AND_S05_FIXTURE",
+      "f1Integration": "PASS_BOUNDED_S05_2D_3D_AND_ART_UNVERIFIED",
+      "f2Inventory": "PASS_117_SVG_SEMANTICS_INVENTORIED",
+      "f1WorldAndScreenDrift": "PASS_TESTS_ZOOM_OUT_AND_STANCE_FIXTURE",
+      "newPlanReview": "SELECTIVE_ADOPTION_CORE_AND_HISTORY_PRESERVED",
+      "f1RealStance": "PASS_S02_DECLARED_RANGES_192_FRAMES",
+      "f1EditorialSeam": "OBSERVED_S06_TO_S05_INTENT_UNCLASSIFIED",
+      "f1HeroGroundGate": "PASS_PROVISIONAL_S05_4_FEET_192_FRAMES",
+      "f1PreservationMetric": "RENAMED_WITH_LEGACY_ALIASES",
+      "f2Spike": "PARTIAL_1080P_TORSO_3D_VS_FLAT_NOT_RIGGED",
+      "f1RealBounds": "OBSERVED_MAI_41_AN_66_NEEDS_SHAPE_AND_DEPTH_REVIEW",
+      "f1Contacts": "FROM_PERFORMANCE_SCRIPT_NOT_OWNERSHIP",
+      "f1AlphaOverlap": "NO_OPAQUE_OVERLAP_192_FRAMES_ALPHA128_2D_ONLY",
+      "f1Ownership": "PASS_EXPLICIT_PROVISIONAL_S05_CONTACT_VALIDATED",
+      "f1RealSeam": "PASS_REAL_TRANSFORMS_PROVISIONAL_INTENTIONAL_CUT",
+      "f1ProjectedAlphaGate": "PASS_192_FRAMES_ALPHA128_NATIVE_INPUT_ONLY",
+      "f2Pivot": "PASS_TORSO_GEOMETRY_AND_ANCHOR_TRANSFORMS_ONLY",
+      "f2S05Scene": "PARTIAL_FRAME108_OBLIQUE_NO_YAW_SHARED_SHADOW",
+      "f2Contour": "PASS_BINARY_ROUNDTRIP_22_PARTS_ART_NOT_VALIDATED",
+      "f2S05Rig": "PASS_192_FRAME_FACE_ANCHORS_CONTOUR_COVERAGE",
+      "f2S05RenderedFrames": "PARTIAL_0_108_191_1080P_NOT_FULL_MOTION",
+      "f2AllRasters": "PASS_HASH_DECODE_117_51_REUSED_66_DEVELOPMENT",
+      "f2ForegroundContours": "PASS_BINARY_ROUNDTRIP_AND_TRIANGULATION_58_OF_117",
+      "f2CreativeVariants": "DRAFT_8_MOUTH_PLUS_REST_6_HEAD_LABELS_NOT_INTEGRATED_OR_REVIEWED",
+      "f2DraftOverlay": "PASS_PROVISIONAL_138_ASSETS_RIG_MATRIX_OLD_BAKE_REJECTED",
+      "f2OverlayV2": "PASS_PROVISIONAL_156_ASSETS_18_DRAFT_SHADOWS_BOUND_BAKE",
+      "f2OverlayRasters": "PASS_HASH_DECODE_156_AND_79_BINARY_CONTOURS",
+      "f2DraftPreview": "PARTIAL_1080P_FRAME108_ONLY_SIX_SELECTORS",
+      "f2ShadowAlternative": "PARTIAL_RECEIVER_ONLY_29_AUTHORED_SHADOWS_HIDDEN_SINGLE_FRAME"
+    }
   }
 }

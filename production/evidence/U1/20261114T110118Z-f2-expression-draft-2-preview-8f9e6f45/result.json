@@ -1,0 +1,21 @@
+{
+  "phase": "U1",
+  "step": "f2-expression-draft-2-preview",
+  "run_id": "20261114T110118Z-f2-expression-draft-2-preview-8f9e6f45",
+  "started_at_utc": "20261114T110118Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/expression-draft-preview.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1985154cdbcecce07c17b5e215352f2aa138ad80",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 51559,
+  "source_snapshot_sha256": "48df4bb8b2eaf899ea44ab76ecbed6a590855955c9a41dc4e3eb2015264342df",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 2.53,
+  "finished_at_utc": "2026-11-14T11:01:21.155887+00:00",
+  "log_sha256": "ebcca8846d93519e1037ba3d3befb3526ee9d374bdaab0709f9f71b1b2592d98",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

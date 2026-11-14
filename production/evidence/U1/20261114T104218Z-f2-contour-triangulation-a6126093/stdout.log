@@ -1,0 +1,10 @@
+✔ all 22 S05 part masks triangulate to their exact binary pixel area (26.652138ms)
+✔ malformed area, diagonal edges and orphan holes reject (0.956725ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 577.185336

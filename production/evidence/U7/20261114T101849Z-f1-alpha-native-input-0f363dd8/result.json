@@ -1,0 +1,28 @@
+{
+  "phase": "U7",
+  "step": "f1-alpha-native-input",
+  "run_id": "20261114T101849Z-f1-alpha-native-input-0f363dd8",
+  "started_at_utc": "20261114T101849Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "quality:hero",
+    "--",
+    "--native-input",
+    "--textures",
+    "production/out/hero-textures/d5a8aa9c807b9c95f4ddcfbc9c1b0591f6035e601e285053d614a7e7ed06c309/textures.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "d29838d537cc29ee4df05bf7383707b6b29e5807",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 40918,
+  "source_snapshot_sha256": "c42e4679d8d4cc1ad420341e737b72427000ed054a311ebe9cf39c51a4328a76",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 3.154,
+  "finished_at_utc": "2026-11-14T10:18:53.064850+00:00",
+  "log_sha256": "049f8f59985487e683199c95f03cacbb26a125faba79aea92eb7d1c2fdb2ac0e",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

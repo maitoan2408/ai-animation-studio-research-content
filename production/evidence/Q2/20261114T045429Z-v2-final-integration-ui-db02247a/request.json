@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "v2-final-integration-ui",
+  "run_id": "20261114T045429Z-v2-final-integration-ui-db02247a",
+  "started_at_utc": "20261114T045429Z",
+  "command": [
+    "python",
+    "production/src/qa/run_app_regression.py"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "92295c18b00a7db6e45ba1660c8fd5712929528340a91612b72b31aa7cc15e1a",
+  "status": "RUNNING",
+  "recorder_pid": 13646,
+  "source_snapshot_sha256": "00e85f3b315ad269e2e1988e20a63a6e4f7c2c879ab5ed023a2f899f53df32a7"
+}

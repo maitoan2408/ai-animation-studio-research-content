@@ -2,7 +2,9 @@
  * Optional --native-input uses existing verified texture metadata for Blender.
  * Outputs are never overwritten; a failed attempt remains inspectable.
  */
-import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import { readFile, mkdir, writeFile, rename } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
 import { parseArgs } from 'node:util';
@@ -11,6 +13,11 @@ import { heroInput, heroFrame, performanceIR, validateHeroPerformance, r3 } from
 import { bakeHero } from '../physics/hero.js';
 import { digest } from '../physics/bake.js';
 import { critic } from './critic.js';
+import { inspectHeroGround } from '../continuity/hero-ground.js';
+import { validateOwnership } from '../continuity/ownership.js';
+import { validateAlphaGate } from '../continuity/alpha-gate.js';
+import { createHash } from 'node:crypto';
+const runFile = promisify(execFile);
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const out = path.join(root, 'out/quality-hero', randomUUID());
 await mkdir(out, { recursive: true });
@@ -44,6 +51,15 @@ try {
   };
   await writeFile(path.join(out, 'critic.json'), JSON.stringify(report, null, 2) + '\n');
   if (report.status !== 'PASS_GEOMETRY') throw Error('HERO_CRITIC_FAILED');
+  const ownershipBytes = await readFile(path.join(root, 'brief/quality/s05-ownership.json'));
+  const ownership = validateOwnership(JSON.parse(ownershipBytes.toString()), performance);
+  await writeFile(path.join(out, 'ownership.json'), JSON.stringify({status:'PROVISIONAL_DEVELOPMENT',
+    fixtureSha256:createHash('sha256').update(ownershipBytes).digest('hex'), intervals:ownership}, null, 2) + '\n');
+  const groundBytes = await readFile(path.join(root, 'brief/quality/ground-fixture.json'));
+  const ground = { ...inspectHeroGround(pack, JSON.parse(groundBytes.toString()), f => heroFrame(pack, input, bake, f)),
+    fixtureSha256: createHash('sha256').update(groundBytes).digest('hex'), bakeSha256: bake.sha256 };
+  await writeFile(path.join(out, 'ground-critic.json'), JSON.stringify(ground, null, 2) + '\n');
+  if (ground.status !== 'PASS') throw Error('HERO_GROUND_CRITIC_FAILED');
   if (values['native-input']) {
     const textures = JSON.parse(
       await readFile(
@@ -54,17 +70,18 @@ try {
       ),
     );
     const frames = Array.from({ length: 192 }, (_, f) => heroFrame(pack, input, bake, f));
-    await writeFile(
-      path.join(out, 'S05.json'),
-      JSON.stringify({
-        shot: 'S05',
-        fps: 24,
-        pack,
-        textures,
-        edit: { ...r3, qualityCandidate: 'U3-secondary-v1', bakeSha256: bake.sha256 },
-        frames,
-      }),
-    );
+    const pending = path.join(out, 'S05.pending.json');
+    const source = JSON.stringify({
+      shot: 'S05', fps: 24, pack, textures,
+      edit: { ...r3, qualityCandidate: 'U3-secondary-v1', bakeSha256: bake.sha256 }, frames,
+    });
+    await writeFile(pending, source, { flag: 'wx' });
+    const { stdout } = await runFile('python3', [path.join(root, 'src/continuity/alpha_overlap.py'), pending],
+      { timeout: 120000, maxBuffer: 4 * 1024 * 1024 });
+    const alpha = JSON.parse(stdout);
+    await writeFile(path.join(out, 'alpha-critic.json'), JSON.stringify(alpha, null, 2) + '\n');
+    validateAlphaGate(alpha, createHash('sha256').update(source).digest('hex'));
+    await rename(pending, path.join(out, 'S05.json'));
   }
   console.log(JSON.stringify({ output: out, ...report }));
 } catch (error) {

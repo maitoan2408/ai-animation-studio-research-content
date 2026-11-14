@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-overlay-hero-render",
+  "run_id": "20261114T110703Z-f2-overlay-hero-render-3f81e9e2",
+  "started_at_utc": "20261114T110703Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json",
+    "108"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "94bc21dee57569fa74dc1512de427a0a31731bee",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 53518,
+  "source_snapshot_sha256": "e3d0697092e45a2b906d9809fd9c33e5edc396e626dd34b41a8d28b0e6c8fbd0",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 14.158,
+  "finished_at_utc": "2026-11-14T11:07:18.113746+00:00",
+  "log_sha256": "75255528ce700b838a9215b545a82439016930df1333b77990c72311fccdfbbe",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

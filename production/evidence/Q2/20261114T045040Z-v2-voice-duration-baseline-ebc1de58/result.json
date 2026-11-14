@@ -1,0 +1,21 @@
+{
+  "phase": "Q2",
+  "step": "v2-voice-duration-baseline",
+  "run_id": "20261114T045040Z-v2-voice-duration-baseline-ebc1de58",
+  "started_at_utc": "20261114T045040Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/draft-async.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 8477,
+  "source_snapshot_sha256": "e504f1714af985e28474f6c00dc1698fef13582be48f8801238919ba3aa17082",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 3.673,
+  "finished_at_utc": "2026-11-14T04:50:44.102146+00:00",
+  "log_sha256": "6410a13647ad080d2e8f59bcc58ace9a35cf3dd09c96c17025fcd5c65b00e568",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

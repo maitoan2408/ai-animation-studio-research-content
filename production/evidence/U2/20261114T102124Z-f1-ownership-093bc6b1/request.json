@@ -1,0 +1,17 @@
+{
+  "phase": "U2",
+  "step": "f1-ownership",
+  "run_id": "20261114T102124Z-f1-ownership-093bc6b1",
+  "started_at_utc": "20261114T102124Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/ownership.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "275b257f58cd66e1b1a82dea8066bc563c420c56",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 41704,
+  "source_snapshot_sha256": "437f97d66b99d6b994d620ef7348ea0d5eacce7cf77384eca06907b6a124981d"
+}

@@ -1,0 +1,43 @@
+{
+  "version": "lantern-mouth-f2-draft-1",
+  "status": "PROVISIONAL_NOT_APPROVED",
+  "note": "Separate draft supplement; no phoneme mapping, rig integration, or artistic approval.",
+  "assets": [
+    {
+      "id": "mouth/U",
+      "file": "U.svg",
+      "width": 36,
+      "height": 28,
+      "pivot": [
+        17,
+        14
+      ],
+      "sha256": "a90bb5413d54be78792de3b9ab1624f985bb1245a21fa546ce219904c85dcf31",
+      "source": "project-original-development"
+    },
+    {
+      "id": "mouth/L",
+      "file": "L.svg",
+      "width": 36,
+      "height": 28,
+      "pivot": [
+        17,
+        14
+      ],
+      "sha256": "143ea8f2538a44e28e1c28a0939addafd77f5bff2c50f4ae1bbee938f23fae64",
+      "source": "project-original-development"
+    },
+    {
+      "id": "mouth/teeth",
+      "file": "teeth.svg",
+      "width": 36,
+      "height": 28,
+      "pivot": [
+        17,
+        14
+      ],
+      "sha256": "89a6ca12890c07aff36d48f5be7086316171868595f65caaf842743e081420a6",
+      "source": "project-original-development"
+    }
+  ]
+}

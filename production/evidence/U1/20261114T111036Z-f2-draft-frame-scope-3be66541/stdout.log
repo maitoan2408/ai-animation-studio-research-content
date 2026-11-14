@@ -1,0 +1,1 @@
+{"status": "PASS_PREVIEW_SCOPE", "sourceSha256": "48368a9146dfb4d9a7e15c85adbf22341ebb4e3714d899fb06711e9203cbabdc", "previewSha256": "77034fb17ae7a5db7c3dfc059c9a8f7d3964ab1e32fb6d82decb012d5addacea", "frames": 192, "changedSelectors": 6, "scope": "Only verifies data changes; not visual, motion, voice or artistic approval."}

@@ -1,0 +1,11 @@
+✔ paper plate and extruded shape share the authored native pivot (5.556111ms)
+✔ paper geometry rejects missing pivot, nonfinite dimensions and depth (0.674477ms)
+✔ Three geometry convention matches scene anchor transforms under rotation and mirrored scale (14.698053ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 518.015595

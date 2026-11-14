@@ -1,0 +1,19 @@
+{
+  "phase": "U1",
+  "step": "paper-spike-types",
+  "run_id": "20261114T100453Z-paper-spike-types-e2e38455",
+  "started_at_utc": "20261114T100453Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "typecheck"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "88a074c3b1b8393d8be39de38c91e1356738e37a",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 39115,
+  "source_snapshot_sha256": "21f996defbcbfd6b9fdad45aeeff06abe117b6091812b3a3673c50a2a1ecd0c6"
+}

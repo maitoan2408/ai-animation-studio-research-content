@@ -33,6 +33,11 @@ assert bake['data'] == json.loads((old / 'bake.json').read_text())['data']
 assert json.loads((source / 'input.json').read_text()) == json.loads((old / 'input.json').read_text())
 native = json.loads((source / 'S05.json').read_text())
 assert len(native['frames']) == 192
+alpha = json.loads((source / 'alpha-critic.json').read_text())
+assert alpha['sourceSha256'] == hashlib.sha256((source / 'S05.json').read_bytes()).hexdigest()
+assert alpha['frames'] == 192 and alpha['alphaThreshold'] == 128
+assert not alpha['overlap']['mai.torso'] and not alpha['overlap']['an.torso']
+assert not (source / 'S05.pending.json').exists()
 diagnostic = run('src/motion/diagnostics.ts', '--hero', str(source))
 out = Path(diagnostic['output'])
 assert diagnostic['status'] == 'PASS_DIAGNOSTICS'
@@ -41,7 +46,7 @@ for name, sha in diagnostic['outputs'].items():
     assert hashlib.sha256((out / name).read_bytes()).hexdigest() == sha, name
 assert (out / 'contact-sheet.jpg').read_bytes().startswith(b'\xff\xd8')
 report = dict(status='PASS_DIAGNOSTIC_WORKFLOW', source=str(source), output=str(out),
-              frames=192, baselineInputAndBakeDataUnchanged=True,
+              frames=192, baselineInputAndBakeDataUnchanged=True, projectedAlphaGate='PASS',
               outputHashesVerified=len(diagnostic['outputs']),
               executionSha256=diagnostic['executionSha256'],
               limits=['SVG diagnostic preview, not native color parity or artistic approval'])

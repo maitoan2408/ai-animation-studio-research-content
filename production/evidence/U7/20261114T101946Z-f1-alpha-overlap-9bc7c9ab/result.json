@@ -1,0 +1,22 @@
+{
+  "phase": "U7",
+  "step": "f1-alpha-overlap",
+  "run_id": "20261114T101946Z-f1-alpha-overlap-9bc7c9ab",
+  "started_at_utc": "20261114T101946Z",
+  "command": [
+    "python",
+    "production/src/continuity/alpha_overlap.py",
+    "production/out/quality-hero/f2bc9f03-b80d-44b6-940c-7eb5c8297e18/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "d29838d537cc29ee4df05bf7383707b6b29e5807",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 41057,
+  "source_snapshot_sha256": "9f593a2a68e4942c91de94e8ffe1ea16135fdf0c302dbfd0378b13d1dff480e6",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 5.731,
+  "finished_at_utc": "2026-11-14T10:19:52.655858+00:00",
+  "log_sha256": "6836ff711889db7e7e41bd9acc0d3a2b2ceae6b6f342799a8c8587963e3ec0b9",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

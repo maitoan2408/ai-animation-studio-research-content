@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "v2-f2-svg-inventory",
+  "run_id": "20261114T051750Z-v2-f2-svg-inventory-19d39796",
+  "started_at_utc": "20261114T051750Z",
+  "command": [
+    "python",
+    "production/src/art/inventory_svg.py",
+    "production/assets/lantern-polish-1/manifest.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "5e65c903b3d5cb95d16cabdf5ded75ea7751e60b",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 34732,
+  "source_snapshot_sha256": "f7f31e760dc792b6820bf146066a2a699031932246451b378e592804f7cb3e9a",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.066,
+  "finished_at_utc": "2026-11-14T05:17:50.541848+00:00",
+  "log_sha256": "0148435a5324457dc12d3743f825816e064c74aa5385e778d253e7ab18a2488a",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

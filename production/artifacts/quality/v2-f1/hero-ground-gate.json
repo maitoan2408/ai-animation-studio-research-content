@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "tracks": {
+    "mai.left-boot": {
+      "status": "PASS",
+      "issues": [],
+      "stanceFrames": 192,
+      "collisionFrames": 0,
+      "maxWorldDrift": 0,
+      "maxProjectedDrift": 0,
+      "limits": [
+        "Ground, stance and collision proxies are declared inputs; no artistic approval",
+        "Camera translation cancels in same-frame projection; zoom scales error",
+        "World and projected drift are checked independently using the declared driftPx limit"
+      ]
+    },
+    "mai.right-boot": {
+      "status": "PASS",
+      "issues": [],
+      "stanceFrames": 192,
+      "collisionFrames": 0,
+      "maxWorldDrift": 0,
+      "maxProjectedDrift": 0,
+      "limits": [
+        "Ground, stance and collision proxies are declared inputs; no artistic approval",
+        "Camera translation cancels in same-frame projection; zoom scales error",
+        "World and projected drift are checked independently using the declared driftPx limit"
+      ]
+    },
+    "an.left-boot": {
+      "status": "PASS",
+      "issues": [],
+      "stanceFrames": 192,
+      "collisionFrames": 0,
+      "maxWorldDrift": 0,
+      "maxProjectedDrift": 0,
+      "limits": [
+        "Ground, stance and collision proxies are declared inputs; no artistic approval",
+        "Camera translation cancels in same-frame projection; zoom scales error",
+        "World and projected drift are checked independently using the declared driftPx limit"
+      ]
+    },
+    "an.right-boot": {
+      "status": "PASS",
+      "issues": [],
+      "stanceFrames": 192,
+      "collisionFrames": 0,
+      "maxWorldDrift": 0,
+      "maxProjectedDrift": 0,
+      "limits": [
+        "Ground, stance and collision proxies are declared inputs; no artistic approval",
+        "Camera translation cancels in same-frame projection; zoom scales error",
+        "World and projected drift are checked independently using the declared driftPx limit"
+      ]
+    }
+  },
+  "scope": "S05 declared development ground and stance only; no body/prop collision or artistic approval",
+  "fixtureSha256": "e94a44a9fa0cd1213a2477bf9f10d9d59f7b93ea52f81897530dba57a01655be",
+  "bakeSha256": "ef8f0bd3d1a0fa920e4a5f20388f673521b83f06cfbbfbbbb9396f6a5dae195a"
+}

@@ -1,0 +1,21 @@
+{
+  "phase": "U1",
+  "step": "paper-spike-first-render",
+  "run_id": "20261114T100238Z-paper-spike-first-render-65af600e",
+  "started_at_utc": "20261114T100238Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-spike/render.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "88a074c3b1b8393d8be39de38c91e1356738e37a",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 38398,
+  "source_snapshot_sha256": "c20d6c9be005a218acfe8fae6720f8552e7e7e6833e68bc21dcc53df82d18ad1",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 6.566,
+  "finished_at_utc": "2026-11-14T10:02:44.741748+00:00",
+  "log_sha256": "79aa4082b3a160501a9107fe402e7fa8fc42ed566f504fff86f210ffcd07ce98",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

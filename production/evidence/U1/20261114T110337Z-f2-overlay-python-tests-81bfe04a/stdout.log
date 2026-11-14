@@ -1,0 +1,7 @@
+test_asset_id_path_escape_rejected (test_f2_overlay.F2Overlay.test_asset_id_path_escape_rejected) ... ok
+test_source_hash_and_path_escape_rejected (test_f2_overlay.F2Overlay.test_source_hash_and_path_escape_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

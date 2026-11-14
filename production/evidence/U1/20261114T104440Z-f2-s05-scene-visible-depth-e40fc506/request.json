@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-s05-scene-visible-depth",
+  "run_id": "20261114T104440Z-f2-s05-scene-visible-depth-e40fc506",
+  "started_at_utc": "20261114T104440Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/quality-hero/dc7de9b4-c9d1-4a2f-8735-e852c417d963/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b64a05569a156ab8ee14e586c782e54349f192c3",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 46053,
+  "source_snapshot_sha256": "244c9df7f8402e0f95091de607037c7ea8c74dec91d0ff18795e4a7874fb2da8"
+}

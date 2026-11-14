@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "v2-voice-duration-baseline",
+  "run_id": "20261114T045040Z-v2-voice-duration-baseline-ebc1de58",
+  "started_at_utc": "20261114T045040Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/draft-async.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 8477,
+  "source_snapshot_sha256": "e504f1714af985e28474f6c00dc1698fef13582be48f8801238919ba3aa17082"
+}

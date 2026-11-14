@@ -1,0 +1,5 @@
+# Hình miệng nháp và giới hạn mapping
+
+14/11/2026. [Rhubarb Lip Sync README](https://github.com/DanielSWolf/rhubarb-lip-sync/blob/master/README.adoc) mô tả sáu mouth shape cơ bản và ba shape mở rộng; ký hiệu A–H/X là quy ước của Rhubarb. [Adobe Animate](https://helpx.adobe.com/animate/desktop/multimedia-and-video/symbol-instances.html) mô tả mouth pose/viseme và mapping trong công cụ; không chứng minh có một bộ tám hình duy nhất đúng cho mọi giọng.
+
+**VERIFIED:** pack hiện hữu có M, A, E, O, F, rest và smile. Draft độc lập bổ sung U, L và teeth, tổng cộng tám nhãn hình miệng ngoài rest; mỗi hình có source SVG, pivot, hash. Tên M/A/E/O/F/U/L/teeth là quy ước dự án, **không đồng nhất** với mã A–H của Rhubarb. Chưa chạy Rhubarb, chưa định nghĩa map phoneme hoặc tính cue, chưa nghe giọng, không có kết luận chất lượng lip-sync. **PARTIAL:** hình nháp cần xem trên cả hai nhân vật, các góc và thoại thật; một số hình có thể phải đổi hoặc hợp nhất sau review. Không tải hay dùng asset của các nguồn tham khảo.

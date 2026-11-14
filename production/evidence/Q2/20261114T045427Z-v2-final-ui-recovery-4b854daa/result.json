@@ -1,0 +1,22 @@
+{
+  "phase": "Q2",
+  "step": "v2-final-ui-recovery",
+  "run_id": "20261114T045427Z-v2-final-ui-recovery-4b854daa",
+  "started_at_utc": "20261114T045427Z",
+  "command": [
+    "npm",
+    "run",
+    "test:ui:recovery"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "92295c18b00a7db6e45ba1660c8fd5712929528340a91612b72b31aa7cc15e1a",
+  "recorder_pid": 13600,
+  "source_snapshot_sha256": "7f8ee2b5fa865003908e4f38cacc69cc585f350b5572811517b022811931f07a",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 18.795,
+  "finished_at_utc": "2026-11-14T04:54:46.502584+00:00",
+  "log_sha256": "a163fdf41f0d98414968198895d6968f22e939373d0f3b9cc4d919bc21d7a5ba",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

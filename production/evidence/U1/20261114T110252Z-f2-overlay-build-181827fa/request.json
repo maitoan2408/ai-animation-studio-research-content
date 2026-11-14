@@ -1,0 +1,16 @@
+{
+  "phase": "U1",
+  "step": "f2-overlay-build",
+  "run_id": "20261114T110252Z-f2-overlay-build-181827fa",
+  "started_at_utc": "20261114T110252Z",
+  "command": [
+    "python",
+    "production/src/art/build_f2_overlay.py"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1985154cdbcecce07c17b5e215352f2aa138ad80",
+  "tracked_diff_sha256": "b8cd6eb73f158114f48bb33d6631b535eb3e4f7da97ad7372dc060d21061adac",
+  "status": "RUNNING",
+  "recorder_pid": 52388,
+  "source_snapshot_sha256": "570f5305376305c5773cbd15eae2ab71763aceccfdacd69ae2968e9d9bbaf926"
+}

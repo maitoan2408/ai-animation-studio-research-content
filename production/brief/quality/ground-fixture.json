@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "shot": "S05",
+  "coordinateSystem": "stage-pixels-y-down",
+  "groundY": 860,
+  "stance": {"startFrame": 0, "endFrameExclusive": 192},
+  "limits": {"driftPx": 1, "gapPx": 1, "penetrationPx": 0},
+  "status": "PROVISIONAL_DEVELOPMENT_ASSET",
+  "note": "Explicit fixture frozen before actual-run. Ground is independently declared; no baseline frame is used as a foot position reference. Collision proxies are tested separately."
+}

@@ -1,0 +1,11 @@
+✔ valid continuation matches state without mutating snapshots (2.008942ms)
+✔ unintended rotation reset, attachment and data mismatch fail with evidence (0.658947ms)
+✔ invalid provenance, nonfinite pose and missing controls cannot pass (3.053147ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 283.769187

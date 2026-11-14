@@ -1,0 +1,18 @@
+{
+  "phase": "U2",
+  "step": "v2-f1-cut-gap-baseline",
+  "run_id": "20261114T051548Z-v2-f1-cut-gap-baseline-6f31ce06",
+  "started_at_utc": "20261114T051548Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/continuity.test.ts",
+    "production/tests/ground.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "71933a0e681b52ba4979c14bf10bb892569c44cc",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 33830,
+  "source_snapshot_sha256": "365c521f96b77ef3ed22c81b311e1aba05f9f107575549c8f33b1f9a769699a8"
+}

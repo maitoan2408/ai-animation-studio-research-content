@@ -77,9 +77,9 @@ try {
     ],
     [
       'foot',
-      'Foot drift versus authored baseline',
+      'Foot preservation versus authored baseline',
       'projected px',
-      report.samples.map((s) => ({ frame: s.frame, value: s.footPixels })),
+      report.samples.map((s) => ({ frame: s.frame, value: s.footPreservationPixels })),
       1,
     ],
   ] as const;

@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-paper-pivot-baseline",
+  "run_id": "20261114T103730Z-f2-paper-pivot-baseline-9057daf6",
+  "started_at_utc": "20261114T103730Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/paper-geometry.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "439595fd39c1cc62f9774f4285d13c21a9c31aaa",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 44125,
+  "source_snapshot_sha256": "eb81eeaec018abcf88f47270e6242809da0c4aa5fb415a87f07ca9ef7f545416"
+}

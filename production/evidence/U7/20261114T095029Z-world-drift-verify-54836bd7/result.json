@@ -1,0 +1,22 @@
+{
+  "phase": "U7",
+  "step": "world-drift-verify",
+  "run_id": "20261114T095029Z-world-drift-verify-54836bd7",
+  "started_at_utc": "20261114T095029Z",
+  "command": [
+    "npm",
+    "run",
+    "verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b0acad590e1a95846da612992df74cc2f4f6ee45",
+  "tracked_diff_sha256": "9e79c0df42b8520fc0c25d1485ece23b4ca3dc25ca5035359d55668c4a681a73",
+  "recorder_pid": 35737,
+  "source_snapshot_sha256": "b29f2685c4ea6b59cc338c6a252da98a1f4acff15c6589d8f08df5d92e0df0cf",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 27.966,
+  "finished_at_utc": "2026-11-14T09:50:57.980296+00:00",
+  "log_sha256": "458489a1ac76a14483004653c2391851845a86e28560f104e39d3fe666a8aa97",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

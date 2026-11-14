@@ -1,0 +1,28 @@
+{
+  "phase": "U1",
+  "step": "paper-spike-python",
+  "run_id": "20261114T100453Z-paper-spike-python-60275c22",
+  "started_at_utc": "20261114T100453Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "88a074c3b1b8393d8be39de38c91e1356738e37a",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 39100,
+  "source_snapshot_sha256": "0677298d97214f9788e03e1669e2cdc22b74a3fe9774481a6d84e2a63ba8a26b",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 7.286,
+  "finished_at_utc": "2026-11-14T10:05:01.593472+00:00",
+  "log_sha256": "9f6ccda4a771d9da1153e8bbd0e658132190cb5e879a14f5b9c3333dc841a513",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

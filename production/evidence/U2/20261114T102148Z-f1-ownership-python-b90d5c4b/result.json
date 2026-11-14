@@ -1,0 +1,28 @@
+{
+  "phase": "U2",
+  "step": "f1-ownership-python",
+  "run_id": "20261114T102148Z-f1-ownership-python-b90d5c4b",
+  "started_at_utc": "20261114T102148Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "275b257f58cd66e1b1a82dea8066bc563c420c56",
+  "tracked_diff_sha256": "4bd12d402a45125f4cca8fec99f921a495bff01a5d8611aac8bdd46e30dfa6a4",
+  "recorder_pid": 41813,
+  "source_snapshot_sha256": "e9fcc3108d4d0ba2aaced5b7c98a6f01627f9d4a1a7070d1aa1f18b42c35b074",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 7.796,
+  "finished_at_utc": "2026-11-14T10:21:57.333402+00:00",
+  "log_sha256": "f440a12ed06b79d63f1efdc8a891171bc4837d2344b0ca9d08d5f9b144699a0d",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

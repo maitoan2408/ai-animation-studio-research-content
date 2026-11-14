@@ -1,0 +1,1 @@
+{"status": "PASS_FIXED_EDGE_PROBES", "dimensions": [1920, 1080], "sha256": "3119055394afeb5e952809d91ca27566377070d358d05c49a9f930b34ad89421", "probes": [[300, 700], [1100, 700]], "rgb": [[206, 157, 72], [180, 124, 51]], "scope": "Checks a known clipping regression at two pixels, not antialiasing or art quality."}
