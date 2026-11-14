@@ -185,7 +185,8 @@
       "recovery": "PASS_THREE_SUCCESSIVE_RUNS",
       "remoteCI": "PENDING",
       "pixelThreshold": "UNVERIFIED_CALIBRATION_REQUIRED",
-      "testFlake": "REPRODUCED_FIXED_RETESTED"
+      "testFlake": "REPRODUCED_FIXED_RETESTED",
+      "f1Research": "PREPARATORY_SOURCES_RECORDED_NO_F1_IMPLEMENTATION"
     }
   }
 }
