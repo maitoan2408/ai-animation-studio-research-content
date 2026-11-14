@@ -90,3 +90,6 @@ Candidate exporter kiểm ground 4 chân × 192 frame trước native input, ghi
 
 ### F2 spike torso — 14/11/2026
 Three SVG path + extrusion và SVG raster face; 1080p so flat/mesh, test hai pixel phát hiện clipping lần 1 và pass lần 3. Chưa chứng minh rig, đầy đủ effects hoặc chất lượng art; F2 PARTIAL. Xem F2 report.
+
+### F1 S05 asset bounds — 14/11/2026
+Đã kiểm vùng bao SVG xoay trên S05 bake: Mai 41, An 66 frame có chồng vùng bao; không suy kết quả xuyên do transparency/depth. Contacts trích PerformanceScript, owner chưa có contract. F1 tiếp tục mở.

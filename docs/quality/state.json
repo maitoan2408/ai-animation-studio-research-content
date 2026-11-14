@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F1-real-seam-and-F2-diorama",
-    "nextAction": "F2: validate silhouette, pivot/rig and comparative styleframe with all required effects; F1: semantic owner and real collision proxy.",
+    "nextAction": "Resolve actual S05 prop-body overlap with silhouette/depth-aware review, define ownership explicitly, then close F1 technical gate; F2 diorama remains partial.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -197,7 +197,9 @@
       "f1EditorialSeam": "OBSERVED_S06_TO_S05_INTENT_UNCLASSIFIED",
       "f1HeroGroundGate": "PASS_PROVISIONAL_S05_4_FEET_192_FRAMES",
       "f1PreservationMetric": "RENAMED_WITH_LEGACY_ALIASES",
-      "f2Spike": "PARTIAL_1080P_TORSO_3D_VS_FLAT_NOT_RIGGED"
+      "f2Spike": "PARTIAL_1080P_TORSO_3D_VS_FLAT_NOT_RIGGED",
+      "f1RealBounds": "OBSERVED_MAI_41_AN_66_NEEDS_SHAPE_AND_DEPTH_REVIEW",
+      "f1Contacts": "FROM_PERFORMANCE_SCRIPT_NOT_OWNERSHIP"
     }
   }
 }

@@ -21,3 +21,7 @@ Exporter hero đã kiểm ground độc lập cho bốn chân × 192 frame trư�
 ## F2 spike torso
 
 Đã tạo 3 render thử một torso, lần 1–2 bị board che, lần 3 sửa và kiểm hai pixel + decode 1080p. Ảnh và failure lưu tại `production/artifacts/quality/v2-f2/spike`; source `production/src/art/paper-spike`. Mới thí nghiệm 1 asset, chưa rig, chưa styleframe S05 hay duyệt mỹ thuật; F2 vẫn IN_PROGRESS. Xem F2 report.
+
+## S05 bounds thật
+
+Đã quan sát 192 frame S05: canvas đèn chồng canvas torso Mai 41 frame, An 66 frame. Đây là broad-phase conservatively có thể false positive, không chứng minh xuyên vật; cần silhouette/depth và review. Contacts lấy PerformanceScript, không suy quyền sở hữu. Xem F1 report và hero-bounds-observation.json.
