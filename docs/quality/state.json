@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F2-diorama-and-rig",
-    "nextAction": "F2: validate shadow/contact per layer, texture/viseme coverage and animation/styleframe quality; human art review remains provisional. Do not mark complete or start F3 without technical F2 gate.",
+    "nextAction": "F2: author and validate missing viseme/expression variants as new art revision, layer-aware shadows, animation and full styleframe; remaining 59 shadow/background/effect assets not extruded.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -208,7 +208,10 @@
       "f2S05Scene": "PARTIAL_FRAME108_OBLIQUE_NO_YAW_SHARED_SHADOW",
       "f2Contour": "PASS_BINARY_ROUNDTRIP_22_PARTS_ART_NOT_VALIDATED",
       "f2S05Rig": "PASS_192_FRAME_FACE_ANCHORS_CONTOUR_COVERAGE",
-      "f2S05RenderedFrames": "PARTIAL_0_108_191_1080P_NOT_FULL_MOTION"
+      "f2S05RenderedFrames": "PARTIAL_0_108_191_1080P_NOT_FULL_MOTION",
+      "f2AllRasters": "PASS_HASH_DECODE_117_51_REUSED_66_DEVELOPMENT",
+      "f2ForegroundContours": "PASS_BINARY_ROUNDTRIP_AND_TRIANGULATION_58_OF_117",
+      "f2CreativeVariants": "PARTIAL_7_MOUTH_STATES_4_MOOD_LABELS"
     }
   }
 }

@@ -11,3 +11,5 @@ F2: 22 part contour alpha threshold 128 roundtrip nhị phân và triangulation 
 F2 tiếp theo: bản frame 108 bỏ per-part yaw, giữ face transform 2D, oblique shear trên body và directional VSM shadow receiver chung. So có/không shadow có thay đổi; chưa xác minh shadow theo layer hay contact sàn, chỉ một frame và chưa duyệt art. Artifacts `production/artifacts/quality/v2-f2/s05-oblique`, xem F2 report. F2 vẫn IN_PROGRESS.
 
 F2 face anchor/contour coverage kiểm S05 tất cả 192 frame; ảnh thử 0, 108, 191 ở 1080p. Chưa kiểm animation, bóng đúng layer hoặc chất lượng art. F2 vẫn mở.
+
+F2 coverage: 117 raster phát triển hash/decode PASS (51 R3 giữ nguyên + 66 mới), 58 foreground contour binary/triangulation PASS. 59 background/shadow/effect chưa mesh; 7 mouth state và 4 nhãn mood chưa đủ 8 viseme/6 biểu cảm. Giữ F2 mở; xem F2 report.

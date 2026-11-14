@@ -19,3 +19,7 @@ Contour nhị phân của 22 asset S05 được tạo từ PNG R3 xác minh hash
 ## Shear và shadow thử S05
 
 Face giữ nguyên transform 2D; body dùng oblique depth shear riêng, không phải camera 3D chung. Three VSM directional light đổ lên một receiver sau foreground; so ảnh có/không shadow cùng input cho 41.497 pixel khác. PARTIAL: đo đó không xác minh độ mềm/đúng vật lý, tiếp xúc sàn hay layering; shadow authored cũ vẫn còn và có thể bị nhân đôi. Đã giữ các hình và hash trong `s05-oblique`.
+
+## Art pack đầy đủ
+
+Đã kiểm hash/decode 117 raster phát triển; 51 là R3 giữ byte gốc, 66 raster Chromium mới. Contour nhị phân 58 actor/prop/mouth roundtrip và triangulation diện tích PASS; 51 shadow, 7 background, 1 effect chưa là mesh. RGB opaque chỉ được chấp nhận với background. Chưa có phép đo parity pixel đa nền hay artistic approval.

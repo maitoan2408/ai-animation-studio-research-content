@@ -1,0 +1,11 @@
+✔ all 22 S05 part masks triangulate to their exact binary pixel area (48.302213ms)
+✔ malformed area, diagonal edges and orphan holes reject (0.852556ms)
+✔ all 58 development foreground masks triangulate to the exact binary pixel area (37.808919ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 653.551683

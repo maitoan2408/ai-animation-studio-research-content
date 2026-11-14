@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-all-foreground-contours",
+  "run_id": "20261114T105457Z-f2-all-foreground-contours-18ebb5e8",
+  "started_at_utc": "20261114T105457Z",
+  "command": [
+    "python",
+    "-c",
+    "import json,subprocess,sys; p=\"production/out/paper-all-textures/83c8b8cc-fd1e-41bb-8989-70a26076e088/textures.json\"; d=json.load(open(p)); names=[x[\"id\"] for x in d[\"textures\"] if x[\"id\"].startswith((\"mai/\",\"an/\",\"mouth/\",\"props/\"))]; subprocess.run([sys.executable,\"production/src/art/paper-silhouette/inventory.py\",p,*names],check=True)"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "67bfc560589d1a7e9fc79440fe395b3a3a35f868",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 50187,
+  "source_snapshot_sha256": "7c473f28fbaf0b52fe7060ff794345b6248bcf2ca67af45be3bdd8352c491840"
+}

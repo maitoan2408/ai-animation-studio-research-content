@@ -114,3 +114,6 @@ Bỏ yaw từng part, face z=0 không đổi; thêm VSM receiver chung. So ảnh
 
 ### F2 rig all-frame — 14/11/2026
 Face anchors và contour coverage trên 192 frame S05 PASS; chỉ render rời 0, 108, 191, không nhận motion hay art approval.
+
+### F2 coverage art — 14/11/2026
+117 PNG phát triển hash/decode; 58 foreground contour binary/triangulation; 59 shadow/background/effect chưa mesh. Không nhận art/motion approval.
