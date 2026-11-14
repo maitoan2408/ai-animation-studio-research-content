@@ -15,7 +15,8 @@ const bytes=await readFile(path.resolve(source)),data=JSON.parse(bytes.toString(
 const alpha=JSON.parse(await readFile(path.join(path.dirname(path.resolve(source)),'alpha-critic.json'),'utf8'));
 if(alpha.sourceSha256!==sha(bytes)||alpha.frames!==192||alpha.alphaThreshold!==128||
  alpha.overlap['mai.torso'].length||alpha.overlap['an.torso'].length)throw Error('SCENE_ALPHA_GATE');
-const contourBytes=await readFile(path.join(root,'artifacts/quality/v2-f2/s05-binary-contours.json'));
+const contourPath=process.argv[4]?path.resolve(process.argv[4]):path.join(root,'artifacts/quality/v2-f2/s05-binary-contours.json');
+const contourBytes=await readFile(contourPath);
 const contour=JSON.parse(contourBytes.toString());
 const frame=data.frames[frameNumber];if(!frame||data.shot!=='S05'||data.fps!==24)throw Error('SCENE_SOURCE');
 const used=new Set(frame.sprites.map((s:{asset:string})=>s.asset)),files=new Map<string,Buffer>(),urls:Record<string,string>={};

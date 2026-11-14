@@ -23,3 +23,7 @@ Face giữ nguyên transform 2D; body dùng oblique depth shear riêng, không p
 ## Art pack đầy đủ
 
 Đã kiểm hash/decode 117 raster phát triển; 51 là R3 giữ byte gốc, 66 raster Chromium mới. Contour nhị phân 58 actor/prop/mouth roundtrip và triangulation diện tích PASS; 51 shadow, 7 background, 1 effect chưa là mesh. RGB opaque chỉ được chấp nhận với background. Chưa có phép đo parity pixel đa nền hay artistic approval.
+
+## Overlay 156 asset
+
+Bản development rebake theo hash art mới, texture 156 được kiểm decode/SHA, contour nhị phân 79 foreground roundtrip và triangulation diện tích. Preview 1080p frame 108 có thay sáu selector. Chỉ xác minh geometric scope và output, không suy lip-sync, full-motion, bóng theo layer, hay duyệt art; nền/shadow/effect vẫn là plate.

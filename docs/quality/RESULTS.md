@@ -123,3 +123,6 @@ Tạo 3 mouth SVG và 18 đầu draft độc lập; preview 1080p, giữ revisio
 
 ### F2 overlay draft — 14/11/2026
 Revision riêng 138 asset; kiểm 288 tổ hợp rig/anchor và bake cũ từ chối art khác. Chưa có render chuyển động/voice, shadow draft hay duyệt art.
+
+### F2 overlay v2 — 14/11/2026
+Overlay 156 asset rebake, 156 PNG verify, 79 contour; preview frame 108 thay 6 selector, 1080p flat/volume. Chưa animation/voice/art review; F2 còn mở.

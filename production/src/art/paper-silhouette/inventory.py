@@ -8,10 +8,10 @@ from PIL import Image
 from trace import trace, reconstruct
 ROOT=Path(__file__).resolve().parents[3]
 def sha(raw): return hashlib.sha256(raw).hexdigest()
-def run(manifest_path, names):
+def run(manifest_path, names, art_path=ROOT/'assets/lantern-polish-1/manifest.json'):
     manifest_data=manifest_path.read_bytes();manifest=json.loads(manifest_data)
     textures={t['id']:t for t in manifest['textures']}
-    art_path=ROOT/'assets/lantern-polish-1/manifest.json';art_data=art_path.read_bytes()
+    art_data=art_path.read_bytes()
     assets={a['id']:a for a in json.loads(art_data)['assets']}
     rows=[]
     for name in names:
@@ -36,8 +36,12 @@ def run(manifest_path, names):
      'Exact binary-mask roundtrip does not prove Three hole mapping, shadow or art quality.',
      'Not integrated into renderer and not a replacement for source SVG.']}
 if __name__=='__main__':
-    if len(sys.argv)<3:raise SystemExit('usage: inventory.py TEXTURES_JSON ASSET_ID...')
-    result=run(Path(sys.argv[1]),sys.argv[2:]); out=ROOT/'out/paper-silhouettes'/uuid.uuid4().hex
+    if len(sys.argv)<3:raise SystemExit('usage: inventory.py TEXTURES_JSON [--art-manifest FILE] ASSET_ID...')
+    art_path=ROOT/'assets/lantern-polish-1/manifest.json'; names=sys.argv[2:]
+    if names[0]=='--art-manifest':
+        if len(names)<3:raise SystemExit('ART_MANIFEST_AND_ASSETS_REQUIRED')
+        art_path=Path(names[1]);names=names[2:]
+    result=run(Path(sys.argv[1]),names,art_path); out=ROOT/'out/paper-silhouettes'/uuid.uuid4().hex
     out.mkdir(parents=True);payload=(json.dumps(result,ensure_ascii=False,indent=2)+'\n').encode()
     (out/'contours.json').write_bytes(payload)
     print(json.dumps({'status':result['status'],'output':str(out),'sha256':sha(payload),

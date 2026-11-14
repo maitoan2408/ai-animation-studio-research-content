@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F2-diorama-and-rig",
-    "nextAction": "F2: render overlay in motion with new bound bake, add shadow assets and layer-aware shadows, review styleframe/animation; keep original art and gate human review open.",
+    "nextAction": "F2: render/inspect animated overlay with cue-safe draft choices, replace shared receiver with layer-aware contact shadow, complete style bible and request human art review; F3 remains gated.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -212,7 +212,10 @@
       "f2AllRasters": "PASS_HASH_DECODE_117_51_REUSED_66_DEVELOPMENT",
       "f2ForegroundContours": "PASS_BINARY_ROUNDTRIP_AND_TRIANGULATION_58_OF_117",
       "f2CreativeVariants": "DRAFT_8_MOUTH_PLUS_REST_6_HEAD_LABELS_NOT_INTEGRATED_OR_REVIEWED",
-      "f2DraftOverlay": "PASS_PROVISIONAL_138_ASSETS_RIG_MATRIX_OLD_BAKE_REJECTED"
+      "f2DraftOverlay": "PASS_PROVISIONAL_138_ASSETS_RIG_MATRIX_OLD_BAKE_REJECTED",
+      "f2OverlayV2": "PASS_PROVISIONAL_156_ASSETS_18_DRAFT_SHADOWS_BOUND_BAKE",
+      "f2OverlayRasters": "PASS_HASH_DECODE_156_AND_79_BINARY_CONTOURS",
+      "f2DraftPreview": "PARTIAL_1080P_FRAME108_ONLY_SIX_SELECTORS"
     }
   }
 }
