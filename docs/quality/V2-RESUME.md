@@ -49,3 +49,7 @@ T4 shader edge-alpha không tăng alpha trong fixture texture đèn offscreen; c
 T6 point light 0 khớp byte control ở một frame. Regression mới 79 TS, 49 Python, typecheck/root verify PASS; không suy F2 PASS.
 
 Có bảng so các thử nghiệm riêng và checklist `F2-REVIEW-PREPARATION.md`; người tự xem là delegated-agent, phần lớn tiêu chí chưa đạt, chưa có styleframe final hoặc điểm HQ-02.
+
+Bump preview 192 frame đã render lần hai cùng máy/browser: mọi hash frame và MP4 trùng; không suy ra chất lượng hay parity đa máy.
+
+CI source 7184935: app PASS, workbench FAIL vì alpha critic gọi Python hệ thống thiếu Pillow. Workflow sửa PATH đến venv QC; retest diagnostics qua venv cục bộ PASS, CI source sửa chưa có kết quả.
