@@ -9,3 +9,5 @@ F2 torso spike giờ dùng pivot manifest; test hình học và anchors so với
 F2: 22 part contour alpha threshold 128 roundtrip nhị phân và triangulation diện tích PASS; frame S05 108 có 71 sprite, 31 đùn, so flat/volume 1080p tại `production/artifacts/quality/v2-f2/s05-scene`. Cả hai có yaw minh họa từng phần có thể lệch rig, chưa có bóng mới, chỉ một frame; F2 vẫn mở. Xem F2 report trước khi tiếp tục.
 
 F2 tiếp theo: bản frame 108 bỏ per-part yaw, giữ face transform 2D, oblique shear trên body và directional VSM shadow receiver chung. So có/không shadow có thay đổi; chưa xác minh shadow theo layer hay contact sàn, chỉ một frame và chưa duyệt art. Artifacts `production/artifacts/quality/v2-f2/s05-oblique`, xem F2 report. F2 vẫn IN_PROGRESS.
+
+F2 face anchor/contour coverage kiểm S05 tất cả 192 frame; ảnh thử 0, 108, 191 ở 1080p. Chưa kiểm animation, bóng đúng layer hoặc chất lượng art. F2 vẫn mở.

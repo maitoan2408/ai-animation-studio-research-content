@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-allframe-rig",
+  "run_id": "20261114T105200Z-f2-allframe-rig-b17b0d1d",
+  "started_at_utc": "20261114T105200Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/paper-scene-coverage.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "bcb714f25b59a1024b3fcaeb9ab88cfeed3269ee",
+  "tracked_diff_sha256": "fbe22d7cf90c1a7b82007af284cb2eadf576d9970a4e37d7675ec82881072dd2",
+  "recorder_pid": 48921,
+  "source_snapshot_sha256": "26e451c684b9438aa7f0eaba7f064b71ce11111f0f345919b5fbec1c160d905d",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.855,
+  "finished_at_utc": "2026-11-14T10:52:01.012845+00:00",
+  "log_sha256": "80c8c2b413916892cace8b043cbda75a1feeb77a4fafdd3cbc9d1b76d83a5f1e",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

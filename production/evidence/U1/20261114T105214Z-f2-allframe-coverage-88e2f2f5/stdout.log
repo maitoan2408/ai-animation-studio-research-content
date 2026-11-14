@@ -1,0 +1,10 @@
+✔ S05 paper faces cover all actor/prop sprites and preserve rig anchors across every frame (189.467127ms)
+✔ missing foreground silhouettes reject while explicit background plates remain allowed (0.716535ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 742.287205

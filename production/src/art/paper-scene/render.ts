@@ -9,13 +9,15 @@ import puppeteer from 'puppeteer-core';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
 const sha=(x:Buffer)=>createHash('sha256').update(x).digest('hex');
 const source=process.argv[2];if(!source)throw Error('USAGE_S05_JSON_REQUIRED');
+const frameNumber=process.argv[3]===undefined?108:Number(process.argv[3]);
+if(!Number.isInteger(frameNumber)||frameNumber<0||frameNumber>=192)throw Error('SCENE_FRAME_RANGE');
 const bytes=await readFile(path.resolve(source)),data=JSON.parse(bytes.toString());
 const alpha=JSON.parse(await readFile(path.join(path.dirname(path.resolve(source)),'alpha-critic.json'),'utf8'));
 if(alpha.sourceSha256!==sha(bytes)||alpha.frames!==192||alpha.alphaThreshold!==128||
  alpha.overlap['mai.torso'].length||alpha.overlap['an.torso'].length)throw Error('SCENE_ALPHA_GATE');
 const contourBytes=await readFile(path.join(root,'artifacts/quality/v2-f2/s05-binary-contours.json'));
 const contour=JSON.parse(contourBytes.toString());
-const frame=data.frames[108];if(!frame||data.shot!=='S05'||data.fps!==24)throw Error('SCENE_SOURCE');
+const frame=data.frames[frameNumber];if(!frame||data.shot!=='S05'||data.fps!==24)throw Error('SCENE_SOURCE');
 const used=new Set(frame.sprites.map((s:{asset:string})=>s.asset)),files=new Map<string,Buffer>(),urls:Record<string,string>={};
 for(const entry of data.textures.textures){
  if(!used.has(entry.id))continue;
@@ -49,9 +51,9 @@ try{
   const imagePath=path.join(output,`${mode}.png`);await page.screenshot({path:imagePath});
   reports.push({...state.stats,sha256:sha(await readFile(imagePath))});await page.close();
  }
- const result={status:'PARTIAL_SCENE_EXPERIMENT',frame:108,inputSha256:sha(bytes),contourSha256:sha(contourBytes),
+ const result={status:'PARTIAL_SCENE_EXPERIMENT',frame:frameNumber,inputSha256:sha(bytes),contourSha256:sha(contourBytes),
   images:reports,browser:await browser.version(),output,
-  limitations:['S05 frame 108 only; oblique per-sprite depth shear is a 2.5D projection, not a shared physically consistent camera or 3D; no animation or backend parity claim',
+  limitations:['One S05 frame only; oblique per-sprite depth shear is a 2.5D projection, not a shared physically consistent camera or 3D; no animation or backend parity claim',
    'Raster alpha >=128 silhouettes for actors/prop; translucency and subpixel edge details are not modeled by extrusion',
    'Adds one shared directional shadow receiver behind foreground plus existing authored shadow sprites; no per-layer shadow or true ground contact shadow',
    'No final art, full 3D physical collision or artistic approval']};

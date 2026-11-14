@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-motion-frame-last",
+  "run_id": "20261114T105129Z-f2-motion-frame-last-adf052e3",
+  "started_at_utc": "20261114T105129Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/quality-hero/dc7de9b4-c9d1-4a2f-8735-e852c417d963/S05.json",
+    "191"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "bcb714f25b59a1024b3fcaeb9ab88cfeed3269ee",
+  "tracked_diff_sha256": "fbe22d7cf90c1a7b82007af284cb2eadf576d9970a4e37d7675ec82881072dd2",
+  "recorder_pid": 48718,
+  "source_snapshot_sha256": "d19d81ef8279a9683212dababbc058ac2e68c888e52b9c6787e2d79cd2d083c6",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 12.73,
+  "finished_at_utc": "2026-11-14T10:51:42.270813+00:00",
+  "log_sha256": "316bc9a4bb8e83718d9686927eb00a642d352e1044db39edaf9f7b3885e1d5f6",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

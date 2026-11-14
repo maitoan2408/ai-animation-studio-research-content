@@ -2,6 +2,7 @@
 import * as THREE from 'three';
 import {contourShapes} from '../paper-silhouette/shapes.js';
 import {shearDepth} from './depth.js';
+import {requireForegroundContour} from './coverage.js';
 import type {ArtPack,SceneFrame} from '../../scene/types.js';
 type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown}[];mode:'flat'|'volume';textureUrls:Record<string,string>};
 declare global { interface Window { sceneInput:Info; sceneReady?:boolean;sceneError?:string;sceneStats?:unknown; } }
@@ -33,6 +34,7 @@ async function main(){
   face.translate(asset.width/2-asset.pivot[0],asset.pivot[1]-asset.height/2,0);
   const group=new THREE.Group();group.position.set(s.x-960,540-s.y,s.z);group.rotation.z=-s.rotation*Math.PI/180;group.scale.set(s.scaleX,s.scaleY,1);
   const contour=contours.find(c=>c.id===s.asset);
+  if(mode==='volume')requireForegroundContour(s.asset,!!contour);
   if(mode==='volume'&&contour){
    const shapes=contourShapes(contour.loops);
    const body=new THREE.ExtrudeGeometry(shapes,{depth:3,bevelEnabled:false,curveSegments:1});

@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F2-diorama-and-rig",
-    "nextAction": "F2: validate rig/contact across frames, replace shared shadow receiver with correct layer-aware contact shadows, cover remaining assets and prepare styleframe for review before F3.",
+    "nextAction": "F2: validate shadow/contact per layer, texture/viseme coverage and animation/styleframe quality; human art review remains provisional. Do not mark complete or start F3 without technical F2 gate.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -206,7 +206,9 @@
       "f1ProjectedAlphaGate": "PASS_192_FRAMES_ALPHA128_NATIVE_INPUT_ONLY",
       "f2Pivot": "PASS_TORSO_GEOMETRY_AND_ANCHOR_TRANSFORMS_ONLY",
       "f2S05Scene": "PARTIAL_FRAME108_OBLIQUE_NO_YAW_SHARED_SHADOW",
-      "f2Contour": "PASS_BINARY_ROUNDTRIP_22_PARTS_ART_NOT_VALIDATED"
+      "f2Contour": "PASS_BINARY_ROUNDTRIP_22_PARTS_ART_NOT_VALIDATED",
+      "f2S05Rig": "PASS_192_FRAME_FACE_ANCHORS_CONTOUR_COVERAGE",
+      "f2S05RenderedFrames": "PARTIAL_0_108_191_1080P_NOT_FULL_MOTION"
     }
   }
 }

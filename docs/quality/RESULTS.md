@@ -111,3 +111,6 @@ Contour nhị phân 22 part roundtrip; render frame 108 có 31/71 sprite đùn, 
 
 ### F2 oblique và bóng — 14/11/2026
 Bỏ yaw từng part, face z=0 không đổi; thêm VSM receiver chung. So ảnh có/không bóng khác 41.497 pixel nhưng chưa chứng minh bóng đúng hay motion. F2 PARTIAL.
+
+### F2 rig all-frame — 14/11/2026
+Face anchors và contour coverage trên 192 frame S05 PASS; chỉ render rời 0, 108, 191, không nhận motion hay art approval.
