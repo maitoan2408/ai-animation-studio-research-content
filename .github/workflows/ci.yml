@@ -28,6 +28,7 @@ jobs:
       - run: npm run build
       - run: npm run test:integration
       - run: npm run test:ui
+      - run: npm run test:ui:recovery
       - name: Upload evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

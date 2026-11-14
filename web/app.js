@@ -4,6 +4,7 @@ let dirty = false;
 let selectedArtifact = '';
 let pendingJobId = '';
 let draftGeneration = 0;
+let projectLoadGeneration = 0;
 function markDirty() {
   draftGeneration++;
   dirty = true;
@@ -65,8 +66,12 @@ async function listProjects() {
     }),
   );
 }
-async function loadProject(id, preserveGeneration) {
+async function loadProject(id, preserveGeneration, submittedSpec, expectedLoadGeneration) {
+  if (expectedLoadGeneration !== undefined && expectedLoadGeneration !== projectLoadGeneration)
+    return;
+  const loadGeneration = ++projectLoadGeneration;
   const loaded = await api(`/projects/${id}`);
+  if (loadGeneration !== projectLoadGeneration) return;
   if (preserveGeneration !== undefined && current?.project.id !== id) return;
   const draft =
     preserveGeneration !== undefined && draftGeneration !== preserveGeneration
@@ -98,14 +103,16 @@ async function loadProject(id, preserveGeneration) {
   updatePreview();
   buildScenes();
   if (draft) {
-    $('#project-style').value = draft.style;
+    if (draft.style !== submittedSpec.style) $('#project-style').value = draft.style;
     for (const scene of draft.scenes) {
       const panel = document.querySelector(`[data-scene="${scene.id}"]`);
-      if (!panel) continue;
+      const previous = submittedSpec.scenes.find((s) => s.id === scene.id);
+      if (!panel || !previous) continue;
       for (const key of ['title', 'narration', 'action', 'camera', 'color'])
-        panel.querySelector(`[name="${key}"]`).value = scene[key];
-      panel.querySelector('[name="seconds"]').value = scene.durationFrames / 24;
-      if (detachedScenes.has(scene.id)) panel.dataset.detach = 'yes';
+        if (scene[key] !== previous[key]) panel.querySelector(`[name="${key}"]`).value = scene[key];
+      if (scene.durationFrames !== previous.durationFrames)
+        panel.querySelector('[name="seconds"]').value = scene.durationFrames / 24;
+      if (detachedScenes.has(scene.id)) panel.querySelector('.audio-line button')?.click();
     }
     markDirty();
   }
@@ -183,14 +190,16 @@ function buildScenes() {
           requireSaved();
           if (!file.files[0]) return;
           const projectId = current.project.id,
-            generation = draftGeneration;
+            generation = draftGeneration,
+            loadGeneration = projectLoadGeneration,
+            submittedSpec = collectSpec();
           notice('Đang chuẩn hóa audio…');
           await api(`/projects/${projectId}/audio`, {
             expectedRevision: current.revision.id,
             sceneId: scene.id,
             base64: await fileBase64(file.files[0]),
           });
-          await loadProject(projectId, generation);
+          await loadProject(projectId, generation, submittedSpec, loadGeneration);
           notice('Đã gắn WAV và cập nhật thời lượng cảnh.');
         });
       upload.append(file);
@@ -346,6 +355,7 @@ $('#create-form').onsubmit = (event) => {
 $('#new-project').onclick = () =>
   action(null, async () => {
     requireSaved();
+    projectLoadGeneration++;
     current = null;
     selectedArtifact = '';
     $('#workspace').hidden = true;
@@ -367,12 +377,14 @@ $('#artifact-select').onchange = showArtifact;
 $('#save-scenes').onclick = (event) =>
   action(event.target, async () => {
     const projectId = current.project.id,
-      generation = draftGeneration;
+      generation = draftGeneration,
+      loadGeneration = projectLoadGeneration,
+      submittedSpec = collectSpec();
     await api(`/projects/${projectId}/revisions`, {
       expectedRevision: current.revision.id,
-      spec: collectSpec(),
+      spec: submittedSpec,
     });
-    await loadProject(projectId, generation);
+    await loadProject(projectId, generation, submittedSpec, loadGeneration);
     notice('Đã lưu phiên bản mới. Đánh giá của video cũ được giữ đúng phiên bản cũ.');
   });
 $('#reload').onclick = (event) =>
@@ -385,10 +397,12 @@ $('#generate-voice').onclick = (event) =>
   action(event.target, async () => {
     requireSaved();
     const projectId = current.project.id,
-      generation = draftGeneration;
+      generation = draftGeneration,
+      loadGeneration = projectLoadGeneration,
+      submittedSpec = collectSpec();
     notice('Đang tạo giọng nháp và căn thời lượng…');
     await api(`/projects/${projectId}/voice`, { expectedRevision: current.revision.id });
-    await loadProject(projectId, generation);
+    await loadProject(projectId, generation, submittedSpec, loadGeneration);
     notice('Giọng nháp đã sẵn sàng. Nghe và duyệt timing trong video render.');
   });
 $('#render').onclick = (event) =>

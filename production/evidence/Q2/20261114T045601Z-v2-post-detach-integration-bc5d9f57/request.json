@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "v2-post-detach-integration",
+  "run_id": "20261114T045601Z-v2-post-detach-integration-bc5d9f57",
+  "started_at_utc": "20261114T045601Z",
+  "command": [
+    "python",
+    "production/src/qa/run_app_regression.py"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "fa0d5e60af63c1d43c124ab7c5068ba2b0fec317db6ddf0dc951386d61186c48",
+  "status": "RUNNING",
+  "recorder_pid": 16956,
+  "source_snapshot_sha256": "a81fe08eada96c87d1d65d2e54e933acf4a3bc434a7441abcc4135bb86cdf1c5"
+}

@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "v2-detach-retest",
+  "run_id": "20261114T045407Z-v2-detach-retest-98a84ac7",
+  "started_at_utc": "20261114T045407Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/draft-async.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "21ba1aa7e31839e37cd0c9a7631e742d07981c55c93a4ad10c0ba61c5b022d25",
+  "status": "RUNNING",
+  "recorder_pid": 13311,
+  "source_snapshot_sha256": "384e7badd5c698dfed505f1e569b50465106639ecc6f01a12c89d915d48fed87"
+}

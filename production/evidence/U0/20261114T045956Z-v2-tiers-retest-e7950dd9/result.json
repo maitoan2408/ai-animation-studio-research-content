@@ -1,0 +1,28 @@
+{
+  "phase": "U0",
+  "step": "v2-tiers-retest",
+  "run_id": "20261114T045956Z-v2-tiers-retest-e7950dd9",
+  "started_at_utc": "20261114T045956Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_determinism_tiers.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "ade8c11b04c5de383db56af585d57027091fc2ca4d8d13d379b976def586fae2",
+  "recorder_pid": 23378,
+  "source_snapshot_sha256": "4ec4936783e00548f9336c834527063801b5ae61ba1c7d1fb472672be2671f82",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 3.016,
+  "finished_at_utc": "2026-11-14T05:00:00.239867+00:00",
+  "log_sha256": "f31689f18061783e06ef011a3a732afc2d3b6e66ca5d3b53332cd93c82571df6",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

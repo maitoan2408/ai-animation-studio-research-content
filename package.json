@@ -17,7 +17,8 @@
     "format:check": "prettier --check src tests web package.json tsconfig.json tsconfig.test.json",
     "verify": "npm run format:check && npm run typecheck && npm test",
     "test:integration": "tsx tests/integration.ts",
-    "test:ui": "tsx tests/ui.ts"
+    "test:ui": "tsx tests/ui.ts",
+    "test:ui:recovery": "tsx tests/draft-recovery.ts && tsx tests/draft-async.ts && tsx tests/navigation-async.ts"
   },
   "dependencies": {
     "@echogarden/espeak-ng-emscripten": "0.3.5",

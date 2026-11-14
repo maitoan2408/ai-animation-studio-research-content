@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "v2-f0-app-regression",
+  "run_id": "20261114T045719Z-v2-f0-app-regression-003d9860",
+  "started_at_utc": "20261114T045719Z",
+  "command": [
+    "python",
+    "production/src/qa/run_app_regression.py"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "ade8c11b04c5de383db56af585d57027091fc2ca4d8d13d379b976def586fae2",
+  "status": "RUNNING",
+  "recorder_pid": 19241,
+  "source_snapshot_sha256": "110459af3e06bbfcab92b8e82bf0ce2459f578a8500f4596139d959315df7c6b"
+}

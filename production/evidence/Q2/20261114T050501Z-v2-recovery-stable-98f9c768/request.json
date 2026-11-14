@@ -1,0 +1,17 @@
+{
+  "phase": "Q2",
+  "step": "v2-recovery-stable",
+  "run_id": "20261114T050501Z-v2-recovery-stable-98f9c768",
+  "started_at_utc": "20261114T050501Z",
+  "command": [
+    "npm",
+    "run",
+    "test:ui:recovery"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "74529ec39d1bf6b86548553dbaadf0afc3881e5d218aa530b6292fcd37871466",
+  "status": "RUNNING",
+  "recorder_pid": 29871,
+  "source_snapshot_sha256": "7048d0a0dbe2e92efe27f2d6173d7f7a470820989d4d4d57e081fb79a3b466ee"
+}

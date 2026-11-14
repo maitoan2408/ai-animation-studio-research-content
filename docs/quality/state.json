@@ -81,7 +81,7 @@
       {
         "id": "F0",
         "dependencies": [],
-        "status": "IN_PROGRESS",
+        "status": "VALIDATING",
         "attempts": 1
       },
       {
@@ -167,15 +167,25 @@
         "attempts": 0
       }
     ],
-    "currentTask": "F0-draft-recovery",
-    "nextAction": "Test delayed voice/upload and project switch, explicit detach with newly generated audio, concurrent edits; repair remaining failures. Complete integration/UI, license/determinism research, queue and F0 report; continue F1 and independent F2.",
+    "currentTask": "F0-ci-validation",
+    "nextAction": "Push checkpoint and observe CI. If green, record F0 technical gate with user/threshold decisions PROVISIONAL, then immediately begin F1 boundary and independent critic; F2 can start independently from F0.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
-      "voiceUploadSwitch": "NOT_RUN",
+      "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
       "rootVerify": "PASS",
       "integrationUI": "PASS",
-      "licenseResearch": "NOT_RUN",
-      "determinismContracts": "NOT_RUN"
+      "licenseResearch": "PARTIAL_PROVIDER_USE_CASE",
+      "determinismContracts": "PASS_SYNTHETIC_THRESHOLDS_ONLY",
+      "determinismResearch": "PARTIAL_NO_CALIBRATED_PROJECT_THRESHOLD",
+      "explicitDetach": "PASS_PERSISTENCE",
+      "voiceDurationMerge": "PASS_TARGETED_CHROMIUM",
+      "nextRequired": "Wait repeated recovery verification and remote CI; then record F0 technical gate and start F1.",
+      "navigationRace": "PASS_INCLUDING_RETURN_TO_PROJECT",
+      "productionPython": "PASS_23",
+      "recovery": "PASS_THREE_SUCCESSIVE_RUNS",
+      "remoteCI": "PENDING",
+      "pixelThreshold": "UNVERIFIED_CALIBRATION_REQUIRED",
+      "testFlake": "REPRODUCED_FIXED_RETESTED"
     }
   }
 }

@@ -1,0 +1,32 @@
+
+> paper-studio@0.1.0 test:ui:recovery
+> tsx tests/draft-recovery.ts && tsx tests/draft-async.ts && tsx tests/navigation-async.ts
+
+{
+  case: 'edit during save',
+  expectedDraft: 'B typed while saving',
+  actualDraft: 'B typed while saving',
+  discardHidden: false,
+  savedTitle: 'A submitted'
+}
+{"status":"PASS","checks":["voice draft","upload draft","switch project while voice pending"]}
+/workspace/studio-audit/node_modules/puppeteer-core/src/api/ElementHandle.ts:1485
+      throw new Error(error);
+            ^
+
+Error: Node is detached from document
+    at CdpElementHandle.assertConnectedElement (/workspace/studio-audit/node_modules/puppeteer-core/src/api/ElementHandle.ts:1485:13)
+    at async CdpElementHandle.isIntersectingViewport (/workspace/studio-audit/node_modules/puppeteer-core/src/api/ElementHandle.ts:1521:5)
+    at async CdpElementHandle.<anonymous> (/workspace/studio-audit/node_modules/puppeteer-core/src/api/ElementHandle.ts:139:14)
+    at async CdpElementHandle.scrollIntoViewIfNeeded (/workspace/studio-audit/node_modules/puppeteer-core/src/api/ElementHandle.ts:1496:7)
+    at async CdpElementHandle.click (/workspace/studio-audit/node_modules/puppeteer-core/src/api/ElementHandle.ts:772:5)
+    at async CdpElementHandle.<anonymous> (/workspace/studio-audit/node_modules/puppeteer-core/src/api/ElementHandle.ts:149:20)
+    at async CdpFrame.click (/workspace/studio-audit/node_modules/puppeteer-core/src/api/Frame.ts:1064:5)
+    at async <anonymous> (/workspace/studio-audit/tests/navigation-async.ts:85:3)
+
+Node.js v24.22.1
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

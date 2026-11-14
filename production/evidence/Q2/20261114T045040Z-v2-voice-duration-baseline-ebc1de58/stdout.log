@@ -1,0 +1,18 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: voice-generated duration must survive unrelated draft edits
+
+48 !== 258
+
+    at <anonymous> (/workspace/studio-audit/tests/draft-async.ts:71:10) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 48,
+  expected: 258,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

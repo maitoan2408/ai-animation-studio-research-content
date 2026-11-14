@@ -1,0 +1,18 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: stale project load must not replace current project
+
+'Second' !== 'First'
+
+    at <anonymous> (/workspace/studio-audit/tests/navigation-async.ts:46:10) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'Second',
+  expected: 'First',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

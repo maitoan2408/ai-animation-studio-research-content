@@ -160,3 +160,8 @@ a native camera note survives save/reopen without modifying its source. Publishe
 before/after scope, frame/playback/color diagnostics, integrity audit and phase
 summary. Color display, complete perceptual/acting review, independent handoff
 and post-art cold/warm samples remain open; Q3–Q9 are not marked complete.
+
+## V2 F0 continuing — draft races and determinism
+
+- Preserve fields actually edited during delayed voice/upload while keeping server-generated duration; preserve explicit audio detach and reject stale project navigation.
+- Added real browser race/recovery checks to CI, pinned-package license research, and synthetic bit-exact/raster SSIM/ΔE76 comparisons with explicit thresholds. Production raster thresholds and art gates remain provisional.
