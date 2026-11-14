@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "shot": "S05",
+  "intent": "offer-light-receive",
+  "primaryClip": "Q2-R3-authored",
+  "fps": 24,
+  "frames": 192,
+  "actors": [
+    "mai",
+    "an"
+  ],
+  "props": [
+    "lamp"
+  ],
+  "beats": [
+    {
+      "start": 0,
+      "end": 24,
+      "intent": "hold",
+      "actors": [
+        "mai",
+        "an"
+      ],
+      "emotion": "anticipation",
+      "emphasis": 0.2,
+      "gazeTarget": "lamp"
+    },
+    {
+      "start": 24,
+      "end": 72,
+      "intent": "offer",
+      "actors": [
+        "mai",
+        "an"
+      ],
+      "emotion": "care",
+      "emphasis": 0.6,
+      "gazeTarget": "lamp"
+    },
+    {
+      "start": 72,
+      "end": 108,
+      "intent": "share-grip",
+      "actors": [
+        "mai",
+        "an"
+      ],
+      "emotion": "care",
+      "emphasis": 0.8,
+      "gazeTarget": "lamp"
+    },
+    {
+      "start": 108,
+      "end": 144,
+      "intent": "receive",
+      "actors": [
+        "mai",
+        "an"
+      ],
+      "emotion": "relief",
+      "emphasis": 0.6,
+      "gazeTarget": "lamp"
+    },
+    {
+      "start": 144,
+      "end": 192,
+      "intent": "settle-and-react",
+      "actors": [
+        "mai",
+        "an"
+      ],
+      "emotion": "relief",
+      "emphasis": 0.3,
+      "gazeTarget": "lamp"
+    }
+  ],
+  "contacts": [
+    {
+      "actor": "mai",
+      "control": "rightHandGrip",
+      "target": "lamp.giverGrip",
+      "start": 0,
+      "end": 108
+    },
+    {
+      "actor": "an",
+      "control": "rightHandGrip",
+      "target": "lamp.receiverGrip",
+      "start": 72,
+      "end": 192
+    }
+  ],
+  "secondary": [
+    "lamp"
+  ],
+  "releaseFrame": 108,
+  "artStatus": "development-asset-not-final-approved"
+}

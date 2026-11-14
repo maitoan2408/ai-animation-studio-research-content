@@ -12,6 +12,15 @@ export function critic(pack: ArtPack, input: HeroInput, bake: BakeEnvelope) {
     maxFootDriftPixels = 0,
     maxRotationDegrees = 0;
   const positions: Point[] = [],
+    samples: {
+      frame: number;
+      x: number;
+      y: number;
+      rotationDegrees: number;
+      gripPixels: number;
+      anchorPixels: number;
+      footPixels: number;
+    }[] = [],
     violations: { frame: number; code: string; value: number }[] = [];
   for (let f = 0; f < 192; f++) {
     const scene = heroFrame(pack, input, bake, f),
@@ -19,6 +28,8 @@ export function critic(pack: ArtPack, input: HeroInput, bake: BakeEnvelope) {
     const lamp = scene.sprites.find((s) => s.id === 'lamp')!,
       zoom = scene.camera.zoom;
     positions.push([lamp.x, lamp.y]);
+    let gripPixels = 0,
+      footPixels = 0;
     maxRotationDegrees = Math.max(maxRotationDegrees, Math.abs(lamp.rotation));
     for (const [owner, active, target] of [
       ['mai', f < 108, [51, 25]],
@@ -33,6 +44,7 @@ export function critic(pack: ArtPack, input: HeroInput, bake: BakeEnvelope) {
         b = assetPoint(pack, lamp, [...target]);
       const error = Math.hypot(a[0] - b[0], a[1] - b[1]) * zoom;
       maxGripPixels = Math.max(maxGripPixels, error);
+      gripPixels = Math.max(gripPixels, error);
       if (error > contract.limits.heroContactPixels)
         violations.push({ frame: f, code: 'GRIP_DRIFT', value: error });
     }
@@ -54,9 +66,19 @@ export function critic(pack: ArtPack, input: HeroInput, bake: BakeEnvelope) {
         );
       const drift = Math.hypot(a[0] - b[0], a[1] - b[1]) * zoom;
       maxFootDriftPixels = Math.max(maxFootDriftPixels, drift);
+      footPixels = Math.max(footPixels, drift);
       if (drift > contract.limits.heroFootDriftPixels)
         violations.push({ frame: f, code: 'FOOT_DRIFT', value: drift });
     }
+    samples.push({
+      frame: f,
+      x: lamp.x,
+      y: lamp.y,
+      rotationDegrees: lamp.rotation,
+      gripPixels,
+      anchorPixels: jointError,
+      footPixels,
+    });
   }
   const differences = (p: Point[]): Point[] =>
     p.slice(1).map((b, i) => [(b[0] - p[i]![0]) * 24, (b[1] - p[i]![1]) * 24]);
@@ -71,6 +93,7 @@ export function critic(pack: ArtPack, input: HeroInput, bake: BakeEnvelope) {
     maxAnchorPixels,
     maxFootDriftPixels,
     maxRotationDegrees,
+    samples,
     kinematics: {
       peakStagePixelsPerSecond: peak(velocity),
       peakStagePixelsPerSecondSquared: peak(acceleration),

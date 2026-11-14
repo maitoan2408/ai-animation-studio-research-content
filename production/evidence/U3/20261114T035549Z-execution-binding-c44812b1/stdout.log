@@ -1,0 +1,23 @@
+
+> paper-studio-production-workbench@0.1.0 test:physics
+> tsx --test tests/physics.test.ts
+
+✔ Rapier measured pendulum/drop/bounce/damping meet locked criteria and exact reference hash (502.30271ms)
+✔ baked hero preserves dual hold, grips, stance and arbitrary seeks without live physics (294.986384ms)
+✔ bake boundary rejects tampering, wrong revision, malformed timebase/events and nonfinite data (4.708986ms)
+✔ critic rejects a detached physics joint even when IK still keeps the palm on the prop (97.274984ms)
+✔ execution binding rejects stale gravity, toolchain and legacy receipts without changing baseline motion (17.788228ms)
+✔ hero input and legacy opt-in reject invalid mass, unsupported phases and stretched contacts (1.343033ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1566.99543
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

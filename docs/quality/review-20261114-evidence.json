@@ -1,0 +1,20 @@
+{
+  "reviewedHead": "1278176c9b47b8399d33a2a0a9270518bdf37394",
+  "testedImplementation": "a1a142a",
+  "testedSource": "2b0d40faa3a52db119d002eed82ada4a58010b53",
+  "ciConfirmed": "SUCCESS_BOTH_WORKFLOWS",
+  "retainedArtifactsVerified": [
+    "contact-sheet.jpg",
+    "onion-trail.svg",
+    "rotation.svg",
+    "contact.svg",
+    "foot.svg",
+    "velocity.svg",
+    "acceleration.svg",
+    "jerk.svg",
+    "measurements.json"
+  ],
+  "lastFrameLanternDegrees": -16.957240642951664,
+  "testsRerun": false,
+  "reason": "Review/docs only; implementation unchanged; existing successful CI reconfirmed"
+}

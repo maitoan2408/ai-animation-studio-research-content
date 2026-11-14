@@ -1,0 +1,34 @@
+{
+  "status": "PASS_DIAGNOSTICS",
+  "source": "/workspace/studio-audit/production/out/quality-hero/2676ded7-a2f3-4e7b-9526-7a19144472ef",
+  "bakeSha256": "ef8f0bd3d1a0fa920e4a5f20388f673521b83f06cfbbfbbbb9396f6a5dae195a",
+  "executionSha256": "3a4940debf26c18bc279067395719dd42cc70ce8c57252aea6b21d086d0672cb",
+  "physics": {
+    "algorithm": "s05-revolute-v1",
+    "engine": "rapier-0.21.0-deterministic-compat",
+    "gravity": 9.81,
+    "hz": 240,
+    "solverIterations": 12,
+    "packageLockSha256": "9b3f053d885c2d4c0a190433febc14b8609e82ede2c48a3d8da13d06a3b9a9ae",
+    "implementationSha256": "92d3a6b92e52c50edc437a2a10a997c6ca26bc52dcd4e8bc65bd6248f2853e1a"
+  },
+  "performanceSha256": "b79ba876637fe3a0c9872f8e3eddc3e0f267da47eebe61f138203facffc08d39",
+  "frames": 192,
+  "outputs": {
+    "contact-sheet.svg": "1bf137ab8f6f616c9b8eeadb7034e70a88190ee8f8d7f8feb6c555cb73bd6d79",
+    "contact-sheet.jpg": "f770239cd24d1c9765fd36787895fcb1c262822ca1e948f4eeef796dc4e77cce",
+    "onion-trail.svg": "db770831007e85d8f4917d15ca3b3ac1ab1461a93200487740db2ac3be50f1ed",
+    "rotation.svg": "396e6b17244ad423590d412a53a9ebe8fa427770d473d4f0fcb31457f07a6b9b",
+    "contact.svg": "c3d47954b20646ca25973796720519ba87e7d15263f5d207558343e808bf2614",
+    "foot.svg": "bf2e6d215f4e8ebcb90260cb29844a76efd3d46b54098ca19f38510c5ae77203",
+    "velocity.svg": "4071b10741d454d5e361a6e3eacb741a04d640f6f9ad2a712d11aa6a14262ca0",
+    "acceleration.svg": "9fe29a84a0539102fe9a30552d65d9e84a232f21e7f070c2638aeab72a2eef54",
+    "jerk.svg": "48b6549e7dcafd8581870fadfacd811c09e59d0ffb4ce3796ff8df430e34d57a",
+    "measurements.json": "1ab9654c3ee92b6a91db6c2ef08631ed786fc68bf011eb67da2af18fe5bb9696"
+  },
+  "limits": [
+    "Development art; SVG diagnostic preview, not native/color parity",
+    "Derivative metrics descriptive, not aesthetic scores",
+    "No listening or independent operator approval"
+  ]
+}

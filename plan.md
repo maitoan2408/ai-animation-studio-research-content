@@ -6,7 +6,15 @@ Nhánh hiện hành `codex/quality-physics-bake`, draft PR #5, từ R3/Q2 `4f6b9
 Q2 vẫn còn gate nghệ thuật/nghe/operator/performance; không đổi thành DONE.
 Các snapshot bên dưới giữ nguyên để truy vết, không dùng thay checkpoint mới.
 
-## Tiến độ hiện hành — R3 sequence 13/11/2026
+## Tiến độ hiện hành — 14/11/2026
+
+Tiếp tục kế hoạch nâng chất lượng U0–U8 trước Q3 theo yêu cầu người dùng.
+Nhánh `codex/quality-motion-contracts` từ `bad116c` đã có execution binding,
+Performance validator và chẩn đoán S05. [Checkpoint](docs/quality/RESULTS.md),
+[evidence](production/artifacts/quality/contracts-20261114/README.md).
+Asset hiện tại là thử nghiệm; art/reference/voice và các gate người duyệt vẫn mở.
+
+## Snapshot R3 sequence 13/11/2026
 
 Đã hoàn thành ghép/tái tạo R3 đủ48s, giữ năm shot và audio R2; catalog mới,
 14ca browser, native70hash/6replay PASS. [Hướng dẫn và evidence](production/artifacts/Q2/web-review-v3/README.md).

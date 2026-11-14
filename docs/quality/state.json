@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
   "baseline": "4f6b97c",
-  "branch": "codex/quality-physics-bake",
+  "branch": "codex/quality-motion-contracts",
   "sourceDocumentSha256": "c7de9e1cd05a84eff4aa56e5c429dc8a147d9ca6e6b77e58282dabff2ce749dc",
   "authority": "delegated-agent",
   "phases": {
     "U0": "TECHNICAL_AUDIT_DONE_REFERENCE_AND_LICENSE_DECISIONS_OPEN",
     "U1": "AUDITED_ART_SELECTION_AND_REFERENCE_PENDING",
-    "U2": "PARTIAL_HERO_PERFORMANCE_IR_AND_REPLAY",
+    "U2": "PARTIAL_VALIDATED_PERFORMANCE_SCRIPT_AND_HERO_REPLAY",
     "U3": "PASS_BOUNDED_FIXTURES_AND_HERO_TWO_LINUX_X64_RUNNERS",
     "U4": "BLOCKED_REFERENCE_INPUT",
     "U5": "PARTIAL_EXISTING_AUDIO_QC_LISTENING_PENDING",
     "U6": "PARTIAL_NATIVE_HERO_WEB_AND_REPLAY_PASS_AB_AND_FAIR_PERFORMANCE_PENDING",
-    "U7": "PARTIAL_GEOMETRY_CRITIC_AND_NEGATIVE_TESTS",
+    "U7": "PARTIAL_GEOMETRY_CRITIC_VISUAL_DIAGNOSTICS_DIRECTOR_PENDING",
     "U8": "BLOCKED_HERO_AND_HUMAN_GATES"
   },
   "q2Status": "IN_PROGRESS_CREATIVE_HANDOFF_PERFORMANCE",
@@ -27,16 +27,48 @@
     "Portable41hash/6frame replay exact, same agent",
     "Source535296e both CI workflows SUCCESS, matching Rapier and hero golden hashes on separate runner",
     "Fresh exact texture restore and corrupt-cache/art/archive rejection tested; export192frames equals existing rendered candidate",
-    "Final source ce1c138: both workflows SUCCESS, including exact texture bootstrap,20Python tests,R3 rebuild/review recovery and standalone Git-only workflow"
+    "Final source ce1c138: both workflows SUCCESS, including exact texture bootstrap,20Python tests,R3 rebuild/review recovery and standalone Git-only workflow",
+    "Execution binding covers gravity/solver/engine/source/lock; archived motion/input/golden unchanged",
+    "Strict Performance Script validates capability/timeline/contacts and blocks unsupported variations",
+    "S05 10frame contact sheet, onion/trail and numeric curves; exact texture/export/Chromium/output-hash QA workflow"
   ],
   "updatedDateClient": "2026-11-14",
-  "nextAction": "Review U3 hero full motion and obtain final art/acting/voice inputs for U1/U4/U5, then expand six clips and match shot end states. Do not repeat completed physics/render tests without a code/input change or an unexplained failure. Q2 artistic/listening/operator/performance gates remain open.",
+  "nextAction": "Implement NEXT-STEPS T01 shot boundary/continuity contract, then T02 independent ground/collision critic and T03 parameterized MotionClip. Prepare licensed art/reference/voice in parallel. T11 draft recovery before live editing. U0-U8 before Q3-Q9.",
   "ci": {
+    "sourceHead": "2b0d40faa3a52db119d002eed82ada4a58010b53",
+    "status": "PASS",
+    "evidence": "docs/quality/ci-motion-contracts.json",
+    "workbenchRun": 43555120968,
+    "applicationRun": 43555121390,
+    "limits": "Separate runner, exact source; no art/listening/operator approval"
+  },
+  "currentValidation": {
+    "sourceBase": "bad116c",
+    "productionTests": 31,
+    "pythonTests": 20,
+    "productionTypecheck": "PASS",
+    "appVerifyTests": 16,
+    "diagnosticWorkflow": "PASS",
+    "evidence": "production/artifacts/quality/contracts-20261114/README.md",
+    "remoteCI": "PASS",
+    "implementationCommit": "a1a142a",
+    "testedSource": "2b0d40faa3a52db119d002eed82ada4a58010b53"
+  },
+  "previousCI": {
     "sourceHead": "ce1c13830b7c43c0fef2c7492e8735fc2901fe91",
     "status": "PASS",
     "evidence": "docs/quality/ci-workflows.json",
     "workbenchRun": 43484911444,
     "applicationRun": 43484911623,
     "limits": "Separate Linux x64 runner; no artistic/listening/independent operator approval"
+  },
+  "review": {
+    "dateClient": "2026-11-14",
+    "reviewedHead": "1278176c9b47b8399d33a2a0a9270518bdf37394",
+    "report": "docs/quality/REVIEW-2026-11-14.md",
+    "nextPlan": "docs/quality/NEXT-STEPS.md",
+    "nextTask": "T01",
+    "taskState": "PLANNED_NOT_EXECUTED",
+    "limits": "Technical review; no creative approval or new test run"
   }
 }

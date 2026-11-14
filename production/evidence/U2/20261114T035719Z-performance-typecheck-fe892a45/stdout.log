@@ -1,0 +1,12 @@
+
+> paper-studio-production-workbench@0.1.0 typecheck
+> tsc --noEmit
+
+src/motion/performance.ts(34,30): error TS18046: 'v.props' is of type 'unknown'.
+src/motion/performance.ts(34,73): error TS18046: 'v.props' is of type 'unknown'.
+src/motion/performance.ts(41,29): error TS18046: 'v.actors' is of type 'unknown'.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

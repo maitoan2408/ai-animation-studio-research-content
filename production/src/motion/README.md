@@ -39,3 +39,38 @@ Versions/runtime: production/ENVIRONMENT.md. New media and native packages stay
 under out (gitignored); Git retains source, input/bake and small measured reports.
 Preserve the old attempt; repairs create another output and their own source
 snapshot. Native output is a candidate, never an automatic artistic approval.
+
+## Performance contract and visual diagnostics
+
+`performance.ts` validates actor/prop/clip capabilities, continuous beat coverage,
+frame bounds, emphasis, gaze and contact intervals. Unknown targets, overlapping
+contacts on one control and unsupported clips reject before render. S05 stores
+both hand grip intervals; the `secondary` instance is `lamp` (the former metadata
+label `lantern` was not an instance ID). The authored S05 adapter rejects arbitrary
+schema-valid variations: emotion/emphasis fields describe its fixed intent and
+are not a claim that an AI can execute new acting without an implemented clip.
+
+Generate a fresh bound hero, then use its printed absolute path:
+
+```bash
+npm --prefix production run quality:hero
+npm --prefix production run quality:diagnostics -- --hero /absolute/hero/output
+```
+
+Outputs have unique directories under `out/quality-diagnostics`:10frame contact
+sheet, onion skin at100/108/116/124, lantern pivot motion trail, rotation/contact/
+foot/velocity/acceleration/jerk plots, per-frame measurements and SHA manifest.
+The SVG preview uses verified development asset source; it is not native renderer
+or color parity. Derivatives are measured at24fps, descriptive rather than an
+acting score. The final lantern angle is still nonzero: do not connect the next
+shot to an upright state without a matching transition or authored reset.
+
+Local/CI end-to-end check (exact texture restore,192frame export, baseline input/
+motion equality, actual Chromium diagnostic render and output SHA verification):
+
+```bash
+python scripts/run-step.py U7 diagnostic-workflow -- python production/src/qa/check_quality_diagnostics.py
+```
+
+No new media/native ZIP is committed. Human art/voice/reference and six acted
+clips remain open; this instrumentation does not advance Q3 or close Q2.

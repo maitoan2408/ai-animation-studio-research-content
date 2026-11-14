@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { simulate } from '../src/physics/engines.js';
 import { measure } from '../src/physics/measure.js';
-import { validateBake, sampleBake, digest } from '../src/physics/bake.js';
+import { validateBake, sampleBake, digest, executionDigest } from '../src/physics/bake.js';
+import { heroPhysics } from '../src/physics/recipe.js';
 import { bakeHero } from '../src/physics/hero.js';
 import { heroInput, heroFrame, r3 } from '../src/motion/hero.js';
 import { critic } from '../src/motion/critic.js';
@@ -87,9 +88,44 @@ test('critic rejects a detached physics joint even when IK still keeps the palm 
   const detached = structuredClone(bake);
   detached.data.frames[180]!.centerX += 0.01;
   detached.sha256 = digest(detached.data);
+  detached.binding!.executionSha256 = executionDigest(
+    detached.data.inputSha256,
+    detached.sha256,
+    detached.binding!.physics,
+  );
   const report = critic(pack, input, validateBake(detached));
   assert.equal(report.status, 'FAIL');
   assert.ok(report.violations.some((v) => v.frame === 180 && v.code === 'PHYSICS_JOINT_DRIFT'));
+});
+
+test('execution binding rejects stale gravity, toolchain and legacy receipts without changing baseline motion', async () => {
+  const changedPhysics = { ...heroPhysics, gravity: heroPhysics.gravity / 2 };
+  const changed = await bakeHero(input, changedPhysics);
+  assert.notEqual(changed.sha256, bake.sha256);
+  assert.notEqual(changed.binding!.executionSha256, bake.binding!.executionSha256);
+  assert.throws(() => heroFrame(pack, input, bake, 125, changedPhysics), /BAKE_EXECUTION_MISMATCH/);
+  assert.throws(() => heroFrame(pack, input, changed, 125), /BAKE_EXECUTION_MISMATCH/);
+  assert.doesNotThrow(() => heroFrame(pack, input, changed, 125, changedPhysics));
+  assert.throws(
+    () => heroFrame(pack, input, bake, 125, { ...heroPhysics, packageLockSha256: '0'.repeat(64) }),
+    /BAKE_EXECUTION_MISMATCH/,
+  );
+  assert.throws(
+    () =>
+      heroFrame(pack, input, bake, 125, { ...heroPhysics, implementationSha256: '0'.repeat(64) }),
+    /BAKE_EXECUTION_MISMATCH/,
+  );
+  const tampered = structuredClone(bake);
+  (tampered.binding!.physics as { gravity: number }).gravity /= 2;
+  assert.throws(() => validateBake(tampered), /BAKE_BINDING_HASH/);
+  const legacy = validateBake({ sha256: bake.sha256, data: structuredClone(bake.data) });
+  assert.equal(legacy.sha256, golden.heroBakeSha256);
+  assert.deepEqual(sampleBake(legacy, 125, digest(input)), bake.data.frames[125]);
+  assert.throws(() => heroFrame(pack, input, legacy, 125), /BAKE_EXECUTION_MISMATCH/);
+  assert.throws(() => {
+    (bake.binding!.physics as { gravity: number }).gravity = 1;
+  }, TypeError);
+  await assert.rejects(bakeHero(input, { ...heroPhysics, gravity: NaN }), /PHYSICS_RECIPE/);
 });
 test('hero input and legacy opt-in reject invalid mass, unsupported phases and stretched contacts', async () => {
   await assert.rejects(bakeHero({ ...input, massKg: NaN }), /HERO_MATERIAL/);

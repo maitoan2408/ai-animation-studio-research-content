@@ -1,4 +1,21 @@
-## Điểm tiếp tục mới — 14/11/2026
+## Review và kế hoạch tiếp theo — 14/11/2026
+
+Đã review checkpoint1278176/PR #6, xác nhận lại CI source2b0d40f SUCCESS.
+[Review](../quality/REVIEW-2026-11-14.md), [next tasks](../quality/NEXT-STEPS.md).
+Tiếp theo T01: end-state/continuity; sau đó ground/critic độc lập và clip evaluator.
+User chưa chọn art/reference; development assets được phép dùng cho kỹ thuật.
+Đợt review này chỉ cập nhật tài liệu/state, không thực thi task hay đóng gate.
+
+## Checkpoint hợp đồng/diagnostics — 14/11/2026
+
+Tiếp tục `bad116c` trên nhánh `codex/quality-motion-contracts`. Đã thêm execution
+binding, strict Performance Script, contact-sheet/onion/trail/curves và CI helper.
+Source `2b0d40f` đã SUCCESS cả hai workflow; xem `docs/quality/ci-motion-contracts.json`.
+[Kết quả](../quality/RESULTS.md), [evidence](../../production/artifacts/quality/contracts-20261114/README.md).
+Người dùng chưa chọn art/reference, đã xác nhận tiếp tục kỹ thuật bằng asset thử.
+Kế hoạch U0–U8 ưu tiên trước Q3–Q9. Các gate art/listening/operator vẫn mở.
+
+## Điểm tiếp tục trước — 14/11/2026
 
 Nhánh hiện hành `codex/quality-physics-bake`, draft PR #5, từ R3/Q2 `4f6b97c`.
 Đã triển khai bake vật lý cho S05, native 1080p, kiểm replay/media và CI.

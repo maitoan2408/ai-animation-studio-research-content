@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "MISSING_USER_SELECTION",
+  "updatedDateClient": "2026-11-14",
+  "entries": [
+    {"id": "acting-handoff", "purpose": "Trao/nhận đèn, hướng nhìn, anticipation và reaction", "status": "MISSING", "uri": null, "sha256": null, "rightsEvidence": null},
+    {"id": "acting-locomotion", "purpose": "Đi/dừng/quay/chào; nhịp và tiếp đất", "status": "MISSING", "uri": null, "sha256": null, "rightsEvidence": null},
+    {"id": "physics-weight", "purpose": "Đèn đung đưa, rơi/nảy; trọng lượng cảm nhận", "status": "MISSING", "uri": null, "sha256": null, "rightsEvidence": null},
+    {"id": "paper-art", "purpose": "Nhân vật/nền/chất liệu giấy/ánh sáng1080p", "status": "MISSING", "uri": null, "sha256": null, "rightsEvidence": null}
+  ],
+  "limits": ["No media downloaded or rights inferred", "Existing SVG pack remains development art"]
+}

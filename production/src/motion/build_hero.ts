@@ -7,8 +7,9 @@ import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import path from 'node:path';
-import { heroInput, heroFrame, performanceIR, r3 } from './hero.js';
+import { heroInput, heroFrame, performanceIR, validateHeroPerformance, r3 } from './hero.js';
 import { bakeHero } from '../physics/hero.js';
+import { digest } from '../physics/bake.js';
 import { critic } from './critic.js';
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const out = path.join(root, 'out/quality-hero', randomUUID());
@@ -22,6 +23,7 @@ try {
     await readFile(path.join(root, 'assets/lantern-polish-1/manifest.json'), 'utf8'),
   );
   const input = heroInput(pack);
+  const performance = validateHeroPerformance(performanceIR);
   await writeFile(path.join(out, 'input.json'), JSON.stringify(input, null, 2) + '\n');
   const bake = await bakeHero(input),
     again = await bakeHero(input);
@@ -31,14 +33,13 @@ try {
   );
   if (bake.sha256 !== golden.heroBakeSha256) throw Error('BAKE_REFERENCE_MISMATCH');
   await writeFile(path.join(out, 'bake.json'), JSON.stringify(bake, null, 2) + '\n');
-  await writeFile(
-    path.join(out, 'performance.json'),
-    JSON.stringify(performanceIR, null, 2) + '\n',
-  );
+  await writeFile(path.join(out, 'performance.json'), JSON.stringify(performance, null, 2) + '\n');
   const report = {
     ...critic(pack, input, bake),
     bakeSha256: bake.sha256,
     inputSha256: bake.data.inputSha256,
+    executionSha256: bake.binding!.executionSha256,
+    performanceSha256: digest(performance),
     sameRunHash: true,
   };
   await writeFile(path.join(out, 'critic.json'), JSON.stringify(report, null, 2) + '\n');

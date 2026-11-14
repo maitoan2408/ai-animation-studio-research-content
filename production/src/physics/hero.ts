@@ -3,8 +3,15 @@
  * Body centre is the existing light anchor [80,116], with a rectangular inertia
  * proxy; it is a declared stylized mass model, not a scan of a real lantern.
  */
-import { rapier, contract, versions } from './engines.js';
-import { digest, validateBake, type BakeEnvelope, type BodyFrame } from './bake.js';
+import { rapier, versions } from './engines.js';
+import {
+  digest,
+  executionDigest,
+  validateBake,
+  type BakeEnvelope,
+  type BodyFrame,
+} from './bake.js';
+import { heroPhysics, validatePhysics, type HeroPhysics } from './recipe.js';
 export type HeroInput = {
   schemaVersion: 1;
   shot: 'S05';
@@ -59,13 +66,18 @@ export function validateHeroInput(v: HeroInput): void {
   if (Math.hypot(a[0] - b[0] - v.localAnchor[0], a[1] - b[1] - v.localAnchor[1]) > 1e-10)
     throw Error('HERO_INITIAL_CONTACT');
 }
-export async function bakeHero(input: HeroInput): Promise<BakeEnvelope> {
+export async function bakeHero(
+  input: HeroInput,
+  physics: HeroPhysics = heroPhysics,
+): Promise<BakeEnvelope> {
   input = structuredClone(input);
+  physics = structuredClone(physics);
+  validatePhysics(physics);
   validateHeroInput(input);
   const r = await rapier(),
-    world = new r.World({ x: 0, y: -contract.gravity });
-  world.timestep = 1 / 240;
-  world.numSolverIterations = 12;
+    world = new r.World({ x: 0, y: -physics.gravity });
+  world.timestep = 1 / physics.hz;
+  world.numSolverIterations = physics.solverIterations;
   const a = input.anchorFrames[107]!,
     b = input.centerFrames[107]!;
   const hand = world.createRigidBody(
@@ -128,5 +140,14 @@ export async function bakeHero(input: HeroInput): Promise<BakeEnvelope> {
       },
     ],
   };
-  return validateBake({ sha256: digest(data), data });
+  const sha256 = digest(data);
+  return validateBake({
+    sha256,
+    data,
+    binding: {
+      schemaVersion: 1,
+      physics,
+      executionSha256: executionDigest(data.inputSha256, sha256, physics),
+    },
+  });
 }
