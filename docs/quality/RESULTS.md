@@ -102,3 +102,6 @@ Fixture ownership S05 kiểm contact và coverage; cut S06→S05 tạm thời d�
 
 ### F1 technical provisional — 14/11/2026
 S05 native input nay fail closed trên ground, ownership và overlap alpha ≥128 sau khi kiểm hash; case inject phát hiện. Scope 2D, không đóng F4 hay gate người; F2 đang làm trước F3.
+
+### F2 pivot torso — 14/11/2026
+Face và extrusion dùng pivot native; test tọa độ anchor với rig bao gồm quay/lật và render 1080p anti-clipping PASS. Mới một asset, không đóng F2.

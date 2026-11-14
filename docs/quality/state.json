@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F2-diorama-and-rig",
-    "nextAction": "F2: build diorama using same rig, validate texture effects and 1080p styleframe; F3 remains gated on F2. F4 retains physical 3D collision requirement.",
+    "nextAction": "F2: validate generalized layered art/effects with actual S05 rig and generate 1080p full scene for review; F3 remains gated.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -203,7 +203,8 @@
       "f1AlphaOverlap": "NO_OPAQUE_OVERLAP_192_FRAMES_ALPHA128_2D_ONLY",
       "f1Ownership": "PASS_EXPLICIT_PROVISIONAL_S05_CONTACT_VALIDATED",
       "f1RealSeam": "PASS_REAL_TRANSFORMS_PROVISIONAL_INTENTIONAL_CUT",
-      "f1ProjectedAlphaGate": "PASS_192_FRAMES_ALPHA128_NATIVE_INPUT_ONLY"
+      "f1ProjectedAlphaGate": "PASS_192_FRAMES_ALPHA128_NATIVE_INPUT_ONLY",
+      "f2Pivot": "PASS_TORSO_GEOMETRY_AND_ANCHOR_TRANSFORMS_ONLY"
     }
   }
 }

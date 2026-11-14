@@ -1,9 +1,10 @@
 /** Isolated visual experiment; not the production renderer or a final art pipeline. */
 import * as THREE from 'three';
 import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
-declare global { interface Window { spikeInput: {svg: string}; spikeResult: unknown; spikeError?: string; spikeReady?: boolean; } }
+import { makePaperGeometry, type PaperAsset } from './geometry.js';
+declare global { interface Window { spikeInput: {svg: string; asset: PaperAsset}; spikeResult: unknown; spikeError?: string; spikeReady?: boolean; } }
 async function main() {
-  const svg = window.spikeInput.svg;
+  const {svg, asset} = window.spikeInput;
   const parsed = new SVGLoader().parse(svg);
   const path = parsed.paths[0];
   if (!path || path.color.getHexString() !== 'd5a34b') throw Error('SPIKE_SILHOUETTE_UNEXPECTED');
@@ -39,20 +40,19 @@ async function main() {
   const board = new THREE.Mesh(new THREE.PlaneGeometry(960,540),new THREE.MeshStandardMaterial({color:'#eee5cf',roughness:1}));
   board.position.z=-55; board.receiveShadow=true; scene.add(board);
   for (const [x, volume] of [[-210,false],[210,true]] as const) {
-    const group = new THREE.Group(); group.position.x=x; group.rotation.y=-0.15; group.scale.setScalar(2.1);
-    const front = new THREE.Mesh(new THREE.PlaneGeometry(180,190),new THREE.MeshBasicMaterial({map:texture,transparent:true,alphaTest:0.01,side:THREE.DoubleSide}));
+    const group = new THREE.Group(); group.position.set(x,-157.5,0); group.rotation.y=-0.15; group.scale.setScalar(2.1);
+    const geometry = makePaperGeometry(shapes[0]!, asset, 3);
+    const front = new THREE.Mesh(geometry.face,new THREE.MeshBasicMaterial({map:texture,transparent:true,alphaTest:0.01,side:THREE.DoubleSide}));
     front.position.set(0,0,volume ? 3.05 : 0); group.add(front);
     if(volume) {
-      const geometry = new THREE.ExtrudeGeometry(shapes,{depth:3,bevelEnabled:false,curveSegments:16});
-      geometry.scale(1,-1,1); geometry.translate(-90,95,0);
-      const mesh = new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({color:'#cbb58d',map:paper,roughness:1,side:THREE.DoubleSide}));
+      const mesh = new THREE.Mesh(geometry.body,new THREE.MeshStandardMaterial({color:'#cbb58d',map:paper,roughness:1,side:THREE.DoubleSide}));
       mesh.castShadow=true; mesh.receiveShadow=true; group.add(mesh);
-    }
+    } else geometry.body.dispose();
     scene.add(group);
   }
   await renderer.compileAsync(scene,camera); renderer.render(scene,camera); renderer.getContext().finish();
   window.spikeResult={three:THREE.REVISION,textureDimensions:[image.naturalWidth,image.naturalHeight],
-    pathCount:parsed.paths.length,shapeCount:shapes.length, depth:3,
+    pathCount:parsed.paths.length,shapeCount:shapes.length, depth:3, pivot:asset.pivot,
     limitations:['One hand-selected torso silhouette only; no general SVG extrusion',
       'SVG face rasterized by Chromium to preserve its appearance; first path alone forms physical silhouette',
       'Flat reference has no cast shadow; not visual equivalence, final material, or approval',

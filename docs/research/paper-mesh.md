@@ -9,3 +9,5 @@ Thử local với `THREE.Shape` hình vuông, `ExtrudeGeometry` depth0,2/bevel0,
 ## Thử nghiệm torso có hash
 
 Three 0.187 `ShapePath.toShapes()` + `ExtrudeGeometry` chạy Chromium thực; chỉ path ngoài torso được chọn thủ công, mặt trước là SVG Chromium raster ở 4× và cạnh dùng nhiễu có seed. Xem `docs/reports/F2.md` và ảnh so sánh. PARTIAL: bóng/độ dày nhìn thấy nhưng chưa chứng minh tính đúng cho mask, opacity, stroke, image, rig, pivot và các asset khác; không coi hai pixel kiểm clipping là kiểm chất lượng hình tổng thể. Chưa dùng texture ngoài.
+
+Pivot torso đã được tính theo manifest và kiểm toán so với `assetPoint` của rig (quay và scale âm); Chromium render lại xác minh hai pixel bị che trước đó. PARTIAL: chỉ một torso, chưa kiểm toàn bộ asset và motion, chưa suy chất lượng art.
