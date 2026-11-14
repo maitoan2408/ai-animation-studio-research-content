@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/studio-audit/production/src/art/paper-scene/verify_shadow.py", line 25, in <module>
+    print(json.dumps(verify_shadow(sys.argv[1],sys.argv[2])))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/studio-audit/production/src/art/paper-scene/verify_shadow.py", line 18, in verify_shadow
+    if not changed:raise ValueError('SHADOW_NO_CHANGE')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: SHADOW_NO_CHANGE

@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-depth-shear-test",
+  "run_id": "20261114T104742Z-f2-depth-shear-test-be40bf78",
+  "started_at_utc": "20261114T104742Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/paper-depth.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "633fa5b44dded7fee34993fe46cef54e1174ba54",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 47253,
+  "source_snapshot_sha256": "b6aaa939e319e342c7ca950344ee08566255526af9986a4c169b2cdb2d496d09",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.961,
+  "finished_at_utc": "2026-11-14T10:47:43.244185+00:00",
+  "log_sha256": "6a9600c70d76121a6a78443570bbe0229ff7915250cf32e5e85a9b6fe6efe15d",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

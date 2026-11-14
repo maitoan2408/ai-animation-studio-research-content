@@ -108,3 +108,6 @@ Face và extrusion dùng pivot native; test tọa độ anchor với rig bao g�
 
 ### F2 S05 frame thử — 14/11/2026
 Contour nhị phân 22 part roundtrip; render frame 108 có 31/71 sprite đùn, 1080p flat/volume khác 9.501 pixel. Yaw từng phần, bóng, motion và art chưa đạt gate; F2 PARTIAL.
+
+### F2 oblique và bóng — 14/11/2026
+Bỏ yaw từng part, face z=0 không đổi; thêm VSM receiver chung. So ảnh có/không bóng khác 41.497 pixel nhưng chưa chứng minh bóng đúng hay motion. F2 PARTIAL.

@@ -51,9 +51,9 @@ try{
  }
  const result={status:'PARTIAL_SCENE_EXPERIMENT',frame:108,inputSha256:sha(bytes),contourSha256:sha(contourBytes),
   images:reports,browser:await browser.version(),output,
-  limitations:['S05 frame 108 only; actor/prop plates in both images have an illustrative per-part yaw; no animation or backend parity claim',
+  limitations:['S05 frame 108 only; oblique per-sprite depth shear is a 2.5D projection, not a shared physically consistent camera or 3D; no animation or backend parity claim',
    'Raster alpha >=128 silhouettes for actors/prop; translucency and subpixel edge details are not modeled by extrusion',
-   'Original texture faces and existing authored shadow sprites retained; no new directional shadow/contact shadow implemented',
+   'Adds one shared directional shadow receiver behind foreground plus existing authored shadow sprites; no per-layer shadow or true ground contact shadow',
    'No final art, full 3D physical collision or artistic approval']};
  await writeFile(path.join(output,'report.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));
 }finally{await browser.close();server.closeAllConnections();server.close();}
