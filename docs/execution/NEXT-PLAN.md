@@ -1,4 +1,12 @@
-## Kế hoạch bổ sung đang áp dụng — 14/11/2026
+## Kế hoạch tiếp theo hiện hành — 14/11/2026
+
+Nhánh `codex/quality-motion-contracts`, PR #6, checkpoint1278176:
+[review hiện trạng](../quality/REVIEW-2026-11-14.md) và
+[task/gate/phụ thuộc](../quality/NEXT-STEPS.md). Bắt đầu T01 continuity,
+ground/critic T02 và MotionClip T03; chuẩn bị art/reference song song.
+Hoàn tất nâng cấp U0–U8 trước Q3–Q9. Đây là plan chưa thực thi.
+
+## Snapshot kế hoạch trước — 14/11/2026
 
 Nhánh hiện hành `codex/quality-physics-bake`, draft PR #5, từ R3/Q2 `4f6b97c`.
 Đã triển khai bake vật lý cho S05, native 1080p, kiểm replay/media và CI.

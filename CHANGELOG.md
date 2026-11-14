@@ -1,5 +1,13 @@
 # Changelog
 
+## Quality review and next-step plan — 14/11/2026
+
+- Reviewed checkpoint1278176 against code, retained measurements and confirmed CI.
+- Clarified the baseline-relative foot metric, bounded authored Script and missing
+  continuity/collision/acting capabilities; retained legacy app debt.
+- Planned T01–T12 with inputs, dependencies, negative tests and human gates,
+  prioritizing quality upgrade before Q3. No implementation/approval change.
+
 ## Quality contracts and diagnostics — 14/11/2026
 
 - Bound hero replay to gravity/solver/engine/implementation/lock without changing

@@ -33,7 +33,7 @@
     "S05 10frame contact sheet, onion/trail and numeric curves; exact texture/export/Chromium/output-hash QA workflow"
   ],
   "updatedDateClient": "2026-11-14",
-  "nextAction": "Continue U2/U7 technical motion contracts and bounded repair tooling with development assets; obtain selected final art/reference/voice before claiming acted clips/creative acceptance. Preserve matching end states between shots. Complete U0–U8 before Q3–Q9.",
+  "nextAction": "Implement NEXT-STEPS T01 shot boundary/continuity contract, then T02 independent ground/collision critic and T03 parameterized MotionClip. Prepare licensed art/reference/voice in parallel. T11 draft recovery before live editing. U0-U8 before Q3-Q9.",
   "ci": {
     "sourceHead": "2b0d40faa3a52db119d002eed82ada4a58010b53",
     "status": "PASS",
@@ -61,5 +61,14 @@
     "workbenchRun": 43484911444,
     "applicationRun": 43484911623,
     "limits": "Separate Linux x64 runner; no artistic/listening/independent operator approval"
+  },
+  "review": {
+    "dateClient": "2026-11-14",
+    "reviewedHead": "1278176c9b47b8399d33a2a0a9270518bdf37394",
+    "report": "docs/quality/REVIEW-2026-11-14.md",
+    "nextPlan": "docs/quality/NEXT-STEPS.md",
+    "nextTask": "T01",
+    "taskState": "PLANNED_NOT_EXECUTED",
+    "limits": "Technical review; no creative approval or new test run"
   }
 }
