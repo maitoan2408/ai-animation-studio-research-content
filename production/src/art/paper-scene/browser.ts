@@ -7,7 +7,7 @@ import {shearDepth} from './depth.js';
 import {requireForegroundContour} from './coverage.js';
 import {anchorPoint} from '../../scene/geometry.js';
 import type {ArtPack,SceneFrame} from '../../scene/types.js';
-type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';coverage:'foreground'|'physical';look:'basic'|'standard'|'lambert'|'fold'|'depth'|'depth-lit'|'depth-soft'|'edge'|'fiber'|'glow'|'contact'|'shadow-card';lanternIntensity:number;groundY?:number;profile:'preview'|'1080';textureUrls:Record<string,string>};
+type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';coverage:'foreground'|'physical';look:'basic'|'standard'|'lambert'|'fold'|'depth'|'depth-lit'|'depth-soft'|'edge'|'fiber'|'glow'|'contact'|'shadow-card'|'contact-card';lanternIntensity:number;groundY?:number;profile:'preview'|'1080';textureUrls:Record<string,string>};
 declare global { interface Window { sceneInput:Info; sceneReady?:boolean;sceneError?:string;sceneStats?:unknown; } }
 async function main(){
  const {pack,frame,contours,mode,shadowMode,coverage,look,profile,lanternIntensity,groundY,textureUrls}=window.sceneInput;
@@ -29,12 +29,12 @@ async function main(){
    let t:THREE.Texture;try {t=await loader.loadAsync(url);}catch {throw Error(`SCENE_TEXTURE_LOAD ${id} ${url}`);}t.colorSpace=THREE.SRGBColorSpace;t.minFilter=THREE.LinearFilter;t.magFilter=THREE.LinearFilter;t.generateMipmaps=false;textures.set(id,t);}));
  let plates=0,extruded=0,hiddenPaperShadows=0,requiredContours=0,replacedContactShadows=0,shadowCards=0;
  const ordered=[...frame.sprites].sort((a,b)=>a.z-b.z);
- const contact=mode==='volume'&&look==='contact'?contactPoints(pack,frame,groundY!):undefined;
+ const contact=mode==='volume'&&(look==='contact'||look==='contact-card')?contactPoints(pack,frame,groundY!):undefined;
  const firstForeground=ordered.findIndex(s=>s.z>=0);if(firstForeground<0)throw Error('SCENE_FOREGROUND');
  const receiver=new THREE.Mesh(new THREE.PlaneGeometry(3200,2000),new THREE.ShadowMaterial({opacity:.23,depthTest:false,depthWrite:false}));
  receiver.position.z=-5;receiver.receiveShadow=true;receiver.renderOrder=firstForeground*2;scene.add(receiver);
  for(const [order,s] of ordered.entries()){
-  if(mode==='volume'&&(shadowMode==='receiver-only'||look==='shadow-card')&&s.id.endsWith('.paper-shadow')){hiddenPaperShadows++;continue;}
+  if(mode==='volume'&&(shadowMode==='receiver-only'||look==='shadow-card'||look==='contact-card')&&s.id.endsWith('.paper-shadow')){hiddenPaperShadows++;continue;}
   if(contact&&s.id.endsWith('.contact-shadow')){
    const foot=s.id.slice(0,-'.contact-shadow'.length),point=contact.get(foot);if(!point)throw Error(`PAPER_CONTACT_SHADOW ${s.id}`);
    const canvas=document.createElement('canvas');canvas.width=128;canvas.height=128;
@@ -69,7 +69,7 @@ async function main(){
    const mesh=new THREE.Mesh(body,new THREE.MeshStandardMaterial({color:background?'#ffffff':'#ad8d60',map:background?textures.get(s.asset):undefined,roughness:1,side:THREE.DoubleSide,transparent:!depthMode,depthTest:depthMode,depthWrite:depthMode}));
    mesh.renderOrder=order*2;mesh.castShadow=shadowMode!=='authored-only';group.add(mesh);extruded++;
   }
-  if(mode==='volume'&&look==='shadow-card'&&contour&&!s.asset.startsWith('background/')){
+  if(mode==='volume'&&(look==='shadow-card'||look==='contact-card')&&contour&&!s.asset.startsWith('background/')){
    const shadow=new THREE.MeshBasicMaterial({map:textures.get(s.asset)!,color:'#241a13',transparent:true,opacity:.28,depthTest:false,depthWrite:false,side:THREE.DoubleSide});
    const ux=(3/asset.width).toFixed(9),uy=(3/asset.height).toFixed(9);
    shadow.onBeforeCompile=shader=>{

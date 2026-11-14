@@ -9,7 +9,7 @@ import puppeteer from 'puppeteer-core';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
 const sha=(x:Buffer)=>createHash('sha256').update(x).digest('hex');
 const source=process.argv[2];if(!source)throw Error('USAGE_S05_JSON_REQUIRED');
-const look=process.argv[7]??'basic';if(!['basic','standard','lambert','fold','depth','depth-lit','depth-soft','edge','fiber','glow','contact','shadow-card'].includes(look))throw Error('SCENE_LOOK');
+const look=process.argv[7]??'basic';if(!['basic','standard','lambert','fold','depth','depth-lit','depth-soft','edge','fiber','glow','contact','shadow-card','contact-card'].includes(look))throw Error('SCENE_LOOK');
 const lanternIntensity=process.argv[9]===undefined?.4:Number(process.argv[9]);if(!Number.isFinite(lanternIntensity)||lanternIntensity<0||lanternIntensity>1)throw Error('SCENE_LANTERN_INTENSITY');
 const profile=process.argv[8]??'1080';if(!['1080','preview'].includes(profile))throw Error('SCENE_PROFILE');
 const coverage=process.argv[6]??'foreground';if(coverage!=='foreground'&&coverage!=='physical')throw Error('SCENE_COVERAGE_MODE');
@@ -21,7 +21,7 @@ const alpha=JSON.parse(await readFile(path.join(path.dirname(path.resolve(source
 if(alpha.sourceSha256!==sha(bytes)||alpha.frames!==192||alpha.alphaThreshold!==128||
  alpha.overlap['mai.torso'].length||alpha.overlap['an.torso'].length)throw Error('SCENE_ALPHA_GATE');
 let groundY:number|undefined;
-if(look==='contact'){
+if(look==='contact'||look==='contact-card'){
  const ground=await readFile(path.join(root,'brief/quality/ground-fixture.json'));const gate=JSON.parse(await readFile(path.join(path.dirname(path.resolve(source)),'report.json'),'utf8'));
  const fixture=JSON.parse(ground.toString());if(sha(ground)!==gate.groundFixtureSha256||fixture.shot!=='S05'||fixture.coordinateSystem!=='stage-pixels-y-down'||fixture.stance.startFrame>frameNumber||fixture.stance.endFrameExclusive<=frameNumber)throw Error('SCENE_GROUND_FIXTURE');
  groundY=fixture.groundY;
@@ -61,7 +61,7 @@ try{
   await page.waitForFunction('window.sceneReady||window.sceneError',{timeout:60000});
   const state=await page.evaluate(()=>({stats:(window as any).sceneStats,error:(window as any).sceneError}));
   if(state.error||errors.length)throw Error(`SCENE_BROWSER ${state.error} ${errors.join(' ')}`);
-  if(mode==='volume'&&look==='shadow-card'){
+  if(mode==='volume'&&(look==='shadow-card'||look==='contact-card')){
    const expected=frame.sprites.filter((s:{asset:string})=>contour.assets.some((c:{id:string})=>c.id===s.asset)&&!s.asset.startsWith('background/')).length;
    const hidden=frame.sprites.filter((s:{id:string})=>s.id.endsWith('.paper-shadow')).length;
    if(state.stats?.shadowCards!==expected||state.stats?.hiddenPaperShadows!==hidden)throw Error('SCENE_SHADOW_COVERAGE');
@@ -74,7 +74,7 @@ try{
   images:reports,browser:await browser.version(),output,
   limitations:['One S05 frame only; oblique per-sprite depth shear is a 2.5D projection, not a shared physically consistent camera or 3D; no animation or backend parity claim',
    'Raster alpha >=128 silhouettes for actors/prop; translucency and subpixel edge details are not modeled by extrusion',
-   look==='shadow-card'?'Hides authored paper shadows and draws blurred sprite-alpha shadow cards behind foreground; approximate painter ordering, not physical layer shadows.':look==='contact'?'Replaces four contact-shadow sprites with procedural blobs anchored to declared foot contacts; authored paper shadows remain.':shadowMode==='combined'?'Adds one shared directional shadow receiver plus authored shadow sprites; possible double shadow.':shadowMode==='receiver-only'?'Volume hides authored paper-shadow sprites and uses shared directional receiver; contact-shadow sprites remain.':'Volume keeps existing authored layer/contact shadows; mesh shadow casting disabled.',
+   look==='contact-card'?'Replaces paper shadows with alpha cards and four contact sprites with ground-anchored blobs; approximate and not physically verified.':look==='shadow-card'?'Hides authored paper shadows and draws blurred sprite-alpha shadow cards behind foreground; approximate painter ordering, not physical layer shadows.':look==='contact'?'Replaces four contact-shadow sprites with procedural blobs anchored to declared foot contacts; authored paper shadows remain.':shadowMode==='combined'?'Adds one shared directional shadow receiver plus authored shadow sprites; possible double shadow.':shadowMode==='receiver-only'?'Volume hides authored paper-shadow sprites and uses shared directional receiver; contact-shadow sprites remain.':'Volume keeps existing authored layer/contact shadows; mesh shadow casting disabled.',
    'Layer shadow/contact correctness remains unverified; depth-lit is an experimental shadow-enabled variant',
    'No final art, full 3D physical collision or artistic approval']};
  await writeFile(path.join(output,'report.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

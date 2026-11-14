@@ -33,3 +33,5 @@ Kế hoạch chi tiết F2 mới được lưu `PROPOSED-Q0-Q9-F2-DETAIL-2026111
 T3–T6 đã thử riêng: contact lấy bốn sole/ground fixture, back-edge seed, màu sợi UV và glow ở anchor đèn. Chỉ là prototype partial, chưa chứng minh bóng lớp/flicker hoặc ghép preset. T0b có thử audit trên tám bản sao dedup nhưng chưa chạy full fresh review/security; recorder giữ nguyên. T1/T2 và các cổng F2 còn mở, xem F2 report.
 
 T3 có thêm thử shadow-card (31 card, 29 paper-shadow ẩn; 640p frame 108 render lặp chính xác). Có thể đổ lên sai lớp và chưa kiểm contact/motion, nên vẫn PARTIAL; xem F2 report và `t3/shadow-cards-compare/`.
+
+T3 lần ba ghép contact và shadow-card trong mode riêng; 1080 và motion chưa được xác minh. Ba cách thử chưa qua gate, giữ PARTIAL.

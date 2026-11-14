@@ -12,3 +12,4 @@
 - T5 dùng điều biến màu UV thủ tục biên độ 0,035 cho thân và tay Mai, không lấy texture ngoài. Ảnh 1080/crop có sợi nhẹ, nhưng đây chưa là bump/normal map và chưa kiểm flicker animation.
 - T6 thử glow cộng sáng tại anchor `light` của đèn, bán kính 180 stage px và `lanternIntensity` 0–1; intensity 0 trùng hash ảnh gốc. Đây là sprite, không phải đèn chiếu lên vật liệu hoặc rim light; chưa qua T6.
 - T3 thử thêm shadow-card: 9 mẫu alpha, opacity 0,28, dịch (7, −8) px; bỏ 29 paper-shadow và tạo 31 card, giữ contact cũ. Không suy painter order thành receiver vật lý; chưa gộp preset.
+- T3 lần ba thử `contact-card`: thay bốn contact cũ bằng blob bám ground cùng với 31 card thay paper-shadow. Chưa xác minh bóng đúng receiver hay motion, giữ PARTIAL.
