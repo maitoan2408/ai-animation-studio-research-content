@@ -1,5 +1,6 @@
 /** Validated, immutable replay data. No engine is loaded by a frame consumer. */
 import { createHash } from 'node:crypto';
+import { validatePhysics, type HeroPhysics } from './recipe.js';
 export type BodyFrame = { frame: number; centerX: number; centerY: number; rotation: number };
 export type BakeFile = {
   schemaVersion: 1;
@@ -16,7 +17,8 @@ export type BakeFile = {
     intensity: number;
   }[];
 };
-export type BakeEnvelope = { sha256: string; data: BakeFile };
+export type BakeBinding = { schemaVersion: 1; physics: HeroPhysics; executionSha256: string };
+export type BakeEnvelope = { sha256: string; data: BakeFile; binding?: BakeBinding };
 export const digest = (data: unknown) =>
   createHash('sha256').update(JSON.stringify(data)).digest('hex');
 const object = (v: unknown): v is Record<string, unknown> =>
@@ -24,7 +26,11 @@ const object = (v: unknown): v is Record<string, unknown> =>
 const keys = (v: Record<string, unknown>, expected: string[]) =>
   Object.keys(v).sort().join(',') === expected.sort().join(',');
 export function validateBake(raw: unknown): BakeEnvelope {
-  if (!object(raw) || !keys(raw, ['sha256', 'data']) || !object(raw.data))
+  if (
+    !object(raw) ||
+    !keys(raw, raw.binding === undefined ? ['sha256', 'data'] : ['sha256', 'data', 'binding']) ||
+    !object(raw.data)
+  )
     throw Error('BAKE_SCHEMA');
   const d = raw.data;
   if (
@@ -78,6 +84,23 @@ export function validateBake(raw: unknown): BakeEnvelope {
       throw Error('BAKE_EVENTS');
   }
   if (raw.sha256 !== digest(d)) throw Error('BAKE_HASH');
+  if (raw.binding !== undefined) {
+    const b = raw.binding;
+    if (
+      !object(b) ||
+      !keys(b, ['schemaVersion', 'physics', 'executionSha256']) ||
+      b.schemaVersion !== 1
+    )
+      throw Error('BAKE_BINDING');
+    validatePhysics(b.physics);
+    if (
+      b.executionSha256 !==
+      executionDigest(d.inputSha256 as string, raw.sha256 as string, b.physics)
+    )
+      throw Error('BAKE_BINDING_HASH');
+    Object.freeze(b.physics);
+    Object.freeze(b);
+  }
   for (const f of d.frames) Object.freeze(f);
   for (const e of d.events) Object.freeze(e);
   Object.freeze(d.frames);
@@ -86,9 +109,42 @@ export function validateBake(raw: unknown): BakeEnvelope {
   Object.freeze(raw);
   return raw as BakeEnvelope;
 }
-export function sampleBake(bake: BakeEnvelope, frame: number, expectedInputSha: string): BodyFrame {
+export function executionDigest(
+  inputSha256: string,
+  bakeSha256: string,
+  physics: HeroPhysics,
+): string {
+  return digest({
+    schemaVersion: 1,
+    inputSha256,
+    bakeSha256,
+    physics: {
+      algorithm: physics.algorithm,
+      engine: physics.engine,
+      gravity: physics.gravity,
+      hz: physics.hz,
+      solverIterations: physics.solverIterations,
+      packageLockSha256: physics.packageLockSha256,
+      implementationSha256: physics.implementationSha256,
+    },
+  });
+}
+export function sampleBake(
+  bake: BakeEnvelope,
+  frame: number,
+  expectedInputSha: string,
+  physics?: HeroPhysics,
+): BodyFrame {
   if (!Object.isFrozen(bake) || !Object.isFrozen(bake.data)) throw Error('BAKE_NOT_VALIDATED');
   if (!Number.isInteger(frame) || frame < 0 || frame >= 192) throw Error('BAKE_FRAME_RANGE');
   if (bake.data.inputSha256 !== expectedInputSha) throw Error('BAKE_INPUT_MISMATCH');
+  if (physics) {
+    validatePhysics(physics);
+    if (
+      !bake.binding ||
+      bake.binding.executionSha256 !== executionDigest(expectedInputSha, bake.sha256, physics)
+    )
+      throw Error('BAKE_EXECUTION_MISMATCH');
+  }
   return bake.data.frames[frame]!;
 }

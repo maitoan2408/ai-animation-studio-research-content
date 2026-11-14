@@ -15,7 +15,8 @@
     "test:review-r3": "tsx tests/review-ui.mjs artifacts/Q2/web-review-v3/generated/catalog.json",
     "physics:spike": "tsx src/physics/spike.ts",
     "quality:hero": "tsx src/motion/build_hero.ts",
-    "test:physics": "tsx --test tests/physics.test.ts"
+    "test:physics": "tsx --test tests/physics.test.ts",
+    "quality:diagnostics": "tsx src/motion/diagnostics.ts"
   },
   "dependencies": {
     "@dimforge/rapier2d-deterministic-compat": "0.21.0",
