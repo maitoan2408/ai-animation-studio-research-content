@@ -8,6 +8,10 @@ engine/implementation/lock, strict Performance Script và công cụ chẩn đo�
 với candidate đã render; golden và ngưỡng không đổi.31 TS tests,20 Python,
 typecheck và root verify16 PASS. [Báo cáo/ảnh/đồ thị](../../production/artifacts/quality/contracts-20261114/README.md).
 User chưa chọn art/reference, cho phép tiếp tục kỹ thuật bằng asset thử nghiệm.
+Hai workflow trên source `2b0d40f` đã SUCCESS: workbench43555120968 và
+app43555121390, gồm diagnostic workflow mới, R3/review recovery và standalone
+Git-only. [CI/source/steps](ci-motion-contracts.json). Commit chốt evidence sau
+đó không đổi implementation đã kiểm; không suy CI thành art approval.
 [Chuẩn và trạng thái duyệt](standard.md), [reference register](../../references/manifest.json).
 Q3–Q9 chưa bắt đầu; Q2/U1/U4/U5/U8 vẫn giữ các gate đang mở.
 

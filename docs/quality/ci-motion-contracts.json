@@ -1,0 +1,267 @@
+{
+  "testedSource": "2b0d40faa3a52db119d002eed82ada4a58010b53",
+  "implementationCommit": "a1a142a",
+  "status": "PASS",
+  "runs": [
+    {
+      "id": 43555121390,
+      "name": "Paper Studio verification",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 34,
+      "jobs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43555121390/jobs",
+      "logs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43555121390/logs",
+      "workflow_id": 413980343,
+      "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43555121390",
+      "jobs": [
+        {
+          "id": 132326126903,
+          "name": "verify",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 43555121390,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Initialize containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Install media runtime",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run npm run studio -- doctor",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Run npm run verify",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Run npm run build",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Run npm run test:integration",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Run npm run test:ui",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Upload evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21
+            },
+            {
+              "name": "Stop containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 43555120968,
+      "name": "Q2 workbench verification",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 15,
+      "jobs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43555120968/jobs",
+      "logs_url": "https://api.github.com/repos/maitoan2408/ai-animation-studio-research-content/actions/runs/43555120968/logs",
+      "workflow_id": 416678554,
+      "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43555120968",
+      "jobs": [
+        {
+          "id": 132326125306,
+          "name": "contracts-and-review",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 43555120968,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Initialize containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Install local media runtime",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run npm --prefix production ci",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Install locked QC libraries",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Run npm --prefix production run typecheck",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Run npm --prefix production test",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Compare physics bakes with locked cross-runner reference",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Run /tmp/q2-qc/bin/python -m unittest discover -s production/tests -p 'test_*.py' -v",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Restore exact review media from Git parts",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Run npm --prefix production run review -- check",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Verify frozen chart in actual Chromium",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Run npm --prefix production run test:review-ui",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Rebuild R3 from committed inputs and verify review binding",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            },
+            {
+              "name": "Verify delayed and uncertain review-save recovery",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 16
+            },
+            {
+              "name": "Verify standalone Git-only installation and review workflow",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 17
+            },
+            {
+              "name": "Upload diagnostic evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 18
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 35
+            },
+            {
+              "name": "Stop containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 36
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 37
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Separate runner CI; no art/listening/independent operator approval",
+    "Later evidence-only commit does not change the tested implementation"
+  ]
+}

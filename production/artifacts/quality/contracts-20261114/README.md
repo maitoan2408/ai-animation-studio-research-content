@@ -30,7 +30,8 @@ SVG preview không nhận native color parity; không suy JPEG này là master.
 Các fail đầu giữ trong `production/evidence/U2` và `U7`: type narrowing/DOM
 iteration, tên instance chưa đúng và đường texture tương đối trong helper.
 Đường texture đã đổi thành absolute, child stdout/stderr giữ khi fail; retest PASS.
-CI mới có workflow này; kết quả remote ghi riêng sau khi chạy.
+CI source `2b0d40f` đã SUCCESS cả workbench43555120968 và app43555121390, gồm
+workflow mới, R3/recovery và standalone Git-only. [Bằng chứng](../../../../docs/quality/ci-motion-contracts.json).
 
 `selection.json` ghi các file nhỏ được giữ. Contact-sheet.svg (~1,6MB inline
 asset lặp) ở generated output, tái tạo bằng helper thay vì commit thêm. Hash của

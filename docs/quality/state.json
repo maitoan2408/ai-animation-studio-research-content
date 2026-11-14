@@ -35,12 +35,12 @@
   "updatedDateClient": "2026-11-14",
   "nextAction": "Continue U2/U7 technical motion contracts and bounded repair tooling with development assets; obtain selected final art/reference/voice before claiming acted clips/creative acceptance. Preserve matching end states between shots. Complete U0–U8 before Q3–Q9.",
   "ci": {
-    "sourceHead": "ce1c13830b7c43c0fef2c7492e8735fc2901fe91",
+    "sourceHead": "2b0d40faa3a52db119d002eed82ada4a58010b53",
     "status": "PASS",
-    "evidence": "docs/quality/ci-workflows.json",
-    "workbenchRun": 43484911444,
-    "applicationRun": 43484911623,
-    "limits": "Separate Linux x64 runner; no artistic/listening/independent operator approval"
+    "evidence": "docs/quality/ci-motion-contracts.json",
+    "workbenchRun": 43555120968,
+    "applicationRun": 43555121390,
+    "limits": "Separate runner, exact source; no art/listening/operator approval"
   },
   "currentValidation": {
     "sourceBase": "bad116c",
@@ -50,7 +50,16 @@
     "appVerifyTests": 16,
     "diagnosticWorkflow": "PASS",
     "evidence": "production/artifacts/quality/contracts-20261114/README.md",
-    "remoteCI": "PENDING_NEW_SOURCE",
-    "implementationCommit": "a1a142a"
+    "remoteCI": "PASS",
+    "implementationCommit": "a1a142a",
+    "testedSource": "2b0d40faa3a52db119d002eed82ada4a58010b53"
+  },
+  "previousCI": {
+    "sourceHead": "ce1c13830b7c43c0fef2c7492e8735fc2901fe91",
+    "status": "PASS",
+    "evidence": "docs/quality/ci-workflows.json",
+    "workbenchRun": 43484911444,
+    "applicationRun": 43484911623,
+    "limits": "Separate Linux x64 runner; no artistic/listening/independent operator approval"
   }
 }
