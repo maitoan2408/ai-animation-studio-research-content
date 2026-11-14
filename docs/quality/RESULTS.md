@@ -96,3 +96,6 @@ Three SVG path + extrusion và SVG raster face; 1080p so flat/mesh, test hai pix
 
 ### F1 mask alpha S05 — 14/11/2026
 So alpha≥128 từ texture R3 có hash trong 192 frame: không có pixel đục trùng giữa đèn và torso Mai/An. Hình chiếu 2D không suy 3D hay approval. Owner/seam còn mở.
+
+### F1 owner và seam — 14/11/2026
+Fixture ownership S05 kiểm contact và coverage; cut S06→S05 tạm thời dựa benchmark độc lập, comparator test frame thực. F1 vẫn PARTIAL vì collision alpha offline chưa thành gate vật lý.

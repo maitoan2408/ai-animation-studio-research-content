@@ -29,3 +29,7 @@ Exporter hero đã kiểm ground độc lập cho bốn chân × 192 frame trư�
 ## Alpha S05
 
 Mask alpha texture R3 xác minh hash, chiếu 1920×1080, alpha ≥128 và nearest: đèn không trùng pixel đục với torso Mai/An trong 192 frame. Đây không chứng minh va chạm 3D hay art; owner và ý đồ seam còn thiếu. Xem F1 report, alpha-overlap-observation.json và failure/retry f1-alpha.
+
+## F1 ownership và seam tạm thời
+
+Ownership S05 là fixture tác giả Mai [0,108), An [108,192), được validator so với PerformanceScript và exporter kiểm; không suy owner từ grip đơn thuần. Cut S06→S05 được khai báo tạm thời theo benchmark độc lập; validator test hai frame thật. F1 còn thiếu gate collision native/3D; F2 còn diorama, rig/styleframe; không mở F3. Xem F1 report.

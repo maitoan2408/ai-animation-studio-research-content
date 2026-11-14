@@ -12,6 +12,7 @@ import { bakeHero } from '../physics/hero.js';
 import { digest } from '../physics/bake.js';
 import { critic } from './critic.js';
 import { inspectHeroGround } from '../continuity/hero-ground.js';
+import { validateOwnership } from '../continuity/ownership.js';
 import { createHash } from 'node:crypto';
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const out = path.join(root, 'out/quality-hero', randomUUID());
@@ -46,6 +47,10 @@ try {
   };
   await writeFile(path.join(out, 'critic.json'), JSON.stringify(report, null, 2) + '\n');
   if (report.status !== 'PASS_GEOMETRY') throw Error('HERO_CRITIC_FAILED');
+  const ownershipBytes = await readFile(path.join(root, 'brief/quality/s05-ownership.json'));
+  const ownership = validateOwnership(JSON.parse(ownershipBytes.toString()), performance);
+  await writeFile(path.join(out, 'ownership.json'), JSON.stringify({status:'PROVISIONAL_DEVELOPMENT',
+    fixtureSha256:createHash('sha256').update(ownershipBytes).digest('hex'), intervals:ownership}, null, 2) + '\n');
   const groundBytes = await readFile(path.join(root, 'brief/quality/ground-fixture.json'));
   const ground = { ...inspectHeroGround(pack, JSON.parse(groundBytes.toString()), f => heroFrame(pack, input, bake, f)),
     fixtureSha256: createHash('sha256').update(groundBytes).digest('hex'), bakeSha256: bake.sha256 };

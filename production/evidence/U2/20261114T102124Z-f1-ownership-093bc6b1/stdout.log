@@ -1,0 +1,10 @@
+✔ explicit owner covers the handoff and differs from shared contact (2.032443ms)
+✔ ownership cannot claim a control without contact or have gaps (0.503557ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 366.869243

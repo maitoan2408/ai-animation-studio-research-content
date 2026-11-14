@@ -3,7 +3,8 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { randomUUID, createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { heroFrame } from '../motion/hero.js';
+import { heroFrame, performanceIR, validateHeroPerformance } from '../motion/hero.js';
+import { validateOwnership, ownerAt } from './ownership.js';
 import { validateBake } from '../physics/bake.js';
 import { anchorPoint } from '../scene/geometry.js';
 import { analyzeContacts, type ContactSample } from './ground.js';
@@ -18,12 +19,14 @@ const files = [
   'artifacts/quality/contracts-20261114/bake.json',
   'brief/quality/ground-fixture.json',
   'src/scene/rig.ts',
+  'brief/quality/s05-ownership.json',
 ];
 const bytes = await Promise.all(files.map((f) => readFile(path.join(root, f))));
 const pack = JSON.parse(bytes[0]!.toString()) as ArtPack,
   input = JSON.parse(bytes[1]!.toString()) as HeroInput,
   bake = validateBake(JSON.parse(bytes[2]!.toString())),
-  fixture = JSON.parse(bytes[3]!.toString());
+  fixture = JSON.parse(bytes[3]!.toString()),
+  owners = validateOwnership(JSON.parse(bytes[5]!.toString()), validateHeroPerformance(performanceIR));
 const ids = ['mai.left-boot', 'mai.right-boot', 'an.left-boot', 'an.right-boot'],
   tracks = new Map(ids.map((id) => [id, [] as ContactSample[]]));
 let previous = heroFrame(pack, input, bake, 190).sprites.find((s) => s.id === 'lamp')!;
@@ -66,7 +69,7 @@ const boundary = {
         y: (last.y - previous.y) * 24,
         angular: (last.rotation - previous.rotation) * 24,
       },
-      owner: 'an.rightHandGrip',
+      owner: ownerAt(owners, 191),
       pose: {},
     },
   },
@@ -107,6 +110,7 @@ const report = {
     'S06 continuation is synthetic, not a produced next shot',
     'Ground and stance are declared development fixtures',
     'Prop/body collision tested on synthetic proxies only',
+    'Ownership is an explicit provisional S05 development fixture, not artistic approval',
     'No artistic approval',
   ],
 };

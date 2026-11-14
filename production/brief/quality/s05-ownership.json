@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "shot": "S05",
+  "prop": "lamp",
+  "fps": 24,
+  "frames": 192,
+  "intervals": [
+    {"start": 0, "end": 108, "owner": "mai.rightHandGrip"},
+    {"start": 108, "end": 192, "owner": "an.rightHandGrip"}
+  ],
+  "status": "PROVISIONAL_DEVELOPMENT",
+  "rationale": "Authored ownership choice for the S05 handoff: Mai owns during shared grip until release at 108, then An owns. This is not inferred from contact alone or an artistic approval."
+}

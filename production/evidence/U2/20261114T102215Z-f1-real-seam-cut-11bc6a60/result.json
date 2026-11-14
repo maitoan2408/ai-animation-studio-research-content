@@ -1,0 +1,22 @@
+{
+  "phase": "U2",
+  "step": "f1-real-seam-cut",
+  "run_id": "20261114T102215Z-f1-real-seam-cut-11bc6a60",
+  "started_at_utc": "20261114T102215Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/scene-seam.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "275b257f58cd66e1b1a82dea8066bc563c420c56",
+  "tracked_diff_sha256": "be15f9b5b6e387b4146adc44d6ae0aa5ebfd24f5668797842f04942db298b564",
+  "recorder_pid": 42373,
+  "source_snapshot_sha256": "db045167142b0b162689c234c835fa7c1e333b909db9b31ea36dbab45ab30cb6",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.655,
+  "finished_at_utc": "2026-11-14T10:22:16.057927+00:00",
+  "log_sha256": "fb1d8593e7a6677f34629ffe969cc9f37973cb112b45fc540569d554e5f3640f",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}
