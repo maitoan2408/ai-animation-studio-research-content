@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-calibration-regression",
+  "run_id": "20261114T201439Z-f2-calibration-regression-949e89f9",
+  "started_at_utc": "20261114T201439Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; npm --prefix production test; python -m unittest discover -s production/tests -p \"test_*.py\"; npm run verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "2ba07ea1492790895f8bad653788536b01ccdde6",
+  "tracked_diff_sha256": "829905b126439d462c08f0b82a4c7688a2bc3484947bb125e61ab938a093c163",
+  "recorder_pid": 19227,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "3134920e6ace59a9dad08bc2f67982d5c59761f904ef34acd2b4329d7523d270",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 48.069,
+  "finished_at_utc": "2026-11-14T20:15:27.539572+00:00",
+  "log_sha256": "087dcf6ccd56ec05be8a8668855c5707bced0831f713aaeb5ae7e1e4ab34fa67",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

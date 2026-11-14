@@ -13,3 +13,5 @@ Quyết định tạm thời: chưa đổi schema hoặc evidence lịch sử. �
 `PAPER_EVIDENCE_SNAPSHOT=dedup-v1` nay là lựa chọn thử nghiệm, **mặc định vẫn legacy**. ZIP được ghi chuẩn hóa thời gian để cùng input có cùng hash; lưu theo hash và symlink tương đối cho audit cũ. Năm test dùng Git tạm kiểm tám attempt mới trùng snapshot, input thay đổi, bốn attempt đồng thời, source bị sửa, symlink ra ngoài và `git archive`/extract. Audit thật trên 645 attempt hoàn tất/597 snapshot cũ PASS. Test đầu FAIL vì test tái dùng đường output audit `open('x')`; đã sửa bằng tên duy nhất và giữ snapshot lỗi.
 
 Chưa chạy đủ workflow `check_fresh_review.py` từ Git sạch và chưa kiểm Windows; không bật mặc định. Git symlink và tính nguyên tử của filesystem cần được đánh giá trong môi trường vận hành. Không sửa evidence lịch sử.
+
+`check_fresh_review.py` trên source `2ba07ea` PASS sáu bước trên cùng host; hai attempt opt-in thật trong workspace trỏ cùng archive và audit 651 attempt/603 archive PASS. Checkout Git-only kiểm source có code mới nhưng chưa bao gồm hai symlink opt-in thật; kiểm lại sau commit có chúng. Mặc định vẫn legacy, Windows chưa kiểm.

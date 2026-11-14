@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-dedup-live-a",
+  "run_id": "20261114T201143Z-f2-dedup-live-a-fea7cc81",
+  "started_at_utc": "20261114T201143Z",
+  "command": [
+    "python",
+    "-c",
+    "print(\"snapshot integrity probe A\")"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "2ba07ea1492790895f8bad653788536b01ccdde6",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 17706,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "79ae6a41b7fbd200587ebfe38427a69d66b470dae76ec60c42a4a893feaa8453",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.065,
+  "finished_at_utc": "2026-11-14T20:11:43.744330+00:00",
+  "log_sha256": "06c5c9911ad6c50aeead1e314e3354d699ad372775a4b4744f1d597c340c0543",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

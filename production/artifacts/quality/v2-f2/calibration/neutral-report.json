@@ -1,0 +1,58 @@
+{
+  "status": "PASS_BOUNDED_SWATCHES",
+  "pairs": [
+    {
+      "basic": [
+        223,
+        168,
+        68
+      ],
+      "lambert": [
+        223,
+        168,
+        68
+      ],
+      "maxChannelDifference": 0
+    },
+    {
+      "basic": [
+        229,
+        184,
+        151
+      ],
+      "lambert": [
+        229,
+        184,
+        151
+      ],
+      "maxChannelDifference": 0
+    },
+    {
+      "basic": [
+        56,
+        95,
+        89
+      ],
+      "lambert": [
+        56,
+        95,
+        89
+      ],
+      "maxChannelDifference": 0
+    },
+    {
+      "basic": [
+        239,
+        225,
+        180
+      ],
+      "lambert": [
+        239,
+        225,
+        180
+      ],
+      "maxChannelDifference": 0
+    }
+  ],
+  "scope": "Only opaque no-texture plane with ambient pi; not F2 whole-scene parity"
+}

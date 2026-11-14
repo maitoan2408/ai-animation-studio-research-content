@@ -37,3 +37,5 @@ T3 có thêm thử shadow-card (31 card, 29 paper-shadow ẩn; 640p frame 108 re
 T3 lần ba ghép contact và shadow-card trong mode riêng; 1080 và motion chưa được xác minh. Ba cách thử chưa qua gate, giữ PARTIAL.
 
 T0b có dedup ZIP opt-in, kiểm tám attempt mới và Git archive trong repo tạm, audit evidence cũ PASS; mặc định legacy vì full `check_fresh_review`/Windows chưa chứng minh. T1/T2/T3 vẫn PARTIAL, đề xuất fixture và phân tích Lambert tại `docs/research/f2-lighting-investigation.md`. Không nhận F2 hoàn thành.
+
+F2 fixture nghiên cứu: bốn màu Lambert/Basic trung tính trùng tại tâm; receiver chữ nhật nhận bóng caster alpha trong fixture, không leak ngoài. Chưa kiểm S05/đủ art. Fresh review source 2ba07ea PASS, dedup opt-in có hai attempt thật audit PASS, cần Git-only lại với các symlink thực trước khi cân nhắc mặc định.
