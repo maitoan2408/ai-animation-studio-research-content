@@ -13,3 +13,7 @@ F2 tiếp theo: bản frame 108 bỏ per-part yaw, giữ face transform 2D, obli
 F2 face anchor/contour coverage kiểm S05 tất cả 192 frame; ảnh thử 0, 108, 191 ở 1080p. Chưa kiểm animation, bóng đúng layer hoặc chất lượng art. F2 vẫn mở.
 
 F2 coverage: 117 raster phát triển hash/decode PASS (51 R3 giữ nguyên + 66 mới), 58 foreground contour binary/triangulation PASS. 59 background/shadow/effect chưa mesh; 7 mouth state và 4 nhãn mood chưa đủ 8 viseme/6 biểu cảm. Giữ F2 mở; xem F2 report.
+
+F2: thêm pack draft độc lập 3 mouth (8 nhãn ngoài rest) và 18 đầu sad/surprised/angry cho 2 nhân vật × 3 góc; giữ pack cũ. Preview tại `production/artifacts/quality/v2-f2/draft-sheets/`, chưa ghép rig hay kiểm phoneme/voice, chưa duyệt art; F2 vẫn mở.
+
+F2 overlay riêng 138 asset được build từ 117 cũ + 21 draft, test rig 288 tổ hợp anchor và bake cũ từ chối art hash khác. Chưa có shadow mới của draft, bake/renderer overlay và review art/voice. F2 vẫn mở.

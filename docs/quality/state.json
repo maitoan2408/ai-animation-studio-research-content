@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F2-diorama-and-rig",
-    "nextAction": "F2: author and validate missing viseme/expression variants as new art revision, layer-aware shadows, animation and full styleframe; remaining 59 shadow/background/effect assets not extruded.",
+    "nextAction": "F2: render overlay in motion with new bound bake, add shadow assets and layer-aware shadows, review styleframe/animation; keep original art and gate human review open.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -211,7 +211,8 @@
       "f2S05RenderedFrames": "PARTIAL_0_108_191_1080P_NOT_FULL_MOTION",
       "f2AllRasters": "PASS_HASH_DECODE_117_51_REUSED_66_DEVELOPMENT",
       "f2ForegroundContours": "PASS_BINARY_ROUNDTRIP_AND_TRIANGULATION_58_OF_117",
-      "f2CreativeVariants": "PARTIAL_7_MOUTH_STATES_4_MOOD_LABELS"
+      "f2CreativeVariants": "DRAFT_8_MOUTH_PLUS_REST_6_HEAD_LABELS_NOT_INTEGRATED_OR_REVIEWED",
+      "f2DraftOverlay": "PASS_PROVISIONAL_138_ASSETS_RIG_MATRIX_OLD_BAKE_REJECTED"
     }
   }
 }

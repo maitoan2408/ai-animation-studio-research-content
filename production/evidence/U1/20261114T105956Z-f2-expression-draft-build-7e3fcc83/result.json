@@ -1,0 +1,21 @@
+{
+  "phase": "U1",
+  "step": "f2-expression-draft-build",
+  "run_id": "20261114T105956Z-f2-expression-draft-build-7e3fcc83",
+  "started_at_utc": "20261114T105956Z",
+  "command": [
+    "python",
+    "production/src/art/build_expression_drafts.py"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1985154cdbcecce07c17b5e215352f2aa138ad80",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 51294,
+  "source_snapshot_sha256": "7067fb3ce4e00f8c18d8b6820b36dff6435acddf2450bef1f2710c17d102c5b9",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.064,
+  "finished_at_utc": "2026-11-14T10:59:56.632840+00:00",
+  "log_sha256": "e740ad94f0a93cbfc9be3151adfc275260b848ed1ea1fe54fdc7c7f6350c8a65",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

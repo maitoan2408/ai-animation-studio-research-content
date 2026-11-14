@@ -117,3 +117,9 @@ Face anchors và contour coverage trên 192 frame S05 PASS; chỉ render rời 0
 
 ### F2 coverage art — 14/11/2026
 117 PNG phát triển hash/decode; 58 foreground contour binary/triangulation; 59 shadow/background/effect chưa mesh. Không nhận art/motion approval.
+
+### F2 draft mouth/expression — 14/11/2026
+Tạo 3 mouth SVG và 18 đầu draft độc lập; preview 1080p, giữ revision đầu, không đổi pack cũ. Chưa tích hợp rig/phoneme hay duyệt art.
+
+### F2 overlay draft — 14/11/2026
+Revision riêng 138 asset; kiểm 288 tổ hợp rig/anchor và bake cũ từ chối art khác. Chưa có render chuyển động/voice, shadow draft hay duyệt art.

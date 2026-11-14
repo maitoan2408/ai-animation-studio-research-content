@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-overlay-final-tests",
+  "run_id": "20261114T110352Z-f2-overlay-final-tests-389ddf19",
+  "started_at_utc": "20261114T110352Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1985154cdbcecce07c17b5e215352f2aa138ad80",
+  "tracked_diff_sha256": "b8cd6eb73f158114f48bb33d6631b535eb3e4f7da97ad7372dc060d21061adac",
+  "recorder_pid": 52568,
+  "source_snapshot_sha256": "815cf4d37f479884854de7e7b407e0333df93c657f411301abc13140dd240ad7",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 26.517,
+  "finished_at_utc": "2026-11-14T11:04:19.733562+00:00",
+  "log_sha256": "23219e19ccf3d3f717e5d2eaefb810a00a37fa9bcb5d105a8ae26b5870453a83",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}
