@@ -9,7 +9,7 @@ import puppeteer from 'puppeteer-core';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
 const sha=(x:Buffer)=>createHash('sha256').update(x).digest('hex');
 const source=process.argv[2];if(!source)throw Error('USAGE_S05_JSON_REQUIRED');
-const look=process.argv[7]??'basic';if(!['basic','standard','lambert','fold','depth','depth-lit','depth-soft','edge','fiber','glow','contact','shadow-card','contact-card'].includes(look))throw Error('SCENE_LOOK');
+const look=process.argv[7]??'basic';if(!['basic','standard','lambert','fold','depth','depth-lit','depth-soft','edge','fiber','glow','contact','shadow-card','contact-card','bump-control','bump','bump-strong','lamp-control','lamp-light','edge-alpha'].includes(look))throw Error('SCENE_LOOK');
 const lanternIntensity=process.argv[9]===undefined?.4:Number(process.argv[9]);if(!Number.isFinite(lanternIntensity)||lanternIntensity<0||lanternIntensity>1)throw Error('SCENE_LANTERN_INTENSITY');
 const profile=process.argv[8]??'1080';if(!['1080','preview'].includes(profile))throw Error('SCENE_PROFILE');
 const coverage=process.argv[6]??'foreground';if(coverage!=='foreground'&&coverage!=='physical')throw Error('SCENE_COVERAGE_MODE');

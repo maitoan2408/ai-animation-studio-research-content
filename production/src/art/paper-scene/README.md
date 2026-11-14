@@ -10,10 +10,14 @@ These are isolated workbench candidates, not the product renderer or approved ar
 
 The animation uses indexed absolute frame state and tests repeat/reverse seeks. Bodies are alpha-threshold contours with oblique per-sprite shear; face textures and existing authored shadows are retained. The render made so far uses 79 foreground contours and leaves seven background sprites flat; separately generated 86-contour stills include those backgrounds. A silent video or identical seek does not establish artistic timing, speech, audio, edge quality, shadow correctness, 3D collision or user approval. Rendering may take several minutes under software rendering. The new expression/mouth overlay is not animated by this candidate.
 
-The bounded still harness accepts optional `look` and profile arguments after coverage: `basic|standard|lambert|fold|depth|depth-lit|depth-soft|contact|edge|fiber|glow|shadow-card|contact-card` and `1080|preview`. Default remains `basic 1080`. The look modes are isolated T1/T2 experiments, not an approved preset. Compare equally sized PNGs with `python production/src/art/paper-scene/compare_before_after.py <before> <after> <regions.json> <output-directory>`; means are ΔE00 in sRGB-derived Lab D65 and do not establish a visual/art gate. See `docs/quality/F2-DECISIONS.md` for scope and unverified thresholds.
+The bounded still harness accepts optional `look` and profile arguments after coverage: `basic|standard|lambert|fold|depth|depth-lit|depth-soft|contact|edge|fiber|glow|shadow-card|contact-card|edge-alpha|bump-control|bump|bump-strong|lamp-control|lamp-light` and `1080|preview`. Default remains `basic 1080`. The look modes are isolated T1/T2 experiments, not an approved preset. Compare equally sized PNGs with `python production/src/art/paper-scene/compare_before_after.py <before> <after> <regions.json> <output-directory>`; means are ΔE00 in sRGB-derived Lab D65 and do not establish a visual/art gate. See `docs/quality/F2-DECISIONS.md` for scope and unverified thresholds.
 
 The contact, edge, fiber and glow modes are independent experiments: contact uses the SHA-checked S05 development ground fixture, edge only displaces the back surface, fiber is UV color modulation, and glow is a sprite controlled by a final optional intensity argument (0–1). None is an approved look.
 
 `shadow-card` replaces authored paper-shadow sprites with blurred alpha cards in painter order. It is a nonphysical candidate and has not passed the per-layer/contact gate.
 
 `contact-card` combines the two provisional contact and alpha-card approaches in a single still. It is not an approved preset.
+
+`edge-alpha`, bump variants and lamp variants are bounded T4–T6 experiments; lighting uses emissive compensation and none has passed the S05 creative or motion gates.
+
+For a 192-frame provisional bump preview, append `preview physical bump` to animate.ts after the physical contour manifest. Only Mai torso/arms use bump; silent output and selected crop checks are not full flicker or artistic approval.

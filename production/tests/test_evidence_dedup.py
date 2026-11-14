@@ -16,7 +16,7 @@ class DedupTest(unittest.TestCase):
  def attempt(self,label,mode='dedup-v1'):
   env={**os.environ,'PAPER_EVIDENCE_SNAPSHOT':mode};self.call([sys.executable,'scripts/run-step.py','U1',label,'--',sys.executable,'-c','print(42)'],env=env)
  def audit(self):return self.call([sys.executable,'production/src/qa/audit_evidence.py',str(self.root/('audit-'+uuid.uuid4().hex+'.json'))],check=False)
- def test_dedup_is_opt_in_replays_and_rejects_corruption(self):
+ def test_dedup_replays_and_rejects_corruption(self):
   for n in range(8):self.attempt(f'repeat{n}')
   paths=sorted((self.root/'production/evidence/U1').glob('*/source.zip'));self.assertEqual(len(paths),8);self.assertTrue(all(p.is_symlink() for p in paths))
   self.assertEqual(len({p.resolve() for p in paths}),1);shared=paths[0].resolve();self.assertGreater(shared.stat().st_size,0)
@@ -25,6 +25,14 @@ class DedupTest(unittest.TestCase):
   (self.root/'src/example.txt').write_text('changed\n');self.attempt('changed');self.assertEqual(len({p.resolve() for p in (self.root/'production/evidence/U1').glob('*/source.zip')}),2)
   self.assertEqual(self.audit().returncode,0)
   shared.write_bytes(b'corrupt');self.assertNotEqual(self.audit().returncode,0)
+ def test_linux_default_and_explicit_legacy(self):
+  if not sys.platform.startswith('linux'):self.skipTest('Linux default only')
+  env=dict(os.environ);env.pop('PAPER_EVIDENCE_SNAPSHOT',None)
+  self.call([sys.executable,'scripts/run-step.py','U1','default','--',sys.executable,'-c','print(1)'],env=env)
+  p=next((self.root/'production/evidence/U1').glob('*/source.zip'));self.assertTrue(p.is_symlink())
+  self.attempt('explicitlegacy','legacy')
+  self.assertEqual(sum(not p.is_symlink() for p in (self.root/'production/evidence/U1').glob('*/source.zip')),1)
+  self.assertEqual(self.audit().returncode,0)
  def test_legacy_and_symlink_escape(self):
   self.attempt('legacy','legacy');p=next((self.root/'production/evidence/U1').glob('*/source.zip'));self.assertFalse(p.is_symlink());self.assertEqual(self.audit().returncode,0)
   p.unlink();p.symlink_to('/etc/passwd');result=self.audit();self.assertNotEqual(result.returncode,0);self.assertIn('SNAPSHOT_PATH',result.stdout)

@@ -1,16 +1,17 @@
 /** Deterministic indexed S05 preview: absolute frame evaluation, no wall clock. */
 import * as THREE from 'three';
+import {makePaperBump} from './paper-bump.js';
 import {makeContourBody} from './contour-body.js';
 import {shearDepth} from './depth.js';
 import {requireForegroundContour} from './coverage.js';
 import type {ArtPack,SceneFrame} from '../../scene/types.js';
 type Contour={id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number};
-type Config={pack:ArtPack;frames:SceneFrame[];contours:Contour[];textureUrls:Record<string,string>;width:number;height:number;includeBackground:boolean};
-type Entry={group:THREE.Group;face:THREE.Mesh<THREE.PlaneGeometry,THREE.MeshBasicMaterial>;body?:THREE.Mesh};
+type Config={pack:ArtPack;frames:SceneFrame[];contours:Contour[];textureUrls:Record<string,string>;width:number;height:number;includeBackground:boolean;look:'basic'|'bump'};
+type Entry={group:THREE.Group;face:THREE.Mesh<THREE.PlaneGeometry,THREE.Material>;body?:THREE.Mesh};
 declare global {interface Window {animationInput:Config;animationReady?:boolean;animationError?:string;animationSeek?:(frame:number)=>void;animationStats?:unknown}}
 async function main(){
- const {pack,frames,contours,textureUrls,width,height,includeBackground}=window.animationInput;
- if(frames.length!==192||!Number.isInteger(width)||!Number.isInteger(height)||typeof includeBackground!=='boolean')throw Error('ANIMATION_CONFIG');
+ const {pack,frames,contours,textureUrls,width,height,includeBackground,look}=window.animationInput;
+ if(frames.length!==192||!Number.isInteger(width)||!Number.isInteger(height)||typeof includeBackground!=='boolean'||!['basic','bump'].includes(look))throw Error('ANIMATION_CONFIG');
  const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(1);renderer.setSize(width,height);
  renderer.setClearColor('#e8ddbe',1);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NoToneMapping;
  document.body.appendChild(renderer.domElement);
@@ -20,6 +21,7 @@ async function main(){
  const ids=[...new Set(frames.flatMap(f=>f.sprites.map(s=>s.asset)))],queue=[...ids];
  await Promise.all(Array.from({length:4},async()=>{while(queue.length){const id=queue.shift()!,url=textureUrls[id];if(!url)throw Error(`ANIMATION_TEXTURE ${id}`);
   const t=await loader.loadAsync(url);t.colorSpace=THREE.SRGBColorSpace;t.minFilter=THREE.LinearFilter;t.magFilter=THREE.LinearFilter;t.generateMipmaps=false;textures.set(id,t);}}));
+ const bumpTexture=look==='bump'?makePaperBump():undefined;
  const cache=new Map<string,Entry>();
  function seek(index:number){
   if(!Number.isSafeInteger(index)||index<0||index>=frames.length)throw Error('ANIMATION_FRAME_RANGE');
@@ -34,7 +36,11 @@ async function main(){
    if(!entry){
     const group=new THREE.Group(),geometry=new THREE.PlaneGeometry(asset.width,asset.height);
     geometry.translate(asset.width/2-asset.pivot[0],asset.pivot[1]-asset.height/2,0);
-    const face=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({map:texture,transparent:true,depthTest:false,depthWrite:false,side:THREE.DoubleSide}));
+    const options={map:texture,transparent:true,depthTest:false,depthWrite:false,side:THREE.DoubleSide};
+    const material=look==='bump'&&['mai/torso','mai/upper-arm','mai/forearm'].includes(s.asset)
+     ?new THREE.MeshLambertMaterial({...options,emissive:0xffffff,emissiveMap:texture,emissiveIntensity:.329,bumpMap:bumpTexture,bumpScale:.6})
+     :new THREE.MeshBasicMaterial(options);
+    const face=new THREE.Mesh(geometry,material);
     group.add(face);
     let body:THREE.Mesh|undefined;
     if(contour){

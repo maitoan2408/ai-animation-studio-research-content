@@ -13,3 +13,5 @@
 - T6 thử glow cộng sáng tại anchor `light` của đèn, bán kính 180 stage px và `lanternIntensity` 0–1; intensity 0 trùng hash ảnh gốc. Đây là sprite, không phải đèn chiếu lên vật liệu hoặc rim light; chưa qua T6.
 - T3 thử thêm shadow-card: 9 mẫu alpha, opacity 0,28, dịch (7, −8) px; bỏ 29 paper-shadow và tạo 31 card, giữ contact cũ. Không suy painter order thành receiver vật lý; chưa gộp preset.
 - T3 lần ba thử `contact-card`: thay bốn contact cũ bằng blob bám ground cùng với 31 card thay paper-shadow. Chưa xác minh bóng đúng receiver hay motion, giữ PARTIAL.
+- T4 lần ba: biến đổi alpha hướng co tối đa 0,9 px chỉ trên prop, gắn UV; không xác nhận gate alpha/khớp animation. T5 lần hai/ba: bump 0,6/2 dùng control Lambert+emissive 0,329; ảnh 1080 chênh rất nhỏ và chưa đánh giá flicker. T6 thử point light không shadow cường độ 0,4/1 tại anchor đèn; chưa xác nhận rim/background và shadow. Không đưa các thử này vào preset cuối.
+- T6 point light = 0 cho ảnh trùng byte `lamp-control` ở frame 108 640×360; ở 1 có ánh ấm trong crop tay/đèn. Bóng theo layer/nền và review vẫn chưa đạt.

@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-t5-bump-motion",
+  "run_id": "20261114T202632Z-f2-t5-bump-motion-7e8bee62",
+  "started_at_utc": "20261114T202632Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx production/src/art/paper-scene/animate.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json production/artifacts/quality/v2-f2/overlay-physical-contours.json preview physical bump"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "046875c32390bbde3eabbc4f414addae3e24c3ef",
+  "tracked_diff_sha256": "0f5caa0be19e180bb1f457e5785a9ba14caf1bc2d3e09160b2a945967fa181a2",
+  "status": "RUNNING",
+  "recorder_pid": 25234,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "7922812ab6124441726b3f4b31a9ee639b307b84959b42e787584d73bae2db56"
+}

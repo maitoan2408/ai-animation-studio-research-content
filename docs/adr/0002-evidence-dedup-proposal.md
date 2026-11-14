@@ -15,3 +15,7 @@ Quyết định tạm thời: chưa đổi schema hoặc evidence lịch sử. �
 Chưa chạy đủ workflow `check_fresh_review.py` từ Git sạch và chưa kiểm Windows; không bật mặc định. Git symlink và tính nguyên tử của filesystem cần được đánh giá trong môi trường vận hành. Không sửa evidence lịch sử.
 
 `check_fresh_review.py` trên source `2ba07ea` PASS sáu bước trên cùng host; hai attempt opt-in thật trong workspace trỏ cùng archive và audit 651 attempt/603 archive PASS. Checkout Git-only kiểm source có code mới nhưng chưa bao gồm hai symlink opt-in thật; kiểm lại sau commit có chúng. Mặc định vẫn legacy, Windows chưa kiểm.
+
+## Quyết định áp dụng Linux
+
+Source `046875c` chứa symlink và archive opt-in thật; Git-only audit PASS 660 attempt/612 archive, và `check_fresh_review.py` PASS sáu bước ở checkout Git-only cùng host/agent. Cùng các test recorder tám lần và archive/security ở trên, cho phép bật `dedup-v1` mặc định **trên Linux**. `PAPER_EVIDENCE_SNAPSHOT=legacy` giữ snapshot cũ; hệ điều hành khác mặc định legacy vì chưa kiểm Windows. Request mới ghi mode; symlink thoát kho và kho symlink bị từ chối. Không sửa evidence lịch sử. Đây không chứng minh tính độc lập của operator hay approval mỹ thuật.

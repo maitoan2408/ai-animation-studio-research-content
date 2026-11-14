@@ -141,3 +141,6 @@ Khóa baseline/crop và công cụ ΔE00; ba thử chiếu sáng thân và ba th
 
 ### F2 T3–T6 thử độc lập — 14/11/2026
 Đã thử contact ở bốn sole, cạnh sau có seed, sợi màu UV và glow tại anchor đèn; chưa đạt bóng lớp, chuyển động ổn định, preset hay duyệt styleframe. Snapshot dedup thử bản sao PASS audit/tar/corruption nhưng chưa đủ để đổi recorder. F2 tiếp tục IN_PROGRESS; xem F2 report.
+
+### F2 tiếp tục: fixture và motion thử — 14/11/2026
+T0b dedup mặc định Linux sau Git-only review/audit; ngoài Linux legacy. Màu trung tính, bóng alpha có lỗ và edge alpha được kiểm trong fixture giới hạn; bump 192 frame preview và hai crop tĩnh không đổi. Những kết quả này chưa khép gate visual/motion/người duyệt F2. Xem F2 report.

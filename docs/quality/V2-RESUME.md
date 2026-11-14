@@ -39,3 +39,11 @@ T3 lần ba ghép contact và shadow-card trong mode riêng; 1080 và motion ch�
 T0b có dedup ZIP opt-in, kiểm tám attempt mới và Git archive trong repo tạm, audit evidence cũ PASS; mặc định legacy vì full `check_fresh_review`/Windows chưa chứng minh. T1/T2/T3 vẫn PARTIAL, đề xuất fixture và phân tích Lambert tại `docs/research/f2-lighting-investigation.md`. Không nhận F2 hoàn thành.
 
 F2 fixture nghiên cứu: bốn màu Lambert/Basic trung tính trùng tại tâm; receiver chữ nhật nhận bóng caster alpha trong fixture, không leak ngoài. Chưa kiểm S05/đủ art. Fresh review source 2ba07ea PASS, dedup opt-in có hai attempt thật audit PASS, cần Git-only lại với các symlink thực trước khi cân nhắc mặc định.
+
+T0b Linux kỹ thuật PASS: Git-only audit/fresh review trên source 046875c (chứa symlink dedup thật), tám attempt tạm chia sẻ archive. Default Linux chuyển dedup-v1, explicit legacy được hỗ trợ; ngoài Linux vẫn legacy chưa kiểm. F2 tiếp tục IN_PROGRESS.
+
+T4–T6 thử thêm: edge-alpha chỉ prop 1080; bump vật liệu 0,6/2 có ảnh control; point light tại anchor đèn cường độ 0,4/1. Phần khác biệt tinh và chưa kiểm gate animation, receiver, art; T1–T6 vẫn PARTIAL, không đóng F2.
+
+T4 shader edge-alpha không tăng alpha trong fixture texture đèn offscreen; chưa chứng minh toàn rig. T5 bump 0,6 có preview S05 192 frame 640×360: decode/seek PASS, hai crop tĩnh không đổi; không suy toàn cảnh hết flicker hoặc duyệt art. F2 còn IN_PROGRESS.
+
+T6 point light 0 khớp byte control ở một frame. Regression mới 79 TS, 49 Python, typecheck/root verify PASS; không suy F2 PASS.

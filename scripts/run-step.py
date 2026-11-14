@@ -78,10 +78,11 @@ def main() -> int:
     # Save the exact allowlisted source/lock/asset bytes, excluding secrets,
     # runtime data, generated media and the recursive evidence tree.
     snapshot = directory / 'source.zip'
-    snapshot_mode = os.environ.get('PAPER_EVIDENCE_SNAPSHOT', 'legacy')
+    snapshot_mode = os.environ.get('PAPER_EVIDENCE_SNAPSHOT', 'dedup-v1' if sys.platform.startswith('linux') else 'legacy')
     if snapshot_mode not in ('legacy', 'dedup-v1'):
         raise RuntimeError('SNAPSHOT_MODE_UNSUPPORTED')
-    # Dedup remains opt-in until full Git-only review compatibility is proven.
+    # Linux dedup is verified with Git-only archive/review; other platforms use legacy by default.
+    request['source_snapshot_mode'] = snapshot_mode
     # Build a canonical ZIP for stable content hashes on repeated snapshots.
     if snapshot_mode == 'dedup-v1':
         store = ROOT / 'production/evidence/_snapshots'
@@ -114,7 +115,6 @@ def main() -> int:
                 if shared.is_symlink() or hashlib.sha256(shared.read_bytes()).hexdigest() != digest:
                     raise RuntimeError('SNAPSHOT_STORE_CORRUPT')
             snapshot.symlink_to('../../_snapshots/' + digest + '.zip')
-            request['source_snapshot_mode'] = snapshot_mode
     finally:
         if snapshot_mode == 'dedup-v1':
             temp_snapshot.unlink(missing_ok=True)
