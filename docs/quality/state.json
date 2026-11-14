@@ -90,15 +90,15 @@
           "F0"
         ],
         "status": "IN_PROGRESS",
-        "attempts": 0
+        "attempts": 1
       },
       {
         "id": "F2",
         "dependencies": [
           "F0"
         ],
-        "status": "TODO",
-        "attempts": 0
+        "status": "IN_PROGRESS",
+        "attempts": 1
       },
       {
         "id": "F3",
@@ -167,8 +167,8 @@
         "attempts": 0
       }
     ],
-    "currentTask": "F1-shot-boundary",
-    "nextAction": "Implement F1 ShotBoundaryState and seam validator with before-fix negative tests, independent ground and collision critic, preserving baseline; F2 is now eligible for independent work.",
+    "currentTask": "F1-real-seam-and-F2-diorama",
+    "nextAction": "Complete real shot-to-shot integration, body/prop proxies and preservation naming for F1; start F2 asset semantics inventory and a development mesh pipeline. Keep creative gates provisional.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -179,15 +179,17 @@
       "determinismResearch": "PARTIAL_NO_CALIBRATED_PROJECT_THRESHOLD",
       "explicitDetach": "PASS_PERSISTENCE",
       "voiceDurationMerge": "PASS_TARGETED_CHROMIUM",
-      "nextRequired": "Wait repeated recovery verification and remote CI; then record F0 technical gate and start F1.",
+      "nextRequired": "Complete real F1 integration and independent F2 work; do not mark final art approved.",
       "navigationRace": "PASS_INCLUDING_RETURN_TO_PROJECT",
       "productionPython": "PASS_23",
       "recovery": "PASS_THREE_SUCCESSIVE_RUNS",
       "remoteCI": "PASS_SOURCE_ae508cb",
       "pixelThreshold": "UNVERIFIED_CALIBRATION_REQUIRED",
       "testFlake": "REPRODUCED_FIXED_RETESTED",
-      "f1Research": "PREPARATORY_SOURCES_RECORDED_NO_F1_IMPLEMENTATION",
-      "f2Research": "PREPARATORY_EXTRUDE_PRIMITIVE_ONLY"
+      "f1Research": "RECORDED_PRIMARY_SOURCES",
+      "f2Research": "PREPARATORY_EXTRUDE_PRIMITIVE_ONLY",
+      "f1Contracts": "PASS_SYNTHETIC_NEGATIVES_AND_S05_FIXTURE",
+      "f1Integration": "PARTIAL_S06_SYNTHETIC_COLLISION_PROXY_SYNTHETIC"
     }
   }
 }

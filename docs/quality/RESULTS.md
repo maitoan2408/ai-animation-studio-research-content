@@ -72,3 +72,6 @@ phát triển cũ và audio im lặng có chủ đích, chưa phải phim produc
 [Plan chi tiết](PLAN.md), [state](state.json), [issues](ISSUES.md),
 [evidence](../../production/artifacts/quality/README.md),
 [runbook](../../production/src/motion/README.md).
+
+### V2 F1 checkpoint 14/11/2026
+Boundary và ground critic đã có negative tests; S05 fixture 4 chân × 192 frame PASS, snap đèn tổng hợp bị phát hiện. 42 production TS, 23 Python, root verify PASS. F1 vẫn IN_PROGRESS vì S06/proxy collision còn tổng hợp và chưa tích hợp gate; xem `docs/reports/F1.md`.

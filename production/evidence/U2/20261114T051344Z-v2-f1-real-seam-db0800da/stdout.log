@@ -1,0 +1,10 @@
+✔ actual S05 end state rejects a synthetic upright snap and permits an explicit cut (2.769658ms)
+✔ declared matching continuation preserves actual end transform and velocity (0.478649ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 337.801435

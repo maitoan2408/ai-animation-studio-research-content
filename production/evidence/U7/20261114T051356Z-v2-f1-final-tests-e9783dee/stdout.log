@@ -1,0 +1,58 @@
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ art source hashes, explicit pivots, views and local references remain intact (98.683754ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (3.538263ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (3.649736ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (266.193691ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (87.670055ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (11.609244ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (10.549159ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (1.17012ms)
+✔ upright walk uses only the hip drop required for planted-foot reach (1.604922ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (19.156515ms)
+✔ valid continuation matches state without mutating snapshots (2.22047ms)
+✔ unintended rotation reset, attachment and data mismatch fail with evidence (5.966426ms)
+✔ invalid provenance, nonfinite pose and missing controls cannot pass (0.950376ms)
+✔ diagnostic figures retain real frame indices, escape labels and reject invalid numeric data (2.342467ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (572.502255ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (460.522495ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (2.707226ms)
+✔ S05 declared ground and stance check all four actual sole anchors in all frames (2.777917ms)
+✔ independent S05 track detects injected foot slip without changing baseline evaluator (0.704059ms)
+✔ camera pan does not create a world-space planted-foot failure (1.328313ms)
+✔ independent ground catches slip, gap, penetration and prop/body overlap (0.478213ms)
+✔ invalid frames and unpaired collision shapes fail closed (1.448519ms)
+✔ S05 R3 hands contact separate visible sides of the drawn lantern handle (66.157976ms)
+✔ S05 R3 keeps prop path, reaction delay, other shots and deterministic seeks (218.985729ms)
+✔ performance authoring contract is immutable, covers the shot and preserves shared grip intervals (2.648139ms)
+✔ performance rejects gaps, overlap, unknown capabilities and invalid semantic references (1.45409ms)
+✔ schema-valid unimplemented acting variations fail before rendering instead of being ignored (0.502332ms)
+✔ Rapier measured pendulum/drop/bounce/damping meet locked criteria and exact reference hash (344.606246ms)
+✔ baked hero preserves dual hold, grips, stance and arbitrary seeks without live physics (251.409227ms)
+✔ bake boundary rejects tampering, wrong revision, malformed timebase/events and nonfinite data (4.252863ms)
+✔ critic rejects a detached physics joint even when IK still keeps the palm on the prop (82.287303ms)
+✔ execution binding rejects stale gravity, toolchain and legacy receipts without changing baseline motion (19.850061ms)
+✔ hero input and legacy opt-in reject invalid mass, unsupported phases and stretched contacts (1.446785ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (36.605552ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (230.418221ms)
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (3.254136ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (30.029212ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (6.408569ms)
+✔ real HTTP media, origin/token, persistence, stale head and changed-file rejection (511.791751ms)
+✔ actual S05 end state rejects a synthetic upright snap and permits an explicit cut (1.651135ms)
+✔ declared matching continuation preserves actual end transform and velocity (0.313676ms)
+ℹ tests 41
+ℹ suites 0
+ℹ pass 41
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7937.696416
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
