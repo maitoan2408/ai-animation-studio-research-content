@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F2-diorama-and-rig",
-    "nextAction": "F2: inspect full motion and per-layer/contact shadows, assess 4x edge fidelity and obtain art review; preserve human and Q2 gates before opening F3.",
+    "nextAction": "F2: validate 86-contour motion at native size and edge fidelity, design layer-aware/contact shadows and obtain creative review; retain human/Q2 gates before F3.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -219,7 +219,12 @@
       "f2ShadowAlternative": "PARTIAL_RECEIVER_ONLY_29_AUTHORED_SHADOWS_HIDDEN_SINGLE_FRAME",
       "f2Grid4x": "PASS_79_BINARY_ROUNDTRIP_TRIANGULATION_AND_ONE_STILL_NOT_AA_GATE",
       "f2ModelSheets": "PASS_FILES_PROVISIONAL_VECTOR_NOT_ART_REVIEW",
-      "f2StyleBible": "DRAFT_PROVISIONAL"
+      "f2StyleBible": "DRAFT_PROVISIONAL",
+      "f2Animation1080": "PASS_PROVISIONAL_192_SILENT_FRAMES_79_FOREGROUND_FLAT_BACKGROUND_NO_ART_AUDIO_REVIEW",
+      "f2PhysicalContours": "PASS_BINARY_86_ASSETS_38_REQUIRED_INSTANCES_ONE_STILL_ONLY",
+      "f2AlphaLoss": "MEASURED_ONLY_NOT_EDGE_QUALITY_GATE",
+      "f2EvidenceBudget": "OVER_25MB_PROPOSED_LIMIT_PRESERVED_HISTORY_DEDUP_DESIGN_PENDING",
+      "f2PhysicalAnimation": "PASS_PROVISIONAL_192_FRAMES_640_SILENT_SEEK_1080_AND_ART_PENDING"
     }
   }
 }

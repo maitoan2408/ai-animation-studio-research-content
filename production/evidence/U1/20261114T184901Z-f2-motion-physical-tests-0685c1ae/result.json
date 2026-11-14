@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-motion-physical-tests",
+  "run_id": "20261114T184901Z-f2-motion-physical-tests-0685c1ae",
+  "started_at_utc": "20261114T184901Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f31b47d6d1778bf7975116a9a2f17d99d3330e44",
+  "tracked_diff_sha256": "34fcf4243e5df983bb01b2b9e080359ec4949fea61f1439922f96dc84c8484d4",
+  "recorder_pid": 6734,
+  "source_snapshot_sha256": "7be4d51ce8b7d3ecf6b717efc37dc4d56e5dc26d0c46413ab5edb96065e92fd4",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 26.079,
+  "finished_at_utc": "2026-11-14T18:49:28.628402+00:00",
+  "log_sha256": "1c6fe786fa8698e340601224d8d338da50b899d8c0852483ffeaaa75e1baea31",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

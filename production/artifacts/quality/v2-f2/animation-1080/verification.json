@@ -1,0 +1,7 @@
+{
+  "status": "PASS_PREVIEW_INTEGRITY",
+  "frames": 192,
+  "distinctFrameHashes": 145,
+  "videoSha256": "3d5b36b7927fa01cb858fb1354821ce3ea5e965e80688655a6d50ee2172f4e7f",
+  "scope": "1920x1080 silent candidate integrity only; no motion, art, voice or physical approval."
+}

@@ -8,6 +8,14 @@ from PIL import Image
 from trace import trace, reconstruct
 ROOT=Path(__file__).resolve().parents[3]
 def sha(raw): return hashlib.sha256(raw).hexdigest()
+def alpha_mask(img, texture, asset, scale):
+    if img.size!=(texture['width'],texture['height']):raise ValueError('SILHOUETTE_TEXTURE_FORMAT')
+    if img.mode=='RGBA':alpha=img.getchannel('A')
+    elif img.mode=='RGB' and asset['category']=='background':alpha=Image.new('L',img.size,255)
+    else:raise ValueError('SILHOUETTE_TEXTURE_FORMAT')
+    alpha=alpha.resize((asset['width']*scale,asset['height']*scale),Image.Resampling.BOX)
+    return bytes(1 if x>=128 else 0 for x in alpha.tobytes())
+
 def run(manifest_path, names, art_path=ROOT/'assets/lantern-polish-1/manifest.json', scale=1):
     if scale not in (1,2,4):raise ValueError('SILHOUETTE_SCALE')
     manifest_data=manifest_path.read_bytes();manifest=json.loads(manifest_data)
@@ -22,9 +30,7 @@ def run(manifest_path, names, art_path=ROOT/'assets/lantern-polish-1/manifest.js
         if sha(raw)!=t['sha256']:raise ValueError('SILHOUETTE_TEXTURE_HASH')
         with Image.open(png) as img:
             img.load()
-            if img.mode!='RGBA' or img.size!=(t['width'],t['height']):raise ValueError('SILHOUETTE_TEXTURE_FORMAT')
-            alpha=img.getchannel('A').resize((a['width']*scale,a['height']*scale),Image.Resampling.BOX)
-            mask=bytes(1 if x>=128 else 0 for x in alpha.tobytes())
+            mask=alpha_mask(img,t,a,scale)
         loops=trace(mask,a['width']*scale,a['height']*scale); area=sum(x['signedArea'] for x in loops)
         if area!=sum(mask):raise ValueError('SILHOUETTE_AREA_MISMATCH')
         if reconstruct(loops,a['width']*scale,a['height']*scale)!=mask:raise ValueError('SILHOUETTE_MASK_MISMATCH')

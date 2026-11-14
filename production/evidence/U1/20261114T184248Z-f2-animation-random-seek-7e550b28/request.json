@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-animation-random-seek",
+  "run_id": "20261114T184248Z-f2-animation-random-seek-7e550b28",
+  "started_at_utc": "20261114T184248Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/animate.ts",
+    "production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json",
+    "production/artifacts/quality/v2-f2/overlay-foreground-contours-4x.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f31b47d6d1778bf7975116a9a2f17d99d3330e44",
+  "tracked_diff_sha256": "9d304c2effd215cf9592e50def85302a5cbfbe0a42bcfd78354e6a3b685a7a6d",
+  "status": "RUNNING",
+  "recorder_pid": 4767,
+  "source_snapshot_sha256": "e396d0a8ba74363b6a9f247ff5126951e48ad25ccfe5b54c433f1eb30a15ba56"
+}

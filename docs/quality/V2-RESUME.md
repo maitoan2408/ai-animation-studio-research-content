@@ -2,7 +2,7 @@
 
 F1: native S05 frame stream publish now gates declared ground, ownership and projected alpha overlap with source and texture hashes. Real S02 stance and S06→S05 declared cut tested. Scope is limited: 2D alpha ≥128, no 3D collision or artistic approval; those remain open. See `docs/reports/F1.md` and F1 evidence.
 
-F2: one torso 1080p mesh spike only; still needs rig/pivot validation, preservation of SVG effects and full S05 diorama/styleframe. See `docs/reports/F2.md`. F3 depends on F1 and F2 and remains unopened until F2 technical gate. Human art, voice, license and independent handoff remain open. Core plan and previous history unchanged.
+F2: full 192-frame silent 1080p technical candidate and separate 86-contour still; layer/contact shadow, edge fidelity and creative review remain open. See `docs/reports/F2.md`. F3 depends on F1 and F2 and remains unopened until F2 technical gate. Human art, voice, license and independent handoff remain open. Core plan and previous history unchanged.
 
 F2 torso spike giờ dùng pivot manifest; test hình học và anchors so với rig có rotation/scale âm PASS; ảnh 1080p có tại `production/artifacts/quality/v2-f2/spike/pivot-comparison.png`. Mới một asset, chưa chứng minh rig toàn cảnh hay styleframe.
 
@@ -23,3 +23,7 @@ F2 overlay v2: 156 asset gồm 18 shadow draft; bake mới khớp 192 frame số
 F2 thử receiver-only: ẩn 29 paper shadows, giữ contact cũ, một VSM receiver chung; ảnh `production/artifacts/quality/v2-f2/receiver-only/volume.png`. Chưa layer-aware/ground physical, chưa motion hay art review.
 
 F2: 79 contour overlay 4× binary roundtrip/triangulation và render S05 1080p; 1× regression giữ SHA, so hai lưới khác 7.810 pixel. Có style bible, 3 vector model sheets và board bóng; chưa chứng minh anti-alias, animation, shadow layer/contact hay art approval. Xem F2 report.
+
+F2: native-size silent 192-frame candidate decoded and independently checked; uses 79 foreground contours and flat background. A separate 1080p still includes all seven background contours (86 assets, 38 required instances). No art/audio/physical-shadow approval. See F2 report; F2 IN_PROGRESS.
+
+F2: 86-contour scene đã chạy preview im lặng 192 frame tại 640×360, seek nhiều thứ tự khớp; frame 24 đủ 38/38 contour bắt buộc. Chưa render đủ 1080 với nền đùn.

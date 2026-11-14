@@ -54,3 +54,12 @@ test('all 79 four-times grid masks triangulate to the exact source-grid area',()
   assert.equal(shapes.reduce((sum:number,s:THREE.Shape)=>sum+triangulatedArea(s),0),asset.filledPixels,asset.id);
  }
 });
+test('seven background masks triangulate to exact binary area in their declared grid',async()=>{
+ const data=JSON.parse(await readFile(new URL('../artifacts/quality/v2-f2/overlay-physical-contours.json',import.meta.url),'utf8'));
+ const backgrounds=data.assets.filter((a:{id:string})=>a.id.startsWith('background/'));
+ assert.equal(data.assets.length,86);assert.equal(backgrounds.length,7);
+ for(const asset of backgrounds){
+  assert.equal(asset.gridScale,1);
+  assert.equal(contourShapes(asset.loops).reduce((sum:number,s:THREE.Shape)=>sum+triangulatedArea(s),0),asset.filledPixels,asset.id);
+ }
+});

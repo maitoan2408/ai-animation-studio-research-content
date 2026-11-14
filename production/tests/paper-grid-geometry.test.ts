@@ -18,4 +18,19 @@ test('invalid contour scale or metadata fails closed',()=>{
  const asset=doc.assets[0];
  assert.throws(()=>makeContourBody(asset.loops,{...asset,gridScale:0},3),/PAPER_CONTOUR_METADATA/);
  assert.throws(()=>makeContourBody(asset.loops,{...asset,pivot:[NaN,1]},3),/PAPER_CONTOUR_METADATA/);
+ assert.throws(()=>makeContourBody(asset.loops,{...asset,gridScale:1},3),/PAPER_CONTOUR_BOUNDS/);
+});
+test('contour UVs address the original asset under 1x and 4x grids',()=>{
+ for(const scale of [1,4]){
+  const base=doc.assets[0],meta={...base,gridScale:scale,dimensions:[180,190],pivot:[90,170]};
+  const loops=[{signedArea:180*190*scale*scale,points:[[0,0],[180*scale,0],[180*scale,190*scale],[0,190*scale]]}];
+  const body=makeContourBody(loops,meta,3),position=body.getAttribute('position'),uv=body.getAttribute('uv');
+  assert.equal(uv.count,position.count);
+  for(let i=0;i<position.count;i++){
+   const expectedU=(position.getX(i)+90)/180,expectedV=1-(170-position.getY(i))/190;
+   assert.ok(Math.abs(uv.getX(i)-expectedU)<1e-6,`u:${scale}:${i}`);
+   assert.ok(Math.abs(uv.getY(i)-expectedV)<1e-6,`v:${scale}:${i}`);
+  }
+  body.dispose();
+ }
 });

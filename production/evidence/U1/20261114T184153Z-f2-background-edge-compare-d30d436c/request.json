@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-background-edge-compare",
+  "run_id": "20261114T184153Z-f2-background-edge-compare-d30d436c",
+  "started_at_utc": "20261114T184153Z",
+  "command": [
+    "python",
+    "production/src/art/paper-scene/compare_background_edges.py",
+    "production/out/paper-scene/3b9f517c-20f5-49ae-9185-8773c1e3adf8",
+    "production/out/paper-scene/959ea1d9-3301-4b00-958f-200c1733bfd0"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f31b47d6d1778bf7975116a9a2f17d99d3330e44",
+  "tracked_diff_sha256": "9d304c2effd215cf9592e50def85302a5cbfbe0a42bcfd78354e6a3b685a7a6d",
+  "status": "RUNNING",
+  "recorder_pid": 4671,
+  "source_snapshot_sha256": "4904bf5bf0ef7b816f0dd34071864a6f0d20c9fc6b1845d1b9590cccdc2ddbbd"
+}

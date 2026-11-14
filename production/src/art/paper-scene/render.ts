@@ -9,6 +9,7 @@ import puppeteer from 'puppeteer-core';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
 const sha=(x:Buffer)=>createHash('sha256').update(x).digest('hex');
 const source=process.argv[2];if(!source)throw Error('USAGE_S05_JSON_REQUIRED');
+const coverage=process.argv[6]??'foreground';if(coverage!=='foreground'&&coverage!=='physical')throw Error('SCENE_COVERAGE_MODE');
 const shadowMode=process.argv[5]??'combined';if(shadowMode!=='combined'&&shadowMode!=='receiver-only'&&shadowMode!=='authored-only')throw Error('SCENE_SHADOW_MODE');
 const frameNumber=process.argv[3]===undefined?108:Number(process.argv[3]);
 if(!Number.isInteger(frameNumber)||frameNumber<0||frameNumber>=192)throw Error('SCENE_FRAME_RANGE');
@@ -45,7 +46,7 @@ try{
   page.on('response',r=>{if(r.status()>=400 && r.url().includes('/texture/'))errors.push(`HTTP ${r.status()} ${r.url()}`);});
   await page.goto(base+'/');
   const absoluteUrls=Object.fromEntries(Object.entries(urls).map(([k,v])=>[k,base+v]));
-  await page.evaluate(input=>{(window as any).sceneInput=input;},{pack:data.pack,frame,contours:contour.assets,mode,shadowMode,textureUrls:absoluteUrls});
+  await page.evaluate(input=>{(window as any).sceneInput=input;},{pack:data.pack,frame,contours:contour.assets,mode,shadowMode,coverage,textureUrls:absoluteUrls});
   await page.addScriptTag({content:bundle.outputFiles[0]!.text});
   await page.waitForFunction('window.sceneReady||window.sceneError',{timeout:60000});
   const state=await page.evaluate(()=>({stats:(window as any).sceneStats,error:(window as any).sceneError}));
@@ -53,7 +54,7 @@ try{
   const imagePath=path.join(output,`${mode}.png`);await page.screenshot({path:imagePath});
   reports.push({...state.stats,sha256:sha(await readFile(imagePath))});await page.close();
  }
- const result={status:'PARTIAL_SCENE_EXPERIMENT',frame:frameNumber,shadowMode,inputSha256:sha(bytes),contourSha256:sha(contourBytes),
+ const result={status:'PARTIAL_SCENE_EXPERIMENT',frame:frameNumber,shadowMode,coverage,inputSha256:sha(bytes),contourSha256:sha(contourBytes),
   images:reports,browser:await browser.version(),output,
   limitations:['One S05 frame only; oblique per-sprite depth shear is a 2.5D projection, not a shared physically consistent camera or 3D; no animation or backend parity claim',
    'Raster alpha >=128 silhouettes for actors/prop; translucency and subpixel edge details are not modeled by extrusion',

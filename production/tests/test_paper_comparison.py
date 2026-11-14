@@ -20,6 +20,10 @@ class PaperComparison(unittest.TestCase):
             report={'shadowMode':'receiver-only','images':[{'mode':'flat','plates':71,'extruded':0,'sha256':sha('flat.png')},
                {'mode':'volume','plates':42,'extruded':31,'hiddenPaperShadows':29,'sha256':sha('volume.png')}]}
             (p/'report.json').write_text(json.dumps(report));self.assertEqual(module.verify(p)['status'],'PASS_SMOKE_NOT_ART')
+            report['coverage']='physical';report['images'][1]['requiredContours']=32
+            (p/'report.json').write_text(json.dumps(report))
+            with self.assertRaisesRegex(ValueError,'SCENE_COVERAGE'):module.verify(p)
+            report['images'][1]['requiredContours']=31;(p/'report.json').write_text(json.dumps(report));module.verify(p)
             report['images'][1]['hiddenPaperShadows']=28;(p/'report.json').write_text(json.dumps(report))
             with self.assertRaisesRegex(ValueError,'SCENE_COVERAGE'):module.verify(p)
 if __name__=='__main__':unittest.main()

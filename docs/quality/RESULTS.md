@@ -132,3 +132,6 @@ Receiver-only ẩn 29 bóng giấy cũ, giữ contact và receiver VSM; mới fr
 
 ### F2 contour 4× và model sheet — 15/11/2026
 79 alpha contour 4× roundtrip/triangulation; render S05 1×/4× so được, 1× giữ SHA. Style bible và 3 sheet vector tạm; F2 vẫn mở chất lượng/motion/review.
+
+### F2 192-frame candidate and background contours — 14/11/2026
+192 silent S05 frames at 1080p decoded/hash-checked; separate 86-contour still has 38/38 required bodies, with 69 shadow and one effect assets kept as plates. Alpha loss quantified; this is not an edge/art/audio/physical-shadow gate. 74 TS, 39 Python, typecheck and root verify PASS for the recorded source snapshot. F2 remains IN_PROGRESS; see F2 report for exact scope and evidence.

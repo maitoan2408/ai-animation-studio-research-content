@@ -37,4 +37,6 @@ test('missing foreground silhouettes reject while explicit background plates rem
  assert.throws(()=>requireForegroundContour('mai/torso',false),/SCENE_CONTOUR_REQUIRED/);
  assert.doesNotThrow(()=>requireForegroundContour('mai/torso',true));
  assert.doesNotThrow(()=>requireForegroundContour('background/sky',false));
+ assert.throws(()=>requireForegroundContour('background/sky',false,true),/SCENE_CONTOUR_REQUIRED/);
+ assert.doesNotThrow(()=>requireForegroundContour('background/sky',true,true));
 });

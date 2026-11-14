@@ -1,0 +1,28 @@
+{
+  "phase": "U1",
+  "step": "f2-background-alpha-test",
+  "run_id": "20261114T183650Z-f2-background-alpha-test-0fa2ceb6",
+  "started_at_utc": "20261114T183650Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_silhouette_alpha.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f31b47d6d1778bf7975116a9a2f17d99d3330e44",
+  "tracked_diff_sha256": "fd214b660bd69de0e14869a2e9bc5c85638fffa4a500d9b99a5361f18746d3b4",
+  "recorder_pid": 3832,
+  "source_snapshot_sha256": "ea18bf80e16afb4a17206a8dcf29ca684fddaa5b3df60189f5676842f1e12d7b",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.136,
+  "finished_at_utc": "2026-11-14T18:36:51.010855+00:00",
+  "log_sha256": "a7d87e81b074385bcf273d2b3ce20f2ab5efd9b22feb7f8e95aab2eab8f56c81",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

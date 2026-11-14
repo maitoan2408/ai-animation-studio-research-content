@@ -27,3 +27,7 @@ Face giữ nguyên transform 2D; body dùng oblique depth shear riêng, không p
 ## Overlay 156 asset
 
 Bản development rebake theo hash art mới, texture 156 được kiểm decode/SHA, contour nhị phân 79 foreground roundtrip và triangulation diện tích. Preview 1080p frame 108 có thay sáu selector. Chỉ xác minh geometric scope và output, không suy lip-sync, full-motion, bóng theo layer, hay duyệt art; nền/shadow/effect vẫn là plate.
+
+## Shadow map: phạm vi và giới hạn kiểm chứng
+
+[Three.js Shadows manual](https://threejs.org/manual/pages/shadows.html) mô tả shadow map được tạo từ camera của đèn; vật phải bật cast/receive và camera đèn phải bao phủ vùng cần bóng. [Three.js Shape](https://threejs.org/docs/pages/Shape.html) yêu cầu winding của lỗ ngược với đường bao. Đối chiếu Three 0.187 local: `WebGLShadowMap.js` dùng `shadow.radius`/`shadow.blurSamples` trong VSM và có nhánh xử lý object cast/receive; `LightShadow.js` khai báo blurSamples. Đây là **VERIFIED** về cơ chế của version cài, không chứng minh setup scene của ta đúng; contour triangulation test chỉ kiểm diện tích, chưa chứng minh mọi pixel/lỗ sau render. Receiver chung, oblique shear và độ phân giải shadow map có thể tạo bóng sai layer, bias, hoặc thiếu chi tiết; cần thử/đo riêng thay vì suy đúng vật lý từ bóng nhìn thấy.

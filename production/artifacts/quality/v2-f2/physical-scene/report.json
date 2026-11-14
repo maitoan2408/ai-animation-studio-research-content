@@ -1,0 +1,41 @@
+{
+  "status": "PARTIAL_SCENE_EXPERIMENT",
+  "frame": 108,
+  "shadowMode": "authored-only",
+  "coverage": "physical",
+  "inputSha256": "77034fb17ae7a5db7c3dfc059c9a8f7d3964ab1e32fb6d82decb012d5addacea",
+  "contourSha256": "c8f6cd250088ed37386775f71b177bb0b9b416cc2c3f690d40b203783991755d",
+  "images": [
+    {
+      "mode": "flat",
+      "shadowMode": "authored-only",
+      "coverage": "physical",
+      "plates": 71,
+      "extruded": 0,
+      "requiredContours": 38,
+      "hiddenPaperShadows": 0,
+      "three": "187",
+      "sha256": "b580fa12c63dfc8a1ece354bf338fa29bc710bea2b240d8544dd2ba02f019468"
+    },
+    {
+      "mode": "volume",
+      "shadowMode": "authored-only",
+      "coverage": "physical",
+      "plates": 71,
+      "extruded": 38,
+      "requiredContours": 38,
+      "hiddenPaperShadows": 0,
+      "three": "187",
+      "sha256": "6361ef586c8460742fb42402524c0a41cdff4b1a297e04150fd425f1bdb82681"
+    }
+  ],
+  "browser": "Chrome/156.0.8078.79",
+  "output": "/workspace/studio-audit/production/out/paper-scene/e7dc627b-914f-421f-80bb-c9721a85f31a",
+  "limitations": [
+    "One S05 frame only; oblique per-sprite depth shear is a 2.5D projection, not a shared physically consistent camera or 3D; no animation or backend parity claim",
+    "Raster alpha >=128 silhouettes for actors/prop; translucency and subpixel edge details are not modeled by extrusion",
+    "Volume keeps existing authored layer/contact shadows; mesh shadow casting disabled.",
+    "No per-layer shadow or true ground contact shadow",
+    "No final art, full 3D physical collision or artistic approval"
+  ]
+}

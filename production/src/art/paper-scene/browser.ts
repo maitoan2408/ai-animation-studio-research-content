@@ -4,10 +4,10 @@ import {makeContourBody} from './contour-body.js';
 import {shearDepth} from './depth.js';
 import {requireForegroundContour} from './coverage.js';
 import type {ArtPack,SceneFrame} from '../../scene/types.js';
-type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';textureUrls:Record<string,string>};
+type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';coverage:'foreground'|'physical';textureUrls:Record<string,string>};
 declare global { interface Window { sceneInput:Info; sceneReady?:boolean;sceneError?:string;sceneStats?:unknown; } }
 async function main(){
- const {pack,frame,contours,mode,shadowMode,textureUrls}=window.sceneInput;
+ const {pack,frame,contours,mode,shadowMode,coverage,textureUrls}=window.sceneInput;
  const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
  renderer.setPixelRatio(1);renderer.setSize(1920,1080);renderer.setClearColor('#e8ddbe',1);
  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.VSMShadowMap;
@@ -23,7 +23,7 @@ async function main(){
  const ids=[...new Set(frame.sprites.map(s=>s.asset))];
  await Promise.all(ids.map(async id=>{const url=textureUrls[id];if(!url)throw Error(`SCENE_TEXTURE_MISSING ${id}`);
    let t:THREE.Texture;try {t=await loader.loadAsync(url);}catch {throw Error(`SCENE_TEXTURE_LOAD ${id} ${url}`);}t.colorSpace=THREE.SRGBColorSpace;t.minFilter=THREE.LinearFilter;t.magFilter=THREE.LinearFilter;t.generateMipmaps=false;textures.set(id,t);}));
- let plates=0,extruded=0,hiddenPaperShadows=0;
+ let plates=0,extruded=0,hiddenPaperShadows=0,requiredContours=0;
  const ordered=[...frame.sprites].sort((a,b)=>a.z-b.z);
  const firstForeground=ordered.findIndex(s=>s.z>=0);if(firstForeground<0)throw Error('SCENE_FOREGROUND');
  const receiver=new THREE.Mesh(new THREE.PlaneGeometry(3200,2000),new THREE.ShadowMaterial({opacity:.23,depthTest:false,depthWrite:false}));
@@ -35,19 +35,21 @@ async function main(){
   face.translate(asset.width/2-asset.pivot[0],asset.pivot[1]-asset.height/2,0);
   const group=new THREE.Group();group.position.set(s.x-960,540-s.y,s.z);group.rotation.z=-s.rotation*Math.PI/180;group.scale.set(s.scaleX,s.scaleY,1);
   const contour=contours.find(c=>c.id===s.asset);
-  if(mode==='volume')requireForegroundContour(s.asset,!!contour);
+  if(['mai/','an/','mouth/','props/'].some(prefix=>s.asset.startsWith(prefix))||(coverage==='physical'&&s.asset.startsWith('background/')))requiredContours++;
+  if(mode==='volume')requireForegroundContour(s.asset,!!contour,coverage==='physical');
   if(mode==='volume'&&contour){
    if(contour.dimensions[0]!==asset.width||contour.dimensions[1]!==asset.height||
      contour.pivot[0]!==asset.pivot[0]||contour.pivot[1]!==asset.pivot[1])throw Error(`SCENE_CONTOUR_METADATA ${s.asset}`);
    const body=makeContourBody(contour.loops,contour,3);
    shearDepth(body,.25);
-   const mesh=new THREE.Mesh(body,new THREE.MeshStandardMaterial({color:'#ad8d60',roughness:1,side:THREE.DoubleSide,transparent:true,depthTest:false,depthWrite:false}));
+   const background=s.asset.startsWith('background/');
+   const mesh=new THREE.Mesh(body,new THREE.MeshStandardMaterial({color:background?'#ffffff':'#ad8d60',map:background?textures.get(s.asset):undefined,roughness:1,side:THREE.DoubleSide,transparent:true,depthTest:false,depthWrite:false}));
    mesh.renderOrder=order*2;mesh.castShadow=shadowMode!=='authored-only';group.add(mesh);extruded++;
   }
   const plate=new THREE.Mesh(face,new THREE.MeshBasicMaterial({map:textures.get(s.asset)!,transparent:true,depthTest:false,depthWrite:false,side:THREE.DoubleSide,opacity:s.opacity}));
   plate.renderOrder=order*2+1;group.add(plate);scene.add(group);plates++;
  }
  await renderer.compileAsync(scene,camera);renderer.render(scene,camera);renderer.getContext().finish();
- window.sceneStats={mode,shadowMode,plates,extruded,hiddenPaperShadows,three:THREE.REVISION};window.sceneReady=true;
+ window.sceneStats={mode,shadowMode,coverage,plates,extruded,requiredContours,hiddenPaperShadows,three:THREE.REVISION};window.sceneReady=true;
 }
 main().catch(e=>{window.sceneError=String(e);});

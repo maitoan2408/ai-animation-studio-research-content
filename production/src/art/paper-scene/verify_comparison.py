@@ -21,6 +21,7 @@ def verify(folder):
     if mode in ('combined','authored-only') and hidden!=0:raise ValueError('SCENE_COVERAGE')
     if mode=='receiver-only' and hidden==0:raise ValueError('SCENE_COVERAGE')
     if flat['plates']!=volume['plates']+hidden or flat['extruded']!=0 or volume['extruded']<1:raise ValueError('SCENE_COVERAGE')
+    if report.get('coverage')=='physical' and (volume.get('requiredContours')!=volume['extruded'] or volume['requiredContours']<1):raise ValueError('SCENE_COVERAGE')
     difference=ImageChops.difference(*images)
     histogram=difference.convert('L').histogram(); changed=sum(histogram[1:])
     if changed==0:raise ValueError('SCENE_NO_VISIBLE_DIFFERENCE')
