@@ -168,7 +168,7 @@
       }
     ],
     "currentTask": "F1-real-seam-and-F2-diorama",
-    "nextAction": "Complete real shot-to-shot integration, body/prop proxies and preservation naming for F1; start F2 asset semantics inventory and a development mesh pipeline. Keep creative gates provisional.",
+    "nextAction": "Complete F1 real seam, collision proxy, preservation naming and gate integration; F2 preserve SVG effects while implementing and rendering diorama with same rig, then compare 1080p.",
     "progress": {
       "saveRace": "REPRODUCED_AND_RETESTED_PASS",
       "voiceUploadSwitch": "PASS_TARGETED_CHROMIUM",
@@ -189,7 +189,8 @@
       "f1Research": "RECORDED_PRIMARY_SOURCES",
       "f2Research": "PREPARATORY_EXTRUDE_PRIMITIVE_ONLY",
       "f1Contracts": "PASS_SYNTHETIC_NEGATIVES_AND_S05_FIXTURE",
-      "f1Integration": "PARTIAL_S06_SYNTHETIC_COLLISION_PROXY_SYNTHETIC"
+      "f1Integration": "PARTIAL_S06_SYNTHETIC_COLLISION_PROXY_SYNTHETIC",
+      "f2Inventory": "PASS_117_SVG_SEMANTICS_INVENTORIED"
     }
   }
 }

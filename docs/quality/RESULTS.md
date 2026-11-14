@@ -75,3 +75,6 @@ phát triển cũ và audio im lặng có chủ đích, chưa phải phim produc
 
 ### V2 F1 checkpoint 14/11/2026
 Boundary và ground critic đã có negative tests; S05 fixture 4 chân × 192 frame PASS, snap đèn tổng hợp bị phát hiện. 42 production TS, 23 Python, root verify PASS. F1 vẫn IN_PROGRESS vì S06/proxy collision còn tổng hợp và chưa tích hợp gate; xem `docs/reports/F1.md`.
+
+### V2 F2 checkpoint 14/11/2026
+Đã kiểm kê 117 SVG (116 filter, 58 stroke, 51 image nhúng), kèm hash/pivot. Chưa có mesh/render 1080p hoặc duyệt art; xem `docs/reports/F2.md`.

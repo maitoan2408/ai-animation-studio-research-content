@@ -1,0 +1,2968 @@
+{
+  "schemaVersion": 1,
+  "manifestSha256": "6dd804680c4faae7898505ff69bee6eab900fc7edb4eb75bc85ca1889da5f005",
+  "assetCount": 117,
+  "featureAssetCounts": {
+    "filter": 116,
+    "image": 51,
+    "opacity": 28,
+    "paint-server": 1,
+    "radialGradient": 1,
+    "stroke": 58,
+    "transform": 4
+  },
+  "assets": [
+    {
+      "id": "mai/torso",
+      "file": "mai/torso.svg",
+      "sha256": "01e5f8ec29d2258c56f9718bfe113a74826b018b3e177fa235a1c222330fd2e9",
+      "width": 180,
+      "height": 190,
+      "pivot": [
+        90,
+        170
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 4,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 8,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/torso-front",
+      "file": "mai/torso-front.svg",
+      "sha256": "9545eade681a745e82c6190a4b43f3300738b71f01695154346083d75e614627",
+      "width": 180,
+      "height": 190,
+      "pivot": [
+        90,
+        170
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 4,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 8,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/torso-profile",
+      "file": "mai/torso-profile.svg",
+      "sha256": "81b86e0f08266649bd017890a12a874ef18c2e44d9c3388e127519118a83a052",
+      "width": 120,
+      "height": 190,
+      "pivot": [
+        60,
+        170
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 5,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/upper-arm",
+      "file": "mai/upper-arm.svg",
+      "sha256": "fc680780d93994fe84783de9693daf88c1d723515937056c848d58d1c2f1f56a",
+      "width": 64,
+      "height": 130,
+      "pivot": [
+        32.0,
+        12
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 3,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/forearm",
+      "file": "mai/forearm.svg",
+      "sha256": "79ee17e4f649eea047e02fdabb7aefce686cb61e10fc77ea6bfab5bb5995dd45",
+      "width": 58,
+      "height": 122,
+      "pivot": [
+        29.0,
+        12
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 3,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/thigh",
+      "file": "mai/thigh.svg",
+      "sha256": "1608edd8ac94bf5fc94a9d7e5bb5811867e93830665fb8c7dde73814d2113f43",
+      "width": 72,
+      "height": 145,
+      "pivot": [
+        36.0,
+        14
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 2,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/shin",
+      "file": "mai/shin.svg",
+      "sha256": "e7a115eec97214cbaea46a64ae0618b8e4869fa342667c9b23a641ad03e62397",
+      "width": 64,
+      "height": 145,
+      "pivot": [
+        32.0,
+        14
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 2,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/boot",
+      "file": "mai/boot.svg",
+      "sha256": "2bb6f8b93857a9dbcff8df74b2ebd518842e4439aaaaeeafe4641a2e1b114cab",
+      "width": 98,
+      "height": 60,
+      "pivot": [
+        33,
+        20
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 3,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/hand-open",
+      "file": "mai/hand-open.svg",
+      "sha256": "feb446fe0e6fc1e9a0f1572193cba1ef73619e81509ed0712700bb3a688aeca0",
+      "width": 68,
+      "height": 64,
+      "pivot": [
+        29,
+        45
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/hand-grip",
+      "file": "mai/hand-grip.svg",
+      "sha256": "150e325d733dd29aea7873c889d834c1d1a3954e7b63f11c8bf3ebc020975b89",
+      "width": 68,
+      "height": 64,
+      "pivot": [
+        29,
+        45
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 2,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/hand-point",
+      "file": "mai/hand-point.svg",
+      "sha256": "b85f86a79cb7b68838a4859872c050e8e13d759de3a27173276747b9b1a60e1c",
+      "width": 68,
+      "height": 64,
+      "pivot": [
+        29,
+        45
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-front-neutral",
+      "file": "mai/head-front-neutral.svg",
+      "sha256": "ff8d7e35bd05ee9fa6b35b46c2cec318f89ab3f81f028677c808c984ccf92899",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 7,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-front-worried",
+      "file": "mai/head-front-worried.svg",
+      "sha256": "c4a00b4bbd175032a2057cbbbdc732275b4a445eb59ec9a543eebd1416ddc25f",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 7,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-front-happy",
+      "file": "mai/head-front-happy.svg",
+      "sha256": "57de318b895a368fbbee6e6003a17d8c1e1294c7ba0e242e105d50890905fdd6",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 12,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-front-blink",
+      "file": "mai/head-front-blink.svg",
+      "sha256": "2fd8bccd2ce2595ae84fbb6924005420cff046b3a94a9c765184d1231150eb11",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 12,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-quarter-neutral",
+      "file": "mai/head-quarter-neutral.svg",
+      "sha256": "5612c1db1a1c29f5d3fbb73b98ec500697bf96157ea5bd04eb1f76eb90bbaade",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 7,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-quarter-worried",
+      "file": "mai/head-quarter-worried.svg",
+      "sha256": "751ad0327646bd95dca436cad3136e16cedf1dd8ce5c38b4a7ab6345f256209d",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 7,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-quarter-happy",
+      "file": "mai/head-quarter-happy.svg",
+      "sha256": "c131f597f18ded2408c1f737f78b4d815ad0f39408dd94a2db4dde20c187038c",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 12,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-quarter-blink",
+      "file": "mai/head-quarter-blink.svg",
+      "sha256": "a04f38714c3d57e725becc5357a1f097a9e8e5d85dcfc8bf03f929fcfb206af0",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 12,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-profile-neutral",
+      "file": "mai/head-profile-neutral.svg",
+      "sha256": "134419da202dac5170d44a91593477dd342fb4d93bb43e6b435d7e783a1790ca",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 5,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-profile-worried",
+      "file": "mai/head-profile-worried.svg",
+      "sha256": "4c679d0f69f136d4807f8832d8bc568217498d34915382a8ffcb7d3052cf105a",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 5,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-profile-happy",
+      "file": "mai/head-profile-happy.svg",
+      "sha256": "e90758dd1b67424ead8fc96d23b2ac56910379559c1a34e7a88ed1cc797fdb70",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 11,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mai/head-profile-blink",
+      "file": "mai/head-profile-blink.svg",
+      "sha256": "17972817417a570b4d72d5816742d0a89aebcbdbc73af75f0c4f4a2b25663ff1",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 11,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/torso",
+      "file": "an/torso.svg",
+      "sha256": "ed48294fbf93780be4205509c25304d8b5bff2559f1d37d1dd0099d1bc32a269",
+      "width": 180,
+      "height": 190,
+      "pivot": [
+        90,
+        170
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 4,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 7,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/torso-front",
+      "file": "an/torso-front.svg",
+      "sha256": "26263d8ae7da2e5eee083821c354248bbfe96bbd01e463e23e01dcd5a4dac60a",
+      "width": 180,
+      "height": 190,
+      "pivot": [
+        90,
+        170
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 4,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 7,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/torso-profile",
+      "file": "an/torso-profile.svg",
+      "sha256": "221aa1ddee7f286c1287e8397313cb2697f1c2d1ed8d894b61a2e3f0cd0b490c",
+      "width": 120,
+      "height": 190,
+      "pivot": [
+        60,
+        170
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 5,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/upper-arm",
+      "file": "an/upper-arm.svg",
+      "sha256": "8f7c29085b7a09e0cbcf57ce3eb22726b0f9168eea0072375deb2a1cb0ce94a9",
+      "width": 64,
+      "height": 130,
+      "pivot": [
+        32.0,
+        12
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 3,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/forearm",
+      "file": "an/forearm.svg",
+      "sha256": "6c976332475571b5c525ba36c47ea57fbb5956b4660549f50e7b79c5b44eee8c",
+      "width": 58,
+      "height": 122,
+      "pivot": [
+        29.0,
+        12
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 3,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/thigh",
+      "file": "an/thigh.svg",
+      "sha256": "1608edd8ac94bf5fc94a9d7e5bb5811867e93830665fb8c7dde73814d2113f43",
+      "width": 72,
+      "height": 145,
+      "pivot": [
+        36.0,
+        14
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 2,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/shin",
+      "file": "an/shin.svg",
+      "sha256": "e7a115eec97214cbaea46a64ae0618b8e4869fa342667c9b23a641ad03e62397",
+      "width": 64,
+      "height": 145,
+      "pivot": [
+        32.0,
+        14
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 2,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/boot",
+      "file": "an/boot.svg",
+      "sha256": "2bb6f8b93857a9dbcff8df74b2ebd518842e4439aaaaeeafe4641a2e1b114cab",
+      "width": 98,
+      "height": 60,
+      "pivot": [
+        33,
+        20
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 3,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/hand-open",
+      "file": "an/hand-open.svg",
+      "sha256": "d09b88c2d7ca8f1feb85612d60d1a09a29a497857d9b21d34824ea5086c0f0bb",
+      "width": 68,
+      "height": 64,
+      "pivot": [
+        29,
+        45
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/hand-grip",
+      "file": "an/hand-grip.svg",
+      "sha256": "bfc47724fd94b9228856aa3ab0c105b6976e4643b08e248b9b6a21f6b91e2b07",
+      "width": 68,
+      "height": 64,
+      "pivot": [
+        29,
+        45
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 2,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/hand-point",
+      "file": "an/hand-point.svg",
+      "sha256": "deda2d057ac045367a465149958f094827f3e98307614eaf6e911d39a6a91982",
+      "width": 68,
+      "height": 64,
+      "pivot": [
+        29,
+        45
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-front-neutral",
+      "file": "an/head-front-neutral.svg",
+      "sha256": "ddf877edf540774f483354d37422f1322650144fa4779a5ef2ba8b341faaff78",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 7,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-front-worried",
+      "file": "an/head-front-worried.svg",
+      "sha256": "38ed1638ee6d8f6453239a94ce7acb1c2ecf25b3bb7309c1fd75df7b3b1cbdb7",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 7,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-front-happy",
+      "file": "an/head-front-happy.svg",
+      "sha256": "dcce864990460063eadacd9ccb17d3b2ae465156644586718d3f8b72a52d81ea",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 12,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-front-blink",
+      "file": "an/head-front-blink.svg",
+      "sha256": "a98ba7d2558c4a69f2fb7c4606e274fb52d30689c29dafd0bf575406a1907b20",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 12,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-quarter-neutral",
+      "file": "an/head-quarter-neutral.svg",
+      "sha256": "63514009576ddb41eca6f57f5d86fb70e968d84555051d66ca58529e79561f1a",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 7,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-quarter-worried",
+      "file": "an/head-quarter-worried.svg",
+      "sha256": "3ac8a2e5188d0b79b0ca78c53ffc3549867ae96f83f36aac65e602d7809e54f9",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 7,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-quarter-happy",
+      "file": "an/head-quarter-happy.svg",
+      "sha256": "d8eec3badb68ff03cca3dd4971d84761ca22a814dab6e9ad18636aa4d4feb4b9",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 12,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-quarter-blink",
+      "file": "an/head-quarter-blink.svg",
+      "sha256": "36696e402fbcd7409930b66d5b27442b834f7d3f6df6118ddc54890c0b109ce0",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 12,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-profile-neutral",
+      "file": "an/head-profile-neutral.svg",
+      "sha256": "a848e6a1e4eca160836599a01bf32fd914bab791cb499cd0542983674720499d",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 5,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-profile-worried",
+      "file": "an/head-profile-worried.svg",
+      "sha256": "c3eb342c341870d7c40aa1a2e2534bf83c8891bc920587b475bafa4ecf6b1a00",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 5,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-profile-happy",
+      "file": "an/head-profile-happy.svg",
+      "sha256": "f70bc996471249360f8f916067a1f0da2cab05e35f75ea0995468b12f2f46ce7",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 11,
+        "svg": 1
+      }
+    },
+    {
+      "id": "an/head-profile-blink",
+      "file": "an/head-profile-blink.svg",
+      "sha256": "8980e3e56c6127442d76e9fedfa330c02a0e0d923707e55d06549e9ecba12c29",
+      "width": 180,
+      "height": 180,
+      "pivot": [
+        94,
+        168
+      ],
+      "features": [
+        "filter",
+        "opacity",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 3,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 11,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mouth/rest",
+      "file": "mouth/rest.svg",
+      "sha256": "024fb57aa25c9b9bdc256022660e6d7c37558d1ac53ce0829135944810b3d9d2",
+      "width": 36,
+      "height": 28,
+      "pivot": [
+        17,
+        14
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mouth/M",
+      "file": "mouth/M.svg",
+      "sha256": "04ab6cae88d392493f282dfbe1fb57b1f3af91a4cec8a568677b77afa9438a9f",
+      "width": 36,
+      "height": 28,
+      "pivot": [
+        17,
+        14
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mouth/A",
+      "file": "mouth/A.svg",
+      "sha256": "885c307d4b11372a1c6e593dc4226826ff9b8f86ec45d81db417e04423e85888",
+      "width": 36,
+      "height": 28,
+      "pivot": [
+        17,
+        14
+      ],
+      "features": [
+        "filter"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 2,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mouth/E",
+      "file": "mouth/E.svg",
+      "sha256": "19eb2da006ff2319534e272c2768f46eee24a46d7e1022c639ca1c4440c9e5a0",
+      "width": 36,
+      "height": 28,
+      "pivot": [
+        17,
+        14
+      ],
+      "features": [
+        "filter"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 2,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mouth/O",
+      "file": "mouth/O.svg",
+      "sha256": "3380aa0880ac53c317d19157459287f8b8f51a056f0695c30715f1e7c6a50823",
+      "width": 36,
+      "height": 28,
+      "pivot": [
+        17,
+        14
+      ],
+      "features": [
+        "filter"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mouth/F",
+      "file": "mouth/F.svg",
+      "sha256": "7685d223668e3179cae49f00c05839ae6394e1852143bd4acccec6104a58549c",
+      "width": 36,
+      "height": 28,
+      "pivot": [
+        17,
+        14
+      ],
+      "features": [
+        "filter"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 2,
+        "svg": 1
+      }
+    },
+    {
+      "id": "mouth/smile",
+      "file": "mouth/smile.svg",
+      "sha256": "52c3ce4e16cf1ee86194fb746bb856962a39d93068134422a56b3610f574c094",
+      "width": 36,
+      "height": 28,
+      "pivot": [
+        17,
+        14
+      ],
+      "features": [
+        "filter"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 2,
+        "svg": 1
+      }
+    },
+    {
+      "id": "props/cup",
+      "file": "props/cup.svg",
+      "sha256": "3ef82e07b61e1c1f19d54dccf9ae22138773c27dadb46ebde7e7eb7c86b60eee",
+      "width": 104,
+      "height": 105,
+      "pivot": [
+        43,
+        90
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 2,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 4,
+        "svg": 1
+      }
+    },
+    {
+      "id": "props/lantern-dark",
+      "file": "props/lantern-dark.svg",
+      "sha256": "c9dccf7c14430cb1ea68c7f6f5d0ae5707808f23ce630fbf1300505933b06db4",
+      "width": 164,
+      "height": 220,
+      "pivot": [
+        80,
+        195
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 9,
+        "svg": 1
+      }
+    },
+    {
+      "id": "props/lantern-lit",
+      "file": "props/lantern-lit.svg",
+      "sha256": "ae35088abebfa8c2635fd0ba4990df0d7eb5b9e391f510eedd12c7147070b01b",
+      "width": 164,
+      "height": 220,
+      "pivot": [
+        80,
+        195
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "props/workbench",
+      "file": "props/workbench.svg",
+      "sha256": "af1f37aea169e817189ebd540bc81715acb902efe587f7e801e20c172631cda0",
+      "width": 352,
+      "height": 232,
+      "pivot": [
+        176,
+        222
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 4,
+        "svg": 1
+      }
+    },
+    {
+      "id": "background/sky",
+      "file": "background/sky.svg",
+      "sha256": "bf277f0174524fd07e89c611f6e298961c26577dce9cc53c9c340d00bc4f0952",
+      "width": 2400,
+      "height": 1350,
+      "pivot": [
+        1200.0,
+        675.0
+      ],
+      "features": [
+        "filter",
+        "transform"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 8,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 2,
+        "path": 1,
+        "rect": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "background/village",
+      "file": "background/village.svg",
+      "sha256": "1dc56e1c8a4ba36ed75f778463fed935768221fa92df3f2ae7c70da2f8fd71b9",
+      "width": 2400,
+      "height": 1350,
+      "pivot": [
+        1200.0,
+        675.0
+      ],
+      "features": [
+        "filter",
+        "transform"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 2,
+        "path": 7,
+        "rect": 25,
+        "svg": 1
+      }
+    },
+    {
+      "id": "background/workshop",
+      "file": "background/workshop.svg",
+      "sha256": "2170b7da13d78ef8dea543d7567cd60c6dc2174a928c65fe872a6496ee577d93",
+      "width": 2400,
+      "height": 1350,
+      "pivot": [
+        1200.0,
+        675.0
+      ],
+      "features": [
+        "filter",
+        "stroke",
+        "transform"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 2,
+        "path": 23,
+        "rect": 4,
+        "svg": 1
+      }
+    },
+    {
+      "id": "background/ground",
+      "file": "background/ground.svg",
+      "sha256": "fd8f804016699ebc50c76625861de5f439abadd5fb8591491ec49004d9228ba1",
+      "width": 2400,
+      "height": 1350,
+      "pivot": [
+        1200.0,
+        675.0
+      ],
+      "features": [
+        "filter",
+        "stroke",
+        "transform"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 2,
+        "path": 10,
+        "svg": 1
+      }
+    },
+    {
+      "id": "background/tree-left",
+      "file": "background/tree-left.svg",
+      "sha256": "8f93811632c5757bfc061420a8be0b4cd222b25c97bc21144fed1327772125c4",
+      "width": 500,
+      "height": 1120,
+      "pivot": [
+        250.0,
+        560.0
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 16,
+        "svg": 1
+      }
+    },
+    {
+      "id": "background/tree-right",
+      "file": "background/tree-right.svg",
+      "sha256": "8f93811632c5757bfc061420a8be0b4cd222b25c97bc21144fed1327772125c4",
+      "width": 500,
+      "height": 1120,
+      "pivot": [
+        250.0,
+        560.0
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 16,
+        "svg": 1
+      }
+    },
+    {
+      "id": "background/foreground-grass",
+      "file": "background/foreground-grass.svg",
+      "sha256": "4c7e8ffeb23fd6a6eb93d01bdadbde57c1c4d10a39147a9abff6b82b541d4811",
+      "width": 960,
+      "height": 280,
+      "pivot": [
+        480.0,
+        140.0
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 12,
+        "svg": 1
+      }
+    },
+    {
+      "id": "props/cup-accent",
+      "file": "props/cup-accent.svg",
+      "sha256": "a817523c0f5b2241951c3b81e8d197368ef65e24a168ccffb3d0a8a283e91eee",
+      "width": 104,
+      "height": 105,
+      "pivot": [
+        43,
+        90
+      ],
+      "features": [
+        "filter",
+        "stroke"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 2,
+        "feBlend": 1,
+        "feColorMatrix": 1,
+        "feComposite": 1,
+        "feTurbulence": 1,
+        "filter": 1,
+        "g": 1,
+        "path": 4,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/torso",
+      "file": "shadow/mai/torso.svg",
+      "sha256": "05bd4741ca0f74a78549775e400aabeeb28a1a1e7d4842e6a3f0b79e6c9f4a73",
+      "width": 204,
+      "height": 214,
+      "pivot": [
+        102,
+        182
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/torso-front",
+      "file": "shadow/mai/torso-front.svg",
+      "sha256": "defc3f3c80cf82ef26a79d2e9917abd0987f169aa36b31dff7596aaf2271b403",
+      "width": 204,
+      "height": 214,
+      "pivot": [
+        102,
+        182
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/torso-profile",
+      "file": "shadow/mai/torso-profile.svg",
+      "sha256": "5505654c2b2482b057ed08b5f18017d5541b39fcb2beb84f2765d051bb7450a2",
+      "width": 144,
+      "height": 214,
+      "pivot": [
+        72,
+        182
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/upper-arm",
+      "file": "shadow/mai/upper-arm.svg",
+      "sha256": "c72b0f29efea7c03029fed631d36b092a9976200351ae0e8b86491115ebd65ae",
+      "width": 88,
+      "height": 154,
+      "pivot": [
+        44.0,
+        24
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/forearm",
+      "file": "shadow/mai/forearm.svg",
+      "sha256": "d6e2654dd7b5c71791cc90789ad0aba528ca98fdb58ca7f2dbb7d92456d9b1c9",
+      "width": 82,
+      "height": 146,
+      "pivot": [
+        41.0,
+        24
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/thigh",
+      "file": "shadow/mai/thigh.svg",
+      "sha256": "23de5074b67716feb2a6bb1c41c5b6a57738a3dec33b8079c918e21e96682faf",
+      "width": 96,
+      "height": 169,
+      "pivot": [
+        48.0,
+        26
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/shin",
+      "file": "shadow/mai/shin.svg",
+      "sha256": "09d468a57e8159af5320b1f6c1a7664a7e46172531f7b32f15fbb6db828524b6",
+      "width": 88,
+      "height": 169,
+      "pivot": [
+        44.0,
+        26
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/boot",
+      "file": "shadow/mai/boot.svg",
+      "sha256": "7d9896b798a07b5703921529dc5c134cfd3ed8e1689e78bf1fc0b84dd0a80245",
+      "width": 122,
+      "height": 84,
+      "pivot": [
+        45,
+        32
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/hand-open",
+      "file": "shadow/mai/hand-open.svg",
+      "sha256": "8b06bbc2bd7ef7942c82e33cd43f29bc29e453904ae7cb19d11a5f02d73ad4bb",
+      "width": 92,
+      "height": 88,
+      "pivot": [
+        41,
+        57
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/hand-grip",
+      "file": "shadow/mai/hand-grip.svg",
+      "sha256": "10166b6bfad40e846cd35ad8b759636094abe57912b404191ce0c2fe8c9205fe",
+      "width": 92,
+      "height": 88,
+      "pivot": [
+        41,
+        57
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/hand-point",
+      "file": "shadow/mai/hand-point.svg",
+      "sha256": "c8e7bb018316ae48ffdc0249dbb1fc7171c2b41de8e2bc672abfbca7ab697b45",
+      "width": 92,
+      "height": 88,
+      "pivot": [
+        41,
+        57
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-front-neutral",
+      "file": "shadow/mai/head-front-neutral.svg",
+      "sha256": "ed34c54de8e830ac99947163e3acdd69f186c7bb3d410f650d90d5fbc126084d",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-front-worried",
+      "file": "shadow/mai/head-front-worried.svg",
+      "sha256": "a61d7e9e4d0042203f384dfcba9092abbd1512cdd4c5665d5374da521afeea52",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-front-happy",
+      "file": "shadow/mai/head-front-happy.svg",
+      "sha256": "2676b185b14d72bde79b18559d204a4df59e4f68e3128e8e9298a5de26942c6b",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-front-blink",
+      "file": "shadow/mai/head-front-blink.svg",
+      "sha256": "872f0e6afbd577d372d12b4e4590c09a345e585ad0c35860e325f05cd54fece7",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-quarter-neutral",
+      "file": "shadow/mai/head-quarter-neutral.svg",
+      "sha256": "6389a300359c705bc233a92b585386d326e3f38c77a91c8e0056c41ffa87fe3b",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-quarter-worried",
+      "file": "shadow/mai/head-quarter-worried.svg",
+      "sha256": "ace96afbb1d91c18a0711e307b12eaaba1809c40d13a9688db0a4042e40457d2",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-quarter-happy",
+      "file": "shadow/mai/head-quarter-happy.svg",
+      "sha256": "94442b2dd688a5316648eb64be2750473cb3e9a69a825d203cfbfa2d1f3682d5",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-quarter-blink",
+      "file": "shadow/mai/head-quarter-blink.svg",
+      "sha256": "3a7257344ee400db5d4ac8e2b5303cd272574c0033676349a5034c2495615922",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-profile-neutral",
+      "file": "shadow/mai/head-profile-neutral.svg",
+      "sha256": "fd8440d1fef0319d23ee1a7423f2681da44a99e84ad0ba4c7ed901261c7ae93c",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-profile-worried",
+      "file": "shadow/mai/head-profile-worried.svg",
+      "sha256": "8a27931bc4c05d102aaa605b6dff8232ff2ad9eee44f5928445f3fcbf3838ee3",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-profile-happy",
+      "file": "shadow/mai/head-profile-happy.svg",
+      "sha256": "d9292fc27f5a45b89096cefc3cf16b9995059fca88d541d4b64661b20544de8b",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/mai/head-profile-blink",
+      "file": "shadow/mai/head-profile-blink.svg",
+      "sha256": "1baf06646f2911228fb37df56c2c7e42af984be6d04d123e0b409aab87ac60fb",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/torso",
+      "file": "shadow/an/torso.svg",
+      "sha256": "95c898b005feef73d3e9304cf405d02080cb4c02992d39d3dda6ed1369a80323",
+      "width": 204,
+      "height": 214,
+      "pivot": [
+        102,
+        182
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/torso-front",
+      "file": "shadow/an/torso-front.svg",
+      "sha256": "9c6d6f299a53f056c461ddb1a83b002f8f9f4e0a472c75e24ec95f4007a43ba9",
+      "width": 204,
+      "height": 214,
+      "pivot": [
+        102,
+        182
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/torso-profile",
+      "file": "shadow/an/torso-profile.svg",
+      "sha256": "e86f463457b08fc026b0f46a7023162d54d2adcfa7ca61ad77218fa8209db657",
+      "width": 144,
+      "height": 214,
+      "pivot": [
+        72,
+        182
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/upper-arm",
+      "file": "shadow/an/upper-arm.svg",
+      "sha256": "7eb05003629d7660f6d90280af43443fb1f9f3927c26955442facfabb672a661",
+      "width": 88,
+      "height": 154,
+      "pivot": [
+        44.0,
+        24
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/forearm",
+      "file": "shadow/an/forearm.svg",
+      "sha256": "a09f31951bdc2a3738718f96a1fbed76ac296b0e7a40a6cef962cd2dd33ba552",
+      "width": 82,
+      "height": 146,
+      "pivot": [
+        41.0,
+        24
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/thigh",
+      "file": "shadow/an/thigh.svg",
+      "sha256": "23de5074b67716feb2a6bb1c41c5b6a57738a3dec33b8079c918e21e96682faf",
+      "width": 96,
+      "height": 169,
+      "pivot": [
+        48.0,
+        26
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/shin",
+      "file": "shadow/an/shin.svg",
+      "sha256": "09d468a57e8159af5320b1f6c1a7664a7e46172531f7b32f15fbb6db828524b6",
+      "width": 88,
+      "height": 169,
+      "pivot": [
+        44.0,
+        26
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/boot",
+      "file": "shadow/an/boot.svg",
+      "sha256": "7d9896b798a07b5703921529dc5c134cfd3ed8e1689e78bf1fc0b84dd0a80245",
+      "width": 122,
+      "height": 84,
+      "pivot": [
+        45,
+        32
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/hand-open",
+      "file": "shadow/an/hand-open.svg",
+      "sha256": "077c98bbe66b8b82d020b9cb226a7bb4146c370e9f1004c8e161ca1e8ba5f479",
+      "width": 92,
+      "height": 88,
+      "pivot": [
+        41,
+        57
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/hand-grip",
+      "file": "shadow/an/hand-grip.svg",
+      "sha256": "06104c1335ebd57dad7a6932e455ae9853287b64bed316905722effaa7cbae13",
+      "width": 92,
+      "height": 88,
+      "pivot": [
+        41,
+        57
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/hand-point",
+      "file": "shadow/an/hand-point.svg",
+      "sha256": "1525382e8eb2c58ee15a03fb0b65cb82c267d5fd5e4c96c000fe25c8608ff0ad",
+      "width": 92,
+      "height": 88,
+      "pivot": [
+        41,
+        57
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-front-neutral",
+      "file": "shadow/an/head-front-neutral.svg",
+      "sha256": "2a39546d3d44bc661ed5f7e3bc0bec406ccf990a6dd066f5d7d58507122e1586",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-front-worried",
+      "file": "shadow/an/head-front-worried.svg",
+      "sha256": "27db157178e37231d63ca76350bfeb025a5b531ddf8aecff508182db1dae4376",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-front-happy",
+      "file": "shadow/an/head-front-happy.svg",
+      "sha256": "af4b366e1436584f0d99bcdab7f3d5dfe74c4641a1eb49ae3c802f3718871277",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-front-blink",
+      "file": "shadow/an/head-front-blink.svg",
+      "sha256": "36e7da6b5e95344d99ab17b2dcb07e82b79026621617f207f7a4524ed7cc2ab7",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-quarter-neutral",
+      "file": "shadow/an/head-quarter-neutral.svg",
+      "sha256": "b9138e0a628500b3989d815fb424d0cdc53f320a95a301f0c16e80e6d099efa8",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-quarter-worried",
+      "file": "shadow/an/head-quarter-worried.svg",
+      "sha256": "f858a97ed1d9d288c24dc09c5ca4c15e27aae0b2b165b25c9d5903d3274b8487",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-quarter-happy",
+      "file": "shadow/an/head-quarter-happy.svg",
+      "sha256": "4cd2d57ca8602399b6120e8aee2dc14035421534078b933530955f003236a9dd",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-quarter-blink",
+      "file": "shadow/an/head-quarter-blink.svg",
+      "sha256": "e2a270a2ec73b96e70663f9bcab603f4105213e4fd77729eda74c6b123af69b4",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-profile-neutral",
+      "file": "shadow/an/head-profile-neutral.svg",
+      "sha256": "a9f3a0b76c0a01ac2ea6945de10a03e25fb33b0a2e96a855e713a005ceab1a41",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-profile-worried",
+      "file": "shadow/an/head-profile-worried.svg",
+      "sha256": "d344e7648d47cca0e8753b12578797a22ba1cdc2422e0b2297313adb0a76cc90",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-profile-happy",
+      "file": "shadow/an/head-profile-happy.svg",
+      "sha256": "a06e1139d1fa0d89e3b86c1cb517bfc757328b29cd1934dbbe1ba50b7662f8bd",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/an/head-profile-blink",
+      "file": "shadow/an/head-profile-blink.svg",
+      "sha256": "33cf7020a7e8f7f762eaca4574564f579fd0c46e7999056df7ffb095893c65ff",
+      "width": 204,
+      "height": 204,
+      "pivot": [
+        106,
+        180
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/props/cup",
+      "file": "shadow/props/cup.svg",
+      "sha256": "6e2b339ad1ff4633d8e9c98d35ab41f5f96655d9e2eb126508b612c058d28ada",
+      "width": 128,
+      "height": 129,
+      "pivot": [
+        55,
+        102
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/props/lantern-dark",
+      "file": "shadow/props/lantern-dark.svg",
+      "sha256": "bf9f08cd5beba8125070b49686b54ffb12023c41d82aa82b7c3181915d8d9446",
+      "width": 188,
+      "height": 244,
+      "pivot": [
+        92,
+        207
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/props/lantern-lit",
+      "file": "shadow/props/lantern-lit.svg",
+      "sha256": "126b98a9cd1bde1a7f81f2fe6a556f8f815ba498df4460a75567020859324275",
+      "width": 188,
+      "height": 244,
+      "pivot": [
+        92,
+        207
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/props/workbench",
+      "file": "shadow/props/workbench.svg",
+      "sha256": "ae4bc8c25a561856fbbf36976754dfde35a5946209665fd32d3abf2fea43fabf",
+      "width": 376,
+      "height": 256,
+      "pivot": [
+        188,
+        234
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "shadow/props/cup-accent",
+      "file": "shadow/props/cup-accent.svg",
+      "sha256": "965d310f91c7ee9eae6b9fbe3b15e4693a7a8dc03fe30c44d36f6e1984032473",
+      "width": 128,
+      "height": 129,
+      "pivot": [
+        55,
+        102
+      ],
+      "features": [
+        "filter",
+        "image"
+      ],
+      "tags": {
+        "defs": 1,
+        "feColorMatrix": 1,
+        "feGaussianBlur": 1,
+        "filter": 1,
+        "image": 1,
+        "svg": 1
+      }
+    },
+    {
+      "id": "effects/contact-shadow",
+      "file": "effects/contact-shadow.svg",
+      "sha256": "e102ec9851a45c5ab8a2c66e261a4a78a331ad887dfac7efebe926702e7ec8e3",
+      "width": 180,
+      "height": 36,
+      "pivot": [
+        90,
+        18
+      ],
+      "features": [
+        "paint-server",
+        "radialGradient"
+      ],
+      "tags": {
+        "defs": 1,
+        "ellipse": 1,
+        "radialGradient": 1,
+        "stop": 2,
+        "svg": 1
+      }
+    }
+  ],
+  "limitations": [
+    "Inventory only; absence of a listed feature does not prove an SVG is safe to extrude.",
+    "No visual equivalence, shadow or artistic approval is asserted."
+  ]
+}
