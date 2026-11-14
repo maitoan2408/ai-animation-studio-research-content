@@ -82,7 +82,7 @@
         "id": "F0",
         "dependencies": [],
         "status": "IN_PROGRESS",
-        "attempts": 0
+        "attempts": 1
       },
       {
         "id": "F1",
@@ -168,6 +168,14 @@
       }
     ],
     "currentTask": "F0-draft-recovery",
-    "nextAction": "Reproduce and fix save/voice/upload/project-switch draft loss with browser tests; preserve failures; then finish F0 research and deterministic contracts."
+    "nextAction": "Test delayed voice/upload and project switch, explicit detach with newly generated audio, concurrent edits; repair remaining failures. Complete integration/UI, license/determinism research, queue and F0 report; continue F1 and independent F2.",
+    "progress": {
+      "saveRace": "REPRODUCED_AND_RETESTED_PASS",
+      "voiceUploadSwitch": "NOT_RUN",
+      "rootVerify": "PASS",
+      "integrationUI": "IN_PROGRESS",
+      "licenseResearch": "NOT_RUN",
+      "determinismContracts": "NOT_RUN"
+    }
   }
 }

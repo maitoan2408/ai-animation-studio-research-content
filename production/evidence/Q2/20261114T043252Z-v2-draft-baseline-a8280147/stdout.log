@@ -1,0 +1,27 @@
+{
+  case: 'edit during save',
+  expectedDraft: 'B typed while saving',
+  actualDraft: 'A submitted',
+  discardHidden: true,
+  savedTitle: 'A submitted'
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: save response must not discard newer input
++ actual - expected
+
++ 'A submitted'
+- 'B typed while saving'
+
+    at <anonymous> (/workspace/studio-audit/tests/draft-recovery.ts:30:9) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'A submitted',
+  expected: 'B typed while saving',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1
