@@ -140,3 +140,16 @@ test('capability registry accepts genuine subsets and rejects unavailable action
  invalid.clips.push({action:'walk-stop',frames:73});
  assert.throws(()=>validateM3(invalid,pack),/M3_ACTION_NOT_CAPABLE/);
 });
+
+test('reject unreachable pick/place geometry before renderer starts, while preserving valid authored contacts',()=>{
+ assert.doesNotThrow(()=>validateM3(project,pack));
+ const tooFar=structuredClone(project);
+ tooFar.character.xStart=350;
+ assert.throws(()=>validateM3(tooFar,pack),/M3_PICK_IK_UNREACHABLE/);
+ const noWalk=structuredClone(project);
+ noWalk.clips=noWalk.clips.slice(1);
+ assert.throws(()=>validateM3(noWalk,pack),/M3_PICK_IK_UNREACHABLE/);
+ const stillValid=structuredClone(project);
+ stillValid.prop.x=950;
+ assert.doesNotThrow(()=>validateM3(stillValid,pack));
+});
