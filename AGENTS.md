@@ -7,6 +7,14 @@ Người dùng đã ủy quyền thực hiện/ra quyết định từng phase v
 phải ghi `delegated-agent`, không giả là người dùng hoặc chuyên gia độc lập đã duyệt.
 Sau từng bước có evidence, cập nhật checkpoint và push nhánh; giữ toàn bộ kết quả cũ.
 
+## Giao tiếp, bàn giao bằng hình ảnh và QA hồi quy sau khi có sản phẩm (chủ dự án, 2026-11-16)
+
+- **Không báo cáo tiến độ giữa chừng.** Trong một milestone đã được giao, tự triển khai và ghi lại checkpoint/log/commit nội bộ; không gửi các thông báo tiến độ, bản nháp hoặc xin người dùng duyệt từng bước. Chỉ gửi một lần khi có sản phẩm đã qua kiểm thử cuối và có đủ bằng chứng để review. Nếu phát sinh blocker thực sự không thể tự xử lý, báo rõ `BLOCKED` cùng bằng chứng, tuyệt đối không gọi là đã hoàn thành.
+- **Bàn giao trực tiếp trong đoạn chat.** Hiển thị ngay hình ảnh, contact sheet/khung hình thực, và video/preview có thể xem khi môi trường hỗ trợ, được tạo từ đúng revision cuối; không bắt người dùng phải mở GitHub chỉ để nhìn sản phẩm. Đính kèm video/file nguồn chỉnh sửa được và link artifact/manifest để tải khi cần. Nếu không thể nhúng video trực tiếp, phải nêu rõ hạn chế và ít nhất hiển thị ảnh/frame thật trong chat cùng đường dẫn video có thể xem/tải; không giả là đã nhúng media khi chưa có.
+- **Sau khi tạo được sản phẩm, bắt buộc quay lại kiểm thử lần hai trước khi báo cáo.** Đây là vòng hậu sản xuất riêng biệt: rà lại đầy đủ acceptance criteria so với sản phẩm thật; xem/nghe media, kiểm storyboard, timeline, chuyển động, khung hình, âm thanh, UI, save/reopen/import/export, tính đúng dữ liệu, negative cases, bảo mật, compatibility và khả năng tái lập theo phạm vi milestone.
+- **Nếu phát hiện lỗi hoặc thiếu sót thì quay lui và sửa tận gốc.** Tái hiện lỗi và lưu bằng chứng FAIL, bổ sung regression test, sửa, render/đối chiếu media mới, rồi chạy lại toàn bộ test liên quan **và full regression suites trên commit cuối**. Lặp vòng audit → fix → re-test cho đến khi không còn lỗi trong phạm vi; không che lỗi bằng ngưỡng mới, đánh dấu giả PASS hoặc giữ artifact từ revision cũ.
+- Chỉ sau vòng hậu kiểm cuối thành công mới trình người dùng review một lần bằng **sản phẩm + hình ảnh/video thực + kết quả QA ngắn gọn**. Giữ `READY_FOR_USER_REVIEW` cho đến khi người dùng quyết định `ACCEPTED`; không tự merge hoặc bắt đầu milestone tiếp theo. Không tự nhận đã có chuyên gia độc lập hoặc chủ dự án duyệt.
+
 ## Mục tiêu
 
 Xây studio nội bộ tạo hoạt hình 2D/2.5D từ kịch bản. Sản phẩm phải chạy lại được, có bằng chứng kiểm thử và review gắn đúng revision/artifact. Đọc `plan.md`, `docs/architecture.md`, `skills.md` trước khi đổi workflow.
