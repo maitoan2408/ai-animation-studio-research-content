@@ -69,7 +69,7 @@ def main() -> int:
         if not file.is_file():
             continue
         if name.startswith(prefixes) or name in ('package.json', 'package-lock.json',
-                'tsconfig.json', 'tsconfig.test.json', 'production/package.json',
+                'tsconfig.json', 'tsconfig.test.json', 'tsconfig.m2.json', 'production/package.json',
                 'production/package-lock.json', 'production/tsconfig.json',
                 'production/requirements-voice.lock', 'production/requirements-qc.lock'):
             inputs.append(dict(path=name, sha256=hashlib.sha256(file.read_bytes()).hexdigest()))

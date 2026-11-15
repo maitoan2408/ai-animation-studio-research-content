@@ -1,0 +1,21 @@
+{
+  "phase": "U2",
+  "step": "m2-negative-runtime-preview-before",
+  "run_id": "20261115T161307Z-m2-negative-runtime-preview-before-97a7aace",
+  "started_at_utc": "20261115T161307Z",
+  "command": [
+    "node",
+    "--import",
+    "tsx",
+    "--test",
+    "tests/m2-runtime.test.ts",
+    "tests/http.test.ts"
+  ],
+  "cwd": "/workspace/m2-completion",
+  "base_commit": "84598abdf8836772a62f6c02b441e6d6b7709f4d",
+  "tracked_diff_sha256": "858c7019cf79e76fc1249d9f294775a6af416ec346f9be2c10425ada040a4380",
+  "status": "RUNNING",
+  "recorder_pid": 41377,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "a51641c7cd072e73b7b4d4437db42e51d18724be9590b3f2670be00ace98a76c"
+}

@@ -118,6 +118,8 @@ export async function qcVideo(
       '1',
       '-i',
       file,
+      '-threads',
+      '1',
       '-f',
       'null',
       '-',
@@ -130,8 +132,8 @@ export async function qcVideo(
 /**
  * A long, multi-scene project can exceed available Chromium memory when kept
  * in a single 1080p session. Each scene is rendered by an isolated subprocess
- * so native Chromium and FFmpeg allocations are fully reclaimed, then a strictly constant-24fps H.264
- * stream using exact frame-number timestamps. The original scene-correct
+ * so native rasterizer and FFmpeg allocations are reclaimed between scenes.
+ * Segments use the same constant-24fps H.264 timebase. The original scene-correct
  * 48kHz mix is muxed once, avoiding AAC priming gaps at shot boundaries.
  */
 export const renderVideo: RenderFunction = async (store, spec, profile, dir, signal, progress) => {
@@ -162,6 +164,10 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
     const cgroup = await readFile('/sys/fs/cgroup/memory.current', 'utf8').catch(
       () => 'unavailable',
     );
+    const limit = await readFile('/sys/fs/cgroup/memory.max', 'utf8').catch(() => 'unavailable');
+    const events = await readFile('/sys/fs/cgroup/memory.events', 'utf8').catch(
+      () => 'unavailable',
+    );
     const mem = process.memoryUsage();
     const stat = await readFile('/sys/fs/cgroup/memory.stat', 'utf8').catch(() => '');
     const stats = new Map(
@@ -178,6 +184,8 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
           heapMB: Math.round(mem.heapUsed / 1048576),
           externalMB: Math.round(mem.external / 1048576),
           cgroupBytes: cgroup.trim(),
+          cgroupLimit: limit.trim(),
+          cgroupEvents: events.trim(),
           anonBytes: stats.get('anon'),
           fileBytes: stats.get('file'),
           slabBytes: stats.get('slab'),
@@ -239,12 +247,18 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
           profile,
           partDir,
         ];
-        const childLog = await run(process.execPath, args, signal, (chunk) => {
-          // Keep the CI runner visibly informed of per-frame worker progress;
-          // long opaque native rendering jobs can otherwise be terminated
-          // without any diagnostic output, leaving only exit code 137.
-          process.stdout.write('[M2 ' + scene.id + '] ' + chunk);
-        });
+        const childLog = await run(
+          process.execPath,
+          args,
+          signal,
+          (chunk) => {
+            // Keep the CI runner visibly informed of per-frame worker progress;
+            // long opaque native rendering jobs can otherwise be terminated
+            // without any diagnostic output, leaving only exit code 137.
+            process.stdout.write('[M2 ' + scene.id + '] ' + chunk);
+          },
+          true,
+        );
         logs.push(childLog.slice(-12000));
         const qc = JSON.parse(await readFile(path.join(partDir, 'segment-qc.json'), 'utf8')) as QC;
         assertSegmentFrames(scene.id, qc.frames, scene.durationFrames);
@@ -344,16 +358,7 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
     }
     signal.throwIfAborted();
     await traceM2('after-final-mux');
-    if (split) {
-      // Real 1080p decode needs enough headroom for frame buffers; the
-      // long raster/encode stage may leave reclaimable page cache charged to
-      // the 4 GiB CI cgroup. Reclaim only cached memory, not QC coverage.
-      const reclaim = await writeFile('/sys/fs/cgroup/memory.reclaim', '2147483648')
-        .then(() => 'OK')
-        .catch((error: unknown) => String(error));
-      console.log('M2_MEMORY_RECLAIM ' + reclaim);
-      await traceM2('before-final-qc');
-    }
+    await traceM2('before-final-qc');
     await progress(0.95, 'Decoding all frames and checking audio');
     return { file, qc: await qcVideo(file, parsed, profile, signal) };
   } finally {

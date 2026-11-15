@@ -160,7 +160,19 @@
         "Persist edited revision and prove export/import/reopen preserves narration and scene edits",
         "Inspect actual UI screenshot from tested working Studio, include video, stills, media and save/reopen report",
         "Fail-closed validation, full CI regression, actual media sound/full decode and owner review"
-      ]
+      ],
+      "remediation": {
+        "status": "VERIFYING",
+        "rootCause": "Digest string was compared to an MP4 Buffer in the acceptance harness, causing multi-GB assertion diff and OOM; renderer final QC had passed.",
+        "details": "docs/product-first/evidence/m2-oom-root-cause.json",
+        "newGates": [
+          "native preview/final pixel comparison at cuts and voice peaks",
+          "encoded audio matches original at zero lag per shot",
+          "separate-process reopen",
+          "dependency error/recovery and worker descendant cancellation"
+        ],
+        "reviewer": "delegated-agent; no independent human or owner approval claimed"
+      }
     },
     "M3": {
       "technicalStatus": "NOT_VERIFIED",

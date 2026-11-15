@@ -7,10 +7,38 @@ export function run(
   args: string[],
   signal?: AbortSignal,
   onOutput?: (chunk: string) => void,
+  processTree = false,
 ): Promise<string> {
   return new Promise((resolve, reject) => {
     signal?.throwIfAborted();
-    const child = spawn(command, args, { stdio: ['ignore', 'pipe', 'pipe'], signal });
+    // POSIX render workers launch native encoders. Cancelling only their Node
+    // parent leaves those children rendering after a job is marked cancelled.
+    const grouped = processTree && process.platform !== 'win32';
+    const child = spawn(command, args, {
+      stdio: ['ignore', 'pipe', 'pipe'],
+      detached: grouped,
+      signal: grouped ? undefined : signal,
+    });
+    let killTimer: ReturnType<typeof setTimeout> | undefined;
+    const killGroup = (kind: NodeJS.Signals) => {
+      if (!child.pid) return;
+      try {
+        process.kill(-child.pid, kind);
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'ESRCH') throw error;
+      }
+    };
+    const abort = () => {
+      killGroup('SIGTERM');
+      killTimer = setTimeout(() => killGroup('SIGKILL'), 1000);
+      killTimer.unref();
+    };
+    if (grouped) signal?.addEventListener('abort', abort, { once: true });
+    const cleanup = () => {
+      signal?.removeEventListener('abort', abort);
+      if (killTimer) clearTimeout(killTimer);
+      if (grouped) killGroup('SIGKILL');
+    };
     let stdout = '',
       stderr = '';
     child.stdout.on('data', (chunk) => {
@@ -21,8 +49,16 @@ export function run(
       stderr = (stderr + String(chunk)).slice(-12000);
       onOutput?.(String(chunk));
     });
-    child.on('error', reject);
-    child.on('close', (code) =>
+    child.on('error', (error) => {
+      cleanup();
+      reject(error);
+    });
+    child.on('close', (code) => {
+      cleanup();
+      if (signal?.aborted) {
+        reject(signal.reason);
+        return;
+      }
       code === 0
         ? resolve(stdout)
         : reject(
@@ -31,17 +67,24 @@ export function run(
               `${command} exited ${code}: ${stderr.slice(-2500)}`,
               500,
             ),
-          ),
-    );
+          );
+    });
   });
 }
 
 export async function doctor() {
   const browser = process.env.STUDIO_BROWSER ?? '/usr/bin/chromium';
-  const [ffmpeg, ffprobe, chromium] = await Promise.all([
+  const [ffmpeg, ffprobe, chromium, rasterizer] = await Promise.all([
     run('ffmpeg', ['-version']),
     run('ffprobe', ['-version']),
     run(browser, ['--version']),
+    run('rsvg-convert', ['--version']).catch(() => {
+      throw new StudioError(
+        'RASTERIZER_UNAVAILABLE',
+        'Không chạy được rsvg-convert. Cài librsvg2-bin (Debian/Ubuntu) và kiểm tra PATH trước khi render.',
+        503,
+      );
+    }),
   ]);
   return {
     node: process.version,
@@ -49,7 +92,8 @@ export async function doctor() {
     ffprobe: ffprobe.split('\n')[0]!,
     chromium: chromium.trim(),
     browser,
-    backend: 'HyperFrames 0.9.30',
-    compiler: 'paper-studio/1',
+    rasterizer: rasterizer.trim(),
+    backend: 'HyperFrames 0.9.30 / native librsvg segments',
+    compiler: 'paper-studio/2',
   };
 }

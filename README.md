@@ -24,7 +24,7 @@ Chương trình review chạy ở cổng4311; hướng dẫn v0.1 bên dưới v
 
 ## Chạy ngay
 
-Môi trường đã thử: Linux Debian 13, Node **24.22.1**, Chromium **156**, FFmpeg/ffprobe **7.1.5**. Cần các executable `chromium`, `ffmpeg`, `ffprobe` trên máy.
+Môi trường đã thử: Linux Debian 13, Node **24.22.1**, Chromium **156**, FFmpeg/ffprobe **7.1.5**. Cần các executable `chromium`, `ffmpeg`, `ffprobe`, `rsvg-convert` trên máy. Trên Debian/Ubuntu: `apt-get install chromium ffmpeg librsvg2-bin fonts-liberation`.
 
 ```bash
 npm ci

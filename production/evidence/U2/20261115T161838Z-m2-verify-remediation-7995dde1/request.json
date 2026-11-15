@@ -1,0 +1,18 @@
+{
+  "phase": "U2",
+  "step": "m2-verify-remediation",
+  "run_id": "20261115T161838Z-m2-verify-remediation-7995dde1",
+  "started_at_utc": "20261115T161838Z",
+  "command": [
+    "npm",
+    "run",
+    "verify"
+  ],
+  "cwd": "/workspace/m2-completion",
+  "base_commit": "84598abdf8836772a62f6c02b441e6d6b7709f4d",
+  "tracked_diff_sha256": "8f967f9addcacbc73e9e4dcde43e4f9475d0a260e60278adef876b6d64185780",
+  "status": "RUNNING",
+  "recorder_pid": 43382,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "a8645415978a5c68b6b787765a109d6fc53200876b52c3581dabfafa3f3bbd1b"
+}

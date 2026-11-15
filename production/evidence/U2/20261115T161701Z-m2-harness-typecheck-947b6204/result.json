@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "m2-harness-typecheck",
+  "run_id": "20261115T161701Z-m2-harness-typecheck-947b6204",
+  "started_at_utc": "20261115T161701Z",
+  "command": [
+    "node_modules/.bin/tsc",
+    "-p",
+    "tsconfig.m2.json"
+  ],
+  "cwd": "/workspace/m2-completion",
+  "base_commit": "84598abdf8836772a62f6c02b441e6d6b7709f4d",
+  "tracked_diff_sha256": "03c253573230b40c602e54dfd7d155c65fb92f25fa477144440cbd69126ac78a",
+  "recorder_pid": 43253,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "713e045a598208150007d8e931b1715f277a0a6f94bba10e8c33a231aff903b3",
+  "status": "FAIL",
+  "exit_code": 2,
+  "elapsed_seconds": 4.174,
+  "finished_at_utc": "2026-11-15T16:17:07.277761+00:00",
+  "log_sha256": "fbe06aefd0f7cd184d88caa2c882dcb0e46fa97a65318ed4d2eb8de420e33f08",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

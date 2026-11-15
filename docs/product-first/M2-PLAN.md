@@ -24,10 +24,11 @@
 - Voice is offline timing draft unless user provides a reviewed WAV; never claim premium natural narration.
 - Produce technically honest frame/audio/source reports; retain failed attempts.
 
-## Resolved and open integration findings
+## Remediation checkpoint — 2026-11-15
 
-- **Confirmed** native 24fps 3-shot rendering with naive uninterrupted Chromium/HyperFrames exceeds the memory budget of the GitHub Actions container (exit 137); reducing final resolution is not acceptable.
-- **Confirmed** FFmpeg concat of independently encoded shots may preserve exactly 576 frames while yielding a fractional average frame rate. The new path explicitly retimestamps frames at CFR 24 before final audio mux.
-- Latest correction uses **OS-process-isolated per-scene Chromium screenshots streamed directly to FFmpeg**, with no full-frame archive in memory or all-at-once browser capture. This correction is under test, **not yet a passing deliverable**.
-- User-visible evidence may only be claimed when fresh CI succeeds on exact final source SHA and after native 1080p video, storyboard before/after, voice per scene, import/reopen and UI screenshots have been verified.
-- Keep the failed runs and evidence; do not downgrade media requirements, omit final quality gates, or report technical/artistic approval before inspection.
+- Reproduced final-stage exit -9 locally at original `84598ab`, with cgroup `oom_kill` increasing to 1. The root cause was the acceptance harness comparing a SHA string to MP4 bytes; Node tried to format a huge assertion diff. Final render/QC had already passed. See `evidence/m2-oom-root-cause.json`. Earlier attribution of this latest failure to Chromium, file cache or final decoder was unsupported.
+- Fix compares digest to digest, removes ineffective writes to read-only cgroup controls, preserves native 1920×1080/24fps, every frame decode and narration checks.
+- Doctor checks librsvg, installation instructions/CI include it, and failed dependency discovery can recover without restarting Studio. Preview now uses the same verified audio envelope as final rendering.
+- Additional gates: actual native browser preview vs decoded delivery at both sides of cuts and voice peaks; per-shot zero-lag audio correlation; reopen in a separate OS process; full regression and final visual inspection.
+- Pixel tolerances fixed before measurement: global RGB MAE≤3; each 240×270 tile MAE≤6 and at most 3% pixels with max-channel error>32. This checks renderer/codec consistency, not aesthetics. Same-agent technical audit is labelled delegated-agent; no independent human approval is claimed.
+- Status remains IN_PROGRESS until final CI and all media/UI checks pass. Keep all failed attempts and do not start M3 before owner acceptance.

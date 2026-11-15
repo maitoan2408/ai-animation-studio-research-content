@@ -1,0 +1,59 @@
+✔ HTTP boundary rejects cross-origin writes, unknown fields and revision conflicts (261.855602ms)
+✖ voiced preview uses the same audio envelope as final render and rejects tampered audio (112.734209ms)
+✖ doctor fails helpfully on missing rasterizer and recovers after installation (102.515439ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2037.198433
+
+✖ failing tests:
+
+test at tests/http.test.ts:1:2346
+✖ voiced preview uses the same audio envelope as final render and rejects tampered audio (112.734209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  ... Skipped lines
+  
+    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 640 360">\n' +
+      '  <defs><filter id="paper-shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="3" dy="5" stdDeviation="2" flood-opacity=".28"/></filter><clipPath id="stage"><rect x="0" y="0" width="640" height="360" rx="0"/></clipPath></defs>\n' +
+      '  <rect width="640" height="360" fill="#302e32"/>\n' +
+      '  <g clip-path="url(#stage)"><rect width="640" height="360" fill="#f3e8ca"/>\n' +
+      '  <circle cx="490" cy="82" r="31" fill="#e6b36b"/>\n' +
+  ...
+      '  <circle cx="261" cy="132" r="2.5" fill="#3b3430" stroke="none"/>\n' +
+  +   '  <ellipse cx="266" cy="148" rx="5" ry="1" fill="#3b3430" stroke="none"/>\n' +
+  -   '  <ellipse cx="266" cy="148" rx="5" ry="7" fill="#3b3430" stroke="none"/>\n' +
+      '  <path d="M270 178L277.5 145L285 132" fill="none" stroke="#527e88" stroke-width="12"/>\n' +
+      '  <circle cx="285" cy="132" r="7" fill="#f8e8ce"/>\n' +
+      '  </g></g>\n' +
+      '  \n' +
+      '  <path d="M425 281l3-9 3 9m16 4 4-9 2 9m-280 18 2-10 4 10" stroke="#799078" stroke-width="3" fill="none"/>\n' +
+  
+      at TestContext.<anonymous> (/workspace/m2-completion/tests/http.test.ts:79:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 640 360">\n  <defs><filter id="paper-shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="3" dy="5" stdDeviation="2" flood-opacity=".28"/></filter><clipPath id="stage"><rect x="0" y="0" width="640" height="360" rx="0"/></clipPath></defs>\n  <rect width="640" height="360" fill="#302e32"/>\n  <g clip-path="url(#stage)"><rect width="640" height="360" fill="#f3e8ca"/>\n  <circle cx="490" cy="82" r="31" fill="#e6b36b"/>\n  <g transform="translate(0 0)"><path d="M-80 250Q80 92 215 196Q400 72 740 220V360H-80Z" fill="#bfcebc"/><path d="M-40 270Q200 155 400 220Q540 150 730 245V360H-40Z" fill="#8fae9c"/></g>\n  <g transform="translate(0 0)" fill="#cdb785" stroke="#697b69" stroke-width="3"><path d="M455 203v-47h75v47Z"/><path d="M444 156l48-33 48 33Z"/><rect x="487" y="177" width="14" height="26" fill="#63786c"/></g>\n  <g transform="translate(0 0)"><path d="M-80 269Q250 246 740 264V380H-80Z" fill="#dbc7a1"/>\n  <path d="M-30 310Q290 260 690 305" fill="none" stroke="#e9d9b6" stroke-width="24"/>\n  <g transform="translate(0 0)"><ellipse cx="257" cy="289" rx="48" ry="8" fill="#86745c" opacity=".3"/>\n  <g filter="url(#paper-shadow)" stroke="#3b3430" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">\n  <path d="M242 225L238 280M265 225L271 280" fill="none" stroke-width="15"/>\n  <path d="M231 167L270 167L282 237H222Z" fill="#527e88"/>\n  <path d="M232 178L217 213" stroke="#527e88" stroke-width="12"/>\n  <circle cx="217" cy="213" r="6" fill="#f8e8ce"/>\n  <circle cx="250" cy="133" r="31" fill="#f8e8ce"/>\n  <path d="M222 123Q224 95 251 100Q281 101 280 124Q260 107 245 120Z" fill="#684a3a"/>\n  <circle cx="261" cy="132" r="2.5" fill="#3b3430" stroke="none"/>\n  <ellipse cx="266" cy="148" rx="5" ry="1" fill="#3b3430" stroke="none"/>\n  <path d="M270 178L277.5 145L285 132" fill="none" stroke="#527e88" stroke-width="12"/>\n  <circle cx="285" cy="132" r="7" fill="#f8e8ce"/>\n  </g></g>\n  \n  <path d="M425 281l3-9 3 9m16 4 4-9 2 9m-280 18 2-10 4 10" stroke="#799078" stroke-width="3" fill="none"/>\n  </g>\n  <g transform="translate(0 0)" fill="#486e5a" filter="url(#paper-shadow)"><path d="M-40 360V150Q-5 78 32 150L57 360Z"/><path d="M602 360l14-173Q643 118 675 190V360Z"/></g></g>\n  \n  </svg>',
+    expected: '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 640 360">\n  <defs><filter id="paper-shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="3" dy="5" stdDeviation="2" flood-opacity=".28"/></filter><clipPath id="stage"><rect x="0" y="0" width="640" height="360" rx="0"/></clipPath></defs>\n  <rect width="640" height="360" fill="#302e32"/>\n  <g clip-path="url(#stage)"><rect width="640" height="360" fill="#f3e8ca"/>\n  <circle cx="490" cy="82" r="31" fill="#e6b36b"/>\n  <g transform="translate(0 0)"><path d="M-80 250Q80 92 215 196Q400 72 740 220V360H-80Z" fill="#bfcebc"/><path d="M-40 270Q200 155 400 220Q540 150 730 245V360H-40Z" fill="#8fae9c"/></g>\n  <g transform="translate(0 0)" fill="#cdb785" stroke="#697b69" stroke-width="3"><path d="M455 203v-47h75v47Z"/><path d="M444 156l48-33 48 33Z"/><rect x="487" y="177" width="14" height="26" fill="#63786c"/></g>\n  <g transform="translate(0 0)"><path d="M-80 269Q250 246 740 264V380H-80Z" fill="#dbc7a1"/>\n  <path d="M-30 310Q290 260 690 305" fill="none" stroke="#e9d9b6" stroke-width="24"/>\n  <g transform="translate(0 0)"><ellipse cx="257" cy="289" rx="48" ry="8" fill="#86745c" opacity=".3"/>\n  <g filter="url(#paper-shadow)" stroke="#3b3430" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">\n  <path d="M242 225L238 280M265 225L271 280" fill="none" stroke-width="15"/>\n  <path d="M231 167L270 167L282 237H222Z" fill="#527e88"/>\n  <path d="M232 178L217 213" stroke="#527e88" stroke-width="12"/>\n  <circle cx="217" cy="213" r="6" fill="#f8e8ce"/>\n  <circle cx="250" cy="133" r="31" fill="#f8e8ce"/>\n  <path d="M222 123Q224 95 251 100Q281 101 280 124Q260 107 245 120Z" fill="#684a3a"/>\n  <circle cx="261" cy="132" r="2.5" fill="#3b3430" stroke="none"/>\n  <ellipse cx="266" cy="148" rx="5" ry="7" fill="#3b3430" stroke="none"/>\n  <path d="M270 178L277.5 145L285 132" fill="none" stroke="#527e88" stroke-width="12"/>\n  <circle cx="285" cy="132" r="7" fill="#f8e8ce"/>\n  </g></g>\n  \n  <path d="M425 281l3-9 3 9m16 4 4-9 2 9m-280 18 2-10 4 10" stroke="#799078" stroke-width="3" fill="none"/>\n  </g>\n  <g transform="translate(0 0)" fill="#486e5a" filter="url(#paper-shadow)"><path d="M-40 360V150Q-5 78 32 150L57 360Z"/><path d="M602 360l14-173Q643 118 675 190V360Z"/></g></g>\n  \n  </svg>',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/m2-runtime.test.ts:1:251
+✖ doctor fails helpfully on missing rasterizer and recovers after installation (102.515439ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (/workspace/m2-completion/tests/m2-runtime.test.ts:22:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

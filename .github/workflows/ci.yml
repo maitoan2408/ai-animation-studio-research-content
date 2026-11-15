@@ -21,11 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install media runtime
-        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation
       - run: npm ci
       - run: npm run studio -- doctor
       - name: Check M2 acceptance harness source formatting
-        run: npx prettier --check scripts/m2-product-e2e.ts
+        run: npx prettier --check scripts/m2-*.ts tsconfig.m2.json
       - run: npm run verify
       - run: npm run build
       - run: npm run test:integration
@@ -67,8 +67,9 @@ jobs:
       - run: npm ci
       - name: Check M2 acceptance harness formatting and types
         run: |
-          npx prettier --check scripts/m2-product-e2e.ts
+          npx prettier --check scripts/m2-*.ts tsconfig.m2.json
           npm run typecheck
+          npx tsc -p tsconfig.m2.json
       - name: Render new 24-sec native1080p edited and voiced video + prove UI/export/restart
         run: npx tsx scripts/m2-product-e2e.ts
       - name: Upload actual M2 video, edit screenshots, contact and SHA report

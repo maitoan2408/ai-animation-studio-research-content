@@ -1,3 +1,3 @@
-# Resume checkpoint — M2 started on 2026-11-15
+# M2 remediation checkpoint — 2026-11-15
 
-M1 owner-approved, do not re-open M1 without explicit request. Current milestone is M2 in `codex/product-first-m2-studio-v02`. See [M2-PLAN.md](M2-PLAN.md) and [STATE.json](STATE.json). Next step: implement new script-driven, edited, persistent, voice-backed 20–30s 1080p video acceptance flow with real browser evidence; run complete CI and visual QA, fix all in-scope errors before report. Do NOT report completion, merge, or start M3 until owner explicitly accepts M2.
+Continue M2 on `codex/product-first-m2-studio-v02` (local isolated worktree branch `codex/m2-completion`). M0/M1 recorded accepted; M3–M7 deferred. Root cause of the latest exit 137 is a string-vs-video-Buffer assertion, not a proven decoder OOM. See M2-PLAN and evidence/m2-oom-root-cause.json. Fix and new parity/dependency/persistence checks are under verification. Do not mark completed until full CI on final source SHA, native 24-second voiced film and real screenshots pass and are accessible. Owner acceptance remains NOT_REVIEWED; no auto-merge.

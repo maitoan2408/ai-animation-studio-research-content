@@ -42,6 +42,10 @@ const encoder = spawn(
     '24',
     '-c:v',
     'png',
+    '-threads',
+    '1',
+    '-filter_threads',
+    '1',
     '-i',
     'pipe:0',
     '-an',
@@ -67,7 +71,7 @@ const encoder = spawn(
 );
 let diagnostic = '';
 encoder.stderr!.on('data', (bytes: Buffer) => {
-  diagnostic += bytes.toString().slice(-2000);
+  diagnostic = (diagnostic + bytes.toString()).slice(-12000);
 });
 let pipeError: Error | undefined;
 encoder.stdin!.on('error', (error: Error) => {

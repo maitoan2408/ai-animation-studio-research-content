@@ -25,6 +25,7 @@ import {
 } from '../src/domain.js';
 import { planScript } from '../src/planner.js';
 import { frameSvg } from '../src/rig.js';
+import { checkM2Media } from './m2-media-parity.js';
 
 const root = await mkdtemp(path.join(os.tmpdir(), 'studio-m2-product-'));
 const evidence = path.resolve('artifacts/product-first/m2');
@@ -246,7 +247,10 @@ try {
   renderedArtifactId = art.id;
   const output = path.join(evidence, 'm2-edited-film-final-1080p.mp4');
   await copyFile(app.store.artifactFile(art.id), output);
-  assert.equal(art.sha256, await witness('m2-edited-film-final-1080p.mp4', output));
+  // witness returns bytes for image-signature checks. Compare digest to digest:
+  // asserting a string against a whole MP4 makes Node build a multi-GB diff.
+  await witness('m2-edited-film-final-1080p.mp4', output);
+  assert.equal(art.sha256, artifacts['m2-edited-film-final-1080p.mp4']);
   const probed = JSON.parse(
     run('ffprobe', [
       '-v',
@@ -354,6 +358,10 @@ try {
     'error',
     '-xerror',
     '-y',
+    '-threads',
+    '1',
+    '-filter_threads',
+    '1',
     '-i',
     output,
     '-vf',
@@ -368,6 +376,23 @@ try {
     headless: true,
     args: ['--no-sandbox', '--disable-dev-shm-usage', '--enable-unsafe-swiftshader'],
   });
+  const parity = await checkM2Media(
+    browser,
+    app.store,
+    finalSpec,
+    server.url + '/api/projects/' + projectId + '/preview?revision=' + finalRevisionId,
+    output,
+    evidence,
+  );
+  for (const picture of parity.pictures)
+    await witness(
+      'preview-native-' + picture.frame + '.png',
+      path.join(evidence, 'preview-native-' + picture.frame + '.png'),
+    );
+  await witness('preview-final-parity.json', path.join(evidence, 'preview-final-parity.json'));
+  checks.push(
+    'Actual served native preview matches decoded final frames at all cuts and speaking peaks; encoded voice matches original PCM at zero lag in each shot.',
+  );
   const pageAgain = await browser.newPage();
   pageAgain.on('pageerror', (error) => pageErrors.push(String(error)));
   await pageAgain.setViewport({ width: 1440, height: 1080, deviceScaleFactor: 1 });
@@ -376,7 +401,7 @@ try {
   await pageAgain.click('[data-project="' + projectId + '"]');
   await pageAgain.waitForSelector('#workspace:not([hidden])');
   await pageAgain.waitForFunction(
-    () => document.querySelector('#artifact-select')?.querySelectorAll('option').length > 1,
+    () => (document.querySelector('#artifact-select')?.querySelectorAll('option').length ?? 0) > 1,
     { timeout: 30000 },
   );
   await pageAgain.screenshot({
@@ -413,25 +438,47 @@ try {
   server = undefined;
   await app.close();
   app = undefined;
-  const reopened = await Studio.open(path.join(root, 'studio'));
-  try {
-    const restored = await reopened.store.current(projectId);
-    assert.deepEqual(restored.revision.spec, finalSpec);
-    assert.equal(restored.project.currentRevisionId, finalRevisionId);
-    const restoredArt = await reopened.store.get<Artifact>('artifacts', renderedArtifactId);
-    assert.equal(restoredArt.sha256, art.sha256);
-    assert.equal(await reopened.store.verifyArtifact(restoredArt), true);
-    checks.push(
-      'Cold restart reloaded exact edited+voiced project and hash-verified final 1080p artifact.',
-    );
-  } finally {
-    await reopened.close();
-  }
+  const expectedFile = path.join(root, 'reopen-expected.json');
+  await writeFile(
+    expectedFile,
+    JSON.stringify({
+      projectId,
+      revisionId: finalRevisionId,
+      artifactId: renderedArtifactId,
+      sha256: art.sha256,
+      spec: finalSpec,
+    }),
+  );
+  const reopened = JSON.parse(
+    run(process.execPath, [
+      '--import',
+      'tsx',
+      'scripts/m2-reopen-proof.ts',
+      path.join(root, 'studio'),
+      expectedFile,
+    ]),
+  );
+  assert.equal(reopened.status, 'PASS');
+  assert.notEqual(reopened.processId, process.pid);
+  await writeFile(
+    path.join(evidence, 'reopen-proof.json'),
+    JSON.stringify(reopened, null, 2) + '\n',
+  );
+  await witness('reopen-proof.json', path.join(evidence, 'reopen-proof.json'));
+  checks.push(
+    'A separate OS process reloaded exact edited+voiced project and hash-verified final 1080p artifact (automated test, not independent human handoff).',
+  );
   const manifest = {
     milestone: 'M2',
     status: 'TECHNICAL_PASS_PENDING_OWNER_ART_REVIEW',
-    sourceCommit: process.env.SOURCE_HEAD_SHA || process.env.GITHUB_SHA || 'LOCAL_UNPINNED',
-    checkoutCommit: process.env.GITHUB_SHA || 'LOCAL_UNPINNED',
+    sourceCommit:
+      process.env.SOURCE_HEAD_SHA ||
+      process.env.GITHUB_SHA ||
+      run('git', ['rev-parse', 'HEAD']).trim(),
+    checkoutCommit: process.env.GITHUB_SHA || run('git', ['rev-parse', 'HEAD']).trim(),
+    trackedDiffSha256: hash(run('git', ['diff', 'HEAD', '--', 'src', 'scripts', 'web', 'tests'])),
+    runtime,
+    parity,
     originalScript: source,
     originalScriptSha256: hash(input),
     newProjectTitle: 'Ngày mới trên giấy',
