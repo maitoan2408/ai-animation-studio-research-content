@@ -287,12 +287,19 @@ try {
   for (const scene of finalSpec.scenes) {
     const sceneSampleCount = Math.round((scene.durationFrames / 24) * 8000);
     let sceneEnergy = 0;
-    for (let i = audioSampleOffset; i < Math.min(pcm.length / 2, audioSampleOffset + sceneSampleCount); i++) {
+    for (
+      let i = audioSampleOffset;
+      i < Math.min(pcm.length / 2, audioSampleOffset + sceneSampleCount);
+      i++
+    ) {
       const sampleValue = pcm.readInt16LE(i * 2);
       sceneEnergy += sampleValue * sampleValue;
     }
     const sceneRms = Math.sqrt(sceneEnergy / sceneSampleCount);
-    assert.ok(sceneRms > 50, scene.id + ' was silent or shifted after concatenation: ' + sceneRms);
+    assert.ok(
+      sceneRms > 50,
+      scene.id + ' was silent or shifted after concatenation: ' + sceneRms,
+    );
     voiceRmsByScene[scene.id] = sceneRms;
     audioSampleOffset += sceneSampleCount;
   }
