@@ -296,10 +296,7 @@ try {
       sceneEnergy += sampleValue * sampleValue;
     }
     const sceneRms = Math.sqrt(sceneEnergy / sceneSampleCount);
-    assert.ok(
-      sceneRms > 50,
-      scene.id + ' was silent or shifted after concatenation: ' + sceneRms,
-    );
+    assert.ok(sceneRms > 50, scene.id + ' was silent or shifted after concatenation: ' + sceneRms);
     voiceRmsByScene[scene.id] = sceneRms;
     audioSampleOffset += sceneSampleCount;
   }
