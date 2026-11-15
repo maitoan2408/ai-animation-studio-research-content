@@ -13,6 +13,7 @@ import {
 import { Store } from './store.js';
 import { mixAudio } from './audio.js';
 import { frameSvg } from './rig.js';
+import { toAnimationIR, toLegacyProjectSpec } from './animation-ir.js';
 import { run, doctor } from './process.js';
 
 export type RenderProgress = (progress: number, stage: string) => Promise<void>;
@@ -31,8 +32,10 @@ export async function compile(
   input: ProjectSpec,
   profile: Profile,
   dir: string,
+  mode: 'ir' | 'legacy' = 'ir',
 ): Promise<void> {
-  const spec = parseSpec(input),
+  const validated = parseSpec(input),
+    spec = mode === 'ir' ? toLegacyProjectSpec(toAnimationIR(validated)) : validated,
     frames = totalFrames(spec),
     duration = frames / 24,
     { width, height } = profiles[profile];
