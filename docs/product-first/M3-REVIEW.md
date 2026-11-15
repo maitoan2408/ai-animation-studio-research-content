@@ -21,7 +21,7 @@
 | Native MP4 integrity | PASS; 268 decoded frames, 1080p24, full FFmpeg decode, actual frame hashes |
 | Portable M3 project and evidence hashes | PASS; exact JSON file digest, 17 screenshot digests, contact and comparison digests |
 | Independent post-result media auditor | PASS: `m3-post-result-audit.json` (runs only AFTER real video) |
-| Full final executable HEAD CI | PASS: Studio 43751133720 and production 43751133731 |
+| Full final executable HEAD CI | PASS: Studio 43753767435 and production 43753767459 |
 
 ## Genuine second-pass discoveries and repairs
 
@@ -44,3 +44,22 @@ Original failures/history preserved in GitHub Actions. No threshold was raised t
 ## Known limitations and owner gate
 
 Character registration enables a **new instance identity on existing art/rig**, not automatic art design or arbitrary character-model synthesis. No M4 physics/bake or M5 Director; M6 human-quality acting and voice remain future scope. The M3 clip is intentionally silent. Artistic evaluation is NOT automated; only owner can mark M3 `ACCEPTED` before M4 starts. PR #11 remains Draft.
+
+## Supplemental post-review defect audit and repairs — 2026-11-16
+
+At the owner's request, M3 was **reopened for a second functional limitation audit**, even though the earlier native film and tests had passed. The additional examination found three genuine M3-scoped design/data-contract weaknesses and all were repaired before this review:
+
+1. **Capabilities were all-or-nothing:** the registry rejected a character package intentionally supporting only one or two actions; declared capabilities therefore did not express actual supported actions. Now any nonempty unique subset of `walk-stop`, `turn-head`, `wave` and `pick-place` is allowed; undeclared clips and malformed/duplicate capabilities reject explicitly.
+2. **Unnecessary cup dependency:** the schema insisted on a cup for simple walk/head/wave sequences. `prop` is now optional unless `pick-place` is included; corresponding animation frame results omit unused cup/bench markers/sprites.
+3. **Late IK configuration failure:** accepted data could position the cup beyond the validated arm's 105+98 stage-pixel reach; the sample/render then failed later. Project validation now checks the hand-to-cup reach envelope for each pick/place clip **before rendering** and returns `M3_PICK_IK_UNREACHABLE`.
+
+Added regressions for all three repaired behaviors plus invalid/boundary cases. Existing M0/M1/M2/M3 app/workbench tests were rerun on `61020373e6b64c9901fb6d3f5b7d19827363ec92`. The resulting complete Studio CI <https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767435> and workbench CI <https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767459> both passed, including a fresh M3 native 1080p render and independent **post-result** auditor.
+
+Latest artifact `q2-workbench-142`: <https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767459/artifacts/14178155027>. Externally downloaded ZIP was checked directly: **21/21** manifest hashes of the video, portable project, 17 full-resolution frames, contact sheet and A/B comparison matched. Full FFmpeg decode and ffprobe 1920×1080 24fps/268 frames passed. The new binary movie remains SHA-256 `2a902307ae4e7fadccae0fbc6b75ecf3af97e90192015739a35d79b8da0434a5`, byte-identical to the previous verified movie, confirming the showcase itself did not regress. No human artistic approval has been claimed.
+
+### Disclosed remaining limitations (not silently marked fixed)
+
+- This is a **bounded demonstration with existing `mai`/`an` character art and `production-cutout-1` rig**; it does not create new character drawings or automatically fit arbitrary third-party rigs. Right-facing motion, a two-step walk-stop and a SHA-locked cup are supported; generalized directional gait, arbitrary props and broad rig authoring are not yet implemented.
+- The reusable action executor currently runs in the **production Three/Chromium workbench**; new actions are **not yet available as user-selectable M2 Studio UI actions**. This is a product integration limit to resolve in a future approved milestone if the owner requires it before moving on.
+- Real generalized physics is M4; Director Agent is M5; natural character acting/voice finish is M6. Native no-slip/contact results are technical measures, not proof of lifelike animation.
+- PR #11 stays Draft. `READY_FOR_USER_REVIEW` is for the bounded M3 gate only. **M4 is blocked until owner expressly accepts M3 and its disclosed boundaries.**

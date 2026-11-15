@@ -252,14 +252,16 @@
       ],
       "risks": [
         "Existing rig art reused; no claim of brand-new authored character artwork",
-        "M3 excludes M4 physics and M6 premium natural acting"
+        "M3 excludes M4 physics and M6 premium natural acting",
+        "Only supported existing art and rig; right-facing, cup-specific bounded motions.",
+        "Production workbench motion not integrated as a selectable action in root M2 Studio UI; explicit owner scope choice."
       ],
-      "ownerGate": "Only user can mark ACCEPTED. M4 cannot start until that approval.",
-      "sourceImplementationCommit": "7aa1ce284662d65bda8d2d421492d0a74ea43ab5",
-      "appCIRun": 43751133720,
-      "productionCIRun": 43751133731,
-      "artifactId": 14175973462,
-      "artifactName": "q2-workbench-134",
+      "ownerGate": "Owner to approve bounded M3 after seeing fresh video/contact/QA in chat. Do not begin M4 or merge without approval.",
+      "sourceImplementationCommit": "61020373e6b64c9901fb6d3f5b7d19827363ec92",
+      "appCIRun": 43753767435,
+      "productionCIRun": 43753767459,
+      "artifactId": 14178155027,
+      "artifactName": "q2-workbench-142",
       "artifactExpiresAt": "2026-11-29T19:19:48Z",
       "filmSha256": "2a902307ae4e7fadccae0fbc6b75ecf3af97e90192015739a35d79b8da0434a5",
       "film": {
@@ -285,16 +287,20 @@
         "First media manifest hashed compact JSON but delivered pretty printed project file",
         "First reference sheet called action-start frame standing baseline; now uses actual settled stance frame 72",
         "Added immutable duplicate-safe character package registry",
-        "Added required independent post-result audit step verifying hashes and full decode"
+        "Added required independent post-result audit step verifying hashes and full decode",
+        "Capability registry now supports an explicit nonempty subset of actions; illegal clips, duplicate and unknown capabilities fail closed.",
+        "Cup prop is optional for character motions that do not use pick/place; required when pick/place occurs.",
+        "Impossible hand/cup reach now fails immediately in project validation, rather than while rendering."
       ],
       "unresolvedInScopeDefects": [],
       "humanGate": "Owner must watch true M3 footage and decide artistic/functional acceptance; do not begin M4 without explicit owner approval",
       "report": "docs/product-first/M3-REVIEW.md",
       "proof": {
-        "studioCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43751133720",
-        "workbenchCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43751133731",
-        "artifact": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43751133731/artifacts/14175973462"
-      }
+        "studioCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767435",
+        "workbenchCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767459",
+        "artifact": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767459/artifacts/14178155027"
+      },
+      "sourceCommit": "61020373e6b64c9901fb6d3f5b7d19827363ec92"
     },
     "M4": {
       "technicalStatus": "NOT_VERIFIED",
@@ -334,6 +340,8 @@
     "M2 accepted as workflow-quality gate; natural character acting and draft voice explicitly deferred to M3/M6.",
     "Owner authorized starting M3 on 2026-11-16; sequential gate remains mandatory through M3–M7.",
     "M3 started only after explicit M2 owner acceptance; no interim reports; reviewable actual video and secondary post-result QA are mandatory.",
-    "M3 268-frame 1080p native showreel and second-pass media provenance audit PASSED on 7aa1ce (both full CI); owner acceptance NOT_REVIEWED; M4 strictly prohibited."
+    "M3 268-frame 1080p native showreel and second-pass media provenance audit PASSED on 7aa1ce (both full CI); owner acceptance NOT_REVIEWED; M4 strictly prohibited.",
+    "M3 reopened at owner request; three genuine data-contract limitations repaired and retested on 61020373e6b64c9901fb6d3f5b7d19827363ec92. Full app+workbench CI PASS; fresh 21/21 SHA-bound native media PASS. M4 remains blocked by owner gate.",
+    "M3 remaining bounded-scope limits disclosed: existing art/rig only, right-facing specific actions/cup, workbench-only motion not in M2 editor."
   ]
 }
