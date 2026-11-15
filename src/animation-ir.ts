@@ -207,6 +207,10 @@ export function toAnimationIR(source: ProjectSpec): AnimationIR {
 /** Reject unsupported characters rather than quietly changing artwork. */
 export function toLegacyProjectSpec(value: AnimationIR): ProjectSpec {
   const ir = parseAnimationIR(value);
+  if (ir.artPack || ir.shots.some((s) => s.production))
+    throw new Error(
+      'IR_UNSUPPORTED_PRODUCTION_SCENE: legacy renderer cannot render authored production rigs',
+    );
   if (
     ir.characters.length !== 1 ||
     ir.characters[0]?.id !== 'studio-primary' ||
@@ -214,10 +218,6 @@ export function toLegacyProjectSpec(value: AnimationIR): ProjectSpec {
     ir.characters[0]?.artPackageId !== 'studio-embedded-svg-v0.1'
   )
     throw new Error('IR_UNSUPPORTED_CHARACTER');
-  if (ir.artPack || ir.shots.some((s) => s.production))
-    throw new Error(
-      'IR_UNSUPPORTED_PRODUCTION_SCENE: legacy renderer cannot render authored production rigs',
-    );
   const scenes: Scene[] = ir.shots.map((s) => ({
     id: s.id,
     title: s.title,
