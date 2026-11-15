@@ -1,0 +1,10 @@
+✔ real R2 editorial boundary is S06 to S05; a missing lamp is explicit (2.590313ms)
+✔ seam inventory refuses ambiguous selection and duplicate sprite identity (0.544767ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 375.329129

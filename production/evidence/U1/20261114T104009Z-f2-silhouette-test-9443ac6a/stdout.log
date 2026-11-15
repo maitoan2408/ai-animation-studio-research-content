@@ -1,0 +1,7 @@
+test_invalid_mask_rejects (test_silhouette_trace.SilhouetteTrace.test_invalid_mask_rejects) ... ok
+test_solid_hole_diagonal_and_transparent (test_silhouette_trace.SilhouetteTrace.test_solid_hole_diagonal_and_transparent) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK

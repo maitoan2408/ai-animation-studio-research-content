@@ -1,0 +1,28 @@
+{
+  "phase": "U1",
+  "step": "f2-overlay-final-python",
+  "run_id": "20261114T110352Z-f2-overlay-final-python-2d9ac7ad",
+  "started_at_utc": "20261114T110352Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1985154cdbcecce07c17b5e215352f2aa138ad80",
+  "tracked_diff_sha256": "b8cd6eb73f158114f48bb33d6631b535eb3e4f7da97ad7372dc060d21061adac",
+  "recorder_pid": 52559,
+  "source_snapshot_sha256": "815cf4d37f479884854de7e7b407e0333df93c657f411301abc13140dd240ad7",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 5.795,
+  "finished_at_utc": "2026-11-14T11:03:58.530001+00:00",
+  "log_sha256": "25f60f89744aeaadd6972be768c2779f44aad14caf936f25a1bf511dc7c45f23",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

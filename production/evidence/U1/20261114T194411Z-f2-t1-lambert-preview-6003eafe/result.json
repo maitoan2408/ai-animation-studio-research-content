@@ -1,0 +1,28 @@
+{
+  "phase": "U1",
+  "step": "f2-t1-lambert-preview",
+  "run_id": "20261114T194411Z-f2-t1-lambert-preview-6003eafe",
+  "started_at_utc": "20261114T194411Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json",
+    "108",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "authored-only",
+    "physical",
+    "lambert",
+    "preview"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b2761ed575b9edc455f6ea6fa82794c424ae558f",
+  "tracked_diff_sha256": "1f061425b8a9f36bf9d7ff6d271c1dc0329fdfce9bd66cf38da1419792bf732f",
+  "recorder_pid": 8422,
+  "source_snapshot_sha256": "6ee77880bb1c1464d90b1bc4dd6f712e819e592675eae09e7391a3adaf116d1d",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 11.763,
+  "finished_at_utc": "2026-11-14T19:44:23.486995+00:00",
+  "log_sha256": "5add06edc3976499831c4fb61913208d4cb38f4a84c25951282d0c77b0d3bdf0",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

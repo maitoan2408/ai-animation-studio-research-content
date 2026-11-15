@@ -1,0 +1,6 @@
+test_requires_matching_provenance_and_disjoint_ids (test_merge_contours.MergeContours.test_requires_matching_provenance_and_disjoint_ids) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK

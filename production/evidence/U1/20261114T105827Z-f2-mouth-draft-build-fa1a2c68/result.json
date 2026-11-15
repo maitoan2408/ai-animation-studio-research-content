@@ -1,0 +1,21 @@
+{
+  "phase": "U1",
+  "step": "f2-mouth-draft-build",
+  "run_id": "20261114T105827Z-f2-mouth-draft-build-fa1a2c68",
+  "started_at_utc": "20261114T105827Z",
+  "command": [
+    "python",
+    "production/src/art/build_mouth_drafts.py"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1985154cdbcecce07c17b5e215352f2aa138ad80",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 51037,
+  "source_snapshot_sha256": "cabac928c2e7fc12693fd100157d3159c79418ca813e3a4e3a8d8a485859bbc7",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.044,
+  "finished_at_utc": "2026-11-14T10:58:27.420204+00:00",
+  "log_sha256": "05ab7d57a7446f36db999881f0d576d9379d53811e5046e1636abd14352699a7",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

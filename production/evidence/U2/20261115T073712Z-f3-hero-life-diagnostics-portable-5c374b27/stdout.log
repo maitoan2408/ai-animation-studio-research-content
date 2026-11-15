@@ -1,0 +1,7 @@
+test_derivative_and_invalid_inputs (test_f3_diagnostics.TestF3Diagnostics.test_derivative_and_invalid_inputs) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+{"status": "OBSERVATION_ONLY", "sourceSha256": "8b247aa7fe2a042c90f1b4c3b3e95e6599771363378fe95f710a9e5edba33abf", "videoSha256": "5c3a5aef96e44d3f43fcf662bce01a02c61421b1f5d9f531f372f5f36907b6b7", "frames": 192, "contactFrames": [0, 24, 60, 72, 90, 108, 158, 191], "onionFrames": [86, 88, 90, 92, 94], "maxHeadJerkDegreesPerSecondCubed": 380.67369432211376, "blinkFrames": 6, "limits": ["finite differences use unfiltered frame samples; no locked jerk threshold", "contact sheet and blended onion are not art approval", "preview 640x360, no audio"]}

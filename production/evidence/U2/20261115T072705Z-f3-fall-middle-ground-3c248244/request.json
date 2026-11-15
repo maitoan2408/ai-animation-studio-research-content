@@ -1,0 +1,18 @@
+{
+  "phase": "U2",
+  "step": "f3-fall-middle-ground",
+  "run_id": "20261115T072705Z-f3-fall-middle-ground-3c248244",
+  "started_at_utc": "20261115T072705Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; python production/src/continuity/fall_ground_observe.py production/out/f3-fall-fixture/11dded3a-8c9f-4347-aa2d-002096722b55/S05.json > production/artifacts/quality/v2-f3/fall-ground/middle-spike.json; python -c \"import json,collections;d=json.load(open(\\\"production/artifacts/quality/v2-f3/fall-ground/middle-spike.json\\\"));print(len(d[\\\"hits\\\"]),collections.Counter(h[\\\"sprite\\\"] for h in d[\\\"hits\\\"]))\""
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1e0232236f04a94f8d63e31faa3539691fd2a02a",
+  "tracked_diff_sha256": "1697c30bd68a31a4dd897755c4a50f53f2203c3be0b7b7d21a4016efb12c6dab",
+  "status": "RUNNING",
+  "recorder_pid": 30025,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "60644a647b1bae6e0ebe6338941dd48bb3b031f7c4e8981351f589e1c1db3238"
+}

@@ -1,0 +1,10 @@
+✔ S05 declared ground and stance check all four actual sole anchors in all frames (2.680624ms)
+✔ independent S05 track detects injected foot slip without changing baseline evaluator (1.092941ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 459.768996

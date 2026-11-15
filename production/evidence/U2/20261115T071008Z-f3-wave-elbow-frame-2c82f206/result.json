@@ -1,0 +1,29 @@
+{
+  "phase": "U2",
+  "step": "f3-wave-elbow-frame",
+  "run_id": "20261115T071008Z-f3-wave-elbow-frame-2c82f206",
+  "started_at_utc": "20261115T071008Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/f3-action-fixture/71e61fa1-8779-48b1-bab6-e37fa3e1145a/S05.json",
+    "72",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "authored-only",
+    "physical",
+    "basic",
+    "preview"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "3b2e820f2fe3ca5743eb260c885dabf138f97c78",
+  "tracked_diff_sha256": "7a6d4c55ee170475c78fd081f43375648ff83b470debbaab2b1e145e745d1c1d",
+  "recorder_pid": 22118,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "337524b62cb1066d3a3047f37ed8898b4f3d552f42c21f6e8db65ff5ee753c22",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 10.386,
+  "finished_at_utc": "2026-11-15T07:10:19.155749+00:00",
+  "log_sha256": "904f0fb395086883d4073da8867474c8312cc628e0301d7e7d87ee44e18ace89",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,0 +1,29 @@
+{
+  "phase": "U1",
+  "step": "f2-lantern-motion-scope-tests",
+  "run_id": "20261115T060501Z-f2-lantern-motion-scope-tests-187b3689",
+  "started_at_utc": "20261115T060501Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_f2_lantern_motion_scope.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "29370f7dc3ef71932163bb1d6bda01e3f98c2c413b31f97bfb4af957de1c74dd",
+  "recorder_pid": 6160,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "b5fa90e1f4f2a700dd148ea8f30ff9e61573241f6424464f6e90ccf4b3202b9d",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.503,
+  "finished_at_utc": "2026-11-15T06:05:02.278725+00:00",
+  "log_sha256": "aaf79f79bfacb6398353d16e7ce74211f6e8a70bef48744a215c01467eee1268",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

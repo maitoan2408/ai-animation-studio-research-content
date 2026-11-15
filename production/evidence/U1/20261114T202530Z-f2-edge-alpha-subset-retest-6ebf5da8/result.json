@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-edge-alpha-subset-retest",
+  "run_id": "20261114T202530Z-f2-edge-alpha-subset-retest-6ebf5da8",
+  "started_at_utc": "20261114T202530Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx production/src/art/paper-scene/calibration/edge-render.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "046875c32390bbde3eabbc4f414addae3e24c3ef",
+  "tracked_diff_sha256": "fa6852b99e7935fcf5f82d627739755cd836f0020584c3b7e8b1b271868efda6",
+  "recorder_pid": 24799,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "066b66a11ec2388692eae448662711d634f101387ac59ccafa1bf64c1af80659",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 8.958,
+  "finished_at_utc": "2026-11-14T20:25:39.869937+00:00",
+  "log_sha256": "403218e7283924e47710d97ad38e27ac253b5debe367aa18892af2222d356f70",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

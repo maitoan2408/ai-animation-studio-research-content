@@ -1,0 +1,17 @@
+{
+  "phase": "U2",
+  "step": "v2-f1-real-seam",
+  "run_id": "20261114T051344Z-v2-f1-real-seam-db0800da",
+  "started_at_utc": "20261114T051344Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/seam-hero.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "71933a0e681b52ba4979c14bf10bb892569c44cc",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 33336,
+  "source_snapshot_sha256": "076c383647206622d7a783767be438dc48452983c89536cd599ed146b55c938a"
+}

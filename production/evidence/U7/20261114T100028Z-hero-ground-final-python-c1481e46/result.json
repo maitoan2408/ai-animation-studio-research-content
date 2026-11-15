@@ -1,0 +1,28 @@
+{
+  "phase": "U7",
+  "step": "hero-ground-final-python",
+  "run_id": "20261114T100028Z-hero-ground-final-python-c1481e46",
+  "started_at_utc": "20261114T100028Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "840c77ac7259802eaa396b041cdac7d9671bd044",
+  "tracked_diff_sha256": "bfe41ee1878fe3f80e111bbd866ae645711b22db51b7f49e5b4cc48ed8c4b14e",
+  "recorder_pid": 37548,
+  "source_snapshot_sha256": "15d95b7e904c66d101c82ae62c4d5d8f5eaa92ccc23f01867cbd13f3013ba5b9",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 8.975,
+  "finished_at_utc": "2026-11-14T10:00:37.483204+00:00",
+  "log_sha256": "052b5bf027894eb6c62fd3b03f7bc6940a470e5b4daaa45b5cc3eae05f53b223",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

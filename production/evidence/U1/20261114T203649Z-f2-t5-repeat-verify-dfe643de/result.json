@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-t5-repeat-verify",
+  "run_id": "20261114T203649Z-f2-t5-repeat-verify-dfe643de",
+  "started_at_utc": "20261114T203649Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; python production/src/art/paper-scene/verify_animation.py production/out/f2-animation/eb763c5a-b710-41cb-90ae-7db2434cd4bc; python production/src/art/paper-scene/calibration/compare_runs.py production/out/f2-animation/3e451f28-ddeb-49da-8995-6be78e1508da/report.json production/out/f2-animation/eb763c5a-b710-41cb-90ae-7db2434cd4bc/report.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "71849350bd8e7ab64f06756e5f2369468c0a0931",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 27361,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "2c9c3b3385fa26857d74a6dd6e9687387c7b77a10199354ad508843e78c10de5",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 12.065,
+  "finished_at_utc": "2026-11-14T20:37:05.101770+00:00",
+  "log_sha256": "7f2cfedf6e5ca444817b8077c56f766c30842d2e57df588026446ba9781cde5d",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

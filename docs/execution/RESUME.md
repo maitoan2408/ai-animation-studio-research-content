@@ -1,3 +1,7 @@
+## Kế hoạch V2 hiện hành
+
+Đọc [V2 resume](../quality/V2-RESUME.md), [state](../quality/state.json) mục v2 và [human queue](../quality/HUMAN-QUEUE.md). F0 đang triển khai; F1–F9 chưa thực hiện.
+
 ## Review và kế hoạch tiếp theo — 14/11/2026
 
 Đã review checkpoint1278176/PR #6, xác nhận lại CI source2b0d40f SUCCESS.

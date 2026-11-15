@@ -1,0 +1,25 @@
+{
+  "phase": "U1",
+  "step": "f2-t5-fiber-compare",
+  "run_id": "20261114T195247Z-f2-t5-fiber-compare-65db0cf2",
+  "started_at_utc": "20261114T195247Z",
+  "command": [
+    "python",
+    "production/src/art/paper-scene/compare_before_after.py",
+    "production/artifacts/quality/v2-f2/t1/basic.png",
+    "production/artifacts/quality/v2-f2/t5/fiber-preview.png",
+    "production/artifacts/quality/v2-f2/t1/regions.json",
+    "production/artifacts/quality/v2-f2/t5/compare"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "a8acf804a8b5a2127dd5115ab44cce69c248cf10",
+  "tracked_diff_sha256": "ca747dddfe6bc4ecdea1c6709b8e34eeb9d7686c4ec66d77c30191a3e9ba79c8",
+  "recorder_pid": 11870,
+  "source_snapshot_sha256": "92395f36549e9caf891e53cab3de1e26bac30dde58e6969c94c4674e5efc568e",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.371,
+  "finished_at_utc": "2026-11-14T19:52:48.605499+00:00",
+  "log_sha256": "e69e9f8f61224bc4810375021173ff25e3916d67439f84818def03edc3b6cdfa",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,0 +1,22 @@
+{
+  "phase": "U2",
+  "step": "v2-f1-cut-reason-baseline",
+  "run_id": "20261114T051444Z-v2-f1-cut-reason-baseline-9cc3d631",
+  "started_at_utc": "20261114T051444Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/continuity.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "71933a0e681b52ba4979c14bf10bb892569c44cc",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 33699,
+  "source_snapshot_sha256": "2a9a16e1570ca20c999da14a3db46256823ce764e59d022bbff1f7205e53fdd2",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.482,
+  "finished_at_utc": "2026-11-14T05:14:44.912477+00:00",
+  "log_sha256": "13651067d562969693ff7a3ad1cdf72b0a841f15647f8a47316a6c546c4e4179",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

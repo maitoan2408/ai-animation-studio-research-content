@@ -1,0 +1,20 @@
+{
+  "phase": "U1",
+  "step": "f2-shadow-board",
+  "run_id": "20261114T111531Z-f2-shadow-board-8e1f30ef",
+  "started_at_utc": "20261114T111531Z",
+  "command": [
+    "python",
+    "production/src/art/paper-scene/shadow_board.py",
+    "production/out/paper-scene/f84e2eb1-b988-4fbc-bad2-8a88899f828b",
+    "production/out/paper-scene/6f689060-933b-4603-acd4-998f779bc5a0",
+    "production/out/paper-scene/89c8db79-629d-48e2-b26c-d1b5f7d31c13",
+    "production/out/f2-shadow-board-20261114/board.png"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "0ac23f876e1a2d8b11f92f6edc48ee3ba44144c9",
+  "tracked_diff_sha256": "b72f4d852ffb0ff36bc35937165c0418ed3100ea5035bdc90511aee2e0325a7a",
+  "status": "RUNNING",
+  "recorder_pid": 56487,
+  "source_snapshot_sha256": "3ae473421701e89e71f4c765160dd33ddb357bf2fbc124f6f77e20ab8a134e5b"
+}

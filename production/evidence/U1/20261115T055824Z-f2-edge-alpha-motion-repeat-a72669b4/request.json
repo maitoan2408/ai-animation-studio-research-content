@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-edge-alpha-motion-repeat",
+  "run_id": "20261115T055824Z-f2-edge-alpha-motion-repeat-a72669b4",
+  "started_at_utc": "20261115T055824Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/animate.ts",
+    "production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "preview",
+    "physical",
+    "edge-alpha"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "edd2b5052e1e5bcf3abc67c8bf1e5fe3727dade61686d1e98c77951e74d9069d",
+  "status": "RUNNING",
+  "recorder_pid": 3291,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "e645a0a6e18e7c2a9c516b273ceda13332034b08a1b9c5066ce503aaa9513c7f"
+}

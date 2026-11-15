@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-grid-bounds-baseline",
+  "run_id": "20261114T183505Z-f2-grid-bounds-baseline-1d97545c",
+  "started_at_utc": "20261114T183505Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/paper-grid-geometry.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f31b47d6d1778bf7975116a9a2f17d99d3330e44",
+  "tracked_diff_sha256": "6718083b5fb63994f771ed4535fee9f18e70b04b511fe16f3641bdcdaa6dba66",
+  "recorder_pid": 3477,
+  "source_snapshot_sha256": "083a41be26dbd2ee488ae77327d74618d4c8a1b40d275b70073cb0d307d0c918",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 2.103,
+  "finished_at_utc": "2026-11-14T18:35:08.362187+00:00",
+  "log_sha256": "34a37dc563b2757881a561cef2254b3355234d96253f1d023906c635fe674741",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

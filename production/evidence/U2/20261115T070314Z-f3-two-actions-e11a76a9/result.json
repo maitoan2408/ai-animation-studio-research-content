@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "f3-two-actions",
+  "run_id": "20261115T070314Z-f3-two-actions-e11a76a9",
+  "started_at_utc": "20261115T070314Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx --test production/tests/motion-actions.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "3b2e820f2fe3ca5743eb260c885dabf138f97c78",
+  "tracked_diff_sha256": "b55445e03fc2cc3c2c80739472d90a82a1b4db1c1fe57835c73306f71b383bd6",
+  "recorder_pid": 17583,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "db1c8b13c2e8ea512d4fe3006630fe91133be1da6bb6124f629dfb80d97bc61c",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 13.311,
+  "finished_at_utc": "2026-11-15T07:03:28.012496+00:00",
+  "log_sha256": "3f7d7f9c6c5bdd292b5eb372121312e15584f93a168c024d6eba6d2796aba16c",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

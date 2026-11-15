@@ -1,0 +1,17 @@
+{
+  "phase": "Q2",
+  "step": "v2-detach-persist",
+  "run_id": "20261114T045524Z-v2-detach-persist-0635175f",
+  "started_at_utc": "20261114T045524Z",
+  "command": [
+    "npm",
+    "run",
+    "test:ui:recovery"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "44e144119bc9a413bb36e121a88de484eaecf54e48582521019182f9974808cc",
+  "status": "RUNNING",
+  "recorder_pid": 15569,
+  "source_snapshot_sha256": "7b5e2b4bcbbc53ddd124ac2d97cb1574ccdc973d7c4782211cd53939b3c2dc9a"
+}

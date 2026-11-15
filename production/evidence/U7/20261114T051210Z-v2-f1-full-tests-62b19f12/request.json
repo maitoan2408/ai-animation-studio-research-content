@@ -1,0 +1,18 @@
+{
+  "phase": "U7",
+  "step": "v2-f1-full-tests",
+  "run_id": "20261114T051210Z-v2-f1-full-tests-62b19f12",
+  "started_at_utc": "20261114T051210Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "71933a0e681b52ba4979c14bf10bb892569c44cc",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 32870,
+  "source_snapshot_sha256": "19b12d12db787ceb673595ea02adcf9b8faaebc91edc2c1cb11cbca08c255a1b"
+}

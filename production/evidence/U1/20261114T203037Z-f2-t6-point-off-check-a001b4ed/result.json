@@ -1,0 +1,30 @@
+{
+  "phase": "U1",
+  "step": "f2-t6-point-off-check",
+  "run_id": "20261114T203037Z-f2-t6-point-off-check-a001b4ed",
+  "started_at_utc": "20261114T203037Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json",
+    "108",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "authored-only",
+    "physical",
+    "lamp-light",
+    "preview",
+    "0"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "046875c32390bbde3eabbc4f414addae3e24c3ef",
+  "tracked_diff_sha256": "c2aec342bbc588c2c2b569dc403df10c0de4066ea12aa121583b2fcaaa6441b9",
+  "recorder_pid": 26566,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "6b3d917a7940c29e06917ef2f6a14cf13f4dacb12f5cb065152c02cb1407c409",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 11.635,
+  "finished_at_utc": "2026-11-14T20:30:49.132306+00:00",
+  "log_sha256": "f1667ce56955c7241aa3f8a9adefa80b5977428c1dd1a89acc24458ff53ec76f",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

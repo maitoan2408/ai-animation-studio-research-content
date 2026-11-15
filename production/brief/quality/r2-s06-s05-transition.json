@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "from": "S06",
+  "to": "S05",
+  "kind": "intentional_cut",
+  "reason": "R2 editorial reorders independent benchmark shots; S06 reach-high and S05 handoff are distinct tests.",
+  "status": "PROVISIONAL_DEVELOPMENT",
+  "source": "production/brief/shots.json"
+}

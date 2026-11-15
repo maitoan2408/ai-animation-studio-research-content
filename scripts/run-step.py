@@ -20,6 +20,7 @@ import sys
 import time
 import uuid
 import zipfile
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -77,12 +78,46 @@ def main() -> int:
     # Save the exact allowlisted source/lock/asset bytes, excluding secrets,
     # runtime data, generated media and the recursive evidence tree.
     snapshot = directory / 'source.zip'
-    with zipfile.ZipFile(snapshot, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
-        for item in inputs:
-            payload = (ROOT / item['path']).read_bytes()
-            if hashlib.sha256(payload).hexdigest() != item['sha256']:
-                raise RuntimeError('SOURCE_CHANGED_DURING_SNAPSHOT: ' + item['path'])
-            archive.writestr(item['path'], payload)
+    snapshot_mode = os.environ.get('PAPER_EVIDENCE_SNAPSHOT', 'dedup-v1' if sys.platform.startswith('linux') else 'legacy')
+    if snapshot_mode not in ('legacy', 'dedup-v1'):
+        raise RuntimeError('SNAPSHOT_MODE_UNSUPPORTED')
+    # Linux dedup is verified with Git-only archive/review; other platforms use legacy by default.
+    request['source_snapshot_mode'] = snapshot_mode
+    # Build a canonical ZIP for stable content hashes on repeated snapshots.
+    if snapshot_mode == 'dedup-v1':
+        store = ROOT / 'production/evidence/_snapshots'
+        store.mkdir(parents=True, exist_ok=True)
+        if store.is_symlink() or store.resolve().parent != (ROOT / 'production/evidence').resolve():
+            raise RuntimeError('SNAPSHOT_STORE_PATH')
+        with tempfile.NamedTemporaryFile(prefix='.snapshot-', suffix='.tmp', dir=store, delete=False) as stream:
+            temp_snapshot = Path(stream.name)
+    else:
+        temp_snapshot = snapshot
+    try:
+        with zipfile.ZipFile(temp_snapshot, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+            for item in inputs:
+                payload = (ROOT / item['path']).read_bytes()
+                if hashlib.sha256(payload).hexdigest() != item['sha256']:
+                    raise RuntimeError('SOURCE_CHANGED_DURING_SNAPSHOT: ' + item['path'])
+                if snapshot_mode == 'dedup-v1':
+                    info = zipfile.ZipInfo(item['path'], (1980, 1, 1, 0, 0, 0))
+                    info.compress_type = zipfile.ZIP_DEFLATED
+                    info.external_attr = 0o100644 << 16
+                    archive.writestr(info, payload)
+                else:
+                    archive.writestr(item['path'], payload)
+        if snapshot_mode == 'dedup-v1':
+            digest = hashlib.sha256(temp_snapshot.read_bytes()).hexdigest()
+            shared = store / (digest + '.zip')
+            try:
+                os.link(temp_snapshot, shared)
+            except FileExistsError:
+                if shared.is_symlink() or hashlib.sha256(shared.read_bytes()).hexdigest() != digest:
+                    raise RuntimeError('SNAPSHOT_STORE_CORRUPT')
+            snapshot.symlink_to('../../_snapshots/' + digest + '.zip')
+    finally:
+        if snapshot_mode == 'dedup-v1':
+            temp_snapshot.unlink(missing_ok=True)
     request['source_snapshot_sha256'] = hashlib.sha256(snapshot.read_bytes()).hexdigest()
     atomic_json(directory / 'request.json', request)
     started = time.monotonic()

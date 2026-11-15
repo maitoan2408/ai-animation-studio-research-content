@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/studio-audit/production/src/art/paper-silhouette/verify_all.py", line 25, in <module>
+    print(json.dumps(verify(Path(sys.argv[1]))))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/studio-audit/production/src/art/paper-silhouette/verify_all.py", line 20, in verify
+    if img.format!='PNG' or img.mode!='RGBA' or img.size!=(t['width'],t['height']):raise ValueError('ALL_TEXTURE_DECODE')
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: ALL_TEXTURE_DECODE

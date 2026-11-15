@@ -1,0 +1,21 @@
+{
+  "phase": "Q2",
+  "step": "v2-integration-async",
+  "run_id": "20261114T045115Z-v2-integration-async-89d3bf38",
+  "started_at_utc": "20261114T045115Z",
+  "command": [
+    "python",
+    "production/src/qa/run_app_regression.py"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "077ff2022e93264f6124285ee278d2431076c21c0a68d4861d5fdcd855fd41be",
+  "recorder_pid": 8925,
+  "source_snapshot_sha256": "8dfe2c24b39a17e5925637dec0050f71b9e6dbdbf6a0cb61f0301d5567d5ca51",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 161.877,
+  "finished_at_utc": "2026-11-14T04:53:57.396502+00:00",
+  "log_sha256": "38ca0f5033514e45e58dac81067e2df879c7c2103b9a2b4b105989a2ec624af0",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

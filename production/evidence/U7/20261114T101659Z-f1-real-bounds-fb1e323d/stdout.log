@@ -1,0 +1,10 @@
+✔ actual S05 transforms produce finite bounded observations for both torsos (138.204688ms)
+✔ injected lamp inside real torso bounds is flagged and invalid transforms reject (1.824386ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 597.539818

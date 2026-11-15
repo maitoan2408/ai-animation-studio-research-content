@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "shot": "S02",
+  "groundY": 860,
+  "frameRange": [0, 192],
+  "stanceRanges": {
+    "mai.left-boot": [[0, 12], [36, 60], [84, 108], [132, 192]],
+    "mai.right-boot": [[0, 36], [60, 84], [108, 192]]
+  },
+  "limits": {"driftPx": 1, "gapPx": 1, "penetrationPx": 0},
+  "status": "PROVISIONAL_DEVELOPMENT_ASSET",
+  "note": "Half-open ranges declared from authored S02 walk beats before contact test; independently declared ground. A swing begins at frame 12 and alternates every 24 frames through frame 131. These intervals are fixture assumptions, not human motion review."
+}

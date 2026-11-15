@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-grid-geometry-retest",
+  "run_id": "20261114T182503Z-f2-grid-geometry-retest-f394a1ca",
+  "started_at_utc": "20261114T182503Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/paper-grid-geometry.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "0ac23f876e1a2d8b11f92f6edc48ee3ba44144c9",
+  "tracked_diff_sha256": "9aede3bbfb1c9c0f0061dc973c3dfd027504b952c3ba5feb3f4197030bc55e68",
+  "status": "RUNNING",
+  "recorder_pid": 716,
+  "source_snapshot_sha256": "4f3758782c63db136ca5b9e4513dda9e3a60d814f50c06baf3f0da89bc4bc24b"
+}

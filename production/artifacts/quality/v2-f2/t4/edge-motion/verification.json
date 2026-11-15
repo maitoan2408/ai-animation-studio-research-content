@@ -1,0 +1,42 @@
+[
+  {
+    "status": "PASS_EDGE_LOCALITY",
+    "frames": 192,
+    "changedFrames": 192,
+    "changedInside": 3974,
+    "changedOutside": 0,
+    "maxOutsidePerFrame": 0,
+    "marginPx": 4,
+    "sourceSha256": "48368a9146dfb4d9a7e15c85adbf22341ebb4e3714d899fb06711e9203cbabdc",
+    "candidateVideoSha256": "b2bbdd327a1fa213457f6190caf16f91d1a11e0a391d6b75995b686c63261c2e",
+    "scope": "640x360 per-frame bounding-box locality only; alpha increase, joint gaps, color, shadow and artistic quality require separate checks"
+  },
+  {
+    "status": "OBSERVATION_ONLY",
+    "box": [
+      13,
+      6,
+      116,
+      36
+    ],
+    "frames": 192,
+    "changedFrames": 0,
+    "totalChangedPixels": 0,
+    "maxChannelDelta": 0,
+    "scope": "fixed crop vs frame 0; change can be movement, occlusion or flicker, equality does not validate full shot"
+  },
+  {
+    "status": "OBSERVATION_ONLY",
+    "box": [
+      212,
+      150,
+      225,
+      165
+    ],
+    "frames": 192,
+    "changedFrames": 0,
+    "totalChangedPixels": 0,
+    "maxChannelDelta": 0,
+    "scope": "fixed crop vs frame 0; change can be movement, occlusion or flicker, equality does not validate full shot"
+  }
+]

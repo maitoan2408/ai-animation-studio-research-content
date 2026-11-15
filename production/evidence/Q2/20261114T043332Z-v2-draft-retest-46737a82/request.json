@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "v2-draft-retest",
+  "run_id": "20261114T043332Z-v2-draft-retest-46737a82",
+  "started_at_utc": "20261114T043332Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/draft-recovery.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "88700aefbd590c6d53795f4592f0afe85b59da7e",
+  "tracked_diff_sha256": "7417b79f106d9e84743159875aa429f1b2603c9fc9b66aafe2dfdf73f084f0a4",
+  "status": "RUNNING",
+  "recorder_pid": 3732,
+  "source_snapshot_sha256": "ab0fc9c452d7500a57b6f4931bda6437b5f6b5fc047eb7b5add0415cb1f60b6f"
+}

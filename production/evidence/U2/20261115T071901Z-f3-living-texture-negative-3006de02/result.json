@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "f3-living-texture-negative",
+  "run_id": "20261115T071901Z-f3-living-texture-negative-3006de02",
+  "started_at_utc": "20261115T071901Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; temp_dir=$(mktemp -d /tmp/f3textures.XXXXXX); trap \"rm -rf \\\"$temp_dir\\\"\" EXIT; python -c \"import json,sys; d=json.load(open(sys.argv[1])); d[\\\"textures\\\"][0][\\\"sha256\\\"]=\\\"0\\\"*64; json.dump(d,open(sys.argv[2],\\\"w\\\"))\" production/out/paper-overlay-textures/96ccc413-1373-4ea6-a6e3-0dd23991fc6d/textures.json \"$temp_dir/bad.json\"; if production/node_modules/.bin/tsx production/src/motion/build_f3_living_preview.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json \"$temp_dir/bad.json\" >\"$temp_dir/log\" 2>&1; then exit 1; fi; rg \"F3_TEXTURE_REBIND_MISMATCH\" \"$temp_dir/log\""
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1e0232236f04a94f8d63e31faa3539691fd2a02a",
+  "tracked_diff_sha256": "f74c63a093dd9276f9cd0aded10579424956fd62ff63dad90b654977d1df8e67",
+  "recorder_pid": 26553,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "59066aae0fffcab220696df20242d957dc0211e3921529001c364d458a0c8f92",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.576,
+  "finished_at_utc": "2026-11-15T07:19:01.931371+00:00",
+  "log_sha256": "19ce50862630e0f4fd643db6a0ad35b74d65b68d5f81baeab5cf98a93cff49ac",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

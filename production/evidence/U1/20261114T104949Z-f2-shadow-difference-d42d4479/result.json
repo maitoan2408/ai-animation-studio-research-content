@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-shadow-difference",
+  "run_id": "20261114T104949Z-f2-shadow-difference-d42d4479",
+  "started_at_utc": "20261114T104949Z",
+  "command": [
+    "python",
+    "production/src/art/paper-scene/verify_shadow.py",
+    "production/out/paper-scene/6b205851-7f25-4a49-ac02-2d0cdb8f6bd2",
+    "production/out/paper-scene/302874ce-0d16-4544-96b4-c9bf84ed3389"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "633fa5b44dded7fee34993fe46cef54e1174ba54",
+  "tracked_diff_sha256": "3ea27e17669fa24da42f4ba5f01bdb3a1207018fa186f635c66b799fe5b17bb9",
+  "recorder_pid": 47796,
+  "source_snapshot_sha256": "180af349e51a25f10cc93c6dd3306d1bb021f4ad983f99f2e07dd46a700730f7",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.766,
+  "finished_at_utc": "2026-11-14T10:49:50.250692+00:00",
+  "log_sha256": "ac0347368487285895539980ced53ce32465d1ec7d1c1eac1b13e78d4c082363",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

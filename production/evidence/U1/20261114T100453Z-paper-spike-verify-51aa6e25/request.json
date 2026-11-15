@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "paper-spike-verify",
+  "run_id": "20261114T100453Z-paper-spike-verify-51aa6e25",
+  "started_at_utc": "20261114T100453Z",
+  "command": [
+    "npm",
+    "run",
+    "verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "88a074c3b1b8393d8be39de38c91e1356738e37a",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 39111,
+  "source_snapshot_sha256": "36515f5b0bd265728e0817c6b39a1b62939abedd2a62e5e4a39a5ea045148a38"
+}

@@ -1,0 +1,18 @@
+{
+  "phase": "U7",
+  "step": "f1-bounds-tests",
+  "run_id": "20261114T101735Z-f1-bounds-tests-81ffee17",
+  "started_at_utc": "20261114T101735Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "0993b6eab4a6f07cc9e27ef4b62b105f74132b29",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 39889,
+  "source_snapshot_sha256": "bef1a9697a01b4b59519605dabfd42bb52ff4722008cabb6619d66482d60556e"
+}

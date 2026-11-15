@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-s05-oblique-verify",
+  "run_id": "20261114T104825Z-f2-s05-oblique-verify-fb255f89",
+  "started_at_utc": "20261114T104825Z",
+  "command": [
+    "python",
+    "production/src/art/paper-scene/verify_comparison.py",
+    "production/out/paper-scene/6b205851-7f25-4a49-ac02-2d0cdb8f6bd2"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "633fa5b44dded7fee34993fe46cef54e1174ba54",
+  "tracked_diff_sha256": "98741ffd36126fa439a79b9d85471799f66705bc0c14e6c52d5ed7a692c9811b",
+  "status": "RUNNING",
+  "recorder_pid": 47532,
+  "source_snapshot_sha256": "0d7eb754014033d84148bb07e3509098e3dac40a5ff8f7bbd9b095162ce42244"
+}

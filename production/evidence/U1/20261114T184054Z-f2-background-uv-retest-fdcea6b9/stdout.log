@@ -1,0 +1,11 @@
+✔ 4x grid converts to the same native asset scale and pivot (427.31349ms)
+✔ invalid contour scale or metadata fails closed (1.080731ms)
+✔ contour UVs address the original asset under 1x and 4x grids (0.855793ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 869.827341

@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-edge-motion-static-crops",
+  "run_id": "20261115T055831Z-f2-edge-motion-static-crops-54d92d7a",
+  "started_at_utc": "20261115T055831Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; python production/src/art/paper-scene/calibration/static_region.py production/out/f2-animation/d4c895e6-5113-4d62-b38c-bf46dface8a4 13 6 116 36; python production/src/art/paper-scene/calibration/static_region.py production/out/f2-animation/d4c895e6-5113-4d62-b38c-bf46dface8a4 212 150 225 165"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "edd2b5052e1e5bcf3abc67c8bf1e5fe3727dade61686d1e98c77951e74d9069d",
+  "status": "RUNNING",
+  "recorder_pid": 3487,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "e645a0a6e18e7c2a9c516b273ceda13332034b08a1b9c5066ce503aaa9513c7f"
+}

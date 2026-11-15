@@ -1,0 +1,26 @@
+{
+  "phase": "U1",
+  "step": "f2-background-contours",
+  "run_id": "20261114T183657Z-f2-background-contours-4883ff77",
+  "started_at_utc": "20261114T183657Z",
+  "command": [
+    "python",
+    "production/src/art/paper-silhouette/inventory.py",
+    "production/out/paper-overlay-textures/96ccc413-1373-4ea6-a6e3-0dd23991fc6d/textures.json",
+    "--art-manifest",
+    "production/out/f2-art-overlay/c06a22823d7a4394a9a31b6d25b4b0bf/manifest.json",
+    "background/sky",
+    "background/village",
+    "background/workshop",
+    "background/ground",
+    "background/tree-left",
+    "background/tree-right",
+    "background/foreground-grass"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f31b47d6d1778bf7975116a9a2f17d99d3330e44",
+  "tracked_diff_sha256": "fd214b660bd69de0e14869a2e9bc5c85638fffa4a500d9b99a5361f18746d3b4",
+  "status": "RUNNING",
+  "recorder_pid": 3855,
+  "source_snapshot_sha256": "c18e2f8886805d72893ccfc0523e6f47c3c8fb6091262674f1cc9b120d54e6a3"
+}

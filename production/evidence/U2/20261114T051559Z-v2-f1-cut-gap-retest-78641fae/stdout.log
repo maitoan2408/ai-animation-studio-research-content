@@ -1,0 +1,15 @@
+✔ valid continuation matches state without mutating snapshots (2.259952ms)
+✔ unintended rotation reset, attachment and data mismatch fail with evidence (2.520007ms)
+✔ invalid provenance, nonfinite pose and missing controls cannot pass (1.100418ms)
+✔ intentional cuts record an explicit reason (0.151402ms)
+✔ camera pan does not create a world-space planted-foot failure (1.306404ms)
+✔ independent ground catches slip, gap, penetration and prop/body overlap (3.292078ms)
+✔ invalid frames and unpaired collision shapes fail closed (0.957265ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 677.075422

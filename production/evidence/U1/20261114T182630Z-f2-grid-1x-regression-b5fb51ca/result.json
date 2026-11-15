@@ -1,0 +1,25 @@
+{
+  "phase": "U1",
+  "step": "f2-grid-1x-regression",
+  "run_id": "20261114T182630Z-f2-grid-1x-regression-b5fb51ca",
+  "started_at_utc": "20261114T182630Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/f2-face-preview/be2124e3-373a-4aac-9692-56dfcca2d5b1/S05.json",
+    "108",
+    "production/artifacts/quality/v2-f2/overlay-foreground-contours.json",
+    "authored-only"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "0ac23f876e1a2d8b11f92f6edc48ee3ba44144c9",
+  "tracked_diff_sha256": "57955b2a071e84343ca2cdd9a7618f7b1223be6b6d250450faa920eb0ea8d94e",
+  "recorder_pid": 1062,
+  "source_snapshot_sha256": "d15625985be2dbb3699d30aff5adbab183252d003090600225f8785da98567ad",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 12.827,
+  "finished_at_utc": "2026-11-14T18:26:43.159785+00:00",
+  "log_sha256": "c1976e128ed00b3128e2fc6bdb332fd45eb60612bd3c962e464ce736476bd4cf",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

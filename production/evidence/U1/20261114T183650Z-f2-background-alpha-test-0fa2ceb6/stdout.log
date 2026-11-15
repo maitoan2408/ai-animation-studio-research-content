@@ -1,0 +1,6 @@
+test_rgb_only_allowed_for_opaque_background (test_silhouette_alpha.SilhouetteAlpha.test_rgb_only_allowed_for_opaque_background) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.007s
+
+OK

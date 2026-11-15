@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-shadow-neutral-correction",
+  "run_id": "20261115T062401Z-f2-shadow-neutral-correction-25953337",
+  "started_at_utc": "20261115T062401Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx production/src/art/paper-scene/render.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 108 production/artifacts/quality/v2-f2/overlay-physical-contours.json receiver-only physical depth-lit-neutral-off preview; production/node_modules/.bin/tsx production/src/art/paper-scene/render.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 108 production/artifacts/quality/v2-f2/overlay-physical-contours.json receiver-only physical depth-lit-neutral preview"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f5b081d34dd5f773359d9165999e9279f79ff93a",
+  "tracked_diff_sha256": "1d9dcd7797d4e00752594f36dfd2bde7a8a7a86eefdd813a58ab7333dd72912c",
+  "status": "RUNNING",
+  "recorder_pid": 11109,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "d2dc4752e43471ef6415c055118afdbdbe9e5655986302cb44051e9fc7ed2741"
+}

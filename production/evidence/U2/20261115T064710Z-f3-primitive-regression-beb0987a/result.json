@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "f3-primitive-regression",
+  "run_id": "20261115T064710Z-f3-primitive-regression-beb0987a",
+  "started_at_utc": "20261115T064710Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; npm --prefix production test; npm run verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e78616708e2a881bd25e83bf5e39a0ce9ebcb512",
+  "tracked_diff_sha256": "04d8a8e822899703363c7cd6fd8457a7ab9bfab6bb4edc3974cfd329554ae5ee",
+  "recorder_pid": 14966,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "d842938502939ea4956fdc6f3e5f403f31bb2472a53d64b26b799580cc17f403",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 26.733,
+  "finished_at_utc": "2026-11-15T06:47:37.694811+00:00",
+  "log_sha256": "b6983e19fa6c90747c289a18b1925a69f8155e09a48f404daa0fe157a1289ef7",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

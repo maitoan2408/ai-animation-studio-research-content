@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-silhouette-exhaustive",
+  "run_id": "20261114T104021Z-f2-silhouette-exhaustive-2b5a052b",
+  "started_at_utc": "20261114T104021Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_silhouette_trace.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b64a05569a156ab8ee14e586c782e54349f192c3",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 45218,
+  "source_snapshot_sha256": "19fc866fe59121f3b6e58f70095403c7b2d93959d7a9cc132112aa5a4c93573b"
+}

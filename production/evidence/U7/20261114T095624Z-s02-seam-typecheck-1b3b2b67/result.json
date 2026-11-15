@@ -1,0 +1,24 @@
+{
+  "phase": "U7",
+  "step": "s02-seam-typecheck",
+  "run_id": "20261114T095624Z-s02-seam-typecheck-1b3b2b67",
+  "started_at_utc": "20261114T095624Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "typecheck"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "5781250b7a26767be845636a15de357b559ed80f",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 36524,
+  "source_snapshot_sha256": "aa2fe887b70576ba3c9a6e8ec65324806bc271b31d15bb5169c11ec7ddac04fb",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 11.998,
+  "finished_at_utc": "2026-11-14T09:56:36.590838+00:00",
+  "log_sha256": "e81d56aa6430287c019266cfe3e9c03d477abffe1f1e3ccdbaae08b17fae9c63",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

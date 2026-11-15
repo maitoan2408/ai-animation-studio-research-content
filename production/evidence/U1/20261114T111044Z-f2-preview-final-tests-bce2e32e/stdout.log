@@ -1,0 +1,86 @@
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ S05 projected-alpha gate accepts only a bound clear report (43.834898ms)
+✔ art source hashes, explicit pivots, views and local references remain intact (292.764758ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (9.347586ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (8.365943ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (622.459223ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (87.27539ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (12.139249ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (15.581815ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (0.59192ms)
+✔ upright walk uses only the hip drop required for planted-foot reach (0.534287ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (49.792151ms)
+✔ valid continuation matches state without mutating snapshots (8.260118ms)
+✔ unintended rotation reset, attachment and data mismatch fail with evidence (3.188057ms)
+✔ invalid provenance, nonfinite pose and missing controls cannot pass (5.69455ms)
+✔ intentional cuts record an explicit reason (0.587517ms)
+✔ diagnostic figures retain real frame indices, escape labels and reject invalid numeric data (3.013215ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (819.084302ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (598.537763ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (3.98071ms)
+✔ separate development overlay assembles every draft pose using unchanged rig anchors (57.191594ms)
+✔ old locked hero bake cannot silently consume the new art revision (22.36682ms)
+✔ draft heads have correctly bound paper shadows without moving rig sprites (10.88026ms)
+✔ S05 declared ground and stance check all four actual sole anchors in all frames (7.440953ms)
+✔ independent S05 track detects injected foot slip without changing baseline evaluator (0.744318ms)
+✔ real S02 walk passes declared alternating stance intervals without false slip on swing (4.396109ms)
+✔ slip injected during S02 planted interval is detected (2.858244ms)
+✔ camera pan does not create a world-space planted-foot failure (12.079687ms)
+✔ independent ground catches slip, gap, penetration and prop/body overlap (1.249313ms)
+✔ invalid frames and unpaired collision shapes fail closed (1.513486ms)
+✔ world-space slip cannot be hidden by camera zooming out (40.435435ms)
+✔ a new stance uses a new anchor after an airborne interval (4.165237ms)
+✔ S05 R3 hands contact separate visible sides of the drawn lantern handle (495.001276ms)
+✔ S05 R3 keeps prop path, reaction delay, other shots and deterministic seeks (1430.938873ms)
+✔ hero ground gate checks four soles in every declared frame (430.061163ms)
+✔ hero ground gate fails a planted-foot drift and rejects malformed fixture (455.974028ms)
+✔ explicit owner covers the handoff and differs from shared contact (4.785011ms)
+✔ ownership cannot claim a control without contact or have gaps (0.324154ms)
+✔ all 22 S05 part masks triangulate to their exact binary pixel area (64.90422ms)
+✔ malformed area, diagonal edges and orphan holes reject (1.597942ms)
+✔ all 58 development foreground masks triangulate to the exact binary pixel area (79.097971ms)
+✔ all 79 overlay foreground masks triangulate to their binary pixel area (24.367783ms)
+✔ oblique depth moves the back while preserving the actual face and pivots (16.668729ms)
+✔ paper plate and extruded shape share the authored native pivot (12.835462ms)
+✔ paper geometry rejects missing pivot, nonfinite dimensions and depth (1.56621ms)
+✔ Three geometry convention matches scene anchor transforms under rotation and mirrored scale (55.105326ms)
+✔ S05 paper faces cover all actor/prop sprites and preserve rig anchors across every frame (530.511474ms)
+✔ missing foreground silhouettes reject while explicit background plates remain allowed (0.626038ms)
+✔ performance authoring contract is immutable, covers the shot and preserves shared grip intervals (2.769143ms)
+✔ performance rejects gaps, overlap, unknown capabilities and invalid semantic references (1.580926ms)
+✔ schema-valid unimplemented acting variations fail before rendering instead of being ignored (0.693137ms)
+✔ Rapier measured pendulum/drop/bounce/damping meet locked criteria and exact reference hash (679.431612ms)
+✔ baked hero preserves dual hold, grips, stance and arbitrary seeks without live physics (485.008722ms)
+✔ bake boundary rejects tampering, wrong revision, malformed timebase/events and nonfinite data (5.165443ms)
+✔ critic rejects a detached physics joint even when IK still keeps the palm on the prop (128.867679ms)
+✔ execution binding rejects stale gravity, toolchain and legacy receipts without changing baseline motion (59.686145ms)
+✔ hero input and legacy opt-in reject invalid mass, unsupported phases and stretched contacts (2.974298ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (96.997107ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (706.269901ms)
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (10.925461ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (37.380319ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (33.796085ms)
+✔ real HTTP media, origin/token, persistence, stale head and changed-file rejection (1626.664145ms)
+✔ real R2 editorial boundary is S06 to S05; a missing lamp is explicit (4.691063ms)
+✔ seam inventory refuses ambiguous selection and duplicate sprite identity (1.554099ms)
+✔ real S06 to S05 torso change is reported unless an explicit provisional cut is declared (75.51174ms)
+✔ actual S05 end state rejects a synthetic upright snap and permits an explicit cut (8.354485ms)
+✔ declared matching continuation preserves actual end transform and velocity (0.587912ms)
+✔ actual S05 transforms produce finite bounded observations for both torsos (138.59449ms)
+✔ injected lamp inside real torso bounds is flagged and invalid transforms reject (2.270707ms)
+ℹ tests 69
+ℹ suites 0
+ℹ pass 69
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28303.242145
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

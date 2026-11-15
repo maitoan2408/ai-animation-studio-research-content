@@ -1,0 +1,20 @@
+{
+  "phase": "U1",
+  "step": "f2-receiver-only-render",
+  "run_id": "20261114T111206Z-f2-receiver-only-render-702304a6",
+  "started_at_utc": "20261114T111206Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/f2-face-preview/be2124e3-373a-4aac-9692-56dfcca2d5b1/S05.json",
+    "108",
+    "production/artifacts/quality/v2-f2/overlay-foreground-contours.json",
+    "receiver-only"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "eff91a309b72b3805b4674098717ba12e5724c3a",
+  "tracked_diff_sha256": "8b0c8f47d792bf46c8e1c8abb41beccc2f67b272d429f23004dd3275275b1c6a",
+  "status": "RUNNING",
+  "recorder_pid": 55066,
+  "source_snapshot_sha256": "bf9f3ccc7b0e75a100dcf3d841ece8ea2ff6f82f81a8e4da42364959577a3e72"
+}

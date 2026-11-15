@@ -1,0 +1,18 @@
+{
+  "phase": "U2",
+  "step": "f3-living-boundary-full",
+  "run_id": "20261115T071630Z-f3-living-boundary-full-39c2a3cc",
+  "started_at_utc": "20261115T071630Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; npm --prefix production test; python -m unittest discover -s production/tests -p \"test_*.py\"; npm run verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1e0232236f04a94f8d63e31faa3539691fd2a02a",
+  "tracked_diff_sha256": "31468dc21ce9e68071ee2e9d1e5906a3862c39a0d8c32d1173617f6eb31ab615",
+  "status": "RUNNING",
+  "recorder_pid": 25214,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "2891f0d7ecd290a97f1e9117ee9b434a4e9da130694963ab543cdef14df581af"
+}

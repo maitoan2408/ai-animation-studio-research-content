@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-t5-bump-1080",
+  "run_id": "20261114T201848Z-f2-t5-bump-1080-437996b0",
+  "started_at_utc": "20261114T201848Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; production/node_modules/.bin/tsx production/src/art/paper-scene/render.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 108 production/artifacts/quality/v2-f2/overlay-physical-contours.json authored-only physical bump-control 1080; production/node_modules/.bin/tsx production/src/art/paper-scene/render.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 108 production/artifacts/quality/v2-f2/overlay-physical-contours.json authored-only physical bump 1080"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "046875c32390bbde3eabbc4f414addae3e24c3ef",
+  "tracked_diff_sha256": "6cf16eb4e224ae676b2994d783b9840f20b79cba9b979ea10deb61d021369153",
+  "recorder_pid": 21971,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "cc1603808e1aaf9fa81525802e5a8908d2b7262067217bd8a5a908ed25505946",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 51.354,
+  "finished_at_utc": "2026-11-14T20:19:40.276996+00:00",
+  "log_sha256": "6ad0e08c3005bc82ed69d8e314eef36046df9319fc6bbfc9485475e8eef50196",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

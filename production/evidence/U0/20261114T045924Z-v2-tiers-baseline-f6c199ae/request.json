@@ -1,0 +1,23 @@
+{
+  "phase": "U0",
+  "step": "v2-tiers-baseline",
+  "run_id": "20261114T045924Z-v2-tiers-baseline-f6c199ae",
+  "started_at_utc": "20261114T045924Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_determinism_tiers.py",
+    "-v"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "ade8c11b04c5de383db56af585d57027091fc2ca4d8d13d379b976def586fae2",
+  "status": "RUNNING",
+  "recorder_pid": 22311,
+  "source_snapshot_sha256": "ea34cb5727d43362deb39b3bda68f188256c6e5e78dafd32b64d1fb6c287b8a8"
+}

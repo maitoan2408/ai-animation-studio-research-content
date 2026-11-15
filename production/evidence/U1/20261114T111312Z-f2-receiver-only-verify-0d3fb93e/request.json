@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-receiver-only-verify",
+  "run_id": "20261114T111312Z-f2-receiver-only-verify-0d3fb93e",
+  "started_at_utc": "20261114T111312Z",
+  "command": [
+    "python",
+    "production/src/art/paper-scene/verify_comparison.py",
+    "production/out/paper-scene/6f689060-933b-4603-acd4-998f779bc5a0"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "eff91a309b72b3805b4674098717ba12e5724c3a",
+  "tracked_diff_sha256": "d84bee8ee11c878a98ceb43ed72ddd24c4f28a5f03dde790b4cad172961aa320",
+  "status": "RUNNING",
+  "recorder_pid": 55503,
+  "source_snapshot_sha256": "131300d5554843ae9852932ebb1417a5a463038b9b2b510d4d44ff41b95ace88"
+}

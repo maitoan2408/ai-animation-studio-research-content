@@ -1,0 +1,22 @@
+{
+  "phase": "U2",
+  "step": "f3-two-action-preview-render",
+  "run_id": "20261115T070554Z-f3-two-action-preview-render-e3641515",
+  "started_at_utc": "20261115T070554Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/animate.ts",
+    "production/out/f3-action-fixture/7d4b9134-3cf2-441e-93f2-9df0ef79d82b/S05.json",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "preview",
+    "physical",
+    "basic"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "3b2e820f2fe3ca5743eb260c885dabf138f97c78",
+  "tracked_diff_sha256": "803ffb7c1b83d5ee62ec91ccdfc5663058312097c3539bb133c098fd9330ed0a",
+  "status": "RUNNING",
+  "recorder_pid": 19215,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "5318a24c5aea68af8cb21559ab7d0d773141b70e9258bedb56bfcafa7d462a08"
+}

@@ -1,0 +1,22 @@
+{
+  "phase": "U7",
+  "step": "f1-alpha-gate-injected-scene",
+  "run_id": "20261114T103558Z-f1-alpha-gate-injected-scene-d7d86c50",
+  "started_at_utc": "20261114T103558Z",
+  "command": [
+    "python",
+    "production/src/qa/check_alpha_overlap_injection.py",
+    "production/out/quality-hero/f2bc9f03-b80d-44b6-940c-7eb5c8297e18/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e97d6d6c807e0657bae72c13a59f71229e4de980",
+  "tracked_diff_sha256": "27099c55663ca937f83f27c6207f3ccd887df08978c5efc895f01b94a8d7020b",
+  "recorder_pid": 43748,
+  "source_snapshot_sha256": "aa496718b4f3c580fb9612659d5eb035424222b961c152f90e645cce3cbe7392",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 6.354,
+  "finished_at_utc": "2026-11-14T10:36:04.774744+00:00",
+  "log_sha256": "3d8d816cef3e0e185b6abcec6385e107f2ffbd233563f9ced77a6916266b7af8",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

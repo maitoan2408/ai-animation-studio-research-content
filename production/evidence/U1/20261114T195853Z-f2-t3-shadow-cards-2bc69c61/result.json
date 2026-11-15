@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-t3-shadow-cards",
+  "run_id": "20261114T195853Z-f2-t3-shadow-cards-2bc69c61",
+  "started_at_utc": "20261114T195853Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx production/src/art/paper-scene/render.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 108 production/artifacts/quality/v2-f2/overlay-physical-contours.json authored-only physical shadow-card preview"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "ab157a7b5787e9328c6b066ab6fa99f2adbcd9a9",
+  "tracked_diff_sha256": "3197bdd69dcf7bfbfa2bab8fa454635a726bd21183852730ac29fcbd45dbb827",
+  "recorder_pid": 14305,
+  "source_snapshot_sha256": "fcf425b9ab0edba27edf12673aa3d08c329d92a81148f643fc9a10dcaa360651",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 19.756,
+  "finished_at_utc": "2026-11-14T19:59:13.505677+00:00",
+  "log_sha256": "8fc27d24dda38e08453eabec39e95a19d488fa023c903f7efc4c79a25acbfd9c",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

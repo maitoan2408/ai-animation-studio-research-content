@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-depth-neutral-final",
+  "run_id": "20261115T063104Z-f2-depth-neutral-final-91302b78",
+  "started_at_utc": "20261115T063104Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; npm --prefix production test; python -m unittest discover -s production/tests -p \"test_*.py\"; npm run verify; python production/src/art/paper-scene/calibration/shadow_regions.py production/artifacts/quality/v2-f2/t2/neutral-correction/off-contact-fix.png production/artifacts/quality/v2-f2/t2/neutral-correction/on-contact-fix.png production/artifacts/quality/v2-f2/t2/neutral-correction/regions.json production/artifacts/quality/v2-f2/t2/neutral-correction/fixed-regions-report.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f5b081d34dd5f773359d9165999e9279f79ff93a",
+  "tracked_diff_sha256": "fe1db16f92125ab426ef435285f7638a8b5765d5282faa7d389468f6a481d5dc",
+  "status": "RUNNING",
+  "recorder_pid": 13535,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "56b899b7235e99ae07fa62c7a3569151f0de3cf4de22db8f98217c888d2f8505"
+}

@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-edge-motion-regression",
+  "run_id": "20261115T055556Z-f2-edge-motion-regression-e46c0f93",
+  "started_at_utc": "20261115T055556Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; npm --prefix production test; python -m unittest discover -s production/tests -p \"test_*.py\"; npm run verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "edd2b5052e1e5bcf3abc67c8bf1e5fe3727dade61686d1e98c77951e74d9069d",
+  "recorder_pid": 2300,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "b2c605b619cfc08f86965fc52396f2e2175c1bb0c5146c3c83e286ada5b3f355",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 56.075,
+  "finished_at_utc": "2026-11-15T05:56:53.407060+00:00",
+  "log_sha256": "6138b3369e0a9f563810d8933b4e6e6392b952362ea2dd6792c11405dc671328",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

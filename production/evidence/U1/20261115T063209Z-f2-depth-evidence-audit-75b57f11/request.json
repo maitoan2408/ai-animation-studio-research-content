@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-depth-evidence-audit",
+  "run_id": "20261115T063209Z-f2-depth-evidence-audit-75b57f11",
+  "started_at_utc": "20261115T063209Z",
+  "command": [
+    "python",
+    "production/src/qa/audit_evidence.py",
+    "--help"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f61c96dbbbdb8387d2af385bf67daa63586c4b7e",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 14469,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "56b899b7235e99ae07fa62c7a3569151f0de3cf4de22db8f98217c888d2f8505"
+}

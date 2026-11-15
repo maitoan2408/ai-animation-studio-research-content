@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-allframe-coverage",
+  "run_id": "20261114T105214Z-f2-allframe-coverage-88e2f2f5",
+  "started_at_utc": "20261114T105214Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/paper-scene-coverage.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "bcb714f25b59a1024b3fcaeb9ab88cfeed3269ee",
+  "tracked_diff_sha256": "f46334a7c8e479d5eeb59bc72bcd65d59d6166be778ac8bbb775b86fa91b91ba",
+  "status": "RUNNING",
+  "recorder_pid": 48974,
+  "source_snapshot_sha256": "a50b5cbc33631eeb0fdca473f0c60d044318e03e52bd365408860d208f99a166"
+}

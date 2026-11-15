@@ -1,0 +1,318 @@
+{
+  "status": "PASS_PROVISIONAL_NATIVE_ENDPOINTS",
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "sourceSha256": "48368a9146dfb4d9a7e15c85adbf22341ebb4e3714d899fb06711e9203cbabdc",
+  "contourSha256": "c8f6cd250088ed37386775f71b177bb0b9b416cc2c3f690d40b203783991755d",
+  "records": [
+    {
+      "look": "edge-alpha",
+      "frame": 0,
+      "sourceImageSha256": "fde0e3b1b3e22d2523ef9601e829e6a7862de897ccb26f77fa713c911b16d8ee",
+      "flatImageSha256": "651f277faa8f4f86a4507fd56055e7410d636ee25555709eaaafa820ccdce66f",
+      "smokeChangedPixels": 15517,
+      "crops": {
+        "face_mai": {
+          "box": [
+            558,
+            112,
+            870,
+            425
+          ],
+          "spriteIds": [
+            "mai.head"
+          ],
+          "file": "edge-alpha-000-face_mai.png",
+          "sha256": "86dafae5889d6068095af0e82eb18d458c56c7f8eab1a91ef0820eb0a3f96ac8"
+        },
+        "hand_lantern": {
+          "box": [
+            774,
+            478,
+            1134,
+            738
+          ],
+          "spriteIds": [
+            "mai.right-hand",
+            "an.right-hand",
+            "lamp"
+          ],
+          "file": "edge-alpha-000-hand_lantern.png",
+          "sha256": "375b7f6287ee84fd7ff33e7a53a64bfd9a07deff413a616398a97ec5fa2fe504"
+        },
+        "feet_ground": {
+          "box": [
+            588,
+            835,
+            893,
+            977
+          ],
+          "spriteIds": [
+            "mai.left-boot",
+            "mai.right-boot"
+          ],
+          "file": "edge-alpha-000-feet_ground.png",
+          "sha256": "f916af4f742cdc8b2b73ee6ed9f36d9cb5302f1b202bba6b6a18b7aa3902cda6"
+        }
+      }
+    },
+    {
+      "look": "edge-alpha",
+      "frame": 191,
+      "sourceImageSha256": "c5de758155f50ee9b9b0696001a7bf8c63d98f31fe52fb1d353d018f0d5cc421",
+      "flatImageSha256": "75d618b48e5948761264a0948e499642460042e5fd4775dcf06134955b66b2e6",
+      "smokeChangedPixels": 15361,
+      "crops": {
+        "face_mai": {
+          "box": [
+            547,
+            111,
+            863,
+            427
+          ],
+          "spriteIds": [
+            "mai.head"
+          ],
+          "file": "edge-alpha-191-face_mai.png",
+          "sha256": "82ded6e4fc40e968c0153cf1056fac61712e0141abb8b4d239e4962a4ec0be0b"
+        },
+        "hand_lantern": {
+          "box": [
+            786,
+            500,
+            1203,
+            774
+          ],
+          "spriteIds": [
+            "mai.right-hand",
+            "an.right-hand",
+            "lamp"
+          ],
+          "file": "edge-alpha-191-hand_lantern.png",
+          "sha256": "847b40beb9a20394b38a65cb4f43de804481eef47f0555b4078a84a421366820"
+        },
+        "feet_ground": {
+          "box": [
+            588,
+            835,
+            893,
+            977
+          ],
+          "spriteIds": [
+            "mai.left-boot",
+            "mai.right-boot"
+          ],
+          "file": "edge-alpha-191-feet_ground.png",
+          "sha256": "f916af4f742cdc8b2b73ee6ed9f36d9cb5302f1b202bba6b6a18b7aa3902cda6"
+        }
+      }
+    },
+    {
+      "look": "bump",
+      "frame": 0,
+      "sourceImageSha256": "62a75ab879e8861d2d651f4627917ae093fd3ef454bd96786f706c43ac8ba840",
+      "flatImageSha256": "651f277faa8f4f86a4507fd56055e7410d636ee25555709eaaafa820ccdce66f",
+      "smokeChangedPixels": 24836,
+      "crops": {
+        "face_mai": {
+          "box": [
+            558,
+            112,
+            870,
+            425
+          ],
+          "spriteIds": [
+            "mai.head"
+          ],
+          "file": "bump-000-face_mai.png",
+          "sha256": "7b350f7a222933cc476fedfb6f428fa1dc2936061a18ad15938b8cf79045bc04"
+        },
+        "hand_lantern": {
+          "box": [
+            774,
+            478,
+            1134,
+            738
+          ],
+          "spriteIds": [
+            "mai.right-hand",
+            "an.right-hand",
+            "lamp"
+          ],
+          "file": "bump-000-hand_lantern.png",
+          "sha256": "ee6b6bddf7219f21fdd48863830bcc37a8617a02cb57fa785abfb377755b71ed"
+        },
+        "feet_ground": {
+          "box": [
+            588,
+            835,
+            893,
+            977
+          ],
+          "spriteIds": [
+            "mai.left-boot",
+            "mai.right-boot"
+          ],
+          "file": "bump-000-feet_ground.png",
+          "sha256": "f916af4f742cdc8b2b73ee6ed9f36d9cb5302f1b202bba6b6a18b7aa3902cda6"
+        }
+      }
+    },
+    {
+      "look": "bump",
+      "frame": 191,
+      "sourceImageSha256": "2891b8843c435ced3526679a3c8b99148a385e67e53852e20b6389f5814a6e08",
+      "flatImageSha256": "75d618b48e5948761264a0948e499642460042e5fd4775dcf06134955b66b2e6",
+      "smokeChangedPixels": 23223,
+      "crops": {
+        "face_mai": {
+          "box": [
+            547,
+            111,
+            863,
+            427
+          ],
+          "spriteIds": [
+            "mai.head"
+          ],
+          "file": "bump-191-face_mai.png",
+          "sha256": "37d94925c0038e764ee0c94f4830c0438cd4474aa02bc1bca38f6ec522b3c78b"
+        },
+        "hand_lantern": {
+          "box": [
+            786,
+            500,
+            1203,
+            774
+          ],
+          "spriteIds": [
+            "mai.right-hand",
+            "an.right-hand",
+            "lamp"
+          ],
+          "file": "bump-191-hand_lantern.png",
+          "sha256": "c34c1c0e7d09cc833b4657ee38e95f9408abf3585c06b14e09fdf9d900b6432a"
+        },
+        "feet_ground": {
+          "box": [
+            588,
+            835,
+            893,
+            977
+          ],
+          "spriteIds": [
+            "mai.left-boot",
+            "mai.right-boot"
+          ],
+          "file": "bump-191-feet_ground.png",
+          "sha256": "f916af4f742cdc8b2b73ee6ed9f36d9cb5302f1b202bba6b6a18b7aa3902cda6"
+        }
+      }
+    },
+    {
+      "look": "lamp-light",
+      "frame": 0,
+      "sourceImageSha256": "62d5c14e8361bca4751849083a6d1c6deddc6b8abd0d3823588c63aa1dcef52e",
+      "flatImageSha256": "651f277faa8f4f86a4507fd56055e7410d636ee25555709eaaafa820ccdce66f",
+      "smokeChangedPixels": 188757,
+      "crops": {
+        "face_mai": {
+          "box": [
+            558,
+            112,
+            870,
+            425
+          ],
+          "spriteIds": [
+            "mai.head"
+          ],
+          "file": "lamp-light-000-face_mai.png",
+          "sha256": "f120ae5b6e2d60863601e2abdd605bbe91d18bf3fb0c05e5accfd0278f3fd8a9"
+        },
+        "hand_lantern": {
+          "box": [
+            774,
+            478,
+            1134,
+            738
+          ],
+          "spriteIds": [
+            "mai.right-hand",
+            "an.right-hand",
+            "lamp"
+          ],
+          "file": "lamp-light-000-hand_lantern.png",
+          "sha256": "8e4b4ad5d001845bb0b3e3fec5573cdebf1ee7488eff137bfac5bf92aa8ab194"
+        },
+        "feet_ground": {
+          "box": [
+            588,
+            835,
+            893,
+            977
+          ],
+          "spriteIds": [
+            "mai.left-boot",
+            "mai.right-boot"
+          ],
+          "file": "lamp-light-000-feet_ground.png",
+          "sha256": "c56e687119936816f15f6a3335cce831c348e065a3536de9c980cd725ad3b7fd"
+        }
+      }
+    },
+    {
+      "look": "lamp-light",
+      "frame": 191,
+      "sourceImageSha256": "64bd8706da234cc8447e042e0ea8f8b681f85b43d07265e3846e734d66e0fb71",
+      "flatImageSha256": "75d618b48e5948761264a0948e499642460042e5fd4775dcf06134955b66b2e6",
+      "smokeChangedPixels": 181790,
+      "crops": {
+        "face_mai": {
+          "box": [
+            547,
+            111,
+            863,
+            427
+          ],
+          "spriteIds": [
+            "mai.head"
+          ],
+          "file": "lamp-light-191-face_mai.png",
+          "sha256": "63a781271b45fa7c936e872b0af73ccb2f25ed7cf29a2ce6e676a610ca0fe8ba"
+        },
+        "hand_lantern": {
+          "box": [
+            786,
+            500,
+            1203,
+            774
+          ],
+          "spriteIds": [
+            "mai.right-hand",
+            "an.right-hand",
+            "lamp"
+          ],
+          "file": "lamp-light-191-hand_lantern.png",
+          "sha256": "3f6804011d059b202502479c57fe6c3cde26ddc307e59ed0465e1cb83299c577"
+        },
+        "feet_ground": {
+          "box": [
+            588,
+            835,
+            893,
+            977
+          ],
+          "spriteIds": [
+            "mai.left-boot",
+            "mai.right-boot"
+          ],
+          "file": "lamp-light-191-feet_ground.png",
+          "sha256": "62b440ed79d4618f15909946f702d357a195965223275ccad10bb21fbe23614b"
+        }
+      }
+    }
+  ],
+  "scope": "separate look experiments, frame endpoints only; no combined preset, full 1080 motion, flicker, shadows or artistic approval"
+}

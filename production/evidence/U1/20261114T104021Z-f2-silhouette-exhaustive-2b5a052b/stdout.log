@@ -1,0 +1,8 @@
+test_exhaustive_three_by_three_roundtrip (test_silhouette_trace.SilhouetteTrace.test_exhaustive_three_by_three_roundtrip) ... ok
+test_invalid_mask_rejects (test_silhouette_trace.SilhouetteTrace.test_invalid_mask_rejects) ... ok
+test_solid_hole_diagonal_and_transparent (test_silhouette_trace.SilhouetteTrace.test_solid_hole_diagonal_and_transparent) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.024s
+
+OK

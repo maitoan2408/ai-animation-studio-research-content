@@ -1,0 +1,22 @@
+{
+  "phase": "U7",
+  "step": "world-drift-baseline",
+  "run_id": "20261114T095011Z-world-drift-baseline-28870c26",
+  "started_at_utc": "20261114T095011Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/ground.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b0acad590e1a95846da612992df74cc2f4f6ee45",
+  "tracked_diff_sha256": "885f2527e870978e1674d7873eda383bcaf18c152f0cb10b4771163f94e91eee",
+  "recorder_pid": 35609,
+  "source_snapshot_sha256": "2bc76c73479840f3ce376247ff7f4c04a9a677c5adbc59f427ac5e15ba277d0b",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 0.801,
+  "finished_at_utc": "2026-11-14T09:50:12.598678+00:00",
+  "log_sha256": "f8630778d3bc68f4494032d6a6bd9fb92c43658477eb1bb63727c6135d10ff53",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

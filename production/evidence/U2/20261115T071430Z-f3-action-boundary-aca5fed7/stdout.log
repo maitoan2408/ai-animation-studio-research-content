@@ -1,0 +1,100 @@
+
+> paper-studio-production-workbench@0.1.0 typecheck
+> tsc --noEmit
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+✔ turn-head samples the actual rig with stable contact and exact endpoints (8.698875ms)
+✔ wave samples the actual rig with stable contact and exact endpoints (3.671255ms)
+✔ action boundary rejects unsupported inputs (0.793027ms)
+✔ wave stays reachable at bounded timings, intensities and on-twos extremes (50.301833ms)
+✖ elbow branch is explicit, validated, and preserves defaults (3.646028ms)
+✔ turn-head and wave have a common rig boundary without an elbow snap (0.46616ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 322.008432
+
+✖ failing tests:
+
+test at production/tests/motion-actions.test.ts:42:1
+✖ elbow branch is explicit, validated, and preserves defaults (3.646028ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      markers: [
+        {
+          id: 'mai.left-sole',
+          kind: 'ground',
+  ...
+          opacity: 1,
+  +       rotation: 11.586228339926322,
+  -       rotation: -38.89580005649496,
+          scaleX: 1,
+          scaleY: 1,
+          x: 813,
+          y: 463,
+          z: 5
+  ...
+          opacity: 1,
+  +       rotation: -40.841131277026605,
+  -       rotation: 13.531559560457964,
+          scaleX: 1,
+          scaleY: 1,
+  +       x: 791.9115412970523,
+  +       y: 565.8604730182303,
+  -       x: 878.9301308953644,
+  -       y: 544.7203636807872,
+          z: 5.1
+        },
+        {
+          asset: 'mai/hand-open',
+          id: 'mai.right-hand',
+  
+      at TestContext.<anonymous> (/workspace/studio-audit/production/tests/motion-actions.test.ts:44:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {
+      sprites: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object]
+      ],
+      markers: [ [Object], [Object], [Object], [Object], [Object], [Object] ]
+    },
+    expected: {
+      sprites: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object]
+      ],
+      markers: [ [Object], [Object], [Object], [Object], [Object], [Object] ]
+    },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

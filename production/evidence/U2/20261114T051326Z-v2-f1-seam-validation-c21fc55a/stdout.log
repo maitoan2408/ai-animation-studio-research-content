@@ -1,0 +1,16 @@
+✔ valid continuation matches state without mutating snapshots (2.676922ms)
+✔ unintended rotation reset, attachment and data mismatch fail with evidence (0.459123ms)
+✔ invalid provenance, nonfinite pose and missing controls cannot pass (2.08722ms)
+✔ S05 declared ground and stance check all four actual sole anchors in all frames (2.320949ms)
+✔ independent S05 track detects injected foot slip without changing baseline evaluator (2.840077ms)
+✔ camera pan does not create a world-space planted-foot failure (1.33427ms)
+✔ independent ground catches slip, gap, penetration and prop/body overlap (0.705384ms)
+✔ invalid frames and unpaired collision shapes fail closed (0.805067ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 653.154298

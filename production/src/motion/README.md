@@ -74,3 +74,38 @@ python scripts/run-step.py U7 diagnostic-workflow -- python production/src/qa/ch
 
 No new media/native ZIP is committed. Human art/voice/reference and six acted
 clips remain open; this instrumentation does not advance Q3 or close Q2.
+
+The S05 candidate exporter now validates all four declared sole tracks against
+`brief/quality/ground-fixture.json` before generating native input; it writes
+`ground-critic.json` with fixture and bake hashes, and aborts on ground failure.
+The test gate checks declared stance only: it does not check torso/prop overlap,
+other shots, artistic quality or final approval. Legacy `footPixels` and
+`maxFootDriftPixels` remain for compatibility; the identical explicitly named
+`footPreservationPixels` / `maxFootPreservationPixels` describe difference from
+the authored baseline, not actual ground contact or measured foot slip.
+
+For `--native-input`, the exporter writes a pending S05 frame stream, evaluates
+projected alpha overlap of the lantern and both torsos against hash-verified R3
+textures, validates report/source hashes and only then renames it to `S05.json`.
+An overlap or malformed report fails closed. `alpha-critic.json` is evidence for
+alpha >= 128 at nearest stage-pixel sampling only; it does not prove 3D collision,
+cover translucent pixels or constitute artistic approval. Python 3 and Pillow are
+required for this development workbench gate.
+
+## F3 scalar clip primitive
+
+`clip.ts` is an isolated, random-access scalar curve with normalized markers for anticipation/action/settle, bounded overshoot and duration retiming. It does not bind to a rig, replace the authored hero or implement the six actions; unsupported hero variations remain rejected. The user accepted current F2 quality for progression, without stating a numerical HQ-02 score or 1080p review.
+
+`life.ts` supplies separate seeded blink and breath preview signals that can be sampled in any order. Timings are provisional design constants, not researched physiological claims, and these signals are not connected to the hero rig.
+
+`heroFrame(..., physics, headEmphasis)` supports only a bounded Mai head/mouth variation (0–1); zero preserves the existing baseline. Other Performance Script variations remain guarded. `build_f3_emphasis.ts` produces a separate alpha/ground-gated frame stream bound to the existing F2 source and bake. `actions.ts` contains two separate development rig fixtures, turn-head and wave, with fixed feet; neither is integrated into the hero or approved as acting.
+
+`walk.ts` exposes the existing S02 authored walk only for integer frames 0–191; it adds no retiming capability. Its contract test measures planted boot sole anchors in world space on the actual rig.
+
+`cup-actions.ts` exposes the fixed existing S03 reach/lift/place shot; tests compare the actual grip anchors through the held interval. It does not support arbitrary props or retiming.
+
+`living-rest.ts` applies seeded breath/blink to an isolated standing rig while keeping both feet planted. It does not alter the hero, solve gaze or promise medically calibrated acting.
+
+`heroFrame(..., physics, headEmphasis, {seed, intensity})` can experimentally apply bounded Mai breathing and blink on S05; intensity zero reproduces baseline, and the existing Performance Script guard remains in place. `build_f3_hero_life.ts` creates a separate ground/alpha-gated preview stream after validating the original frame stream and texture hashes. This is not full acting, gaze or an approved production preset.
+
+`retime-hero.ts` is an experimental indexed replay (144–288 output frames) with explicitly remapped half-open contact intervals and rejection of dropped intervals. It repeats or skips source frames: no interpolation, physics resimulation, audio retime or acting approval is implied.

@@ -1,0 +1,10 @@
+✔ separate development overlay assembles every draft pose using unchanged rig anchors (25.885256ms)
+✔ old locked hero bake cannot silently consume the new art revision (40.550906ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 420.313641

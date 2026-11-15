@@ -1,0 +1,7 @@
+{
+  case: 'edit during save',
+  expectedDraft: 'B typed while saving',
+  actualDraft: 'B typed while saving',
+  discardHidden: false,
+  savedTitle: 'A submitted'
+}

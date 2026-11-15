@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-overlay-targeted",
+  "run_id": "20261114T110313Z-f2-overlay-targeted-8c716ddf",
+  "started_at_utc": "20261114T110313Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/f2-overlay-rig.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1985154cdbcecce07c17b5e215352f2aa138ad80",
+  "tracked_diff_sha256": "b8cd6eb73f158114f48bb33d6631b535eb3e4f7da97ad7372dc060d21061adac",
+  "recorder_pid": 52407,
+  "source_snapshot_sha256": "f681e4e1a9a970cfbd0d6153c88f2456149f96faa3c8817950ced428b7d3e94d",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.615,
+  "finished_at_utc": "2026-11-14T11:03:14.534781+00:00",
+  "log_sha256": "99b2a3db3a3fa9e0508c6c7f17cfb0f5ec9d6f5ac68cad50262eb85f20aa4755",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

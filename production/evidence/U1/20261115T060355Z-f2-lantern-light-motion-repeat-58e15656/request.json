@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-lantern-light-motion-repeat",
+  "run_id": "20261115T060355Z-f2-lantern-light-motion-repeat-58e15656",
+  "started_at_utc": "20261115T060355Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/animate.ts",
+    "production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "preview",
+    "physical",
+    "lamp-light",
+    "1"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "29370f7dc3ef71932163bb1d6bda01e3f98c2c413b31f97bfb4af957de1c74dd",
+  "status": "RUNNING",
+  "recorder_pid": 5731,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "1fd68b44e7b71d0aefd9ba08ace6ec57cf6669b08a41fbaf085affbf7a6439f3"
+}

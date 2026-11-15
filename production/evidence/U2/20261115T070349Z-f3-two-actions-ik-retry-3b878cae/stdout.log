@@ -1,0 +1,20 @@
+
+> paper-studio-production-workbench@0.1.0 typecheck
+> tsc --noEmit
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+✔ turn-head samples the actual rig with stable contact and exact endpoints (111.738235ms)
+✔ wave samples the actual rig with stable contact and exact endpoints (5.951203ms)
+✔ action boundary rejects unsupported inputs (1.134987ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 572.993237

@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-review-preparation-repro",
+  "run_id": "20261114T203309Z-f2-review-preparation-repro-437624ef",
+  "started_at_utc": "20261114T203309Z",
+  "command": [
+    "python",
+    "production/src/art/paper-scene/calibration/review_sheet.py"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "651a7d08f1e6ae118bd33d793b888b506602aad4",
+  "tracked_diff_sha256": "15c916015962e328d0ac60bec5386fd56fe5d752dbac2297c66d930f61b3896c",
+  "status": "RUNNING",
+  "recorder_pid": 26951,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "ae8980a2a25f17abd683d62ba2673c874ac980bb51b2387fec0df5f833b1df9d"
+}

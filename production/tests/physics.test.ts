@@ -51,6 +51,8 @@ test('baked hero preserves dual hold, grips, stance and arbitrary seeks without 
   assert.equal((await bakeHero(input)).sha256, bake.sha256);
   const review = critic(pack, input, bake);
   assert.equal(review.status, 'PASS_GEOMETRY', JSON.stringify(review));
+  assert.equal(review.maxFootPreservationPixels, review.maxFootDriftPixels);
+  assert.ok(review.samples.every(s => s.footPreservationPixels === s.footPixels));
   assert.ok(review.maxRotationDegrees > 5, 'secondary motion must actually move');
   for (let f = 0; f < 108; f++)
     assert.deepEqual(heroFrame(pack, input, bake, f), benchmarkFrame(pack, 'S05', f, r3));

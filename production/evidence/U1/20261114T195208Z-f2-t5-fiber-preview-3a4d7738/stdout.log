@@ -1,0 +1,10 @@
+
+> paper-studio-production-workbench@0.1.0 typecheck
+> tsc --noEmit
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+{"status":"PARTIAL_SCENE_EXPERIMENT","frame":108,"shadowMode":"authored-only","coverage":"physical","look":"fiber","profile":"preview","inputSha256":"48368a9146dfb4d9a7e15c85adbf22341ebb4e3714d899fb06711e9203cbabdc","contourSha256":"c8f6cd250088ed37386775f71b177bb0b9b416cc2c3f690d40b203783991755d","images":[{"mode":"flat","shadowMode":"authored-only","coverage":"physical","plates":71,"extruded":0,"requiredContours":38,"hiddenPaperShadows":0,"three":"187","sha256":"c6ad5ce39aa0f173f255343e1c4b3bef3825a5d3bcfa1e8c9ec72a7d6d5612e0"},{"mode":"volume","shadowMode":"authored-only","coverage":"physical","plates":71,"extruded":38,"requiredContours":38,"hiddenPaperShadows":0,"three":"187","sha256":"f82740b379e54cb4016248e91048172cb3eb47419f32f9fc78eb9e68b443cae9"}],"browser":"Chrome/156.0.8078.79","output":"/workspace/studio-audit/production/out/paper-scene/f5e03e9e-a4b6-4864-9edf-7746217d0359","limitations":["One S05 frame only; oblique per-sprite depth shear is a 2.5D projection, not a shared physically consistent camera or 3D; no animation or backend parity claim","Raster alpha >=128 silhouettes for actors/prop; translucency and subpixel edge details are not modeled by extrusion","Volume keeps existing authored layer/contact shadows; mesh shadow casting disabled.","Layer shadow/contact correctness remains unverified; depth-lit is an experimental shadow-enabled variant","No final art, full 3D physical collision or artistic approval"]}

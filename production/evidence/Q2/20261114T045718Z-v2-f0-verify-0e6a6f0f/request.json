@@ -1,0 +1,17 @@
+{
+  "phase": "Q2",
+  "step": "v2-f0-verify",
+  "run_id": "20261114T045718Z-v2-f0-verify-0e6a6f0f",
+  "started_at_utc": "20261114T045718Z",
+  "command": [
+    "npm",
+    "run",
+    "verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "ade8c11b04c5de383db56af585d57027091fc2ca4d8d13d379b976def586fae2",
+  "status": "RUNNING",
+  "recorder_pid": 19169,
+  "source_snapshot_sha256": "6e2154d89f49c2561075e06ee22de8106e15bd036ed8e3dc7a331b21a3308ec5"
+}

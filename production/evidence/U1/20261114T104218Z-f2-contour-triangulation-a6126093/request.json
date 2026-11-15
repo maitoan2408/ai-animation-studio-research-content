@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-contour-triangulation",
+  "run_id": "20261114T104218Z-f2-contour-triangulation-a6126093",
+  "started_at_utc": "20261114T104218Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/paper-contours.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b64a05569a156ab8ee14e586c782e54349f192c3",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 45334,
+  "source_snapshot_sha256": "6d99990a4b719722cf8f423a51082193e04b0f59daa0f228067a37344512f92c"
+}

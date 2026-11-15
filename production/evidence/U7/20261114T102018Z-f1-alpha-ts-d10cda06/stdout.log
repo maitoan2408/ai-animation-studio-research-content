@@ -1,0 +1,69 @@
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ art source hashes, explicit pivots, views and local references remain intact (417.392453ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (51.326782ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (24.789835ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (301.576197ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (91.397757ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (8.860621ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (9.745666ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (1.22053ms)
+✔ upright walk uses only the hip drop required for planted-foot reach (37.109391ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (23.117244ms)
+✔ valid continuation matches state without mutating snapshots (7.681254ms)
+✔ unintended rotation reset, attachment and data mismatch fail with evidence (1.505742ms)
+✔ invalid provenance, nonfinite pose and missing controls cannot pass (2.772336ms)
+✔ intentional cuts record an explicit reason (1.089194ms)
+✔ diagnostic figures retain real frame indices, escape labels and reject invalid numeric data (7.705221ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (1641.951055ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (843.892282ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (8.116495ms)
+✔ S05 declared ground and stance check all four actual sole anchors in all frames (13.308012ms)
+✔ independent S05 track detects injected foot slip without changing baseline evaluator (9.263596ms)
+✔ real S02 walk passes declared alternating stance intervals without false slip on swing (2.164879ms)
+✔ slip injected during S02 planted interval is detected (1.16713ms)
+✔ camera pan does not create a world-space planted-foot failure (5.558324ms)
+✔ independent ground catches slip, gap, penetration and prop/body overlap (3.063592ms)
+✔ invalid frames and unpaired collision shapes fail closed (0.715447ms)
+✔ world-space slip cannot be hidden by camera zooming out (0.2209ms)
+✔ a new stance uses a new anchor after an airborne interval (0.253838ms)
+✔ S05 R3 hands contact separate visible sides of the drawn lantern handle (127.457692ms)
+✔ S05 R3 keeps prop path, reaction delay, other shots and deterministic seeks (763.802815ms)
+✔ hero ground gate checks four soles in every declared frame (346.942381ms)
+✔ hero ground gate fails a planted-foot drift and rejects malformed fixture (122.21881ms)
+✔ performance authoring contract is immutable, covers the shot and preserves shared grip intervals (30.006056ms)
+✔ performance rejects gaps, overlap, unknown capabilities and invalid semantic references (2.306461ms)
+✔ schema-valid unimplemented acting variations fail before rendering instead of being ignored (0.509015ms)
+✔ Rapier measured pendulum/drop/bounce/damping meet locked criteria and exact reference hash (713.996019ms)
+✔ baked hero preserves dual hold, grips, stance and arbitrary seeks without live physics (698.802875ms)
+✔ bake boundary rejects tampering, wrong revision, malformed timebase/events and nonfinite data (4.579777ms)
+✔ critic rejects a detached physics joint even when IK still keeps the palm on the prop (205.133603ms)
+✔ execution binding rejects stale gravity, toolchain and legacy receipts without changing baseline motion (33.609607ms)
+✔ hero input and legacy opt-in reject invalid mass, unsupported phases and stretched contacts (1.763637ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (124.574154ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (573.035054ms)
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (60.445348ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (125.075882ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (136.271008ms)
+✔ real HTTP media, origin/token, persistence, stale head and changed-file rejection (1440.600023ms)
+✔ real R2 editorial boundary is S06 to S05; a missing lamp is explicit (3.848842ms)
+✔ seam inventory refuses ambiguous selection and duplicate sprite identity (1.20964ms)
+✔ actual S05 end state rejects a synthetic upright snap and permits an explicit cut (3.566349ms)
+✔ declared matching continuation preserves actual end transform and velocity (16.10838ms)
+✔ actual S05 transforms produce finite bounded observations for both torsos (229.847927ms)
+✔ injected lamp inside real torso bounds is flagged and invalid transforms reject (1.885682ms)
+ℹ tests 52
+ℹ suites 0
+ℹ pass 52
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21905.518478
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

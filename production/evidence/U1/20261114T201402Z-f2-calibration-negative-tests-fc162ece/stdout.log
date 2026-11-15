@@ -1,0 +1,6 @@
+test_rejects_no_shadow_and_leak (test_f2_calibration_verify.ShadowFixtureVerifierTest.test_rejects_no_shadow_and_leak) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.656s
+
+OK

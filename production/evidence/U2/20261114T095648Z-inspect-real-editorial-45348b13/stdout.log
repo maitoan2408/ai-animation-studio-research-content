@@ -1,0 +1,79 @@
+{
+  "status": "OBSERVATION_ONLY",
+  "sequence": "R2 order with authored R3 scene edit",
+  "sourceFrames": [
+    {
+      "shot": "S06",
+      "frame": 143
+    },
+    {
+      "shot": "S05",
+      "frame": 0
+    }
+  ],
+  "inputHashes": {
+    "assets/lantern-polish-1/manifest.json": "6dd804680c4faae7898505ff69bee6eab900fc7edb4eb75bc85ca1889da5f005",
+    "brief/edit-R2-order.json": "7d4ab46ddf454346200193f2a8add03af3f9873d78d20882c54db39215f78bdf",
+    "brief/edit-R3.json": "f82449b7b40841794886e2b369b0e2f633ffea2d2232d1b87dd75ca6e5c718a1",
+    "src/scene/benchmark.ts": "5ad5f961a610cbd9ec4bb793c985097c877f0edc07060968de3a4846f1f60029",
+    "src/scene/rig.ts": "6711ab897cd9003f9c1192e1c8f21a622a03ece1f6f2abfbb73819ea3a7c9a2e",
+    "src/scene/geometry.ts": "5a22510392516519205ff538f2a0ecef3129969021f58af6acd4378dd9329910"
+  },
+  "observations": [
+    {
+      "id": "mai.torso",
+      "status": "OBSERVED",
+      "before": {
+        "asset": "mai/torso",
+        "x": 760,
+        "y": 602,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "after": {
+        "asset": "mai/torso",
+        "x": 770,
+        "y": 602,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "positionDelta": 10,
+      "rotationDelta": 0
+    },
+    {
+      "id": "mai.head",
+      "status": "OBSERVED",
+      "before": {
+        "asset": "mai/head-quarter-happy",
+        "x": 764,
+        "y": 447,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "after": {
+        "asset": "mai/head-quarter-neutral",
+        "x": 774,
+        "y": 447,
+        "rotation": 2,
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "positionDelta": 10,
+      "rotationDelta": 2
+    },
+    {
+      "id": "lamp",
+      "status": "MISSING_AT_BOUNDARY",
+      "beforePresent": false,
+      "afterPresent": true
+    }
+  ],
+  "limitations": [
+    "No transition intent or continuity approval inferred",
+    "Lamp absent from S06; no owner is inferred from absence",
+    "Authored scene evaluator, not a decoded rendered artifact or the secondary physics hero candidate"
+  ]
+}

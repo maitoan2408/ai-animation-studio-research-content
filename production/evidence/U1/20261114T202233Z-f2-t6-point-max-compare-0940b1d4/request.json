@@ -1,0 +1,21 @@
+{
+  "phase": "U1",
+  "step": "f2-t6-point-max-compare",
+  "run_id": "20261114T202233Z-f2-t6-point-max-compare-0940b1d4",
+  "started_at_utc": "20261114T202233Z",
+  "command": [
+    "python",
+    "production/src/art/paper-scene/compare_before_after.py",
+    "production/artifacts/quality/v2-f2/t6/point-control.png",
+    "production/artifacts/quality/v2-f2/t6/point-max.png",
+    "production/artifacts/quality/v2-f2/t6/regions.json",
+    "production/artifacts/quality/v2-f2/t6/point-max-compare"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "046875c32390bbde3eabbc4f414addae3e24c3ef",
+  "tracked_diff_sha256": "8e3427fa61016d735b2625adadc0a156582d92863cf6d3aa35cd9b7e8038c93e",
+  "status": "RUNNING",
+  "recorder_pid": 23534,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "309db6cdab07cde06b9eb05ee97992555e7284a9fc7bf0a5f4ec740572cf1919"
+}

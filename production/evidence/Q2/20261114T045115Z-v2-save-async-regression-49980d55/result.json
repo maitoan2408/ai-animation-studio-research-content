@@ -1,0 +1,21 @@
+{
+  "phase": "Q2",
+  "step": "v2-save-async-regression",
+  "run_id": "20261114T045115Z-v2-save-async-regression-49980d55",
+  "started_at_utc": "20261114T045115Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/draft-recovery.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "077ff2022e93264f6124285ee278d2431076c21c0a68d4861d5fdcd855fd41be",
+  "recorder_pid": 8928,
+  "source_snapshot_sha256": "8dfe2c24b39a17e5925637dec0050f71b9e6dbdbf6a0cb61f0301d5567d5ca51",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 6.222,
+  "finished_at_utc": "2026-11-14T04:51:21.726499+00:00",
+  "log_sha256": "e21a079104bc03cffe8dbb7068881572d315174936d192f873c63c2a8bb10cd2",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,0 +1,18 @@
+{
+  "phase": "U2",
+  "step": "f3-hero-head-emphasis",
+  "run_id": "20261115T070120Z-f3-hero-head-emphasis-ab48eb9e",
+  "started_at_utc": "20261115T070120Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx --test production/tests/hero-emphasis.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "3b2e820f2fe3ca5743eb260c885dabf138f97c78",
+  "tracked_diff_sha256": "b93796b59734a77bdf9c7b3f36a4e7f55e4c3f2e6b3a240dfa5057a3b3d0a079",
+  "status": "RUNNING",
+  "recorder_pid": 16748,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "13977e6ffc6621f7a2579eb787cf94f5e0c131c0f616b891ea4e4f5a44b5f153"
+}

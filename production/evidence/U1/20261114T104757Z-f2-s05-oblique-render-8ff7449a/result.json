@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-s05-oblique-render",
+  "run_id": "20261114T104757Z-f2-s05-oblique-render-8ff7449a",
+  "started_at_utc": "20261114T104757Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/quality-hero/dc7de9b4-c9d1-4a2f-8735-e852c417d963/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "633fa5b44dded7fee34993fe46cef54e1174ba54",
+  "tracked_diff_sha256": "98741ffd36126fa439a79b9d85471799f66705bc0c14e6c52d5ed7a692c9811b",
+  "recorder_pid": 47311,
+  "source_snapshot_sha256": "d7afde3524ec716e9a6fb94ed7eaba3fa0d207abcc19d8c89d68f1487b16b213",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 11.468,
+  "finished_at_utc": "2026-11-14T10:48:09.293547+00:00",
+  "log_sha256": "c7b55d5ad0f9fd6d4c68ed67486fc792a3a1b422db643dc9bf239067646c7e45",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

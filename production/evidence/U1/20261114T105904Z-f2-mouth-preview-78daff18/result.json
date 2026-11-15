@@ -1,0 +1,21 @@
+{
+  "phase": "U1",
+  "step": "f2-mouth-preview",
+  "run_id": "20261114T105904Z-f2-mouth-preview-78daff18",
+  "started_at_utc": "20261114T105904Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/mouth-draft-preview.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1985154cdbcecce07c17b5e215352f2aa138ad80",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 51080,
+  "source_snapshot_sha256": "a4cdcc67609a866e581bb352d4047802388534d6849d0e4910caeabbdff761ac",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 2.635,
+  "finished_at_utc": "2026-11-14T10:59:07.355309+00:00",
+  "log_sha256": "51cde3b0b2a59c8eaa68990e11d1ae8eaf366b2c1d2926476ad560b6db260e30",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

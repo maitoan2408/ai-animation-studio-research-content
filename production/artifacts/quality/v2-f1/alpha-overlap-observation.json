@@ -1,0 +1,25 @@
+{
+  "status": "OBSERVATION_ONLY",
+  "sourceSha256": "4db61d79e6802a597de2b23b3d0ba94e6cb21c07217ed9485167e6201ef49389",
+  "textureSha256": {
+    "props/lantern-lit": "45aa7924e569f0896ae94cd2f4efaa210e20959b4d3877e08f45b498e37a920c",
+    "mai/torso": "01df98d85f7676fee2ffbc6238f1bcc5177688e22e537671052d251092aa8618",
+    "an/torso": "48dbffee6f4435c635b04c95ddb247494fddbd5e9d76eca7bc482da296bbd647"
+  },
+  "frames": 192,
+  "alphaThreshold": 128,
+  "sampling": "nearest in 1920x1080 stage space",
+  "overlap": {
+    "mai.torso": [],
+    "an.torso": []
+  },
+  "maximumPixels": {
+    "mai.torso": 0,
+    "an.torso": 0
+  },
+  "limitations": [
+    "Screen-space opaque overlap ignores physical depth and allowed layered occlusion.",
+    "Threshold and nearest sampling are diagnostic, not calibrated artistic or collision criteria.",
+    "Not an approval or proof of 3D penetration."
+  ]
+}

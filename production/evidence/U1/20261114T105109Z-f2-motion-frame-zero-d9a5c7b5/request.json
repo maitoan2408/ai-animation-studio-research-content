@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-motion-frame-zero",
+  "run_id": "20261114T105109Z-f2-motion-frame-zero-d9a5c7b5",
+  "started_at_utc": "20261114T105109Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/quality-hero/dc7de9b4-c9d1-4a2f-8735-e852c417d963/S05.json",
+    "0"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "bcb714f25b59a1024b3fcaeb9ab88cfeed3269ee",
+  "tracked_diff_sha256": "fbe22d7cf90c1a7b82007af284cb2eadf576d9970a4e37d7675ec82881072dd2",
+  "status": "RUNNING",
+  "recorder_pid": 48506,
+  "source_snapshot_sha256": "d00194094fe7e577422fbb2636ccb36931984951c4058e6e901603241429159f"
+}

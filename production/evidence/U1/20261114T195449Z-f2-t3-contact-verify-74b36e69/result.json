@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-t3-contact-verify",
+  "run_id": "20261114T195449Z-f2-t3-contact-verify-74b36e69",
+  "started_at_utc": "20261114T195449Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx --test production/tests/paper-contact.test.ts; production/node_modules/.bin/tsx production/src/art/paper-scene/render.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 108 production/artifacts/quality/v2-f2/overlay-physical-contours.json authored-only physical contact preview"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "a8acf804a8b5a2127dd5115ab44cce69c248cf10",
+  "tracked_diff_sha256": "9663e23d3c67e4526f552ae4ba5d1c092f6c10e30f5d4eb6eb7a9b0f3fe715b5",
+  "recorder_pid": 12879,
+  "source_snapshot_sha256": "222ea197d9ba27082c7a72e9b74bb4ab4226e7233851edc7130f794972fe1b98",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 30.388,
+  "finished_at_utc": "2026-11-14T19:55:19.822140+00:00",
+  "log_sha256": "256cb2a20f672673d55566ee5b2eed86d715e357cf73af7dd5f6fdc32a5a30d6",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

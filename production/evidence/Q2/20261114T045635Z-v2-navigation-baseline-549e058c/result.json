@@ -1,0 +1,21 @@
+{
+  "phase": "Q2",
+  "step": "v2-navigation-baseline",
+  "run_id": "20261114T045635Z-v2-navigation-baseline-549e058c",
+  "started_at_utc": "20261114T045635Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/navigation-async.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "fa0d5e60af63c1d43c124ab7c5068ba2b0fec317db6ddf0dc951386d61186c48",
+  "recorder_pid": 17716,
+  "source_snapshot_sha256": "9b46c085d8505e17c49cc2365e4acb61d5559dffc42e8ce7ab4342e96d08f036",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 5.163,
+  "finished_at_utc": "2026-11-14T04:56:40.581850+00:00",
+  "log_sha256": "5435382c97ba5b55f974c165f0830b417015eb004a237fb73c219ba571ce4211",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

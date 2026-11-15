@@ -1,0 +1,16 @@
+{
+  "phase": "Q2",
+  "step": "v2-navigation-delivered",
+  "run_id": "20261114T050326Z-v2-navigation-delivered-35c41a6b",
+  "started_at_utc": "20261114T050326Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/navigation-async.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "f9f961bba634c7513d25f6f212911e1ced79a2d4f339db3348d51960b0d91356",
+  "status": "RUNNING",
+  "recorder_pid": 28669,
+  "source_snapshot_sha256": "86690c676e933d99616be0c1ba8ce95c6d3902f11b946305d147e0a730ec5804"
+}

@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-drafts-final-root",
+  "run_id": "20261114T110211Z-f2-drafts-final-root-49ba08a2",
+  "started_at_utc": "20261114T110211Z",
+  "command": [
+    "npm",
+    "run",
+    "verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1985154cdbcecce07c17b5e215352f2aa138ad80",
+  "tracked_diff_sha256": "b8cd6eb73f158114f48bb33d6631b535eb3e4f7da97ad7372dc060d21061adac",
+  "recorder_pid": 51795,
+  "source_snapshot_sha256": "b220c9492842c9fce6d7432459afae6c6788fdaf354bd19ee6cb4c384a2e407b",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 29.492,
+  "finished_at_utc": "2026-11-14T11:02:41.699300+00:00",
+  "log_sha256": "e93ed57d8d4144833286f7e2d477aa2de48208b4dce0958554524e364aeb4865",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

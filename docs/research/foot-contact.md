@@ -1,0 +1,7 @@
+# F1 — foot contact và footskate, tra cứu chuẩn bị
+
+14/11/2026. Câu hỏi: critic có thể đo trượt chân độc lập với baseline ra sao? Nguồn gốc: [Kovar, Gleicher, Schreiner, Footskate Cleanup for Motion Capture Editing](https://graphics.cs.wisc.edu/Papers/2002/KSG02/) mô tả footplant constraints và IK cleanup; [Mourot et al., UnderPressure](https://diglib.eg.org/items/def192e5-ad91-4409-b078-7d564fbaefb5) mô tả ước lượng contact rồi dùng constraint/IK. Hai nguồn này chứng minh ý nghĩa của khoảng contact và ràng buộc chân; chúng không xác minh trực tiếp implementation 2D hiện tại hay một ngưỡng pixel chung.
+
+VERIFIED ở mức nguồn: contact phải được biểu diễn/phát hiện cùng lúc với kiểm footskate; IK là một hướng sửa, không tự đảm bảo kết quả thẩm mỹ. PARTIAL: chưa đo riêng trên art/rig hiện tại. Quyết định thiết kế F1: stance interval, world-space anchor tại thời điểm tiếp đất, ground và phép chiếu camera được khai báo độc lập; kiểm riêng world drift và projected drift. Dùng ngưỡng ≤1px đã khóa trong `production/brief/quality/physics-contract.json` như tiêu chí dự án, không gán cho hai bài báo. Nguồn 2D, camera zoom, overscan và khoảng đặt chân có thể cần ngưỡng/gate bổ sung được khóa trước thử; chưa tự đặt sau khi thấy kết quả.
+
+Protocol dự định: cùng fixture gốc, inject 2px world slide, foot gap, penetration và prop/torso overlap; negative camera pan không đổi world contact; lưu raw frame/đầu vào và lỗi trước sửa. Đây là kế hoạch thí nghiệm, chưa có kết quả F1.

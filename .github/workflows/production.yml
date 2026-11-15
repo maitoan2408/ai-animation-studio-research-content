@@ -30,7 +30,7 @@ jobs:
       - name: Compare physics bakes with locked cross-runner reference
         run: |
           npm --prefix production run physics:spike
-          python3 production/src/qa/check_quality_diagnostics.py
+          PATH="/tmp/q2-qc/bin:$PATH" /tmp/q2-qc/bin/python production/src/qa/check_quality_diagnostics.py
       - run: /tmp/q2-qc/bin/python -m unittest discover -s production/tests -p 'test_*.py' -v
       - name: Restore exact review media from Git parts
         run: /tmp/q2-qc/bin/python production/src/media/review_bundle.py restore production/artifacts/Q2/web-review-v2

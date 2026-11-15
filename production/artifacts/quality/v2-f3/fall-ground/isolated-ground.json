@@ -1,0 +1,14 @@
+{
+  "status": "OBSERVATION_ONLY",
+  "sourceSha256": "2af30171e22125c035aa34ad055d3e2148366bcb5798a08d26178e8def5689e1",
+  "frames": 73,
+  "alphaThreshold": 128,
+  "groundStageY": 860,
+  "belowFloorStartsAtY": 861,
+  "hits": [],
+  "limits": [
+    "Projected 2D alpha pixels, not 3D collision",
+    "boots and authored shadows excluded",
+    "does not check character-character collision or approved art"
+  ]
+}

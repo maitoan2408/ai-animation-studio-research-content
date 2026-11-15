@@ -1,0 +1,20 @@
+{
+  "phase": "U1",
+  "step": "f2-physical-animation-preview",
+  "run_id": "20261114T184856Z-f2-physical-animation-preview-adc01083",
+  "started_at_utc": "20261114T184856Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/animate.ts",
+    "production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "preview",
+    "physical"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f31b47d6d1778bf7975116a9a2f17d99d3330e44",
+  "tracked_diff_sha256": "34fcf4243e5df983bb01b2b9e080359ec4949fea61f1439922f96dc84c8484d4",
+  "status": "RUNNING",
+  "recorder_pid": 6532,
+  "source_snapshot_sha256": "ce849a8df04c621e897efa408ae184639ea07256bb78d3b87d9dfdb6243c3bab"
+}

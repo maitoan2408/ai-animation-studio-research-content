@@ -1,0 +1,17 @@
+{
+  "phase": "U7",
+  "step": "v2-f1-ground-baseline",
+  "run_id": "20261114T051130Z-v2-f1-ground-baseline-0e1bc2ee",
+  "started_at_utc": "20261114T051130Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/ground.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "71933a0e681b52ba4979c14bf10bb892569c44cc",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 32729,
+  "source_snapshot_sha256": "74cdb83972b7c01aa87cc27e8e2a563a6816e740af3779f1458ccc213ef1694d"
+}

@@ -1,0 +1,132 @@
+RUN ["npm", "--prefix", "production", "ci", "--no-audit", "--no-fund"]
+
+added 192 packages in 16s
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+RUN ["python", "production/src/media/review_bundle.py", "restore", "production/artifacts/Q2/web-review-v2"]
+{"status": "PASS_EXACT_RESTORE", "files": ["/tmp/studio-q2-clean-ma7npmz3/production/artifacts/Q2/web-review-v2/R0/review.mp4", "/tmp/studio-q2-clean-ma7npmz3/production/artifacts/Q2/web-review-v2/R1/review.mp4", "/tmp/studio-q2-clean-ma7npmz3/production/artifacts/Q2/web-review-v2/R2/review.mp4"]}
+RUN ["npm", "--prefix", "production", "run", "typecheck"]
+
+> paper-studio-production-workbench@0.1.0 typecheck
+> tsc --noEmit
+
+RUN ["npm", "--prefix", "production", "test"]
+
+> paper-studio-production-workbench@0.1.0 test
+> tsx --test tests/*.test.ts tests/*.test.mjs
+
+✔ S05 projected-alpha gate accepts only a bound clear report (1.818625ms)
+✔ art source hashes, explicit pivots, views and local references remain intact (30.48055ms)
+✔ contact styleframe: rendered hand anchor coincides with prop grip within 2 px (2.103007ms)
+✔ neutral and mirrored puppet soles remain on the ground; no limb stretching fallback (1.667493ms)
+✔ all 1152 frames evaluate with reachable IK, known assets and finite transforms (118.214551ms)
+✔ pickup/placement and both handoff owners match actual rendered anchors every grip frame (18.241367ms)
+✔ walking stance soles stay planted in world space, independent of root and camera (3.476773ms)
+✔ frame evaluation does not depend on seek order; bounds fail explicitly (5.006364ms)
+✔ locked deceleration beat reduces root speed to a stop without a last-frame snap (1.077588ms)
+✔ upright walk uses only the hip drop required for planted-foot reach (1.051048ms)
+✔ locked six-shot benchmark has continuous, nonoverlapping beats and exactly 48 seconds (8.319858ms)
+✔ valid continuation matches state without mutating snapshots (2.360254ms)
+✔ unintended rotation reset, attachment and data mismatch fail with evidence (0.415284ms)
+✔ invalid provenance, nonfinite pose and missing controls cannot pass (1.157556ms)
+✔ intentional cuts record an explicit reason (0.16534ms)
+✔ diagnostic figures retain real frame indices, escape labels and reject invalid numeric data (2.572316ms)
+✔ R1 changes only S01/S03; longer voice hash and cue interval change together (328.710471ms)
+✔ R2 changes only camera S04 and receiver reaction S05 exactly 12 frames later (225.895077ms)
+✔ editorial reorder contains each independent fixture exactly once and preserves 1152 frames (5.515995ms)
+✔ separate development overlay assembles every draft pose using unchanged rig anchors (47.675617ms)
+✔ old locked hero bake cannot silently consume the new art revision (67.699566ms)
+✔ draft heads have correctly bound paper shadows without moving rig sprites (8.853937ms)
+✔ S05 declared ground and stance check all four actual sole anchors in all frames (2.352054ms)
+✔ independent S05 track detects injected foot slip without changing baseline evaluator (0.747845ms)
+✔ real S02 walk passes declared alternating stance intervals without false slip on swing (2.227143ms)
+✔ slip injected during S02 planted interval is detected (1.037968ms)
+✔ camera pan does not create a world-space planted-foot failure (2.182935ms)
+✔ independent ground catches slip, gap, penetration and prop/body overlap (0.593081ms)
+✔ invalid frames and unpaired collision shapes fail closed (0.637996ms)
+✔ world-space slip cannot be hidden by camera zooming out (0.512882ms)
+✔ a new stance uses a new anchor after an airborne interval (0.756595ms)
+✔ S05 R3 hands contact separate visible sides of the drawn lantern handle (39.230634ms)
+✔ S05 R3 keeps prop path, reaction delay, other shots and deterministic seeks (225.892565ms)
+✔ hero ground gate checks four soles in every declared frame (96.169033ms)
+✔ hero ground gate fails a planted-foot drift and rejects malformed fixture (81.581306ms)
+✔ explicit owner covers the handoff and differs from shared contact (1.407955ms)
+✔ ownership cannot claim a control without contact or have gaps (0.723991ms)
+✔ contact blobs use declared ground and actual sole anchors (1.820427ms)
+✔ missing foot, nonfinite and foot above ground reject (0.538888ms)
+✔ all 22 S05 part masks triangulate to their exact binary pixel area (17.20069ms)
+✔ malformed area, diagonal edges and orphan holes reject (0.713439ms)
+✔ all 58 development foreground masks triangulate to the exact binary pixel area (56.087712ms)
+✔ all 79 overlay foreground masks triangulate to their binary pixel area (30.991086ms)
+✔ all 79 four-times grid masks triangulate to the exact source-grid area (44.069401ms)
+✔ seven background masks triangulate to exact binary area in their declared grid (69.268237ms)
+✔ oblique depth moves the back while preserving the actual face and pivots (6.159223ms)
+✔ edge variation preserves front coordinates and is deterministic (4.601493ms)
+✔ edge inputs fail closed (0.936231ms)
+✔ paper plate and extruded shape share the authored native pivot (7.449152ms)
+✔ paper geometry rejects missing pivot, nonfinite dimensions and depth (0.525619ms)
+✔ Three geometry convention matches scene anchor transforms under rotation and mirrored scale (16.993714ms)
+✔ 4x grid converts to the same native asset scale and pivot (534.660938ms)
+✔ invalid contour scale or metadata fails closed (1.382345ms)
+✔ contour UVs address the original asset under 1x and 4x grids (0.770911ms)
+✔ S05 paper faces cover all actor/prop sprites and preserve rig anchors across every frame (196.47216ms)
+✔ missing foreground silhouettes reject while explicit background plates remain allowed (0.697358ms)
+✔ performance authoring contract is immutable, covers the shot and preserves shared grip intervals (5.372107ms)
+✔ performance rejects gaps, overlap, unknown capabilities and invalid semantic references (3.922112ms)
+✔ schema-valid unimplemented acting variations fail before rendering instead of being ignored (0.488682ms)
+✔ Rapier measured pendulum/drop/bounce/damping meet locked criteria and exact reference hash (510.5713ms)
+✔ baked hero preserves dual hold, grips, stance and arbitrary seeks without live physics (291.511415ms)
+✔ bake boundary rejects tampering, wrong revision, malformed timebase/events and nonfinite data (4.645778ms)
+✔ critic rejects a detached physics joint even when IK still keeps the palm on the prop (99.565992ms)
+✔ execution binding rejects stale gravity, toolchain and legacy receipts without changing baseline motion (27.297243ms)
+✔ hero input and legacy opt-in reject invalid mass, unsupported phases and stretched contacts (1.304056ms)
+✔ polish keeps the 64 original drawings/pivots intact; new files have exact hashes (52.938159ms)
+✔ shadow polish does not move original acting, camera or contact geometry in any frame (342.217074ms)
+✔ catalog and review boundaries reject wrong frame, artifact, mode and incomplete rubric (3.460439ms)
+✔ journal retries idempotently, serializes conflicting writers, reopens and detects tampering (40.352293ms)
+✔ range and filesystem boundaries reject traversal, symlink escape and changed bytes (4.145591ms)
+✔ real HTTP media, origin/token, persistence, stale head and changed-file rejection (633.442355ms)
+✔ real R2 editorial boundary is S06 to S05; a missing lamp is explicit (3.257457ms)
+✔ seam inventory refuses ambiguous selection and duplicate sprite identity (0.588268ms)
+✔ real S06 to S05 torso change is reported unless an explicit provisional cut is declared (14.378246ms)
+✔ actual S05 end state rejects a synthetic upright snap and permits an explicit cut (1.808004ms)
+✔ declared matching continuation preserves actual end transform and velocity (0.320745ms)
+✔ actual S05 transforms produce finite bounded observations for both torsos (118.806615ms)
+✔ injected lamp inside real torso bounds is flagged and invalid transforms reject (1.222492ms)
+ℹ tests 78
+ℹ suites 0
+ℹ pass 78
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13722.533036
+RUN ["npm", "--prefix", "production", "run", "review", "--", "check"]
+
+> paper-studio-production-workbench@0.1.0 review
+> tsx src/review/cli.ts check
+
+{"status":"PASS_CATALOG_HASH_AND_PROFILE","artifacts":[{"id":"0c578593e9376aa9295c0022a5e1c4a352861e74293b716081cce7a28fb8921f","revision":"R0","colorStatus":"pass"},{"id":"9e87348bdd1f34d2a5853ed3228b7e7110fe83ba55c0b6d7f5852aa9d87de02b","revision":"R1","colorStatus":"pass"},{"id":"263aa0d7a7b486098c4d246a84169629a71bd2fae1cc9c835e7f2a001eddc4d1","revision":"R2","colorStatus":"pass"}],"phaseApproval":false}
+RUN ["npm", "--prefix", "production", "run", "test:review-ui"]
+
+> paper-studio-production-workbench@0.1.0 test:review-ui
+> tsx tests/review-ui.mjs
+
+PASS Initial frame0 presented; annotation enabled only after pause/settle
+PASS Acceptance availability follows exact catalog color status
+PASS Range seek and individual forward/back steps use presented frame72
+PASS Persisted annotation renders markup as text
+PASS Reload preserves saved review
+PASS R2 reordered timeline maps frame400 to S01, with no inherited R0 notes
+PASS Actual muted playback at1x; recording disabled during playback
+PASS Actual muted playback at0.5x; recording disabled during playback
+PASS Saved second annotation on R2
+PASS Two-window stale revision rejects, retains text, reloads and saves safely
+PASS Export retains exact artifact/frame bindings and test-only authorship
+PASS 390px mobile layout fits without horizontal overflow
+PASS Server restart verifies hash chain and restores prior notes
+{"output":"/tmp/studio-q2-clean-ma7npmz3/production/out/review-ui/fabd51b2-b0df-43fe-81a3-0d1c3dfef0ec","status":"PASS","checks":["Initial frame0 presented; annotation enabled only after pause/settle","Acceptance availability follows exact catalog color status","Range seek and individual forward/back steps use presented frame72","Persisted annotation renders markup as text","Reload preserves saved review","R2 reordered timeline maps frame400 to S01, with no inherited R0 notes","Actual muted playback at1x; recording disabled during playback","Actual muted playback at0.5x; recording disabled during playback","Saved second annotation on R2","Two-window stale revision rejects, retains text, reloads and saves safely","Export retains exact artifact/frame bindings and test-only authorship","390px mobile layout fits without horizontal overflow","Server restart verifies hash chain and restores prior notes"],"browser":"Chrome/156.0.8078.79","errors":[],"mode":"automated-test","journalHead":"6fad8d741f9f149d97375b2d9d0c99d2f5980bffae68a2bda38654746ba10033","records":4,"limits":["Functional UI verification; muted playback, no listening or artistic approval","Same agent; not independent operator handoff"]}
+{"status": "PASS", "commit": "2ba07ea1492790895f8bad653788536b01ccdde6", "source": "git archive production only; clean npm cache/install", "completedAt": "2026-11-14T20:13:04.888330+00:00", "checks": [{"command": ["npm", "--prefix", "production", "ci", "--no-audit", "--no-fund"], "exitCode": 0}, {"command": ["python", "production/src/media/review_bundle.py", "restore", "production/artifacts/Q2/web-review-v2"], "exitCode": 0}, {"command": ["npm", "--prefix", "production", "run", "typecheck"], "exitCode": 0}, {"command": ["npm", "--prefix", "production", "test"], "exitCode": 0}, {"command": ["npm", "--prefix", "production", "run", "review", "--", "check"], "exitCode": 0}, {"command": ["npm", "--prefix", "production", "run", "test:review-ui"], "exitCode": 0}], "lockSha256": "9b3f053d885c2d4c0a190433febc14b8609e82ede2c48a3d8da13d06a3b9a9ae", "output": "/workspace/studio-audit/production/out/fresh-review/88a15c6dc1384daca34f76b442118767", "checkout": "/tmp/studio-q2-clean-ma7npmz3", "gitTrustScope": {"directory": "/workspace/studio-audit", "configScope": "per invocation; no global change"}, "limits": ["Same host/runtime and agent; not independent operator or clean-machine certification", "No listening or full artistic review from functional test"]}

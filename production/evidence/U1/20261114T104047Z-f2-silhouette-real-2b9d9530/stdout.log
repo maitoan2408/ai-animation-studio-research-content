@@ -1,0 +1,3 @@
+/workspace/studio-audit/production/src/art/paper-silhouette/inventory.py:26: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  mask=bytes(1 if x>=128 else 0 for x in alpha.getdata())
+{"status": "PARTIAL_DEVELOPMENT_CONTOURS", "output": "/workspace/studio-audit/production/out/paper-silhouettes/9d0fc87c65994e349d45a0e03b1890ff", "sha256": "56fcd04c258bbb6bbb3775684ea5b7a8df8f72a4beb2700d8507b48d86a9254a", "assets": [{"id": "mai/torso", "filledPixels": 20751, "loops": 1, "vertices": 250}, {"id": "an/torso", "filledPixels": 20740, "loops": 1, "vertices": 246}, {"id": "props/lantern-lit", "filledPixels": 16526, "loops": 2, "vertices": 220}]}

@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-all-raster-verify-retry",
+  "run_id": "20261114T105556Z-f2-all-raster-verify-retry-2e1727e5",
+  "started_at_utc": "20261114T105556Z",
+  "command": [
+    "python",
+    "production/src/art/paper-silhouette/verify_all.py",
+    "production/out/paper-all-textures/83c8b8cc-fd1e-41bb-8989-70a26076e088/textures.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "67bfc560589d1a7e9fc79440fe395b3a3a35f868",
+  "tracked_diff_sha256": "4b538d3ea501b2cd2b313d9632c8bd6ae4836b30326ad8f32758127011db3eba",
+  "status": "RUNNING",
+  "recorder_pid": 50292,
+  "source_snapshot_sha256": "e31864940c23d9e7526f63479fb688ef93ba757c70615d06447aaa29145dba1e"
+}

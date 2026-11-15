@@ -1,0 +1,22 @@
+{
+  "phase": "U2",
+  "step": "f3-hero-life-preview",
+  "run_id": "20261115T073035Z-f3-hero-life-preview-fb2e76a0",
+  "started_at_utc": "20261115T073035Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/animate.ts",
+    "production/out/f3-hero-life/1538be6b-be82-49a4-a131-44af2d178187/S05.json",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "preview",
+    "physical",
+    "basic"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f86cc4d5545f87b053b25affa1f77ac27d855997",
+  "tracked_diff_sha256": "37d8db8a5b37a7c5602bab2a6121b8a90224a10da9a41edefacf330c9e8b03be",
+  "status": "RUNNING",
+  "recorder_pid": 31454,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "5045cecb25d510c437441a8eed78a502d76dbea92751c8a85d142d7841a61a17"
+}

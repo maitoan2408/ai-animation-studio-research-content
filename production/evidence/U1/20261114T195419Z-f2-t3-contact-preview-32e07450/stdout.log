@@ -1,0 +1,20 @@
+
+> paper-studio-production-workbench@0.1.0 typecheck
+> tsc --noEmit
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+✔ contact blobs use declared ground and actual sole anchors (1.618941ms)
+✔ missing foot, nonfinite and foot above ground reject (0.487584ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 242.012814
+{"status":"PARTIAL_SCENE_EXPERIMENT","frame":108,"shadowMode":"authored-only","coverage":"physical","look":"contact","profile":"preview","lanternIntensity":0.4,"inputSha256":"48368a9146dfb4d9a7e15c85adbf22341ebb4e3714d899fb06711e9203cbabdc","contourSha256":"c8f6cd250088ed37386775f71b177bb0b9b416cc2c3f690d40b203783991755d","images":[{"mode":"flat","shadowMode":"authored-only","coverage":"physical","plates":71,"extruded":0,"requiredContours":38,"hiddenPaperShadows":0,"three":"187","sha256":"c6ad5ce39aa0f173f255343e1c4b3bef3825a5d3bcfa1e8c9ec72a7d6d5612e0"},{"mode":"volume","shadowMode":"authored-only","coverage":"physical","plates":71,"extruded":38,"requiredContours":38,"hiddenPaperShadows":0,"three":"187","sha256":"d618c08715de440231959a2272169f46f4742be8066c8238e0f6685845680647"}],"browser":"Chrome/156.0.8078.79","output":"/workspace/studio-audit/production/out/paper-scene/f9cd03c9-b914-4833-8e66-5037f097c1e3","limitations":["One S05 frame only; oblique per-sprite depth shear is a 2.5D projection, not a shared physically consistent camera or 3D; no animation or backend parity claim","Raster alpha >=128 silhouettes for actors/prop; translucency and subpixel edge details are not modeled by extrusion","Volume keeps existing authored layer/contact shadows; mesh shadow casting disabled.","Layer shadow/contact correctness remains unverified; depth-lit is an experimental shadow-enabled variant","No final art, full 3D physical collision or artistic approval"]}

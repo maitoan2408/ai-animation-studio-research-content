@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-s05-soft-shadow",
+  "run_id": "20261114T104903Z-f2-s05-soft-shadow-cb400a86",
+  "started_at_utc": "20261114T104903Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/quality-hero/dc7de9b4-c9d1-4a2f-8735-e852c417d963/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "633fa5b44dded7fee34993fe46cef54e1174ba54",
+  "tracked_diff_sha256": "3ea27e17669fa24da42f4ba5f01bdb3a1207018fa186f635c66b799fe5b17bb9",
+  "status": "RUNNING",
+  "recorder_pid": 47562,
+  "source_snapshot_sha256": "b9b00052f507b479ce447f1e9500c350038e9296c17c0e016e328a9617c4b54a"
+}

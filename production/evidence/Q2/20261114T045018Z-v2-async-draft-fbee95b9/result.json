@@ -1,0 +1,21 @@
+{
+  "phase": "Q2",
+  "step": "v2-async-draft",
+  "run_id": "20261114T045018Z-v2-async-draft-fbee95b9",
+  "started_at_utc": "20261114T045018Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/draft-async.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 8239,
+  "source_snapshot_sha256": "b2e557c8f2bddf13c6dd36b960e9822885dc1fb6a1bbff9044e729d645428703",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 4.106,
+  "finished_at_utc": "2026-11-14T04:50:22.436893+00:00",
+  "log_sha256": "d0ea4174b7cbf3f1c5a01c2f52fa9c1b98a7e67408a967c1142deebf76bb9264",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

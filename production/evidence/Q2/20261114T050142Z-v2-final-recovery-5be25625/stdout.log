@@ -1,0 +1,18 @@
+
+> paper-studio@0.1.0 test:ui:recovery
+> tsx tests/draft-recovery.ts && tsx tests/draft-async.ts && tsx tests/navigation-async.ts
+
+{
+  case: 'edit during save',
+  expectedDraft: 'B typed while saving',
+  actualDraft: 'B typed while saving',
+  discardHidden: false,
+  savedTitle: 'A submitted'
+}
+{"status":"PASS","checks":["voice draft","upload draft","switch project while voice pending"]}
+PASS stale navigation keeps project and draft
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-overlay-regression",
+  "run_id": "20261114T110324Z-f2-overlay-regression-28827a68",
+  "started_at_utc": "20261114T110324Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/f2-overlay-rig.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1985154cdbcecce07c17b5e215352f2aa138ad80",
+  "tracked_diff_sha256": "b8cd6eb73f158114f48bb33d6631b535eb3e4f7da97ad7372dc060d21061adac",
+  "status": "RUNNING",
+  "recorder_pid": 52460,
+  "source_snapshot_sha256": "c2cf3ed449d99e33c705685cad5654d3d450e1f43df24dba71bd571c09825bf5"
+}

@@ -1,0 +1,8 @@
+test_exact_data_detects_change (test_determinism_tiers.DeterminismTiers.test_exact_data_detects_change) ... ok
+test_lab_black_white_and_alpha_composite (test_determinism_tiers.DeterminismTiers.test_lab_black_white_and_alpha_composite) ... ok
+test_raster_requires_explicit_threshold_and_detects_visual_change (test_determinism_tiers.DeterminismTiers.test_raster_requires_explicit_threshold_and_detects_visual_change) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.589s
+
+OK

@@ -1,0 +1,22 @@
+{
+  "phase": "U7",
+  "step": "f1-alpha-gate-root-verify",
+  "run_id": "20261114T103531Z-f1-alpha-gate-root-verify-ec197066",
+  "started_at_utc": "20261114T103531Z",
+  "command": [
+    "npm",
+    "run",
+    "verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e97d6d6c807e0657bae72c13a59f71229e4de980",
+  "tracked_diff_sha256": "27099c55663ca937f83f27c6207f3ccd887df08978c5efc895f01b94a8d7020b",
+  "recorder_pid": 43089,
+  "source_snapshot_sha256": "064e3bcb3834bddeba636cbb2c7eb2b0de54543bb170f9859333e568d29d5b97",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 31.413,
+  "finished_at_utc": "2026-11-14T10:36:03.624827+00:00",
+  "log_sha256": "31586fbd515af8d27f7e7a7c0994111ca76affae142ffd8129273cd853f6fedd",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

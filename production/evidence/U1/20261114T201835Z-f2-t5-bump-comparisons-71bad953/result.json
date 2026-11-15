@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-t5-bump-comparisons",
+  "run_id": "20261114T201835Z-f2-t5-bump-comparisons-71bad953",
+  "started_at_utc": "20261114T201835Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; python production/src/art/paper-scene/compare_before_after.py production/artifacts/quality/v2-f2/t5/bump-control-preview.png production/artifacts/quality/v2-f2/t5/bump-preview.png production/artifacts/quality/v2-f2/t1/regions.json production/artifacts/quality/v2-f2/t5/bump-preview-compare; python production/src/art/paper-scene/compare_before_after.py production/artifacts/quality/v2-f2/t1/basic.png production/artifacts/quality/v2-f2/t5/bump-control-preview.png production/artifacts/quality/v2-f2/t1/regions.json production/artifacts/quality/v2-f2/t5/bump-neutral-compare"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "046875c32390bbde3eabbc4f414addae3e24c3ef",
+  "tracked_diff_sha256": "6cf16eb4e224ae676b2994d783b9840f20b79cba9b979ea10deb61d021369153",
+  "recorder_pid": 21935,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "cc1603808e1aaf9fa81525802e5a8908d2b7262067217bd8a5a908ed25505946",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.771,
+  "finished_at_utc": "2026-11-14T20:18:36.385962+00:00",
+  "log_sha256": "b859cb0b7583156abfb61b11ce1817497fe4370836685abf89d879666c3da9a4",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

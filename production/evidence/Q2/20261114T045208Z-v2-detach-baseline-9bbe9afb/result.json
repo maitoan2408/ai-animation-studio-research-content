@@ -1,0 +1,21 @@
+{
+  "phase": "Q2",
+  "step": "v2-detach-baseline",
+  "run_id": "20261114T045208Z-v2-detach-baseline-9bbe9afb",
+  "started_at_utc": "20261114T045208Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/draft-async.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "9c57eb949cd85a8a8dda4f9214018aa08bad2653",
+  "tracked_diff_sha256": "077ff2022e93264f6124285ee278d2431076c21c0a68d4861d5fdcd855fd41be",
+  "recorder_pid": 10770,
+  "source_snapshot_sha256": "0a4785f0a59b4538c789e2cbc2e9932f84f4258c45a672c4ecd7b2f37c5323a5",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 5.851,
+  "finished_at_utc": "2026-11-14T04:52:14.216680+00:00",
+  "log_sha256": "38dc4abd9b1c16f46f15db1cc37a66922df315c8af62378bac8ce7a1762cbd52",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,0 +1,22 @@
+{
+  "phase": "U2",
+  "step": "f3-wave-elbow-preview",
+  "run_id": "20261115T071031Z-f3-wave-elbow-preview-6f62d22a",
+  "started_at_utc": "20261115T071031Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/animate.ts",
+    "production/out/f3-action-fixture/71e61fa1-8779-48b1-bab6-e37fa3e1145a/S05.json",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "preview",
+    "physical",
+    "basic"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "3b2e820f2fe3ca5743eb260c885dabf138f97c78",
+  "tracked_diff_sha256": "7a6d4c55ee170475c78fd081f43375648ff83b470debbaab2b1e145e745d1c1d",
+  "status": "RUNNING",
+  "recorder_pid": 22325,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "337524b62cb1066d3a3047f37ed8898b4f3d552f42c21f6e8db65ff5ee753c22"
+}

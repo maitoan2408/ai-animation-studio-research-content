@@ -1,0 +1,6 @@
+{
+  "status": "PASS_TWO_IDENTICAL_RUNS",
+  "frames": 192,
+  "videoSha256": "6d6921bb702684a70e0e50e63e8fad6371814340b26b1f484dd09e67e21ee4d8",
+  "scope": "same host/browser, source, candidate and settings; not whole-scene flicker or artistic approval"
+}

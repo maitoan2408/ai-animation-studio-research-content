@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "paper-spike-clip-baseline",
+  "run_id": "20261114T100442Z-paper-spike-clip-baseline-5b2713b9",
+  "started_at_utc": "20261114T100442Z",
+  "command": [
+    "python",
+    "production/src/art/paper-spike/verify_image.py",
+    "production/out/paper-spike/08fdd73d-c333-4d5f-84e2-2dab822f9846/comparison.png"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "88a074c3b1b8393d8be39de38c91e1356738e37a",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 39056,
+  "source_snapshot_sha256": "44acc446793781387b8f9ee3390cf5fb88a1948f0ec5d8a28ee93e92bd1c7c1c",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 0.177,
+  "finished_at_utc": "2026-11-14T10:04:43.191740+00:00",
+  "log_sha256": "bfe30c4f08a5408c7f28b947a9fe95a8be8bdea0160c52f363dc973a48fb7235",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

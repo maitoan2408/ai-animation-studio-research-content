@@ -1,0 +1,8 @@
+/workspace/studio-audit/production/src/art/paper-scene/render.ts:15
+ alpha.overlap['mai.torso'].length||alpha.overlap['an.torso'].length)throw Error('SCENE_ALPHA_GATE');
+                                                                           ^
+
+Error: SCENE_ALPHA_GATE
+    at <anonymous> (/workspace/studio-audit/production/src/art/paper-scene/render.ts:15:76)
+
+Node.js v24.22.1

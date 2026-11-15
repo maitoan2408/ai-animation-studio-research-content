@@ -1,0 +1,16 @@
+{
+  "phase": "U7",
+  "step": "v2-f1-inspect",
+  "run_id": "20261114T051427Z-v2-f1-inspect-994c574c",
+  "started_at_utc": "20261114T051427Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/continuity/inspect-hero.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "71933a0e681b52ba4979c14bf10bb892569c44cc",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 33647,
+  "source_snapshot_sha256": "5e7b48f5214728a8333d252dedc344ed88427e320805a8ec8cda9e3a46452dfa"
+}

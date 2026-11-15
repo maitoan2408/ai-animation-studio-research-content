@@ -1,0 +1,16 @@
+{
+  "phase": "U1",
+  "step": "f2-all-raster",
+  "run_id": "20261114T105430Z-f2-all-raster-14671274",
+  "started_at_utc": "20261114T105430Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-silhouette/prepare-all.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "67bfc560589d1a7e9fc79440fe395b3a3a35f868",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 49990,
+  "source_snapshot_sha256": "3aea850637245566058f03bc89ccb5d58aa42fd1e48925ec2c198d46abe12ef6"
+}

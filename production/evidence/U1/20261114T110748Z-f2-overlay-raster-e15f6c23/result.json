@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-overlay-raster",
+  "run_id": "20261114T110748Z-f2-overlay-raster-e15f6c23",
+  "started_at_utc": "20261114T110748Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-silhouette/prepare-overlay.ts",
+    "production/out/f2-art-overlay/c06a22823d7a4394a9a31b6d25b4b0bf",
+    "production/out/paper-all-textures/83c8b8cc-fd1e-41bb-8989-70a26076e088/textures.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "94bc21dee57569fa74dc1512de427a0a31731bee",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 53722,
+  "source_snapshot_sha256": "f2020888ac9f466d3025fa2f7b351c5f6c372ef5dffe9abee94ae122b667113c",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 10.049,
+  "finished_at_utc": "2026-11-14T11:07:58.674812+00:00",
+  "log_sha256": "0d2d9f1e5c96581abcbfda9a70047a03d6d83abec306c29c2a3965bdb500e262",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

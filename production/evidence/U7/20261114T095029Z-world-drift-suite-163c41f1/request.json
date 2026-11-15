@@ -1,0 +1,18 @@
+{
+  "phase": "U7",
+  "step": "world-drift-suite",
+  "run_id": "20261114T095029Z-world-drift-suite-163c41f1",
+  "started_at_utc": "20261114T095029Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "test"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b0acad590e1a95846da612992df74cc2f4f6ee45",
+  "tracked_diff_sha256": "9e79c0df42b8520fc0c25d1485ece23b4ca3dc25ca5035359d55668c4a681a73",
+  "status": "RUNNING",
+  "recorder_pid": 35724,
+  "source_snapshot_sha256": "f9dc701217c243cc8733f35ca7fad9f34c7dfb9fbfa47e1295e76090ea1cc3eb"
+}

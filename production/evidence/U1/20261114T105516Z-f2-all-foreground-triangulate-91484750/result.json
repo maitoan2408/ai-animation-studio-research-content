@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-all-foreground-triangulate",
+  "run_id": "20261114T105516Z-f2-all-foreground-triangulate-91484750",
+  "started_at_utc": "20261114T105516Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/paper-contours.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "67bfc560589d1a7e9fc79440fe395b3a3a35f868",
+  "tracked_diff_sha256": "4b538d3ea501b2cd2b313d9632c8bd6ae4836b30326ad8f32758127011db3eba",
+  "recorder_pid": 50212,
+  "source_snapshot_sha256": "5240bec7cb8a6e1ddc3a083edc15ba6354ac4f260d0eb8146bed20a7bdbb55c6",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.883,
+  "finished_at_utc": "2026-11-14T10:55:17.486665+00:00",
+  "log_sha256": "00ab62dda6a317cf5581ac8df53d68e8ce176d672c4db02aa79de32bac7f0f94",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

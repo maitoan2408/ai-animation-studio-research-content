@@ -1,0 +1,8 @@
+/workspace/studio-audit/production/src/motion/build_f2_hero.ts:20
+if(sha(manifestBytes)!=='0db84d9fed8b8a35ccea5c328760ec2f519054475fae6f5a70d1b7925a4d67d2'||pack.version!=='lantern-f2-development-2'||pack.status!=='PROVISIONAL_NOT_APPROVED'||pack.assets.length!==156)throw Error('F2_OVERLAY_MANIFEST');
+                                                                                                                                                                                                                ^
+
+Error: F2_OVERLAY_MANIFEST
+    at <anonymous> (/workspace/studio-audit/production/src/motion/build_f2_hero.ts:20:209)
+
+Node.js v24.22.1

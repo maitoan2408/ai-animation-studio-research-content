@@ -1,0 +1,69 @@
+{
+  "status": "PROVISIONAL_DRAWINGS_NOT_REVIEWED",
+  "output": "/workspace/studio-audit/production/out/expression-drafts/43d3e2b5-8089-4f0e-93a6-209186a0febb",
+  "imageSha256": "2325fc381131eeb24ff3183808578c0e7027a6ef0764c28dcaf6aa2d39df5440",
+  "browser": "Chrome/156.0.8078.79",
+  "items": [
+    {
+      "id": "mai/head-quarter-neutral",
+      "sha256": "5612c1db1a1c29f5d3fbb73b98ec500697bf96157ea5bd04eb1f76eb90bbaade",
+      "draft": false
+    },
+    {
+      "id": "mai/head-quarter-worried",
+      "sha256": "751ad0327646bd95dca436cad3136e16cedf1dd8ce5c38b4a7ab6345f256209d",
+      "draft": false
+    },
+    {
+      "id": "mai/head-quarter-happy",
+      "sha256": "c131f597f18ded2408c1f737f78b4d815ad0f39408dd94a2db4dde20c187038c",
+      "draft": false
+    },
+    {
+      "id": "mai/head-quarter-sad",
+      "sha256": "56e409e6b0a26b8ac21bc9e48d84347f32da11b2fd8272892327311ffbf2610c",
+      "draft": true
+    },
+    {
+      "id": "mai/head-quarter-surprised",
+      "sha256": "7cfc79ca125dd49f7a007b9437c104409a58f96e1e436e757016152810b53331",
+      "draft": true
+    },
+    {
+      "id": "mai/head-quarter-angry",
+      "sha256": "a86651694b772f7672174e74bebbaffb975e795afc62c3b76b142091d37a25d0",
+      "draft": true
+    },
+    {
+      "id": "an/head-quarter-neutral",
+      "sha256": "63514009576ddb41eca6f57f5d86fb70e968d84555051d66ca58529e79561f1a",
+      "draft": false
+    },
+    {
+      "id": "an/head-quarter-worried",
+      "sha256": "3ac8a2e5188d0b79b0ca78c53ffc3549867ae96f83f36aac65e602d7809e54f9",
+      "draft": false
+    },
+    {
+      "id": "an/head-quarter-happy",
+      "sha256": "d8eec3badb68ff03cca3dd4971d84761ca22a814dab6e9ad18636aa4d4feb4b9",
+      "draft": false
+    },
+    {
+      "id": "an/head-quarter-sad",
+      "sha256": "8f03019f12f40573679395eaaa06790bc394d801ac0ac36a5e334a2f8df10db9",
+      "draft": true
+    },
+    {
+      "id": "an/head-quarter-surprised",
+      "sha256": "1dffa905728f68aad10621ca776aa6c7a3f22a624b74ee59309c4473d2482cd1",
+      "draft": true
+    },
+    {
+      "id": "an/head-quarter-angry",
+      "sha256": "3e8f0c2fbf3e51ad6cad43e0ff5510a867683cf6cfa67e212167fead5b27b028",
+      "draft": true
+    }
+  ],
+  "scope": "Head drawings only, without mouth overlays; no acting or artistic approval."
+}

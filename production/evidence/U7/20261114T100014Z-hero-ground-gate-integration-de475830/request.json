@@ -1,0 +1,19 @@
+{
+  "phase": "U7",
+  "step": "hero-ground-gate-integration",
+  "run_id": "20261114T100014Z-hero-ground-gate-integration-de475830",
+  "started_at_utc": "20261114T100014Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "quality:hero"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "840c77ac7259802eaa396b041cdac7d9671bd044",
+  "tracked_diff_sha256": "bfe41ee1878fe3f80e111bbd866ae645711b22db51b7f49e5b4cc48ed8c4b14e",
+  "status": "RUNNING",
+  "recorder_pid": 37478,
+  "source_snapshot_sha256": "0b0c8aa9cc117d0cbceb86d0f71ab79cd0b7b7c101d6e964dce524435afb9f8f"
+}

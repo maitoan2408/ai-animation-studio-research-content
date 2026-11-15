@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-overlay-contours",
+  "run_id": "20261114T110832Z-f2-overlay-contours-c1b751d2",
+  "started_at_utc": "20261114T110832Z",
+  "command": [
+    "python",
+    "-c",
+    "import json,subprocess,sys; p=\"production/out/paper-overlay-textures/96ccc413-1373-4ea6-a6e3-0dd23991fc6d/textures.json\"; a=\"production/out/f2-art-overlay/c06a22823d7a4394a9a31b6d25b4b0bf/manifest.json\"; d=json.load(open(p)); names=[x[\"id\"] for x in d[\"textures\"] if x[\"id\"].startswith((\"mai/\",\"an/\",\"mouth/\",\"props/\"))]; subprocess.run([sys.executable,\"production/src/art/paper-silhouette/inventory.py\",p,\"--art-manifest\",a,*names],check=True)"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "94bc21dee57569fa74dc1512de427a0a31731bee",
+  "tracked_diff_sha256": "d8fbd2e62d4b79c2b67789301e9dad4ab5b607600771949bad93fc09a02cbf21",
+  "status": "RUNNING",
+  "recorder_pid": 53942,
+  "source_snapshot_sha256": "fee94ef2fa8f6255352a8a8d7fd4965493d8f4d4697672201731b5304aa7397f"
+}

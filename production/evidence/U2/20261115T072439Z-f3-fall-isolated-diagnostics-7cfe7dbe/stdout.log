@@ -1,0 +1,8 @@
+test_observe_rejects_missing_actor_and_detects_injected_overlap (test_f3_fall_bounds.TestFallActorBounds.test_observe_rejects_missing_actor_and_detects_injected_overlap) ... ok
+test_overlap_and_transform_validation (test_f3_fall_bounds.TestFallActorBounds.test_overlap_and_transform_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK
+0 0

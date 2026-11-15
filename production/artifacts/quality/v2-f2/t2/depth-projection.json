@@ -1,0 +1,326 @@
+{
+  "status": "OBSERVATION_ONLY",
+  "groundOrder": 3,
+  "cameraZoom": 1.35,
+  "depthSpacing": 6,
+  "lightDirection": [
+    -400,
+    500,
+    1000
+  ],
+  "foregroundCount": 31,
+  "maxPredictedDistancePx640": 110.646,
+  "rows": [
+    {
+      "id": "mai.left-thigh",
+      "order": 10,
+      "depthAboveGround": 42,
+      "predictedOffsetPx640": [
+        7.56,
+        9.45
+      ],
+      "predictedDistancePx640": 12.102
+    },
+    {
+      "id": "an.left-thigh",
+      "order": 11,
+      "depthAboveGround": 48,
+      "predictedOffsetPx640": [
+        8.64,
+        10.8
+      ],
+      "predictedDistancePx640": 13.831
+    },
+    {
+      "id": "mai.left-shin",
+      "order": 14,
+      "depthAboveGround": 66,
+      "predictedOffsetPx640": [
+        11.88,
+        14.85
+      ],
+      "predictedDistancePx640": 19.017
+    },
+    {
+      "id": "an.left-shin",
+      "order": 15,
+      "depthAboveGround": 72,
+      "predictedOffsetPx640": [
+        12.96,
+        16.2
+      ],
+      "predictedDistancePx640": 20.746
+    },
+    {
+      "id": "mai.left-boot",
+      "order": 18,
+      "depthAboveGround": 90,
+      "predictedOffsetPx640": [
+        16.2,
+        20.25
+      ],
+      "predictedDistancePx640": 25.933
+    },
+    {
+      "id": "an.left-boot",
+      "order": 19,
+      "depthAboveGround": 96,
+      "predictedOffsetPx640": [
+        17.28,
+        21.6
+      ],
+      "predictedDistancePx640": 27.661
+    },
+    {
+      "id": "mai.right-thigh",
+      "order": 22,
+      "depthAboveGround": 114,
+      "predictedOffsetPx640": [
+        20.52,
+        25.65
+      ],
+      "predictedDistancePx640": 32.848
+    },
+    {
+      "id": "an.right-thigh",
+      "order": 23,
+      "depthAboveGround": 120,
+      "predictedOffsetPx640": [
+        21.6,
+        27.0
+      ],
+      "predictedDistancePx640": 34.577
+    },
+    {
+      "id": "mai.right-shin",
+      "order": 26,
+      "depthAboveGround": 138,
+      "predictedOffsetPx640": [
+        24.84,
+        31.05
+      ],
+      "predictedDistancePx640": 39.763
+    },
+    {
+      "id": "an.right-shin",
+      "order": 27,
+      "depthAboveGround": 144,
+      "predictedOffsetPx640": [
+        25.92,
+        32.4
+      ],
+      "predictedDistancePx640": 41.492
+    },
+    {
+      "id": "mai.right-boot",
+      "order": 30,
+      "depthAboveGround": 162,
+      "predictedOffsetPx640": [
+        29.16,
+        36.45
+      ],
+      "predictedDistancePx640": 46.679
+    },
+    {
+      "id": "an.right-boot",
+      "order": 31,
+      "depthAboveGround": 168,
+      "predictedOffsetPx640": [
+        30.24,
+        37.8
+      ],
+      "predictedDistancePx640": 48.408
+    },
+    {
+      "id": "mai.left-upper",
+      "order": 34,
+      "depthAboveGround": 186,
+      "predictedOffsetPx640": [
+        33.48,
+        41.85
+      ],
+      "predictedDistancePx640": 53.594
+    },
+    {
+      "id": "an.left-upper",
+      "order": 35,
+      "depthAboveGround": 192,
+      "predictedOffsetPx640": [
+        34.56,
+        43.2
+      ],
+      "predictedDistancePx640": 55.323
+    },
+    {
+      "id": "mai.left-forearm",
+      "order": 38,
+      "depthAboveGround": 210,
+      "predictedOffsetPx640": [
+        37.8,
+        47.25
+      ],
+      "predictedDistancePx640": 60.51
+    },
+    {
+      "id": "an.left-forearm",
+      "order": 39,
+      "depthAboveGround": 216,
+      "predictedOffsetPx640": [
+        38.88,
+        48.6
+      ],
+      "predictedDistancePx640": 62.238
+    },
+    {
+      "id": "mai.left-hand",
+      "order": 42,
+      "depthAboveGround": 234,
+      "predictedOffsetPx640": [
+        42.12,
+        52.65
+      ],
+      "predictedDistancePx640": 67.425
+    },
+    {
+      "id": "an.left-hand",
+      "order": 43,
+      "depthAboveGround": 240,
+      "predictedOffsetPx640": [
+        43.2,
+        54.0
+      ],
+      "predictedDistancePx640": 69.154
+    },
+    {
+      "id": "mai.torso",
+      "order": 46,
+      "depthAboveGround": 258,
+      "predictedOffsetPx640": [
+        46.44,
+        58.05
+      ],
+      "predictedDistancePx640": 74.34
+    },
+    {
+      "id": "an.torso",
+      "order": 47,
+      "depthAboveGround": 264,
+      "predictedOffsetPx640": [
+        47.52,
+        59.4
+      ],
+      "predictedDistancePx640": 76.069
+    },
+    {
+      "id": "mai.head",
+      "order": 50,
+      "depthAboveGround": 282,
+      "predictedOffsetPx640": [
+        50.76,
+        63.45
+      ],
+      "predictedDistancePx640": 81.256
+    },
+    {
+      "id": "an.head",
+      "order": 51,
+      "depthAboveGround": 288,
+      "predictedOffsetPx640": [
+        51.84,
+        64.8
+      ],
+      "predictedDistancePx640": 82.984
+    },
+    {
+      "id": "mai.mouth",
+      "order": 52,
+      "depthAboveGround": 294,
+      "predictedOffsetPx640": [
+        52.92,
+        66.15
+      ],
+      "predictedDistancePx640": 84.713
+    },
+    {
+      "id": "an.mouth",
+      "order": 53,
+      "depthAboveGround": 300,
+      "predictedOffsetPx640": [
+        54.0,
+        67.5
+      ],
+      "predictedDistancePx640": 86.442
+    },
+    {
+      "id": "mai.right-upper",
+      "order": 56,
+      "depthAboveGround": 318,
+      "predictedOffsetPx640": [
+        57.24,
+        71.55
+      ],
+      "predictedDistancePx640": 91.629
+    },
+    {
+      "id": "an.right-upper",
+      "order": 57,
+      "depthAboveGround": 324,
+      "predictedOffsetPx640": [
+        58.32,
+        72.9
+      ],
+      "predictedDistancePx640": 93.358
+    },
+    {
+      "id": "mai.right-forearm",
+      "order": 60,
+      "depthAboveGround": 342,
+      "predictedOffsetPx640": [
+        61.56,
+        76.95
+      ],
+      "predictedDistancePx640": 98.544
+    },
+    {
+      "id": "an.right-forearm",
+      "order": 61,
+      "depthAboveGround": 348,
+      "predictedOffsetPx640": [
+        62.64,
+        78.3
+      ],
+      "predictedDistancePx640": 100.273
+    },
+    {
+      "id": "mai.right-hand",
+      "order": 63,
+      "depthAboveGround": 360,
+      "predictedOffsetPx640": [
+        64.8,
+        81.0
+      ],
+      "predictedDistancePx640": 103.731
+    },
+    {
+      "id": "lamp",
+      "order": 65,
+      "depthAboveGround": 372,
+      "predictedOffsetPx640": [
+        66.96,
+        83.7
+      ],
+      "predictedDistancePx640": 107.188
+    },
+    {
+      "id": "an.right-hand",
+      "order": 67,
+      "depthAboveGround": 384,
+      "predictedOffsetPx640": [
+        69.12,
+        86.4
+      ],
+      "predictedDistancePx640": 110.646
+    }
+  ],
+  "scope": "directional planar geometry only, no alpha, finite shadow camera, material, occlusion, contact or creative assessment"
+}

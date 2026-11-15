@@ -1,0 +1,30 @@
+test_exact_data_detects_change (test_determinism_tiers.DeterminismTiers.test_exact_data_detects_change) ... ok
+test_lab_black_white_and_alpha_composite (test_determinism_tiers.DeterminismTiers.test_lab_black_white_and_alpha_composite) ... ok
+test_raster_requires_explicit_threshold_and_detects_visual_change (test_determinism_tiers.DeterminismTiers.test_raster_requires_explicit_threshold_and_detects_visual_change) ... ok
+test_missing_shots_fail_before_output (test_editorial.EditorialContracts.test_missing_shots_fail_before_output) ... ok
+test_mono_is_explicit_stereo_without_timing_shift (test_editorial.EditorialContracts.test_mono_is_explicit_stereo_without_timing_shift) ... ok
+test_r3_requires_parent_and_preserves_order_and_five_shots (test_editorial.EditorialContracts.test_r3_requires_parent_and_preserves_order_and_five_shots) ... ok
+test_tampered_complete_clip_is_not_reused (test_editorial.EditorialContracts.test_tampered_complete_clip_is_not_reused) ... ok
+test_wrong_rate_is_rejected_not_resampled_silently (test_editorial.EditorialContracts.test_wrong_rate_is_rejected_not_resampled_silently) ... ok
+test_changed_archive_is_rejected_before_reading_zip (test_hero_textures.HeroTextures.test_changed_archive_is_rejected_before_reading_zip) ... ok
+test_changed_art_is_rejected_before_publish (test_hero_textures.HeroTextures.test_changed_art_is_rejected_before_publish) ... ok
+test_fresh_restore_reuse_and_corrupt_cache (test_hero_textures.HeroTextures.test_fresh_restore_reuse_and_corrupt_cache) ... ok
+test_features_hash_and_pivot_are_recorded (test_inventory_svg.InventorySVG.test_features_hash_and_pivot_are_recorded) ... ok
+test_rejects_escape_and_duplicate_ids (test_inventory_svg.InventorySVG.test_rejects_escape_and_duplicate_ids) ... ok
+test_peak_limited_voice_does_not_silently_change_dynamics (test_loudness.LoudnessContracts.test_peak_limited_voice_does_not_silently_change_dynamics) ... ok
+test_silent_or_nonfinite_audio_is_rejected (test_loudness.LoudnessContracts.test_silent_or_nonfinite_audio_is_rejected) ... ok
+test_sparse_voice_can_reach_target_with_peak_reserve (test_loudness.LoudnessContracts.test_sparse_voice_can_reach_target_with_peak_reserve) ... ok
+test_full_range_review_is_distinct_from_master_and_old_web_profile (test_media_profiles.MediaProfiles.test_full_range_review_is_distinct_from_master_and_old_web_profile) ... ok
+test_missing_transfer_wrong_range_frame_rate_or_channels_reject (test_media_profiles.MediaProfiles.test_missing_transfer_wrong_range_frame_rate_or_channels_reject) ... ok
+test_nonfinite_duration_cannot_bypass_boundary (test_media_profiles.MediaProfiles.test_nonfinite_duration_cannot_bypass_boundary) ... ok
+test_review_cannot_accept_master_transfer_tag (test_media_profiles.MediaProfiles.test_review_cannot_accept_master_transfer_tag) ... ok
+test_verified_master_has_the_locked_profile (test_media_profiles.MediaProfiles.test_verified_master_has_the_locked_profile) ... ok
+test_wrong_frames_extra_stream_and_audio_duration_reject (test_media_profiles.MediaProfiles.test_wrong_frames_extra_stream_and_audio_duration_reject) ... ok
+test_corrupted_chunk_never_publishes (test_review_bundle.ReviewBundle.test_corrupted_chunk_never_publishes) ... ok
+test_exact_restore_retry_and_interrupted_temp (test_review_bundle.ReviewBundle.test_exact_restore_retry_and_interrupted_temp) ... ok
+test_traversal_symlink_and_overwrite_rejected (test_review_bundle.ReviewBundle.test_traversal_symlink_and_overwrite_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 7.771s
+
+OK

@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-shadow-neutral-regions",
+  "run_id": "20261115T062516Z-f2-shadow-neutral-regions-b971d560",
+  "started_at_utc": "20261115T062516Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; python -m unittest discover -s production/tests -p test_f2_shadow_regions.py -v; python production/src/art/paper-scene/calibration/shadow_regions.py production/artifacts/quality/v2-f2/t2/neutral-correction/off.png production/artifacts/quality/v2-f2/t2/neutral-correction/on.png production/artifacts/quality/v2-f2/t2/neutral-correction/regions.json production/artifacts/quality/v2-f2/t2/neutral-correction/regions-report.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f5b081d34dd5f773359d9165999e9279f79ff93a",
+  "tracked_diff_sha256": "1d9dcd7797d4e00752594f36dfd2bde7a8a7a86eefdd813a58ab7333dd72912c",
+  "status": "RUNNING",
+  "recorder_pid": 11642,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "467829617aaabd4ebe3ee09d9e3669082306dbc53ebbc7efb42415d297ac3a12"
+}

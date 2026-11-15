@@ -1,0 +1,10 @@
+✔ real S02 walk passes declared alternating stance intervals without false slip on swing (7.384774ms)
+✔ slip injected during S02 planted interval is detected (0.770681ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 615.40622

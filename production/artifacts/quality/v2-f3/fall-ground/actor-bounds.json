@@ -1,0 +1,11 @@
+{
+  "status": "OBSERVATION_ONLY",
+  "frames": 73,
+  "bboxOverlaps": [],
+  "limits": [
+    "Bounding rectangles are conservative, not opaque-pixel or 3D contact",
+    "Only two named actors, shadow sprites excluded",
+    "Does not evaluate dynamics or acting"
+  ],
+  "sourceSha256": "2af30171e22125c035aa34ad055d3e2148366bcb5798a08d26178e8def5689e1"
+}

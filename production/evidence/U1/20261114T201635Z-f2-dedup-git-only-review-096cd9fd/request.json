@@ -1,0 +1,17 @@
+{
+  "phase": "U1",
+  "step": "f2-dedup-git-only-review",
+  "run_id": "20261114T201635Z-f2-dedup-git-only-review-096cd9fd",
+  "started_at_utc": "20261114T201635Z",
+  "command": [
+    "python",
+    "production/src/qa/check_fresh_review.py"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "046875c32390bbde3eabbc4f414addae3e24c3ef",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 20498,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "90db08c6badcad17348488743f2d4a19b6b8b5d22830d0a765eb3b7abff2c07b"
+}

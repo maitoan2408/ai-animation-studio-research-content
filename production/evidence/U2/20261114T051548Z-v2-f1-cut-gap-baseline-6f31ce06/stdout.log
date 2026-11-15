@@ -1,0 +1,59 @@
+✔ valid continuation matches state without mutating snapshots (2.199522ms)
+✖ unintended rotation reset, attachment and data mismatch fail with evidence (0.917812ms)
+✔ invalid provenance, nonfinite pose and missing controls cannot pass (1.76819ms)
+✖ intentional cuts record an explicit reason (0.20783ms)
+✔ camera pan does not create a world-space planted-foot failure (1.77405ms)
+✔ independent ground catches slip, gap, penetration and prop/body overlap (0.665483ms)
+✖ invalid frames and unpaired collision shapes fail closed (1.653413ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 4
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 554.05177
+
+✖ failing tests:
+
+test at production/tests/continuity.test.ts:37:1
+✖ unintended rotation reset, attachment and data mismatch fail with evidence (0.917812ms)
+  Error: BOUNDARY_TRANSITION
+      at compareBoundary (/workspace/studio-audit/production/src/continuity/boundary.ts:124:11)
+      at TestContext.<anonymous> (/workspace/studio-audit/production/tests/continuity.test.ts:49:5)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at production/tests/continuity.test.ts:75:1
+✖ intentional cuts record an explicit reason (0.20783ms)
+  Error: BOUNDARY_TRANSITION
+      at compareBoundary (/workspace/studio-audit/production/src/continuity/boundary.ts:124:11)
+      at TestContext.<anonymous> (/workspace/studio-audit/production/tests/continuity.test.ts:77:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at production/tests/ground.test.ts:35:1
+✖ invalid frames and unpaired collision shapes fail closed (1.653413ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/workspace/studio-audit/production/tests/ground.test.ts:37:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /CONTACT_FRAME_GAP/,
+    operator: 'throws',
+    diff: 'simple'
+  }

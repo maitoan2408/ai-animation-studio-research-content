@@ -1,0 +1,22 @@
+{
+  "phase": "U1",
+  "step": "f2-silhouette-s05-parts",
+  "run_id": "20261114T104135Z-f2-silhouette-s05-parts-2e7f2fa5",
+  "started_at_utc": "20261114T104135Z",
+  "command": [
+    "python",
+    "-c",
+    "import json,subprocess,sys; p=\"production/out/hero-textures/d5a8aa9c807b9c95f4ddcfbc9c1b0591f6035e601e285053d614a7e7ed06c309/textures.json\"; d=json.load(open(p)); names=[x[\"id\"] for x in d[\"textures\"] if x[\"id\"].startswith((\"mai/\",\"an/\",\"mouth/\",\"props/\"))]; subprocess.run([sys.executable,\"production/src/art/paper-silhouette/inventory.py\",p,*names],check=True)"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "b64a05569a156ab8ee14e586c782e54349f192c3",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 45303,
+  "source_snapshot_sha256": "f85aa0bd41ccb946752a62395d6cb39635ddfe4d9060dd7b6eb5c4770b688553",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.782,
+  "finished_at_utc": "2026-11-14T10:41:36.384146+00:00",
+  "log_sha256": "7422ccedb0d05cdcece1986b99919529c23450d9a081032ec8677a7eccdc51cd",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

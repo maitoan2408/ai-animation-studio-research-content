@@ -1,0 +1,11 @@
+{
+  "status": "PASS_ACTOR_BOX_SCOPE",
+  "frames": 192,
+  "changedFrames": 192,
+  "insidePixels": 2905702,
+  "outsidePixels": 0,
+  "marginPreviewPixels": 4,
+  "baseSourceSha256": "48368a9146dfb4d9a7e15c85adbf22341ebb4e3714d899fb06711e9203cbabdc",
+  "candidateSourceSha256": "8b247aa7fe2a042c90f1b4c3b3e95e6599771363378fe95f710a9e5edba33abf",
+  "scope": "Actor bounding boxes and hashes only; not art, collision, flicker, or pixel-accurate mask proof"
+}
