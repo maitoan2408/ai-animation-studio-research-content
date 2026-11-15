@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {anchorPoint} from '../src/scene/geometry.js';
-import {makeM3Showcase,m3TotalFrames,sampleM3,validateM3,type M3Project} from '../src/motion/character-library.js';
+import {M3CharacterRegistry,makeM3Showcase,m3TotalFrames,sampleM3,validateM3,type M3Project} from '../src/motion/character-library.js';
 import type {ArtPack} from '../src/scene/types.js';
 
 const pack=JSON.parse(await readFile(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
@@ -87,4 +87,38 @@ test('unknown actions, fields, rigs, assets, durations, frames fail closed',()=>
  ];
  for(const [i,p] of invalid.entries())assert.throws(()=>validateM3(p,pack),/M3_/,'invalid fixture '+i);
  for(const f of [-1,268,1.2,NaN])assert.throws(()=>sample(f),/M3_FRAME_OUT_OF_RANGE/);
+});
+
+test('character registry is collision-safe and returns isolated project copies',()=>{
+ const registry=new M3CharacterRegistry(pack);
+ registry.register(project);
+ assert.deepEqual(registry.list(),['guest-01']);
+ assert.throws(()=>registry.register(project),/M3_CHARACTER_DUPLICATE/);
+ assert.throws(()=>registry.resolve('missing'),/M3_CHARACTER_UNKNOWN/);
+ const modified=registry.resolve('guest-01');
+ modified.character.capabilities.length=0;
+ modified.clips[0]!.frames=64;
+ assert.equal(registry.resolve('guest-01').character.capabilities.length,4);
+ assert.equal(registry.resolve('guest-01').clips[0]!.frames,73);
+ registry.register(makeM3Showcase(pack,'guest-02','mai'));
+ assert.deepEqual(registry.list(),['guest-01','guest-02']);
+});
+test('supported clip retiming changes frames but retains planted contacts and random seek',()=>{
+ const changed=structuredClone(project);
+ changed.clips[0]!.frames=97;
+ changed.clips[1]!.frames=73;
+ validateM3(changed,pack);
+ const endWalk=sample(96,changed),next=sample(97,changed);
+ assert.deepEqual(endWalk.frame.sprites,next.frame.sprites);
+ let frozen:readonly number[]|undefined;
+ for(let f=0;f<97;f++){
+   const cur=sample(f,changed);
+   assert.ok(cur.frame.sprites.every(x=>[x.x,x.y].every(Number.isFinite)));
+   if(f>=72){
+     const boot=cur.frame.markers.find(x=>x.id==='guest-01.left-sole')!.point;
+     if(frozen)assert.deepEqual(boot,frozen);
+     else frozen=boot;
+   }
+ }
+ assert.equal(m3TotalFrames(changed),316);
 });
