@@ -160,6 +160,11 @@ try{
   await page.waitForFunction(()=>document.querySelector('#notice')?.textContent?.includes('hàng đợi'),{timeout:30000});
   const jobs=(await app.snapshot(projectId)).jobs;
   assert.equal(jobs.length,1,'render click must enqueue exactly one job');
+  // The UI has already completed the real POST. Release its Chromium before
+  // HyperFrames starts capturing hundreds of native-resolution frames; only
+  // the producer browser should occupy GPU/texture memory during a long render.
+  await browser.close();
+  browser=undefined;
   const completed=await app.wait(jobs[0]!.id,900000);
   assert.equal(completed.status,'succeeded',JSON.stringify(completed.error));
   const art=await app.store.get<Artifact>('artifacts',completed.artifactId!);
@@ -200,7 +205,10 @@ try{
     '-vf','select=eq(n\\,'+sel.join(')+eq(n\\,')+'),scale=640:360,tile=2x2',
     '-frames:v','1',sheet]);
   await witness('m2-contact-sheet.png',sheet);
+  browser=await puppeteer.launch({executablePath:runtime.browser,headless:true,
+    args:['--no-sandbox','--disable-dev-shm-usage','--enable-unsafe-swiftshader']});
   const pageAgain=await browser.newPage();
+  pageAgain.on('pageerror',error=>pageErrors.push(String(error)));
   await pageAgain.setViewport({width:1440,height:1080,deviceScaleFactor:1});
   await pageAgain.goto(server.url,{waitUntil:'domcontentloaded'});
   await pageAgain.waitForSelector('[data-project]',{timeout:20000});
