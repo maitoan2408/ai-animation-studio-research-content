@@ -229,8 +229,14 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
           'cfr',
           '-c:v',
           'libx264',
+          // The CI container is memory-limited relative to exposed CPU cores.
+          // x264 auto-threading can OOM even with all Chromium workers exited.
+          '-threads',
+          '2',
+          '-filter_threads',
+          '1',
           '-preset',
-          'fast',
+          'veryfast',
           '-crf',
           '16',
           '-pix_fmt',
