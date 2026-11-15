@@ -68,7 +68,7 @@ async function audit(){
  for(const [before,after] of nativeChanges)
    assert.notEqual(m.frameHashes[before!]!,m.frameHashes[after!]!,'unsupported/visually inert action');
  for(const [file,digestValue] of [[m.contacts.file,m.contacts.sha256],
-   [m.contacts.baselineVsMotion,m.contacts.baselineVsMotionSha256]]){
+   [m.contacts.baselineVsMotion,m.contacts.baselineVsMotionSha256]] as const){
    const bytes=await load(file);
    assert.equal(digest(bytes),digestValue,'contact or A/B sheet SHA mismatch');
    assert.deepEqual([...bytes.subarray(0,8)],[137,80,78,71,13,10,26,10]);
