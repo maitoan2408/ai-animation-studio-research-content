@@ -237,8 +237,8 @@
       "ownerAcceptanceSource": "Owner explicitly approved M2 in ChatGPT conversation and authorized starting M3 on 2026-11-16."
     },
     "M3": {
-      "technicalStatus": "IN_PROGRESS",
-      "evidenceStatus": "NOT_VERIFIED",
+      "technicalStatus": "PASSED",
+      "evidenceStatus": "READY_FOR_USER_REVIEW",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "68ae34daebce4e1b27b4345cf5f296e4f4d300c2",
       "plan": "docs/product-first/M3-PLAN.md",
@@ -254,7 +254,47 @@
         "Existing rig art reused; no claim of brand-new authored character artwork",
         "M3 excludes M4 physics and M6 premium natural acting"
       ],
-      "ownerGate": "Only user can mark ACCEPTED. M4 cannot start until that approval."
+      "ownerGate": "Only user can mark ACCEPTED. M4 cannot start until that approval.",
+      "sourceImplementationCommit": "7aa1ce284662d65bda8d2d421492d0a74ea43ab5",
+      "appCIRun": 43751133720,
+      "productionCIRun": 43751133731,
+      "artifactId": 14175973462,
+      "artifactName": "q2-workbench-134",
+      "artifactExpiresAt": "2026-11-29T19:19:48Z",
+      "filmSha256": "2a902307ae4e7fadccae0fbc6b75ecf3af97e90192015739a35d79b8da0434a5",
+      "film": {
+        "seconds": 11.166666666666666,
+        "frames": 268,
+        "width": 1920,
+        "height": 1080,
+        "fps": 24,
+        "audio": false
+      },
+      "postResultAudit": "PASS",
+      "metrics": {
+        "plantedStanceFrames": 488,
+        "maxPlantedFootDriftPixels": 0,
+        "heldGripFrames": 58,
+        "maxGripErrorPixels": 0,
+        "cupLiftPixels": 66,
+        "nativeStills": 17
+      },
+      "resolvedDefects": [
+        "CI type narrowing of untrusted character capabilities",
+        "Invalid negative test used a legal retiming value",
+        "First media manifest hashed compact JSON but delivered pretty printed project file",
+        "First reference sheet called action-start frame standing baseline; now uses actual settled stance frame 72",
+        "Added immutable duplicate-safe character package registry",
+        "Added required independent post-result audit step verifying hashes and full decode"
+      ],
+      "unresolvedInScopeDefects": [],
+      "humanGate": "Owner must watch true M3 footage and decide artistic/functional acceptance; do not begin M4 without explicit owner approval",
+      "report": "docs/product-first/M3-REVIEW.md",
+      "proof": {
+        "studioCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43751133720",
+        "workbenchCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43751133731",
+        "artifact": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43751133731/artifacts/14175973462"
+      }
     },
     "M4": {
       "technicalStatus": "NOT_VERIFIED",
@@ -293,6 +333,7 @@
     "CLI stdout long-render contract repaired, its regression passed on final source. No remaining in-scope M2 technical defects from this audit.",
     "M2 accepted as workflow-quality gate; natural character acting and draft voice explicitly deferred to M3/M6.",
     "Owner authorized starting M3 on 2026-11-16; sequential gate remains mandatory through M3–M7.",
-    "M3 started only after explicit M2 owner acceptance; no interim reports; reviewable actual video and secondary post-result QA are mandatory."
+    "M3 started only after explicit M2 owner acceptance; no interim reports; reviewable actual video and secondary post-result QA are mandatory.",
+    "M3 268-frame 1080p native showreel and second-pass media provenance audit PASSED on 7aa1ce (both full CI); owner acceptance NOT_REVIEWED; M4 strictly prohibited."
   ]
 }

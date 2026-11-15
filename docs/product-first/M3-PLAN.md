@@ -12,19 +12,25 @@
 
 ## Acceptance gate bắt buộc
 
-- [ ] Source code thực và tests (gồm negative cases) PASS.
-- [ ] Clip mới có thể được cấu hình bằng data-only input; character instance ID khác với art model; rig assets/anchor SHA xác thực.
-- [ ] No-slip trên các khoảng stance được khai báo đo ở **sole anchor thực**, không suy từ vị trí root.
-- [ ] Pickup grip và prop anchor đúng trong khoảng held; frame giới hạn / contact invalid phải fail.
-- [ ] Walk-stop, head turn, wave, pick/place và transitions xuất hiện trong actual rendered video.
-- [ ] Real MP4 full decode, ffprobe fps/khung hình/kích thước, vẫn PNG from actual frames, contact, reverse seek state & raster parity, manifest source SHA.
-- [ ] Full final HEAD production + root application CI PASS sau sửa cuối; regression M0/M1/M2 không suy giảm.
-- [ ] Quay lại hậu kiểm lần hai, khắc phục các vấn đề trong scope và giữ failed attempts; không tự đánh giá diễn xuất đã đạt trình độ chuyên nghiệp.
+- [x] Source code thực và tests (gồm negative cases) PASS.
+- [x] Clip mới có thể được cấu hình bằng data-only input; character instance ID khác với art model; rig assets/anchor SHA xác thực.
+- [x] No-slip trên các khoảng stance được khai báo đo ở **sole anchor thực**, không suy từ vị trí root.
+- [x] Pickup grip và prop anchor đúng trong khoảng held; frame giới hạn / contact invalid phải fail.
+- [x] Walk-stop, head turn, wave, pick/place và transitions xuất hiện trong actual rendered video.
+- [x] Real MP4 full decode, ffprobe fps/khung hình/kích thước, vẫn PNG from actual frames, contact, reverse seek state & raster parity, manifest source SHA.
+- [x] Full final HEAD production + root application CI PASS sau sửa cuối; regression M0/M1/M2 không suy giảm.
+- [x] Quay lại hậu kiểm lần hai, khắc phục các vấn đề trong scope và giữ failed attempts; không tự đánh giá diễn xuất đã đạt trình độ chuyên nghiệp.
 - [ ] Hiển thị media/file & QC trực tiếp trong chat cho owner; chỉ owner đặt `ACCEPTED`.
 
 ## Không thuộc M3
 
 Rapier physics/bake tổng quát thuộc M4; orchestration AI Director thuộc M5; art, voice và diễn xuất cao cấp thuộc M6. Current M3 character ID mới sử dụng **compatible existing** cutout model, không phải asset/rig nghệ thuật mới.
+
+## Technical re-audit closure — 2026-11-16
+
+- Actual source `7aa1ce` generated native media and separate post-result audit, both full CI workflows SUCCESS.
+- Manual post-result inspection found and fixed actual package JSON hash mismatch and misleading comparison reference; CI now rejects stale artifact hashes.
+- M3 technical gate PASSED; owner visual acceptance is pending. No M4 work.
 
 ## Communication
 
