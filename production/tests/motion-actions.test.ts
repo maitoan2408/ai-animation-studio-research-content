@@ -40,8 +40,23 @@ test('wave stays reachable at bounded timings, intensities and on-twos extremes'
  }
 });
 test('elbow branch is explicit, validated, and preserves defaults', () => {
- const pose = sampleAction({action:'turn-head',duration:48,intensity:1,onTwos:false}, 24);
+ const { rightElbowBend: _branch, ...pose } = sampleAction({action:'turn-head',duration:48,intensity:1,onTwos:false}, 24);
  assert.deepEqual(actorSprites(pack, pose), actorSprites(pack, {...pose, rightElbowBend:1}));
  assert.notDeepEqual(actorSprites(pack, pose), actorSprites(pack, {...pose, rightElbowBend:-1}));
  assert.throws(() => actorSprites(pack, {...pose, rightElbowBend:0 as 1}), /RIGHT_ELBOW_BEND_INVALID/);
+});
+test('turn-head and wave have a common rig boundary without an elbow snap', () => {
+ const common = { duration:48, intensity:1, onTwos:false } as const;
+ const turn: ActionSpec = {...common,action:'turn-head'}, wave: ActionSpec = {...common,action:'wave'};
+ const turnEnd = actorSprites(pack, sampleAction(turn, 48));
+ const waveStart = actorSprites(pack, sampleAction(wave, 0));
+ assert.deepEqual(turnEnd, waveStart);
+ for (const previous of [turn, wave]) {
+  const before = actorSprites(pack, sampleAction(previous, 47));
+  for(const a of before.sprites) {
+   const b=waveStart.sprites.find(s=>s.id===a.id)!;
+   assert.ok(Math.hypot(a.x-b.x,a.y-b.y)<1, a.id);
+   assert.ok(Math.abs(a.rotation-b.rotation)<1, a.id);
+  }
+ }
 });

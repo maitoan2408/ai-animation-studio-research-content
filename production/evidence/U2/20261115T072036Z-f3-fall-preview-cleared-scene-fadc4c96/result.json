@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "f3-fall-preview-cleared-scene",
+  "run_id": "20261115T072036Z-f3-fall-preview-cleared-scene-fadc4c96",
+  "started_at_utc": "20261115T072036Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx production/src/motion/build_f3_fall_preview.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1e0232236f04a94f8d63e31faa3539691fd2a02a",
+  "tracked_diff_sha256": "f74c63a093dd9276f9cd0aded10579424956fd62ff63dad90b654977d1df8e67",
+  "recorder_pid": 26767,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "c4a0638c26a5dd9e45da72f51c16fcb2dbd11c1a0aea816c95aa6bc89350e484",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 19.946,
+  "finished_at_utc": "2026-11-15T07:20:57.175757+00:00",
+  "log_sha256": "71e98fcc107084eecae623dc188e3c72fffda52eaa558b0b664a43e691034cc5",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

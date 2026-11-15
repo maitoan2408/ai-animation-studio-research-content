@@ -1,0 +1,2 @@
+ if (!match || match.sha256 !== prior.sha256 || match.sourceSha256 !== prior.sourceSha256) throw Error(`F3_TEXTURE_REBIND_MISMATCH ${prior.id}`);
+Error: F3_TEXTURE_REBIND_MISMATCH mai/torso

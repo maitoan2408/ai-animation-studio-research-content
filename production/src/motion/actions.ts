@@ -12,8 +12,8 @@ export function sampleAction(spec: ActionSpec, frame: number): ActorPose {
   const f = spec.onTwos && frame < spec.duration ? frame - frame % 2 : frame;
   const half = spec.duration / 2, local = f <= half ? f : spec.duration - f;
   const envelope = sampleScalarClip({ duration: half, start: 0, end: 1, anticipation: .2, actionEnd: .75, anticipationAmount: spec.action === 'wave' ? .03 : .08, overshootAmount: .06 }, local).value * spec.intensity;
-  const pose: ActorPose = { id: 'mai', character: 'mai', x: 760, floor: 860, facing: 1, view: 'quarter', leftAnkle: [-35,-29], rightAnkle: [48,-29] };
+  const pose: ActorPose = { id: 'mai', character: 'mai', x: 760, floor: 860, facing: 1, view: 'quarter', leftAnkle: [-35,-29], rightAnkle: [48,-29], rightElbowBend: -1, rightWrist: [96,-220], rightHandAngle: 180 };
   if (spec.action === 'turn-head') pose.headAngle = 18 * envelope;
-  else { pose.rightElbowBend = -1; pose.rightWrist = [96 + 44 * envelope, -220 - 250 * envelope]; pose.rightHandAngle = 180 - 180 * envelope; }
+  else { pose.rightWrist = [96 + 44 * envelope, -220 - 250 * envelope]; pose.rightHandAngle = 180 - 180 * envelope; }
   return pose;
 }

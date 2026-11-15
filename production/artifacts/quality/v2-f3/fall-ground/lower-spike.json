@@ -1,0 +1,340 @@
+{
+  "status": "OBSERVATION_ONLY",
+  "sourceSha256": "531c69a4d65b0259f188b25d59aa1ab6c161e3ce800c48765834f01e7b402c77",
+  "frames": 73,
+  "alphaThreshold": 128,
+  "groundStageY": 860,
+  "belowFloorStartsAtY": 861,
+  "hits": [
+    {
+      "frame": 24,
+      "sprite": "mai.left-thigh",
+      "pixels": 1
+    },
+    {
+      "frame": 24,
+      "sprite": "mai.left-shin",
+      "pixels": 89
+    },
+    {
+      "frame": 25,
+      "sprite": "mai.left-thigh",
+      "pixels": 163
+    },
+    {
+      "frame": 25,
+      "sprite": "mai.left-shin",
+      "pixels": 684
+    },
+    {
+      "frame": 26,
+      "sprite": "mai.left-thigh",
+      "pixels": 507
+    },
+    {
+      "frame": 26,
+      "sprite": "mai.left-shin",
+      "pixels": 1294
+    },
+    {
+      "frame": 27,
+      "sprite": "mai.left-thigh",
+      "pixels": 909
+    },
+    {
+      "frame": 27,
+      "sprite": "mai.left-shin",
+      "pixels": 1795
+    },
+    {
+      "frame": 28,
+      "sprite": "mai.left-thigh",
+      "pixels": 1207
+    },
+    {
+      "frame": 28,
+      "sprite": "mai.left-shin",
+      "pixels": 2115
+    },
+    {
+      "frame": 29,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 29,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 29,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 30,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 30,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 30,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 31,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 31,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 31,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 32,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 32,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 32,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 33,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 33,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 33,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 34,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 34,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 34,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 35,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 35,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 35,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 36,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 36,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 36,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 37,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 37,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 37,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 38,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 38,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 38,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 39,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 39,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 39,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 40,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 40,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 40,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 41,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 41,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 41,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 42,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 42,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 42,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 43,
+      "sprite": "mai.left-thigh",
+      "pixels": 1286
+    },
+    {
+      "frame": 43,
+      "sprite": "mai.left-shin",
+      "pixels": 2192
+    },
+    {
+      "frame": 43,
+      "sprite": "mai.torso",
+      "pixels": 4
+    },
+    {
+      "frame": 44,
+      "sprite": "mai.left-thigh",
+      "pixels": 1207
+    },
+    {
+      "frame": 44,
+      "sprite": "mai.left-shin",
+      "pixels": 2115
+    },
+    {
+      "frame": 45,
+      "sprite": "mai.left-thigh",
+      "pixels": 909
+    },
+    {
+      "frame": 45,
+      "sprite": "mai.left-shin",
+      "pixels": 1795
+    },
+    {
+      "frame": 46,
+      "sprite": "mai.left-thigh",
+      "pixels": 507
+    },
+    {
+      "frame": 46,
+      "sprite": "mai.left-shin",
+      "pixels": 1294
+    },
+    {
+      "frame": 47,
+      "sprite": "mai.left-thigh",
+      "pixels": 163
+    },
+    {
+      "frame": 47,
+      "sprite": "mai.left-shin",
+      "pixels": 684
+    },
+    {
+      "frame": 48,
+      "sprite": "mai.left-thigh",
+      "pixels": 1
+    },
+    {
+      "frame": 48,
+      "sprite": "mai.left-shin",
+      "pixels": 89
+    }
+  ],
+  "limits": [
+    "Projected 2D alpha pixels, not 3D collision",
+    "boots and authored shadows excluded",
+    "does not check character-character collision or approved art"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "f3-fall-isolated-actors",
+  "run_id": "20261115T072312Z-f3-fall-isolated-actors-2c837467",
+  "started_at_utc": "20261115T072312Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx production/src/motion/build_f3_fall_preview.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "1e0232236f04a94f8d63e31faa3539691fd2a02a",
+  "tracked_diff_sha256": "49c8d69f324f4f4ca74ff698d0ea07ec3710c45ff0642652f232d382557c7cd7",
+  "recorder_pid": 27605,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "5e07c2a521e9e68094052d7eaf080a2ba27cbfd679d2136731a532ae979b93ac",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 16.723,
+  "finished_at_utc": "2026-11-15T07:23:29.312596+00:00",
+  "log_sha256": "4e46f1e11e0e05c0a743847738912fd8738be296b27d16dbf467d3aa62552305",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

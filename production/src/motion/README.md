@@ -103,3 +103,5 @@ required for this development workbench gate.
 `walk.ts` exposes the existing S02 authored walk only for integer frames 0–191; it adds no retiming capability. Its contract test measures planted boot sole anchors in world space on the actual rig.
 
 `cup-actions.ts` exposes the fixed existing S03 reach/lift/place shot; tests compare the actual grip anchors through the held interval. It does not support arbitrary props or retiming.
+
+`living-rest.ts` applies seeded breath/blink to an isolated standing rig while keeping both feet planted. It does not alter the hero, solve gaze or promise medically calibrated acting.

@@ -83,3 +83,5 @@ Người dùng chấp nhận chất lượng hiện tại, yêu cầu không t�
 F3 thử nghiệm thêm head emphasis trên rig S05 và hai action fixture turn-head/wave; test contact chân, retime, seek và miền input, giữ lần FAIL IK wave và bản sửa. Chưa có sáu action hoặc gate diễn xuất; xem F3 report, không đóng F3.
 
 F3 tiếp theo: hai action test, walk S02 và lift/place S03 có contract kiểm trên rig thật; video thử hai action có bước nhảy tư thế tay giữa clip, vẫn FAIL continuity. Còn action ngã nhẹ, lớp sống gắn rig và gate chất lượng; không dùng preview này để chốt F3. Full local 97 TS/62 Python/root verify PASS.
+
+F3 bổ sung fixture đứng thở/chớp gắn rig và spike ngả/ngồi. Đã phát hiện và giữ lỗi IK, thiếu texture, xuyên nền khi thử ngã sâu; bản trung gian không có hit alpha dưới nền theo phạm vi test nhưng vẫn nhìn như cúi/ngồi, chưa là ngã đạt. Fixture turn-head/wave dùng tư thế nghỉ chung, hai ranh giới được kiểm hình học; chưa chứng minh diễn xuất. Xem báo cáo F3.
