@@ -119,12 +119,15 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
   const { drainBrowserPool } = await import('@hyperframes/engine');
   const logs: string[] = [];
   const segmentReceipts: Array<{ scene: string; frames: number; qc: QC }> = [];
-  const log = (message: string) => { logs.push(message); };
+  const log = (message: string) => {
+    logs.push(message);
+  };
   const file = path.join(dir, 'output.mp4');
   const parsed = parseSpec(spec);
   // Preserve the established continuous-render path for short projects and
   // any long unsupported single scene. No change to existing M0/M1 output.
-  const split = totalFrames(parsed) > 360 &&
+  const split =
+    totalFrames(parsed) > 360 &&
     parsed.scenes.length > 1 &&
     parsed.scenes.every((scene) => scene.durationFrames <= 360);
   let activeJob: unknown;
@@ -133,14 +136,25 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
       await compile(store, parsed, profile, path.join(dir, 'composition'));
       await progress(0.05, 'Rendering frames');
       const job = createRenderJob({
-        fps: 24, format: 'mp4', quality: 'standard', workers: 1,
-        strictness: 'strict', maxRenderMs: 900000, crf: 18,
+        fps: 24,
+        format: 'mp4',
+        quality: 'standard',
+        workers: 1,
+        strictness: 'strict',
+        maxRenderMs: 900000,
+        crf: 18,
         logger: { error: log, warn: log, info: log, debug: () => {} },
       });
       activeJob = job;
-      await executeRenderJob(job, path.join(dir, 'composition'), file, async (j, message) => {
-        await progress(Math.min(0.9, 0.05 + j.progress * 0.0085), message);
-      }, signal);
+      await executeRenderJob(
+        job,
+        path.join(dir, 'composition'),
+        file,
+        async (j, message) => {
+          await progress(Math.min(0.9, 0.05 + j.progress * 0.0085), message);
+        },
+        signal,
+      );
     } else {
       const segmentPaths: string[] = [];
       await progress(0.04, 'Preparing memory-bounded independent scenes');
@@ -151,20 +165,30 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
         const partFile = path.join(partDir, 'shot.mp4');
         await compile(store, single, profile, path.join(partDir, 'composition'));
         const job = createRenderJob({
-          fps: 24, format: 'mp4', quality: 'standard', workers: 1,
-          strictness: 'strict', maxRenderMs: 900000, crf: 18,
+          fps: 24,
+          format: 'mp4',
+          quality: 'standard',
+          workers: 1,
+          strictness: 'strict',
+          maxRenderMs: 900000,
+          crf: 18,
           logger: { error: log, warn: log, info: log, debug: () => {} },
         });
         activeJob = job;
         try {
-          await executeRenderJob(job, path.join(partDir, 'composition'), partFile,
+          await executeRenderJob(
+            job,
+            path.join(partDir, 'composition'),
+            partFile,
             async (j, message) => {
-              const overall = 0.06 + 0.78 * (index + j.progress / 100) / parsed.scenes.length;
+              const overall = 0.06 + (0.78 * (index + j.progress / 100)) / parsed.scenes.length;
               await progress(Math.min(0.85, overall), scene.id + ': ' + message);
-            }, signal);
+            },
+            signal,
+          );
           const qc = await qcVideo(partFile, single, profile, signal);
           assertSegmentFrames(scene.id, qc.frames, scene.durationFrames);
-          segmentReceipts.push({scene:scene.id,frames:scene.durationFrames,qc});
+          segmentReceipts.push({ scene: scene.id, frames: scene.durationFrames, qc });
           segmentPaths.push(partFile);
         } finally {
           // Explicitly release native browser buffers before the next long
@@ -175,24 +199,74 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
       signal.throwIfAborted();
       await progress(0.87, 'Joining video scenes and original continuous voice');
       const list = path.join(dir, 'video-segments.txt');
-      await writeFile(list, segmentPaths.map((p) => "file '" + p.replace(/'/g, "'\\''") + "'").join('\n') + '\n');
+      await writeFile(
+        list,
+        segmentPaths.map((p) => "file '" + p.replace(/'/g, "'\\''") + "'").join('\n') + '\n',
+      );
       const joined = path.join(dir, 'joined-silent.mp4');
-      await run('ffmpeg', [
-        '-v', 'error', '-xerror', '-nostdin', '-y',
-        '-f', 'concat', '-safe', '0', '-i', list,
-        '-map', '0:v:0', '-an', '-c:v', 'copy', '-movflags', '+faststart', joined,
-      ], signal);
+      await run(
+        'ffmpeg',
+        [
+          '-v',
+          'error',
+          '-xerror',
+          '-nostdin',
+          '-y',
+          '-f',
+          'concat',
+          '-safe',
+          '0',
+          '-i',
+          list,
+          '-map',
+          '0:v:0',
+          '-an',
+          '-c:v',
+          'copy',
+          '-movflags',
+          '+faststart',
+          joined,
+        ],
+        signal,
+      );
       const mixed = await mixAudio(store, parsed);
       if (mixed.audio) {
         const audioPath = path.join(dir, 'full-original-timeline.wav');
         await writeFile(audioPath, mixed.audio);
-        await run('ffmpeg', [
-          '-v', 'error', '-xerror', '-nostdin', '-y', '-i', joined,
-          '-i', audioPath, '-map', '0:v:0', '-map', '1:a:0',
-          '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k',
-          '-ar', '48000', '-ac', '2', '-t', String(totalFrames(parsed) / 24),
-          '-movflags', '+faststart', file,
-        ], signal);
+        await run(
+          'ffmpeg',
+          [
+            '-v',
+            'error',
+            '-xerror',
+            '-nostdin',
+            '-y',
+            '-i',
+            joined,
+            '-i',
+            audioPath,
+            '-map',
+            '0:v:0',
+            '-map',
+            '1:a:0',
+            '-c:v',
+            'copy',
+            '-c:a',
+            'aac',
+            '-b:a',
+            '192k',
+            '-ar',
+            '48000',
+            '-ac',
+            '2',
+            '-t',
+            String(totalFrames(parsed) / 24),
+            '-movflags',
+            '+faststart',
+            file,
+          ],
+          signal,
+        );
       } else {
         await copyFile(joined, file);
       }
@@ -212,5 +286,6 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
 
 /** No silent truncation or duplicate boundary frames allowed. */
 function assertSegmentFrames(id: string, actual: number, expected: number) {
-  if (actual !== expected) throw new StudioError('SEGMENT_FRAME_MISMATCH', id + ':' + actual + '/' + expected);
+  if (actual !== expected)
+    throw new StudioError('SEGMENT_FRAME_MISMATCH', id + ':' + actual + '/' + expected);
 }
