@@ -251,6 +251,8 @@ try {
     run('ffprobe', [
       '-v',
       'error',
+      '-threads',
+      '1',
       '-count_frames',
       '-show_streams',
       '-show_format',
@@ -270,7 +272,7 @@ try {
   // Decode the entire mono PCM stream and check each shot independently.
   const sample = spawnSync(
     'ffmpeg',
-    ['-v', 'error', '-nostdin', '-i', output, '-vn', '-ar', '8000', '-ac', '1', '-f', 's16le', '-'],
+    ['-v', 'error', '-nostdin', '-threads', '1', '-filter_threads', '1', '-i', output, '-vn', '-ar', '8000', '-ac', '1', '-f', 's16le', '-'],
     { maxBuffer: 4 * 1024 * 1024 },
   );
   assert.equal(sample.status, 0, String(sample.stderr));
@@ -313,6 +315,10 @@ try {
       'error',
       '-xerror',
       '-y',
+      '-threads',
+      '1',
+      '-filter_threads',
+      '1',
       '-i',
       output,
       '-vf',
