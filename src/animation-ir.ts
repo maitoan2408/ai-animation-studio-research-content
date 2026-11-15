@@ -114,7 +114,7 @@ export const animationIrSchema = z
           ctx.addIssue({code:'custom',message:s.id+': duplicate production actor'});
         for(const a of s.production.actors) {
           const bound=ir.characters.find(c=>c.id===a.id);
-          if(!bound || bound.rigId!=='production-cutout-1' || bound.artPackageId!==ir.artPack?.id || bound.artPackageId!==ir.artPack?.version)
+          if(!bound || bound.rigId!=='production-cutout-1' || bound.artPackageId!==ir.artPack?.id)
             ctx.addIssue({code:'custom',message:s.id+': production actor rig or art pack missing'});
         }
         for(const p of s.production.props)
