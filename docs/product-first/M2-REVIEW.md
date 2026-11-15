@@ -1,6 +1,6 @@
 # M2 — kết quả thẩm định và bàn giao
 
-Trạng thái hiện tại: **VERIFYING**. Người dùng chưa duyệt M2; M3 chưa bắt đầu.
+Trạng thái: **PASSED về kỹ thuật — READY_FOR_USER_REVIEW**. Người dùng chưa duyệt M2; M3 chưa bắt đầu.
 Người thực hiện kiểm tra: `delegated-agent`. Không giả là một chuyên gia độc lập hoặc chủ dự án đã xem/nghe và duyệt.
 
 ## Lỗi tìm thấy và sửa
@@ -15,7 +15,7 @@ Người thực hiện kiểm tra: `delegated-agent`. Không giả là một chu
 
 ## Đối chiếu kế hoạch
 
-| Yêu cầu | Bằng chứng cần chốt |
+| Yêu cầu | Bằng chứng đã đạt |
 |---|---|
 | Phim mới 20–30 giây, ≥3 cảnh, native 1920×1080/24fps | Phim `Ngày mới trên giấy`, 3 cảnh × 8 giây; 576 frame; ffprobe và decode toàn bộ |
 | Từ script ngoài, chỉnh qua Studio, không viết logic riêng từng cảnh | `examples/m2-new-story.txt`; tạo dự án, đổi tiêu đề/màu cảnh 2 qua browser; ảnh trước/sau |
@@ -26,7 +26,19 @@ Người thực hiện kiểm tra: `delegated-agent`. Không giả là một chu
 | Giữ logic và kiểm thử cũ | Cả CI ứng dụng lẫn workbench; integration/UI/recovery; M1 legacy/IR parity và Three render |
 | Bàn giao dùng được | MP4, ảnh Studio desktop/mobile, contact sheet, gói dự án và manifest SHA; video thực sự load/seek/play trong browser |
 
-Các con số, CI cuối và đường dẫn media sẽ được ghi sau khi cả bộ kiểm hoàn tất.
+**Tất cả tiêu chí kỹ thuật trong bảng đã PASS.** Source cuối: `a6399e293b5c68c2637c295a4d36e929b7526dea`. [CI ứng dụng](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478725) và [CI workbench](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478822) đều SUCCESS, gồm 25 unit/negative tests, types/build, integration/UI/recovery, M1 parity và standalone Git-only.
+
+[**Tải video và gói dự án M2**](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478725/artifacts/14171210679) (artifact `paper-studio-m2-143`, hạn lưu CI 29/11/2026). Mở `m2-edited-film-final-1080p.mp4` để xem. Nhập `m2-edited-project.studio.json` qua “Nhập gói dự án” để chỉnh tiếp; gói portable giữ revision cuối và audio, không xuất toàn bộ lịch sử revision nguồn.
+
+[Manifest gắn đúng source SHA và synthetic merge SHA](evidence/m2-ci-a6399e2/manifest.json), [pixel/audio parity](evidence/m2-ci-a6399e2/preview-final-parity.json), [reopen ở tiến trình mới](evidence/m2-ci-a6399e2/reopen-proof.json), [ảnh Studio desktop](evidence/m2-ci-a6399e2/studio-rendered-film-desktop.png), [mobile](evidence/m2-ci-a6399e2/studio-rendered-film-mobile.png), [contact sheet](evidence/m2-ci-a6399e2/m2-contact-sheet.png).
+
+- Video: **24 giây, 3 cảnh, 576 frame, 1920×1080, 24fps, AAC 48 kHz**; 1.213.827 bytes. SHA-256 `cc3177c7c71393fb54778f12c05023e102ff229cd6111a161cbf3ff61b8ed109`.
+- Đã tải và kiểm đủ **23 SHA artifact**. Video CI giống từng byte với bản local đã full-decode/kiểm browser; sai số timestamp tối đa của cả 576 frame là **0,000000334 giây**.
+- 9 frame native ở hai phía điểm cắt và đỉnh thoại: MAE lớn nhất **1,606/255**, tile xấu nhất **2,033/255**, nằm trong ngưỡng khóa trước đo. Tương quan waveform tại độ trễ 0 từng cảnh **≥0,99983**.
+- Kiểm âm tính độc lập qua đầu ra thực phát hiện video sai revision và voice lệch **250 ms**; [report](evidence/m2-negative-media-report.json). Đây là kiểm tra của cùng agent, không phải người nghe/animator độc lập.
+- Đã quan sát ảnh desktop/mobile, contact sheet và 24 mốc cách nhau một giây từ movie: đủ ba hành động wave/walk/pick-up, thay màu cảnh 2 thể hiện đúng, không cảnh đen/trống hoặc nhân vật mất khỏi khung tại các mốc quan sát. Browser đã thực sự load/seek/play video; không chỉ kiểm file tồn tại. Không chấm điểm diễn xuất hoặc tuyên bố đã nghe bằng tai.
+
+Không còn lỗi kỹ thuật **trong phạm vi M2** đã biết sau vòng audit này. `userAcceptance=NOT_REVIEWED`; người dùng duyệt video trước khi chuyển M3.
 
 ## Phạm vi chất lượng
 

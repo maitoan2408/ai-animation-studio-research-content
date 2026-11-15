@@ -150,8 +150,8 @@
       }
     },
     "M2": {
-      "technicalStatus": "IN_PROGRESS",
-      "evidenceStatus": "NOT_VERIFIED",
+      "technicalStatus": "PASSED",
+      "evidenceStatus": "READY_FOR_USER_REVIEW",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "2042ad49e4e7f5456a49bc696d820044017f5643",
       "requirements": [
@@ -162,7 +162,7 @@
         "Fail-closed validation, full CI regression, actual media sound/full decode and owner review"
       ],
       "remediation": {
-        "status": "VERIFYING",
+        "status": "VERIFIED",
         "rootCause": "Digest string was compared to an MP4 Buffer in the acceptance harness, causing multi-GB assertion diff and OOM; renderer final QC had passed.",
         "details": "docs/product-first/evidence/m2-oom-root-cause.json",
         "newGates": [
@@ -172,7 +172,31 @@
           "dependency error/recovery and worker descendant cancellation"
         ],
         "reviewer": "delegated-agent; no independent human or owner approval claimed"
-      }
+      },
+      "sourceCommit": "a6399e293b5c68c2637c295a4d36e929b7526dea",
+      "appCIRun": 43736478725,
+      "productionCIRun": 43736478822,
+      "appCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478725",
+      "productionCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478822",
+      "artifactId": 14171210679,
+      "artifactName": "paper-studio-m2-143",
+      "artifactExpiresAt": "2026-11-29T16:44:32Z",
+      "report": "docs/product-first/M2-REVIEW.md",
+      "manifest": "docs/product-first/evidence/m2-ci-a6399e2/manifest.json",
+      "videoSha256": "cc3177c7c71393fb54778f12c05023e102ff229cd6111a161cbf3ff61b8ed109",
+      "unresolvedInScopeDefects": [],
+      "verified": [
+        "25 root unit/negative tests; strict types, formatting and build",
+        "Complete root real integration/UI/recovery and M0/M1 regression",
+        "Complete workbench and standalone Git-only regression",
+        "New 3-shot 24-second native 1080p/24fps film, 576 decoded frames, AAC 48kHz",
+        "Actual browser create/edit/voice/render/load/seek/play and desktop/mobile screenshots",
+        "Immutable source revisions, export/import content+audio, separate-process reopen",
+        "9 native preview/final image comparisons and zero-lag per-shot audio correlation",
+        "Negative stale-revision and delayed-voice consumer checks; all 576 presentation timestamps",
+        "23 downloaded CI artifact hashes verified; final movie byte-identical to local verified render"
+      ],
+      "ownerGate": "Only owner can accept visual/listening result; M3 remains NOT_REVIEWED and must not start."
     },
     "M3": {
       "technicalStatus": "NOT_VERIFIED",
