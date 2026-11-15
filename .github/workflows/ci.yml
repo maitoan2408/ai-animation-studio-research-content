@@ -14,7 +14,7 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
-    timeout-minutes: 20
+    timeout-minutes: 40
     env:
       STUDIO_BROWSER: /usr/bin/chromium
       HYPERFRAMES_NO_TELEMETRY: '1'
@@ -35,6 +35,10 @@ jobs:
         env:
           SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: npx tsx scripts/render-ir-ab.ts
+      - name: M2 real 3-shot edited 1080p production video + UI + voice acceptance
+        env:
+          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: npx tsx scripts/m2-product-e2e.ts
       - name: Upload evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

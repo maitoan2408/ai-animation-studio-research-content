@@ -180,7 +180,6 @@ try{
   assert.equal(video?.width,1920);assert.equal(video?.height,1080);
   assert.equal(audio?.sample_rate,'48000');
   // Verify decoded sound energy rather than trusting the presence of an audio track.
-  const soundReport=run('ffmpeg',['-v','info','-nostdin','-i',output,'-vn','-af','volumedetect','-f','null','-']);
   // ffmpeg writes volumedetect to stderr, so decode a short PCM sample instead.
   const sample=spawnSync('ffmpeg',['-v','error','-nostdin','-i',output,'-vn','-ar','8000','-ac','1','-f','s16le','-'],{maxBuffer:4*1024*1024});
   assert.equal(sample.status,0,String(sample.stderr));

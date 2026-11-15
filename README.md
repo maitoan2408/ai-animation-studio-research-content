@@ -90,3 +90,8 @@ Giữ nguyên các tài liệu đã bàn giao:
 - [Word bàn giao chương trình, kiểm thử và đủ 12 giai đoạn](reports/Ban_giao_Studio_noi_bo_v0.1.docx?raw=true).
 
 Kế hoạch khảo sát là snapshot trước khi viết chương trình. Trạng thái hiện tại ở `plan.md` và `docs/roadmap-full.md`.
+
+
+## Product-first M2 preview and owner gate (2026-11-15)
+
+M1 was explicitly accepted by the owner. M2 is implemented only on `codex/product-first-m2-studio-v02` until final technical, media, visual and owner acceptance gates pass. Reproduce the **new** real 3-scene/24-sec paper-cut film, edited storyboard, offline voice, 1080p/24fps render, UI screenshots and complete ZIP artifact in GitHub Actions; do not mistake old 13s/M1 demo for M2 proof. Source script: `examples/m2-new-story.txt`. Native acceptance harness: `npx tsx scripts/m2-product-e2e.ts` (uses local Chromium, ffmpeg, ffprobe, repository dependencies and creates source SHA-bound media in `artifacts/product-first/m2/`). All old tests and the M1 A/B parity still run. See `docs/product-first/M2-PLAN.md` and `STATE.json`. M2 cannot advance to M3 without owner video approval; auto-merge remains forbidden.
