@@ -55,3 +55,7 @@ Bump preview 192 frame đã render lần hai cùng máy/browser: mọi hash fram
 CI source 7184935: app PASS, workbench FAIL vì alpha critic gọi Python hệ thống thiếu Pillow. Workflow sửa PATH đến venv QC; retest diagnostics qua venv cục bộ PASS, CI source sửa chưa có kết quả.
 
 CI source e6d705e sau sửa Python PATH: workbench 43638665678 và app 43638665774 PASS; workbench 79 TS, 51 Python. F2 vẫn IN_PROGRESS theo visual và HQ-02, xem F2 report.
+
+T2 control cùng frame cho thấy receiver chung làm tối cả bầu trời; bỏ receiver vẫn còn bóng kích thước lớn do thứ tự/lệch lớp. Đã lưu ảnh và phép đo; không gọi T2 đạt.
+
+T2: điều tra cùng mode depth-lit cho thấy receiver chung làm tối trời; tính hình học dự đoán offset shadow tới ground lớn (tối đa 110,646 px preview), không phải đo bóng thực. Chưa chỉnh preset hoặc coi T2 đạt.

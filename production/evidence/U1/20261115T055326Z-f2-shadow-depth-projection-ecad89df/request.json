@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-shadow-depth-projection",
+  "run_id": "20261115T055326Z-f2-shadow-depth-projection-ecad89df",
+  "started_at_utc": "20261115T055326Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; python -m unittest discover -s production/tests -p test_f2_depth_projection.py -v; python production/src/art/paper-scene/calibration/depth_projection.py production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 108 production/artifacts/quality/v2-f2/t2/depth-projection.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "ebc7d7bfe12afac6f386f9abef0a08f2ab99874d",
+  "tracked_diff_sha256": "3b95df910cd241830176f84fee4f376aef08550e396bc7f9f8e568671fe1e26e",
+  "status": "RUNNING",
+  "recorder_pid": 944,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "788262b31181e1de3e16d3e74f65b63189071811e3cf41b733f305c14697b12c"
+}
