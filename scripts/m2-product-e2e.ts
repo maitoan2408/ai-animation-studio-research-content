@@ -267,7 +267,7 @@ try {
   assert.equal(video?.height, 1080);
   assert.equal(audio?.sample_rate, '48000');
   // Verify decoded sound energy rather than trusting the presence of an audio track.
-  // ffmpeg writes volumedetect to stderr, so decode a short PCM sample instead.
+  // Decode the entire mono PCM stream and check each shot independently.
   const sample = spawnSync(
     'ffmpeg',
     ['-v', 'error', '-nostdin', '-i', output, '-vn', '-ar', '8000', '-ac', '1', '-f', 's16le', '-'],
@@ -282,6 +282,20 @@ try {
   }
   const rms = Math.sqrt(energy / (pcm.length / 2));
   assert.ok(rms > 50, 'final encoded film appears silent: ' + rms);
+  let audioSampleOffset = 0;
+  const voiceRmsByScene: Record<string, number> = {};
+  for (const scene of finalSpec.scenes) {
+    const sceneSampleCount = Math.round((scene.durationFrames / 24) * 8000);
+    let sceneEnergy = 0;
+    for (let i = audioSampleOffset; i < Math.min(pcm.length / 2, audioSampleOffset + sceneSampleCount); i++) {
+      const sampleValue = pcm.readInt16LE(i * 2);
+      sceneEnergy += sampleValue * sampleValue;
+    }
+    const sceneRms = Math.sqrt(sceneEnergy / sceneSampleCount);
+    assert.ok(sceneRms > 50, scene.id + ' was silent or shifted after concatenation: ' + sceneRms);
+    voiceRmsByScene[scene.id] = sceneRms;
+    audioSampleOffset += sceneSampleCount;
+  }
   checks.push(
     'Final native 1920×1080, ' +
       frames +
@@ -414,6 +428,7 @@ try {
       durationSeconds: frames / 24,
       audioSampleRate: 48000,
       decodedAudioRms: rms,
+      voiceRmsByScene,
       bytes: art.bytes,
     },
     artifactHashes: artifacts,
