@@ -5,8 +5,8 @@
     "branch": "codex/v2-continuous",
     "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
   },
-  "implementationBranch": "codex/product-first-skill-architecture",
-  "activeMilestone": "M1",
+  "implementationBranch": "codex/product-first-m2-studio-v02",
+  "activeMilestone": "M2",
   "milestones": {
     "M0": {
       "technicalStatus": "PASSED",
@@ -39,8 +39,8 @@
     },
     "M1": {
       "technicalStatus": "PASSED",
-      "evidenceStatus": "READY_FOR_USER_REVIEW",
-      "userAcceptance": "NOT_REVIEWED",
+      "evidenceStatus": "ACCEPTED",
+      "userAcceptance": "ACCEPTED",
       "sourceCommit": "2b28317bbf15550204ebef1952b3938c222bb5f0",
       "appCIRun": 43710867218,
       "productionCIRun": 43710867255,
@@ -142,12 +142,25 @@
           "Artistic aesthetics and user assessment are not self-approved"
         ],
         "unresolvedInScopeDefects": []
+      },
+      "ownerReview": {
+        "date": "2026-11-15",
+        "decision": "ACCEPTED",
+        "scope": "Owner explicitly approved M1 final 3s Three production-animation demo and authorized M2; M2+ creative quality not implied"
       }
     },
     "M2": {
-      "technicalStatus": "NOT_VERIFIED",
+      "technicalStatus": "IN_PROGRESS",
       "evidenceStatus": "NOT_VERIFIED",
-      "userAcceptance": "NOT_REVIEWED"
+      "userAcceptance": "NOT_REVIEWED",
+      "sourceBaseCommit": "2042ad49e4e7f5456a49bc696d820044017f5643",
+      "requirements": [
+        "New independent 20–30 second voice-over video 1920x1080 at 24fps with at least three shots",
+        "Script-to-storyboard-to-edit-to-local voice-to-MP4 without modifying per-shot source",
+        "Persist edited revision and prove export/import/reopen preserves narration and scene edits",
+        "Inspect actual UI screenshot from tested working Studio, include video, stills, media and save/reopen report",
+        "Fail-closed validation, full CI regression, actual media sound/full decode and owner review"
+      ]
     },
     "M3": {
       "technicalStatus": "NOT_VERIFIED",
@@ -186,9 +199,8 @@
     "ownerApprovalBeforeNextStage": true
   },
   "notes": [
-    "M0 ACCEPTED by owner on 2026-11-15.",
-    "M1 corrected, two full CI checks on source 2b28317 passed; independently inspected actual 72-frame Three animation and 1080 still; no open M1-scoped defects.",
-    "M1 READY_FOR_USER_REVIEW, not ACCEPTED. Owner must approve M1 before implementing M2. No auto-merge.",
-    "QA gate is mandatory for every future milestone, and failures must be fixed before completion reports."
+    "M0 ACCEPTED, M1 ACCEPTED by owner 2026-11-15.",
+    "M2 active in dedicated branch; M3–M7 blocked until owner approves M2.",
+    "Mandatory deep independent audit and fix before reporting any completion; never auto-merge."
   ]
 }
