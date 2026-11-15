@@ -188,9 +188,7 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
         ];
         const childLog = await run(process.execPath, args, signal);
         logs.push(childLog.slice(-12000));
-        const qc = JSON.parse(
-          await readFile(path.join(partDir, 'segment-qc.json'), 'utf8'),
-        ) as QC;
+        const qc = JSON.parse(await readFile(path.join(partDir, 'segment-qc.json'), 'utf8')) as QC;
         assertSegmentFrames(scene.id, qc.frames, scene.durationFrames);
         segmentReceipts.push({ scene: scene.id, frames: scene.durationFrames, qc });
         segmentPaths.push(partFile);

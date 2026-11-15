@@ -18,10 +18,14 @@ if (spec.scenes.length !== 1 || spec.scenes[0]!.durationFrames > 360)
   throw Error('SEGMENT_WORKER_UNSUPPORTED_SHOT');
 await mkdir(dir, { recursive: true });
 const result = await renderVideo(
-  store, spec, profile, dir, new AbortController().signal,
+  store,
+  spec,
+  profile,
+  dir,
+  new AbortController().signal,
   async () => {},
 );
 if (path.resolve(result.file) !== path.resolve(dir, 'output.mp4'))
   throw Error('SEGMENT_OUTPUT_PATH_CHANGED');
 await writeFile(path.join(dir, 'segment-qc.json'), JSON.stringify(result.qc, null, 2) + '\n');
-console.log('SEGMENT_DONE ' + JSON.stringify({frames:result.qc.frames, profile}));
+console.log('SEGMENT_DONE ' + JSON.stringify({ frames: result.qc.frames, profile }));
