@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "project": "ai-animation-studio-research-content",
+  "base": {
+    "branch": "codex/v2-continuous",
+    "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
+  },
+  "implementationBranch": "codex/product-first-skill-architecture",
+  "activeMilestone": "M0",
+  "milestones": {
+    "M0": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M1": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M2": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M3": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M4": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M5": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M6": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M7": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    }
+  },
+  "rules": {
+    "reportOnlyCompletedMilestone": true,
+    "requireRealVisualEvidence": true,
+    "doNotAutoMerge": true
+  },
+  "notes": [
+    "M0 CI media gate is being introduced. Pending actual GitHub run; this file does not claim success.",
+    "Previous V2 state is retained separately at docs/quality/state.json."
+  ]
+}
