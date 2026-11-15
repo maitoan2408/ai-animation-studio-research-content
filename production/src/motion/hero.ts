@@ -126,11 +126,13 @@ export function heroFrame(
   frame: number,
   physics: HeroPhysics = heroPhysics,
   headEmphasis = 0,
+  life?: { seed: number; intensity: number },
 ): SceneFrame {
   if (!Number.isFinite(headEmphasis) || headEmphasis < 0 || headEmphasis > 1) throw Error('HERO_HEAD_EMPHASIS_RANGE');
+  if (life !== undefined && (!life || typeof life !== 'object' || Object.keys(life).sort().join(',') !== 'intensity,seed' || !Number.isFinite(life.intensity) || life.intensity < 0 || life.intensity > 1 || !Number.isSafeInteger(life.seed) || life.seed < 0 || life.seed > 0xffffffff)) throw Error('HERO_LIFE_INVALID');
   if (input.artSha256 !== digest(pack)) throw Error('HERO_ART_MISMATCH');
   const sample = sampleBake(bake, frame, digest(input), physics);
-  if (frame < 108) return benchmarkFrame(pack, 'S05', frame, headEmphasis === 0 ? r3 : { ...r3, headEmphasis });
+  if (frame < 108) return benchmarkFrame(pack, 'S05', frame, headEmphasis === 0 && !life ? r3 : { ...r3, ...(headEmphasis === 0 ? {} : {headEmphasis}), ...(life ? {life} : {}) });
   const rotation = (-sample.rotation * 180) / Math.PI;
   // Convert physics light-centre back to the existing SVG bottom pivot. No
   // post-render image offsets, solver correction, or live physics on seeking.
@@ -138,6 +140,7 @@ export function heroFrame(
   return benchmarkFrame(pack, 'S05', frame, {
     ...r3,
     ...(headEmphasis === 0 ? {} : { headEmphasis }),
+    ...(life ? { life } : {}),
     handoffSecondaryTransform: {
       x: sample.centerX * 200 + offset[0],
       y: -sample.centerY * 200 + offset[1],

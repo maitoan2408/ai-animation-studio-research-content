@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "f3-diagnostics-negative",
+  "run_id": "20261115T073734Z-f3-diagnostics-negative-10c21f15",
+  "started_at_utc": "20261115T073734Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; temp_dir=$(mktemp -d /tmp/f3diag.XXXXXX); trap \"rm -rf \\\"$temp_dir\\\"\" EXIT; cp production/out/f3-hero-life/1538be6b-be82-49a4-a131-44af2d178187/S05.json \"$temp_dir/bad.json\"; printf \" \" >> \"$temp_dir/bad.json\"; if python production/src/motion/f3_diagnostics.py \"$temp_dir/bad.json\" production/out/f2-animation/0e7ba799-a6fa-4b28-af32-a4817c1228dc \"$temp_dir/output\" >\"$temp_dir/log\" 2>&1; then exit 1; fi; rg \"F3_DIAGNOSTIC_SOURCE\" \"$temp_dir/log\"; test ! -e \"$temp_dir/output\""
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f86cc4d5545f87b053b25affa1f77ac27d855997",
+  "tracked_diff_sha256": "15966d80d7e5f4ebf272a427b3d5c4d852bd0cc23a843c4b55c484db56fa2db9",
+  "recorder_pid": 34935,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "9be108f29a8bf14770ce4248b2eb3171918b9f8ba3a335949e001f9d114e0bbb",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.142,
+  "finished_at_utc": "2026-11-15T07:37:34.446698+00:00",
+  "log_sha256": "f8a37c767d0ffefe4345401994ff34d5aa0c1e0094434f926aa4081f68c9ad2b",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

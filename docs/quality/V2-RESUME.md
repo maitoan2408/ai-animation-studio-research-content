@@ -85,3 +85,7 @@ F3 thử nghiệm thêm head emphasis trên rig S05 và hai action fixture turn-
 F3 tiếp theo: hai action test, walk S02 và lift/place S03 có contract kiểm trên rig thật; video thử hai action có bước nhảy tư thế tay giữa clip, vẫn FAIL continuity. Còn action ngã nhẹ, lớp sống gắn rig và gate chất lượng; không dùng preview này để chốt F3. Full local 97 TS/62 Python/root verify PASS.
 
 F3 bổ sung fixture đứng thở/chớp gắn rig và spike ngả/ngồi. Đã phát hiện và giữ lỗi IK, thiếu texture, xuyên nền khi thử ngã sâu; bản trung gian không có hit alpha dưới nền theo phạm vi test nhưng vẫn nhìn như cúi/ngồi, chưa là ngã đạt. Fixture turn-head/wave dùng tư thế nghỉ chung, hai ranh giới được kiểm hình học; chưa chứng minh diễn xuất. Xem báo cáo F3.
+
+Hero S05 hiện có biến thể thử thở/chớp theo seed cho Mai, giữ prop/anchor trong 192 frame, alpha/ground và preview decode/seek PASS. So ảnh cho 0 pixel đổi ngoài box nhân vật; chưa là duyệt diễn xuất, không chứng minh mọi va chạm hay F3 hoàn tất. Xem F3 report.
+
+Replay retime chỉ số cho hero đã có test contact interval và từ chối interval bị rớt; hiện lặp/bỏ frame, chưa resim physics hay audio. Diagnostic contact sheet/onion/curves của hero life là quan sát, jerk chưa có ngưỡng đã khóa. 107 TS/65 Python và root verify PASS ở checkpoint; audit integrity 827 attempt/779 snapshot PASS, hai attempt đang chạy khi audit. F3 vẫn IN_PROGRESS.

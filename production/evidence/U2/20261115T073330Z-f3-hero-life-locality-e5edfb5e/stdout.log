@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/studio-audit/production/src/art/paper-scene/calibration/life_motion_scope.py", line 35, in <module>
+    print(json.dumps(analyze(*sys.argv[1:]),indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/studio-audit/production/src/art/paper-scene/calibration/life_motion_scope.py", line 13, in analyze
+    if ra[k]!=rb[k]:raise ValueError('LIFE_SCOPE_BINDING '+k)
+       ~~^^^
+KeyError: 'look'

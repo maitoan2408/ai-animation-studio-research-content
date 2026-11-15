@@ -2,6 +2,7 @@
  * random generator, prior-frame integration or DOM. Source is editable blocking,
  * not an inference model and not yet a production planner. */
 import { actorSprites } from './rig.js';
+import { sampleLife } from '../motion/life.js';
 import { anchorPoint, assetPoint } from './geometry.js';
 import {polishFrame} from './polish.js';
 import { mix, mixPoint, smooth, rotate, add } from './math.js';
@@ -10,7 +11,7 @@ import { sprite, type ActorPose, type ArtPack, type Point, type SceneFrame, type
 export const shotFrames={S01:192,S02:192,S03:240,S04:192,S05:192,S06:144} as const;
 export type ShotId=keyof typeof shotFrames;
 export type Cue={start:number;end:number;mouth:NonNullable<ActorPose['mouth']>};
-export type Edit={polish?:boolean;propAccent?:boolean;cameraAmplitude?:number;reactionDelay?:number;eyeLine?:number;concernStartsAt?:number;cues?:Cue[];voiceTake?:'R1';headEmphasis?:number;separateHandoffGrips?:boolean;handoffSecondaryTransform?:{x:number;y:number;rotation:number}};
+export type Edit={polish?:boolean;propAccent?:boolean;cameraAmplitude?:number;reactionDelay?:number;eyeLine?:number;concernStartsAt?:number;cues?:Cue[];voiceTake?:'R1';headEmphasis?:number;life?:{seed:number;intensity:number};separateHandoffGrips?:boolean;handoffSecondaryTransform?:{x:number;y:number;rotation:number}};
 const beat=(f:number,a:number,b:number)=>smooth((f-a)/(b-a));
 const floor=860;
 const rest=(x:number,angle=0,hip:Point=[0,0]):Point=>add(add([0,-258],hip),rotate([x,47],angle));
@@ -59,6 +60,8 @@ export function walkPose(f:number):ActorPose{
 }
 export function benchmarkFrame(pack:ArtPack,shot:ShotId,f:number,edit:Edit={}):SceneFrame{
   if(!Number.isInteger(f)||f<0||f>=shotFrames[shot])throw Error(`FRAME_OUT_OF_RANGE ${shot}:${f}`);
+  if(edit.life !== undefined && (shot !== 'S05' || !edit.life || typeof edit.life !== 'object' || Object.keys(edit.life).sort().join(',') !== 'intensity,seed' || !Number.isFinite(edit.life.intensity) || edit.life.intensity < 0 || edit.life.intensity > 1)) throw Error('LIFE_VARIANT_INVALID');
+  if(edit.life) sampleLife(edit.life.seed,f);
   if(edit.headEmphasis !== undefined && (shot !== 'S05' || !Number.isFinite(edit.headEmphasis) || edit.headEmphasis < 0 || edit.headEmphasis > 1)) throw Error('HEAD_EMPHASIS_RANGE');
   if(edit.handoffSecondaryTransform){
     const t=edit.handoffSecondaryTransform;
@@ -107,9 +110,11 @@ export function benchmarkFrame(pack:ArtPack,shot:ShotId,f:number,edit:Edit={}):S
     const maiGrip=handoffWrist(lamp,mai),anGrip=handoffWrist(lamp,an);
     // On release the giver returns from the transfer pose, not the moving prop.
     const releaseLamp=sprite('lamp','props/lantern-lit',927,565+186*.6,6,0,.6);
-    actors.push({...mai,rightWrist:f<=107?maiGrip:mixPoint(handoffWrist(releaseLamp,mai),rest(108),beat(f,108,143)),
+    const life = edit.life && edit.life.intensity > 0 ? sampleLife(edit.life.seed,f) : undefined;
+    const lifeIntensity = edit.life?.intensity ?? 0;
+    actors.push({...mai, ...(life ? { hipOffset: [lifeIntensity*(life.breath-.5), lifeIntensity*2*life.breath] as Point } : {}), rightWrist:f<=107?maiGrip:mixPoint(handoffWrist(releaseLamp,mai),rest(108),beat(f,108,143)),
       rightHand:f<=107?'grip':'open',rightHandAngle:f<=107?0:mix(0,180,beat(f,108,143)),
-      headAngle:(f<144?2:mix(2,-3,beat(f,144,167))) + (edit.headEmphasis ?? 0) * 4 * Math.sin(Math.PI*f/191)**2,mood:f>=144?'happy':'neutral'},
+      headAngle:(f<144?2:mix(2,-3,beat(f,144,167))) + (edit.headEmphasis ?? 0) * 4 * Math.sin(Math.PI*f/191)**2 + (life ? lifeIntensity*.8*(life.breath-.5) : 0),mood:life && life.blink >= .5 ? 'blink' : f>=144?'happy':'neutral'},
       {...an,rightWrist:f<72?mixPoint(rest(108),anGrip,beat(f,36,72)):anGrip,rightHand:f<72?'open':'grip',
       rightHandAngle:f<72?mix(180,0,beat(f,36,72)):0,headAngle:mix(5,-2,beat(f,12,35)),mood:f>155+(edit.reactionDelay??0)?'happy':'neutral'});
     props.push(lamp);

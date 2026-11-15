@@ -1,0 +1,18 @@
+{
+  "phase": "U2",
+  "step": "f3-hero-life-native-source",
+  "run_id": "20261115T073018Z-f3-hero-life-native-source-73462426",
+  "started_at_utc": "20261115T073018Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx production/src/motion/build_f3_hero_life.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 1 production/out/paper-overlay-textures/96ccc413-1373-4ea6-a6e3-0dd23991fc6d/textures.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f86cc4d5545f87b053b25affa1f77ac27d855997",
+  "tracked_diff_sha256": "37d8db8a5b37a7c5602bab2a6121b8a90224a10da9a41edefacf330c9e8b03be",
+  "status": "RUNNING",
+  "recorder_pid": 31378,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "5045cecb25d510c437441a8eed78a502d76dbea92751c8a85d142d7841a61a17"
+}

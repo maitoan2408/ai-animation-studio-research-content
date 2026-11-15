@@ -1,0 +1,2 @@
+    if data['edit']['qualityCandidate']!='f3-hero-life' or len(data['frames'])!=192 or report['sourceSha256']!=sha(raw) or report['frames']!=192 or report['fps']!='24/1':raise ValueError('F3_DIAGNOSTIC_SOURCE')
+ValueError: F3_DIAGNOSTIC_SOURCE

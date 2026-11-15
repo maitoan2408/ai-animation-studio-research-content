@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "f3-retime-contract-retest",
+  "run_id": "20261115T073543Z-f3-retime-contract-retest-e9bc1e84",
+  "started_at_utc": "20261115T073543Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "production/tests/hero-retime.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f86cc4d5545f87b053b25affa1f77ac27d855997",
+  "tracked_diff_sha256": "ab8ae45877eabbc9e9852831227801e03acacf062c776d0375eafdfd79959023",
+  "recorder_pid": 33880,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "4b608ce4c2a066bf61c15284118c10e4ac5034486bd7139f612290e3aa9fc45a",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.44,
+  "finished_at_utc": "2026-11-15T07:35:43.802733+00:00",
+  "log_sha256": "98f4ba04e6884adcc62a6606a8819d759ef36c0faa608844acdc4cf6ce108210",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

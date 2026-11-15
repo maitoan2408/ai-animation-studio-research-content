@@ -105,3 +105,7 @@ required for this development workbench gate.
 `cup-actions.ts` exposes the fixed existing S03 reach/lift/place shot; tests compare the actual grip anchors through the held interval. It does not support arbitrary props or retiming.
 
 `living-rest.ts` applies seeded breath/blink to an isolated standing rig while keeping both feet planted. It does not alter the hero, solve gaze or promise medically calibrated acting.
+
+`heroFrame(..., physics, headEmphasis, {seed, intensity})` can experimentally apply bounded Mai breathing and blink on S05; intensity zero reproduces baseline, and the existing Performance Script guard remains in place. `build_f3_hero_life.ts` creates a separate ground/alpha-gated preview stream after validating the original frame stream and texture hashes. This is not full acting, gaze or an approved production preset.
+
+`retime-hero.ts` is an experimental indexed replay (144–288 output frames) with explicitly remapped half-open contact intervals and rejection of dropped intervals. It repeats or skips source frames: no interpolation, physics resimulation, audio retime or acting approval is implied.
