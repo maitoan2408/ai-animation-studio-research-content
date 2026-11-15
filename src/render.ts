@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile, copyFile } from 'node:fs/promises';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 import {
   parseSpec,
   totalFrames,
@@ -103,8 +104,8 @@ export async function qcVideo(
 
 /**
  * A long, multi-scene project can exceed available Chromium memory when kept
- * in a single 1080p session. This general scene boundary renderer releases
- * the HyperFrames browser after each bounded scene, then creates a strictly constant-24fps H.264
+ * in a single 1080p session. Each scene is rendered by an isolated subprocess
+ * so native Chromium and FFmpeg allocations are fully reclaimed, then a strictly constant-24fps H.264
  * stream using exact frame-number timestamps. The original scene-correct
  * 48kHz mix is muxed once, avoiding AAC priming gaps at shot boundaries.
  */
@@ -162,39 +163,37 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
         signal.throwIfAborted();
         const single = parseSpec({ ...parsed, scenes: [scene] });
         const partDir = path.join(dir, 'part-' + String(index).padStart(3, '0'));
-        const partFile = path.join(partDir, 'shot.mp4');
-        await compile(store, single, profile, path.join(partDir, 'composition'));
-        const job = createRenderJob({
-          fps: 24,
-          format: 'mp4',
-          quality: 'standard',
-          workers: 1,
-          strictness: 'strict',
-          maxRenderMs: 900000,
-          crf: 18,
-          logger: { error: log, warn: log, info: log, debug: () => {} },
-        });
-        activeJob = job;
-        try {
-          await executeRenderJob(
-            job,
-            path.join(partDir, 'composition'),
-            partFile,
-            async (j, message) => {
-              const overall = 0.06 + (0.78 * (index + j.progress / 100)) / parsed.scenes.length;
-              await progress(Math.min(0.85, overall), scene.id + ': ' + message);
-            },
-            signal,
-          );
-          const qc = await qcVideo(partFile, single, profile, signal);
-          assertSegmentFrames(scene.id, qc.frames, scene.durationFrames);
-          segmentReceipts.push({ scene: scene.id, frames: scene.durationFrames, qc });
-          segmentPaths.push(partFile);
-        } finally {
-          // Explicitly release native browser buffers before the next long
-          // full-resolution segment. This also applies to failed segments.
-          await drainBrowserPool();
-        }
+        const partFile = path.join(partDir, 'output.mp4');
+        const specFile = path.join(partDir, 'scene.json');
+        await mkdir(partDir, { recursive: true });
+        await writeFile(specFile, JSON.stringify(single));
+        // A renderer pool drain inside one Node process is insufficient for
+        // some 1080p jobs: native browser/codec memory remains resident.
+        // Independent OS processes make the memory boundary enforceable.
+        const runningTs = path.extname(fileURLToPath(import.meta.url)) === '.ts';
+        const workerFile = fileURLToPath(
+          new URL('./render-segment' + (runningTs ? '.ts' : '.js'), import.meta.url),
+        );
+        await progress(
+          0.06 + (0.78 * index) / parsed.scenes.length,
+          'Native isolated render ' + scene.id,
+        );
+        const args = [
+          ...(runningTs ? ['--import', 'tsx'] : []),
+          workerFile,
+          store.root,
+          specFile,
+          profile,
+          partDir,
+        ];
+        const childLog = await run(process.execPath, args, signal);
+        logs.push(childLog.slice(-12000));
+        const qc = JSON.parse(
+          await readFile(path.join(partDir, 'segment-qc.json'), 'utf8'),
+        ) as QC;
+        assertSegmentFrames(scene.id, qc.frames, scene.durationFrames);
+        segmentReceipts.push({ scene: scene.id, frames: scene.durationFrames, qc });
+        segmentPaths.push(partFile);
       }
       signal.throwIfAborted();
       await progress(0.87, 'Joining video scenes and original continuous voice');
