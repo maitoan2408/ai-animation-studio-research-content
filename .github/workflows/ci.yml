@@ -62,8 +62,8 @@ jobs:
       SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Install media runtime in isolated clean container
-        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation
+      - name: Install vector and media runtime in isolated clean container
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation
       - run: npm ci
       - name: Check M2 acceptance harness formatting and types
         run: |
