@@ -34,30 +34,51 @@ const character = z
   .strict();
 
 /** Bounded authored data for the existing project-owned Three art/rig renderer. */
-const stagePoint = z.object({x:z.number().finite(),y:z.number().finite()}).strict();
-const stageCamera = stagePoint.extend({zoom:z.number().finite().positive().max(8)}).strict();
-const productionScene = z.object({
-  camera:z.object({from:stageCamera,to:stageCamera}).strict(),
-  actors:z.array(z.object({
-    id:z.string().regex(/^[a-z][a-z0-9_-]*$/),
-    model:z.enum(['mai','an']),
-    x:z.number().finite(),floor:z.number().finite(),
-    facing:z.union([z.literal(1),z.literal(-1)]),
-    view:z.enum(['front','quarter','profile']),
-    mood:z.enum(['neutral','worried','happy','blink']),
-    headStart:z.number().finite().min(-45).max(45),
-    headEnd:z.number().finite().min(-45).max(45),
-  }).strict()).min(1).max(4),
-  props:z.array(z.object({
-    id:z.string().regex(/^[a-z][a-z0-9_-]*$/),
-    asset:z.string().regex(/^props\/[a-z0-9-]+$/),
-    assetSha256:z.string().regex(/^[a-f0-9]{64}$/),
-    x:z.number().finite(),y:z.number().finite(),z:z.number().finite(),
-    scale:z.number().finite().positive().max(4),
-    anchor:z.string().regex(/^[a-z][a-z0-9-]*$/),
-    ownerId:z.string().regex(/^[a-z][a-z0-9_-]*$/).optional(),
-  }).strict()).max(20),
-}).strict();
+const stagePoint = z.object({ x: z.number().finite(), y: z.number().finite() }).strict();
+const stageCamera = stagePoint.extend({ zoom: z.number().finite().positive().max(8) }).strict();
+const productionScene = z
+  .object({
+    camera: z.object({ from: stageCamera, to: stageCamera }).strict(),
+    actors: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^[a-z][a-z0-9_-]*$/),
+            model: z.enum(['mai', 'an']),
+            x: z.number().finite(),
+            floor: z.number().finite(),
+            facing: z.union([z.literal(1), z.literal(-1)]),
+            view: z.enum(['front', 'quarter', 'profile']),
+            mood: z.enum(['neutral', 'worried', 'happy', 'blink']),
+            headStart: z.number().finite().min(-45).max(45),
+            headEnd: z.number().finite().min(-45).max(45),
+          })
+          .strict(),
+      )
+      .min(1)
+      .max(4),
+    props: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^[a-z][a-z0-9_-]*$/),
+            asset: z.string().regex(/^props\/[a-z0-9-]+$/),
+            assetSha256: z.string().regex(/^[a-f0-9]{64}$/),
+            x: z.number().finite(),
+            y: z.number().finite(),
+            z: z.number().finite(),
+            scale: z.number().finite().positive().max(4),
+            anchor: z.string().regex(/^[a-z][a-z0-9-]*$/),
+            ownerId: z
+              .string()
+              .regex(/^[a-z][a-z0-9_-]*$/)
+              .optional(),
+          })
+          .strict(),
+      )
+      .max(20),
+  })
+  .strict();
 
 const shot = z
   .object({
@@ -89,7 +110,10 @@ export const animationIrSchema = z
     style: styleSchema,
     language: z.enum(['vi', 'en']),
     characters: z.array(character).min(1),
-    artPack: z.object({id:z.string().min(1),version:z.string().min(1)}).strict().optional(),
+    artPack: z
+      .object({ id: z.string().min(1), version: z.string().min(1) })
+      .strict()
+      .optional(),
     shots: z.array(shot).min(1).max(12),
   })
   .strict()
@@ -107,19 +131,30 @@ export const animationIrSchema = z
       if (!actors.get(s.action.actorId)?.has(s.action.name))
         ctx.addIssue({ code: 'custom', message: s.id + ': actor missing action capability' });
       if (s.production) {
-        if (!ir.artPack) ctx.addIssue({code:'custom',message:s.id+': production art pack missing'});
-        if (s.camera.kind==='static' && JSON.stringify(s.production.camera.from)!==JSON.stringify(s.production.camera.to))
-          ctx.addIssue({code:'custom',message:s.id+': static camera cannot move'});
-        if(new Set(s.production.actors.map(a=>a.id)).size!==s.production.actors.length)
-          ctx.addIssue({code:'custom',message:s.id+': duplicate production actor'});
-        for(const a of s.production.actors) {
-          const bound=ir.characters.find(c=>c.id===a.id);
-          if(!bound || bound.rigId!=='production-cutout-1' || bound.artPackageId!==ir.artPack?.id)
-            ctx.addIssue({code:'custom',message:s.id+': production actor rig or art pack missing'});
+        if (!ir.artPack)
+          ctx.addIssue({ code: 'custom', message: s.id + ': production art pack missing' });
+        if (
+          s.camera.kind === 'static' &&
+          JSON.stringify(s.production.camera.from) !== JSON.stringify(s.production.camera.to)
+        )
+          ctx.addIssue({ code: 'custom', message: s.id + ': static camera cannot move' });
+        if (new Set(s.production.actors.map((a) => a.id)).size !== s.production.actors.length)
+          ctx.addIssue({ code: 'custom', message: s.id + ': duplicate production actor' });
+        for (const a of s.production.actors) {
+          const bound = ir.characters.find((c) => c.id === a.id);
+          if (
+            !bound ||
+            bound.rigId !== 'production-cutout-1' ||
+            bound.artPackageId !== ir.artPack?.id
+          )
+            ctx.addIssue({
+              code: 'custom',
+              message: s.id + ': production actor rig or art pack missing',
+            });
         }
-        for(const p of s.production.props)
-          if(p.ownerId && !s.production.actors.some(a=>a.id===p.ownerId))
-            ctx.addIssue({code:'custom',message:s.id+': prop owner missing'});
+        for (const p of s.production.props)
+          if (p.ownerId && !s.production.actors.some((a) => a.id === p.ownerId))
+            ctx.addIssue({ code: 'custom', message: s.id + ': prop owner missing' });
       }
       if (s.audio?.textHash && s.audio.textHash !== hash(s.narration))
         ctx.addIssue({ code: 'custom', message: s.id + ': narration/audio hash mismatch' });
@@ -179,8 +214,10 @@ export function toLegacyProjectSpec(value: AnimationIR): ProjectSpec {
     ir.characters[0]?.artPackageId !== 'studio-embedded-svg-v0.1'
   )
     throw new Error('IR_UNSUPPORTED_CHARACTER');
-  if(ir.artPack || ir.shots.some(s=>s.production))
-    throw new Error('IR_UNSUPPORTED_PRODUCTION_SCENE: legacy renderer cannot render authored production rigs');
+  if (ir.artPack || ir.shots.some((s) => s.production))
+    throw new Error(
+      'IR_UNSUPPORTED_PRODUCTION_SCENE: legacy renderer cannot render authored production rigs',
+    );
   const scenes: Scene[] = ir.shots.map((s) => ({
     id: s.id,
     title: s.title,

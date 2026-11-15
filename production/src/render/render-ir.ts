@@ -16,7 +16,7 @@ import type {StageShotTimeline} from '../scene/animation-ir-adapter.js';
 const sha=(bytes:Uint8Array|string)=>createHash('sha256').update(bytes).digest('hex');
 function processResult(name:string,args:string[]):string{
   const r=spawnSync(name,args,{encoding:'utf8',maxBuffer:24*1024*1024});
-  if(r.status!==0||r.error)throw Error(name+' failed: '+(r.stderr||r.error).toString().slice(-2000));
+  if(r.status!==0||r.error)throw Error(name+' failed: '+String(r.stderr||r.error||'').slice(-2000));
   return r.stdout;
 }
 const ir=JSON.parse(await readFile(path.join(root,'../examples/m1-production-ir.json'),'utf8')) as StageShotTimeline;
@@ -47,10 +47,10 @@ try{
     '-preset','fast','-crf','18','-threads','2',output
   ];
   videoEncoder=spawn('ffmpeg',args,{stdio:['pipe','ignore','pipe']});
-  videoEncoder.stderr.on('data',(b:Buffer)=>processError+=b.toString());
+  videoEncoder.stderr!.on('data',(b:Buffer)=>processError+=b.toString());
   const ended=once(videoEncoder,'close');
   let streamError:Error|undefined;
-  videoEncoder.stdin.on('error',(e:Error)=>{streamError=e});
+  videoEncoder.stdin!.on('error',(e:Error)=>{streamError=e});
   for(let f=0;f<frames;f++){
     const raw=await captureFrameToBuffer(session,f,f/24);
     assert.equal(await session.page.evaluate('window.studio.frame'),f);
@@ -63,10 +63,10 @@ try{
       snapshots[name]=sha(raw.buffer);
     }
     if(streamError)throw streamError;
-    if(!videoEncoder.stdin.write(raw.buffer))
-      await Promise.race([once(videoEncoder.stdin,'drain'),ended.then(()=>{throw Error('ENCODER_CLOSED '+processError);})]);
+    if(!videoEncoder.stdin!.write(raw.buffer))
+      await Promise.race([once(videoEncoder.stdin!,'drain'),ended.then(()=>{throw Error('ENCODER_CLOSED '+processError);})]);
   }
-  videoEncoder.stdin.end();
+  videoEncoder.stdin!.end();
   const [exitCode]=await ended;
   if(exitCode!==0)throw Error('ENCODER_FAILED '+exitCode+' '+processError);
   for(const f of [71,35,0,36,17,53,0,71]){
