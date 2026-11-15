@@ -76,7 +76,10 @@ test('unknown actions, fields, rigs, assets, durations, frames fail closed',()=>
  const invalid=[
   change(p=>(p.character.rigId='production-cutout-2' as 'production-cutout-1')),
   change(p=>(p.character.id='mai/../../' )),
-  change(p=>(p.character.capabilities=['walk-stop'])),
+  change(p=>(p.character.capabilities=['walk-stop'])), // the remaining timeline needs unavailable actions
+  change(p=>(p.character.capabilities=['wave','wave'])),
+  change(p=>(p.character.capabilities=['wave','teleport' as 'wave'])),
+  change(p=>(p.character.capabilities=[])),
   change(p=>(p.prop.sha256='0'.repeat(64))),
   change(p=>(p.clips[1]!.action='teleport' as 'wave')),
   change(p=>(p.clips[0]!.frames=64)),
@@ -121,4 +124,19 @@ test('supported clip retiming changes frames but retains planted contacts and ra
    }
  }
  assert.equal(m3TotalFrames(changed),316);
+});
+
+test('capability registry accepts genuine subsets and rejects unavailable actions at validation time',()=>{
+ const waveOnly=structuredClone(project);
+ waveOnly.character.capabilities=['wave'];
+ waveOnly.clips=[{action:'wave',frames:49}];
+ assert.equal(validateM3(waveOnly,pack).character.capabilities.length,1);
+ assert.equal(m3TotalFrames(waveOnly),49);
+ assert.equal(sample(24,waveOnly).action,'wave');
+ const registry=new M3CharacterRegistry(pack);
+ assert.deepEqual(registry.register(waveOnly).character.capabilities,['wave']);
+ assert.equal(registry.resolve('guest-01').clips[0]?.action,'wave');
+ const invalid=structuredClone(waveOnly);
+ invalid.clips.push({action:'walk-stop',frames:73});
+ assert.throws(()=>validateM3(invalid,pack),/M3_ACTION_NOT_CAPABLE/);
 });
