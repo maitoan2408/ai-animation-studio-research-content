@@ -38,9 +38,32 @@
       }
     },
     "M1": {
-      "technicalStatus": "IN_PROGRESS",
-      "evidenceStatus": "NOT_VERIFIED",
-      "userAcceptance": "NOT_REVIEWED"
+      "technicalStatus": "PASSED",
+      "evidenceStatus": "READY_FOR_USER_REVIEW",
+      "userAcceptance": "NOT_REVIEWED",
+      "sourceCommit": "de632e58a1d639d8ef8eabac20141f497d657586",
+      "appCIRun": 43705819033,
+      "productionCIRun": 43705819120,
+      "appCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43705819033",
+      "productionCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43705819120",
+      "artifactId": 14158681348,
+      "artifactName": "paper-studio-84",
+      "artifactExpiresAt": "2026-11-29T10:51:02Z",
+      "media": [
+        "artifacts/product-first/m1/m1-ir.mp4",
+        "artifacts/product-first/m1/m1-legacy.mp4",
+        "artifacts/product-first/m1/m1-ir-contact.png",
+        "artifacts/product-first/m1/manifest.json"
+      ],
+      "verified": [
+        "Strict, versioned AnimationIR with legacy reversible adapter and workbench stage-camera bridge",
+        "Prettier,typecheck,unit tests,negative inputs,application build",
+        "Application full render/integration/UI/recovery suites",
+        "Production workbench typecheck,TS/Python/physics/media/recovery checks",
+        "Two separate real 96-frame 640x360 MP4 renders using legacy and IR compiler",
+        "Full video decode, identical per-frame decoded video and identical decoded voice PCM",
+        "Review contact sheet with SHA-bound manifest"
+      ]
     },
     "M2": {
       "technicalStatus": "NOT_VERIFIED",
@@ -79,8 +102,9 @@
     "doNotAutoMerge": true
   },
   "notes": [
-    "Owner accepted M0 baseline demonstration in chat on 2026-11-15; use this as a locked review decision.",
-    "M1 is active. No declaration of readiness without new visual evidence plus real tests.",
-    "M2–M7 remain NOT_VERIFIED; V2 history remains preserved at docs/quality/state.json."
+    "M0 ACCEPTED by owner on 2026-11-15; don't reopen M0 without user instruction.",
+    "M1 code and A/B media passed both app and production workflows on de632e58; user visual review still pending.",
+    "M1 A/B establishes visual backward compatibility, NOT arbitrary rig support or final art quality.",
+    "M2–M7 NOT_VERIFIED; preserve PRs, V2 history, and do not auto-merge."
   ]
 }
