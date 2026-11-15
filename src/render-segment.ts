@@ -34,8 +34,10 @@ const server = createServer(async (req, res) => {
     return;
   }
   try {
-    res.setHeader('Content-Type', name.endsWith('.js') ? 'text/javascript' :
-      name.endsWith('.wav') ? 'audio/wav' : 'text/html');
+    res.setHeader(
+      'Content-Type',
+      name.endsWith('.js') ? 'text/javascript' : name.endsWith('.wav') ? 'audio/wav' : 'text/html',
+    );
     res.end(await readFile(path.join(composition, name)));
   } catch (error) {
     res.writeHead(500).end(String(error));
@@ -63,26 +65,62 @@ try {
     () => !!(window as unknown as { __timelines?: { shot?: unknown } }).__timelines?.shot,
     { timeout: 30000 },
   );
-  await page.evaluate(async () => { await document.fonts.ready; });
-  encoder = spawn('ffmpeg', [
-    '-v', 'error', '-xerror', '-nostdin', '-y',
-    '-f', 'image2pipe', '-framerate', '24', '-c:v', 'png',
-    '-i', 'pipe:0', '-an',
-    '-c:v', 'libx264', '-threads', '2', '-preset', 'fast',
-    '-crf', '18', '-pix_fmt', 'yuv420p',
-    '-r', '24', '-fps_mode', 'cfr',
-    '-movflags', '+faststart', silent,
-  ], { stdio: ['pipe', 'ignore', 'pipe'] });
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+  });
+  encoder = spawn(
+    'ffmpeg',
+    [
+      '-v',
+      'error',
+      '-xerror',
+      '-nostdin',
+      '-y',
+      '-f',
+      'image2pipe',
+      '-framerate',
+      '24',
+      '-c:v',
+      'png',
+      '-i',
+      'pipe:0',
+      '-an',
+      '-c:v',
+      'libx264',
+      '-threads',
+      '2',
+      '-preset',
+      'fast',
+      '-crf',
+      '18',
+      '-pix_fmt',
+      'yuv420p',
+      '-r',
+      '24',
+      '-fps_mode',
+      'cfr',
+      '-movflags',
+      '+faststart',
+      silent,
+    ],
+    { stdio: ['pipe', 'ignore', 'pipe'] },
+  );
   let diagnostic = '';
-  encoder.stderr!.on('data', (bytes:Buffer) => { diagnostic += bytes.toString().slice(-3000); });
+  encoder.stderr!.on('data', (bytes: Buffer) => {
+    diagnostic += bytes.toString().slice(-3000);
+  });
   let pipeError: Error | undefined;
-  encoder.stdin!.on('error', (error: Error) => { pipeError = error; });
+  encoder.stdin!.on('error', (error: Error) => {
+    pipeError = error;
+  });
   const finished = once(encoder, 'close');
   for (let frame = 0; frame < frames; frame++) {
     await page.evaluate((index) => {
-      const timeline = (window as unknown as {
-        __timelines: { shot: { seek: (time: number, suppressEvents: boolean) => void } };
-      }).__timelines.shot;
+      const timeline = (
+        window as unknown as {
+          __timelines: { shot: { seek: (time: number, suppressEvents: boolean) => void } };
+        }
+      ).__timelines.shot;
       timeline.seek(index / 24, false);
     }, frame);
     const png = await page.screenshot({ type: 'png', captureBeyondViewport: false });
@@ -90,7 +128,9 @@ try {
     if (!encoder.stdin!.write(png)) {
       await Promise.race([
         once(encoder.stdin!, 'drain'),
-        finished.then(() => { throw Error('SEGMENT_ENCODER_EARLY_EXIT ' + diagnostic); }),
+        finished.then(() => {
+          throw Error('SEGMENT_ENCODER_EARLY_EXIT ' + diagnostic);
+        }),
       ]);
     }
     if (frame % 48 === 0) console.log('SEGMENT_FRAME ' + frame + '/' + frames);
@@ -109,16 +149,40 @@ const inputAudio = path.join(composition, 'audio.wav');
 const ffmpeg = async (args: string[]) => {
   const child = spawn('ffmpeg', args, { stdio: ['ignore', 'pipe', 'pipe'] });
   let logs = '';
-  child.stderr!.on('data', (buf: Buffer) => { logs += buf.toString().slice(-2000); });
+  child.stderr!.on('data', (buf: Buffer) => {
+    logs += buf.toString().slice(-2000);
+  });
   const [exitCode] = await once(child, 'close');
   if (exitCode !== 0) throw Error('SEGMENT_MUX_ERROR ' + logs);
 };
 if (spec.scenes[0]!.audio) {
   await ffmpeg([
-    '-v', 'error', '-xerror', '-nostdin', '-y',
-    '-i', silent, '-i', inputAudio, '-map', '0:v:0', '-map', '1:a:0',
-    '-c:v', 'copy', '-c:a', 'aac', '-ar', '48000', '-ac', '2',
-    '-t', String(frames / 24), '-movflags', '+faststart', delivery,
+    '-v',
+    'error',
+    '-xerror',
+    '-nostdin',
+    '-y',
+    '-i',
+    silent,
+    '-i',
+    inputAudio,
+    '-map',
+    '0:v:0',
+    '-map',
+    '1:a:0',
+    '-c:v',
+    'copy',
+    '-c:a',
+    'aac',
+    '-ar',
+    '48000',
+    '-ac',
+    '2',
+    '-t',
+    String(frames / 24),
+    '-movflags',
+    '+faststart',
+    delivery,
   ]);
 } else {
   await writeFile(delivery, await readFile(silent));

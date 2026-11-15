@@ -26,11 +26,6 @@ jobs:
       - run: npm run studio -- doctor
       - name: Check M2 acceptance harness source formatting
         run: npx prettier --check scripts/m2-product-e2e.ts
-      - name: Print scene worker locked Prettier code
-        run: |
-          printf 'M2_WORKER_REFORMAT_BASE64='
-          npx prettier src/render-segment.ts | base64 -w0
-          printf '\n'
       - run: npm run verify
       - run: npm run build
       - run: npm run test:integration
