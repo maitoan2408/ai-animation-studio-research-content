@@ -50,6 +50,8 @@ jobs:
         # must remain outside the parent package tree, with its own empty cache.
         run: PATH="/tmp/q2-qc/bin:$PATH" /tmp/q2-qc/bin/python production/src/qa/check_fresh_review.py
       - name: M1 production IR independent real Three video (native-art + 1080p still parity)
+        env:
+          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           production/node_modules/.bin/tsx production/src/art/preview.ts
           production/node_modules/.bin/tsx production/src/render/render-ir.ts

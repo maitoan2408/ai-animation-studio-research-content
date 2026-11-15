@@ -38,10 +38,10 @@
       }
     },
     "M1": {
-      "technicalStatus": "REWORK_REQUIRED",
-      "evidenceStatus": "SUPERSEDED_BY_AUDIT",
+      "technicalStatus": "FINAL_RETTEST_PENDING",
+      "evidenceStatus": "REAL_THREE_MEDIA_VERIFIED_PREVIOUS_COMMIT",
       "userAcceptance": "NOT_REVIEWED",
-      "sourceCommit": "de632e58a1d639d8ef8eabac20141f497d657586",
+      "sourceCommit": "17b63e51d7ce5909f401ce7e7d4a705fc01fe516",
       "appCIRun": 43705819033,
       "productionCIRun": 43705819120,
       "appCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43705819033",
@@ -79,6 +79,32 @@
           "Recheck final HEAD with full CI and real image/video evidence",
           "No stage advancement or user completion report before technical and visual gates pass",
           "Only owner sets ACCEPTED; do not merge without approval"
+        ]
+      },
+      "remediation": {
+        "previousAuditResolvedInCode": [
+          "Camera anchored to stage center (960,540) and actual Three camera contract tests",
+          "Actual production IR scene uses rigged Mai/An puppets, background sprites and verified lantern prop/anchor",
+          "Strict schema for authored camera, rig binding, props, SHA and owner refs; fail-closed legacy fallback",
+          "Real Three/Chromium IR MP4 render, native 1080p frames, reverse seek and preview/final scene-state parity",
+          "Root preview now validates through Animation IR, matching final compiler"
+        ],
+        "lastVerifiedRunPriorToProvenance": {
+          "root": 43710357802,
+          "production": 43710357845,
+          "sourceCommit": "17b63e51d7ce5909f401ce7e7d4a705fc01fe516",
+          "result": "BOTH_SUCCESS"
+        },
+        "pending": [
+          "Re-run both CI jobs after final evidence provenance patch",
+          "Inspect final media and artifact hash",
+          "Obtain explicit owner artistic/visual acceptance before M2"
+        ],
+        "excludedFutureScope": [
+          "General physics runtime M4",
+          "General new character builder M3",
+          "Narration/sound for 20-30sec product M2",
+          "Multi-agent orchestration M5"
         ]
       }
     },
@@ -124,8 +150,8 @@
     "ownerApprovalBeforeNextStage": true
   },
   "notes": [
-    "M0 ACCEPTED by owner.",
-    "M1 re-opened following independent gap audit; previous PASS A/B parity is a narrower backward-compatibility result, not full M1 acceptance.",
-    "M1 MUST be corrected and re-tested before any M2 work; no auto-merges."
+    "M0 accepted by owner.",
+    "M1 still NOT_REVIEWED; final audit/retest pending despite actual real Three video successfully rendered.",
+    "Strict serial gate and repeat regression after final fix remain mandatory; M2 not started."
   ]
 }

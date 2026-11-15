@@ -77,7 +77,7 @@ try {
   const manifest={
     milestone:'M1',
     status:'TECHNICAL_PARITY_READY_FOR_USER_REVIEW_NOT_ART_ACCEPTANCE',
-    commit:process.env.GITHUB_SHA||'LOCAL_UNPINNED',
+    commit:process.env.SOURCE_HEAD_SHA||process.env.GITHUB_SHA||'LOCAL_UNPINNED',checkoutCommit:process.env.GITHUB_SHA||'LOCAL_UNPINNED',
     source:'examples/smoke.txt',
     verification:'two independent HyperFrames MP4 renders, full frame+audio decoded parity',
     decodedFrameMD5Sha256:sha(av),

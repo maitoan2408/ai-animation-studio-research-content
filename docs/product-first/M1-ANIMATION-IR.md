@@ -33,11 +33,34 @@ by this adapter.
   identical decoded frame hashes and identical decoded PCM audio.
 - Contact sheet and SHA-bound manifest in GitHub Actions artifact.
 
+## Verified production IR scope and independent quality audit
+
+- Real 2-shot production scene has two authored cutout actors, one lantern prop with
+  verified source SHA and grip anchor, full background layers, bounded camera,
+  per-frame marker/rig evaluation and stage coordinate center (960, 540).
+- Three/Chromium, not the legacy SVG canvas, renders every IR frame via actual
+  image textures and puppet rig. The benchmark evaluator is not the IR renderer.
+- Automated media gate: 72-frame 640x360 silent demo (24fps), four native
+  1920x1080 still frames from the same pure IR evaluator, contact sheet and
+  SHA-256 manifest. Full MP4 decode, random reverse seek image-state parity and
+  preview/final *scene-state* parity are required.
+- Both root/production full regression suites must remain green on final
+  source. The production workbench runs a Git-only isolated install/review audit.
+- The example is intentionally a bounded architectural proof, **not** a
+  generalized character/physics skill, final delivery soundtrack or 1080p
+  movie. Artistic acceptance remains with the owner.
+- Evidence is tied to PR **head commit** (not the ephemeral synthetic merge
+  commit); the checkout commit is tracked independently.
+- Future M2 production must generate a genuinely new, editable 20-30s
+  1080p voiced film; this architectural demo cannot count for M2.
+
 ## State and ownership
 
 M0 is ACCEPTED by owner as baseline (15 November 2026).
-M1 is IN_PROGRESS until all tests and render evidence pass; user acceptance
-requires viewing actual A/B video. Do not infer natural animation quality from
+M1 was reopened for mandatory remediation following a deeper audit. Technical
+completion requires the full root and production CI **after all fixes**, plus
+reviewable original production IR video and native stills. User acceptance
+requires reviewing those actual media. Do not infer natural animation quality from
 pixel parity; M2 will test a *new* 20–30 second editable product.
 
 Code references: `src/animation-ir.ts`,

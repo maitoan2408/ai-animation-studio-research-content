@@ -32,6 +32,8 @@ jobs:
       - name: Verify M0 baseline video and publish review contact sheets
         run: node scripts/verify-review-evidence.mjs
       - name: M1 legacy vs IR real video/audio parity
+        env:
+          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: npx tsx scripts/render-ir-ab.ts
       - name: Upload evidence
         if: always()
