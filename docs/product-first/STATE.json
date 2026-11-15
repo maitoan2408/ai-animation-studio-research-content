@@ -5,8 +5,8 @@
     "branch": "codex/v2-continuous",
     "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
   },
-  "implementationBranch": "codex/product-first-m2-studio-v02",
-  "activeMilestone": "M2",
+  "implementationBranch": "codex/product-first-m3-character-motion",
+  "activeMilestone": "M3",
   "milestones": {
     "M0": {
       "technicalStatus": "PASSED",
@@ -152,7 +152,7 @@
     "M2": {
       "technicalStatus": "PASSED",
       "evidenceStatus": "READY_FOR_USER_REVIEW",
-      "userAcceptance": "NOT_REVIEWED",
+      "userAcceptance": "ACCEPTED",
       "sourceBaseCommit": "2042ad49e4e7f5456a49bc696d820044017f5643",
       "requirements": [
         "New independent 20–30 second voice-over video 1920x1080 at 24fps with at least three shots",
@@ -196,7 +196,7 @@
         "Negative stale-revision and delayed-voice consumer checks; all 576 presentation timestamps",
         "23 downloaded CI artifact hashes verified; final movie byte-identical to local verified render"
       ],
-      "ownerGate": "Only owner can accept visual/listening result; M3 remains NOT_REVIEWED and must not start.",
+      "ownerGate": "ACCEPTED; M3 authorized by owner. Do not auto-merge stacked PRs.",
       "finalReview20261116": {
         "status": "TECHNICAL_PASS_PENDING_OWNER_VISUAL_AND_LISTENING_APPROVAL",
         "sourceCommit": "bc351255374a7aac499e056daf8ed194167bb74a",
@@ -232,10 +232,12 @@
           "M4: physical prop constraints",
           "M6: artistic polish and natural-sounding voice"
         ]
-      }
+      },
+      "ownerAcceptedAt": "2026-11-16",
+      "ownerAcceptanceSource": "Owner explicitly approved M2 in ChatGPT conversation and authorized starting M3 on 2026-11-16."
     },
     "M3": {
-      "technicalStatus": "NOT_VERIFIED",
+      "technicalStatus": "IN_PROGRESS",
       "evidenceStatus": "NOT_VERIFIED",
       "userAcceptance": "NOT_REVIEWED"
     },
@@ -272,9 +274,9 @@
   },
   "notes": [
     "M0 ACCEPTED, M1 ACCEPTED by owner on 2026-11-15.",
-    "M2 technical + real media QA PASSED on bc351255 (full Studio+workbench CI, extracted latest artifact SHA/full decode); userAcceptance NOT_REVIEWED.",
+    "M2 owner ACCEPTED on 2026-11-16 after 24s rendered-media review. Final M2 technical CI remains SHA-pinned to bc351255.",
     "CLI stdout long-render contract repaired, its regression passed on final source. No remaining in-scope M2 technical defects from this audit.",
-    "Visual character acting intentionally rudimentary and draft eSpeak voice; only owner can approve artistic/voice review before M3.",
-    "Sequential stages mandatory; no M3 work or automatic merge."
+    "M2 accepted as workflow-quality gate; natural character acting and draft voice explicitly deferred to M3/M6.",
+    "Owner authorized starting M3 on 2026-11-16; sequential gate remains mandatory through M3–M7."
   ]
 }
