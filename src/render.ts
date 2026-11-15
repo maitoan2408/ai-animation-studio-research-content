@@ -165,7 +165,7 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
     const mem = process.memoryUsage();
     const stat = await readFile('/sys/fs/cgroup/memory.stat', 'utf8').catch(() => '');
     const stats = new Map(
-      stat.split('\n').filter(Boolean).map((line) => line.split(' ')),
+      stat.split('\n').filter(Boolean).map((line) => line.split(' ') as [string, string]),
     );
     console.log(
       'M2_MEMORY_GATE ' +
