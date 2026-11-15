@@ -24,6 +24,13 @@ jobs:
         run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation
       - run: npm ci
       - run: npm run studio -- doctor
+      - name: Capture isolated renderer source formatting (temporary)
+        run: |
+          printf 'M2_ISOLATED_RENDER_B64='
+          npx prettier src/render.ts | base64 -w0
+          printf '\nM2_ISOLATED_WORKER_B64='
+          npx prettier src/render-segment.ts | base64 -w0
+          printf '\n'
       - name: Check M2 acceptance harness source formatting
         run: npx prettier --check scripts/m2-product-e2e.ts
       - run: npm run verify
