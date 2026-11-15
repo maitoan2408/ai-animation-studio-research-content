@@ -6,12 +6,12 @@
     "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
   },
   "implementationBranch": "codex/product-first-skill-architecture",
-  "activeMilestone": "M0",
+  "activeMilestone": "M1",
   "milestones": {
     "M0": {
       "technicalStatus": "PASSED",
       "evidenceStatus": "READY_FOR_USER_REVIEW",
-      "userAcceptance": "NOT_REVIEWED",
+      "userAcceptance": "ACCEPTED",
       "sourceCommit": "1da6486bd7f1d5c36584dba5a940f4eff8270499",
       "workflowRunId": 43702748315,
       "workflowRunUrl": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43702748315",
@@ -30,10 +30,15 @@
         "fresh 640p 96-frame preview verified with ffprobe and full decode",
         "two contact sheets generated from actual MP4 frames and SHA-bound",
         "desktop/mobile screenshot PNG checks"
-      ]
+      ],
+      "ownerReview": {
+        "date": "2026-11-15",
+        "decision": "ACCEPTED",
+        "scope": "Existing M0 13-second baseline animation demo and visual presentation accepted; does not approve M1+ or production-quality art"
+      }
     },
     "M1": {
-      "technicalStatus": "NOT_VERIFIED",
+      "technicalStatus": "IN_PROGRESS",
       "evidenceStatus": "NOT_VERIFIED",
       "userAcceptance": "NOT_REVIEWED"
     },
@@ -74,8 +79,8 @@
     "doNotAutoMerge": true
   },
   "notes": [
-    "M0 media gate PASSED on commit 1da6486. User artistic review is pending.",
-    "M1-M7 remain NOT_VERIFIED; do not mark them complete from M0 evidence.",
-    "V2 history remains preserved at docs/quality/state.json."
+    "Owner accepted M0 baseline demonstration in chat on 2026-11-15; use this as a locked review decision.",
+    "M1 is active. No declaration of readiness without new visual evidence plus real tests.",
+    "M2–M7 remain NOT_VERIFIED; V2 history remains preserved at docs/quality/state.json."
   ]
 }
