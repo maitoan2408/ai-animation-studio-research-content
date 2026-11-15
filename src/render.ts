@@ -186,7 +186,12 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
           profile,
           partDir,
         ];
-        const childLog = await run(process.execPath, args, signal);
+        const childLog = await run(process.execPath, args, signal, (chunk) => {
+          // Keep the CI runner visibly informed of per-frame worker progress;
+          // long opaque native rendering jobs can otherwise be terminated
+          // without any diagnostic output, leaving only exit code 137.
+          process.stdout.write('[M2 ' + scene.id + '] ' + chunk);
+        });
         logs.push(childLog.slice(-12000));
         const qc = JSON.parse(await readFile(path.join(partDir, 'segment-qc.json'), 'utf8')) as QC;
         assertSegmentFrames(scene.id, qc.frames, scene.durationFrames);
