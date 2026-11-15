@@ -86,6 +86,25 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
     throw Error('M3_PROP_HASH_OR_ANCHOR');
   return value as M3Project;
 }
+/** Registry owns immutable, validated character packages; arbitrary data cannot
+ * overwrite a previously registered ID or mutate a stored rig/action binding. */
+export class M3CharacterRegistry {
+  private readonly entries=new Map<string,M3Project>();
+  constructor(private readonly pack:ArtPack) {}
+  register(raw:unknown):M3Project {
+    const checked=validateM3(raw,this.pack);
+    if(this.entries.has(checked.character.id))throw Error('M3_CHARACTER_DUPLICATE');
+    this.entries.set(checked.character.id,structuredClone(checked));
+    return this.resolve(checked.character.id);
+  }
+  resolve(id:string):M3Project {
+    const record=this.entries.get(id);
+    if(!record)throw Error('M3_CHARACTER_UNKNOWN');
+    return structuredClone(record);
+  }
+  list():string[] {return [...this.entries.keys()].sort();}
+}
+
 export function makeM3Showcase(pack:ArtPack,id='guest-01',model:'mai'|'an'='an'):M3Project{
   const asset=pack.assets.find(a=>a.id==='props/cup');
   if(!asset)throw Error('M3_CUP_MISSING');
