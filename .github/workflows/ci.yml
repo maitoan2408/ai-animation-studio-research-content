@@ -24,6 +24,13 @@ jobs:
         run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation
       - run: npm ci
       - run: npm run studio -- doctor
+      - name: Print Prettier-normalized M2 sources for code review (temporary)
+        run: |
+          printf 'M2_RENDER_FORMAT_B64='
+          npx prettier src/render.ts | base64 -w0
+          printf '\nM2_SCRIPT_FORMAT_B64='
+          npx prettier scripts/m2-product-e2e.ts | base64 -w0
+          printf '\n'
       - run: npm run verify
       - run: npm run build
       - run: npm run test:integration
