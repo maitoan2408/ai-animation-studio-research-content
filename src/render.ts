@@ -223,37 +223,16 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
           '-map',
           '0:v:0',
           '-an',
-          // Container concat of independently encoded H.264 segments can
-          // produce fractional frame-rate drift even with perfect frame count.
-          // Retimestamp by integer frame number and encode exactly CFR 24.
-          '-vf',
-          'setpts=N/(24*TB)',
+          // All native SVG shot workers now encode exact 24/1 CFR H.264
+          // with the same timebase. Copying their streams avoids an otherwise
+          // expensive second 1080p x264 encode. qcVideo verifies that merged
+          // fps AND all 576 decoded frames are preserved; fail closed on drift.
+          '-c:v',
+          'copy',
           '-r',
           '24',
-          '-fps_mode',
-          'cfr',
-          '-c:v',
-          'libx264',
-          // The CI container is memory-limited relative to exposed CPU cores.
-          // x264 auto-threading can OOM even with all Chromium workers exited.
-          '-threads',
-          '2',
-          '-filter_threads',
-          '1',
-          '-preset',
-          'veryfast',
-          '-crf',
-          '16',
-          '-pix_fmt',
-          'yuv420p',
-          '-color_primaries',
-          'bt709',
-          '-color_trc',
-          'bt709',
-          '-colorspace',
-          'bt709',
-          '-color_range',
-          'tv',
+          '-video_track_timescale',
+          '12288',
           '-movflags',
           '+faststart',
           joined,
