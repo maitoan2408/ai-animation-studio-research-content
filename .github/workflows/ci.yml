@@ -28,6 +28,8 @@ jobs:
         run: |
           printf 'M2_FIX_FORMAT_B64='
           npx prettier scripts/m2-product-e2e.ts | base64 -w0
+          printf '\nM2_FIX_RENDER_B64='
+          npx prettier src/render.ts | base64 -w0
           printf '\n'
           npx prettier --check scripts/m2-product-e2e.ts
       - run: npm run verify
