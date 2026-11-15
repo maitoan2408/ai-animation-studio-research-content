@@ -67,3 +67,7 @@ Code references: `src/animation-ir.ts`,
 `production/src/scene/animation-ir-adapter.ts`,
 `scripts/render-ir-ab.ts`, `tests/animation-ir.test.ts`,
 `production/tests/animation-ir.test.ts`.
+
+## Final independently re-tested M1 evidence
+
+Root and production CI both passed on implementation SHA `2b28317bbf15550204ebef1952b3938c222bb5f0`. Actual native Three-backed scene proof: [workbench run 43710867255](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43710867255); [root CI run 43710867218](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43710867218). Real scene includes 2 rigged characters, verified prop with grip anchor, correct absolute camera, 72 decoded 640p frames and 4 native 1080p stills. Full reverse seek and scene parity checks passed. Visual review still belongs to owner; no artistic/voice acceptance inferred. End-of-stage audit found no open **M1-scoped** technical defects. Strict stage gate remains mandatory for M2–M7.

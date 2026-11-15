@@ -38,14 +38,14 @@
       }
     },
     "M1": {
-      "technicalStatus": "FINAL_RETTEST_PENDING",
-      "evidenceStatus": "REAL_THREE_MEDIA_VERIFIED_PREVIOUS_COMMIT",
+      "technicalStatus": "PASSED",
+      "evidenceStatus": "READY_FOR_USER_REVIEW",
       "userAcceptance": "NOT_REVIEWED",
-      "sourceCommit": "17b63e51d7ce5909f401ce7e7d4a705fc01fe516",
-      "appCIRun": 43705819033,
-      "productionCIRun": 43705819120,
-      "appCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43705819033",
-      "productionCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43705819120",
+      "sourceCommit": "2b28317bbf15550204ebef1952b3938c222bb5f0",
+      "appCIRun": 43710867218,
+      "productionCIRun": 43710867255,
+      "appCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43710867218",
+      "productionCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43710867255",
       "artifactId": 14158681348,
       "artifactName": "paper-studio-84",
       "artifactExpiresAt": "2026-11-29T10:51:02Z",
@@ -106,6 +106,42 @@
           "Narration/sound for 20-30sec product M2",
           "Multi-agent orchestration M5"
         ]
+      },
+      "productionArtifact": {
+        "id": 14160368449,
+        "name": "q2-workbench-79",
+        "expiresAt": "2026-11-29T11:55:29Z",
+        "video": "production/out/product-first/m1/m1-ir-production-640.mp4",
+        "contactSheet": "production/out/product-first/m1/m1-ir-production-contact.png",
+        "native1080Still": "production/out/product-first/m1/m1-final-native1080-frame-36.png",
+        "sha256": "15e228280f0fa634bc772288c785b4fa3be7d9946390ff39d3a27a369f540da0",
+        "renderedFromHead": "2b28317bbf15550204ebef1952b3938c222bb5f0",
+        "syntheticMergeCheckout": "4e3e2ca47c127a8b59fbc3f48dc75b7cb9990a55"
+      },
+      "appArtifact": {
+        "id": 14160815154,
+        "name": "paper-studio-101",
+        "expiresAt": "2026-11-29T11:54:08Z"
+      },
+      "finalAudit": {
+        "date": "2026-11-15",
+        "scope": "M1 strict data contract, stage coordinate fix, real production Three renderer and compatibility",
+        "passed": [
+          "Final implementation-head root CI success: verify, strict types, all unit, real integration, UI/recovery, M0 media and legacy/IR audio-pixel parity",
+          "Final implementation-head production CI success: typecheck, full TS+Python suite, physics/media/review regression, fresh standalone checkout",
+          "Real 72-frame MP4 and native 1080p stills generated from bounded IR through actual Three/WebGL puppet scene",
+          "Validated stage coordinates, materialized background, actor IK/joint markers, SHA-bound prop and grip anchor",
+          "Full video decode, deterministic arbitrary seek, same normalized scene state at preview and final canvas sizes",
+          "Manifest video SHA matches downloaded evidence and source head SHA is distinguished from synthetic CI merge SHA",
+          "Independent manual contact-sheet and 1080p still visual inspection: scene visible, characters framed, no black or blank shots"
+        ],
+        "knownLimitsNotM1Blockers": [
+          "Technical M1 production demo is 3 seconds, 640x360 with silent soundtrack; M2 will create 20–30 second voiced 1080p film",
+          "M1 demonstrated fixed existing Mai/An production character rigs, not new arbitrary character generation",
+          "Full physics behavior belongs to M4; character motion quality to M3/M6",
+          "Artistic aesthetics and user assessment are not self-approved"
+        ],
+        "unresolvedInScopeDefects": []
       }
     },
     "M2": {
@@ -150,8 +186,9 @@
     "ownerApprovalBeforeNextStage": true
   },
   "notes": [
-    "M0 accepted by owner.",
-    "M1 still NOT_REVIEWED; final audit/retest pending despite actual real Three video successfully rendered.",
-    "Strict serial gate and repeat regression after final fix remain mandatory; M2 not started."
+    "M0 ACCEPTED by owner on 2026-11-15.",
+    "M1 corrected, two full CI checks on source 2b28317 passed; independently inspected actual 72-frame Three animation and 1080 still; no open M1-scoped defects.",
+    "M1 READY_FOR_USER_REVIEW, not ACCEPTED. Owner must approve M1 before implementing M2. No auto-merge.",
+    "QA gate is mandatory for every future milestone, and failures must be fixed before completion reports."
   ]
 }

@@ -1,44 +1,38 @@
-# Product-first resume checkpoint — 2026-11-15
+# Product-first resume checkpoint — M1 technical gate completed 2026-11-15
 
-## Authoritative execution order
+## Source of truth / strict sequential execution
 
-1. Approved plan: [ROADMAP.md](ROADMAP.md); machine state: [STATE.json](STATE.json).
-2. M0 **ACCEPTED** by owner. Existing 13-second baseline was reviewed in chat. Do not mistake this for acceptance of future art quality.
-3. M1 **READY_FOR_USER_REVIEW**, not yet ACCEPTED. Branch `codex/product-first-m1-animation-ir`, stacked on `codex/product-first-skill-architecture`. PR #9.
-4. Continue to M2 only after reviewing M1's actual rendered A/B proof; do not write an M2 completion claim in advance.
-5. Never merge or force-push without owner approval.
+- Approved roadmap: [ROADMAP.md](ROADMAP.md); machine state: [STATE.json](STATE.json).
+- **M0 ACCEPTED** by owner (13-sec baseline demo).
+- **M1 READY_FOR_USER_REVIEW**, not yet ACCEPTED. Do not start M2 before explicit owner approval.
+- Working branch `codex/product-first-m1-animation-ir` (PR #9), stacked on M0 accepted branch.
+- Never merge/force-push or auto-approve creative work.
+- For all stages: implement → independent QA → correct findings → **repeat entire regression on final code HEAD** → inspect actual MP4/PNG → only then request owner acceptance.
 
-## M1 implementation
+## What M1 fixed and verified
 
-- Strict `src/animation-ir.ts` (Zod, staged frames 1920x1080, 24fps, actor capabilities).
-- Existing app `compile()` now routes `ProjectSpec` through IR before producing legacy SVG/GSAP output.
-- `production/src/scene/animation-ir-adapter.ts` maps shot frame and camera stage; **does not produce rig sprites**.
-- `scripts/render-ir-ab.ts` creates independent MP4s from same script and voice for both compilers, checks full decoded frame and PCM parity, publishes stills and manifests.
-- Tests: `tests/animation-ir.test.ts`, `production/tests/animation-ir.test.ts`.
+- Camera center corrected to stage (960, 540) with pan/zoom test and real native Three frames.
+- Strict bounded AnimationIR with puppet model/rig, authored scene camera, art-pack version, SHA-bound prop and contact-anchor references.
+- Actual IR evaluator creates stage background, two rigged actors Mai/An with animated head, joints, prop lantern with anchor/verified hashes. Renders directly through trusted WebGL Three backend, no fixed S01–S06 benchmarkFrame path for the IR fixture.
+- Root preview uses the same IR compatibility validation as video compiler; existing legacy projects still work unchanged.
+- Reverse-seek image and stage-state hashes, cross-viewport normalized state parity, full MP4 decode, 4 native 1080p stills, contact sheet.
 
-## Evidence (all actual runs succeeded)
+## Mandatory final QA evidence (all SUCCESS)
 
-- Root app CI `43705819033`: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43705819033
-- Workbench CI `43705819120`: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43705819120
-- Tested source commit `de632e58a1d639d8ef8eabac20141f497d657586`.
-- Root artifact `paper-studio-84`, ID 14158681348 (expires 2026-11-29). Inside `artifacts/product-first/m1/`: `m1-ir.mp4`, `m1-legacy.mp4`, `m1-ir-contact.png`, `manifest.json`.
-- Video length 4s, 96 frames at 640x360, 24fps; both have 48kHz audio; decoded video frames and PCM are identical. Not a 1080p art review.
-- Owner visual acceptance: **NOT_REVIEWED**. Send actual MP4 and GIF to chat for review.
+Source implementation commit: `2b28317bbf15550204ebef1952b3938c222bb5f0`.
 
-## Next step after owner acceptance
+- Root CI: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43710867218
+- Production CI: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43710867255
+- Production review artifact `q2-workbench-79` (ID 14160368449, expires 2026-11-29): `product-first/m1/m1-ir-production-640.mp4`, `m1-ir-production-contact.png`, `m1-final-native1080-frame-36.png`, `manifest.json`; exactly 72 640x360 24fps silent frames.
+- Real video SHA256: `15e228280f0fa634bc772288c785b4fa3be7d9946390ff39d3a27a369f540da0`.
+- Root compatibility artifact `paper-studio-101` (ID 14160815154, expires 2026-11-29) contains legacy vs IR A/B MP4 and voice parity.
+- Source SHA in final manifest is correctly linked to PR HEAD, while synthetic workflow merge SHA is separately recorded.
+- Independent human-visible visual inspection of 1080 still and contact verified visibly framed stage; no artistic approval presumed.
 
-M2 Studio v0.2: new script, 20–30s 1080p with >=3 shots, editable revision, preview/final export. Character and physics generalization are M3/M4; do not claim them from M1 tests.
+## Owner acceptance outstanding
 
+Present playable actual GIF, linked MP4 and native 1080 still in chat. Ask owner to accept or request visual adjustments. M1 demo is technical 3-sec silent 640p; not a M2 product. M2 only starts after owner explicitly accepts M1.
 
-## M1 audit override (2026-11-15)
+## Subsequent M2
 
-M1 status changed back to `REWORK_REQUIRED` by owner instruction. Do NOT advance to M2. Existing IR-to-legacy A/B passes, but production adapter returns empty sprites and camera `(0,0)` incompatible with stage `(960,540)`. M1 must add real production IR scene with bounded actors, props, asset binding, camera tests and real output, then rerun both entire CI suites and independent final audit. See ROADMAP strict phase gate. Previous PASS is preserved as historic, not an acceptance claim.
-
-
-## M1 remediation audit update — 2026-11-15
-
-- Latest independently successful full regression before final provenance change: root CI https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43710357802 and workbench CI https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43710357845 (source `17b63e51d7ce5909f401ce7e7d4a705fc01fe516`).
-- True Three renderer produced silent 3s 640x360 IR film, native 1080p stills, contact and SHA hashes. Previous verified evidence artifact: `q2-workbench-77` run 43709781443.
-- Corrected camera origin, actual sprite/rig/prop generation, bounded IR rig/asset metadata, and shared preview IR normalization. Full Git-only workbench checkout passed after moving sample fixture into `production/fixtures`.
-- Final source-provenance patch and a fresh complete two-workflow regression **remain required** before the milestone may be marked ready for user review. Mark no completion until latest CI is confirmed.
-- Final owner acceptance still missing. M2 must not start.
+Create a genuinely new 20–30 sec 1080p /24fps voiced film with >=3 shots, editable scene timeline, export/reopen and revision proof. Motion/physics skill quality are M3/M4. Preserve all previous V2 evidence and PRs.
