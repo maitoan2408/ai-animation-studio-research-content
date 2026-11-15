@@ -1,13 +1,26 @@
-## Final CLI compatibility follow-up
+# Resume checkpoint — 2026-11-16 | M2 technical PASS, pending owner review
 
-A real 16-second segmented CLI render exposed progress messages on stdout, breaking JSON consumers. Fix moves diagnostics to stderr and adds tests/cli-long.ts to CI. Recheck complete workflows before restoring READY_FOR_USER_REVIEW. Prior UI/media receipts below remain valid.
+## Strict stage gate
 
-# M2 — technical complete, ready for owner review
+M0 and M1 are owner ACCEPTED. **M2 READY_FOR_USER_REVIEW (NOT_ACCEPTED)**. Do not start M3 or merge any stacked PR until owner explicitly approves. Mandatory for every stage: implement, independent defect/quality audit, repair findings, full final-source CI regressions, inspect actual rendered media, then present owner review.
 
-Source `a6399e293b5c68c2637c295a4d36e929b7526dea` passed both full workflows: app [43736478725](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478725) and workbench [43736478822](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478822). Both media and UI/reopen gates passed. [Review/report](M2-REVIEW.md), [state](STATE.json), [exact CI manifest](evidence/m2-ci-a6399e2/manifest.json).
+## Latest verified source and real evidence
 
-New film: 24 seconds, 3 editable shots, 1920×1080, 24fps, 576 frames, AAC 48kHz draft Vietnamese voice. SHA-256 `cc3177c7c71393fb54778f12c05023e102ff229cd6111a161cbf3ff61b8ed109`. [Download full review bundle](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478725/artifacts/14171210679); expires 2026-11-29. Includes movie, portable final revision with audio, actual Studio screenshots, contact sheet and provenance.
+- Source code HEAD for M2 media: `bc351255374a7aac499e056daf8ed194167bb74a`. The documentation status update that follows is documentation-only; the executable revision and verified movie are unchanged.
+- Full Studio & product CI SUCCESS: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952273
+- Full production workbench CI SUCCESS: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952293
+- Latest actual M2 evidence: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952273/artifacts/14170989211 (`paper-studio-m2-145`, expires 2026-11-29).
+- The 24 sec 3-shot editable Studio movie is native 1920x1080/24fps, 576 decoded H264 frames with 48kHz AAC Vietnamese draft speech. SHA-256 `cc3177c7c71393fb54778f12c05023e102ff229cd6111a161cbf3ff61b8ed109`.
+- On 2026-11-16 downloaded the latest artifact and independently verified all 23 manifest hashes, MP4 SHA, ffprobe frame count, full ffmpeg video+audio decode, 3-scene portable project/voice references, sample frames/contact and browser-run reopen evidence.
+- The old long-render CLI JSON contract was repaired in commit `bc351255`; `tests/cli-long.ts` now runs in CI and passed. Earlier root-cause evidence persists in M2-REVIEW.md.
 
-`technicalStatus=PASSED`, `evidenceStatus=READY_FOR_USER_REVIEW`, `userAcceptance=NOT_REVIEWED`. Next action is owner viewing/listening and acceptance of this M2 artifact. Do not start M3, auto-merge or reinterpret technical checks as artistic/human approval. Keep all failed attempts and earlier F3 work separate.
+## Owner review boundary
 
-Reproduce from this branch: install Chromium, FFmpeg and librsvg2-bin; `npm ci`; `npm run studio -- doctor`; `npx tsx scripts/m2-product-e2e.ts`. M0/M1 recorded acceptance remains unchanged. Only bounded existing actions and draft voice are claimed.
+The pipeline, save/reopen, draft voice, editing and media output passed technical requirements. Visual motion is **basic**: simple wave, rigid walk and mechanical cup pick-up; natural motion remains future M3/M6. Draft eSpeak Vietnamese voice is not human quality certified. No automated evidence is an owner visual or listening approval. No M3 progress unless the owner says yes.
+
+## Files to read first
+
+- `docs/product-first/ROADMAP.md` for stage requirements and mandatory post-stage QA.
+- `docs/product-first/STATE.json` for machine-readable state.
+- `docs/product-first/M2-REVIEW.md` for detailed M2 defects, checks, evidence and scope.
+- `scripts/m2-product-e2e.ts` and `.github/workflows/ci.yml` for reproducible workflow.

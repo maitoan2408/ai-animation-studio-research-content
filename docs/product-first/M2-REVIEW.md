@@ -1,6 +1,6 @@
 # M2 — kết quả thẩm định và bàn giao
 
-Trạng thái: **RECHECKING_CLI_COMPATIBILITY**. Luồng UI/media đã PASS; đang đóng thêm lỗi tương thích CLI phim dài. Người dùng chưa duyệt M2; M3 chưa bắt đầu.
+Trạng thái: **READY_FOR_USER_REVIEW** (kỹ thuật PASS; chủ dự án chưa duyệt hình/tiếng). Bản cuối đã sửa tương thích CLI và vượt qua CI đầy đủ. M3 chưa bắt đầu.
 Người thực hiện kiểm tra: `delegated-agent`. Không giả là một chuyên gia độc lập hoặc chủ dự án đã xem/nghe và duyệt.
 
 ## Lỗi tìm thấy và sửa
@@ -28,9 +28,9 @@ Người thực hiện kiểm tra: `delegated-agent`. Không giả là một chu
 | Giữ logic và kiểm thử cũ | Cả CI ứng dụng lẫn workbench; integration/UI/recovery; M1 legacy/IR parity và Three render |
 | Bàn giao dùng được | MP4, ảnh Studio desktop/mobile, contact sheet, gói dự án và manifest SHA; video thực sự load/seek/play trong browser |
 
-**Tất cả tiêu chí kỹ thuật trong bảng đã PASS.** Source cuối: `a6399e293b5c68c2637c295a4d36e929b7526dea`. [CI ứng dụng](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478725) và [CI workbench](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478822) đều SUCCESS, gồm 25 unit/negative tests, types/build, integration/UI/recovery, M1 parity và standalone Git-only.
+**Tất cả tiêu chí kỹ thuật trong bảng đã PASS.** Source cuối được tái kiểm ngày 16/11/2026: `bc351255374a7aac499e056daf8ed194167bb74a`. [CI ứng dụng và M2 product](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952273) cùng [CI workbench](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952293) đều SUCCESS, gồm unit/negative tests, types/build, integration/UI/recovery, regression JSON CLI dài, M1 parity và standalone Git-only.
 
-[**Tải video và gói dự án M2**](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478725/artifacts/14171210679) (artifact `paper-studio-m2-143`, hạn lưu CI 29/11/2026). Mở `m2-edited-film-final-1080p.mp4` để xem. Nhập `m2-edited-project.studio.json` qua “Nhập gói dự án” để chỉnh tiếp; gói portable giữ revision cuối và audio, không xuất toàn bộ lịch sử revision nguồn.
+[**Tải video và gói dự án M2**](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952273/artifacts/14170989211) (artifact bản cuối `paper-studio-m2-145`, hạn lưu CI 29/11/2026). Mở `m2-edited-film-final-1080p.mp4` để xem. Nhập `m2-edited-project.studio.json` qua “Nhập gói dự án” để chỉnh tiếp; gói portable giữ revision cuối và audio, không xuất toàn bộ lịch sử revision nguồn.
 
 [Manifest gắn đúng source SHA và synthetic merge SHA](evidence/m2-ci-a6399e2/manifest.json), [pixel/audio parity](evidence/m2-ci-a6399e2/preview-final-parity.json), [reopen ở tiến trình mới](evidence/m2-ci-a6399e2/reopen-proof.json), [ảnh Studio desktop](evidence/m2-ci-a6399e2/studio-rendered-film-desktop.png), [mobile](evidence/m2-ci-a6399e2/studio-rendered-film-mobile.png), [contact sheet](evidence/m2-ci-a6399e2/m2-contact-sheet.png).
 
@@ -40,10 +40,16 @@ Người thực hiện kiểm tra: `delegated-agent`. Không giả là một chu
 - Kiểm âm tính độc lập qua đầu ra thực phát hiện video sai revision và voice lệch **250 ms**; [report](evidence/m2-negative-media-report.json). Đây là kiểm tra của cùng agent, không phải người nghe/animator độc lập.
 - Đã quan sát ảnh desktop/mobile, contact sheet và 24 mốc cách nhau một giây từ movie: đủ ba hành động wave/walk/pick-up, thay màu cảnh 2 thể hiện đúng, không cảnh đen/trống hoặc nhân vật mất khỏi khung tại các mốc quan sát. Browser đã thực sự load/seek/play video; không chỉ kiểm file tồn tại. Không chấm điểm diễn xuất hoặc tuyên bố đã nghe bằng tai.
 
-Vòng cuối đang chạy lại đầy đủ CI sau sửa stdout CLI; kết quả UI/media ở trên vẫn giữ nguyên. `userAcceptance=NOT_REVIEWED`; người dùng duyệt video trước khi chuyển M3.
+Vòng cuối **đã hoàn tất**: sửa stdout CLI dài, bổ sung regression `tests/cli-long.ts`; hai workflow trên commit cuối đều SUCCESS. Đã tải artifact mới nhất: 23/23 SHA đối chiếu manifest khớp, video trùng SHA `cc3177c7...`, ffprobe xác nhận 576/576 frame 24fps 1920×1080 và AAC 48kHz, ffmpeg full decode không lỗi. `userAcceptance=NOT_REVIEWED`; người dùng duyệt video và nghe lời thoại trước khi chuyển M3.
 
 ## Phạm vi chất lượng
 
 M2 hoàn thiện luồng sản phẩm và tính đúng của dữ liệu/video trong phạm vi renderer và action sẵn có. Không mở rộng sang bộ chuyển động M3, vật lý M4 hoặc đánh bóng nghệ thuật M6. Voice eSpeak tiếng Việt là giọng nháp để duyệt timing, chưa phải giọng tự nhiên chất lượng cao. Kiểm PCM không thay việc người dùng nghe duyệt.
 
 Kiểm ảnh/pixel/âm thanh do chương trình và review bởi cùng agent không được gắn nhãn duyệt nghệ thuật độc lập. `ACCEPTED` chỉ do chủ dự án quyết định; không auto-merge.
+
+## Audit bổ sung 16/11/2026 — hình ảnh và hạn chế
+
+Đã xem contact sheet thực và 12 frame rải đều khắp 24 giây: đủ wave, walk, pick-up và cảnh 2 có màu đã chỉnh; không gặp shot đen hoặc mất nhân vật. Tuy vậy, biểu cảm và chuyển động còn sơ cấp: vẫy tay lặp lại, dáng đi cứng, thao tác nâng cốc cơ học với tay kéo dài. Đây là rủi ro thẩm mỹ đã ghi nhận cho M3/M6, **không** tự nhận video có chất lượng phim cuối. Giọng eSpeak là bản nháp timing; bài kiểm tra số xác nhận nguồn PCM và audio khớp, nhưng không thay thế người dùng trực tiếp nghe đánh giá. M2 chưa được owner nghiệm thu.
+
+Tình trạng sau audit: `technicalStatus=PASSED`, `evidenceStatus=READY_FOR_USER_REVIEW`, `userAcceptance=NOT_REVIEWED`. Những lần CI FAIL trước đây và nguyên nhân/sửa lỗi được giữ nguyên ở lịch sử và báo cáo nguồn.
