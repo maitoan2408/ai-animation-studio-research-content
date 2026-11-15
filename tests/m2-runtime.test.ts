@@ -6,6 +6,19 @@ import path from 'node:path';
 import { doctor, run } from '../src/process.js';
 import { StudioError } from '../src/domain.js';
 import { Studio } from '../src/application.js';
+import { m2Provenance } from '../scripts/m2-provenance.js';
+
+test('M2 provenance supports a container checkout owned by another UID', (t) => {
+  const original = process.env.GIT_TEST_ASSUME_DIFFERENT_OWNER;
+  process.env.GIT_TEST_ASSUME_DIFFERENT_OWNER = 'true';
+  t.after(() => {
+    if (original === undefined) delete process.env.GIT_TEST_ASSUME_DIFFERENT_OWNER;
+    else process.env.GIT_TEST_ASSUME_DIFFERENT_OWNER = original;
+  });
+  const result = m2Provenance();
+  assert.match(result.checkoutCommit, /^[0-9a-f]{40}$/);
+  assert.match(result.trackedDiffSha256, /^[0-9a-f]{64}$/);
+});
 
 test('doctor fails helpfully on missing rasterizer and recovers after installation', async (t) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), 'studio-doctor-'));

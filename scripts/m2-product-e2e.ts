@@ -26,6 +26,9 @@ import {
 import { planScript } from '../src/planner.js';
 import { frameSvg } from '../src/rig.js';
 import { checkM2Media } from './m2-media-parity.js';
+import { m2Provenance } from './m2-provenance.js';
+
+const provenance = m2Provenance();
 
 const root = await mkdtemp(path.join(os.tmpdir(), 'studio-m2-product-'));
 const evidence = path.resolve('artifacts/product-first/m2');
@@ -495,12 +498,7 @@ try {
   const manifest = {
     milestone: 'M2',
     status: 'TECHNICAL_PASS_PENDING_OWNER_ART_REVIEW',
-    sourceCommit:
-      process.env.SOURCE_HEAD_SHA ||
-      process.env.GITHUB_SHA ||
-      run('git', ['rev-parse', 'HEAD']).trim(),
-    checkoutCommit: process.env.GITHUB_SHA || run('git', ['rev-parse', 'HEAD']).trim(),
-    trackedDiffSha256: hash(run('git', ['diff', 'HEAD', '--', 'src', 'scripts', 'web', 'tests'])),
+    ...provenance,
     runtime,
     parity,
     originalScript: source,

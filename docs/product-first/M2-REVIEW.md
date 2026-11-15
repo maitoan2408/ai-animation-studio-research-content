@@ -11,6 +11,8 @@ Người thực hiện kiểm tra: `delegated-agent`. Không giả là một chu
 4. Hủy worker render có thể để encoder con chạy tiếp: nhóm tiến trình riêng được dừng cùng nhau; kiểm tra hủy và chạy lại không còn tiến trình con sống.
 5. Harness UI chờ nhiều hơn một lựa chọn trong khi chỉ có một video hợp lệ: kiểm đúng artifact ID, metadata và phát thử video trong Studio.
 
+6. Bước ghi provenance mới chạy được local nhưng CI container có Git checkout khác UID. Đã tái hiện exit 129 bằng `GIT_TEST_ASSUME_DIFFERENT_OWNER`; dùng `git -c safe.directory=<đúng repo>` cho từng lệnh, kiểm provenance trước render, không đổi cấu hình global. Lần CI 43735567658 qua các gate media/UI/reopen rồi lỗi tại bước này; vẫn giữ trạng thái FAIL.
+
 ## Đối chiếu kế hoạch
 
 | Yêu cầu | Bằng chứng cần chốt |
