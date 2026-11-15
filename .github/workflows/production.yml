@@ -59,6 +59,8 @@ jobs:
         env:
           SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: npm --prefix production run motion:m3
+      - name: M3 required independent post-result provenance and media audit
+        run: npm --prefix production run motion:m3:audit
       - name: Upload diagnostic evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
