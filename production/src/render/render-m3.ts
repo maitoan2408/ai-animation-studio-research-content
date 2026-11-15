@@ -75,8 +75,8 @@ try{
      constraints.heldGripFrames++;
      constraints.maxGripError=Math.max(constraints.maxGripError,sample.contact.gripError!);
    }
-   const cup=sample.frame.sprites.find(s=>s.id===project.prop.id)!;
-   constraints.liftHeight=Math.max(constraints.liftHeight,project.prop.y-cup.y);
+   const cup=sample.frame.sprites.find(s=>s.id===project.prop!.id)!;
+   constraints.liftHeight=Math.max(constraints.liftHeight,project.prop!.y-cup.y);
    const raw=await captureFrameToBuffer(session,f,f/24);
    assert.equal(await session.page.evaluate('window.studio.frame'),f,'browser frame mismatch');
    const state=await session.page.evaluate('JSON.stringify(window.studio.state)') as string;
