@@ -47,8 +47,9 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
   if(typeof c.id!=='string'||!/^[a-z][a-z0-9-]{2,32}$/.test(c.id)||
      !['mai','an'].includes(String(c.model))||c.rigId!=='production-cutout-1'||
      c.artPackId!==pack.version||!Array.isArray(c.capabilities)||
-     c.capabilities.length!==m3Actions.length||
-     !m3Actions.every(a=>(c.capabilities as unknown[]).includes(a))||
+     c.capabilities.length<1||c.capabilities.length>m3Actions.length||
+     new Set(c.capabilities).size!==c.capabilities.length||
+     !c.capabilities.every(a=>m3Actions.includes(a as M3Action))||
      !validNumber(c.xStart)||c.xStart<350||c.xStart>1250||
      !validNumber(c.floor)||c.floor<780||c.floor>950||
      c.facing!==1)
@@ -64,6 +65,8 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
     if(!isObj(item)||!exact(item,['action','frames'])||
        !m3Actions.includes(item.action as M3Action)||
        !Number.isSafeInteger(item.frames))throw Error('M3_ACTION_UNSUPPORTED');
+    if(!(c.capabilities as M3Action[]).includes(item.action as M3Action))
+      throw Error('M3_ACTION_NOT_CAPABLE: '+String(item.action));
     const f=item.frames as number;
     if(item.action==='walk-stop'?(f<49||f>185||(f-25)%2!==0):
        item.action==='pick-place'?(f<73||f>241||(f-1)%4!==0):
