@@ -2,7 +2,12 @@ import { spawn } from 'node:child_process';
 import { StudioError } from './domain.js';
 
 /** Argument arrays only: project text never becomes shell code. */
-export function run(command: string, args: string[], signal?: AbortSignal, onOutput?: (chunk: string) => void): Promise<string> {
+export function run(
+  command: string,
+  args: string[],
+  signal?: AbortSignal,
+  onOutput?: (chunk: string) => void,
+): Promise<string> {
   return new Promise((resolve, reject) => {
     signal?.throwIfAborted();
     const child = spawn(command, args, { stdio: ['ignore', 'pipe', 'pipe'], signal });
