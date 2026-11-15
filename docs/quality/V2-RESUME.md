@@ -59,3 +59,11 @@ CI source e6d705e sau sửa Python PATH: workbench 43638665678 và app 436386657
 T2 control cùng frame cho thấy receiver chung làm tối cả bầu trời; bỏ receiver vẫn còn bóng kích thước lớn do thứ tự/lệch lớp. Đã lưu ảnh và phép đo; không gọi T2 đạt.
 
 T2: điều tra cùng mode depth-lit cho thấy receiver chung làm tối trời; tính hình học dự đoán offset shadow tới ground lớn (tối đa 110,646 px preview), không phải đo bóng thực. Chưa chỉnh preset hoặc coi T2 đạt.
+
+Edge-alpha prop đã chạy 192 frame preview 640; so với baseline cùng source có 3.974 pixel thay trong box prop và 0 ngoài box (đệm 4 px), hai crop tĩnh không đổi; không suy thành kiểm alpha/khớp/visual hoàn chỉnh. CI e5acb08 app 43683089818 và workbench 43683089855 PASS trên source trước edge-animation.
+
+Edge-alpha preview 192 frame lặp hai lần cùng host/browser, frame/MP4 trùng; mười source runtime/lock khớp SHA giữa snapshot. F2/T4 vẫn PARTIAL.
+
+Point light thử nghiệm theo anchor đã chạy S05 192 frame 640p ở intensity 0/0,4/1; on/off chỉ thay pixel trong bán kính dự kiến, bản 1 lặp hash 192 frame cùng host/browser. Có các kênh mới lên 255, chưa xác định linear clipping; không suy art/shadow đúng, T6/F2 còn PARTIAL.
+
+Snapshot edge/point-motion mới có typecheck, 79 TS, 58 Python và root verify PASS; audit evidence 724 attempt/676 archive PASS, hai attempt đang chạy lúc audit. Chưa có CI cho source mới, F2 vẫn IN_PROGRESS.

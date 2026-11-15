@@ -21,3 +21,7 @@ The contact, edge, fiber and glow modes are independent experiments: contact use
 `edge-alpha`, bump variants and lamp variants are bounded T4–T6 experiments; lighting uses emissive compensation and none has passed the S05 creative or motion gates.
 
 For a 192-frame provisional bump preview, append `preview physical bump` to animate.ts after the physical contour manifest. Only Mai torso/arms use bump; silent output and selected crop checks are not full flicker or artistic approval.
+
+`animate.ts ... preview physical edge-alpha` produces a silent prop-edge candidate; compare with the same-input physical baseline using `calibration/edge_motion_scope.py`. Bounding-box locality is not a joint, collision, color or creative gate.
+
+`animate.ts ... preview physical lamp-light 1` renders a silent 192-frame point-light candidate (intensity 0–1); `calibration/lantern_motion_scope.py` measures its 640p radius envelope against the same-input intensity-0 candidate. This does not prove no clipping, correct shadows, or artistic approval.

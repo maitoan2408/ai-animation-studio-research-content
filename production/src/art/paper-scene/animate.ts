@@ -9,7 +9,8 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import puppeteer from 'puppeteer-core';
 const root=fileURLToPath(new URL('../../../',import.meta.url)),run=promisify(execFile),sha=(b:Uint8Array)=>createHash('sha256').update(b).digest('hex');
-const [source,contourFile,profile='preview',coverage='foreground',look='basic']=process.argv.slice(2);if(!source||!contourFile||!['preview','1080'].includes(profile)||!['foreground','physical'].includes(coverage)||!['basic','bump'].includes(look))throw Error('ANIMATION_ARGUMENTS');
+const [source,contourFile,profile='preview',coverage='foreground',look='basic',intensityArg='0.4']=process.argv.slice(2);if(!source||!contourFile||!['preview','1080'].includes(profile)||!['foreground','physical'].includes(coverage)||!['basic','bump','edge-alpha','lamp-light'].includes(look))throw Error('ANIMATION_ARGUMENTS');
+const lanternIntensity=Number(intensityArg);if(!Number.isFinite(lanternIntensity)||lanternIntensity<0||lanternIntensity>1)throw Error('ANIMATION_LANTERN_INTENSITY');
 const width=profile==='1080'?1920:640,height=profile==='1080'?1080:360;
 const sourcePath=path.resolve(source),raw=await readFile(sourcePath),data=JSON.parse(raw.toString());
 const alpha=JSON.parse(await readFile(path.join(path.dirname(sourcePath),'alpha-critic.json'),'utf8'));
@@ -36,7 +37,7 @@ try{
  const page=await browser.newPage();await page.setViewport({width,height,deviceScaleFactor:1});const errors:string[]=[];
  page.on('pageerror',e=>errors.push(String(e)));page.on('requestfailed',r=>errors.push(`${r.url()} ${r.failure()?.errorText}`));await page.goto(base+'/');
  const absolute=Object.fromEntries(Object.entries(urls).map(([id,url])=>[id,base+url]));
- await page.evaluate(config=>{(window as any).animationInput=config;},{pack:data.pack,frames:data.frames,contours:contour.assets,textureUrls:absolute,width,height,includeBackground:coverage==='physical',look});
+ await page.evaluate(config=>{(window as any).animationInput=config;},{pack:data.pack,frames:data.frames,contours:contour.assets,textureUrls:absolute,width,height,includeBackground:coverage==='physical',look,lanternIntensity});
  await page.addScriptTag({content:code.outputFiles[0]!.text});await page.waitForFunction('window.animationReady||window.animationError',{timeout:90000});
  const error=await page.evaluate(()=>(window as any).animationError);if(error||errors.length)throw Error(`ANIMATION_BROWSER ${error} ${errors.join(' ')}`);
  const screenshot=async(frame:number)=>{await page.evaluate(f=>(window as any).animationSeek(f),frame);return Buffer.from(await page.screenshot({type:'png'}));};
@@ -52,8 +53,8 @@ try{
  const streams=JSON.parse(probe.stdout).streams;if(streams.length!==1||streams[0].width!==width||streams[0].height!==height||streams[0].r_frame_rate!=='24/1'||streams[0].nb_read_frames!=='192')throw Error('ANIMATION_PROBE');
  await run('ffmpeg',['-v','error','-i',video,'-f','null','-'],{timeout:180000});
  const report={status:profile==='1080'?'PASS_PROVISIONAL_1080P':'PASS_PROVISIONAL_PREVIEW',output:out,sourceSha256:sha(raw),contourSha256:sha(contourBytes),
-  width,height,profile,coverage,look,stats:await page.evaluate(()=>(window as any).animationStats),fps:'24/1',frames:192,videoSha256:sha(await readFile(video)),frameSha256:hashes,seek108Exact:true,seekChecks,
+  width,height,profile,coverage,look,lanternIntensity,stats:await page.evaluate(()=>(window as any).animationStats),fps:'24/1',frames:192,videoSha256:sha(await readFile(video)),frameSha256:hashes,seek108Exact:true,seekChecks,
   browser:await browser.version(),limitations:[profile==='1080'?'Silent native-size technical candidate; no audio or artistic review':'Silent 640x360 preview, not native 1080p final or audio review',
-   'Uses existing S05 poses; no draft mouth or expression animation',look==='bump'?'Bump experimental only on Mai torso/arms; no creative or flicker approval':'Basic raster face baseline','Authored shadow sprites, no 3D physical collision or artistic approval']};
+   'Uses existing S05 poses; no draft mouth or expression animation',look==='bump'?'Bump experimental only on Mai torso/arms; no creative or flicker approval':look==='edge-alpha'?'Inward alpha edge experiment on props only; no full-rig or artistic approval':look==='lamp-light'?'Point light follows lantern anchor, no cast shadow or artistic approval':'Basic raster face baseline','Authored shadow sprites, no 3D physical collision or artistic approval']};
  await writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
 }finally{await browser.close();server.closeAllConnections();server.close();}

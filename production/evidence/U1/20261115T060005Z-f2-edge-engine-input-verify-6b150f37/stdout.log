@@ -1,0 +1,7 @@
+test_exact_missing_changed_duplicate (test_f2_engine_inputs.EngineInputsTest.test_exact_missing_changed_duplicate) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+{"status": "PASS_ENGINE_INPUT_HASHES", "files": 10, "scope": "explicit animation runtime source and production dependency lock only; does not establish identical OS, Chromium or artistic quality"}

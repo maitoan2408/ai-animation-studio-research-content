@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-edge-engine-input-verify",
+  "run_id": "20261115T060005Z-f2-edge-engine-input-verify-6b150f37",
+  "started_at_utc": "20261115T060005Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; python -m unittest discover -s production/tests -p test_f2_engine_inputs.py -v; python production/src/art/paper-scene/calibration/compare_engine_inputs.py production/evidence/U1/20261115T055510Z-f2-edge-alpha-motion-8674ffce/inputs.json production/evidence/U1/20261115T055824Z-f2-edge-alpha-motion-repeat-a72669b4/inputs.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "e1335c6a187ac894376aa195cbf44fada5839f629e22e9193c18de64ed3bced9",
+  "recorder_pid": 3604,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "6f8e045176bad5b38b13d9fa31f9170682c3726fdfb63c7624ab815665e96b3a",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 0.383,
+  "finished_at_utc": "2026-11-15T06:00:06.408254+00:00",
+  "log_sha256": "fa2dd08ce7fcce8955a99717a32867d61159d7830299502c05fe4e253c8b0497",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

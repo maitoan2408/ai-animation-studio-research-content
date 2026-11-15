@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-edge-alpha-motion",
+  "run_id": "20261115T055510Z-f2-edge-alpha-motion-8674ffce",
+  "started_at_utc": "20261115T055510Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx production/src/art/paper-scene/animate.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json production/artifacts/quality/v2-f2/overlay-physical-contours.json preview physical edge-alpha"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "edd2b5052e1e5bcf3abc67c8bf1e5fe3727dade61686d1e98c77951e74d9069d",
+  "recorder_pid": 2060,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "b2c605b619cfc08f86965fc52396f2e2175c1bb0c5146c3c83e286ada5b3f355",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 137.979,
+  "finished_at_utc": "2026-11-15T05:57:28.602104+00:00",
+  "log_sha256": "17c6d781b93c1a99256265117b9ede5676d7fb032138c1a478564b2244b21509",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

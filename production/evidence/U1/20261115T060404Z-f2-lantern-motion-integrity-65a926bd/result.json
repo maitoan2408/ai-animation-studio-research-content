@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-lantern-motion-integrity",
+  "run_id": "20261115T060404Z-f2-lantern-motion-integrity-65a926bd",
+  "started_at_utc": "20261115T060404Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; python production/src/art/paper-scene/verify_animation.py production/out/f2-animation/a86a9e7e-a2cf-44b5-b20a-4b993d3458b4; python production/src/art/paper-scene/calibration/static_region.py production/out/f2-animation/a86a9e7e-a2cf-44b5-b20a-4b993d3458b4 13 6 116 36; python -c \"from pathlib import Path; import hashlib; a=Path(\\\"production/out/f2-animation/a86a9e7e-a2cf-44b5-b20a-4b993d3458b4/frames/0108.png\\\").read_bytes(); b=Path(\\\"production/artifacts/quality/v2-f2/t6/point-max.png\\\").read_bytes(); assert a==b, \\\"LANTERN_STILL_MISMATCH\\\"; print(\\\"LANTERN_STILL_EXACT\\\",hashlib.sha256(a).hexdigest())\""
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "29370f7dc3ef71932163bb1d6bda01e3f98c2c413b31f97bfb4af957de1c74dd",
+  "recorder_pid": 5926,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "1fd68b44e7b71d0aefd9ba08ace6ec57cf6669b08a41fbaf085affbf7a6439f3",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 5.362,
+  "finished_at_utc": "2026-11-15T06:04:10.275908+00:00",
+  "log_sha256": "b263990f86d5c79671535036473c0962447818deb1898a09895cadffe4f122c0",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-edge-motion-scope-validation",
+  "run_id": "20261115T055745Z-f2-edge-motion-scope-validation-6ad4f9da",
+  "started_at_utc": "20261115T055745Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; python production/src/art/paper-scene/verify_animation.py production/out/f2-animation/d80213b2-62d1-4874-be7a-239d6ba8458c; python production/src/art/paper-scene/verify_animation.py production/out/f2-animation/d4c895e6-5113-4d62-b38c-bf46dface8a4; python production/src/art/paper-scene/calibration/edge_motion_scope.py production/out/f2-animation/d80213b2-62d1-4874-be7a-239d6ba8458c production/out/f2-animation/d4c895e6-5113-4d62-b38c-bf46dface8a4 production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "edd2b5052e1e5bcf3abc67c8bf1e5fe3727dade61686d1e98c77951e74d9069d",
+  "recorder_pid": 3164,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "e36bc840c38154e25cbd4474034814dd867ac4e71e8de329a2f4cbb42695ffe6",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 6.839,
+  "finished_at_utc": "2026-11-15T05:57:52.322314+00:00",
+  "log_sha256": "4086877087960a182c0b3ad8e0be8ef1db4415a0c311b39492ab55b96505b771",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

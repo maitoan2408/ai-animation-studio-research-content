@@ -1,0 +1,18 @@
+{
+  "phase": "U1",
+  "step": "f2-edge-motion-final-checks",
+  "run_id": "20261115T060047Z-f2-edge-motion-final-checks-0ef7142d",
+  "started_at_utc": "20261115T060047Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; npm --prefix production test; python -m unittest discover -s production/tests -p \"test_*.py\"; npm run verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "177c31be2e306744ce866de1e1bdda1ec4f7550127996c140aaeaffd6d801797",
+  "status": "RUNNING",
+  "recorder_pid": 3742,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "1d4bc0b361d8613c3932a87e8000bc82c0c678bd9ff9a339350d0d1ab6f92ee1"
+}

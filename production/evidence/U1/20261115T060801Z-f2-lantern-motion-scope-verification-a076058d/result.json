@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-lantern-motion-scope-verification",
+  "run_id": "20261115T060801Z-f2-lantern-motion-scope-verification-a076058d",
+  "started_at_utc": "20261115T060801Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; python production/src/art/paper-scene/verify_animation.py production/out/f2-animation/78c5d733-ebfa-421c-8900-32ce44ea8a03; python production/src/art/paper-scene/calibration/lantern_motion_scope.py production/out/f2-animation/78c5d733-ebfa-421c-8900-32ce44ea8a03 production/out/f2-animation/a86a9e7e-a2cf-44b5-b20a-4b993d3458b4 production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e5acb08d93016f9b3ed3c038f731ef46912cd55d",
+  "tracked_diff_sha256": "29370f7dc3ef71932163bb1d6bda01e3f98c2c413b31f97bfb4af957de1c74dd",
+  "recorder_pid": 6458,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "b5fa90e1f4f2a700dd148ea8f30ff9e61573241f6424464f6e90ccf4b3202b9d",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 5.639,
+  "finished_at_utc": "2026-11-15T06:08:06.879352+00:00",
+  "log_sha256": "c86a0e95718e6d94d7e4104a73c9fbaf4755b6bf6147df6863c053e534b73e41",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

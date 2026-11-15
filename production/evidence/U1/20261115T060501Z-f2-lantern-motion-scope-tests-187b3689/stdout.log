@@ -1,0 +1,7 @@
+test_inside_outside_and_clipping (test_f2_lantern_motion_scope.LampScopeTest.test_inside_outside_and_clipping) ... ok
+test_invalid_shape (test_f2_lantern_motion_scope.LampScopeTest.test_invalid_shape) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK
