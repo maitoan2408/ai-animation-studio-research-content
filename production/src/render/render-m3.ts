@@ -11,7 +11,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {createCaptureSession,initializeSession,captureFrameToBuffer,closeCaptureSession,drainBrowserPool} from '@hyperframes/engine';
 import {serveM3,root} from './server.js';
-import {makeM3Showcase,m3TotalFrames,sampleM3} from '../motion/character-library.js';
+import {M3CharacterRegistry,makeM3Showcase,m3TotalFrames,sampleM3} from '../motion/character-library.js';
 import type {ArtPack} from '../scene/types.js';
 
 const sha=(b:Uint8Array|string)=>createHash('sha256').update(b).digest('hex');
@@ -21,7 +21,10 @@ const check=(name:string,args:string[])=>{
  return result.stdout;
 };
 const pack=JSON.parse(await readFile(path.join(root,'assets/lantern-v1/manifest.json'),'utf8')) as ArtPack;
-const project=makeM3Showcase(pack,'guest-01','an');
+const registry=new M3CharacterRegistry(pack);
+registry.register(makeM3Showcase(pack,'guest-01','an'));
+const project=registry.resolve('guest-01');
+const projectJson=JSON.stringify(project,null,2)+'\n';
 const output=path.join(root,'out/product-first/m3');
 await mkdir(output,{recursive:true});
 const frames=m3TotalFrames(project);
@@ -120,14 +123,14 @@ try{
  // Explicit baseline vs four supported actions: actual corresponding native frames.
  const comparison=path.join(output,'m3-standing-vs-motion.png');
  check('ffmpeg',['-v','error','-xerror','-y','-i',video,'-vf',
-   'select=eq(n\\,0)+eq(n\\,36)+eq(n\\,97)+eq(n\\,147)+eq(n\\,218),scale=480:270,tile=5x1',
+   'select=eq(n\\,72)+eq(n\\,36)+eq(n\\,97)+eq(n\\,147)+eq(n\\,218),scale=480:270,tile=5x1',
    '-frames:v','1',comparison]);
  const manifest={
    milestone:'M3',status:'TECHNICAL_PASS_PENDING_OWNER_VISUAL_REVIEW',
    sourceCommit:process.env.SOURCE_HEAD_SHA||process.env.GITHUB_SHA||'LOCAL_UNPINNED',
    checkoutCommit:process.env.GITHUB_SHA||'LOCAL_UNPINNED',
    renderer:'native Three.js + audited cutout puppet, same sample at any frame',
-   project:{file:'m3-project.json',sha256:sha(JSON.stringify(project)),character:project.character,clips:project.clips},
+   project:{file:'m3-project.json',sha256:sha(projectJson),character:project.character,clips:project.clips},
    video:{file:path.basename(video),sha256:sha(await readFile(video)),width:1920,height:1080,
      fps:24,frames,duration:frames/24,hasAudio:false},
    contacts:{file:path.basename(contact),sha256:sha(contactBytes),
@@ -137,9 +140,9 @@ try{
      'rig reused with new guest-01 instance','stance/sole contact drift measured from actual rig',
      'cup grip/world anchor error measured','ffprobe frame/fps/dimensions and full ffmpeg decode'],
    limitations:['M3 is character/motion, no Physics M4','No narration or final acting polish M6',
-     'Before/after means standing baseline vs authored motion, not a claim about prior-stage media']
+     'Before/after uses the actual settled standing pose at frame 72 vs moving frames, not M2 footage']
  };
- await writeFile(path.join(output,'m3-project.json'),JSON.stringify(project,null,2)+'\n');
+ await writeFile(path.join(output,'m3-project.json'),projectJson);
  await writeFile(path.join(output,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
  console.log('M3_NATIVE_VIDEO_PASS '+JSON.stringify({frames,sha256:manifest.video.sha256,constraints}));
 }finally{
