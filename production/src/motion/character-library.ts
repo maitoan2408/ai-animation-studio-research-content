@@ -22,7 +22,7 @@ export type M3Project={
   schemaVersion:'character-motion/1';
   character:M3Character;
   clips:M3Clip[];
-  prop:{id:string;asset:'props/cup';sha256:string;x:number;y:number;scale:number};
+  prop?:{id:string;asset:'props/cup';sha256:string;x:number;y:number;scale:number};
 };
 export type M3Sample={
   action:M3Action;localFrame:number;pose:ActorPose;
@@ -39,7 +39,7 @@ const base=(c:M3Character,x:number):ActorPose=>({
 });
 /** Fail closed: an instance ID may be new; its compatible artwork/rig must exist. */
 export function validateM3(value:unknown,pack:ArtPack):M3Project{
-  if(!isObj(value)||!exact(value,['schemaVersion','character','clips','prop'])||
+  if(!isObj(value)||!exact(value,Object.prototype.hasOwnProperty.call(value,'prop')?['schemaVersion','character','clips','prop']:['schemaVersion','character','clips'])||
      value.schemaVersion!=='character-motion/1'||!isObj(value.character)||
      !exact(value.character,['id','model','rigId','artPackId','capabilities','xStart','floor','facing']))
     throw Error('M3_PROJECT_INVALID');
@@ -75,6 +75,9 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
     total+=f;
   }
   if(total>5760)throw Error('M3_TIMELINE_TOO_LONG');
+  if(value.prop===undefined&&(value.clips as M3Clip[]).some(item=>item.action==='pick-place'))
+    throw Error('M3_PROP_REQUIRED');
+  if(value.prop!==undefined){
   const p=value.prop;
   if(!isObj(p)||!exact(p,['id','asset','sha256','x','y','scale'])||
      typeof p.id!=='string'||!/^[a-z][a-z0-9-]{2,32}$/.test(p.id)||
@@ -111,6 +114,7 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
       if(reach>203+1e-6||reach<7-1e-6)
         throw Error('M3_PICK_IK_UNREACHABLE: clip='+index+' reach='+reach.toFixed(3));
     }
+  }
   }
   return value as M3Project;
 }
@@ -172,6 +176,7 @@ function walkStop(c:M3Character,startX:number,f:number,frames:number):{pose:Acto
   return {pose,planted:phase===0?['right']:phase===1?['left']:['left','right']};
 }
 function cupSprite(p:M3Project,y:number):Sprite{
+  if(!p.prop)throw Error('M3_PROP_REQUIRED');
   return sprite(p.prop.id,p.prop.asset,p.prop.x,y,6,0,p.prop.scale);
 }
 function wristAtCup(pack:ArtPack,prop:Sprite,pose:ActorPose):Point{
@@ -191,7 +196,7 @@ function pickPlace(pack:ArtPack,p:M3Project,x:number,f:number,frames:number):{
   const lift=smooth(Math.max(0,Math.min(1,(t-.25)/.22)));
   const lower=smooth(Math.max(0,Math.min(1,(t-.63)/.22)));
   const held=t>=.25&&t<.85;
-  const prop=cupSprite(p,p.prop.y-66*(lift-lower));
+  const prop=cupSprite(p,p.prop!.y-66*(lift-lower));
   const target=wristAtCup(pack,prop,pose);
   const release=smooth(Math.max(0,Math.min(1,(t-.85)/.15)));
   const weight=reach*(1-release);
@@ -215,7 +220,7 @@ export function sampleM3(raw:unknown,frame:number,pack:ArtPack):M3Sample{
     if(item.action==='walk-stop')startX+=120;
   }
   let pose:ActorPose;
-  let prop=cupSprite(p,p.prop.y);
+  let prop=p.prop?cupSprite(p,p.prop.y):undefined;
   let planted=['left','right'];
   let grip=false;
   if(clip.action==='walk-stop'){
@@ -230,16 +235,16 @@ export function sampleM3(raw:unknown,frame:number,pack:ArtPack):M3Sample{
       facing:p.character.facing};
   }
   const rig=actorSprites(pack,pose);
-  const cupAnchor=anchorPoint(pack,prop,'grip');
+  const cupAnchor=prop?anchorPoint(pack,prop,'grip'):null;
   const handAnchor=rig.markers.find(m=>m.id===pose.id+'.right-grip');
-  if(!handAnchor)throw Error('M3_GRIP_MARKER_MISSING');
-  const error=grip?Math.hypot(handAnchor.point[0]-cupAnchor[0],handAnchor.point[1]-cupAnchor[1]):null;
+  if(grip&&(!handAnchor||!cupAnchor))throw Error('M3_GRIP_MARKER_MISSING');
+  const error=grip&&handAnchor&&cupAnchor?Math.hypot(handAnchor.point[0]-cupAnchor[0],handAnchor.point[1]-cupAnchor[1]):null;
   if(grip&&error!>0.00001)throw Error('M3_GRIP_CONTACT_LOST');
   const camera={x:960,y:540,zoom:1};
   return {
     action:clip.action,localFrame:local,pose,
-    frame:{camera,sprites:[...background(camera),sprite('bench','props/workbench',1060,860,-1,0,1.2),prop,...rig.sprites],
-      markers:[...rig.markers,{id:p.prop.id+'.grip',point:cupAnchor,z:6,kind:'contact'}]},
+    frame:{camera,sprites:[...background(camera),...(prop?[sprite('bench','props/workbench',1060,860,-1,0,1.2),prop]:[]),...rig.sprites],
+      markers:[...rig.markers,...(cupAnchor&&p.prop?[{id:p.prop.id+'.grip',point:cupAnchor,z:6,kind:'contact' as const}]:[])]},
     contact:{planted,grip,gripError:error},
   };
 }
