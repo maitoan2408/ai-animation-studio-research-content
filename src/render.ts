@@ -132,6 +132,17 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
     parsed.scenes.length > 1 &&
     parsed.scenes.every((scene) => scene.durationFrames <= 360);
   let activeJob: unknown;
+  const traceM2 = async (label: string) => {
+    if (!split) return;
+    const cgroup = await readFile('/sys/fs/cgroup/memory.current', 'utf8').catch(() => 'unavailable');
+    const mem = process.memoryUsage();
+    console.log('M2_MEMORY_GATE ' + JSON.stringify({
+      label, rssMB: Math.round(mem.rss / 1048576),
+      heapMB: Math.round(mem.heapUsed / 1048576),
+      externalMB: Math.round(mem.external / 1048576),
+      cgroupBytes: cgroup.trim(),
+    }));
+  };
   try {
     if (!split) {
       const { createRenderJob, executeRenderJob } = await import('@hyperframes/producer');
@@ -198,9 +209,11 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
         assertSegmentFrames(scene.id, qc.frames, scene.durationFrames);
         segmentReceipts.push({ scene: scene.id, frames: scene.durationFrames, qc });
         segmentPaths.push(partFile);
+        await traceM2('segment-closed-' + scene.id);
       }
       signal.throwIfAborted();
       await progress(0.87, 'Joining video scenes and original continuous voice');
+      await traceM2('before-concat');
       const list = path.join(dir, 'video-segments.txt');
       await writeFile(
         list,
@@ -230,6 +243,8 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
           // fps AND all 576 decoded frames are preserved; fail closed on drift.
           '-c:v',
           'copy',
+          '-threads',
+          '1',
           '-r',
           '24',
           '-video_track_timescale',
@@ -240,7 +255,9 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
         ],
         signal,
       );
+      await traceM2('after-concat');
       const mixed = await mixAudio(store, parsed);
+      await traceM2('after-audio-mix');
       if (mixed.audio) {
         const audioPath = path.join(dir, 'full-original-timeline.wav');
         await writeFile(audioPath, mixed.audio);
@@ -262,6 +279,8 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
             '1:a:0',
             '-c:v',
             'copy',
+            '-threads',
+            '1',
             '-c:a',
             'aac',
             '-b:a',
@@ -283,6 +302,7 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
       }
     }
     signal.throwIfAborted();
+    await traceM2('after-final-mux');
     await progress(0.95, 'Decoding all frames and checking audio');
     return { file, qc: await qcVideo(file, parsed, profile, signal) };
   } finally {
