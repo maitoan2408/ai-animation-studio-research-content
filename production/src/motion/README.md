@@ -97,3 +97,9 @@ required for this development workbench gate.
 `clip.ts` is an isolated, random-access scalar curve with normalized markers for anticipation/action/settle, bounded overshoot and duration retiming. It does not bind to a rig, replace the authored hero or implement the six actions; unsupported hero variations remain rejected. The user accepted current F2 quality for progression, without stating a numerical HQ-02 score or 1080p review.
 
 `life.ts` supplies separate seeded blink and breath preview signals that can be sampled in any order. Timings are provisional design constants, not researched physiological claims, and these signals are not connected to the hero rig.
+
+`heroFrame(..., physics, headEmphasis)` supports only a bounded Mai head/mouth variation (0–1); zero preserves the existing baseline. Other Performance Script variations remain guarded. `build_f3_emphasis.ts` produces a separate alpha/ground-gated frame stream bound to the existing F2 source and bake. `actions.ts` contains two separate development rig fixtures, turn-head and wave, with fixed feet; neither is integrated into the hero or approved as acting.
+
+`walk.ts` exposes the existing S02 authored walk only for integer frames 0–191; it adds no retiming capability. Its contract test measures planted boot sole anchors in world space on the actual rig.
+
+`cup-actions.ts` exposes the fixed existing S03 reach/lift/place shot; tests compare the actual grip anchors through the held interval. It does not support arbitrary props or retiming.

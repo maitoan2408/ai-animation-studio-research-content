@@ -1,0 +1,36 @@
+
+> paper-studio-production-workbench@0.1.0 typecheck
+> tsc --noEmit
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+✔ turn-head samples the actual rig with stable contact and exact endpoints (13.865394ms)
+✖ wave samples the actual rig with stable contact and exact endpoints (1.491123ms)
+✔ action boundary rejects unsupported inputs (0.838836ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 590.255016
+
+✖ failing tests:
+
+test at production/tests/motion-actions.test.ts:9:54
+✖ wave samples the actual rig with stable contact and exact endpoints (1.491123ms)
+  Error: IK_UNREACHABLE: distance=204.224, links=105+98
+      at elbow (/workspace/studio-audit/production/src/scene/math.ts:20:11)
+      at arm (/workspace/studio-audit/production/src/scene/rig.ts:33:19)
+      at actorSprites (/workspace/studio-audit/production/src/scene/rig.ts:58:3)
+      at TestContext.<anonymous> (/workspace/studio-audit/production/tests/motion-actions.test.ts:16:16)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)

@@ -1,0 +1,10 @@
+
+> paper-studio-production-workbench@0.1.0 typecheck
+> tsc --noEmit
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+{"status":"PROVISIONAL_TWO_ACTION_FIXTURE","output":"/workspace/studio-audit/production/out/f3-action-fixture/7d4b9134-3cf2-441e-93f2-9df0ef79d82b","sourceSha256":"48368a9146dfb4d9a7e15c85adbf22341ebb4e3714d899fb06711e9203cbabdc","outputSha256":"76eda415a3850c059d01eef89ecee8ee07bc7e64452da494035ed57115c1374d","frames":192,"limits":["static scene, two experimental actions only","cuts between actions are not continuity checked","alpha gate only covers lantern/torso at threshold 128","no art or acting approval"]}

@@ -4,6 +4,7 @@ import { sprite, type ActorPose, type ArtPack, type Marker, type Point, type Spr
 /** Assemble an authored cutout puppet. Every part transform is absolute so
  * re-evaluating a frame never integrates previous frames or clock state. */
 export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]; markers: Marker[]} {
+  if (pose.rightElbowBend !== undefined && pose.rightElbowBend !== 1 && pose.rightElbowBend !== -1) throw Error('RIGHT_ELBOW_BEND_INVALID');
   const items: Sprite[] = [], markers: Marker[] = [];
   const a = pose.character, hip = add([0, -258], pose.hipOffset ?? [0, 0]);
   const torsoAngle = pose.torsoAngle ?? 0;
@@ -30,7 +31,7 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
   leg('left', add(hip, [-30,0]), pose.leftAnkle ?? [-35,-29], 1);
   leg('right', add(hip,[30,0]), pose.rightAnkle ?? [48,-29], 2);
   const arm = (side: 'left' | 'right', shoulder: Point, wrist: Point, z: number) => {
-    const joint = elbow(shoulder,wrist,105,98,side === 'right' ? 1 : -1);
+    const joint = elbow(shoulder,wrist,105,98,side === 'right' ? pose.rightElbowBend ?? 1 : -1);
     bone(`${side}-upper`, 'upper-arm', shoulder,joint,z);
     bone(`${side}-forearm`, 'forearm',joint,wrist,z+.1);
     const hand = side === 'right' ? pose.rightHand ?? 'open' : pose.leftHand ?? 'open';

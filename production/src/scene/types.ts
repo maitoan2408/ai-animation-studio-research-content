@@ -28,6 +28,8 @@ export type ActorPose = {
   rightWrist?: Point; leftWrist?: Point; leftAnkle?: Point; rightAnkle?: Point;
   hipOffset?: Point; rightHand?: 'open' | 'grip' | 'point'; leftHand?: 'open' | 'grip' | 'point';
   rightHandAngle?: number; leftHandAngle?: number;
+  /** Explicit IK bend side, default keeps existing rig behavior. */
+  rightElbowBend?: 1 | -1;
 };
 export const sprite = (id: string, asset: string, x: number, y: number, z: number,
   rotation = 0, scaleX = 1, scaleY = scaleX): Sprite =>

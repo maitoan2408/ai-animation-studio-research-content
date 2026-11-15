@@ -1,0 +1,24 @@
+{
+  "phase": "U2",
+  "step": "f3-wave-position-frame",
+  "run_id": "20261115T070852Z-f3-wave-position-frame-d4b16378",
+  "started_at_utc": "20261115T070852Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "production/src/art/paper-scene/render.ts",
+    "production/out/f3-action-fixture/553646d9-b7fe-4576-ab60-1c0981224ee7/S05.json",
+    "72",
+    "production/artifacts/quality/v2-f2/overlay-physical-contours.json",
+    "authored-only",
+    "physical",
+    "basic",
+    "preview"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "3b2e820f2fe3ca5743eb260c885dabf138f97c78",
+  "tracked_diff_sha256": "b5706f7c79957042528836bdb1700b787efd8ba49cba2802dddc61b056df41eb",
+  "status": "RUNNING",
+  "recorder_pid": 20832,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "9752d6fca947bb282bf78013b8480c9d11f7856d52f1b5c8d5eed28080a07c7e"
+}

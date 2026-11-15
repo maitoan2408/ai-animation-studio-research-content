@@ -1,0 +1,18 @@
+{
+  "phase": "U2",
+  "step": "f3-authored-walk-contract",
+  "run_id": "20261115T071201Z-f3-authored-walk-contract-e9e8fc60",
+  "started_at_utc": "20261115T071201Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx --test production/tests/motion-walk.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "3b2e820f2fe3ca5743eb260c885dabf138f97c78",
+  "tracked_diff_sha256": "d8aa3452cc99d1fb54644efef8a01376f3d81a1c281661a8cfb3bfcefd0c97bf",
+  "status": "RUNNING",
+  "recorder_pid": 23362,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "c92edff387c3ee04aae1fca5ba1a805e6253ab07a4f6264d44a4bb7cbb1cb3bd"
+}

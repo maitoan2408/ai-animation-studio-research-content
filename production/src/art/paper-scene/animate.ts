@@ -15,7 +15,7 @@ const width=profile==='1080'?1920:640,height=profile==='1080'?1080:360;
 const sourcePath=path.resolve(source),raw=await readFile(sourcePath),data=JSON.parse(raw.toString());
 const alpha=JSON.parse(await readFile(path.join(path.dirname(sourcePath),'alpha-critic.json'),'utf8'));
 if(alpha.sourceSha256!==sha(raw)||alpha.frames!==192||alpha.alphaThreshold!==128||alpha.overlap['mai.torso'].length||alpha.overlap['an.torso'].length)throw Error('ANIMATION_ALPHA_GATE');
-if(data.shot!=='S05'||data.fps!==24||data.frames.length!==192||data.edit.qualityCandidate!=='f2-overlay-baseline')throw Error('ANIMATION_SOURCE');
+if(data.shot!=='S05'||data.fps!==24||data.frames.length!==192||!['f2-overlay-baseline','f3-head-emphasis','f3-action-fixture'].includes(data.edit.qualityCandidate))throw Error('ANIMATION_SOURCE');
 const contourBytes=await readFile(path.resolve(contourFile)),contour=JSON.parse(contourBytes.toString());
 const used=new Set<string>(data.frames.flatMap((f:{sprites:{asset:string}[]})=>f.sprites.map(s=>s.asset)));
 const files=new Map<string,Buffer>(),urls:Record<string,string>={};
@@ -55,6 +55,6 @@ try{
  const report={status:profile==='1080'?'PASS_PROVISIONAL_1080P':'PASS_PROVISIONAL_PREVIEW',output:out,sourceSha256:sha(raw),contourSha256:sha(contourBytes),
   width,height,profile,coverage,look,lanternIntensity,stats:await page.evaluate(()=>(window as any).animationStats),fps:'24/1',frames:192,videoSha256:sha(await readFile(video)),frameSha256:hashes,seek108Exact:true,seekChecks,
   browser:await browser.version(),limitations:[profile==='1080'?'Silent native-size technical candidate; no audio or artistic review':'Silent 640x360 preview, not native 1080p final or audio review',
-   'Uses existing S05 poses; no draft mouth or expression animation',look==='bump'?'Bump experimental only on Mai torso/arms; no creative or flicker approval':look==='edge-alpha'?'Inward alpha edge experiment on props only; no full-rig or artistic approval':look==='lamp-light'?'Point light follows lantern anchor, no cast shadow or artistic approval':'Basic raster face baseline','Authored shadow sprites, no 3D physical collision or artistic approval']};
+   data.edit.qualityCandidate==='f3-head-emphasis'?'Bounded Mai head emphasis on S05, no new mouth or expression animation':data.edit.qualityCandidate==='f3-action-fixture'?'Two experimental rig actions in a static test scene; no complete F3 or acting approval':'Uses existing S05 poses; no draft mouth or expression animation',look==='bump'?'Bump experimental only on Mai torso/arms; no creative or flicker approval':look==='edge-alpha'?'Inward alpha edge experiment on props only; no full-rig or artistic approval':look==='lamp-light'?'Point light follows lantern anchor, no cast shadow or artistic approval':'Basic raster face baseline','Authored shadow sprites, no 3D physical collision or artistic approval']};
  await writeFile(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
 }finally{await browser.close();server.closeAllConnections();server.close();}

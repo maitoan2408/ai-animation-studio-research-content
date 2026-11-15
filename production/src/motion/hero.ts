@@ -125,16 +125,19 @@ export function heroFrame(
   bake: BakeEnvelope,
   frame: number,
   physics: HeroPhysics = heroPhysics,
+  headEmphasis = 0,
 ): SceneFrame {
+  if (!Number.isFinite(headEmphasis) || headEmphasis < 0 || headEmphasis > 1) throw Error('HERO_HEAD_EMPHASIS_RANGE');
   if (input.artSha256 !== digest(pack)) throw Error('HERO_ART_MISMATCH');
   const sample = sampleBake(bake, frame, digest(input), physics);
-  if (frame < 108) return benchmarkFrame(pack, 'S05', frame, r3);
+  if (frame < 108) return benchmarkFrame(pack, 'S05', frame, headEmphasis === 0 ? r3 : { ...r3, headEmphasis });
   const rotation = (-sample.rotation * 180) / Math.PI;
   // Convert physics light-centre back to the existing SVG bottom pivot. No
   // post-render image offsets, solver correction, or live physics on seeking.
   const offset = rotate([0, (195 - 116) * 0.6], rotation);
   return benchmarkFrame(pack, 'S05', frame, {
     ...r3,
+    ...(headEmphasis === 0 ? {} : { headEmphasis }),
     handoffSecondaryTransform: {
       x: sample.centerX * 200 + offset[0],
       y: -sample.centerY * 200 + offset[1],

@@ -79,3 +79,7 @@ CI source 52a1cc6 app 43684747259 và workbench 43684747239 PASS (79 TS, 60 Pyth
 ## Chuyển sang F3 theo chỉ đạo người dùng — 15/11/2026
 
 Người dùng chấp nhận chất lượng hiện tại, yêu cầu không tối ưu thêm và chuyển sang các giai đoạn khác. F2 được chấp nhận cho mục đích tiếp tục, với các giới hạn kỹ thuật vẫn ghi nguyên; không suy thành điểm HQ-02 cụ thể, review styleframe 1080p hay quyền sử dụng asset. F3 IN_PROGRESS. Primitive scalar clip có anticipation, action, overshoot, settle và retime/seek tất định; chưa gắn rig, chưa là sáu hành động hay đạt gate timing/trọng lượng. Guard của hero vẫn giữ nguyên. Xem `docs/reports/F3.md`.
+
+F3 thử nghiệm thêm head emphasis trên rig S05 và hai action fixture turn-head/wave; test contact chân, retime, seek và miền input, giữ lần FAIL IK wave và bản sửa. Chưa có sáu action hoặc gate diễn xuất; xem F3 report, không đóng F3.
+
+F3 tiếp theo: hai action test, walk S02 và lift/place S03 có contract kiểm trên rig thật; video thử hai action có bước nhảy tư thế tay giữa clip, vẫn FAIL continuity. Còn action ngã nhẹ, lớp sống gắn rig và gate chất lượng; không dùng preview này để chốt F3. Full local 97 TS/62 Python/root verify PASS.
