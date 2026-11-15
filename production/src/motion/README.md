@@ -91,3 +91,9 @@ An overlap or malformed report fails closed. `alpha-critic.json` is evidence for
 alpha >= 128 at nearest stage-pixel sampling only; it does not prove 3D collision,
 cover translucent pixels or constitute artistic approval. Python 3 and Pillow are
 required for this development workbench gate.
+
+## F3 scalar clip primitive
+
+`clip.ts` is an isolated, random-access scalar curve with normalized markers for anticipation/action/settle, bounded overshoot and duration retiming. It does not bind to a rig, replace the authored hero or implement the six actions; unsupported hero variations remain rejected. The user accepted current F2 quality for progression, without stating a numerical HQ-02 score or 1080p review.
+
+`life.ts` supplies separate seeded blink and breath preview signals that can be sampled in any order. Timings are provisional design constants, not researched physiological claims, and these signals are not connected to the hero rig.

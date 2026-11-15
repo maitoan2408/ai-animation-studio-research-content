@@ -8,3 +8,5 @@ Các lựa chọn dưới đây là PROVISIONAL, không phải phê duyệt. Age
 - HQ-04 · F9 · Operator độc lập: clone sạch, mở và sửa note, ghi hash/thời gian; ≤15 phút nếu môi trường đã cài. Mặc định: chưa có operator, NOT_RUN.
 
   Tham khảo kỹ thuật tạm thời: `production/artifacts/quality/v2-f2/s05-scene/volume.png`; chưa phải styleframe đủ gate, không tự điền điểm.
+
+**Cập nhật theo chỉ đạo người dùng, 15/11/2026:** người dùng nói chất lượng hiện tại đã ổn, không cần tối ưu thêm và chuyển sang các giai đoạn khác. Ghi nhận sự chấp nhận này để tiếp tục F3; không tự gán điểm số, xác nhận người dùng đã xem từng video, hay coi đây là chấm styleframe 1080p và duyệt quyền asset. Các giới hạn kỹ thuật được giữ trong báo cáo, không mở thêm vòng tối ưu F2 theo chỉ đạo mới.

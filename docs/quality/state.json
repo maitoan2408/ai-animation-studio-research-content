@@ -76,7 +76,7 @@
     "sourceSha256": "e800b86d13c71de19249aa54728528a4278b3c2612b268fb1b040adc085a0cbd",
     "baseline": "ce4f912",
     "branch": "codex/v2-continuous",
-    "currentPhase": "F2",
+    "currentPhase": "F3",
     "tasks": [
       {
         "id": "F0",
@@ -97,7 +97,7 @@
         "dependencies": [
           "F0"
         ],
-        "status": "IN_PROGRESS",
+        "status": "USER_ACCEPTED_CURRENT_QUALITY_PROVISIONAL_TECHNICAL_GAPS",
         "attempts": 1
       },
       {
@@ -106,8 +106,8 @@
           "F1",
           "F2"
         ],
-        "status": "TODO",
-        "attempts": 0
+        "status": "IN_PROGRESS",
+        "attempts": 1
       },
       {
         "id": "F4",
@@ -248,6 +248,7 @@
       "f2NativeEndpoints": "PASS_SIX_SEPARATE_1080_STILLS_DYNAMIC_CROPS_ATOMIC_PUBLICATION_61_PY_NOT_ART"
     },
     "detailPlan": "docs/quality/PROPOSED-Q0-Q9-F2-DETAIL-20261114.md",
-    "detailPlanSha256": "7a0d796dfac0e49b1e16767270c388eb1aadfd51ae9dfb5587f8b3c7d7b7535c"
+    "detailPlanSha256": "7a0d796dfac0e49b1e16767270c388eb1aadfd51ae9dfb5587f8b3c7d7b7535c",
+    "userDirection20261115": "User accepted current quality and directed no further optimization; proceed to later phases. No numeric HQ-02 score or 1080p styleframe review was stated; technical gaps remain recorded."
   }
 }

@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "f3-foundation-full-suite",
+  "run_id": "20261115T064806Z-f3-foundation-full-suite-27f0210f",
+  "started_at_utc": "20261115T064806Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; npm --prefix production test; python -m unittest discover -s production/tests -p \"test_*.py\"; npm run verify"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e78616708e2a881bd25e83bf5e39a0ce9ebcb512",
+  "tracked_diff_sha256": "dcf745786a40f5438661f8b5306f07caba2b02c1c36b4abe79e729c28e4ab6e7",
+  "recorder_pid": 15580,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "8e6d0c2f1a80f55a24ed88a9458874e638fb25b3573ff0668d225cddbc713218",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 31.501,
+  "finished_at_utc": "2026-11-15T06:48:38.166145+00:00",
+  "log_sha256": "844885ae9e601d36cbaa0bbf54422524670651c7d4d00921e5ef81777002207c",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

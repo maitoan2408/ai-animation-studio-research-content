@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "f3-life-primitive",
+  "run_id": "20261115T064753Z-f3-life-primitive-c591a230",
+  "started_at_utc": "20261115T064753Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx --test production/tests/motion-life.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e78616708e2a881bd25e83bf5e39a0ce9ebcb512",
+  "tracked_diff_sha256": "04d8a8e822899703363c7cd6fd8457a7ab9bfab6bb4edc3974cfd329554ae5ee",
+  "recorder_pid": 15502,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "b836fdaa774a02ff769041731f449eda0345d87ccdc22ef613627b4b404db20e",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 5.197,
+  "finished_at_utc": "2026-11-15T06:47:59.025347+00:00",
+  "log_sha256": "47e5ae0166e3239b4b9a0b4b65013622a4f730fbb9f36ff00207bc16db265b03",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

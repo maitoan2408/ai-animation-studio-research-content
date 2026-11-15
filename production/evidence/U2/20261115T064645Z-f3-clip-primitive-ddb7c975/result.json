@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "f3-clip-primitive",
+  "run_id": "20261115T064645Z-f3-clip-primitive-ddb7c975",
+  "started_at_utc": "20261115T064645Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; npm --prefix production run typecheck; production/node_modules/.bin/tsx --test production/tests/motion-clip.test.ts"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "e78616708e2a881bd25e83bf5e39a0ce9ebcb512",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 14888,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "ba2d256b4245e0fc38c5c25814f4e1e6c3a3d9577377ca782d1854392433541a",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 5.37,
+  "finished_at_utc": "2026-11-15T06:46:51.410404+00:00",
+  "log_sha256": "282b7de845dbebc69edd72ee95f987e1b7f09fcff42295b63a386f9256471920",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

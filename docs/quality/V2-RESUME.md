@@ -75,3 +75,7 @@ CI ed4a64c: app 43684375303 và workbench 43684375347 PASS (79 TS, 58 Python). T
 Native endpoint crop helper đã được kiểm fail-closed khi input thiếu hoặc output tồn tại; bản chạy lại trong thư mục mới tạo report trùng byte, không thay chất lượng art.
 
 CI source 52a1cc6 app 43684747259 và workbench 43684747239 PASS (79 TS, 60 Python); helper crop fail-closed mới hơn có 61 Python PASS cục bộ, chờ CI source mới.
+
+## Chuyển sang F3 theo chỉ đạo người dùng — 15/11/2026
+
+Người dùng chấp nhận chất lượng hiện tại, yêu cầu không tối ưu thêm và chuyển sang các giai đoạn khác. F2 được chấp nhận cho mục đích tiếp tục, với các giới hạn kỹ thuật vẫn ghi nguyên; không suy thành điểm HQ-02 cụ thể, review styleframe 1080p hay quyền sử dụng asset. F3 IN_PROGRESS. Primitive scalar clip có anticipation, action, overshoot, settle và retime/seek tất định; chưa gắn rig, chưa là sáu hành động hay đạt gate timing/trọng lượng. Guard của hero vẫn giữ nguyên. Xem `docs/reports/F3.md`.
