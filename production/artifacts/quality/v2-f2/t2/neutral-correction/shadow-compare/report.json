@@ -1,0 +1,53 @@
+{
+  "status": "OBSERVATION_ONLY",
+  "beforeSha256": "f756e7bc15849c3b7f71ca6058c65b2bdb7f2893fec2cb77e25041582d425722",
+  "afterSha256": "20d9d12b3859003975137d09cf749f7fc52a4abb9e97ffe7202c03f93b1c772e",
+  "dimensions": [
+    640,
+    360
+  ],
+  "regions": {
+    "hand_lantern": {
+      "box": [
+        275,
+        140,
+        345,
+        230
+      ],
+      "meanDeltaE00": 1.4817307728352065,
+      "maxDeltaE00": 9.131203283047268
+    },
+    "head_neck": {
+      "box": [
+        205,
+        75,
+        275,
+        145
+      ],
+      "meanDeltaE00": 0.827945845919489,
+      "maxDeltaE00": 9.131203283047268
+    },
+    "mai_feet": {
+      "box": [
+        195,
+        275,
+        295,
+        315
+      ],
+      "meanDeltaE00": 0.688659028723378,
+      "maxDeltaE00": 9.00027676572177
+    },
+    "sky_parity": {
+      "box": [
+        13,
+        6,
+        116,
+        36
+      ],
+      "meanDeltaE00": 0.0,
+      "maxDeltaE00": 0.0
+    }
+  },
+  "color": "sRGB D65 to CIELAB D65, CIEDE2000 kL=kC=kH=1",
+  "threshold": "UNVERIFIED; no quality gate"
+}

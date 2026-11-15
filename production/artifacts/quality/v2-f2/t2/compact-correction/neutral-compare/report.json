@@ -1,0 +1,43 @@
+{
+  "status": "OBSERVATION_ONLY",
+  "beforeSha256": "bf7c8407fd9688fa2fb366eb28c57ff25c721ecc7151b22ad6890add414bd126",
+  "afterSha256": "dbe4ddb7e9f3535ed9080d8c8604eb5dc11c77f54f31e800f00053e443741a75",
+  "dimensions": [
+    640,
+    360
+  ],
+  "regions": {
+    "torso_mai": {
+      "box": [
+        205,
+        128,
+        266,
+        200
+      ],
+      "meanDeltaE00": 8.989802305617307,
+      "maxDeltaE00": 13.94583252469258
+    },
+    "sky_parity": {
+      "box": [
+        13,
+        6,
+        116,
+        36
+      ],
+      "meanDeltaE00": 4.741341962947798,
+      "maxDeltaE00": 5.192696234376831
+    },
+    "arm_mai": {
+      "box": [
+        255,
+        122,
+        315,
+        180
+      ],
+      "meanDeltaE00": 8.892907263352233,
+      "maxDeltaE00": 17.819284829165962
+    }
+  },
+  "color": "sRGB D65 to CIELAB D65, CIEDE2000 kL=kC=kH=1",
+  "threshold": "UNVERIFIED; no quality gate"
+}

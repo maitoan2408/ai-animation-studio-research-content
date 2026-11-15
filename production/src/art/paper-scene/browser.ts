@@ -2,6 +2,7 @@
 import * as THREE from 'three';
 import {makeContourBody} from './contour-body.js';
 import {contactPoints} from './contact.js';
+import {facePolicy} from './face-policy.js';
 import {makePaperBump} from './paper-bump.js';
 import {applyInwardEdge} from './edge-alpha.js';
 import {roughenBack} from './paper-edge.js';
@@ -9,11 +10,11 @@ import {shearDepth} from './depth.js';
 import {requireForegroundContour} from './coverage.js';
 import {anchorPoint} from '../../scene/geometry.js';
 import type {ArtPack,SceneFrame} from '../../scene/types.js';
-type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';coverage:'foreground'|'physical';look:'basic'|'standard'|'lambert'|'fold'|'depth'|'depth-lit'|'depth-soft'|'edge'|'fiber'|'glow'|'contact'|'shadow-card'|'contact-card'|'bump-control'|'bump'|'bump-strong'|'lamp-control'|'lamp-light'|'edge-alpha'|'depth-lit-off'|'depth-lit-noreceiver';lanternIntensity:number;groundY?:number;profile:'preview'|'1080';textureUrls:Record<string,string>};
+type Info={pack:ArtPack;frame:SceneFrame;contours:{id:string;loops:unknown;dimensions:[number,number];pivot:[number,number];gridScale?:number}[];mode:'flat'|'volume';shadowMode:'combined'|'receiver-only'|'authored-only';coverage:'foreground'|'physical';look:'basic'|'standard'|'lambert'|'fold'|'depth'|'depth-lit'|'depth-soft'|'edge'|'fiber'|'glow'|'contact'|'shadow-card'|'contact-card'|'bump-control'|'bump'|'bump-strong'|'lamp-control'|'lamp-light'|'edge-alpha'|'depth-lit-off'|'depth-lit-noreceiver'|'depth-lit-compact'|'depth-lit-compact-off'|'depth-lit-neutral'|'depth-lit-neutral-off'|'depth-painter-control';lanternIntensity:number;groundY?:number;profile:'preview'|'1080';textureUrls:Record<string,string>};
 declare global { interface Window { sceneInput:Info; sceneReady?:boolean;sceneError?:string;sceneStats?:unknown; } }
 async function main(){
  const {pack,frame,contours,mode,shadowMode,coverage,look,profile,lanternIntensity,groundY,textureUrls}=window.sceneInput;
- const depthMode=mode==='volume'&&(look==='depth'||look==='depth-lit'||look==='depth-lit-off'||look==='depth-lit-noreceiver'||look==='depth-soft');
+ const depthMode=mode==='volume'&&(look==='depth'||look==='depth-lit'||look==='depth-lit-off'||look==='depth-lit-noreceiver'||look==='depth-lit-compact'||look==='depth-lit-compact-off'||look==='depth-lit-neutral'||look==='depth-lit-neutral-off'||look==='depth-soft');
  const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
  renderer.setPixelRatio(1);renderer.setSize(profile==='preview'?640:1920,profile==='preview'?360:1080);renderer.setClearColor('#e8ddbe',1);
  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.VSMShadowMap;
@@ -22,7 +23,7 @@ async function main(){
  const scene=new THREE.Scene(),camera=new THREE.OrthographicCamera(-960,960,540,-540,.1,4000);
  camera.position.set(frame.camera.x-960,540-frame.camera.y,1000);camera.zoom=frame.camera.zoom;camera.updateProjectionMatrix();
  scene.add(new THREE.AmbientLight(0xffffff,1.1));const light=new THREE.DirectionalLight(0xffffff,1.2);light.position.set(-400,500,1000);
- light.castShadow=look!=='depth-lit-off';light.shadow.mapSize.set(2048,2048);light.shadow.radius=3;light.shadow.blurSamples=8;
+ light.castShadow=look!=='depth-lit-off'&&look!=='depth-lit-compact-off'&&look!=='depth-lit-neutral-off'&&look!=='depth-painter-control';light.shadow.mapSize.set(2048,2048);light.shadow.radius=3;light.shadow.blurSamples=8;
  Object.assign(light.shadow.camera,{left:-1500,right:1500,top:1100,bottom:-1100,near:1,far:3000});
  light.shadow.bias=-0.0002;scene.add(light);
  if(mode==='volume'&&look==='lamp-light'&&lanternIntensity>0){
@@ -40,7 +41,7 @@ async function main(){
  const contact=mode==='volume'&&(look==='contact'||look==='contact-card')?contactPoints(pack,frame,groundY!):undefined;
  const firstForeground=ordered.findIndex(s=>s.z>=0);if(firstForeground<0)throw Error('SCENE_FOREGROUND');
  const receiver=new THREE.Mesh(new THREE.PlaneGeometry(3200,2000),new THREE.ShadowMaterial({opacity:.23,depthTest:false,depthWrite:false}));
- receiver.visible=look!=='depth-lit-noreceiver';receiver.position.z=-5;receiver.receiveShadow=true;receiver.renderOrder=firstForeground*2;scene.add(receiver);
+ receiver.visible=!['depth-lit-noreceiver','depth-lit-compact','depth-lit-compact-off','depth-lit-neutral','depth-lit-neutral-off','depth-painter-control'].includes(look);receiver.position.z=-5;receiver.receiveShadow=true;receiver.renderOrder=firstForeground*2;scene.add(receiver);
  for(const [order,s] of ordered.entries()){
   if(mode==='volume'&&(shadowMode==='receiver-only'||look==='shadow-card'||look==='contact-card')&&s.id.endsWith('.paper-shadow')){hiddenPaperShadows++;continue;}
   if(contact&&s.id.endsWith('.contact-shadow')){
@@ -63,14 +64,14 @@ async function main(){
    normals.needsUpdate=true;
   }
   face.translate(asset.width/2-asset.pivot[0],asset.pivot[1]-asset.height/2,0);
-  const group=new THREE.Group();group.position.set(s.x-960,540-s.y,depthMode?order*6-500:s.z);group.rotation.z=-s.rotation*Math.PI/180;group.scale.set(s.scaleX,s.scaleY,1);
+  const group=new THREE.Group();group.position.set(s.x-960,540-s.y,depthMode?(['depth-lit-compact','depth-lit-compact-off','depth-lit-neutral','depth-lit-neutral-off'].includes(look)?order*.6-50:order*6-500):s.z);group.rotation.z=-s.rotation*Math.PI/180;group.scale.set(s.scaleX,s.scaleY,1);
   const contour=contours.find(c=>c.id===s.asset);
   if(['mai/','an/','mouth/','props/'].some(prefix=>s.asset.startsWith(prefix))||(coverage==='physical'&&s.asset.startsWith('background/')))requiredContours++;
   if(mode==='volume')requireForegroundContour(s.asset,!!contour,coverage==='physical');
   if(mode==='volume'&&contour){
    if(contour.dimensions[0]!==asset.width||contour.dimensions[1]!==asset.height||
      contour.pivot[0]!==asset.pivot[0]||contour.pivot[1]!==asset.pivot[1])throw Error(`SCENE_CONTOUR_METADATA ${s.asset}`);
-   const body=makeContourBody(contour.loops,contour,3);
+   const body=makeContourBody(contour.loops,contour,['depth-lit-compact','depth-lit-compact-off','depth-lit-neutral','depth-lit-neutral-off','depth-painter-control'].includes(look)?.3:3);
    shearDepth(body,.25);
    if(look==='edge'&&!s.asset.startsWith('background/'))roughenBack(body,s.asset,1);
    const background=s.asset.startsWith('background/');
@@ -93,7 +94,7 @@ async function main(){
    shadow.customProgramCacheKey=()=>`f2-shadow-card:${ux}:${uy}`;
    const card=new THREE.Mesh(face,shadow);card.position.set(7,-8,-.1);card.renderOrder=order*2-.5;group.add(card);shadowCards++;
   }
-  const options={map:textures.get(s.asset)!,transparent:!depthMode||look==='depth-soft',depthTest:depthMode,depthWrite:depthMode&&look!=='depth-soft',alphaTest:depthMode&&look!=='depth-soft'?.5:0,side:THREE.DoubleSide,opacity:s.opacity};
+  const options={map:textures.get(s.asset)!,...facePolicy(depthMode,look==='depth-soft',s.opacity),side:THREE.DoubleSide,opacity:s.opacity};
   const material=mode==='volume'&&s.asset==='mai/torso'&&['standard','lambert','fold'].includes(look)
    ?(look==='lambert'?new THREE.MeshLambertMaterial(options):new THREE.MeshStandardMaterial({...options,roughness:1,...(look==='fold'?{emissive:0xffffff,emissiveMap:options.map,emissiveIntensity:.25}:{})}))
    :new THREE.MeshBasicMaterial(options);
@@ -112,9 +113,10 @@ async function main(){
   }
   const bumpTarget=mode==='volume'&&(look==='bump'||look==='bump-control'||look==='bump-strong')&&['mai/torso','mai/upper-arm','mai/forearm'].includes(s.asset);
   const lampTarget=mode==='volume'&&(look==='lamp-control'||look==='lamp-light')&&!!contour&&!s.asset.startsWith('background/');
-  const faceMaterial=bumpTarget?new THREE.MeshLambertMaterial({...options,emissive:0xffffff,emissiveMap:options.map,emissiveIntensity:.329,...(look==='bump'||look==='bump-strong'?{bumpMap:bumpTexture,bumpScale:look==='bump-strong'?2:.6}:{})}):lampTarget?new THREE.MeshLambertMaterial({...options,emissive:0xffffff,emissiveMap:options.map,emissiveIntensity:.329}):(look==='depth-lit'||look==='depth-lit-off'||look==='depth-lit-noreceiver')&&mode==='volume'?new THREE.MeshStandardMaterial({...options,roughness:1}):material;
+  const neutralDepth=mode==='volume'&&(look==='depth-lit-neutral'||look==='depth-lit-neutral-off');
+  const faceMaterial=bumpTarget?new THREE.MeshLambertMaterial({...options,emissive:0xffffff,emissiveMap:options.map,emissiveIntensity:.329,...(look==='bump'||look==='bump-strong'?{bumpMap:bumpTexture,bumpScale:look==='bump-strong'?2:.6}:{})}):lampTarget||neutralDepth?new THREE.MeshLambertMaterial({...options,emissive:0xffffff,emissiveMap:options.map,emissiveIntensity:.329}):(look==='depth-lit'||look==='depth-lit-off'||look==='depth-lit-noreceiver'||look==='depth-lit-compact'||look==='depth-lit-compact-off')&&mode==='volume'?new THREE.MeshStandardMaterial({...options,roughness:1}):material;
   const plate=new THREE.Mesh(face,faceMaterial);if(depthMode)plate.position.z=.05;
-  if((look==='depth-lit'||look==='depth-lit-off'||look==='depth-lit-noreceiver')&&mode==='volume'){plate.receiveShadow=true;plate.castShadow=!!contour&&!s.asset.startsWith('background/');}
+  if((look==='depth-lit'||look==='depth-lit-off'||look==='depth-lit-noreceiver'||look==='depth-lit-compact'||look==='depth-lit-compact-off'||look==='depth-lit-neutral'||look==='depth-lit-neutral-off')&&mode==='volume'){plate.receiveShadow=true;plate.castShadow=!!contour&&!s.asset.startsWith('background/');}
   plate.renderOrder=order*2+1;group.add(plate);scene.add(group);plates++;
  }
  if(mode==='volume'&&look==='glow'&&lanternIntensity>0){

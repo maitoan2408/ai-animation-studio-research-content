@@ -1,0 +1,23 @@
+{
+  "phase": "U1",
+  "step": "f2-depth-neutral-1080-controls",
+  "run_id": "20261115T062814Z-f2-depth-neutral-1080-controls-5ac0d187",
+  "started_at_utc": "20261115T062814Z",
+  "command": [
+    "bash",
+    "-c",
+    "set -e; for look in depth-painter-control depth-lit-neutral-off depth-lit-neutral; do production/node_modules/.bin/tsx production/src/art/paper-scene/render.ts production/out/f2-hero/7fd93c1b-ce5e-4ce4-b7af-0586bdc78d4e/S05.json 108 production/artifacts/quality/v2-f2/overlay-physical-contours.json receiver-only physical \"$look\" 1080; done"
+  ],
+  "cwd": "/workspace/studio-audit",
+  "base_commit": "f5b081d34dd5f773359d9165999e9279f79ff93a",
+  "tracked_diff_sha256": "fe1db16f92125ab426ef435285f7638a8b5765d5282faa7d389468f6a481d5dc",
+  "recorder_pid": 12666,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "56b899b7235e99ae07fa62c7a3569151f0de3cf4de22db8f98217c888d2f8505",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 33.756,
+  "finished_at_utc": "2026-11-15T06:28:48.299071+00:00",
+  "log_sha256": "e29cd455982cca5ec4e6aaaa6e37eac461b0386c8f04f051d22afc069b148bae",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}
