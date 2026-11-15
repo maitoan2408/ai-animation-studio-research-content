@@ -239,7 +239,22 @@
     "M3": {
       "technicalStatus": "IN_PROGRESS",
       "evidenceStatus": "NOT_VERIFIED",
-      "userAcceptance": "NOT_REVIEWED"
+      "userAcceptance": "NOT_REVIEWED",
+      "sourceBaseCommit": "68ae34daebce4e1b27b4345cf5f296e4f4d300c2",
+      "plan": "docs/product-first/M3-PLAN.md",
+      "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/11",
+      "requirements": [
+        "New character instance ID with art/rig/capabilities registry",
+        "Walk-stop + head turn + wave + pick-place reusable actions",
+        "Measured planted sole drift and cup grip contact",
+        "Native 1080p Three showcase, before/after pose comparison, contact sheet and full media decode",
+        "Full root+workbench regression after last fix; post-result independent audit; in-chat owner review"
+      ],
+      "risks": [
+        "Existing rig art reused; no claim of brand-new authored character artwork",
+        "M3 excludes M4 physics and M6 premium natural acting"
+      ],
+      "ownerGate": "Only user can mark ACCEPTED. M4 cannot start until that approval."
     },
     "M4": {
       "technicalStatus": "NOT_VERIFIED",
@@ -277,6 +292,7 @@
     "M2 owner ACCEPTED on 2026-11-16 after 24s rendered-media review. Final M2 technical CI remains SHA-pinned to bc351255.",
     "CLI stdout long-render contract repaired, its regression passed on final source. No remaining in-scope M2 technical defects from this audit.",
     "M2 accepted as workflow-quality gate; natural character acting and draft voice explicitly deferred to M3/M6.",
-    "Owner authorized starting M3 on 2026-11-16; sequential gate remains mandatory through M3–M7."
+    "Owner authorized starting M3 on 2026-11-16; sequential gate remains mandatory through M3–M7.",
+    "M3 started only after explicit M2 owner acceptance; no interim reports; reviewable actual video and secondary post-result QA are mandatory."
   ]
 }
