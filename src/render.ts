@@ -163,6 +163,10 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
       () => 'unavailable',
     );
     const mem = process.memoryUsage();
+    const stat = await readFile('/sys/fs/cgroup/memory.stat', 'utf8').catch(() => '');
+    const stats = new Map(
+      stat.split('\n').filter(Boolean).map((line) => line.split(' ')),
+    );
     console.log(
       'M2_MEMORY_GATE ' +
         JSON.stringify({
@@ -171,6 +175,9 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
           heapMB: Math.round(mem.heapUsed / 1048576),
           externalMB: Math.round(mem.external / 1048576),
           cgroupBytes: cgroup.trim(),
+          anonBytes: stats.get('anon'),
+          fileBytes: stats.get('file'),
+          slabBytes: stats.get('slab'),
         }),
     );
   };
@@ -334,6 +341,16 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
     }
     signal.throwIfAborted();
     await traceM2('after-final-mux');
+    if (split) {
+      // Real 1080p decode needs enough headroom for frame buffers; the
+      // long raster/encode stage may leave reclaimable page cache charged to
+      // the 4 GiB CI cgroup. Reclaim only cached memory, not QC coverage.
+      const reclaim = await writeFile('/sys/fs/cgroup/memory.reclaim', '2147483648')
+        .then(() => 'OK')
+        .catch((error: unknown) => String(error));
+      console.log('M2_MEMORY_RECLAIM ' + reclaim);
+      await traceM2('before-final-qc');
+    }
     await progress(0.95, 'Decoding all frames and checking audio');
     return { file, qc: await qcVideo(file, parsed, profile, signal) };
   } finally {
