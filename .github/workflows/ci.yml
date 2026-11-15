@@ -23,13 +23,6 @@ jobs:
       - name: Install media runtime
         run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation
       - run: npm ci
-      - name: Print Prettier-ready M1 source for review
-        run: |
-          printf 'M1_FORMATTED_IR_BASE64='
-          npx prettier src/animation-ir.ts | base64 -w0
-          printf '\nM1_FORMATTED_TEST_BASE64='
-          npx prettier tests/animation-ir.test.ts | base64 -w0
-          printf '\n'
       - run: npm run studio -- doctor
       - run: npm run verify
       - run: npm run build
