@@ -37,10 +37,6 @@ jobs:
         env:
           SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: npx tsx scripts/render-ir-ab.ts
-      - name: M2 real 3-shot edited 1080p production video + UI + voice acceptance
-        env:
-          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: npx tsx scripts/m2-product-e2e.ts
       - name: Upload evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -50,4 +46,35 @@ jobs:
             artifacts/
             /tmp/studio-integration-*/tmp/**/render-log.json
             /tmp/studio-integration-*/tmp/**/failure.json
+          retention-days: 14
+
+  # Dedicated clean container: root integration and M1 A/B suites launch many
+  # Chromium processes. Native 1080p M2 must not inherit their native memory.
+  # This job still runs the same external-script / real UI / audio / QC gate.
+  m2-product:
+    needs: verify
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 40
+    env:
+      STUDIO_BROWSER: /usr/bin/chromium
+      HYPERFRAMES_NO_TELEMETRY: '1'
+      SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install media runtime in isolated clean container
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation
+      - run: npm ci
+      - name: Check M2 acceptance harness formatting and types
+        run: |
+          npx prettier --check scripts/m2-product-e2e.ts
+          npm run typecheck
+      - name: Render new 24-sec native1080p edited and voiced video + prove UI/export/restart
+        run: npx tsx scripts/m2-product-e2e.ts
+      - name: Upload actual M2 video, edit screenshots, contact and SHA report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: paper-studio-m2-${{ github.run_number }}
+          path: artifacts/product-first/m2/
           retention-days: 14
