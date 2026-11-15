@@ -48,7 +48,7 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
      !['mai','an'].includes(String(c.model))||c.rigId!=='production-cutout-1'||
      c.artPackId!==pack.version||!Array.isArray(c.capabilities)||
      c.capabilities.length!==m3Actions.length||
-     !m3Actions.every(a=>c.capabilities.includes(a))||
+     !m3Actions.every(a=>(c.capabilities as unknown[]).includes(a))||
      !validNumber(c.xStart)||c.xStart<350||c.xStart>1250||
      !validNumber(c.floor)||c.floor<780||c.floor>950||
      c.facing!==1)
