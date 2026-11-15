@@ -104,8 +104,8 @@ export async function qcVideo(
 /**
  * A long, multi-scene project can exceed available Chromium memory when kept
  * in a single 1080p session. This general scene boundary renderer releases
- * the HyperFrames browser after each bounded scene, then concatenates H.264
- * video without a lossy second video encode. The original scene-correct
+ * the HyperFrames browser after each bounded scene, then creates a strictly constant-24fps H.264
+ * stream using exact frame-number timestamps. The original scene-correct
  * 48kHz mix is muxed once, avoiding AAC priming gaps at shot boundaries.
  */
 export const renderVideo: RenderFunction = async (store, spec, profile, dir, signal, progress) => {
@@ -221,8 +221,31 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
           '-map',
           '0:v:0',
           '-an',
+          // Container concat of independently encoded H.264 segments can
+          // produce fractional frame-rate drift even with perfect frame count.
+          // Retimestamp by integer frame number and encode exactly CFR 24.
+          '-vf',
+          'setpts=N/(24*TB)',
+          '-r',
+          '24',
+          '-fps_mode',
+          'cfr',
           '-c:v',
-          'copy',
+          'libx264',
+          '-preset',
+          'fast',
+          '-crf',
+          '16',
+          '-pix_fmt',
+          'yuv420p',
+          '-color_primaries',
+          'bt709',
+          '-color_trc',
+          'bt709',
+          '-colorspace',
+          'bt709',
+          '-color_range',
+          'tv',
           '-movflags',
           '+faststart',
           joined,
