@@ -401,8 +401,32 @@ try {
   await pageAgain.click('[data-project="' + projectId + '"]');
   await pageAgain.waitForSelector('#workspace:not([hidden])');
   await pageAgain.waitForFunction(
-    () => (document.querySelector('#artifact-select')?.querySelectorAll('option').length ?? 0) > 1,
+    (artifactId) => {
+      const select = document.querySelector('#artifact-select') as HTMLSelectElement | null;
+      const video = document.querySelector('#video') as HTMLVideoElement | null;
+      return select?.value === artifactId && video && !video.hidden && video.readyState >= 2;
+    },
     { timeout: 30000 },
+    renderedArtifactId,
+  );
+  const browserMedia = await pageAgain.$eval('#video', (element) => {
+    const video = element as HTMLVideoElement;
+    return { width: video.videoWidth, height: video.videoHeight, duration: video.duration };
+  });
+  assert.deepEqual(browserMedia, { width: 1920, height: 1080, duration: frames / 24 });
+  await pageAgain.$eval('#video', async (element) => {
+    const video = element as HTMLVideoElement;
+    video.muted = true; // Audio content is checked separately against original PCM.
+    video.currentTime = 8.5;
+    await video.play();
+  });
+  await pageAgain.waitForFunction(
+    () => (document.querySelector('#video') as HTMLVideoElement).currentTime >= 9,
+    { timeout: 15000 },
+  );
+  await pageAgain.$eval('#video', (element) => (element as HTMLVideoElement).pause());
+  checks.push(
+    'The exact published artifact loads, seeks and plays in the real Studio HTML video player at native 1080p.',
   );
   await pageAgain.screenshot({
     path: path.join(evidence, 'studio-rendered-film-desktop.png'),

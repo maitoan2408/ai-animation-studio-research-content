@@ -1,0 +1,27 @@
+{
+  "phase": "U2",
+  "step": "m2-consumer-negative-audit",
+  "run_id": "20261115T162317Z-m2-consumer-negative-audit-b0268c64",
+  "started_at_utc": "20261115T162317Z",
+  "command": [
+    "node",
+    "--import",
+    "tsx",
+    "docs/product-first/evidence/m2-negative-consumer.mts",
+    "/workspace/m2-branch-audit/artifacts/product-first/m2/m2-edited-project.studio.json",
+    "/workspace/m2-branch-audit/artifacts/product-first/m2/m2-edited-film-final-1080p.mp4",
+    "production/out/m2-negative-audit-original"
+  ],
+  "cwd": "/workspace/m2-completion",
+  "base_commit": "758ca60d0ff069abf351fdaf2cd4afd6af2e75c1",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 45326,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "4e300528acc98dda59b9c2cf32c70ccbeeec9ddcb59b9d6c1a289095bde09fcd",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 6.805,
+  "finished_at_utc": "2026-11-15T16:23:24.917176+00:00",
+  "log_sha256": "f32c99eb2b5dfb742e8cc5e9961ad5f2d5a7013ef7bf715390012e8ef1366a7d",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}
