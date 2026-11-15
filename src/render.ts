@@ -60,7 +60,18 @@ export async function qcVideo(
 ): Promise<QC> {
   const raw = await run(
     'ffprobe',
-    ['-v', 'error', '-threads', '1', '-count_frames', '-show_streams', '-show_format', '-of', 'json', file],
+    [
+      '-v',
+      'error',
+      '-threads',
+      '1',
+      '-count_frames',
+      '-show_streams',
+      '-show_format',
+      '-of',
+      'json',
+      file,
+    ],
     signal,
   );
   const probe = JSON.parse(raw) as {
@@ -96,7 +107,21 @@ export async function qcVideo(
   // Decode every stream; metadata alone cannot detect a damaged payload.
   await run(
     'ffmpeg',
-    ['-v', 'error', '-xerror', '-nostdin', '-threads', '1', '-filter_threads', '1', '-i', file, '-f', 'null', '-'],
+    [
+      '-v',
+      'error',
+      '-xerror',
+      '-nostdin',
+      '-threads',
+      '1',
+      '-filter_threads',
+      '1',
+      '-i',
+      file,
+      '-f',
+      'null',
+      '-',
+    ],
     signal,
   );
   return qc;
