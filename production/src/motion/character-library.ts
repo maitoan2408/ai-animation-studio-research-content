@@ -87,6 +87,31 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
   if(!art||art.sha256!==p.sha256||!art.anchors.grip||
      !pack.assets.find(a=>a.id===c.model+'/hand-grip')?.anchors.grip)
     throw Error('M3_PROP_HASH_OR_ANCHOR');
+  // Reject impossible configured pick/place contacts *before* starting a render.
+  // The real cutout has 105 + 98 stage-px upper/forearm lengths; a matching
+  // hand/cup grip marker alone does not prove the arm can physically reach it.
+  const torso=pack.assets.find(a=>a.id===c.model+'/torso');
+  const hand=pack.assets.find(a=>a.id===c.model+'/hand-grip');
+  if(!torso?.anchors.rightShoulder||!hand?.anchors.grip)
+    throw Error('M3_CHARACTER_SHOULDER_OR_GRIP_MISSING');
+  const shoulderX=torso.anchors.rightShoulder[0]-torso.pivot[0];
+  const shoulderY=-258+torso.anchors.rightShoulder[1]-torso.pivot[1];
+  const handOffsetX=hand.anchors.grip[0]-hand.pivot[0];
+  const handOffsetY=hand.anchors.grip[1]-hand.pivot[1];
+  const cupOffsetX=(art.anchors.grip[0]-art.pivot[0])*p.scale;
+  const cupOffsetY=(art.anchors.grip[1]-art.pivot[1])*p.scale;
+  let actorX=c.xStart as number;
+  for(const [index,item] of (value.clips as M3Clip[]).entries()){
+    if(item.action==='walk-stop')actorX+=120;
+    if(item.action!=='pick-place')continue;
+    const dx=p.x+cupOffsetX-handOffsetX-(actorX+shoulderX);
+    for(const lift of [0,66]){
+      const dy=p.y+cupOffsetY-lift-handOffsetY-(c.floor as number+shoulderY);
+      const reach=Math.hypot(dx,dy);
+      if(reach>203+1e-6||reach<7-1e-6)
+        throw Error('M3_PICK_IK_UNREACHABLE: clip='+index+' reach='+reach.toFixed(3));
+    }
+  }
   return value as M3Project;
 }
 /** Registry owns immutable, validated character packages; arbitrary data cannot
