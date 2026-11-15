@@ -79,12 +79,12 @@ test('unknown actions, fields, rigs, assets, durations, frames fail closed',()=>
   change(p=>(p.character.capabilities=['walk-stop'])),
   change(p=>(p.prop.sha256='0'.repeat(64))),
   change(p=>(p.clips[1]!.action='teleport' as 'wave')),
-  change(p=>(p.clips[0]!.frames=65)),
+  change(p=>(p.clips[0]!.frames=64)),
   change(p=>(p.clips[3]!.frames=72)),
   change(p=>(p.prop.x=NaN)),
   {...structuredClone(project),unexpected:'execute-me'},
   {...structuredClone(project),clips:[{action:'wave',frames:49,html:'<script/>'}]},
  ];
- for(const p of invalid)assert.throws(()=>validateM3(p,pack),/M3_/);
+ for(const [i,p] of invalid.entries())assert.throws(()=>validateM3(p,pack),/M3_/,'invalid fixture '+i);
  for(const f of [-1,268,1.2,NaN])assert.throws(()=>sample(f),/M3_FRAME_OUT_OF_RANGE/);
 });
