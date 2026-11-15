@@ -80,11 +80,11 @@ test('unknown actions, fields, rigs, assets, durations, frames fail closed',()=>
   change(p=>(p.character.capabilities=['wave','wave'])),
   change(p=>(p.character.capabilities=['wave','teleport' as 'wave'])),
   change(p=>(p.character.capabilities=[])),
-  change(p=>(p.prop.sha256='0'.repeat(64))),
+  change(p=>(p.prop!.sha256='0'.repeat(64))),
   change(p=>(p.clips[1]!.action='teleport' as 'wave')),
   change(p=>(p.clips[0]!.frames=64)),
   change(p=>(p.clips[3]!.frames=72)),
-  change(p=>(p.prop.x=NaN)),
+  change(p=>(p.prop!.x=NaN)),
   {...structuredClone(project),unexpected:'execute-me'},
   {...structuredClone(project),clips:[{action:'wave',frames:49,html:'<script/>'}]},
  ];
@@ -150,6 +150,28 @@ test('reject unreachable pick/place geometry before renderer starts, while prese
  noWalk.clips=noWalk.clips.slice(1);
  assert.throws(()=>validateM3(noWalk,pack),/M3_PICK_IK_UNREACHABLE/);
  const stillValid=structuredClone(project);
- stillValid.prop.x=950;
+ stillValid.prop!.x=950;
  assert.doesNotThrow(()=>validateM3(stillValid,pack));
+});
+
+test('wave-only and walk-only character packages do not require a cup prop',()=>{
+ const onlyWave=structuredClone(project);
+ onlyWave.character.capabilities=['wave'];
+ onlyWave.clips=[{action:'wave',frames:49}];
+ delete (onlyWave as Partial<M3Project>).prop;
+ assert.doesNotThrow(()=>validateM3(onlyWave,pack));
+ assert.equal(sampleM3(onlyWave,24,pack).frame.sprites.some(s=>s.id==='cup-m3'),false);
+ assert.equal(sampleM3(onlyWave,24,pack).frame.sprites.some(s=>s.id==='bench'),false);
+ const registry=new M3CharacterRegistry(pack);
+ registry.register(onlyWave);
+ assert.equal(registry.resolve('guest-01').prop,undefined);
+ const invalid=structuredClone(onlyWave);
+ invalid.clips.push({action:'pick-place',frames:97});
+ invalid.character.capabilities.push('pick-place');
+ assert.throws(()=>validateM3(invalid,pack),/M3_PROP_REQUIRED/);
+ const walkOnly=structuredClone(onlyWave);
+ walkOnly.character.capabilities=['walk-stop'];
+ walkOnly.clips=[{action:'walk-stop',frames:73}];
+ assert.doesNotThrow(()=>validateM3(walkOnly,pack));
+ assert.equal(sampleM3(walkOnly,36,pack).contact.planted.includes('left'),true);
 });
