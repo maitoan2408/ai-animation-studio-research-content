@@ -67,3 +67,7 @@ Edge-alpha preview 192 frame lặp hai lần cùng host/browser, frame/MP4 trùn
 Point light thử nghiệm theo anchor đã chạy S05 192 frame 640p ở intensity 0/0,4/1; on/off chỉ thay pixel trong bán kính dự kiến, bản 1 lặp hash 192 frame cùng host/browser. Có các kênh mới lên 255, chưa xác định linear clipping; không suy art/shadow đúng, T6/F2 còn PARTIAL.
 
 Snapshot edge/point-motion mới có typecheck, 79 TS, 58 Python và root verify PASS; audit evidence 724 attempt/676 archive PASS, hai attempt đang chạy lúc audit. Chưa có CI cho source mới, F2 vẫn IN_PROGRESS.
+
+Đã render hai endpoint 1080 cho edge-alpha, bump và point-light riêng; decode/hash/coverage, crop theo transform thật trong `native-endpoints/`. Crop cố định ban đầu bỏ sót đèn ở frame 191, đã giữ ở `native-endpoints-fixed-roi/` và sửa bằng bounding box động. Không có preset gộp hay art approval.
+
+CI ed4a64c: app 43684375303 và workbench 43684375347 PASS (79 TS, 58 Python). Thêm crop động sau đó, Python suite 60 PASS ở snapshot cục bộ; CI source mới chưa chạy.
