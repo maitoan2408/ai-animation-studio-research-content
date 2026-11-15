@@ -16,7 +16,8 @@
     "physics:spike": "tsx src/physics/spike.ts",
     "quality:hero": "tsx src/motion/build_hero.ts",
     "test:physics": "tsx --test tests/physics.test.ts",
-    "quality:diagnostics": "tsx src/motion/diagnostics.ts"
+    "quality:diagnostics": "tsx src/motion/diagnostics.ts",
+    "motion:m3": "tsx src/render/render-m3.ts"
   },
   "dependencies": {
     "@dimforge/rapier2d-deterministic-compat": "0.21.0",
