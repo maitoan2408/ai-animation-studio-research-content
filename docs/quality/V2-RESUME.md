@@ -71,3 +71,7 @@ Snapshot edge/point-motion mới có typecheck, 79 TS, 58 Python và root verify
 Đã render hai endpoint 1080 cho edge-alpha, bump và point-light riêng; decode/hash/coverage, crop theo transform thật trong `native-endpoints/`. Crop cố định ban đầu bỏ sót đèn ở frame 191, đã giữ ở `native-endpoints-fixed-roi/` và sửa bằng bounding box động. Không có preset gộp hay art approval.
 
 CI ed4a64c: app 43684375303 và workbench 43684375347 PASS (79 TS, 58 Python). Thêm crop động sau đó, Python suite 60 PASS ở snapshot cục bộ; CI source mới chưa chạy.
+
+Native endpoint crop helper đã được kiểm fail-closed khi input thiếu hoặc output tồn tại; bản chạy lại trong thư mục mới tạo report trùng byte, không thay chất lượng art.
+
+CI source 52a1cc6 app 43684747259 và workbench 43684747239 PASS (79 TS, 60 Python); helper crop fail-closed mới hơn có 61 Python PASS cục bộ, chờ CI source mới.
