@@ -38,8 +38,8 @@
       }
     },
     "M1": {
-      "technicalStatus": "PASSED",
-      "evidenceStatus": "READY_FOR_USER_REVIEW",
+      "technicalStatus": "REWORK_REQUIRED",
+      "evidenceStatus": "SUPERSEDED_BY_AUDIT",
       "userAcceptance": "NOT_REVIEWED",
       "sourceCommit": "de632e58a1d639d8ef8eabac20141f497d657586",
       "appCIRun": 43705819033,
@@ -63,7 +63,24 @@
         "Two separate real 96-frame 640x360 MP4 renders using legacy and IR compiler",
         "Full video decode, identical per-frame decoded video and identical decoded voice PCM",
         "Review contact sheet with SHA-bound manifest"
-      ]
+      ],
+      "audit20261115": {
+        "status": "REWORK_REQUIRED",
+        "issues": [
+          "Production camera origin must use 960,540 stage center (not 0,0)",
+          "IR production adapter must create actual asset sprites and actor anchors instead of empty placeholder",
+          "IR schema must carry minimal verified actor, prop and asset identity/transform references",
+          "A real Three/HyperFrames IR fixture must render independently of benchmarkFrame",
+          "Preview/render evaluator parity must be enforced or explicitly tested"
+        ],
+        "requirements": [
+          "Self-review at end of implementation, independently challenge all previous PASS claims",
+          "Resolve every in-scope finding and rerun regression suite",
+          "Recheck final HEAD with full CI and real image/video evidence",
+          "No stage advancement or user completion report before technical and visual gates pass",
+          "Only owner sets ACCEPTED; do not merge without approval"
+        ]
+      }
     },
     "M2": {
       "technicalStatus": "NOT_VERIFIED",
@@ -99,12 +116,16 @@
   "rules": {
     "reportOnlyCompletedMilestone": true,
     "requireRealVisualEvidence": true,
-    "doNotAutoMerge": true
+    "doNotAutoMerge": true,
+    "strictSequentialStages": true,
+    "mandatoryFinalAudit": true,
+    "fixBeforeReview": true,
+    "repeatRegressionAfterFixes": true,
+    "ownerApprovalBeforeNextStage": true
   },
   "notes": [
-    "M0 ACCEPTED by owner on 2026-11-15; don't reopen M0 without user instruction.",
-    "M1 code and A/B media passed both app and production workflows on de632e58; user visual review still pending.",
-    "M1 A/B establishes visual backward compatibility, NOT arbitrary rig support or final art quality.",
-    "M2–M7 NOT_VERIFIED; preserve PRs, V2 history, and do not auto-merge."
+    "M0 ACCEPTED by owner.",
+    "M1 re-opened following independent gap audit; previous PASS A/B parity is a narrower backward-compatibility result, not full M1 acceptance.",
+    "M1 MUST be corrected and re-tested before any M2 work; no auto-merges."
   ]
 }

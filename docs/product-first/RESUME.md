@@ -28,3 +28,8 @@
 ## Next step after owner acceptance
 
 M2 Studio v0.2: new script, 20–30s 1080p with >=3 shots, editable revision, preview/final export. Character and physics generalization are M3/M4; do not claim them from M1 tests.
+
+
+## M1 audit override (2026-11-15)
+
+M1 status changed back to `REWORK_REQUIRED` by owner instruction. Do NOT advance to M2. Existing IR-to-legacy A/B passes, but production adapter returns empty sprites and camera `(0,0)` incompatible with stage `(960,540)`. M1 must add real production IR scene with bounded actors, props, asset binding, camera tests and real output, then rerun both entire CI suites and independent final audit. See ROADMAP strict phase gate. Previous PASS is preserved as historic, not an acceptance claim.
