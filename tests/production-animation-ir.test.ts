@@ -16,12 +16,12 @@ test('new production IR fixture is strictly validated but cannot be silently dow
   delete missing.artPack;
   assert.throws(() => parseAnimationIR(missing), /production art pack missing/);
   const missingRig = structuredClone(ir);
-  missingRig.shots[0].production.actors[0].id = 'rogue';
+  missingRig.shots[0]!.production!.actors[0]!.id = 'rogue';
   assert.throws(() => parseAnimationIR(missingRig), /production actor rig or art pack missing/);
   const movingStatic = structuredClone(ir);
-  movingStatic.shots[0].camera.kind = 'static';
+  movingStatic.shots[0]!.camera.kind = 'static';
   assert.throws(() => parseAnimationIR(movingStatic), /static camera cannot move/);
   const ownership = structuredClone(ir);
-  ownership.shots[0].production.props[0].ownerId = 'ghost';
+  ownership.shots[0]!.production!.props[0]!.ownerId = 'ghost';
   assert.throws(() => parseAnimationIR(ownership), /prop owner missing/);
 });
