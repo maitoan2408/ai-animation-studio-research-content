@@ -28,19 +28,51 @@ await mkdir(dir, { recursive: true });
 const mixed = await mixAudio(store, spec);
 const silent = path.join(dir, 'silent.mp4');
 const delivery = path.join(dir, 'output.mp4');
-const encoder = spawn('ffmpeg', [
-  '-v', 'error', '-xerror', '-nostdin', '-y',
-  '-f', 'image2pipe', '-framerate', '24', '-c:v', 'png',
-  '-i', 'pipe:0', '-an',
-  '-c:v', 'libx264', '-threads', '2', '-preset', 'fast',
-  '-crf', '18', '-pix_fmt', 'yuv420p',
-  '-r', '24', '-fps_mode', 'cfr',
-  '-movflags', '+faststart', silent,
-], { stdio: ['pipe', 'ignore', 'pipe'] });
+const encoder = spawn(
+  'ffmpeg',
+  [
+    '-v',
+    'error',
+    '-xerror',
+    '-nostdin',
+    '-y',
+    '-f',
+    'image2pipe',
+    '-framerate',
+    '24',
+    '-c:v',
+    'png',
+    '-i',
+    'pipe:0',
+    '-an',
+    '-c:v',
+    'libx264',
+    '-threads',
+    '2',
+    '-preset',
+    'fast',
+    '-crf',
+    '18',
+    '-pix_fmt',
+    'yuv420p',
+    '-r',
+    '24',
+    '-fps_mode',
+    'cfr',
+    '-movflags',
+    '+faststart',
+    silent,
+  ],
+  { stdio: ['pipe', 'ignore', 'pipe'] },
+);
 let diagnostic = '';
-encoder.stderr!.on('data', (bytes: Buffer) => { diagnostic += bytes.toString().slice(-2000); });
+encoder.stderr!.on('data', (bytes: Buffer) => {
+  diagnostic += bytes.toString().slice(-2000);
+});
 let pipeError: Error | undefined;
-encoder.stdin!.on('error', (error: Error) => { pipeError = error; });
+encoder.stdin!.on('error', (error: Error) => {
+  pipeError = error;
+});
 const finished = once(encoder, 'close');
 try {
   for (let frame = 0; frame < frames; frame++) {
@@ -48,21 +80,26 @@ try {
     // Every frame is vector-rasterized at the *requested final dimensions*.
     // We never upscale a 640x360 screenshot. The standalone rasterizer exits
     // per frame, reclaiming every native image buffer deterministically.
-    const png = spawnSync('rsvg-convert', [
-      '--format', 'png', '--width', String(width), '--height', String(height),
-    ], {
-      input: Buffer.from(svg),
-      encoding: 'buffer',
-      maxBuffer: 32 * 1024 * 1024,
-    });
+    const png = spawnSync(
+      'rsvg-convert',
+      ['--format', 'png', '--width', String(width), '--height', String(height)],
+      {
+        input: Buffer.from(svg),
+        encoding: 'buffer',
+        maxBuffer: 32 * 1024 * 1024,
+      },
+    );
     if (png.status !== 0 || !png.stdout?.length)
-      throw Error('SEGMENT_VECTOR_RASTER_ERROR ' + frame + ' ' +
-        String(png.stderr || png.error).slice(-1200));
+      throw Error(
+        'SEGMENT_VECTOR_RASTER_ERROR ' + frame + ' ' + String(png.stderr || png.error).slice(-1200),
+      );
     if (pipeError) throw pipeError;
     if (!encoder.stdin!.write(png.stdout)) {
       await Promise.race([
         once(encoder.stdin!, 'drain'),
-        finished.then(() => { throw Error('SEGMENT_ENCODER_EARLY_EXIT ' + diagnostic); }),
+        finished.then(() => {
+          throw Error('SEGMENT_ENCODER_EARLY_EXIT ' + diagnostic);
+        }),
       ]);
     }
     if (frame % 24 === 0) console.log('SEGMENT_FRAME ' + frame + '/' + frames);
@@ -76,13 +113,38 @@ try {
 if (mixed.audio) {
   const wav = path.join(dir, 'voice.wav');
   await writeFile(wav, mixed.audio);
-  const mux = spawnSync('ffmpeg', [
-    '-v', 'error', '-xerror', '-nostdin', '-y',
-    '-i', silent, '-i', wav,
-    '-map', '0:v:0', '-map', '1:a:0',
-    '-c:v', 'copy', '-c:a', 'aac', '-ar', '48000', '-ac', '2',
-    '-t', String(frames / 24), '-movflags', '+faststart', delivery,
-  ], { encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 });
+  const mux = spawnSync(
+    'ffmpeg',
+    [
+      '-v',
+      'error',
+      '-xerror',
+      '-nostdin',
+      '-y',
+      '-i',
+      silent,
+      '-i',
+      wav,
+      '-map',
+      '0:v:0',
+      '-map',
+      '1:a:0',
+      '-c:v',
+      'copy',
+      '-c:a',
+      'aac',
+      '-ar',
+      '48000',
+      '-ac',
+      '2',
+      '-t',
+      String(frames / 24),
+      '-movflags',
+      '+faststart',
+      delivery,
+    ],
+    { encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 },
+  );
   if (mux.status !== 0) throw Error('SEGMENT_MUX_ERROR ' + mux.stderr);
 } else {
   await writeFile(delivery, await readFile(silent));
@@ -90,4 +152,6 @@ if (mixed.audio) {
 const qc = await qcVideo(delivery, spec, profile);
 if (qc.frames !== frames) throw Error('SEGMENT_FRAME_COUNT');
 await writeFile(path.join(dir, 'segment-qc.json'), JSON.stringify(qc, null, 2) + '\n');
-console.log('SEGMENT_DONE ' + JSON.stringify({ frames: qc.frames, profile, renderer: 'native-vector-rsvg' }));
+console.log(
+  'SEGMENT_DONE ' + JSON.stringify({ frames: qc.frames, profile, renderer: 'native-vector-rsvg' }),
+);
