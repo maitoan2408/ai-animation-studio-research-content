@@ -23,3 +23,11 @@
 - No arbitrary generated JS; only strict ProjectSpec, deterministic planner, supported existing animation actions.
 - Voice is offline timing draft unless user provides a reviewed WAV; never claim premium natural narration.
 - Produce technically honest frame/audio/source reports; retain failed attempts.
+
+## Resolved and open integration findings
+
+- **Confirmed** native 24fps 3-shot rendering with naive uninterrupted Chromium/HyperFrames exceeds the memory budget of the GitHub Actions container (exit 137); reducing final resolution is not acceptable.
+- **Confirmed** FFmpeg concat of independently encoded shots may preserve exactly 576 frames while yielding a fractional average frame rate. The new path explicitly retimestamps frames at CFR 24 before final audio mux.
+- Latest correction uses **OS-process-isolated per-scene Chromium screenshots streamed directly to FFmpeg**, with no full-frame archive in memory or all-at-once browser capture. This correction is under test, **not yet a passing deliverable**.
+- User-visible evidence may only be claimed when fresh CI succeeds on exact final source SHA and after native 1080p video, storyboard before/after, voice per scene, import/reopen and UI screenshots have been verified.
+- Keep the failed runs and evidence; do not downgrade media requirements, omit final quality gates, or report technical/artistic approval before inspection.
