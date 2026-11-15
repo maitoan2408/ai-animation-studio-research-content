@@ -1,0 +1,19 @@
+{
+  "phase": "U2",
+  "step": "m2-cli-long-stdout-fixed",
+  "run_id": "20261115T165134Z-m2-cli-long-stdout-fixed-85cb5c1e",
+  "started_at_utc": "20261115T165134Z",
+  "command": [
+    "node",
+    "--import",
+    "tsx",
+    "tests/cli-long.ts"
+  ],
+  "cwd": "/workspace/m2-completion",
+  "base_commit": "3fdf642394d8303152512e6f1f8de96a0f566041",
+  "tracked_diff_sha256": "08a22d2b74ea01feb7d3e075c9c7a97e82ea96554db9f13dbf5e6b5f24b73dfb",
+  "status": "RUNNING",
+  "recorder_pid": 51655,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "8dd9d9d1858139440294191dc0ec975c06fd88c7b3dcb4c3eaded11f0a5457df"
+}

@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "m2-cli-long-build-fixed",
+  "run_id": "20261115T165129Z-m2-cli-long-build-fixed-2656eb86",
+  "started_at_utc": "20261115T165129Z",
+  "command": [
+    "npm",
+    "run",
+    "build"
+  ],
+  "cwd": "/workspace/m2-completion",
+  "base_commit": "3fdf642394d8303152512e6f1f8de96a0f566041",
+  "tracked_diff_sha256": "08a22d2b74ea01feb7d3e075c9c7a97e82ea96554db9f13dbf5e6b5f24b73dfb",
+  "recorder_pid": 51659,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "8dd9d9d1858139440294191dc0ec975c06fd88c7b3dcb4c3eaded11f0a5457df",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 4.649,
+  "finished_at_utc": "2026-11-15T16:51:34.810318+00:00",
+  "log_sha256": "a960fe19a6eb9bf957cfa9e63886ca60783a0bae5384740c6185b184a5317a8e",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

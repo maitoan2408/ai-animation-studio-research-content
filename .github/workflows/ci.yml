@@ -29,6 +29,8 @@ jobs:
       - run: npm run verify
       - run: npm run build
       - run: npm run test:integration
+      - name: Preserve JSON CLI output for a real long segmented render
+        run: npx tsx tests/cli-long.ts
       - run: npm run test:ui
       - run: npm run test:ui:recovery
       - name: Verify M0 baseline video and publish review contact sheets

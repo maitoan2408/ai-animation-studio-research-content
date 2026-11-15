@@ -1,6 +1,6 @@
 # M2 — kết quả thẩm định và bàn giao
 
-Trạng thái: **PASSED về kỹ thuật — READY_FOR_USER_REVIEW**. Người dùng chưa duyệt M2; M3 chưa bắt đầu.
+Trạng thái: **RECHECKING_CLI_COMPATIBILITY**. Luồng UI/media đã PASS; đang đóng thêm lỗi tương thích CLI phim dài. Người dùng chưa duyệt M2; M3 chưa bắt đầu.
 Người thực hiện kiểm tra: `delegated-agent`. Không giả là một chuyên gia độc lập hoặc chủ dự án đã xem/nghe và duyệt.
 
 ## Lỗi tìm thấy và sửa
@@ -12,6 +12,8 @@ Người thực hiện kiểm tra: `delegated-agent`. Không giả là một chu
 5. Harness UI chờ nhiều hơn một lựa chọn trong khi chỉ có một video hợp lệ: kiểm đúng artifact ID, metadata và phát thử video trong Studio.
 
 6. Bước ghi provenance mới chạy được local nhưng CI container có Git checkout khác UID. Đã tái hiện exit 129 bằng `GIT_TEST_ASSUME_DIFFERENT_OWNER`; dùng `git -c safe.directory=<đúng repo>` cho từng lệnh, kiểm provenance trước render, không đổi cấu hình global. Lần CI 43735567658 qua các gate media/UI/reopen rồi lỗi tại bước này; vẫn giữ trạng thái FAIL.
+
+7. Audit CLI phim dài tái hiện `JSON.parse` thất bại do `[M2 ...]` trên stdout. Chuyển diagnostics của renderer sang stderr; ca real compiled CLI xuất 384 frame được thêm vào CI để giữ nguyên hợp đồng JSON.
 
 ## Đối chiếu kế hoạch
 
@@ -38,7 +40,7 @@ Người thực hiện kiểm tra: `delegated-agent`. Không giả là một chu
 - Kiểm âm tính độc lập qua đầu ra thực phát hiện video sai revision và voice lệch **250 ms**; [report](evidence/m2-negative-media-report.json). Đây là kiểm tra của cùng agent, không phải người nghe/animator độc lập.
 - Đã quan sát ảnh desktop/mobile, contact sheet và 24 mốc cách nhau một giây từ movie: đủ ba hành động wave/walk/pick-up, thay màu cảnh 2 thể hiện đúng, không cảnh đen/trống hoặc nhân vật mất khỏi khung tại các mốc quan sát. Browser đã thực sự load/seek/play video; không chỉ kiểm file tồn tại. Không chấm điểm diễn xuất hoặc tuyên bố đã nghe bằng tai.
 
-Không còn lỗi kỹ thuật **trong phạm vi M2** đã biết sau vòng audit này. `userAcceptance=NOT_REVIEWED`; người dùng duyệt video trước khi chuyển M3.
+Vòng cuối đang chạy lại đầy đủ CI sau sửa stdout CLI; kết quả UI/media ở trên vẫn giữ nguyên. `userAcceptance=NOT_REVIEWED`; người dùng duyệt video trước khi chuyển M3.
 
 ## Phạm vi chất lượng
 

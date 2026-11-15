@@ -176,7 +176,7 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
         .filter(Boolean)
         .map((line) => line.split(' ') as [string, string]),
     );
-    console.log(
+    console.error(
       'M2_MEMORY_GATE ' +
         JSON.stringify({
           label,
@@ -255,7 +255,7 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
             // Keep the CI runner visibly informed of per-frame worker progress;
             // long opaque native rendering jobs can otherwise be terminated
             // without any diagnostic output, leaving only exit code 137.
-            process.stdout.write('[M2 ' + scene.id + '] ' + chunk);
+            process.stderr.write('[M2 ' + scene.id + '] ' + chunk);
           },
           true,
         );

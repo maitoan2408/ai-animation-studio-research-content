@@ -150,8 +150,8 @@
       }
     },
     "M2": {
-      "technicalStatus": "PASSED",
-      "evidenceStatus": "READY_FOR_USER_REVIEW",
+      "technicalStatus": "IN_PROGRESS",
+      "evidenceStatus": "RECHECKING_CLI_COMPATIBILITY",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "2042ad49e4e7f5456a49bc696d820044017f5643",
       "requirements": [
@@ -184,7 +184,9 @@
       "report": "docs/product-first/M2-REVIEW.md",
       "manifest": "docs/product-first/evidence/m2-ci-a6399e2/manifest.json",
       "videoSha256": "cc3177c7c71393fb54778f12c05023e102ff229cd6111a161cbf3ff61b8ed109",
-      "unresolvedInScopeDefects": [],
+      "unresolvedInScopeDefects": [
+        "Long-render CLI stdout contains progress diagnostics before its JSON result; repair and full CI required."
+      ],
       "verified": [
         "25 root unit/negative tests; strict types, formatting and build",
         "Complete root real integration/UI/recovery and M0/M1 regression",

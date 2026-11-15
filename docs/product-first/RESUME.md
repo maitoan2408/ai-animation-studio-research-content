@@ -1,3 +1,7 @@
+## Final CLI compatibility follow-up
+
+A real 16-second segmented CLI render exposed progress messages on stdout, breaking JSON consumers. Fix moves diagnostics to stderr and adds tests/cli-long.ts to CI. Recheck complete workflows before restoring READY_FOR_USER_REVIEW. Prior UI/media receipts below remain valid.
+
 # M2 — technical complete, ready for owner review
 
 Source `a6399e293b5c68c2637c295a4d36e929b7526dea` passed both full workflows: app [43736478725](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478725) and workbench [43736478822](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43736478822). Both media and UI/reopen gates passed. [Review/report](M2-REVIEW.md), [state](STATE.json), [exact CI manifest](evidence/m2-ci-a6399e2/manifest.json).
