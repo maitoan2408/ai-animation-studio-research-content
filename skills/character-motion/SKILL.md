@@ -4,7 +4,7 @@
 
 ## Input
 
-Strict `M3Project` with `schemaVersion`, `character`, `clips`, `prop`. Character has unique runtime instance `id`, compatible source art model (`mai` / `an`), `rigId=production-cutout-1`, art-pack version, four supported capabilities, start x/floor/facing. Clip data list uses bounded `action` and `frames`; prop must be SHA-matching cup with a valid grip anchor. Source example is the exported `m3-project.json`.
+Strict `M3Project` with `schemaVersion`, `character`, `clips`, `prop`. Character has unique runtime instance `id`, compatible source art model (`mai` / `an`), `rigId=production-cutout-1`, art-pack version, a unique nonempty subset of the four supported capabilities, start x/floor/facing. Every clip must declare an action in that character's capability subset and a bounded frame count. `prop` is optional for walk/head/wave-only tracks; pick/place requires a SHA-matching cup with a valid grip anchor and prevalidated IK reach. Source example is the exported `m3-project.json`.
 
 ## Supported capabilities
 
@@ -20,7 +20,7 @@ All actions are random-access samples at integer 24fps frames; clip lengths may 
 - `M3Sample`: selected action, clip local frame, actual actor pose, scene sprites/markers, contact report.
 - `motion:m3`: native 1080p MP4, 17 PNG frames, timeline contact, standing-vs-motion comparison, project JSON and SHA manifest.
 - `motion:m3:audit`: separate post-result `m3-post-result-audit.json` (PASS or FAIL), checking real artifact byte hashes, ffprobe and full decode.
-- Fail closed with `M3_PROJECT_INVALID`, `M3_CHARACTER_RIG_OR_CAPABILITIES`, `M3_CHARACTER_DUPLICATE`, `M3_CHARACTER_UNKNOWN`, `M3_ACTION_UNSUPPORTED`, `M3_ACTION_DURATION`, `M3_PROP_HASH_OR_ANCHOR`, `M3_FRAME_OUT_OF_RANGE`, or underlying IK reachability errors. Never execute user or model-authored JavaScript.
+- Fail closed with `M3_PROJECT_INVALID`, `M3_CHARACTER_RIG_OR_CAPABILITIES`, `M3_CHARACTER_DUPLICATE`, `M3_CHARACTER_UNKNOWN`, `M3_ACTION_UNSUPPORTED`, `M3_ACTION_NOT_CAPABLE`, `M3_ACTION_DURATION`, `M3_PROP_REQUIRED`, `M3_PICK_IK_UNREACHABLE`, `M3_PROP_HASH_OR_ANCHOR`, `M3_FRAME_OUT_OF_RANGE`, or underlying IK reachability errors. Never execute user or model-authored JavaScript.
 
 ## Gate and exclusions
 
