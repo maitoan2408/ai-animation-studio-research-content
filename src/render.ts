@@ -116,8 +116,8 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
   process.env.HYPERFRAMES_CACHE_DIR = path.join(store.root, 'cache');
   process.env.HYPERFRAMES_NO_TELEMETRY = '1';
   process.env.PRODUCER_BROWSER_GPU = 'false';
-  const { createRenderJob, executeRenderJob } = await import('@hyperframes/producer');
-  const { drainBrowserPool } = await import('@hyperframes/engine');
+  // Load heavy native/browser producers only on the legacy unsplit path.
+  // The long M2 split path uses isolated SVG worker processes, not HyperFrames.
   const logs: string[] = [];
   const segmentReceipts: Array<{ scene: string; frames: number; qc: QC }> = [];
   const log = (message: string) => {
@@ -134,6 +134,7 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
   let activeJob: unknown;
   try {
     if (!split) {
+      const { createRenderJob, executeRenderJob } = await import('@hyperframes/producer');
       await compile(store, parsed, profile, path.join(dir, 'composition'));
       await progress(0.05, 'Rendering frames');
       const job = createRenderJob({
@@ -290,7 +291,10 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
       path.join(dir, 'render-log.json'),
       JSON.stringify({ runtime, job: activeJob, split, segmentReceipts, logs }, null, 2),
     );
-    await drainBrowserPool();
+    if (!split) {
+      const { drainBrowserPool } = await import('@hyperframes/engine');
+      await drainBrowserPool();
+    }
   }
 };
 
