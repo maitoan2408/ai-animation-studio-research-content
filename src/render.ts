@@ -134,14 +134,20 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
   let activeJob: unknown;
   const traceM2 = async (label: string) => {
     if (!split) return;
-    const cgroup = await readFile('/sys/fs/cgroup/memory.current', 'utf8').catch(() => 'unavailable');
+    const cgroup = await readFile('/sys/fs/cgroup/memory.current', 'utf8').catch(
+      () => 'unavailable',
+    );
     const mem = process.memoryUsage();
-    console.log('M2_MEMORY_GATE ' + JSON.stringify({
-      label, rssMB: Math.round(mem.rss / 1048576),
-      heapMB: Math.round(mem.heapUsed / 1048576),
-      externalMB: Math.round(mem.external / 1048576),
-      cgroupBytes: cgroup.trim(),
-    }));
+    console.log(
+      'M2_MEMORY_GATE ' +
+        JSON.stringify({
+          label,
+          rssMB: Math.round(mem.rss / 1048576),
+          heapMB: Math.round(mem.heapUsed / 1048576),
+          externalMB: Math.round(mem.external / 1048576),
+          cgroupBytes: cgroup.trim(),
+        }),
+    );
   };
   try {
     if (!split) {
