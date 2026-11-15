@@ -31,6 +31,8 @@ jobs:
       - run: npm run test:ui:recovery
       - name: Verify M0 baseline video and publish review contact sheets
         run: node scripts/verify-review-evidence.mjs
+      - name: M1 legacy vs IR real video/audio parity
+        run: npx tsx scripts/render-ir-ab.ts
       - name: Upload evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
