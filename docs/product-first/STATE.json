@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "project": "ai-animation-studio-research-content",
+  "base": {
+    "branch": "codex/v2-continuous",
+    "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
+  },
+  "implementationBranch": "codex/product-first-skill-architecture",
+  "activeMilestone": "M1",
+  "milestones": {
+    "M0": {
+      "technicalStatus": "PASSED",
+      "evidenceStatus": "READY_FOR_USER_REVIEW",
+      "userAcceptance": "ACCEPTED",
+      "sourceCommit": "1da6486bd7f1d5c36584dba5a940f4eff8270499",
+      "workflowRunId": 43702748315,
+      "workflowRunUrl": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43702748315",
+      "artifactId": 14156663487,
+      "artifactName": "paper-studio-78",
+      "artifactExpiresAt": "2026-11-29T10:13:07Z",
+      "technicalGates": [
+        "npm ci",
+        "doctor",
+        "npm verify",
+        "npm build",
+        "npm test:integration",
+        "npm test:ui",
+        "npm test:ui:recovery",
+        "fresh 1080p 312-frame MP4 verified with ffprobe and full decode",
+        "fresh 640p 96-frame preview verified with ffprobe and full decode",
+        "two contact sheets generated from actual MP4 frames and SHA-bound",
+        "desktop/mobile screenshot PNG checks"
+      ],
+      "ownerReview": {
+        "date": "2026-11-15",
+        "decision": "ACCEPTED",
+        "scope": "Existing M0 13-second baseline animation demo and visual presentation accepted; does not approve M1+ or production-quality art"
+      }
+    },
+    "M1": {
+      "technicalStatus": "IN_PROGRESS",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M2": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M3": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M4": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M5": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M6": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    },
+    "M7": {
+      "technicalStatus": "NOT_VERIFIED",
+      "evidenceStatus": "NOT_VERIFIED",
+      "userAcceptance": "NOT_REVIEWED"
+    }
+  },
+  "rules": {
+    "reportOnlyCompletedMilestone": true,
+    "requireRealVisualEvidence": true,
+    "doNotAutoMerge": true
+  },
+  "notes": [
+    "Owner accepted M0 baseline demonstration in chat on 2026-11-15; use this as a locked review decision.",
+    "M1 is active. No declaration of readiness without new visual evidence plus real tests.",
+    "M2–M7 remain NOT_VERIFIED; V2 history remains preserved at docs/quality/state.json."
+  ]
+}

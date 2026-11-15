@@ -2,8 +2,8 @@ name: Paper Studio verification
 on:
   pull_request:
   push:
-    branches: [main]
-    paths: ['src/**', 'web/**', 'tests/**', 'examples/**', 'package*.json', 'tsconfig*.json', '.prettier*', '.github/workflows/**']
+    branches: [main, 'codex/product-first-skill-architecture']
+    paths: ['src/**', 'web/**', 'tests/**', 'scripts/verify-review-evidence.mjs', 'examples/**', 'package*.json', 'tsconfig*.json', '.prettier*', '.github/workflows/**']
   workflow_dispatch:
 permissions:
   contents: read
@@ -29,6 +29,8 @@ jobs:
       - run: npm run test:integration
       - run: npm run test:ui
       - run: npm run test:ui:recovery
+      - name: Verify M0 baseline video and publish review contact sheets
+        run: node scripts/verify-review-evidence.mjs
       - name: Upload evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
