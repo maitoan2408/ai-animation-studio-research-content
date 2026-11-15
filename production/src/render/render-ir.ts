@@ -19,7 +19,7 @@ function processResult(name:string,args:string[]):string{
   if(r.status!==0||r.error)throw Error(name+' failed: '+String(r.stderr||r.error||'').slice(-2000));
   return r.stdout;
 }
-const ir=JSON.parse(await readFile(path.join(root,'../examples/m1-production-ir.json'),'utf8')) as StageShotTimeline;
+const ir=JSON.parse(await readFile(path.join(root,'fixtures/m1-production-ir.json'),'utf8')) as StageShotTimeline;
 const out=path.join(root,'out/product-first/m1');
 await mkdir(out,{recursive:true});
 const frames=ir.timeline.totalFrames,stillFrames=[0,17,35,36,53,71];
@@ -113,7 +113,7 @@ try{
   assert.deepEqual([...c.subarray(0,8)],[137,80,78,71,13,10,26,10]);
   const manifest={
     milestone:'M1',sourceCommit:process.env.GITHUB_SHA||'LOCAL_UNPINNED',
-    scene:'examples/m1-production-ir.json',renderer:'Three.js with real asset-bound puppet rig (not benchmarkFrame)',
+    scene:'production/fixtures/m1-production-ir.json',renderer:'Three.js with real asset-bound puppet rig (not benchmarkFrame)',
     status:'TECHNICAL_VERIFIED_PENDING_OWNER_REVIEW',previewFrames:frames,
     video:{file:path.relative(root,output),sha256:sha(await readFile(output)),frames,width:640,height:360,fps:24,hasVoice:false},
     nativeFinalStills:4,contact:{file:path.relative(root,contact),sha256:sha(c)},

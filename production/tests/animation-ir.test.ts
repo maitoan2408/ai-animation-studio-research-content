@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {toProductionFrame,type StageShotTimeline} from '../src/scene/animation-ir-adapter.js';
 import type {ArtPack} from '../src/scene/types.js';
 
-const ir=JSON.parse(await readFile(new URL('../../examples/m1-production-ir.json',import.meta.url),'utf8')) as StageShotTimeline;
+const ir=JSON.parse(await readFile(new URL('../fixtures/m1-production-ir.json',import.meta.url),'utf8')) as StageShotTimeline;
 const pack=JSON.parse(await readFile(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
 
 test('M1 real IR scene resolves rig sprites, contact anchors and camera center',()=>{
