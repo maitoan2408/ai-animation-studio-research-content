@@ -1,0 +1,18 @@
+{
+  "run": 43735567658,
+  "artifactId": 14170755283,
+  "checksBeforeFailure": [
+    "Browser created a new original three-shot storyboard from external script.",
+    "UI created immutable edited revision with visible changed scene and two actual BEFORE/AFTER screenshots.",
+    "All three original Vietnamese narration texts produced non-silent, SHA-bound offline WAV audio.",
+    "Export/import round trip retains revised three-shot content and audio hashes, without fabricated approval.",
+    "Final native 1920\u00d71080, 576 frames, 24fps encoded MP4 fully decodes with audible 48kHz audio.",
+    "Actual served native preview matches decoded final frames at all cuts and speaking peaks; encoded voice matches original PCM at zero lag in each shot.",
+    "The exact published artifact loads, seeks and plays in the real Studio HTML video player at native 1080p.",
+    "Real browser Studio desktop/mobile screenshots show the new edited 3-shot project and exported QC artifact.",
+    "A separate OS process reloaded exact edited+voiced project and hash-verified final 1080p artifact (automated test, not independent human handoff)."
+  ],
+  "videoSha256": "cc3177c7c71393fb54778f12c05023e102ff229cd6111a161cbf3ff61b8ed109",
+  "manifestCreated": false,
+  "status": "FAIL_PROVENANCE_ONLY"
+}

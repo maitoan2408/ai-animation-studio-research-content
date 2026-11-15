@@ -4,7 +4,7 @@
 
 Đã thử trên Linux Debian 13, Node 24.22.1/npm 11.9.0, Chromium 156.0.8078.79, FFmpeg/ffprobe 7.1.5, giới hạn 2 CPU và 8 GiB RAM. Đây là môi trường thử, không phải cấu hình tối thiểu đã benchmark. Để trống vài GB cho dependencies/cache/attempts.
 
-Cài `chromium`, `ffmpeg` bằng package manager của máy và Node 24 trở lên. `npm ci` không tự cài executable hệ thống. Không bắt buộc GPU, cloud hoặc API trả phí.
+Cài `chromium`, `ffmpeg`, `librsvg2-bin` (cung cấp `rsvg-convert`) bằng package manager của máy và Node 24 trở lên. `npm ci` không tự cài executable hệ thống. Không bắt buộc GPU, cloud hoặc API trả phí.
 
 ## Từ Git
 

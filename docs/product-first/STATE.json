@@ -5,8 +5,8 @@
     "branch": "codex/v2-continuous",
     "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
   },
-  "implementationBranch": "codex/product-first-skill-architecture",
-  "activeMilestone": "M1",
+  "implementationBranch": "codex/product-first-m3-character-motion",
+  "activeMilestone": "M3",
   "milestones": {
     "M0": {
       "technicalStatus": "PASSED",
@@ -39,8 +39,8 @@
     },
     "M1": {
       "technicalStatus": "PASSED",
-      "evidenceStatus": "READY_FOR_USER_REVIEW",
-      "userAcceptance": "NOT_REVIEWED",
+      "evidenceStatus": "ACCEPTED",
+      "userAcceptance": "ACCEPTED",
       "sourceCommit": "2b28317bbf15550204ebef1952b3938c222bb5f0",
       "appCIRun": 43710867218,
       "productionCIRun": 43710867255,
@@ -142,15 +142,102 @@
           "Artistic aesthetics and user assessment are not self-approved"
         ],
         "unresolvedInScopeDefects": []
+      },
+      "ownerReview": {
+        "date": "2026-11-15",
+        "decision": "ACCEPTED",
+        "scope": "Owner explicitly approved M1 final 3s Three production-animation demo and authorized M2; M2+ creative quality not implied"
       }
     },
     "M2": {
-      "technicalStatus": "NOT_VERIFIED",
-      "evidenceStatus": "NOT_VERIFIED",
-      "userAcceptance": "NOT_REVIEWED"
+      "technicalStatus": "PASSED",
+      "evidenceStatus": "READY_FOR_USER_REVIEW",
+      "userAcceptance": "ACCEPTED",
+      "sourceBaseCommit": "2042ad49e4e7f5456a49bc696d820044017f5643",
+      "requirements": [
+        "New independent 20–30 second voice-over video 1920x1080 at 24fps with at least three shots",
+        "Script-to-storyboard-to-edit-to-local voice-to-MP4 without modifying per-shot source",
+        "Persist edited revision and prove export/import/reopen preserves narration and scene edits",
+        "Inspect actual UI screenshot from tested working Studio, include video, stills, media and save/reopen report",
+        "Fail-closed validation, full CI regression, actual media sound/full decode and owner review"
+      ],
+      "remediation": {
+        "status": "VERIFIED",
+        "rootCause": "Digest string was compared to an MP4 Buffer in the acceptance harness, causing multi-GB assertion diff and OOM; renderer final QC had passed.",
+        "details": "docs/product-first/evidence/m2-oom-root-cause.json",
+        "newGates": [
+          "native preview/final pixel comparison at cuts and voice peaks",
+          "encoded audio matches original at zero lag per shot",
+          "separate-process reopen",
+          "dependency error/recovery and worker descendant cancellation"
+        ],
+        "reviewer": "delegated-agent; no independent human or owner approval claimed"
+      },
+      "sourceCommit": "bc351255374a7aac499e056daf8ed194167bb74a",
+      "appCIRun": 43737952273,
+      "productionCIRun": 43737952293,
+      "appCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952273",
+      "productionCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952293",
+      "artifactId": 14170989211,
+      "artifactName": "paper-studio-m2-145",
+      "artifactExpiresAt": "2026-11-29T17:01:30Z",
+      "report": "docs/product-first/M2-REVIEW.md",
+      "manifest": "docs/product-first/evidence/m2-ci-a6399e2/manifest.json",
+      "videoSha256": "cc3177c7c71393fb54778f12c05023e102ff229cd6111a161cbf3ff61b8ed109",
+      "unresolvedInScopeDefects": [],
+      "verified": [
+        "25 root unit/negative tests; strict types, formatting and build",
+        "Complete root real integration/UI/recovery and M0/M1 regression",
+        "Complete workbench and standalone Git-only regression",
+        "New 3-shot 24-second native 1080p/24fps film, 576 decoded frames, AAC 48kHz",
+        "Actual browser create/edit/voice/render/load/seek/play and desktop/mobile screenshots",
+        "Immutable source revisions, export/import content+audio, separate-process reopen",
+        "9 native preview/final image comparisons and zero-lag per-shot audio correlation",
+        "Negative stale-revision and delayed-voice consumer checks; all 576 presentation timestamps",
+        "23 downloaded CI artifact hashes verified; final movie byte-identical to local verified render"
+      ],
+      "ownerGate": "ACCEPTED; M3 authorized by owner. Do not auto-merge stacked PRs.",
+      "finalReview20261116": {
+        "status": "TECHNICAL_PASS_PENDING_OWNER_VISUAL_AND_LISTENING_APPROVAL",
+        "sourceCommit": "bc351255374a7aac499e056daf8ed194167bb74a",
+        "recentRuns": {
+          "studio": 43737952273,
+          "workbench": 43737952293
+        },
+        "sourceEvidence": {
+          "artifact": "paper-studio-m2-145",
+          "id": 14170989211,
+          "expiresAt": "2026-11-29T17:01:30Z"
+        },
+        "verification": [
+          "Final source HEAD: two green CI workflows; Studio verify and M2-product and production workbench jobs passed",
+          "Rechecked downloaded final source HEAD artifact; all 23 artifact hashes in manifest match",
+          "Actual 24s 1920x1080 H264 MP4: ffprobe exact 576 decoded frames at 24fps; 48kHz AAC audio present",
+          "Independent ffmpeg -xerror full video/audio decode passed and MP4 SHA-256 matches artifact manifest",
+          "Exported native Studio project has 3 editable shots, paper-cut style and 3 SHA-bound draft voice assets",
+          "CI evidence includes browser create/edit/revision, export/import, playback, screenshots, frame/audio parity and fresh-process reopen",
+          "CLI long segmented render stdout JSON error was corrected and its regression is a required CI step"
+        ],
+        "resolvedIssueFromPriorState": [
+          "Long-render CLI stdout contains progress diagnostics before its JSON result; repair and full CI required."
+        ],
+        "visualReviewObservations": [
+          "Verified 4-frame contact sheet and 12 chronological actual video samples. Content is simple flat paper-cut and character acting is limited.",
+          "Waving is visually repetitive; walking remains stiff; pick-up arm/prop motion looks mechanical. These are M3/M6 quality risks, not M2 story/editor/render functional failures.",
+          "No owner artistic or listening approval has been presumed."
+        ],
+        "openM2ScopedTechnicalDefects": [],
+        "outOfScopeFuturePriorities": [
+          "M3: motion transitions, contacts and reusable character actions",
+          "M4: physical prop constraints",
+          "M6: artistic polish and natural-sounding voice"
+        ]
+      },
+      "ownerAcceptedAt": "2026-11-16",
+      "ownerAcceptanceSource": "Owner explicitly approved M2 in ChatGPT conversation and authorized starting M3 on 2026-11-16."
     },
     "M3": {
-      "technicalStatus": "NOT_VERIFIED",
+      "technicalStatus": "IN_PROGRESS",
       "evidenceStatus": "NOT_VERIFIED",
       "userAcceptance": "NOT_REVIEWED"
     },
@@ -186,9 +273,10 @@
     "ownerApprovalBeforeNextStage": true
   },
   "notes": [
-    "M0 ACCEPTED by owner on 2026-11-15.",
-    "M1 corrected, two full CI checks on source 2b28317 passed; independently inspected actual 72-frame Three animation and 1080 still; no open M1-scoped defects.",
-    "M1 READY_FOR_USER_REVIEW, not ACCEPTED. Owner must approve M1 before implementing M2. No auto-merge.",
-    "QA gate is mandatory for every future milestone, and failures must be fixed before completion reports."
+    "M0 ACCEPTED, M1 ACCEPTED by owner on 2026-11-15.",
+    "M2 owner ACCEPTED on 2026-11-16 after 24s rendered-media review. Final M2 technical CI remains SHA-pinned to bc351255.",
+    "CLI stdout long-render contract repaired, its regression passed on final source. No remaining in-scope M2 technical defects from this audit.",
+    "M2 accepted as workflow-quality gate; natural character acting and draft voice explicitly deferred to M3/M6.",
+    "Owner authorized starting M3 on 2026-11-16; sequential gate remains mandatory through M3–M7."
   ]
 }

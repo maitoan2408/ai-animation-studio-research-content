@@ -1,0 +1,24 @@
+{
+  "phase": "U2",
+  "step": "m2-native-first-scene-parity",
+  "run_id": "20261115T161524Z-m2-native-first-scene-parity-69ba8936",
+  "started_at_utc": "20261115T161524Z",
+  "command": [
+    "node",
+    "--import",
+    "tsx",
+    "/tmp/m2-parity-first.mts"
+  ],
+  "cwd": "/workspace/m2-completion",
+  "base_commit": "84598abdf8836772a62f6c02b441e6d6b7709f4d",
+  "tracked_diff_sha256": "ffc9d89a720672a1bab4bc85442aeaa220e45ac2d03a0f1708f3c2c26234c54c",
+  "recorder_pid": 42493,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "6cd70665ce552c7ef39d772c5f02e3c67864297c9e076f5076fce53f21756475",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 13.317,
+  "finished_at_utc": "2026-11-15T16:15:38.769739+00:00",
+  "log_sha256": "8a00a71afe841350380128ecf716d8ab6fbd2dd7c9846c5b54c84d794d2985b1",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -1,0 +1,18 @@
+{
+  "phase": "U2",
+  "step": "m2-provenance-types",
+  "run_id": "20261115T163635Z-m2-provenance-types-f56d6396",
+  "started_at_utc": "20261115T163635Z",
+  "command": [
+    "node_modules/.bin/tsc",
+    "-p",
+    "tsconfig.m2.json"
+  ],
+  "cwd": "/workspace/m2-completion",
+  "base_commit": "54b5915cbd1ace98cf92eaf6dd67da9c62ee4a15",
+  "tracked_diff_sha256": "d43167455281ba3d8e59e39f657f9bdfc82b4a37461a0c0f33c1f424da83e148",
+  "status": "RUNNING",
+  "recorder_pid": 49988,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "4270f2063c60334be1a38079cb548b181bcbb0b268d32e71f2e027393be8e623"
+}

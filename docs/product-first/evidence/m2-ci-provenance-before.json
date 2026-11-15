@@ -1,0 +1,12 @@
+{
+  "sourceCommit": "54b5915cbd1ace98cf92eaf6dd67da9c62ee4a15",
+  "run": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43735567658",
+  "job": 132878223392,
+  "status": "FAIL",
+  "failure": "New provenance git diff ran under different checkout ownership in CI; exit 129 after media/browser/reopen gates.",
+  "workbench": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43735567600",
+  "workbenchResult": "SUCCESS",
+  "localM2Result": "PASS",
+  "localEvidence": "production/evidence/U2/20261115T162723Z-m2-final-native-product-54b5915-9d1fc420",
+  "fix": "Trust exactly the selected repository per git command; evaluate provenance before rendering and test with GIT_TEST_ASSUME_DIFFERENT_OWNER=true."
+}

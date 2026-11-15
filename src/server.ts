@@ -7,6 +7,7 @@ import { StudioError, errorInfo, hash, type Project, type Artifact } from './dom
 import { doctor } from './process.js';
 import { frameSvg } from './rig.js';
 import { toAnimationIR, toLegacyProjectSpec } from './animation-ir.js';
+import { mixAudio } from './audio.js';
 
 const revisionRequest = z.object({ expectedRevision: z.string(), spec: z.unknown() }).strict();
 const voiceRequest = z.object({ expectedRevision: z.string() }).strict();
@@ -169,9 +170,10 @@ export async function serve(app: Studio, port = 4310) {
           const frame = Number(url.searchParams.get('frame') ?? 0);
           if (!Number.isFinite(frame) || frame < 0)
             throw new StudioError('INVALID_FRAME', 'Frame không hợp lệ.');
-          res.writeHead(200, { 'Content-Type': 'image/svg+xml' });
           const sceneSpec = toLegacyProjectSpec(toAnimationIR(revision.spec));
-          res.end(frameSvg(sceneSpec, frame));
+          const { envelopes } = await mixAudio(app.store, sceneSpec);
+          res.writeHead(200, { 'Content-Type': 'image/svg+xml' });
+          res.end(frameSvg(sceneSpec, frame, envelopes));
           return;
         }
       }

@@ -1,0 +1,23 @@
+{
+  pictures: [
+    {
+      frame: 0,
+      mae: 1.5604761445473252,
+      maxTileMae: 1.8248045267489712,
+      maxTileLargeFraction: 0.0015123456790123457
+    },
+    {
+      frame: 7,
+      mae: 1.556749453446502,
+      maxTileMae: 1.8177726337448559,
+      maxTileLargeFraction: 0.0014969135802469136
+    },
+    {
+      frame: 191,
+      mae: 1.5631486304012345,
+      maxTileMae: 1.8232561728395063,
+      maxTileLargeFraction: 0.0012808641975308641
+    }
+  ],
+  audioChecks: [ { scene: 's001', zeroLagCorrelation: 0.9995724141593955 } ]
+}

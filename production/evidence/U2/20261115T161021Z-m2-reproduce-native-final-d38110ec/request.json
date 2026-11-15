@@ -1,0 +1,19 @@
+{
+  "phase": "U2",
+  "step": "m2-reproduce-native-final",
+  "run_id": "20261115T161021Z-m2-reproduce-native-final-d38110ec",
+  "started_at_utc": "20261115T161021Z",
+  "command": [
+    "node",
+    "--import",
+    "tsx",
+    "scripts/m2-product-e2e.ts"
+  ],
+  "cwd": "/workspace/m2-branch-audit",
+  "base_commit": "84598abdf8836772a62f6c02b441e6d6b7709f4d",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 39853,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "f1472935737180f22fdbf186dfbec685f52bc7ae20faf015ca659d37308964ae"
+}

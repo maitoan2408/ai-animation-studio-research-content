@@ -1,0 +1,48 @@
+[M2 s001] SEGMENT_FRAME 0/192
+[M2 s001] SEGMENT_FRAME 24/192
+[M2 s001] SEGMENT_FRAME 48/192
+[M2 s001] SEGMENT_FRAME 72/192
+[M2 s001] SEGMENT_FRAME 96/192
+[M2 s001] SEGMENT_FRAME 120/192
+[M2 s001] SEGMENT_FRAME 144/192
+[M2 s001] SEGMENT_FRAME 168/192
+[M2 s001] SEGMENT_DONE {"frames":192,"profile":"final","renderer":"native-vector-rsvg"}
+M2_MEMORY_GATE {"label":"segment-closed-s001","rssMB":277,"heapMB":82,"externalMB":67,"cgroupBytes":"621486080","cgroupLimit":"8589934592","cgroupEvents":"low 0\nhigh 0\nmax 9580\noom 1\noom_kill 1\noom_group_kill 0","anonBytes":"343203840","fileBytes":"198680576","slabBytes":"64992032"}
+[M2 s002] SEGMENT_FRAME 0/192
+[M2 s002] SEGMENT_FRAME 24/192
+[M2 s002] SEGMENT_FRAME 48/192
+[M2 s002] SEGMENT_FRAME 72/192
+[M2 s002] SEGMENT_FRAME 96/192
+[M2 s002] SEGMENT_FRAME 120/192
+[M2 s002] SEGMENT_FRAME 144/192
+[M2 s002] SEGMENT_FRAME 168/192
+[M2 s002] SEGMENT_DONE {"frames":192,"profile":"final","renderer":"native-vector-rsvg"}
+M2_MEMORY_GATE {"label":"segment-closed-s002","rssMB":167,"heapMB":34,"externalMB":49,"cgroupBytes":"872689664","cgroupLimit":"8589934592","cgroupEvents":"low 0\nhigh 0\nmax 9580\noom 1\noom_kill 1\noom_group_kill 0","anonBytes":"592842752","fileBytes":"188219392","slabBytes":"69998280"}
+[M2 s003] SEGMENT_FRAME 0/192
+[M2 s003] SEGMENT_FRAME 24/192
+[M2 s003] SEGMENT_FRAME 48/192
+[M2 s003] SEGMENT_FRAME 72/192
+[M2 s003] SEGMENT_FRAME 96/192
+[M2 s003] SEGMENT_FRAME 120/192
+[M2 s003] SEGMENT_FRAME 144/192
+[M2 s003] SEGMENT_FRAME 168/192
+[M2 s003] SEGMENT_DONE {"frames":192,"profile":"final","renderer":"native-vector-rsvg"}
+M2_MEMORY_GATE {"label":"segment-closed-s003","rssMB":167,"heapMB":34,"externalMB":49,"cgroupBytes":"456675328","cgroupLimit":"8589934592","cgroupEvents":"low 0\nhigh 0\nmax 9580\noom 1\noom_kill 1\noom_group_kill 0","anonBytes":"225898496","fileBytes":"156811264","slabBytes":"64916640"}
+M2_MEMORY_GATE {"label":"before-concat","rssMB":167,"heapMB":34,"externalMB":49,"cgroupBytes":"456634368","cgroupLimit":"8589934592","cgroupEvents":"low 0\nhigh 0\nmax 9580\noom 1\noom_kill 1\noom_group_kill 0","anonBytes":"225898496","fileBytes":"156811264","slabBytes":"64916640"}
+M2_MEMORY_GATE {"label":"after-concat","rssMB":167,"heapMB":34,"externalMB":50,"cgroupBytes":"455921664","cgroupLimit":"8589934592","cgroupEvents":"low 0\nhigh 0\nmax 9580\noom 1\noom_kill 1\noom_group_kill 0","anonBytes":"225906688","fileBytes":"157827072","slabBytes":"64857600"}
+M2_MEMORY_GATE {"label":"after-audio-mix","rssMB":167,"heapMB":34,"externalMB":55,"cgroupBytes":"455385088","cgroupLimit":"8589934592","cgroupEvents":"low 0\nhigh 0\nmax 9580\noom 1\noom_kill 1\noom_group_kill 0","anonBytes":"225964032","fileBytes":"157863936","slabBytes":"64835480"}
+M2_MEMORY_GATE {"label":"after-final-mux","rssMB":167,"heapMB":34,"externalMB":55,"cgroupBytes":"459694080","cgroupLimit":"8589934592","cgroupEvents":"low 0\nhigh 0\nmax 9580\noom 1\noom_kill 1\noom_group_kill 0","anonBytes":"225849344","fileBytes":"161386496","slabBytes":"64959128"}
+M2_MEMORY_GATE {"label":"before-final-qc","rssMB":167,"heapMB":34,"externalMB":55,"cgroupBytes":"459694080","cgroupLimit":"8589934592","cgroupEvents":"low 0\nhigh 0\nmax 9580\noom 1\noom_kill 1\noom_group_kill 0","anonBytes":"225849344","fileBytes":"161386496","slabBytes":"64959128"}
+/workspace/studio-audit/node_modules/puppeteer-core/src/common/WaitTask.ts:77
+      this.#timeoutError = new TimeoutError(
+                           ^
+
+TimeoutError: Waiting failed: 30000ms exceeded
+    at new WaitTask (/workspace/studio-audit/node_modules/puppeteer-core/src/common/WaitTask.ts:77:28)
+    at IsolatedWorld.waitForFunction (/workspace/studio-audit/node_modules/puppeteer-core/src/api/Realm.ts:74:22)
+    at CdpFrame.waitForFunction (/workspace/studio-audit/node_modules/puppeteer-core/src/api/Frame.ts:789:36)
+    at CdpFrame.<anonymous> (/workspace/studio-audit/node_modules/puppeteer-core/src/util/decorators.ts:63:21)
+    at CdpPage.waitForFunction (/workspace/studio-audit/node_modules/puppeteer-core/src/api/Page.ts:3158:29)
+    at <anonymous> (/workspace/m2-completion/scripts/m2-product-e2e.ts:403:19)
+
+Node.js v24.22.1

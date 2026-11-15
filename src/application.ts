@@ -163,7 +163,14 @@ export class Studio {
       if (scene.audio) await this.store.verifyAsset(scene.audio.assetId);
     this.fingerprint ??= this.runtimeKey
       ? Promise.resolve(this.runtimeKey)
-      : doctor().then(canonical);
+      : doctor()
+          .then(canonical)
+          .catch((error: unknown) => {
+            // A missing executable may be installed while the server is running.
+            // A rejected fingerprint must not poison every subsequent retry.
+            this.fingerprint = undefined;
+            throw error;
+          });
     const cacheKey = hash(canonical({ spec, profile, runtime: await this.fingerprint }));
     const job = await this.store.transaction(async () => {
       const jobs = await this.store.list<Job>('jobs');

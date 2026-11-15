@@ -1,7 +1,7 @@
 name: Q2 workbench verification
 on:
   pull_request:
-    paths: ['production/**', 'scripts/run-step.py', '.github/workflows/production.yml']
+    paths: ['production/**', 'scripts/run-step.py', 'scripts/m2-product-e2e.ts', 'examples/m2-new-story.txt', '.github/workflows/production.yml']
   push:
     branches: [main]
     paths: ['production/**', 'scripts/run-step.py', '.github/workflows/production.yml']
@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install local media runtime
-        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation python3 python3-venv
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3 python3-venv
       - run: npm --prefix production ci
       - name: Install locked QC libraries
         run: |

@@ -1,0 +1,24 @@
+{
+  "phase": "U2",
+  "step": "m2-cli-long-stdout-before",
+  "run_id": "20261115T165047Z-m2-cli-long-stdout-before-96372b6e",
+  "started_at_utc": "20261115T165047Z",
+  "command": [
+    "node",
+    "--import",
+    "tsx",
+    "tests/cli-long.ts"
+  ],
+  "cwd": "/workspace/m2-completion",
+  "base_commit": "3fdf642394d8303152512e6f1f8de96a0f566041",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 50274,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "b8a22b73d9ff8eff3d022fd0dc0edc6122d1977f4a0e0e23eb1477b8c603dc6a",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 28.701,
+  "finished_at_utc": "2026-11-15T16:51:15.980113+00:00",
+  "log_sha256": "32541aaf8026214902d228bb560f5b2f6876ef7b12723f17521de94349fc1006",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

@@ -6,6 +6,14 @@ Approved by project owner on 2026-11-15. This plan supersedes V2 for **new imple
 
 Deliver an editable, end-to-end paper-cut 2.5D video production workflow **before** generalizing specialist animation skills and adding Director Agent orchestration. Code-based rendering remains authoritative; AI assistance is optional and bounded by supported, validated tools.
 
+## Quy trình bàn giao cuối milestone (bổ sung chỉ thị chủ dự án 2026-11-16)
+
+**Không báo cáo giữa chừng; không đưa bản nháp ra xin duyệt.** Triển khai đúng scope và acceptance gate của M0–M7, cập nhật tiến độ bên trong repo. Khi sản phẩm thực tế xuất hiện, tiến hành **một lượt hậu kiểm riêng trước khi bàn giao**: đối chiếu lại kế hoạch, khám toàn bộ tính năng và media thật, tìm cả lỗi mới lẫn thiếu sót. Nếu có FAIL, quay lui sửa nguyên nhân, thêm regression, tạo lại bằng chứng và **chạy lại full app + workbench regression trên final HEAD**. Lặp cho đến khi hoàn tất tiêu chí milestone, rồi mới báo cáo.
+
+Bàn giao **trong chính cuộc chat** để chủ dự án xem hình và kết quả trực tiếp: đính/hiển thị video hoặc preview khi được hỗ trợ, screenshot/contact sheet/frame thật từ bản cuối, file dự án chỉnh sửa được, và tóm tắt kết quả kiểm thử/commit/manifest. **Không dùng GitHub artifact link hoặc CI xanh làm sự thay thế cho hình ảnh và kết quả trực tiếp trong chat**; nếu nền tảng không nhúng được video, phải nói rõ và cung cấp hình thật kèm đường dẫn mở/tải video. Ngoại lệ duy nhất cho việc không thể báo cáo kết quả là blocker không tự giải quyết được: ghi `BLOCKED` có evidence và mô tả đúng tình trạng.
+
+Những yêu cầu này bổ sung, không nới lỏng, vòng end-of-stage quality loop và owner acceptance gate bên dưới. Không chuyển sang milestone sau khi chưa được chủ dự án chấp thuận.
+
 ## Branch and safety
 
 - Base branch: `codex/v2-continuous` at `61d2de8834cc9e48d3c4c25c329f050e415e6d59`.

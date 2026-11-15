@@ -1,38 +1,26 @@
-# Product-first resume checkpoint — M1 technical gate completed 2026-11-15
+# Resume checkpoint — 2026-11-16 | M2 technical PASS, pending owner review
 
-## Source of truth / strict sequential execution
+## Strict stage gate
 
-- Approved roadmap: [ROADMAP.md](ROADMAP.md); machine state: [STATE.json](STATE.json).
-- **M0 ACCEPTED** by owner (13-sec baseline demo).
-- **M1 READY_FOR_USER_REVIEW**, not yet ACCEPTED. Do not start M2 before explicit owner approval.
-- Working branch `codex/product-first-m1-animation-ir` (PR #9), stacked on M0 accepted branch.
-- Never merge/force-push or auto-approve creative work.
-- For all stages: implement → independent QA → correct findings → **repeat entire regression on final code HEAD** → inspect actual MP4/PNG → only then request owner acceptance.
+M0 and M1 are owner ACCEPTED. **M2 READY_FOR_USER_REVIEW (NOT_ACCEPTED)**. Do not start M3 or merge any stacked PR until owner explicitly approves. Mandatory for every stage: implement, independent defect/quality audit, repair findings, full final-source CI regressions, inspect actual rendered media, then present owner review.
 
-## What M1 fixed and verified
+## Latest verified source and real evidence
 
-- Camera center corrected to stage (960, 540) with pan/zoom test and real native Three frames.
-- Strict bounded AnimationIR with puppet model/rig, authored scene camera, art-pack version, SHA-bound prop and contact-anchor references.
-- Actual IR evaluator creates stage background, two rigged actors Mai/An with animated head, joints, prop lantern with anchor/verified hashes. Renders directly through trusted WebGL Three backend, no fixed S01–S06 benchmarkFrame path for the IR fixture.
-- Root preview uses the same IR compatibility validation as video compiler; existing legacy projects still work unchanged.
-- Reverse-seek image and stage-state hashes, cross-viewport normalized state parity, full MP4 decode, 4 native 1080p stills, contact sheet.
+- Source code HEAD for M2 media: `bc351255374a7aac499e056daf8ed194167bb74a`. The documentation status update that follows is documentation-only; the executable revision and verified movie are unchanged.
+- Full Studio & product CI SUCCESS: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952273
+- Full production workbench CI SUCCESS: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952293
+- Latest actual M2 evidence: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952273/artifacts/14170989211 (`paper-studio-m2-145`, expires 2026-11-29).
+- The 24 sec 3-shot editable Studio movie is native 1920x1080/24fps, 576 decoded H264 frames with 48kHz AAC Vietnamese draft speech. SHA-256 `cc3177c7c71393fb54778f12c05023e102ff229cd6111a161cbf3ff61b8ed109`.
+- On 2026-11-16 downloaded the latest artifact and independently verified all 23 manifest hashes, MP4 SHA, ffprobe frame count, full ffmpeg video+audio decode, 3-scene portable project/voice references, sample frames/contact and browser-run reopen evidence.
+- The old long-render CLI JSON contract was repaired in commit `bc351255`; `tests/cli-long.ts` now runs in CI and passed. Earlier root-cause evidence persists in M2-REVIEW.md.
 
-## Mandatory final QA evidence (all SUCCESS)
+## Owner review boundary
 
-Source implementation commit: `2b28317bbf15550204ebef1952b3938c222bb5f0`.
+The pipeline, save/reopen, draft voice, editing and media output passed technical requirements. Visual motion is **basic**: simple wave, rigid walk and mechanical cup pick-up; natural motion remains future M3/M6. Draft eSpeak Vietnamese voice is not human quality certified. No automated evidence is an owner visual or listening approval. No M3 progress unless the owner says yes.
 
-- Root CI: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43710867218
-- Production CI: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43710867255
-- Production review artifact `q2-workbench-79` (ID 14160368449, expires 2026-11-29): `product-first/m1/m1-ir-production-640.mp4`, `m1-ir-production-contact.png`, `m1-final-native1080-frame-36.png`, `manifest.json`; exactly 72 640x360 24fps silent frames.
-- Real video SHA256: `15e228280f0fa634bc772288c785b4fa3be7d9946390ff39d3a27a369f540da0`.
-- Root compatibility artifact `paper-studio-101` (ID 14160815154, expires 2026-11-29) contains legacy vs IR A/B MP4 and voice parity.
-- Source SHA in final manifest is correctly linked to PR HEAD, while synthetic workflow merge SHA is separately recorded.
-- Independent human-visible visual inspection of 1080 still and contact verified visibly framed stage; no artistic approval presumed.
+## Files to read first
 
-## Owner acceptance outstanding
-
-Present playable actual GIF, linked MP4 and native 1080 still in chat. Ask owner to accept or request visual adjustments. M1 demo is technical 3-sec silent 640p; not a M2 product. M2 only starts after owner explicitly accepts M1.
-
-## Subsequent M2
-
-Create a genuinely new 20–30 sec 1080p /24fps voiced film with >=3 shots, editable scene timeline, export/reopen and revision proof. Motion/physics skill quality are M3/M4. Preserve all previous V2 evidence and PRs.
+- `docs/product-first/ROADMAP.md` for stage requirements and mandatory post-stage QA.
+- `docs/product-first/STATE.json` for machine-readable state.
+- `docs/product-first/M2-REVIEW.md` for detailed M2 defects, checks, evidence and scope.
+- `scripts/m2-product-e2e.ts` and `.github/workflows/ci.yml` for reproducible workflow.

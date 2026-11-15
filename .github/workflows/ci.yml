@@ -14,19 +14,23 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
-    timeout-minutes: 20
+    timeout-minutes: 40
     env:
       STUDIO_BROWSER: /usr/bin/chromium
       HYPERFRAMES_NO_TELEMETRY: '1'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install media runtime
-        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation
       - run: npm ci
       - run: npm run studio -- doctor
+      - name: Check M2 acceptance harness source formatting
+        run: npx prettier --check scripts/m2-*.ts tsconfig.m2.json
       - run: npm run verify
       - run: npm run build
       - run: npm run test:integration
+      - name: Preserve JSON CLI output for a real long segmented render
+        run: npx tsx tests/cli-long.ts
       - run: npm run test:ui
       - run: npm run test:ui:recovery
       - name: Verify M0 baseline video and publish review contact sheets
@@ -44,4 +48,36 @@ jobs:
             artifacts/
             /tmp/studio-integration-*/tmp/**/render-log.json
             /tmp/studio-integration-*/tmp/**/failure.json
+          retention-days: 14
+
+  # Dedicated clean container: root integration and M1 A/B suites launch many
+  # Chromium processes. Native 1080p M2 must not inherit their native memory.
+  # This job still runs the same external-script / real UI / audio / QC gate.
+  m2-product:
+    needs: verify
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 40
+    env:
+      STUDIO_BROWSER: /usr/bin/chromium
+      HYPERFRAMES_NO_TELEMETRY: '1'
+      SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install vector and media runtime in isolated clean container
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation
+      - run: npm ci
+      - name: Check M2 acceptance harness formatting and types
+        run: |
+          npx prettier --check scripts/m2-*.ts tsconfig.m2.json
+          npm run typecheck
+          npx tsc -p tsconfig.m2.json
+      - name: Render new 24-sec native1080p edited and voiced video + prove UI/export/restart
+        run: npx tsx scripts/m2-product-e2e.ts
+      - name: Upload actual M2 video, edit screenshots, contact and SHA report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: paper-studio-m2-${{ github.run_number }}
+          path: artifacts/product-first/m2/
           retention-days: 14

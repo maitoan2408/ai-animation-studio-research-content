@@ -1,0 +1,10 @@
+<anonymous_script>:1
+[M2 s001] SEGMENT_FRAME 0/192
+ ^
+
+SyntaxError: Unexpected token 'M', "[M2 s001] S"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at cli (/workspace/m2-completion/tests/cli-long.ts:20:17)
+    at <anonymous> (/workspace/m2-completion/tests/cli-long.ts:23:15)
+
+Node.js v24.22.1

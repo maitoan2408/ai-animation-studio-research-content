@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile, copyFile } from 'node:fs/promises';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 import {
   parseSpec,
   totalFrames,
@@ -59,7 +60,18 @@ export async function qcVideo(
 ): Promise<QC> {
   const raw = await run(
     'ffprobe',
-    ['-v', 'error', '-count_frames', '-show_streams', '-show_format', '-of', 'json', file],
+    [
+      '-v',
+      'error',
+      '-threads',
+      '1',
+      '-count_frames',
+      '-show_streams',
+      '-show_format',
+      '-of',
+      'json',
+      file,
+    ],
     signal,
   );
   const probe = JSON.parse(raw) as {
@@ -95,12 +107,35 @@ export async function qcVideo(
   // Decode every stream; metadata alone cannot detect a damaged payload.
   await run(
     'ffmpeg',
-    ['-v', 'error', '-xerror', '-nostdin', '-i', file, '-f', 'null', '-'],
+    [
+      '-v',
+      'error',
+      '-xerror',
+      '-nostdin',
+      '-threads',
+      '1',
+      '-filter_threads',
+      '1',
+      '-i',
+      file,
+      '-threads',
+      '1',
+      '-f',
+      'null',
+      '-',
+    ],
     signal,
   );
   return qc;
 }
 
+/**
+ * A long, multi-scene project can exceed available Chromium memory when kept
+ * in a single 1080p session. Each scene is rendered by an isolated subprocess
+ * so native rasterizer and FFmpeg allocations are reclaimed between scenes.
+ * Segments use the same constant-24fps H.264 timebase. The original scene-correct
+ * 48kHz mix is muxed once, avoiding AAC priming gaps at shot boundaries.
+ */
 export const renderVideo: RenderFunction = async (store, spec, profile, dir, signal, progress) => {
   const runtime = await doctor();
   signal.throwIfAborted();
@@ -108,43 +143,239 @@ export const renderVideo: RenderFunction = async (store, spec, profile, dir, sig
   process.env.HYPERFRAMES_CACHE_DIR = path.join(store.root, 'cache');
   process.env.HYPERFRAMES_NO_TELEMETRY = '1';
   process.env.PRODUCER_BROWSER_GPU = 'false';
-  await compile(store, spec, profile, path.join(dir, 'composition'));
-  await progress(0.05, 'Rendering frames');
-  const { createRenderJob, executeRenderJob } = await import('@hyperframes/producer');
-  const { drainBrowserPool } = await import('@hyperframes/engine');
+  // Load heavy native/browser producers only on the legacy unsplit path.
+  // The long M2 split path uses isolated SVG worker processes, not HyperFrames.
   const logs: string[] = [];
+  const segmentReceipts: Array<{ scene: string; frames: number; qc: QC }> = [];
   const log = (message: string) => {
     logs.push(message);
   };
-  const job = createRenderJob({
-    fps: 24,
-    format: 'mp4',
-    quality: 'standard',
-    workers: 1,
-    strictness: 'strict',
-    maxRenderMs: 900000,
-    crf: 18,
-    logger: { error: log, warn: log, info: log, debug: () => {} },
-  });
   const file = path.join(dir, 'output.mp4');
-  try {
-    await executeRenderJob(
-      job,
-      path.join(dir, 'composition'),
-      file,
-      async (j, message) => {
-        await progress(Math.min(0.9, 0.05 + j.progress * 0.0085), message);
-      },
-      signal,
+  const parsed = parseSpec(spec);
+  // Preserve the established continuous-render path for short projects and
+  // any long unsupported single scene. No change to existing M0/M1 output.
+  const split =
+    totalFrames(parsed) > 360 &&
+    parsed.scenes.length > 1 &&
+    parsed.scenes.every((scene) => scene.durationFrames <= 360);
+  let activeJob: unknown;
+  const traceM2 = async (label: string) => {
+    if (!split) return;
+    const cgroup = await readFile('/sys/fs/cgroup/memory.current', 'utf8').catch(
+      () => 'unavailable',
     );
+    const limit = await readFile('/sys/fs/cgroup/memory.max', 'utf8').catch(() => 'unavailable');
+    const events = await readFile('/sys/fs/cgroup/memory.events', 'utf8').catch(
+      () => 'unavailable',
+    );
+    const mem = process.memoryUsage();
+    const stat = await readFile('/sys/fs/cgroup/memory.stat', 'utf8').catch(() => '');
+    const stats = new Map(
+      stat
+        .split('\n')
+        .filter(Boolean)
+        .map((line) => line.split(' ') as [string, string]),
+    );
+    console.error(
+      'M2_MEMORY_GATE ' +
+        JSON.stringify({
+          label,
+          rssMB: Math.round(mem.rss / 1048576),
+          heapMB: Math.round(mem.heapUsed / 1048576),
+          externalMB: Math.round(mem.external / 1048576),
+          cgroupBytes: cgroup.trim(),
+          cgroupLimit: limit.trim(),
+          cgroupEvents: events.trim(),
+          anonBytes: stats.get('anon'),
+          fileBytes: stats.get('file'),
+          slabBytes: stats.get('slab'),
+        }),
+    );
+  };
+  try {
+    if (!split) {
+      const { createRenderJob, executeRenderJob } = await import('@hyperframes/producer');
+      await compile(store, parsed, profile, path.join(dir, 'composition'));
+      await progress(0.05, 'Rendering frames');
+      const job = createRenderJob({
+        fps: 24,
+        format: 'mp4',
+        quality: 'standard',
+        workers: 1,
+        strictness: 'strict',
+        maxRenderMs: 900000,
+        crf: 18,
+        logger: { error: log, warn: log, info: log, debug: () => {} },
+      });
+      activeJob = job;
+      await executeRenderJob(
+        job,
+        path.join(dir, 'composition'),
+        file,
+        async (j, message) => {
+          await progress(Math.min(0.9, 0.05 + j.progress * 0.0085), message);
+        },
+        signal,
+      );
+    } else {
+      const segmentPaths: string[] = [];
+      await progress(0.04, 'Preparing memory-bounded independent scenes');
+      for (const [index, scene] of parsed.scenes.entries()) {
+        signal.throwIfAborted();
+        const single = parseSpec({ ...parsed, scenes: [scene] });
+        const partDir = path.join(dir, 'part-' + String(index).padStart(3, '0'));
+        const partFile = path.join(partDir, 'output.mp4');
+        const specFile = path.join(partDir, 'scene.json');
+        await mkdir(partDir, { recursive: true });
+        await writeFile(specFile, JSON.stringify(single));
+        // A renderer pool drain inside one Node process is insufficient for
+        // some 1080p jobs: native browser/codec memory remains resident.
+        // Independent OS processes make the memory boundary enforceable.
+        const runningTs = path.extname(fileURLToPath(import.meta.url)) === '.ts';
+        const workerFile = fileURLToPath(
+          new URL('./render-segment' + (runningTs ? '.ts' : '.js'), import.meta.url),
+        );
+        await progress(
+          0.06 + (0.78 * index) / parsed.scenes.length,
+          'Native isolated render ' + scene.id,
+        );
+        const args = [
+          ...(runningTs ? ['--import', 'tsx'] : []),
+          workerFile,
+          store.root,
+          specFile,
+          profile,
+          partDir,
+        ];
+        const childLog = await run(
+          process.execPath,
+          args,
+          signal,
+          (chunk) => {
+            // Keep the CI runner visibly informed of per-frame worker progress;
+            // long opaque native rendering jobs can otherwise be terminated
+            // without any diagnostic output, leaving only exit code 137.
+            process.stderr.write('[M2 ' + scene.id + '] ' + chunk);
+          },
+          true,
+        );
+        logs.push(childLog.slice(-12000));
+        const qc = JSON.parse(await readFile(path.join(partDir, 'segment-qc.json'), 'utf8')) as QC;
+        assertSegmentFrames(scene.id, qc.frames, scene.durationFrames);
+        segmentReceipts.push({ scene: scene.id, frames: scene.durationFrames, qc });
+        segmentPaths.push(partFile);
+        await traceM2('segment-closed-' + scene.id);
+      }
+      signal.throwIfAborted();
+      await progress(0.87, 'Joining video scenes and original continuous voice');
+      await traceM2('before-concat');
+      const list = path.join(dir, 'video-segments.txt');
+      await writeFile(
+        list,
+        segmentPaths.map((p) => "file '" + p.replace(/'/g, "'\\''") + "'").join('\n') + '\n',
+      );
+      const joined = path.join(dir, 'joined-silent.mp4');
+      await run(
+        'ffmpeg',
+        [
+          '-v',
+          'error',
+          '-xerror',
+          '-nostdin',
+          '-y',
+          '-f',
+          'concat',
+          '-safe',
+          '0',
+          '-i',
+          list,
+          '-map',
+          '0:v:0',
+          '-an',
+          // All native SVG shot workers now encode exact 24/1 CFR H.264
+          // with the same timebase. Copying their streams avoids an otherwise
+          // expensive second 1080p x264 encode. qcVideo verifies that merged
+          // fps AND all 576 decoded frames are preserved; fail closed on drift.
+          '-c:v',
+          'copy',
+          '-threads',
+          '1',
+          '-r',
+          '24',
+          '-video_track_timescale',
+          '12288',
+          '-movflags',
+          '+faststart',
+          joined,
+        ],
+        signal,
+      );
+      await traceM2('after-concat');
+      const mixed = await mixAudio(store, parsed);
+      await traceM2('after-audio-mix');
+      if (mixed.audio) {
+        const audioPath = path.join(dir, 'full-original-timeline.wav');
+        await writeFile(audioPath, mixed.audio);
+        await run(
+          'ffmpeg',
+          [
+            '-v',
+            'error',
+            '-xerror',
+            '-nostdin',
+            '-y',
+            '-i',
+            joined,
+            '-i',
+            audioPath,
+            '-map',
+            '0:v:0',
+            '-map',
+            '1:a:0',
+            '-c:v',
+            'copy',
+            '-threads',
+            '1',
+            '-c:a',
+            'aac',
+            '-b:a',
+            '192k',
+            '-ar',
+            '48000',
+            '-ac',
+            '2',
+            '-t',
+            String(totalFrames(parsed) / 24),
+            '-movflags',
+            '+faststart',
+            file,
+          ],
+          signal,
+        );
+      } else {
+        await copyFile(joined, file);
+      }
+    }
     signal.throwIfAborted();
-    await progress(0.95, 'Decoding and checking video');
-    return { file, qc: await qcVideo(file, spec, profile, signal) };
+    await traceM2('after-final-mux');
+    await traceM2('before-final-qc');
+    await progress(0.95, 'Decoding all frames and checking audio');
+    return { file, qc: await qcVideo(file, parsed, profile, signal) };
   } finally {
+    await mkdir(dir, { recursive: true });
     await writeFile(
       path.join(dir, 'render-log.json'),
-      JSON.stringify({ runtime, job, logs }, null, 2),
+      JSON.stringify({ runtime, job: activeJob, split, segmentReceipts, logs }, null, 2),
     );
-    await drainBrowserPool();
+    if (!split) {
+      const { drainBrowserPool } = await import('@hyperframes/engine');
+      await drainBrowserPool();
+    }
   }
 };
+
+/** No silent truncation or duplicate boundary frames allowed. */
+function assertSegmentFrames(id: string, actual: number, expected: number) {
+  if (actual !== expected)
+    throw new StudioError('SEGMENT_FRAME_MISMATCH', id + ':' + actual + '/' + expected);
+}

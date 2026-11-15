@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "m2-browser-proof-types",
+  "run_id": "20261115T162449Z-m2-browser-proof-types-44978819",
+  "started_at_utc": "20261115T162449Z",
+  "command": [
+    "node_modules/.bin/tsc",
+    "-p",
+    "tsconfig.m2.json"
+  ],
+  "cwd": "/workspace/m2-completion",
+  "base_commit": "758ca60d0ff069abf351fdaf2cd4afd6af2e75c1",
+  "tracked_diff_sha256": "edcb1a04bcd4518e0fcaf91224994abac97ced1d6d1803af172a999f416f667d",
+  "recorder_pid": 46316,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "e735b113cd8295c808b0f1a9bff4c41f55d000a6dc680dded852344fdb3a4580",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 9.949,
+  "finished_at_utc": "2026-11-15T16:24:59.605166+00:00",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}
