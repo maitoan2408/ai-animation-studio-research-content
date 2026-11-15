@@ -24,8 +24,12 @@ jobs:
         run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation
       - run: npm ci
       - run: npm run studio -- doctor
-      - name: Check M2 acceptance harness source formatting
-        run: npx prettier --check scripts/m2-product-e2e.ts
+      - name: Print exact normalized M2 acceptance harness (temporary)
+        run: |
+          printf 'M2_FIX_FORMAT_B64='
+          npx prettier scripts/m2-product-e2e.ts | base64 -w0
+          printf '\n'
+          npx prettier --check scripts/m2-product-e2e.ts
       - run: npm run verify
       - run: npm run build
       - run: npm run test:integration
