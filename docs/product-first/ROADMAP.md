@@ -29,6 +29,28 @@ Each milestone is independently reviewable. **Do not report completion to the ow
 | M6 — Quality | Art/character/acting/secondary motion/audio/critic improvements | Paired A/B videos on same shot and camera, matched visual contacts | No regression to M2 production pipeline; review of visual/acting quality remains human |
 | M7 — Pilot | 72s The Last Lantern, editable source, two recorded revision rounds | Full 72s film and A/B revisions | Technical QC plus owner review; benchmark footage cannot substitute for real pilot |
 
+
+## Mandatory end-of-stage quality loop (owner directive 2026-11-15)
+
+**Strict sequence; no new milestone until prior milestone is owner ACCEPTED.** After each milestone implementation:
+
+1. Independently compare every promised acceptance criterion against *actual* code, UI and rendered media; list missing functions and untested assumptions.
+2. Reproduce all discovered defects with a failing test first, then fix root causes rather than changing thresholds or skipping tests.
+3. Run component tests, negative/boundary tests, cross-module integration, real render/decode, security and backward-compatibility checks. Repeat the **full regression suite after the last fix** on final HEAD.
+4. Inspect genuine image/video artifacts produced from that same commit. Verify camera framing, movement, contacts, audio, assets and preview/final parity wherever applicable. Automated QC is not aesthetic approval.
+5. Freeze source SHA, checks, artifact hashes, independent audit notes and any *out-of-scope* limitations in `STATE.json` and `RESUME.md`. Treat all failed runs as visible evidence; do not silently erase them.
+6. Mark `READY_FOR_USER_REVIEW` **only** if there are no open *in-scope* defects, final CI is green and media is accessible in chat. Owner must explicitly approve to transition to `ACCEPTED`; only then start next stage.
+7. A blocker must remain `BLOCKED`/ `REWORK_REQUIRED` with real evidence. Never report a stage completed when only code/CI setup exists. Do not auto-merge PRs.
+
+### M1 reopened acceptance checklist (M1.1 remediation; still part of M1)
+
+- [ ] Production camera centers at (960,540); pan uses anchored stage coordinates and has full-frame tests.
+- [ ] Versioned IR includes bounded asset/character/rig/prop/contact-anchor contracts and refuses unsupported transforms.
+- [ ] Real IR scene generates verified artwork, sprites and rig markers through **production Three renderer**, not just legacy SVG round trip.
+- [ ] Same source scene has proof of consistent preview/final evaluation and deterministic arbitrary seeking.
+- [ ] M0 legacy route unchanged; all root and production CI regressions rerun after final code changes.
+- [ ] Real encoded IR demo MP4 and representative stills/contact sheets linked to final HEAD for owner review.
+
 ## Integration and version contract (M1 design target)
 
 `AnimationIR.v1`: fps/frame duration and absolute/shot-local half-open intervals; scene IDs and camera/world transform; character package by version/hash; rig/control names and contact anchors; prop ownership and collision metadata; referenced art/audio; authored action clips and physics bake receipts. Renderer consumes validated data rather than untrusted generated code. App v1.0 and workbench coordinate systems must be converted explicitly (640x360 SVG versus 1920x1080 stage; Y-down stage versus physics Y-up).

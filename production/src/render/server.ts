@@ -47,3 +47,17 @@ export async function serve(shot:ShotId,options:{width?:number;height?:number;ed
  const addr=server.address();if(!addr||typeof addr==='string')throw Error('NO_SERVER_PORT');
  return {url:`http://127.0.0.1:${addr.port}`,config,close:()=>{server.closeAllConnections();server.close();}};
 }
+
+/** Serve a real IR scene using the same verified native textures and Three path.
+ * Keep benchmark source untouched and reject invalid configs in the browser.
+ * Fresh preview & final sessions use the same pure IR evaluator. */
+export async function serveIR(ir:import('../scene/animation-ir-adapter.js').StageShotTimeline,
+  options:{width?:number;height?:number}={}){
+  const session=await serve('S01',options);
+  session.config.ir=ir;
+  if(!ir.artPack || session.config.pack.version!==ir.artPack.version){
+    session.close();
+    throw Error('IR_ART_PACK_VERSION_MISMATCH');
+  }
+  return session;
+}
