@@ -15,7 +15,7 @@ import {Studio} from '../src/application.js';
 import {serve} from '../src/server.js';
 import {doctor} from '../src/process.js';
 import {pcmFromWav} from '../src/audio.js';
-import {hash,totalFrames,type Artifact,type Project,type Revision} from '../src/domain.js';
+import {hash,totalFrames,StudioError,type Artifact,type Project,type Revision} from '../src/domain.js';
 import {planScript} from '../src/planner.js';
 import {frameSvg} from '../src/rig.js';
 
@@ -43,8 +43,8 @@ assert.equal(planned.spec.scenes.length,3);
 assert.deepEqual(planned.spec.scenes.map(s=>s.action),['wave','walk','pick-up']);
 assert.deepEqual(planned.spec.scenes.map(s=>s.camera),['static','pan','static']);
 assert.equal(totalFrames(planned.spec),576);
-assert.throws(()=>planScript('[action=fly; seconds=8]\nUnsupported.','Bad'),/INVALID_PROJECT/);
-assert.throws(()=>planScript('[action=wave; seconds=0]\nBad duration.','Bad'),/INVALID_PROJECT/);
+assert.throws(()=>planScript('[action=fly; seconds=8]\nUnsupported.','Bad'),(e:unknown)=>e instanceof StudioError&&e.code==='INVALID_PROJECT');
+assert.throws(()=>planScript('[action=wave; seconds=0]\nBad duration.','Bad'),(e:unknown)=>e instanceof StudioError&&e.code==='INVALID_PROJECT');
 
 let app:Studio|undefined,server:Awaited<ReturnType<typeof serve>>|undefined;
 let browser:Awaited<ReturnType<typeof puppeteer.launch>>|undefined;
