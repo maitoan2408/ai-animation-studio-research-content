@@ -5,7 +5,10 @@ import { parseAnimationIR, toLegacyProjectSpec } from '../src/animation-ir.js';
 
 test('new production IR fixture is strictly validated but cannot be silently downgraded', async () => {
   const input = JSON.parse(
-    await readFile(new URL('../production/fixtures/m1-production-ir.json', import.meta.url), 'utf8'),
+    await readFile(
+      new URL('../production/fixtures/m1-production-ir.json', import.meta.url),
+      'utf8',
+    ),
   );
   const ir = parseAnimationIR(input);
   assert.equal(ir.timeline.totalFrames, 72);
