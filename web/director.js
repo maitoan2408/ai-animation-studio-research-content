@@ -129,6 +129,14 @@ runButton.addEventListener('click', async () => {
       done.qc.frames +
       ' frames';
     video.src = '/api/artifacts/' + encodeURIComponent(done.artifactId) + '/video';
+    video.addEventListener(
+      'loadedmetadata',
+      () => {
+        // Force actual first-frame decoding for a useful paused Studio preview.
+        video.currentTime = Math.min(1, Math.max(0, video.duration / 2));
+      },
+      { once: true },
+    );
     video.load();
     result.hidden = false;
   } catch (error) {

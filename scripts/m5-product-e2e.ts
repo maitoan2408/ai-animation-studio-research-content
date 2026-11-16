@@ -182,6 +182,30 @@ try {
       },
       { timeout: 45000 },
     );
+    // A video element with only loadedmetadata can appear blank in screenshots.
+    // Seek to a genuinely decoded output frame before capturing the UI proof.
+    await page.$eval('#director-video', async (element) => {
+      const player = element as HTMLVideoElement;
+      player.muted = true;
+      await player.play();
+    });
+    await page.waitForFunction(
+      () => (document.querySelector<HTMLVideoElement>('#director-video')?.currentTime ?? 0) > 0.2,
+      { timeout: 20000 },
+    );
+    await page.$eval('#director-video', (element) => {
+      const player = element as HTMLVideoElement;
+      player.pause();
+      player.currentTime = 2;
+    });
+    await page.waitForFunction(
+      () => {
+        const player = document.querySelector<HTMLVideoElement>('#director-video');
+        return player && !player.seeking && player.readyState >= 2 &&
+          Math.abs(player.currentTime - 2) < 0.05;
+      },
+      { timeout: 30000 },
+    );
     const receiptFileName = path.join(tmp, 'director-m5', plan.planSha256 + '.json');
     const receipt = JSON.parse(await readFile(receiptFileName, 'utf8')) as DirectorReceipt;
     assert.equal(receipt.status, 'succeeded');
@@ -287,9 +311,10 @@ try {
     const last = totalFrames(revision.spec) - 1;
     const offsets = [
       0,
-      Math.floor(last / 4),
-      Math.floor(last / 2),
-      Math.floor((last * 3) / 4),
+      Math.floor(last / 5),
+      Math.floor((last * 2) / 5),
+      Math.floor((last * 3) / 5),
+      Math.floor((last * 4) / 5),
       last,
     ];
     const filter = offsets.map((f) => 'eq(n\\,' + f + ')').join('+');
