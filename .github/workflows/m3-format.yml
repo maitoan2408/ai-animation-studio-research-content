@@ -18,12 +18,10 @@ jobs:
         run: npx prettier --write src/motion-service.ts src/server.ts tests/m3-http.test.ts web/motion.js web/motion.html web/index.html web/style.css
       - name: Commit mechanical formatting if needed
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/motion-service.ts src/server.ts tests/m3-http.test.ts web/motion.js web/motion.html web/index.html web/style.css
-          if git diff --cached --quiet; then
+          git -c safe.directory="$GITHUB_WORKSPACE" add src/motion-service.ts src/server.ts tests/m3-http.test.ts web/motion.js web/motion.html web/index.html web/style.css
+          if git -c safe.directory="$GITHUB_WORKSPACE" diff --cached --quiet; then
             echo "FORMAT_ALREADY_CLEAN"
           else
-            git commit -m "style(m3): format Studio native motion integration"
-            git push origin HEAD:codex/product-first-m3-character-motion
+            git -c safe.directory="$GITHUB_WORKSPACE" -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "style(m3): format Studio native motion integration"
+            git -c safe.directory="$GITHUB_WORKSPACE" push origin HEAD:codex/product-first-m3-character-motion
           fi
