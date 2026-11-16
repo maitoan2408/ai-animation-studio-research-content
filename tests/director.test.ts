@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 import { Studio } from '../src/application.js';
@@ -195,4 +195,38 @@ test('M5 stored recipe refuses corrupted artifact rather than trusting cache', a
   );
   assert.equal((await app.store.list('projects')).length, 1);
   assert.notEqual(hash('CORRUPTED'), receipt.artifactSha256);
+});
+
+test('M5-RECHECK-002 crash after render before receipt does not duplicate project or media', async (t) => {
+  const { app, root } = await fixture(t);
+  const plan = planDirector(intent());
+  const blockedReceipt = path.join(root, 'director-m5', plan.planSha256 + '.json');
+  await mkdir(blockedReceipt, { recursive: true });
+  await assert.rejects(new DirectorService(app).run(plan, true));
+  assert.equal((await app.store.list('projects')).length, 1);
+  assert.equal((await app.store.list('jobs')).length, 1);
+  await rm(blockedReceipt, { recursive: true });
+  const receipt = await new DirectorService(app).run(plan, true);
+  assert.equal(receipt.status, 'succeeded');
+  assert.equal((await app.store.list('projects')).length, 1);
+  assert.equal((await app.store.list('jobs')).length, 1);
+  assert.equal((await app.store.list('artifacts')).length, 1);
+});
+
+test('M5-RECHECK-003 reject voice-induced changes to approved scene duration before rendering', async (t) => {
+  const { app } = await fixture(t);
+  const voice = app.voice.bind(app);
+  app.voice = async (projectId, revisionId) => {
+    const initial = await voice(projectId, revisionId);
+    const changed = structuredClone(initial.spec);
+    changed.scenes[0]!.durationFrames += 24;
+    return app.store.revise(projectId, initial.id, changed, [
+      'Giọng eSpeak local dùng cho timing nháp; người dùng cần duyệt chất lượng hoặc thay WAV.',
+    ]);
+  };
+  await assert.rejects(
+    new DirectorService(app).run(planDirector({ ...intent(), voice: true }), true),
+    codeIs('DIRECTOR_VOICE_TIMING_CHANGED'),
+  );
+  assert.equal((await app.store.list('jobs')).length, 0);
 });

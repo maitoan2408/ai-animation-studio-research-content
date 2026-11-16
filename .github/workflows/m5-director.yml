@@ -40,6 +40,8 @@ jobs:
           npm --prefix production run typecheck
           npm --prefix production run test:physics:m4
           npm --prefix production run test:physics
+      - name: Delayed response / edited input browser regression
+        run: npx tsx scripts/m5-async-plan-ui.ts
       - name: Two new actual native 1080p voiced films, graph UI and fail-closed demo
         run: npx tsx scripts/m5-product-e2e.ts
       - name: Separate post-result audit of both videos, audio, graphs and sources
