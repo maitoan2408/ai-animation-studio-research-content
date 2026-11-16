@@ -88,6 +88,9 @@ try {
   const imported = structuredClone(original);
   imported.character.id = 'imported-actor';
   imported.prop.id = 'custom-cup';
+  imported.clips = [{ action: 'wave', frames: 49 }];
+  // Retain optional scenery prop and declared capabilities beyond the current clip.
+  imported.prop.x = 970;
   const fixture = path.join(dir, 'import.json');
   await writeFile(fixture, JSON.stringify(imported));
   const input = await page.$('input#motion-import');
@@ -96,6 +99,11 @@ try {
   await page.waitForFunction(() =>
     document.querySelector('#motion-notice')?.textContent?.includes('Đã nhập'),
   );
+  await page.$eval('#cup-x', (el) => {
+    (el as HTMLInputElement).value = '975';
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  imported.prop.x = 975;
   await page.click('#motion-save');
   await page.waitForResponse(
     (r) => r.url().endsWith('/motion/project') && r.request().method() === 'POST',

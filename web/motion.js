@@ -107,7 +107,10 @@ function collect() {
   )
     project.character.capabilities = [...new Set(entries.map((x) => x.action))];
   project.clips = entries;
-  if (entries.some((x) => x.action === 'pick-place')) {
+  if (
+    entries.some((x) => x.action === 'pick-place') ||
+    (project.prop && !draftBase.clips.some((x) => x.action === 'pick-place'))
+  ) {
     project.prop = {
       id: project.prop?.id ?? 'cup-m3',
       asset: project.prop?.asset ?? 'props/cup',
