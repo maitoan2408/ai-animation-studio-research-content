@@ -59,3 +59,15 @@ Cross-runner golden hashes lock exact inputs/engine. Runtime logs retain host,
 Node/platform and package lock SHA. Matching local/CI Linuxx64 establishes only
 those runs, not every architecture. Do not update a golden to hide unexplained
 failures: preserve attempt, explain input/solver change, compare analytic gates.
+
+## M4 generalized product adapter (new; does not alter locked S05 hero contract)
+
+`m4.ts` is a bounded production physics input/recipe/bake/replay system for versioned M3 authored cutout motion with one cup grip/release and a flat physical platform. Parameters (mass/gravity/damping/friction/restitution/initial velocity/collider/floor) are validated from data. It simulates with Rapier 0.21.0 at fixed 240Hz/24fps (10 substeps), SHA-binds exact input/art/recipe/package lock/implementation, and replays frozen frames on arbitrary seeks. Unsupported rigs, duplicate contacts, stale bakes, tampered frames and non-finite values reject. `m4-adapter.ts` updates only the prop transform and contact marker after the actual M3 release; all authored actors and camera remain M3-owned.
+
+`M4_PROJECT_FILE=/path/to/m4-project.json npm --prefix production run physics:m4` renders two native Three/Chromium 1920x1080@24 films (OFF/ON), source/bake JSON, real stills, chronological sheets and side-by-side comparison. `npm --prefix production run physics:m4:audit` independently validates real media and collision/grip/ownership metrics after render; `npm --prefix production run test:physics:m4` tests two distinct scenarios and hostile data. M4 technical claims require successful final-head CI; do not infer human art approval from geometry metrics. Rapier collision skin is a **declared 2mm proxy**, not visually measured perfect contact across every pixel. No generalized cloth, hair, third-party arbitrary art/rigs or simultaneous multiple-body constraints.
+
+## M4 contact semantics and reviewed evidence (2026-11-16)
+
+The `grip` event is emitted at the **first frame where the M3 evaluated grip is true**; `release` is the first frame after the held interval where grip is false, and `platform-contact` is measured from a Rapier solver contact pair. A former implementation incorrectly recorded the grip event at the final held frame; the corrected onset and a negative regression are part of the final M4 unit/contract suite.
+
+The reproducible default source was tested at grip frame 18 / release frame 62 / Rapier collision frame 64. For original 169-frame 1080p OFF/ON MP4s, exact SHA-bound manifest, contact sheets, and second-pass review metrics, see `docs/product-first/M4-REVIEW.md` and the corresponding M4 CI artifact. The 2mm skin is a documented physical collider approximation, not a claim that the visible cup silhouette is modeled perfectly.

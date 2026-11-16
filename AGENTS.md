@@ -78,3 +78,7 @@ Texture bootstrap chính xác: `production/src/motion/prepare_textures.py`; khô
 phụ thuộc cache hoặc raster lại asset nếu chỉ cần tái tạo candidate đã khóa.
 Tài liệu module ở `production/src/physics/README.md` và `src/motion/README.md`.
 Không thêm video/native ZIP lớn vào regular Git; giữ recipe/source/report nhỏ.
+
+## M4 physics-specific delivery gate (owner-approved 2026-11-16)
+
+Reuse U3 Rapier/bake but do not alter S05 locked files or goldens. Generalize via validated project data and M3 authored-ownership/contact, fixed 240Hz+24fps 10-step simulation, input/art/recipe/source-bound immutable bake and arbitrary frame replay; stale receipts fail closed. Require at least two non-S05 physics input configurations, genuine native 1080p OFF/ON films from identical project/camera/timeline and measured collision/handoff/contact evidence. After real media exists, a separate delegated-agent second-pass audit must inspect decoded media and negative cases, then repeat full root+production+M4 regression on final HEAD after any fix. Report only actual verification, keep M4 READY_FOR_USER_REVIEW pending owner, never accept/merge/start M5 automatically.
