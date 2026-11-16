@@ -423,8 +423,8 @@
       }
     },
     "M5": {
-      "technicalStatus": "IN_PROGRESS",
-      "evidenceStatus": "POST_RESULT_QA_IN_PROGRESS",
+      "technicalStatus": "PASSED",
+      "evidenceStatus": "READY_FOR_USER_REVIEW",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "081ee51cf7fb95ca1defe5f772449c5a7cf275a5",
       "branch": "codex/product-first-m5-director",
@@ -433,9 +433,34 @@
       "dependency": "M4 remains owner NOT_REVIEWED. Owner explicitly authorized beginning M5 development on 2026-11-17 without accepting or merging M4; M5 cannot be owner-ACCEPTED or merged automatically.",
       "scope": "Bounded Director task graph and real Studio skill orchestration, two fresh native videos, UI graph screenshots and failure/recovery proofs.",
       "status": "IMPLEMENTATION",
-      "ciRuns": [],
+      "ciRuns": [
+        {
+          "name": "M5 Director native product verification",
+          "runId": 43922045093,
+          "conclusion": "SUCCESS",
+          "sourceCommit": "f70e165ff7f955165f2921faf947681970f7e01a"
+        },
+        {
+          "name": "Paper Studio verification",
+          "runId": 43922045061,
+          "conclusion": "SUCCESS",
+          "sourceCommit": "f70e165ff7f955165f2921faf947681970f7e01a"
+        },
+        {
+          "name": "Q2 workbench verification",
+          "runId": 43922045140,
+          "conclusion": "SUCCESS",
+          "sourceCommit": "f70e165ff7f955165f2921faf947681970f7e01a"
+        },
+        {
+          "name": "M4 physics native product verification",
+          "runId": 43922045332,
+          "conclusion": "SUCCESS",
+          "sourceCommit": "f70e165ff7f955165f2921faf947681970f7e01a"
+        }
+      ],
       "unresolvedInScopeDefects": [],
-      "nextAction": "Rerun genuine two-script final media after frame/preview evidence remediation, independently audit artifact and refresh full root/production/M4 CI on final HEAD; only then hand off.",
+      "nextAction": "Deliver two original videos, editable project JSONs, graph/UI screenshots, explicit negative-case proof and SHA manifest for owner's technical and artistic review; M4 still NOT_REVIEWED, no M5 owner ACCEPTED or M6.",
       "resolvedDefects": [
         {
           "id": "M5-VISUAL-001",
@@ -451,7 +476,42 @@
         }
       ],
       "lastVerifiedSourceCommit": "ebb80ea36f7d0c931a569e1e9a1662ead98ab6ae",
-      "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/15"
+      "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/15",
+      "sourceCommit": "f70e165ff7f955165f2921faf947681970f7e01a",
+      "artifactId": 14253168961,
+      "artifactName": "m5-director-review-4",
+      "artifactExpiresAt": "2026-11-30T17:53:36Z",
+      "artifactHashes": {
+        "videoA": "63a0fb370861fe1af67de27f2050caec2eafa96dd344aa45ca63dafee957d3b1",
+        "videoB": "945b6bbdf9a648a8d43fee5ef1711e27ef10f01e3f131f0e6e994a218aa712db",
+        "planA": "56051dfa81b0a1b1602fb896afbee18ef07a7e9476863f80ce11e4888cb21a54",
+        "planB": "263990ccaf3c6c4ecc0d759d8d095d68ba45762c23bd131bddfc556efa2b2a2e",
+        "sourceHeadSha": "f70e165ff7f955165f2921faf947681970f7e01a"
+      },
+      "qualityMetrics": {
+        "freshStories": 2,
+        "framesEach": 432,
+        "secondsEach": 18,
+        "outputProfile": "1920x1080 H264 24fps with 48kHz voice",
+        "audibleAudioRmsA": 2041.1232195933756,
+        "audibleAudioRmsB": 1670.8100443061487,
+        "originalVideoFullDecodes": 2,
+        "independentlyRecheckedArtifactHashes": 15,
+        "graphAndFinalStudioScreenshots": 4,
+        "negativeUiScreenshots": 1,
+        "nativeContactSheets": 2,
+        "nonblankContactTilesEach": 6,
+        "graphNodesEach": 4,
+        "noAutomaticallyApprovedReviews": true,
+        "finalCIJobs": 4
+      },
+      "knownLimitations": [
+        "Offline deterministic/capability-aware orchestration of existing root M2 Studio executors; not an autonomous generative LLM, and currently does not invoke separate M3/M4 native workbench backends.",
+        "Supported root action vocabulary: idle, wave, walk, pick-up, talk; supported cameras: static and pan. Unsupported 3D, fly, independent generated art and unrecognized actions fail closed.",
+        "Voice is local draft eSpeak, not professionally acted or human-approved, and animation has root M2 visual/acting limitations. Two short pilot proofs do not establish long-form cinematic quality.",
+        "CI artifacts retained for 14 days; source/code hashes are preserved in repo, videos stored as downloadable GitHub Actions artifact and in chat."
+      ],
+      "ownerGate": "READY_FOR_USER_REVIEW (delegated-agent technical QA PASSED, all final source CI SUCCESS); owner acceptance NOT_REVIEWED; no merge or M6."
     },
     "M6": {
       "technicalStatus": "NOT_VERIFIED",
@@ -517,5 +577,5 @@
     }
   },
   "nextMilestone": "M5",
-  "nextAction": "M5 initial 2-film native end-to-end and separate audit PASS at ebb80e; post-result screenshot/contact defects reproduced and repaired, final CI pending. Owner M4 still NOT_REVIEWED."
+  "nextAction": "M5 technical QA PASSED on source f70e165; owner M5 review pending; M4 remains NOT_REVIEWED and PR #13 Draft. Do not merge or begin M6."
 }
