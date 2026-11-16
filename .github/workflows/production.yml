@@ -93,3 +93,17 @@ jobs:
             production/out/quality-diagnostics/**/contact-sheet.jpg
             production/out/quality-diagnostics/**/*.svg
           retention-days: 14
+
+      - name: Upload compact milestone review bundle
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: paper-studio-m1-m3-review-${{ github.run_number }}
+          path: |
+            production/out/product-first/m1/
+            production/out/product-first/m3/*.json
+            production/out/product-first/m3/*.mp4
+            production/out/product-first/m3/m3-chronological-contact-sheet.png
+            production/out/product-first/m3/m3-standing-vs-motion.png
+            artifacts/product-first/m3-studio/
+          retention-days: 14

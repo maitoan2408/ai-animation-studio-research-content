@@ -1,6 +1,6 @@
 # Current M1–M3 audit — 2026-11-16
 
-Owner requested testing and repairs across M1/M2/M3. Audit branch `codex/m1-m3-audit-20261116` starts from M3 `73adc256`; see [fixed audit plan and findings](M1-M3-AUDIT.md). M3 is being reverified after confirmed draft/import data-loss repairs. Historical evidence below remains historical, not proof of the audit branch.
+Owner requested testing and repairs across M1/M2/M3. Audit branch `codex/m1-m3-audit-20261116` starts from M3 `73adc256`; see [fixed audit plan and findings](M1-M3-AUDIT.md). M1–M3 audit is PASS_TECHNICAL on executable source `f34b206`: both full CI workflows and post-result gates passed after draft/import, cold-install texture, CI coverage and auditor repairs. PR #12 holds the changes; see the audit report for SHA-bound media and preserved failures. Historical evidence below remains historical, not proof of the audit branch.
 
 The current M3 executor is accessible in Studio at `/motion`, with revision save/reload, validated JSON import/export and native MP4 jobs. It is a separate page, not a new action in the M2 storyboard editor. M1/M2 owner acceptance remains recorded; M3 owner acceptance remains pending, M4 not started.
 

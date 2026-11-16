@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "reviewer": "delegated-agent",
+  "sourceCommit": "f34b206f1631eba26a87936ee955d8d99d16826a",
+  "checks": [
+    {
+      "milestone": "m1-parity",
+      "hashes": 3,
+      "fullDecodes": 2,
+      "status": "PASS"
+    },
+    {
+      "milestone": "m2",
+      "hashes": 23,
+      "fullDecodes": 1,
+      "status": "PASS"
+    }
+  ]
+}

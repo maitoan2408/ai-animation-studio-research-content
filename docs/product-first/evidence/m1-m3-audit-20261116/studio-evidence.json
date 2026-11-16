@@ -1,0 +1,36 @@
+{
+  "milestone": "M3",
+  "kind": "STUDIO_NATIVE_CUSTOM_END_TO_END",
+  "sourceCommit": "f34b206f1631eba26a87936ee955d8d99d16826a",
+  "revision": "f89288ed0d9924925e9c2ac2627bedd8382ccfd72510ab397a60abea9bc723ce",
+  "jobId": "833c8fb5-6cd8-44c1-9252-00f06a6752cf",
+  "frames": 49,
+  "action": "wave",
+  "character": "guest-qa",
+  "hasProp": false,
+  "video": {
+    "file": "m3-character-motion-final-1080p.mp4",
+    "sha256": "922f13ad0c5d10b0774df72aa066279a9f3b796382163cb709f7890b675f7823",
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "frames": 49,
+    "duration": 2.0416666666666665,
+    "hasAudio": false
+  },
+  "files": {
+    "m3-studio-desktop.png": "d513d4bd6a953ab0049d9d05f439e2958cf200c5ba7006cf7da6bb3c3236247d",
+    "m3-studio-mobile.png": "a9cd95e4333ca79395f9ce83f5c8824df913d849b610f36dceba5e52e9f9ba81",
+    "m3-character-motion-final-1080p.mp4": "922f13ad0c5d10b0774df72aa066279a9f3b796382163cb709f7890b675f7823",
+    "m3-project.json": "f89288ed0d9924925e9c2ac2627bedd8382ccfd72510ab397a60abea9bc723ce",
+    "m3-chronological-contact-sheet.png": "60d83d95acd6c3cbceaf610f7807e6fb040ebc9d229fc2564a84f80a92d54c42",
+    "m3-standing-vs-motion.png": "4d1ac8d9c2464d1503a7967e6e9764f70cbca21cfe6fcb7fd6356764fae2b1a3"
+  },
+  "assertions": [
+    "Real browser UI creates edited project",
+    "Saved immutable revision and no prop",
+    "Native Three/Chromium preview and final delivered through same Studio origin",
+    "FFprobe exact 49 native 1080p frames, full FFmpeg decode",
+    "Desktop/mobile real UI screenshots, full SHA-bound media"
+  ]
+}

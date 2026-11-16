@@ -1,0 +1,29 @@
+{
+  "phase": "U2",
+  "step": "audit-python",
+  "run_id": "20261116T062422Z-audit-python-6677aa0c",
+  "started_at_utc": "20261116T062422Z",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "production/tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/workspace/m1-m3-audit",
+  "base_commit": "73adc25646ba1175aa1e0ba9b108264bf27b546b",
+  "tracked_diff_sha256": "16461c0b2b4115c68e33f89093ba095c983e16fa639a4cd7cbcfae7a05ce25eb",
+  "recorder_pid": 2659,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "ab04e8749ff9bdd99f88e6dc7bdfdf544d3edf3080f5f3f8e4c45e3192ddf9be",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 10.948,
+  "finished_at_utc": "2026-11-16T06:24:34.101099+00:00",
+  "log_sha256": "cecade9970d66090a52f97262b008feaf225db0f1b807ebdc7e7d78f1c6a1ccd",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

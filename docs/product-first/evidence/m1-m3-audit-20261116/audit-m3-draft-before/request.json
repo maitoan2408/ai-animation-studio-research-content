@@ -1,0 +1,17 @@
+{
+  "phase": "U2",
+  "step": "audit-m3-draft-before",
+  "run_id": "20261116T062325Z-audit-m3-draft-before-aa4a508c",
+  "started_at_utc": "20261116T062325Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/m3-draft-recovery.ts"
+  ],
+  "cwd": "/workspace/m1-m3-audit",
+  "base_commit": "73adc25646ba1175aa1e0ba9b108264bf27b546b",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 1177,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "096af1c6566a67da46a3f6afc5069006f45c11f809de9b6e71289fb8b6c94d47"
+}
