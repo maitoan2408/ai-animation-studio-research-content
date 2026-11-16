@@ -7,7 +7,7 @@ on:
       - 'production/src/qa/audit-m4*.ts'
       - 'production/src/scene/**'
       - 'production/assets/**'
-      - 'examples/m4-*.json'
+      - 'production/examples/m4-*.json'
       - 'production/src/motion/**'
       - 'production/tests/m4-*.ts'
       - 'production/package*.json'
@@ -45,7 +45,7 @@ jobs:
           python3 scripts/run-step.py U2 m4-ci-negative-media -- production/node_modules/.bin/tsx production/src/qa/audit-m4-negative.ts
       - name: Short valid project and subframe contact native OFF/ON regression
         env:
-          M4_PROJECT_FILE: ../examples/m4-short-project.json
+          M4_PROJECT_FILE: examples/m4-short-project.json
           M4_OUTPUT_DIR: out/product-first/m4-short
         run: |
           python3 scripts/run-step.py U2 m4-ci-native-short -- npm --prefix production run physics:m4

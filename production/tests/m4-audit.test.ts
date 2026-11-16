@@ -63,7 +63,7 @@ test('review frame selection supports shortest and long M4 projects',async()=>{
 
 test('committed second input bakes the shortest supported native timeline',async()=>{
  const {readFileSync}=await import('node:fs');
- const project=JSON.parse(readFileSync(new URL('../../examples/m4-short-project.json',import.meta.url),'utf8'));
+ const project=JSON.parse(readFileSync(new URL('../examples/m4-short-project.json',import.meta.url),'utf8'));
  const bake=await bakeM4(project,m4Pack);
  assert.equal(bake.frames.length,105);
  assert.equal(bake.events.find(e=>e.kind==='platform-contact')?.frame,63);
