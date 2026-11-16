@@ -1,3 +1,5 @@
+> **2026-11-17 integrated remediation: the three defects described in the earlier audit below have now been repaired and re-tested on executable source `74596bd1d1c8b0d97345bd676440dbadd2acdfc2`. Read [M1–M5 final technical report](M1-M5-REVIEW-20261117.md) for current verified status. The old `REWORK_REQUIRED` verdict below is retained as historical evidence, not the present state.**
+
 > **2026-11-17 deeper independent audit: this earlier technical-PASS conclusion is superseded by `M5-RECHECK-20261117.md`. M5 is `REWORK_REQUIRED` pending three source-path acceptance gaps and new regression tests. The films/CI below remain authentic historical evidence, not complete acceptance.**
 
 # M5 — Director: final technical and media review

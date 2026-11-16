@@ -1,3 +1,7 @@
+# M1–M5 integrated technical PASS — 2026-11-17 | OWNER REVIEW PENDING
+
+Four full CI runs **SUCCESS** on executable source `74596bd1d1c8b0d97345bd676440dbadd2acdfc2`: M5 Director 43971337130, root M1/M2 43971336865, production M1/M3 43971336913, M4 native physics 43971336912. New stale-plan, durable restart recovery and voice timing regressions PASS. Original two M5 films, M2 film, M3 native films and all four M4 films downloaded and independently full-decoded; source/artifact SHA reports checked. See [final integration review](M1-M5-REVIEW-20261117.md) and [quality plan](M1-M5-INTEGRATION-QA.md). Draft PR #16 only, **M4 and M5 both owner NOT_REVIEWED**, no merge/M6. Director runs the root M2 engine; native M3/M4 orchestration is still P1 scope.
+
 # M1–M5 development integration — 2026-11-17
 
 Source M4-audit PR #14 `3bbc337c3294e6dfa7570e463e6724a6990d64d9` plus M5 Director PR #15 `afdec922c993357981ee39cd32c772b69212b08d` combined on isolated branch, with M4 audit modifications preserved. M4 owner NOT_REVIEWED, M5 REWORK_REQUIRED. Three M5 findings await test-first fixes and joint M1–M5 CI; no merge to main/M6.
