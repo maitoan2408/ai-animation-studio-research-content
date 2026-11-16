@@ -1,0 +1,22 @@
+{
+  "phase": "U2",
+  "step": "audit-final-import-prop-edit",
+  "run_id": "20261116T063534Z-audit-final-import-prop-edit-7862e910",
+  "started_at_utc": "20261116T063534Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "tests/m3-draft-recovery.ts"
+  ],
+  "cwd": "/workspace/m1-m3-audit",
+  "base_commit": "f6007b45aa11ae646ea7faa74c1530e3a36809ac",
+  "tracked_diff_sha256": "3053d00d521a1ce771d434a2d4ea5c5e92221b5a0896c280245be32cc74372ee",
+  "recorder_pid": 10242,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "faa8e87167f11b9a11a647a562089439be929de4e73d2d2677deace8b11255be",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 9.019,
+  "finished_at_utc": "2026-11-16T06:35:43.545509+00:00",
+  "log_sha256": "aeeaab760faeb7718884bed26c22d6fabd2aca052a2e78ba2d95322675dcc54d",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

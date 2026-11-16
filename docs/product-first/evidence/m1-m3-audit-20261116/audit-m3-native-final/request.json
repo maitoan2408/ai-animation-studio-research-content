@@ -1,0 +1,20 @@
+{
+  "phase": "U2",
+  "step": "audit-m3-native-final",
+  "run_id": "20261116T062545Z-audit-m3-native-final-f7c8f373",
+  "started_at_utc": "20261116T062545Z",
+  "command": [
+    "npm",
+    "--prefix",
+    "production",
+    "run",
+    "motion:m3"
+  ],
+  "cwd": "/workspace/m1-m3-audit",
+  "base_commit": "4cc7daa23309b0a4c23dfe877f7ac510c2dd5586",
+  "tracked_diff_sha256": "5ed0ae84ef3515edeffb13f57de1f8e7e1d1d37976de6721a64771be40d72abe",
+  "status": "RUNNING",
+  "recorder_pid": 4155,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "38d90bf853344a27bf1d6f7a67a8ec8cbe56f7b99f915aac5e327549ddf7bf7d"
+}

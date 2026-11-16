@@ -1,0 +1,17 @@
+{
+  "phase": "U2",
+  "step": "audit-final-studio-post-result",
+  "run_id": "20261116T101157Z-audit-final-studio-post-result-2121518a",
+  "started_at_utc": "20261116T101157Z",
+  "command": [
+    "node_modules/.bin/tsx",
+    "scripts/m3-studio-audit.ts"
+  ],
+  "cwd": "/workspace/m1-m3-audit",
+  "base_commit": "f34b206f1631eba26a87936ee955d8d99d16826a",
+  "tracked_diff_sha256": "51f3b695e40bc98767bb7ac087c31c93ec62b243c679abf4863326c5c0790b63",
+  "status": "RUNNING",
+  "recorder_pid": 12808,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "faa8e87167f11b9a11a647a562089439be929de4e73d2d2677deace8b11255be"
+}

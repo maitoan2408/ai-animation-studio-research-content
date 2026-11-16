@@ -103,6 +103,26 @@ test('M3 Studio edits persist, validate independent capabilities, and reject sta
   );
   assert.equal((await get('/api/motion/jobs/not-an-id')).status, 404);
   assert.equal((await get('/api/motion/jobs/not-an-id/video')).status, 404);
+  const validation = await post('/api/motion/validate', { project: subset });
+  assert.equal(validation.status, 200);
+  assert.deepEqual((await validation.json()).project, subset);
+  assert.equal((await post('/api/motion/validate', { project: injected })).status, 400);
+  assert.equal((await post('/api/motion/validate', { project: subset, extra: true })).status, 400);
+  assert.equal(
+    (
+      await post(
+        '/api/motion/validate',
+        { project: subset },
+        { Origin: 'https://attacker.example' },
+      )
+    ).status,
+    403,
+  );
+  assert.equal(
+    (await (await get('/api/motion/project')).json()).revision,
+    accepted.revision,
+    'validation must never persist imported drafts',
+  );
   const old = accepted.revision;
   await server.close();
   server = await serve(app, 0);

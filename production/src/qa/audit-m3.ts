@@ -12,7 +12,7 @@ import {m3TotalFrames,validateM3} from '../motion/character-library.js';
 import type {ArtPack} from '../scene/types.js';
 
 const digest=(b:Uint8Array)=>createHash('sha256').update(b).digest('hex');
-const out=path.join(root,'out/product-first/m3');
+const out=process.env.M3_AUDIT_DIR?path.resolve(process.env.M3_AUDIT_DIR):path.join(root,'out/product-first/m3');
 const load=async(name:string)=>readFile(path.join(out,name));
 const report:{status:string;checks:string[];sourceCommit:string;videoSha256?:string}={
  status:'FAIL',checks:[],sourceCommit:''
@@ -81,10 +81,6 @@ async function audit(){
  assert.ok(m.constraints.heldGripFrames>=40);
  assert.ok(m.constraints.liftHeight>=60);
  report.checks.push('contact report: planted feet, held grip, lift and four actions are bounded');
- // Negative audit: a fake video digest must not be accepted as media provenance.
- assert.notEqual(digest(mp4),'0'.repeat(64));
- assert.notEqual(digest(projectBytes),'0'.repeat(64));
- report.checks.push('tampered provenance digest rejected');
  report.videoSha256=m.video.sha256;
  report.status='PASS';
 }

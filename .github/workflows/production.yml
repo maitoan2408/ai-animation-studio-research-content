@@ -1,10 +1,10 @@
 name: Q2 workbench verification
 on:
   pull_request:
-    paths: ['production/**', 'scripts/run-step.py', 'scripts/m2-product-e2e.ts', 'examples/m2-new-story.txt', '.github/workflows/production.yml']
+    paths: ['production/**', 'src/**', 'web/**', 'tests/m3-*.ts', 'scripts/m3-*.ts', 'examples/m3-*.json', 'package*.json', 'scripts/run-step.py', 'scripts/m2-product-e2e.ts', 'examples/m2-new-story.txt', '.github/workflows/production.yml']
   push:
     branches: [main]
-    paths: ['production/**', 'scripts/run-step.py', '.github/workflows/production.yml']
+    paths: ['production/**', 'src/**', 'web/**', 'tests/m3-*.ts', 'scripts/m3-*.ts', 'examples/m3-*.json', 'package*.json', 'scripts/run-step.py', '.github/workflows/production.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -49,16 +49,18 @@ jobs:
         # Full-repo npm ci passed before EX-028 was fixed. This separate checkout
         # must remain outside the parent package tree, with its own empty cache.
         run: PATH="/tmp/q2-qc/bin:$PATH" /tmp/q2-qc/bin/python production/src/qa/check_fresh_review.py
+      - name: M3 native character-motion showcase (1080p + contact/seek gates)
+        env:
+          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          if [ -d production/out/art-q1 ]; then mv production/out/art-q1 production/out/art-q1-before-m3; fi
+          npm --prefix production run motion:m3
       - name: M1 production IR independent real Three video (native-art + 1080p still parity)
         env:
           SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           production/node_modules/.bin/tsx production/src/art/preview.ts
           production/node_modules/.bin/tsx production/src/render/render-ir.ts
-      - name: M3 native character-motion showcase (1080p + contact/seek gates)
-        env:
-          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: npm --prefix production run motion:m3
       - name: M3 required independent post-result provenance and media audit
         run: npm --prefix production run motion:m3:audit
       - name: M3 Studio real editor, saved revision and custom native film
@@ -90,4 +92,18 @@ jobs:
             production/out/quality-diagnostics/**/workflow.json
             production/out/quality-diagnostics/**/contact-sheet.jpg
             production/out/quality-diagnostics/**/*.svg
+          retention-days: 14
+
+      - name: Upload compact milestone review bundle
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: paper-studio-m1-m3-review-${{ github.run_number }}
+          path: |
+            production/out/product-first/m1/
+            production/out/product-first/m3/*.json
+            production/out/product-first/m3/*.mp4
+            production/out/product-first/m3/m3-chronological-contact-sheet.png
+            production/out/product-first/m3/m3-standing-vs-motion.png
+            artifacts/product-first/m3-studio/
           retention-days: 14

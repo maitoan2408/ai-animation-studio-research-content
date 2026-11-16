@@ -1,3 +1,19 @@
+# M3 accepted by owner — 2026-11-16
+
+The owner explicitly approved the delivered result: **“Oce rồi mình duyệt”**, after the M1–M3 technical report, videos and clarification that M3 quality acceptance was pending. M3 is now **ACCEPTED**; the M1–M3 audit is owner accepted. This records the owner's decision, not an invented independent review or claim about viewing/listening activity.
+
+Accepted source: `618e50a52e3b7283421551120856034c08c5f666`, [PR #12](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/12). Full [Studio CI](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43847373653) and [production CI](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43847373626) PASS. Final delivery audit: 62 hashes and four full video decodes PASS. [Compact review media](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43847373626/artifacts/14217171079).
+
+Next milestone: **M4 — Physics**, per `ROADMAP.md`: generalize Rapier/bake beyond S05, fixed-step deterministic replay with recipe hash, explicit authored-motion/physics ownership, hand/prop contacts and OFF/ON video comparison. M4 implementation and verification have not started. Keep core M1–M3 logic and accepted visuals; no automatic merge or acceptance of future milestones.
+
+## Historical checkpoints (superseded acceptance status)
+
+# Current M1–M3 audit — 2026-11-16
+
+Owner requested testing and repairs across M1/M2/M3. Audit branch `codex/m1-m3-audit-20261116` starts from M3 `73adc256`; see [fixed audit plan and findings](M1-M3-AUDIT.md). M1–M3 audit is PASS_TECHNICAL on executable source `f34b206`: both full CI workflows and post-result gates passed after draft/import, cold-install texture, CI coverage and auditor repairs. PR #12 holds the changes; see the audit report for SHA-bound media and preserved failures. Historical evidence below remains historical, not proof of the audit branch.
+
+The current M3 executor is accessible in Studio at `/motion`, with revision save/reload, validated JSON import/export and native MP4 jobs. It is a separate page, not a new action in the M2 storyboard editor. M1/M2 owner acceptance remains recorded; M3 owner acceptance remains pending, M4 not started.
+
 # M3 checkpoint — 2026-11-16 | TECHNICAL PASS; OWNER REVIEW PENDING
 
 ## Sequential gate
@@ -30,4 +46,4 @@ Review report: `docs/product-first/M3-REVIEW.md`. Initial render technically suc
 
 After the original technical pass, the owner requested a full limitation inspection and repairs before any M4 work. Fixed and regression-tested capability subsets, prop-free non-pick tracks, and early out-of-reach pick/place rejection on executable source `61020373e6b64c9901fb6d3f5b7d19827363ec92`. Both complete CI workflows passed (`Studio 43753767435`, `workbench 43753767459`). Downloaded fresh M3 media and verified 21/21 SHA-256 entries, FFprobe exact 268 frames and full FFmpeg decode. Film visual bytes match the previous accepted technical artifact; M3 owner acceptance remains pending.
 
-Remaining deliberate bounds: the existing art/rig is reused, only right-facing two-step authored gait and cup interaction are demonstrated, and the new executor runs in the production workbench rather than the M2 Studio UI. These must be disclosed during owner review; general physics/Director/premium polish are M4–M6, not M3. M4 MUST NOT start before owner approval. See `M3-REVIEW.md`.
+Remaining deliberate bounds: the existing art/rig is reused, only right-facing two-step authored gait and cup interaction are demonstrated, and the new executor has its own `/motion` Studio page rather than being embedded in the M2 storyboard editor. These must be disclosed during owner review; general physics/Director/premium polish are M4–M6, not M3. M4 MUST NOT start before owner approval. See `M3-REVIEW.md`.

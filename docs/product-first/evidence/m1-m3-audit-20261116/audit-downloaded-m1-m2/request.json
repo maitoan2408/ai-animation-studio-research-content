@@ -1,0 +1,18 @@
+{
+  "phase": "U2",
+  "step": "audit-downloaded-m1-m2",
+  "run_id": "20261116T101421Z-audit-downloaded-m1-m2-830dd58f",
+  "started_at_utc": "20261116T101421Z",
+  "command": [
+    "python",
+    "-c",
+    "import json,hashlib,subprocess\nfrom pathlib import Path\nbase=Path('production/out/m1-m3-final-ci')\nresults=[]\nfor kind in ['m1-parity','m2']:\n out=base/kind;m=json.loads((out/'manifest.json').read_text())\n assert m.get('sourceCommit',m.get('commit'))=='f34b206f1631eba26a87936ee955d8d99d16826a'\n hashes=m.get('artifactHashes') or {Path(v['file']).name:v['sha256'] for v in m['media']+[m['contact']]}\n for name,expected in hashes.items():assert hashlib.sha256((out/name).read_bytes()).hexdigest()==expected,name\n films=list(out.glob('*.mp4'))\n for film in films:\n  subprocess.run(['ffmpeg','-v','error','-xerror','-nostdin','-threads','1','-i',str(film),'-threads','1','-f','null','-'],check=True)\n  probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-count_frames','-show_streams','-of','json',str(film)]))\n  v=next(x for x in probe['streams'] if x['codec_type']=='video')\n  assert int(v['nb_read_frames'])==(576 if kind=='m2' else 96)\n  assert v['avg_frame_rate']=='24/1'\n if kind=='m2':\n  assert all(x['zeroLagCorrelation']>.98 for x in m['parity']['audioChecks'])\n  assert json.loads((out/'reopen-proof.json').read_text())['status']=='PASS'\n results.append({'milestone':kind,'hashes':len(hashes),'fullDecodes':len(films),'status':'PASS'})\nreport={'status':'PASS','reviewer':'delegated-agent','sourceCommit':'f34b206f1631eba26a87936ee955d8d99d16826a','checks':results}\n(base/'consumer-audit.json').write_text(json.dumps(report,indent=2)+'\\n')\nprint(json.dumps(report))"
+  ],
+  "cwd": "/workspace/m1-m3-audit",
+  "base_commit": "f34b206f1631eba26a87936ee955d8d99d16826a",
+  "tracked_diff_sha256": "f8d5e406cd914392692d29c22f5bf714e2614d941afd7130ef8ae40421405fdf",
+  "status": "RUNNING",
+  "recorder_pid": 12995,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "e171d7716fea0d762c2ee2817edff2ff493f2f91b2f8f370bb0e7d2cddf8d5c2"
+}

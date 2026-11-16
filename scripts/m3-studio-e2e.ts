@@ -76,6 +76,28 @@ try{
  assert.equal(job?.status,'succeeded','M3 custom native render failed: '+String(job?.error));
  assert.equal(job?.frames,49);
  await page.waitForFunction(()=>!document.querySelector<HTMLVideoElement>('#motion-video')?.hidden,{timeout:20000});
+ await page.waitForFunction(()=>{
+  const video=document.querySelector<HTMLVideoElement>('#motion-video');
+  return video&&!video.error&&video.readyState>=2&&video.videoWidth===1920&&video.videoHeight===1080;
+ },{timeout:30000});
+ await page.$eval('#motion-video',async el=>{
+  const video=el as HTMLVideoElement;video.muted=true;await video.play();
+ });
+ await page.waitForFunction(()=>document.querySelector<HTMLVideoElement>('#motion-video')!.currentTime>.2);
+ await page.$eval('#motion-video',el=>{
+  const video=el as HTMLVideoElement;video.pause();video.currentTime=1;
+ });
+ await page.waitForFunction(()=>{
+  const video=document.querySelector<HTMLVideoElement>('#motion-video')!;
+  return !video.seeking&&video.readyState>=2&&Math.abs(video.currentTime-1)<.05;
+ });
+ const playback=await page.$eval('#motion-video',el=>{
+  const video=el as HTMLVideoElement;
+  return {width:video.videoWidth,height:video.videoHeight,duration:video.duration,
+    seekTime:video.currentTime,error:video.error?.code??null};
+ });
+ assert.ok(Math.abs(playback.duration-49/24)<.01);
+ assert.equal(playback.error,null);
  await page.screenshot({path:path.join(output,'m3-studio-desktop.png'),fullPage:true});
  await page.setViewport({width:390,height:844,deviceScaleFactor:1});
  await page.screenshot({path:path.join(output,'m3-studio-mobile.png'),fullPage:true});
@@ -108,13 +130,14 @@ try{
   milestone:'M3',kind:'STUDIO_NATIVE_CUSTOM_END_TO_END',
   sourceCommit:process.env.SOURCE_HEAD_SHA??'LOCAL_UNPINNED',
   revision:document.revision,
+  playback,
   jobId:job!.id,frames:49,action:'wave',
   character:'guest-qa',hasProp:false,video:manifest.video,
   files:{} as Record<string,string>,
   assertions:['Real browser UI creates edited project','Saved immutable revision and no prop',
    'Native Three/Chromium preview and final delivered through same Studio origin',
    'FFprobe exact 49 native 1080p frames, full FFmpeg decode',
-   'Desktop/mobile real UI screenshots, full SHA-bound media'],
+   'Browser loads, plays and seeks native MP4 before desktop/mobile screenshots, full SHA-bound media'],
  };
  for(const name of ['m3-studio-desktop.png','m3-studio-mobile.png',manifest.video.file,
   manifest.project.file,'m3-chronological-contact-sheet.png','m3-standing-vs-motion.png']){
