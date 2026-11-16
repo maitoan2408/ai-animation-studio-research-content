@@ -87,7 +87,11 @@ export class Store {
             first.digest !== hash(canonical(spec)) ||
             canonical(first.notes) !== canonical(notes)
           )
-            throw new StudioError('DIRECTOR_PROJECT_CONFLICT', 'Existing plan project differs from the approved plan.', 409);
+            throw new StudioError(
+              'DIRECTOR_PROJECT_CONFLICT',
+              'Existing plan project differs from the approved plan.',
+              409,
+            );
           return existing;
         }
       }
@@ -107,8 +111,15 @@ export class Store {
         } catch (error) {
           if (!(error instanceof StudioError && error.code === 'NOT_FOUND')) throw error;
         }
-        if (previous && (previous.digest !== rev.digest || canonical(previous.notes) !== canonical(notes)))
-          throw new StudioError('DIRECTOR_REVISION_CONFLICT', 'Partial project recovery conflicts with the approved input.', 409);
+        if (
+          previous &&
+          (previous.digest !== rev.digest || canonical(previous.notes) !== canonical(notes))
+        )
+          throw new StudioError(
+            'DIRECTOR_REVISION_CONFLICT',
+            'Partial project recovery conflicts with the approved input.',
+            409,
+          );
       }
       const project: Project = {
         id: projectId,

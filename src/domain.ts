@@ -170,7 +170,10 @@ export function directorProjectId(planSha256: string): string {
   if (!hashSchema.safeParse(planSha256).success)
     throw new StudioError('DIRECTOR_PLAN_SHA_INVALID', 'Invalid director plan SHA-256.');
   const s = planSha256.slice(0, 32);
-  return 'prj_' + [s.slice(0, 8), s.slice(8, 12), s.slice(12, 16), s.slice(16, 20), s.slice(20)].join('-');
+  return (
+    'prj_' +
+    [s.slice(0, 8), s.slice(8, 12), s.slice(12, 16), s.slice(16, 20), s.slice(20)].join('-')
+  );
 }
 export const totalFrames = (spec: ProjectSpec) =>
   spec.scenes.reduce((n, s) => n + s.durationFrames, 0);
