@@ -1,0 +1,72 @@
+
+> paper-studio@0.1.0 verify
+> npm run format:check && npm run typecheck && npm test
+
+
+> paper-studio@0.1.0 format:check
+> prettier --check src tests web package.json tsconfig.json tsconfig.test.json
+
+Checking formatting...
+All matched files use Prettier code style!
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> paper-studio@0.1.0 typecheck
+> tsc --noEmit && tsc -p tsconfig.test.json
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> paper-studio@0.1.0 test
+> tsx --test tests/*.test.ts
+
+✔ roundtrip v1.0 spec and half-open shot boundaries (13.90464ms)
+✔ legacy and adapted frames produce identical SVG source (2.117646ms)
+✔ strict failure on timeline, actor, injection and out of range (7.399964ms)
+✔ stale audio hash, duplicate characters rejected (2.886534ms)
+✔ mixer places audio at scene frame boundary and rejects overflow instead of trimming (159.441536ms)
+✔ planner rejects malformed and duplicate directives (0.498042ms)
+✔ script produces explicit scenes, stable IDs and frame durations (14.588066ms)
+✔ reject invalid duration, unsupported directions and excessive scene count (1.655678ms)
+✔ narration edits invalidate generated voice binding (2.276658ms)
+✔ duplicate scene IDs and unknown fields are rejected (1.931904ms)
+✔ optimistic revision updates serialize; old revision remains unchanged (227.897675ms)
+✔ store blocks traversal and detects changed asset bytes (9.824708ms)
+✔ startup marks a running job interrupted rather than successful (6.308271ms)
+✔ HTTP boundary rejects cross-origin writes, unknown fields and revision conflicts (472.460468ms)
+✔ voiced preview uses the same audio envelope as final render and rejects tampered audio (194.660372ms)
+✔ M2 provenance supports a container checkout owned by another UID (26.401578ms)
+✔ doctor fails helpfully on missing rasterizer and recovers after installation (290.900121ms)
+✔ cancelling a worker terminates its native child before a new attempt (316.423365ms)
+✔ M3 Studio edits persist, validate independent capabilities, and reject stale revisions (3688.556966ms)
+✔ new production IR fixture is strictly validated but cannot be silently downgraded (44.128182ms)
+✔ one data owner; failed attempt retries without overwriting history (410.377667ms)
+✔ duplicate submit, active cancellation and manual retry (246.775704ms)
+✔ cache verifies bytes and binds reused output to the requested revision (420.449438ms)
+✔ portable package checks all hashes before importing and does not inherit approval (111.042697ms)
+✔ WAV parsing rejects format confusion and truncated chunks (1.265715ms)
+✔ reopening persisted running state interrupts its attempt and keeps the next owner locked (246.751482ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17063.707511
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

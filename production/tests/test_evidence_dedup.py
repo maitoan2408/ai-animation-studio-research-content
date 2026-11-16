@@ -53,3 +53,22 @@ class DedupTest(unittest.TestCase):
   with tarfile.open(archive) as t:t.extractall(other,filter='data')
   run=subprocess.run([sys.executable,str(other/'production/src/qa/audit_evidence.py'),str(other/'audit.json')],capture_output=True,text=True)
   self.assertEqual(run.returncode,0,run.stdout+run.stderr)
+
+ def test_recorder_scopes_git_trust_to_its_checkout(self):
+  env={**os.environ,'GIT_TEST_ASSUME_DIFFERENT_OWNER':'1'}
+  refused=self.call(['git','rev-parse','HEAD'],env=env,check=False)
+  self.assertNotEqual(refused.returncode,0)
+  result=self.call([sys.executable,'scripts/run-step.py','U2','different-owner','--',sys.executable,'-c','print(1)'],env=env,check=False)
+  self.assertEqual(result.returncode,0,result.stderr)
+  # A child command outside recorder's Git calls still sees the ownership guard.
+  self.assertNotEqual(self.call(['git','rev-parse','HEAD'],env=env,check=False).returncode,0)
+ def test_production_example_input_is_in_source_snapshot(self):
+  fixture=self.root/'production/examples/m4-short-project.json'
+  fixture.parent.mkdir();fixture.write_text('{"fixture":true}\n')
+  self.attempt('physics-input')
+  run=next((self.root/'production/evidence/U1').iterdir())
+  inputs=json.loads((run/'inputs.json').read_text())['files']
+  self.assertIn('production/examples/m4-short-project.json',[f['path'] for f in inputs])
+  import zipfile
+  with zipfile.ZipFile(run/'source.zip') as archive:
+   self.assertEqual(archive.read('production/examples/m4-short-project.json'),fixture.read_bytes())

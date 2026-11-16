@@ -1,3 +1,7 @@
+# Current owner-requested audit supersedes this historical review
+
+The prior report below is retained for traceability. Current findings, fixes and verification are in [M4-AUDIT.md](M4-AUDIT.md), branch `codex/m4-audit-20261116`, [draft PR #14](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/14). Earlier frame-64 contact and PASS claims are not evidence for the current revision. Current native/CI review is in progress; no owner acceptance or M5.
+
 # M4 — Physics System: Final Review
 
 **Reviewed 2026-11-16.** Technical result: **PASS / READY_FOR_USER_REVIEW**. Owner decision: **NOT_REVIEWED**. Implementation commit: `b44fb8d2f689a756837c291341f3786e9f889a49`. GitHub branch: `codex/product-first-m4-physics` and [Draft PR #13](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/13). Do not merge or begin M5 before owner approval.

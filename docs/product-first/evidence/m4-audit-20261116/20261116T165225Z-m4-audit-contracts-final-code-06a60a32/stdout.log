@@ -1,0 +1,25 @@
+
+> paper-studio-production-workbench@0.1.0 test:physics:m4
+> tsx --test tests/m4-*.test.ts
+
+✔ frozen unvalidated receipts cannot bypass replay validation (807.146822ms)
+✔ checksum-consistent handoff teleport rejects at bake boundary (257.056284ms)
+✔ checksum-consistent floor penetration rejects at bake boundary (124.876081ms)
+✔ contact event records first real support impulse at a 240Hz substep (86.164064ms)
+✔ review frame selection supports shortest and long M4 projects (6.924683ms)
+✔ committed second input bakes the shortest supported native timeline (50.909298ms)
+✔ M4 real Rapier bake: two parametrized interactions, 240Hz deterministic and arbitrary replay (800.576953ms)
+✔ M4 fail-closed contracts: stale input/art/toolchain, invalid ownership, frame, nonfinite, duplicate/missing contact (295.035386ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5150.992066
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -11,6 +11,7 @@ on:
       - 'production/src/motion/**'
       - 'production/tests/m4-*.ts'
       - 'production/package*.json'
+      - 'scripts/run-step.py'
       - '.github/workflows/m4-physics.yml'
   workflow_dispatch:
 permissions:

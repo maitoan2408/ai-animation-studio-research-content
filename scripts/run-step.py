@@ -23,6 +23,10 @@ import zipfile
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
+# Container checkouts can be owned by another UID. Trust only this already
+# executing repository for these read-only Git calls, never global settings
+# or the recorded child command's environment.
+GIT = ['git', '-c', f'safe.directory={ROOT}']
 
 
 def atomic_json(path: Path, value: dict) -> None:
@@ -50,8 +54,8 @@ def main() -> int:
     run_id = f'{stamp}-{args.step}-{uuid.uuid4().hex[:8]}'
     directory = ROOT / 'production/evidence' / args.phase / run_id
     directory.mkdir(parents=True, exist_ok=False)
-    head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
-    delta = subprocess.check_output(['git', 'diff', 'HEAD', '--binary'], cwd=ROOT)
+    head = subprocess.check_output([*GIT, 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+    delta = subprocess.check_output([*GIT, 'diff', 'HEAD', '--binary'], cwd=ROOT)
     request = dict(phase=args.phase, step=args.step, run_id=run_id,
                    started_at_utc=stamp, command=command, cwd=str(Path.cwd()),
                    base_commit=head, tracked_diff_sha256=hashlib.sha256(delta).hexdigest(),
@@ -59,10 +63,10 @@ def main() -> int:
     # Include uncommitted sources: HEAD alone is insufficient for reproducing a
     # failing first attempt. Exclude evidence/output to avoid a recursive hash.
     names = subprocess.check_output(
-        ['git', 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], cwd=ROOT
+        [*GIT, 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], cwd=ROOT
     ).decode().split('\0')
     prefixes = ('src/', 'web/', 'tests/', 'scripts/', '.github/workflows/', 'production/src/',
-                'production/tests/', 'production/assets/', 'production/brief/')
+                'production/tests/', 'production/assets/', 'production/brief/', 'production/examples/')
     inputs = []
     for name in sorted(set(names)):
         file = ROOT / name

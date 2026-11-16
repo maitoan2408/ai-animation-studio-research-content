@@ -1,0 +1,23 @@
+{
+  "phase": "U2",
+  "step": "m4-audit-production-only-fixed",
+  "run_id": "20261116T165552Z-m4-audit-production-only-fixed-9e09876e",
+  "started_at_utc": "20261116T165552Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "/tmp/m4-production-only-fixed/production/tests/m4-audit.test.ts"
+  ],
+  "cwd": "/workspace/m4-audit",
+  "base_commit": "bd03721aed84b3aaa022076cf33aa304a63e4d15",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 19479,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "e20f098bd71f8dc05776f07955860d830b7d3a32d63f9d0af5c659da1da0cc99",
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 5.803,
+  "finished_at_utc": "2026-11-16T16:55:58.673489+00:00",
+  "log_sha256": "52cd4fa74b2532072c17e03f17ad230fb7cce2df9859e778ff7768249d66deae",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

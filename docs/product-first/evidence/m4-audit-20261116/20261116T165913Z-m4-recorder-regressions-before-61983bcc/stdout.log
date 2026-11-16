@@ -1,0 +1,46 @@
+test_archive_extract_keeps_dedup (test_evidence_dedup.DedupTest.test_archive_extract_keeps_dedup) ... ok
+test_concurrent_snapshots_share_atomic_store (test_evidence_dedup.DedupTest.test_concurrent_snapshots_share_atomic_store) ... ok
+test_dedup_replays_and_rejects_corruption (test_evidence_dedup.DedupTest.test_dedup_replays_and_rejects_corruption) ... ok
+test_legacy_and_symlink_escape (test_evidence_dedup.DedupTest.test_legacy_and_symlink_escape) ... ok
+test_linux_default_and_explicit_legacy (test_evidence_dedup.DedupTest.test_linux_default_and_explicit_legacy) ... ok
+test_production_example_input_is_in_source_snapshot (test_evidence_dedup.DedupTest.test_production_example_input_is_in_source_snapshot) ... FAIL
+test_recorder_scopes_git_trust_to_its_checkout (test_evidence_dedup.DedupTest.test_recorder_scopes_git_trust_to_its_checkout) ... FAIL
+test_store_symlink_rejected_by_recorder (test_evidence_dedup.DedupTest.test_store_symlink_rejected_by_recorder) ... ok
+
+======================================================================
+FAIL: test_production_example_input_is_in_source_snapshot (test_evidence_dedup.DedupTest.test_production_example_input_is_in_source_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/m4-audit/production/tests/test_evidence_dedup.py", line 71, in test_production_example_input_is_in_source_snapshot
+    self.assertIn('production/examples/m4-short-project.json',[f['path'] for f in inputs])
+AssertionError: 'production/examples/m4-short-project.json' not found in ['production/src/qa/audit_evidence.py', 'scripts/run-step.py', 'src/example.txt']
+
+======================================================================
+FAIL: test_recorder_scopes_git_trust_to_its_checkout (test_evidence_dedup.DedupTest.test_recorder_scopes_git_trust_to_its_checkout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/m4-audit/production/tests/test_evidence_dedup.py", line 62, in test_recorder_scopes_git_trust_to_its_checkout
+    self.assertEqual(result.returncode,0,result.stderr)
+AssertionError: 1 != 0 : fatal: detected dubious ownership in repository at '/tmp/tmpwu6x_46t'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /tmp/tmpwu6x_46t
+Traceback (most recent call last):
+  File "/tmp/tmpwu6x_46t/scripts/run-step.py", line 159, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/tmp/tmpwu6x_46t/scripts/run-step.py", line 53, in main
+    head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 13.788s
+
+FAILED (failures=2)
