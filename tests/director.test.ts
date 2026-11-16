@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 import { Studio } from '../src/application.js';
@@ -197,20 +197,42 @@ test('M5 stored recipe refuses corrupted artifact rather than trusting cache', a
   assert.notEqual(hash('CORRUPTED'), receipt.artifactSha256);
 });
 
-test('M5-RECHECK-002 crash after render before receipt does not duplicate project or media', async (t) => {
+test('M5-RECHECK-002 recover a completed video after missing receipt and process restart', async (t) => {
   const { app, root } = await fixture(t);
   const plan = planDirector(intent());
-  const blockedReceipt = path.join(root, 'director-m5', plan.planSha256 + '.json');
-  await mkdir(blockedReceipt, { recursive: true });
-  await assert.rejects(new DirectorService(app).run(plan, true));
+  // Simulates a real process crash after Studio committed the final artifact,
+  // before the Director service wrote its success receipt.
+  const first = await executeDirectorPlan(app, plan, { approved: true });
   assert.equal((await app.store.list('projects')).length, 1);
-  assert.equal((await app.store.list('jobs')).length, 1);
-  await rm(blockedReceipt, { recursive: true });
-  const receipt = await new DirectorService(app).run(plan, true);
-  assert.equal(receipt.status, 'succeeded');
-  assert.equal((await app.store.list('projects')).length, 1);
-  assert.equal((await app.store.list('jobs')).length, 1);
   assert.equal((await app.store.list('artifacts')).length, 1);
+  await app.close();
+  const restarted = await Studio.open(root, synthetic, 'm5-test-runtime');
+  try {
+    const resumed = await new DirectorService(restarted).run(plan, true);
+    assert.equal(resumed.projectId, first.projectId);
+    assert.equal(resumed.artifactId, first.artifactId);
+    assert.equal((await restarted.store.list('projects')).length, 1);
+    assert.equal((await restarted.store.list('jobs')).length, 1);
+    assert.equal((await restarted.store.list('artifacts')).length, 1);
+  } finally {
+    await restarted.close();
+  }
+});
+
+test('M5 recovery rejects a corrupted plan journal without creating another project', async (t) => {
+  const { app, root } = await fixture(t);
+  const director = new DirectorService(app);
+  const plan = planDirector(intent());
+  const first = await director.run(plan, true);
+  await rm(path.join(root, 'director-m5', plan.planSha256 + '.json'));
+  await writeFile(
+    path.join(root, 'director-m5', plan.planSha256 + '.progress.json'),
+    JSON.stringify({ schemaVersion: 'director-m5-progress/1', planSha256: plan.planSha256, projectId: 'prj_fake' }),
+  );
+  await assert.rejects(director.run(plan, true), codeIs('DIRECTOR_PROGRESS_CORRUPT'));
+  assert.equal((await app.store.list('projects')).length, 1);
+  assert.equal((await app.store.list('artifacts')).length, 1);
+  assert.ok(first.artifactId);
 });
 
 test('M5-RECHECK-003 reject voice-induced changes to approved scene duration before rendering', async (t) => {
