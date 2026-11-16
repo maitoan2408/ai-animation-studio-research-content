@@ -56,6 +56,12 @@ try{
  await page.click('#motion-render');
  await page.waitForFunction(()=>document.querySelector('#motion-status')?.textContent?.includes('rendering'),
  {timeout:20000});
+ const duplicate=await fetch(server.url+'/api/motion/jobs',{
+   method:'POST',headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({revision:document.revision}),
+ });
+ assert.equal(duplicate.status,409,'Concurrent native render was not blocked');
+
  let job:{id:string;status:string;frames:number;videoSha256?:string;error?:string}|undefined;
  const started=Date.now();
  while(Date.now()-started<360000){
