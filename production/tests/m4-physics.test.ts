@@ -105,6 +105,19 @@ test('M4 fail-closed contracts: stale input/art/toolchain, invalid ownership, fr
  const badSchema=structuredClone(project);
  (badSchema as unknown as {schemaVersion:string}).schemaVersion='physics-m4/2';
  assert.throws(()=>validateM4Project(badSchema,pack),/M4_PROJECT_SCHEMA/);
+ // Regression reproduction: a supported fast release must not keep contact
+ // with an invisible 8000px plane beyond the 422.4px authored bench artwork.
+ const runaway=structuredClone(project);
+ runaway.tailFrames=240;
+ runaway.prop.velocityStagePxPerSecond=[500,0];
+ runaway.prop.linearDamping=0;
+ runaway.prop.friction=0;
+ await assert.rejects(bakeM4(runaway,pack),/M4_PLATFORM_EDGE_UNSUPPORTED/);
+ // A collision height that visually differs from the table's declared support
+ // anchor (at 630.8 stage pixels) must fail even if the cup does not overlap it.
+ const artMismatch=structuredClone(project);
+ artMismatch.prop.floorStageY=645;
+ assert.throws(()=>validateM4Project(artMismatch,pack),/M4_PLATFORM_ART_MISMATCH/);
  const recovered=await bakeM4(project,pack);
  assert.equal(recovered.bakeSha256,a.bakeSha256,
    'a rejected request must not contaminate a later valid simulation');

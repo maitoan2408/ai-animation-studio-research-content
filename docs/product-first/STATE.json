@@ -326,8 +326,8 @@
       }
     },
     "M4": {
-      "technicalStatus": "PASSED",
-      "evidenceStatus": "READY_FOR_USER_REVIEW",
+      "technicalStatus": "REWORK_REQUIRED",
+      "evidenceStatus": "REWORK_REQUIRED",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "79aae2fdfe960e03992e136a6529fe95623a1cdb",
       "branch": "codex/product-first-m4-physics",
@@ -383,15 +383,26 @@
           "fixCommit": "b44fb8d2f689a756837c291341f3786e9f889a49"
         }
       ],
-      "unresolvedInScopeDefects": [],
+      "unresolvedInScopeDefects": [
+        {
+          "id": "M4-EDGE-001",
+          "severity": "HIGH",
+          "description": "Infinite 8000px platform collider extends past 422.4px authored bench; high-velocity supported inputs can hover over invisible surface."
+        },
+        {
+          "id": "M4-SUPPORT-002",
+          "severity": "MEDIUM",
+          "description": "Physics floorStageY not tied to the workbench art support anchor, allowing visually detached surface."
+        }
+      ],
       "knownLimitations": [
         "Bounded validated M3 cutout rig plus one SHA-locked cup and one level platform; not multi-body arbitrary scene physics.",
         "Collision box is an art-directed approximation with declared 2mm Rapier contact skin; actual art silhouette is not a dynamic collider.",
         "The short physics showcase is deliberately silent and retains M3 acting; no claim of polished acting or human artistic approval."
       ],
-      "nextAction": "Owner reviews the two native M4 films, OFF/ON comparison and editable project; do not advance to M5 without explicit acceptance.",
+      "nextAction": "Reproduce new regression failures; bind collision geometry to actual authored bench and support anchor; rerun M4 media + independent QA + full M0-M3 regression.",
       "sourceCommit": "b44fb8d2f689a756837c291341f3786e9f889a49",
-      "ownerGate": "READY_FOR_USER_REVIEW (technical gates and delegated-agent post-result audit PASS); owner acceptance NOT_REVIEWED. No merge or M5.",
+      "ownerGate": "REWORK_REQUIRED. Previous technical PASS superseded by independent audit. Do not owner-accept, merge or start M5.",
       "artifactId": 14224468519,
       "artifactName": "physics-m4-review-8",
       "artifactExpiresAt": "2026-11-30T12:15:44Z",
@@ -480,5 +491,5 @@
     }
   },
   "nextMilestone": "M4",
-  "nextAction": "M4 technical PASS with source SHA and actual native media; await owner review. Never auto-merge PR #13 or begin M5."
+  "nextAction": "M4 independent audit found in-scope defects; fix M4-EDGE-001 and M4-SUPPORT-002 and rerun full acceptance gates."
 }
