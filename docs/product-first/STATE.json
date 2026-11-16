@@ -326,14 +326,14 @@
       }
     },
     "M4": {
-      "technicalStatus": "REWORK_IN_PROGRESS",
-      "evidenceStatus": "REWORK_REQUIRED",
+      "technicalStatus": "PASSED",
+      "evidenceStatus": "READY_FOR_USER_REVIEW",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "79aae2fdfe960e03992e136a6529fe95623a1cdb",
-      "branch": "codex/product-first-m4-physics",
-      "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/13",
+      "branch": "codex/m4-audit-20261116",
+      "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/14",
       "plan": "docs/product-first/M4-PLAN.md",
-      "review": "docs/product-first/M4-REVIEW.md",
+      "review": "docs/product-first/M4-AUDIT.md",
       "scope": "Bounded generalized single rigid cup/platform, M3 handoff/ownership, verified Rapier 240Hz and native 1080p OFF/ON",
       "technicalGates": [
         "M4 contract and two real Rapier fixture variants",
@@ -344,30 +344,58 @@
       ],
       "ciRuns": [
         {
-          "name": "M4 physics native product verification",
-          "runId": 43863511981,
-          "conclusion": "SUCCESS",
-          "sourceCommit": "b44fb8d2f689a756837c291341f3786e9f889a49"
+          "id": 43913746879,
+          "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43913746879",
+          "conclusion": "success",
+          "jobs": [
+            {
+              "id": 133462323851,
+              "name": "verify",
+              "conclusion": "success"
+            },
+            {
+              "id": 133464766560,
+              "name": "m2-product",
+              "conclusion": "success"
+            }
+          ]
         },
         {
-          "name": "Q2 workbench verification",
-          "runId": 43863512036,
-          "conclusion": "SUCCESS",
-          "sourceCommit": "b44fb8d2f689a756837c291341f3786e9f889a49"
+          "id": 43913746771,
+          "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43913746771",
+          "conclusion": "success",
+          "jobs": [
+            {
+              "id": 133462315041,
+              "name": "contracts-and-review",
+              "conclusion": "success"
+            }
+          ]
         },
         {
-          "name": "Paper Studio verification",
-          "runId": 43863512279,
-          "conclusion": "SUCCESS",
-          "sourceCommit": "b44fb8d2f689a756837c291341f3786e9f889a49"
+          "id": 43913746997,
+          "url": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43913746997",
+          "conclusion": "success",
+          "jobs": [
+            {
+              "id": 133462253298,
+              "name": "native-m4-and-post-result-review",
+              "conclusion": "success"
+            }
+          ]
         }
       ],
       "artifactHashes": {
-        "offMp4": "a70d4f6cf9817d715f07f48f768a03e532ed3ce3b8d627f8beb0dd876502c388",
-        "onMp4": "1c8c6c6ad926c436a20fd9d6121a5ea986375bf741842b3aa64c090101de22e6",
-        "offOnComparisonPng": "8405b366c535d30a8655cfdc17488b9891cd196767b55588a8a503c0bd92ee5d",
-        "projectSha256": "41bc3d9dcd2df1e06c78f0c1fcf8521b37f8a408fb2ef44e7fd86b67e0662e78",
-        "bakeSha256": "e07d5c09cb878c986651822338eb9ebb3da0322583894ad8c62b29f6e762c603"
+        "m4": {
+          "off": "a70d4f6cf9817d715f07f48f768a03e532ed3ce3b8d627f8beb0dd876502c388",
+          "on": "74b33946e5cd980ccdfcef6f5e227cc52e507f38ea92b0bc1394702598c3121a",
+          "bake": "cd5331c4c45d29dded723256b5e8196f81987b75cdffc5c3394e1f4982838f29"
+        },
+        "m4-short": {
+          "off": "59a45e20b87ef338383532cb8d527ef43a9940eadbe7a5b90b6315fb586d6a12",
+          "on": "02c05cb371276ba0d9f666d74cb039d34472f6343d06489df8a41949b7e03c7f",
+          "bake": "64ce3ba39113afd8b7e6169e43a5e6db190a672734122b6309736fe959ac09ed"
+        }
       },
       "resolvedDefects": [
         {
@@ -381,48 +409,52 @@
           "rootCause": "Boundary tests did not explicitly exercise unknown physics engine, wrong fixed timestep, invalid collider, duplicate IDs, unsupported schema or recovery.",
           "resolution": "Added fail-closed rejection cases and verified repeat bake remains stable after failure.",
           "fixCommit": "b44fb8d2f689a756837c291341f3786e9f889a49"
-        }
-      ],
-      "unresolvedInScopeDefects": [
+        },
         {
           "id": "M4-EDGE-001",
           "severity": "HIGH",
-          "description": "Infinite 8000px platform collider extends past 422.4px authored bench; high-velocity supported inputs can hover over invisible surface."
+          "description": "Infinite 8000px platform collider extends past 422.4px authored bench; high-velocity supported inputs can hover over invisible surface.",
+          "resolution": "Already repaired in latest M4 base 081ee51c: finite art-bound bench and support anchor validation; preserved and regression-verified in this audit."
         },
         {
           "id": "M4-SUPPORT-002",
           "severity": "MEDIUM",
-          "description": "Physics floorStageY not tied to the workbench art support anchor, allowing visually detached surface."
+          "description": "Physics floorStageY not tied to the workbench art support anchor, allowing visually detached surface.",
+          "resolution": "Already repaired in latest M4 base 081ee51c: finite art-bound bench and support anchor validation; preserved and regression-verified in this audit."
         }
       ],
+      "unresolvedInScopeDefects": [],
       "knownLimitations": [
         "Bounded validated M3 cutout rig plus one SHA-locked cup and one level platform; not multi-body arbitrary scene physics.",
         "Collision box is an art-directed approximation with declared 2mm Rapier contact skin; actual art silhouette is not a dynamic collider.",
         "The short physics showcase is deliberately silent and retains M3 acting; no claim of polished acting or human artistic approval."
       ],
-      "nextAction": "Reproduce new regression failures; bind collision geometry to actual authored bench and support anchor; rerun M4 media + independent QA + full M0-M3 regression.",
-      "sourceCommit": "b44fb8d2f689a756837c291341f3786e9f889a49",
-      "ownerGate": "Await current audit and final source-bound media; no automatic acceptance",
-      "artifactId": 14224468519,
-      "artifactName": "physics-m4-review-8",
-      "artifactExpiresAt": "2026-11-30T12:15:44Z",
+      "nextAction": "Owner reviews the verified M4 native films. No merge or M5 until explicit approval.",
+      "sourceCommit": "fc1eaf82d6a38f884f9baab8b4a04d6e9656c951",
+      "ownerGate": "READY_FOR_USER_REVIEW; NOT owner accepted. Final documentation HEAD must also pass all three CI workflows before delivery.",
+      "artifactId": 14249123538,
+      "artifactName": "physics-m4-compact-16",
+      "artifactExpiresAt": "2026-11-30",
       "qualityMetrics": {
-        "frameCount": 169,
-        "format": "1920x1080 24fps H264, two intentionally silent MP4s",
+        "frameCounts": [
+          169,
+          105
+        ],
+        "filmCount": 4,
+        "format": "1920x1080 24fps H264, intentionally silent",
         "gripOnsetFrame": 18,
         "releaseFrame": 62,
-        "platformContactFrame": 64,
-        "gripSamples": 44,
+        "platformContactFrame": 63,
+        "gripSamplesPerProject": 44,
         "maxGripErrorStagePixels": 0,
         "maxHandoffJumpStagePixels": 0,
         "maxColliderPenetrationM": 0,
-        "randomAccessReplay": "150→20→100→0→150 repeat identical",
-        "manifestHashesChecked": 25,
-        "fullMp4Decodes": 2,
-        "blackSceneDetections": 0
+        "randomAccessReplay": "last → 20 → release → 0 → last; native PNG and scene state repeat exactly",
+        "manifestHashesChecked": 50,
+        "fullMp4Decodes": 4
       },
       "audit20261116": {
-        "status": "IN_PROGRESS",
+        "status": "PASS_TECHNICAL",
         "baseCommit": "081ee51cf7fb95ca1defe5f772449c5a7cf275a5",
         "plan": "docs/product-first/M4-AUDIT.md",
         "reviewer": "delegated-agent",
@@ -433,7 +465,16 @@
           "First real solver support impulse missed between presentation frames",
           "Post-result consumer compares declared hashes instead of actual OFF/ON pixels"
         ],
-        "scope": "Preserve accepted M1-M3, bounded prop/platform and locked S05; no M5 or merge"
+        "scope": "Preserve accepted M1-M3, bounded prop/platform and locked S05; no M5 or merge",
+        "testCounts": {
+          "root": 26,
+          "production": 130,
+          "python": 67,
+          "m4SubsetOfProduction": 8,
+          "actualMediaNegativeCases": 9
+        },
+        "evidence": "docs/product-first/evidence/m4-audit-20261116",
+        "unresolvedInScopeDefects": []
       }
     },
     "M5": {
@@ -504,6 +545,6 @@
       "scope": "M3 delivered motion/Studio quality and completed M1-M3 audit, with disclosed bounded art/rig and draft/silent audio limitations. Does not approve M4 deliverables or authorize PR merges."
     }
   },
-  "nextMilestone": "M4",
-  "nextAction": "Finish M4 audit repairs, two native OFF/ON scenarios, separate post-result checks and full final HEAD regression."
+  "nextMilestone": "M5_PENDING_M4_OWNER_APPROVAL",
+  "nextAction": "Owner reviews the verified M4 native films. No merge or M5 until explicit approval."
 }

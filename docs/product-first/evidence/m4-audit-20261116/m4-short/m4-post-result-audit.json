@@ -1,0 +1,41 @@
+{
+  "milestone": "M4",
+  "reviewer": "delegated-agent second pass; NOT independent human art approval",
+  "status": "TECHNICAL_PASS_PENDING_OWNER_REVIEW",
+  "sourceCommit": "fc1eaf82d6a38f884f9baab8b4a04d6e9656c951",
+  "projectSha256": "b4b67811229716b9135a619b91c222e037bf3924c8d2d26072acee2c04419f55",
+  "bakeSha256": "64ce3ba39113afd8b7e6169e43a5e6db190a672734122b6309736fe959ac09ed",
+  "filmHashes": {
+    "off": "59a45e20b87ef338383532cb8d527ef43a9940eadbe7a5b90b6315fb586d6a12",
+    "on": "02c05cb371276ba0d9f666d74cb039d34472f6343d06489df8a41949b7e03c7f"
+  },
+  "verifiedVideoProfile": "1920x1080/24fps; full FFmpeg decode; intentionally silent",
+  "acceptance": {
+    "fixedStep": true,
+    "realRapierContact": true,
+    "authoredOwnership": true,
+    "noHandoffTeleport": true,
+    "randomSeek": true,
+    "staleBakeRejected": true,
+    "realNativeOffOn": true,
+    "allHashes": true,
+    "allFrameDecodes": true
+  },
+  "metrics": {
+    "gripOnsetFrame": 18,
+    "releaseFrame": 62,
+    "maxGripErrorStagePixels": 0,
+    "gripSamples": 44,
+    "maxHandoffJumpStagePixels": 0,
+    "maxColliderPenetrationM": 0,
+    "platformContactEvents": 1,
+    "visualComparisonPixelDifference": true,
+    "repeatedSeekChecksum": "7a753c8cd33f377441ff5f1214c8a6c7385edcd08785009d6fea7707d9246c88",
+    "replayedFrames": 105
+  },
+  "limitations": [
+    "No human aesthetic approval asserted",
+    "Supported cup/platform with M3 cutout rig only",
+    "Collision proxy uses declared 2mm Rapier contact skin; image silhouette not rigid collider"
+  ]
+}

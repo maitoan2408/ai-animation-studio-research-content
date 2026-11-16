@@ -1,3 +1,7 @@
+# Current M4 audit completed — READY_FOR_USER_REVIEW
+
+Owner-requested M4 audit repaired replay validation, short timelines, substep contact events and false-positive media QA. Complete Studio, production and M4 CI passed on executable source `fc1eaf82d6a38f884f9baab8b4a04d6e9656c951`; downloaded four native films and nine negative media cases passed a separate second review. [Report and exact evidence](M4-AUDIT.md), [draft PR #14](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/14). Final documentation HEAD must also have all three green CI checks before handoff. No owner acceptance, merge or M5; preserve accepted M1–M3 and S05.
+
 # Current M4 owner-requested audit — 2026-11-16
 
 Branch `codex/m4-audit-20261116`, base latest M4 `081ee51c`. See [fixed audit plan](M4-AUDIT.md). Confirmed boundary and evidence defects are being repaired with immutable FAIL attempts. Older reports below are historical and do not establish current M4 completion. Accepted M1–M3 and S05 remain unchanged; no M5/merge.

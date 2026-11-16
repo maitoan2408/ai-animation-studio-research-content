@@ -1,0 +1,1223 @@
+{
+  "schemaVersion": "m4-bake/1",
+  "inputSha256": "c6825aeee651a9f8c9d2a6c208fe2669c8faafff480e650cbc3d35e52d780ce7",
+  "artSha256": "173b01981a05e9c9b74e7a1c9a149df1803fee64fde80f033e1de82420b6b45f",
+  "recipe": {
+    "schemaVersion": "m4-recipe/1",
+    "engine": "rapier-0.21.0-deterministic-compat",
+    "algorithm": "released-prop-platform-v1",
+    "fps": 24,
+    "hz": 240,
+    "substeps": 10,
+    "solverIterations": 12,
+    "gravityMps2": 9.81,
+    "contactSkinM": 0.002,
+    "packageLockSha256": "9b3f053d885c2d4c0a190433febc14b8609e82ede2c48a3d8da13d06a3b9a9ae",
+    "implementationSha256": "18c4cde1377bf388c839511c06e943fb0801cc4c9104343b1384b074d1838230"
+  },
+  "recipeSha256": "006aefe449bbbf4f7045b14e419723f9bf5157e12d39e1c96c3b321c29dbfb07",
+  "releaseFrame": 62,
+  "frames": [
+    {
+      "frame": 0,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 1,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 2,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 3,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 4,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 5,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 6,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 7,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 8,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 9,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 10,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 11,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 12,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 13,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 14,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 15,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 16,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 17,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 18,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 19,
+      "centerX": 966.3,
+      "centerY": 603.9940716083393,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 20,
+      "centerX": 966.3,
+      "centerY": 601.85913852328,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 21,
+      "centerX": 966.3,
+      "centerY": 598.5444788797062,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 22,
+      "centerX": 966.3,
+      "centerY": 594.2493708125021,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 23,
+      "centerX": 966.3,
+      "centerY": 589.173092456552,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 24,
+      "centerX": 966.3,
+      "centerY": 583.5149219467402,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 25,
+      "centerX": 966.3,
+      "centerY": 577.4741374179506,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 26,
+      "centerX": 966.3,
+      "centerY": 571.2500170050675,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 27,
+      "centerX": 966.3,
+      "centerY": 565.0418388429752,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 28,
+      "centerX": 966.3,
+      "centerY": 559.0488810665578,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 29,
+      "centerX": 966.3,
+      "centerY": 553.4704218106996,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 30,
+      "centerX": 966.3,
+      "centerY": 548.5057392102847,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 31,
+      "centerX": 966.3,
+      "centerY": 544.3541114001972,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 32,
+      "centerX": 966.3,
+      "centerY": 541.2148165153216,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 33,
+      "centerX": 966.3,
+      "centerY": 539.2871326905417,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 34,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 35,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 36,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 37,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 38,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 39,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 40,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 41,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 42,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 43,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 44,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 45,
+      "centerX": 966.3,
+      "centerY": 538.75,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 46,
+      "centerX": 966.3,
+      "centerY": 539.0645257286671,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 47,
+      "centerX": 966.3,
+      "centerY": 540.7259739652417,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 48,
+      "centerX": 966.3,
+      "centerY": 543.6388888888889,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 49,
+      "centerX": 966.3,
+      "centerY": 547.6039923647247,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 50,
+      "centerX": 966.3,
+      "centerY": 552.4220062578648,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 51,
+      "centerX": 966.3,
+      "centerY": 557.8936524334251,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 52,
+      "centerX": 966.3,
+      "centerY": 563.8196527565215,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 53,
+      "centerX": 966.3,
+      "centerY": 570.0007290922695,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 54,
+      "centerX": 966.3,
+      "centerY": 576.2376033057851,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 55,
+      "centerX": 966.3,
+      "centerY": 582.3309972621842,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 56,
+      "centerX": 966.3,
+      "centerY": 588.0816328265823,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 57,
+      "centerX": 966.3,
+      "centerY": 593.2902318640955,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 58,
+      "centerX": 966.3,
+      "centerY": 597.7575162398394,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 59,
+      "centerX": 966.3,
+      "centerY": 601.28420781893,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 60,
+      "centerX": 966.3,
+      "centerY": 603.671028466483,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 61,
+      "centerX": 966.3,
+      "centerY": 604.7187000476142,
+      "rotationDeg": 0,
+      "owner": "authored"
+    },
+    {
+      "frame": 62,
+      "centerX": 966.3,
+      "centerY": 604.75,
+      "rotationDeg": 0,
+      "owner": "physics"
+    },
+    {
+      "frame": 63,
+      "centerX": 970.2475547790527,
+      "centerY": 605.0309181213379,
+      "rotationDeg": 1.047784742738983,
+      "owner": "physics"
+    },
+    {
+      "frame": 64,
+      "centerX": 974.1232872009277,
+      "centerY": 605.6047916412354,
+      "rotationDeg": 0.005222140274712594,
+      "owner": "physics"
+    },
+    {
+      "frame": 65,
+      "centerX": 977.9055595397949,
+      "centerY": 605.6105136871338,
+      "rotationDeg": 0.0031465339981056537,
+      "owner": "physics"
+    },
+    {
+      "frame": 66,
+      "centerX": 981.6044807434082,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.002003700859810036,
+      "owner": "physics"
+    },
+    {
+      "frame": 67,
+      "centerX": 985.219669342041,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0013740320609966577,
+      "owner": "physics"
+    },
+    {
+      "frame": 68,
+      "centerX": 988.7517929077148,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0010299572169610491,
+      "owner": "physics"
+    },
+    {
+      "frame": 69,
+      "centerX": 992.2015190124512,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0008498706959002174,
+      "owner": "physics"
+    },
+    {
+      "frame": 70,
+      "centerX": 995.5689430236816,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0007572145774354327,
+      "owner": "physics"
+    },
+    {
+      "frame": 71,
+      "centerX": 998.8542556762695,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006919014667094726,
+      "owner": "physics"
+    },
+    {
+      "frame": 72,
+      "centerX": 1002.057933807373,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006703153341885217,
+      "owner": "physics"
+    },
+    {
+      "frame": 73,
+      "centerX": 1005.1801681518555,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006596574939175496,
+      "owner": "physics"
+    },
+    {
+      "frame": 74,
+      "centerX": 1008.2215309143066,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006490055421000703,
+      "owner": "physics"
+    },
+    {
+      "frame": 75,
+      "centerX": 1011.1821174621582,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006383625532383499,
+      "owner": "physics"
+    },
+    {
+      "frame": 76,
+      "centerX": 1014.0625953674316,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006277195643766296,
+      "owner": "physics"
+    },
+    {
+      "frame": 77,
+      "centerX": 1016.862964630127,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006170765755149093,
+      "owner": "physics"
+    },
+    {
+      "frame": 78,
+      "centerX": 1019.5838928222656,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006064362963839998,
+      "owner": "physics"
+    },
+    {
+      "frame": 79,
+      "centerX": 1022.2254753112793,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005957964341347536,
+      "owner": "physics"
+    },
+    {
+      "frame": 80,
+      "centerX": 1024.7880935668945,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005851565718855074,
+      "owner": "physics"
+    },
+    {
+      "frame": 81,
+      "centerX": 1027.2720336914062,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005745167096362612,
+      "owner": "physics"
+    },
+    {
+      "frame": 82,
+      "centerX": 1029.6775817871094,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006185081471463683,
+      "owner": "physics"
+    },
+    {
+      "frame": 83,
+      "centerX": 1032.0053100585938,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006242532975674643,
+      "owner": "physics"
+    },
+    {
+      "frame": 84,
+      "centerX": 1034.2552185058594,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006245353180126251,
+      "owner": "physics"
+    },
+    {
+      "frame": 85,
+      "centerX": 1036.4279747009277,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006248173384577858,
+      "owner": "physics"
+    },
+    {
+      "frame": 86,
+      "centerX": 1038.5235786437988,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006169054455921621,
+      "owner": "physics"
+    },
+    {
+      "frame": 87,
+      "centerX": 1040.5425071716309,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006062624567304418,
+      "owner": "physics"
+    },
+    {
+      "frame": 88,
+      "centerX": 1042.4853324890137,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005956194678687214,
+      "owner": "physics"
+    },
+    {
+      "frame": 89,
+      "centerX": 1044.351863861084,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005849764790070012,
+      "owner": "physics"
+    },
+    {
+      "frame": 90,
+      "centerX": 1046.1426734924316,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000582527090794818,
+      "owner": "physics"
+    },
+    {
+      "frame": 91,
+      "centerX": 1047.8580474853516,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005964702712331228,
+      "owner": "physics"
+    },
+    {
+      "frame": 92,
+      "centerX": 1049.4979858398438,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006295418062367232,
+      "owner": "physics"
+    },
+    {
+      "frame": 93,
+      "centerX": 1051.0635375976562,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006298299235762083,
+      "owner": "physics"
+    },
+    {
+      "frame": 94,
+      "centerX": 1052.5541305541992,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006301179888054855,
+      "owner": "physics"
+    },
+    {
+      "frame": 95,
+      "centerX": 1053.971004486084,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006304060540347628,
+      "owner": "physics"
+    },
+    {
+      "frame": 96,
+      "centerX": 1055.3136825561523,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006279620852842014,
+      "owner": "physics"
+    },
+    {
+      "frame": 97,
+      "centerX": 1056.583023071289,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006282501505134786,
+      "owner": "physics"
+    },
+    {
+      "frame": 98,
+      "centerX": 1057.7790260314941,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006258051395587591,
+      "owner": "physics"
+    },
+    {
+      "frame": 99,
+      "centerX": 1058.9018821716309,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006151621506970388,
+      "owner": "physics"
+    },
+    {
+      "frame": 100,
+      "centerX": 1059.9523544311523,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0006045191618353185,
+      "owner": "physics"
+    },
+    {
+      "frame": 101,
+      "centerX": 1060.9302520751953,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005938761729735981,
+      "owner": "physics"
+    },
+    {
+      "frame": 102,
+      "centerX": 1061.8361473083496,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005886955845449026,
+      "owner": "physics"
+    },
+    {
+      "frame": 103,
+      "centerX": 1062.6704216003418,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005889773965492317,
+      "owner": "physics"
+    },
+    {
+      "frame": 104,
+      "centerX": 1063.4332656860352,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005892592085535609,
+      "owner": "physics"
+    },
+    {
+      "frame": 105,
+      "centerX": 1064.1246795654297,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00058954102055789,
+      "owner": "physics"
+    },
+    {
+      "frame": 106,
+      "centerX": 1064.7453308105469,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000589822884672427,
+      "owner": "physics"
+    },
+    {
+      "frame": 107,
+      "centerX": 1065.2955055236816,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005901046966767561,
+      "owner": "physics"
+    },
+    {
+      "frame": 108,
+      "centerX": 1065.775489807129,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005903865086810854,
+      "owner": "physics"
+    },
+    {
+      "frame": 109,
+      "centerX": 1066.185474395752,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005906683206854145,
+      "owner": "physics"
+    },
+    {
+      "frame": 110,
+      "centerX": 1066.525650024414,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005882188803630233,
+      "owner": "physics"
+    },
+    {
+      "frame": 111,
+      "centerX": 1066.7964935302734,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005885006923673524,
+      "owner": "physics"
+    },
+    {
+      "frame": 112,
+      "centerX": 1066.9981956481934,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005887825043716816,
+      "owner": "physics"
+    },
+    {
+      "frame": 113,
+      "centerX": 1067.130947113037,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005890643163760107,
+      "owner": "physics"
+    },
+    {
+      "frame": 114,
+      "centerX": 1067.195224761963,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0005893461283803399,
+      "owner": "physics"
+    },
+    {
+      "frame": 115,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00041672892818942793,
+      "owner": "physics"
+    },
+    {
+      "frame": 116,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0002199714918026046,
+      "owner": "physics"
+    },
+    {
+      "frame": 117,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00011610366669461889,
+      "owner": "physics"
+    },
+    {
+      "frame": 118,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0000614106163389027,
+      "owner": "physics"
+    },
+    {
+      "frame": 119,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000036771636600057856,
+      "owner": "physics"
+    },
+    {
+      "frame": 120,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003672278328015058,
+      "owner": "physics"
+    },
+    {
+      "frame": 121,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0000366739299602433,
+      "owner": "physics"
+    },
+    {
+      "frame": 122,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003662507664033602,
+      "owner": "physics"
+    },
+    {
+      "frame": 123,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000036576223320428736,
+      "owner": "physics"
+    },
+    {
+      "frame": 124,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003652737000052146,
+      "owner": "physics"
+    },
+    {
+      "frame": 125,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003647851668061418,
+      "owner": "physics"
+    },
+    {
+      "frame": 126,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0000364296633607069,
+      "owner": "physics"
+    },
+    {
+      "frame": 127,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003638081004079962,
+      "owner": "physics"
+    },
+    {
+      "frame": 128,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000036331956720892343,
+      "owner": "physics"
+    },
+    {
+      "frame": 129,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003628310340098506,
+      "owner": "physics"
+    },
+    {
+      "frame": 130,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003623425008107778,
+      "owner": "physics"
+    },
+    {
+      "frame": 131,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0000361853967611705,
+      "owner": "physics"
+    },
+    {
+      "frame": 132,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003613654344126322,
+      "owner": "physics"
+    },
+    {
+      "frame": 133,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000036087690121355945,
+      "owner": "physics"
+    },
+    {
+      "frame": 134,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003603883680144866,
+      "owner": "physics"
+    },
+    {
+      "frame": 135,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003598998348154138,
+      "owner": "physics"
+    },
+    {
+      "frame": 136,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.0000359411301616341,
+      "owner": "physics"
+    },
+    {
+      "frame": 137,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000035892276841726824,
+      "owner": "physics"
+    },
+    {
+      "frame": 138,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000035843423521819546,
+      "owner": "physics"
+    },
+    {
+      "frame": 139,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003579457020191227,
+      "owner": "physics"
+    },
+    {
+      "frame": 140,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003574571688200498,
+      "owner": "physics"
+    },
+    {
+      "frame": 141,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000035696863562097704,
+      "owner": "physics"
+    },
+    {
+      "frame": 142,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000035648010242190425,
+      "owner": "physics"
+    },
+    {
+      "frame": 143,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003559915692228315,
+      "owner": "physics"
+    },
+    {
+      "frame": 144,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003555030360237587,
+      "owner": "physics"
+    },
+    {
+      "frame": 145,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003550145028246858,
+      "owner": "physics"
+    },
+    {
+      "frame": 146,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000035452596962561305,
+      "owner": "physics"
+    },
+    {
+      "frame": 147,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000035403743642654026,
+      "owner": "physics"
+    },
+    {
+      "frame": 148,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003535489032274675,
+      "owner": "physics"
+    },
+    {
+      "frame": 149,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003530603700283947,
+      "owner": "physics"
+    },
+    {
+      "frame": 150,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003525718368293219,
+      "owner": "physics"
+    },
+    {
+      "frame": 151,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000035208330363024906,
+      "owner": "physics"
+    },
+    {
+      "frame": 152,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003515947704311763,
+      "owner": "physics"
+    },
+    {
+      "frame": 153,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003511062372321035,
+      "owner": "physics"
+    },
+    {
+      "frame": 154,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003506177040330307,
+      "owner": "physics"
+    },
+    {
+      "frame": 155,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003501291708339579,
+      "owner": "physics"
+    },
+    {
+      "frame": 156,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000034964063763488514,
+      "owner": "physics"
+    },
+    {
+      "frame": 157,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003491521044358123,
+      "owner": "physics"
+    },
+    {
+      "frame": 158,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003486635712367395,
+      "owner": "physics"
+    },
+    {
+      "frame": 159,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003481750380376667,
+      "owner": "physics"
+    },
+    {
+      "frame": 160,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000034768650483859393,
+      "owner": "physics"
+    },
+    {
+      "frame": 161,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000034719797163952115,
+      "owner": "physics"
+    },
+    {
+      "frame": 162,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003467094384404483,
+      "owner": "physics"
+    },
+    {
+      "frame": 163,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003462209052413755,
+      "owner": "physics"
+    },
+    {
+      "frame": 164,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003457323720423027,
+      "owner": "physics"
+    },
+    {
+      "frame": 165,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000034524383884322995,
+      "owner": "physics"
+    },
+    {
+      "frame": 166,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.000034475530564415716,
+      "owner": "physics"
+    },
+    {
+      "frame": 167,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003442667724450844,
+      "owner": "physics"
+    },
+    {
+      "frame": 168,
+      "centerX": 1067.201805114746,
+      "centerY": 605.6131839752197,
+      "rotationDeg": 0.00003437782392460115,
+      "owner": "physics"
+    }
+  ],
+  "events": [
+    {
+      "frame": 18,
+      "kind": "grip",
+      "source": "authored-contact"
+    },
+    {
+      "frame": 62,
+      "kind": "release",
+      "source": "authored-contact"
+    },
+    {
+      "frame": 63,
+      "kind": "platform-contact",
+      "source": "rapier-contact"
+    }
+  ],
+  "bakeSha256": "cd5331c4c45d29dded723256b5e8196f81987b75cdffc5c3394e1f4982838f29"
+}

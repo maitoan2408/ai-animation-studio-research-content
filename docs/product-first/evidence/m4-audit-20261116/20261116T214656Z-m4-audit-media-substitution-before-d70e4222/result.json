@@ -1,0 +1,22 @@
+{
+  "phase": "U2",
+  "step": "m4-audit-media-substitution-before",
+  "run_id": "20261116T214656Z-m4-audit-media-substitution-before-d70e4222",
+  "started_at_utc": "20261116T214656Z",
+  "command": [
+    "node",
+    "scripts/m4-audit-media-before.mjs"
+  ],
+  "cwd": "/workspace/m4-audit",
+  "base_commit": "fc1eaf82d6a38f884f9baab8b4a04d6e9656c951",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recorder_pid": 21104,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "5865890d104d662a545a422bacf08c2dd5b3eb77ea4693990fa77e8832215664",
+  "status": "FAIL",
+  "exit_code": 1,
+  "elapsed_seconds": 5.818,
+  "finished_at_utc": "2026-11-16T21:47:03.044747+00:00",
+  "log_sha256": "f4ea83b152efe25f736628983b9a14910520268aea4cac2d502347f4b4ca00fb",
+  "meaning": "Command outcome only; phase/art approval needs separate gate evidence"
+}

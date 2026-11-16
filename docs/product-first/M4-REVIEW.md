@@ -1,6 +1,6 @@
 # Current owner-requested audit supersedes this historical review
 
-The prior report below is retained for traceability. Current findings, fixes and verification are in [M4-AUDIT.md](M4-AUDIT.md), branch `codex/m4-audit-20261116`, [draft PR #14](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/14). Earlier frame-64 contact and PASS claims are not evidence for the current revision. Current native/CI review is in progress; no owner acceptance or M5.
+The prior report below is retained for traceability. Current findings, fixes and verification are in [M4-AUDIT.md](M4-AUDIT.md), branch `codex/m4-audit-20261116`, [draft PR #14](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/14). Earlier frame-64 contact and PASS claims are not evidence for the current revision. Current audit is PASS_TECHNICAL / READY_FOR_USER_REVIEW; four native films, nine negative media cases and complete regression passed on fc1eaf8. See the current report for exact evidence; no owner acceptance or M5.
 
 # M4 — Physics System: Final Review
 
