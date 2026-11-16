@@ -1,0 +1,24 @@
+name: M5 formatting candidate export (temporary QA)
+on:
+  push:
+    branches: ['codex/integration-m1-m5-20261117']
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - '.github/workflows/m5-format-export.yml'
+permissions:
+  contents: read
+jobs:
+  format-candidates:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: npm ci
+      - name: Produce exact Prettier-formatted source as read-only log data
+        run: |
+          npx prettier --write src/director.ts src/domain.ts src/store.ts
+          for f in src/director.ts src/domain.ts src/store.ts; do
+            printf 'FORMAT_READY|%s|%s\n' "$f" "$(base64 -w0 "$f")"
+          done
