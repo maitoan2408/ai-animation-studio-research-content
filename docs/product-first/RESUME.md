@@ -1,3 +1,17 @@
+# M5 independent recheck — 2026-11-17 | REWORK_REQUIRED
+
+This later audit supersedes earlier M5 PASS summary. Existing 78f3924 media, 15/15 SHA and four CI jobs are valid, but source-level review exposed 3 acceptance gaps: async stale plan A after editing to B, duplicate project after crash before receipt persists, and audio-induced duration drift after plan approval. Targeted new regressions NOT_RUN. See `docs/product-first/M5-RECHECK-20261117.md`. M4 owner NOT_REVIEWED and M5 owner NOT_REVIEWED. Draft PRs unchanged, no M6 or merge.
+
+# M5 Director — final verified technical checkpoint (2026-11-17)
+
+**M5 implementation source:** `f70e165ff7f955165f2921faf947681970f7e01a`, four full SUCCESS workflows, genuine original 2×432-frame 1080p24 videos with audio, native graph/rendered UI screenshots, negative screenshot, 15 SHA checks and independently verified all-video decodes. Two post-result visual evidence defects were fixed with mandatory rerender and regression. [M5-REVIEW.md](M5-REVIEW.md), [Draft PR #15](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/15), [M5 two-film artifact](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43922045093/artifacts/14253168961). This is an offline bounded root Studio orchestration program, not an autonomous LLM or native M3/M4 skill integration. M4 **still NOT owner reviewed** and remains Draft; M5 owner acceptance also NOT_REVIEWED; no merges or M6.
+
+# M5 Director development checkpoint — 2026-11-17
+
+Owner explicitly requested M5 implementation while deferring M4 review; this is NOT owner acceptance of M4. M4 Draft PR #13 remains untouched and unmerged. M5 isolated branch `codex/product-first-m5-director`, Draft [PR #15](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/15) targeting M4. Real modules: `src/director.ts` deterministic validated graph and actual Studio executor, `web/director.*` Studio UI, `src/server.ts` approved API, `tests/director.test.ts` negative, recovery and human edit guards, `scripts/m5-product-e2e.ts` two genuinely new full HD 24fps voiced videos, `scripts/m5-independent-audit.ts` separate proof.
+
+First real M5 CI technically passed on `ebb80ea`: two 432-frame 1080p MP4s with real audible 48kHz voice, editable JSON source, complete video decode, task-graph screenshots and unsupported-action denial. **Post-result image inspection found two evidence defects** (blank video preview within success screenshot; sixth contact tile black). They were fixed in code `17a43c95` and must be rerendered, independently audited and fully regressed on final HEAD before delivery. No owner review has occurred. Root workbench and M4 acceptance unchanged.
+
 # M4 final technical review — 2026-11-16 | READY_FOR_USER_REVIEW; owner decision pending
 
 M4 implementation source `b44fb8d2f689a756837c291341f3786e9f889a49` on `codex/product-first-m4-physics` (Draft [PR #13](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/13)) passed three complete GitHub workflows: [M4 native + post-result](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43863511981), [production M0–M3 regression](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43863512036), and [Paper Studio/M2 regression](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43863512279). These runs are pinned to implementation SHA `b44fb8d2f689a756837c291341f3786e9f889a49`, not presumed evidence for different source code.

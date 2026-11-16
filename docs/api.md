@@ -25,3 +25,12 @@ Base `http://127.0.0.1:4310/api`; request ghi cần application/json, ≤40 MB. 
 Profile preview/final. Decision approved/changes_requested. Frame integer trong [0, frameCount). Không có auto-approval theo render status. Domain validator chính xác tại src/domain.ts; HTTP tại src/server.ts; state transitions tại src/application.ts.
 
 Revision endpoint nhận đầy đủ spec. Client áp dụng patch trong bộ nhớ rồi validate; v0.1 không thực thi JSON Patch/JS tùy ý. Chưa có provider LLM hoặc quyền gọi dịch vụ trả phí.
+
+## M5 Director endpoints (bounded workflow; explicit approval)
+
+| Method/path | Contract |
+| --- | --- |
+| POST /director/plan | Strict `{title,script,style,language,profile,voice}` → deterministic SHA-bound `DirectorPlan` with supported graph and compiled scenes; no execution |
+| POST /director/run | `{plan,approved:true}` → after actual Studio render/QC `DirectorReceipt` with source revision, artifact SHA, frame profile and task attempts; reject tamper/stale approval/unsupported input |
+
+See `docs/product-first/M5-USAGE.md`. Root M5 does not secretly execute M3/M4. No AI-provider credentials or externally generated JS are accepted.
