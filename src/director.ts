@@ -19,6 +19,9 @@ import {
   profiles,
   styleSchema,
   totalFrames,
+  directorProjectId,
+  type Job,
+  type Revision,
   type Artifact,
   type ProjectSpec,
 } from './domain.js';
@@ -59,6 +62,8 @@ export type DirectorReceipt = {
   projectId: string;
   revisionId: string;
   revisionDigest: string;
+  renderInputSha256: string;
+  audioAssetSha256s: string[];
   jobId: string;
   artifactId: string;
   artifactSha256: string;
@@ -153,7 +158,9 @@ async function assertCurrent(app: Studio, projectId: string, revisionId: string)
     );
   return doc.revision;
 }
-/** Strictly user-confirmed execution. No review or aesthetic approval is written. */
+/** Strictly user-confirmed execution; deterministic project identity also survives crashes.
+ * Audio materialization may change asset IDs but NEVER the approved scene durations.
+ */
 export async function executeDirectorPlan(
   app: Studio,
   raw: unknown,
@@ -167,29 +174,66 @@ export async function executeDirectorPlan(
     plan.intent.title,
     plan.intent.style,
     plan.intent.language,
+    plan.planSha256,
   );
+  const first = await app.store.get<Revision>('revisions', project.revisionIds[0]!);
+  if (
+    first.projectId !== project.id ||
+    first.digest !== plan.specSha256 ||
+    !first.notes.includes('director-plan-sha256=' + plan.planSha256)
+  )
+    throw new StudioError('DIRECTOR_PROJECT_CONFLICT', 'Project is not bound to this approved plan.', 409);
   let revision = await assertCurrent(app, project.id, project.currentRevisionId);
-  if (digest(revision.spec) !== plan.specSha256)
-    throw new StudioError(
-      'DIRECTOR_COMPILE_DIVERGED',
-      'Compiled project is not the approved plan.',
-    );
   const tasks: DirectorReceipt['tasks'] = [
     { id: 'scenes', skill: 'script-to-scenes', status: 'succeeded', attempt: 1 },
   ];
   if (plan.intent.voice) {
-    revision = await app.voice(project.id, revision.id);
+    if (revision.id === first.id) {
+      revision = await app.voice(project.id, revision.id);
+    } else if (!revision.notes.some((note) => note.startsWith('Giọng eSpeak local dùng cho timing nháp'))) {
+      throw new StudioError('DIRECTOR_REVISION_CHANGED', 'A human edit has changed the Director revision.', 409);
+    }
     await assertCurrent(app, project.id, revision.id);
-    // A voice step may extend timing; the immutable revised spec is the render input.
+    const expected = structuredClone(plan.spec);
+    for (const scene of expected.scenes) {
+      const actual = revision.spec.scenes.find((s) => s.id === scene.id);
+      if (!actual || actual.durationFrames !== scene.durationFrames)
+        throw new StudioError(
+          'DIRECTOR_VOICE_TIMING_CHANGED',
+          'Voice would change the approved scene timing. Increase seconds and approve a new plan.',
+          409,
+        );
+      if (scene.narration.trim()) {
+        if (!actual.audio || actual.audio.textHash !== hash(scene.narration))
+          throw new StudioError('DIRECTOR_VOICE_INVALID', 'Draft voice must bind to the exact narration.');
+        await app.store.verifyAsset(actual.audio.assetId);
+        scene.audio = actual.audio;
+      } else if (actual.audio) {
+        throw new StudioError('DIRECTOR_VOICE_INVALID', 'Unexpected voice asset in an empty scene.');
+      }
+    }
+    if (digest(expected) !== digest(revision.spec))
+      throw new StudioError('DIRECTOR_REVISION_CHANGED', 'Voice stage modified other approved content.', 409);
     tasks.push({ id: 'voice', skill: 'prepare-audio', status: 'succeeded', attempt: 1 });
+  } else if (revision.id !== first.id || digest(revision.spec) !== plan.specSha256) {
+    throw new StudioError('DIRECTOR_REVISION_CHANGED', 'A human edit has changed the Director revision.', 409);
   }
   await assertCurrent(app, project.id, revision.id);
-  let job = await app.enqueue(project.id, revision.id, plan.intent.profile);
-  job = await app.wait(job.id);
+  const matches = (await app.store.list<Job>('jobs')).filter(
+    (j) =>
+      j.projectId === project.id &&
+      j.revisionId === revision.id &&
+      j.profile === plan.intent.profile,
+  );
+  if (matches.length > 1)
+    throw new StudioError('DIRECTOR_JOB_CONFLICT', 'Multiple jobs target the same approved revision.', 409);
+  let job = matches[0] ?? (await app.enqueue(project.id, revision.id, plan.intent.profile));
+  if (job.status === 'queued' || job.status === 'running') job = await app.wait(job.id);
   if (
-    job.status !== 'succeeded' &&
+    ['failed', 'interrupted'].includes(job.status) &&
     options.retryTransient &&
-    transient.has(job.error?.code ?? '')
+    transient.has(job.error?.code ?? '') &&
+    job.attempts.length < 2
   ) {
     await assertCurrent(app, project.id, revision.id);
     await app.retry(job.id);
@@ -215,10 +259,7 @@ export async function executeDirectorPlan(
     artifact.profile !== plan.intent.profile ||
     !(await app.store.verifyArtifact(artifact))
   )
-    throw new StudioError(
-      'DIRECTOR_ARTIFACT_INVALID',
-      'Artifact is stale, mismatched or corrupted.',
-    );
+    throw new StudioError('DIRECTOR_ARTIFACT_INVALID', 'Artifact is stale, mismatched or corrupted.');
   const original = await readFile(app.store.artifactFile(artifact.id));
   const expectedSize = profiles[plan.intent.profile];
   if (
@@ -228,10 +269,12 @@ export async function executeDirectorPlan(
     artifact.qc.width !== expectedSize.width ||
     artifact.qc.height !== expectedSize.height ||
     artifact.qc.fps !== '24/1' ||
-    (plan.intent.voice && !artifact.qc.hasAudio)
+    artifact.qc.hasAudio !== plan.intent.voice
   )
     throw new StudioError('DIRECTOR_MEDIA_QC_INVALID', 'Real media profile fails plan checks.');
   tasks.push({ id: 'verify', skill: 'verify-artifact', status: 'succeeded', attempt: 1 });
+  const audioAssetSha256s = revision.spec.scenes
+    .flatMap((scene) => (scene.audio ? [scene.audio.assetId] : []));
   const payload = {
     schemaVersion: 'director-m5-receipt/1' as const,
     planSha256: plan.planSha256,
@@ -240,6 +283,8 @@ export async function executeDirectorPlan(
     projectId: project.id,
     revisionId: revision.id,
     revisionDigest: revision.digest,
+    renderInputSha256: digest({ spec: revision.spec, profile: plan.intent.profile }),
+    audioAssetSha256s,
     jobId: job.id,
     artifactId: artifact.id,
     artifactSha256: artifact.sha256,
@@ -284,20 +329,54 @@ export class DirectorService {
         if (
           receiptSha256 !== digest(payload) ||
           existing.planSha256 !== plan.planSha256 ||
-          existing.status !== 'succeeded'
+          existing.status !== 'succeeded' ||
+          existing.projectId !== directorProjectId(plan.planSha256) ||
+          existing.profile !== plan.intent.profile
         )
           throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Stored receipt was modified.');
         const artifact = await this.app.store.get<Artifact>('artifacts', existing.artifactId);
         if (
           artifact.sha256 !== existing.artifactSha256 ||
+          artifact.projectId !== existing.projectId ||
+          artifact.revisionId !== existing.revisionId ||
           !(await this.app.store.verifyArtifact(artifact))
         )
-          throw new StudioError(
-            'DIRECTOR_ARTIFACT_INVALID',
-            'Previously completed video was modified.',
-          );
-        await assertCurrent(this.app, existing.projectId, existing.revisionId);
+          throw new StudioError('DIRECTOR_ARTIFACT_INVALID', 'Previously completed video was modified.');
+        const revision = await assertCurrent(this.app, existing.projectId, existing.revisionId);
+        if (
+          revision.digest !== existing.revisionDigest ||
+          existing.renderInputSha256 !== digest({ spec: revision.spec, profile: existing.profile }) ||
+          canonical(existing.audioAssetSha256s) !== canonical(
+            revision.spec.scenes.flatMap((scene) => (scene.audio ? [scene.audio.assetId] : [])),
+          )
+        )
+          throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Stored revision binding was modified.');
+        for (const id of existing.audioAssetSha256s) await this.app.store.verifyAsset(id);
         return existing;
+      }
+      // Write the deterministic project identity BEFORE the first project mutation.
+      // Store.create binds the same stable key and handles restart after partial writes.
+      const progressFile = path.join(this.app.store.root, 'director-m5', plan.planSha256 + '.progress.json');
+      const progress = {
+        schemaVersion: 'director-m5-progress/1',
+        planSha256: plan.planSha256,
+        projectId: directorProjectId(plan.planSha256),
+      };
+      await mkdir(path.dirname(progressFile), { recursive: true });
+      let previous: unknown;
+      try {
+        previous = JSON.parse(await readFile(progressFile, 'utf8'));
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'ENOENT')
+          throw new StudioError('DIRECTOR_PROGRESS_CORRUPT', 'Cannot read progress journal.');
+      }
+      if (previous) {
+        if (canonical(previous) !== canonical(progress))
+          throw new StudioError('DIRECTOR_PROGRESS_CORRUPT', 'Progress journal is not bound to this plan.');
+      } else {
+        const temp = progressFile + '.' + randomUUID() + '.tmp';
+        await writeFile(temp, JSON.stringify(progress, null, 2) + '\n', { flag: 'wx', mode: 0o600 });
+        await rename(temp, progressFile);
       }
       const receipt = await executeDirectorPlan(this.app, plan, {
         approved: true,
@@ -305,7 +384,7 @@ export class DirectorService {
       });
       await mkdir(path.dirname(file), { recursive: true });
       const temp = file + '.' + randomUUID() + '.tmp';
-      await writeFile(temp, JSON.stringify(receipt, null, 2) + '\n', { flag: 'wx' });
+      await writeFile(temp, JSON.stringify(receipt, null, 2) + '\n', { flag: 'wx', mode: 0o600 });
       await rename(temp, file);
       return receipt;
     };
@@ -314,7 +393,6 @@ export class DirectorService {
     try {
       return await pending;
     } catch (error) {
-      // The root Studio still owns and records any failed render attempt.
       const safe = errorInfo(error);
       if (safe.code === 'INTERNAL_ERROR')
         throw new StudioError('DIRECTOR_EXECUTION_FAILED', safe.message, 500);
