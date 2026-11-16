@@ -20,7 +20,7 @@ function example(variant:'tip'|'slide'='tip'):PhysicsProject{
   prop:{id:motion.prop!.id,pixelsPerMeter:200,massKg:variant==='tip'?.6:.9,
     halfExtentsM:[.15,.13],linearDamping:.1,angularDamping:.65,
     friction:variant==='tip'?.02:.03,restitution:variant==='tip'?.2:.55,
-    floorStageY:632,velocityStagePxPerSecond:variant==='tip'?[95,-30]:[-110,-50],
+    floorStageY:632,velocityStagePxPerSecond:variant==='tip'?[95,-30]:[-40,-50],
     angularVelocityDegPerSecond:variant==='tip'?40:-55},
  };
 }
