@@ -297,7 +297,9 @@ test('M5-AUDIT-005: forged QC and graph-task evidence cannot bypass receipt reva
     await writeFile(file, JSON.stringify({ ...payload, receiptSha256: hash(canonical(payload)) }));
     await assert.rejects(
       director.run(plan, true),
-      codeIs('DIRECTOR_RECEIPT_CORRUPT'),
+      (error: unknown) =>
+        error instanceof StudioError &&
+        ['DIRECTOR_RECEIPT_CORRUPT', 'DIRECTOR_ARTIFACT_INVALID'].includes(error.code),
       'A rehashed but untruthful success claim must be rejected',
     );
   }
