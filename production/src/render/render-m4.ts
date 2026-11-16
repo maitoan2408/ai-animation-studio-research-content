@@ -13,6 +13,7 @@ import {ensureM3Textures} from './prepare-m3.js';
 import {makeM3Showcase,validateM3} from '../motion/character-library.js';
 import {bakeM4,validateM4Bake,validateM4Project,m4PlatformGeometry,type PhysicsProject,type PhysicsBake} from '../physics/m4.js';
 import {sampleM4Scene} from '../physics/m4-adapter.js';
+import {m4ReviewFrames} from './m4-review-frames.js';
 import type {ArtPack} from '../scene/types.js';
 const sha=(b:string|Uint8Array)=>createHash('sha256').update(b).digest('hex');
 /** Cross-runtime (Node/V8 vs Chromium/WebGL browser) trigonometric evaluations
@@ -69,9 +70,7 @@ const bakeBytes=JSON.stringify(bake,null,2)+'\n';
 await writeFile(path.join(output,'m4-project.json'),projectBytes);
 await writeFile(path.join(output,'m4-bake.json'),bakeBytes);
 const frames=bake.frames.length;
-assert.ok(frames>150);
-const selected=[0,bake.releaseFrame-1,bake.releaseFrame,bake.releaseFrame+3,
- bake.releaseFrame+15,100,125,150,frames-1].filter((x,i,a)=>x<frames&&a.indexOf(x)===i);
+const {selected,seek,focus}=m4ReviewFrames(frames,bake.releaseFrame);
 const selector=(list:number[])=>list.map(n=>'eq(n\\,'+n+')').join('+');
 const filmData:Record<string,{name:string;sha256:string;frameHashes:string[];stateHashes:string[];
   nativeStills:Record<string,string>;video:{width:number;height:number;fps:number;frames:number;audio:boolean}}>= {};
@@ -117,7 +116,7 @@ try{
    const [exitCode]=await ended;
    if(exitCode!==0)throw Error('M4_ENCODE_FAILED '+mode+' '+exitCode+' '+encoderError);
    ff=undefined;
-   for(const frame of [150,20,100,0,150]){
+   for(const frame of seek){
      const raw=await captureFrameToBuffer(session,frame,frame/24);
      assert.equal(sha(raw.buffer),frameHashes[frame],'M4_RANDOM_SEEK_PIXEL_MISMATCH '+mode+' '+frame);
      const state=await session.page.evaluate('JSON.stringify(window.studio.state)') as string;
@@ -134,8 +133,7 @@ try{
    run('ffmpeg',['-v','error','-xerror','-nostdin','-threads','1','-i',destination,'-threads','1','-f','null','-']);
    const contact=path.join(output,'m4-'+mode+'-contact-sheet.png');
    run('ffmpeg',['-v','error','-y','-i',destination,'-vf',
-     'select='+selector([0,bake.releaseFrame-1,bake.releaseFrame,bake.releaseFrame+5,
-       bake.releaseFrame+15,100,125,150,frames-1])+',scale=480:270,tile=3x3',
+     'select='+selector(selected)+',scale=480:270,tile=3x3',
      '-frames:v','1',contact]);
    nativeStills[path.basename(contact)]=sha(await readFile(contact));
    filmData[mode]={name:filename,sha256:sha(await readFile(destination)),frameHashes,stateHashes,nativeStills,
@@ -145,7 +143,6 @@ try{
  // A/B comparison built exclusively from actual frame bytes decoded from the two MP4s.
  const off=path.join(output,filmData.off!.name),on=path.join(output,filmData.on!.name);
  const comparison=path.join(output,'m4-physics-off-on-comparison.png');
- const focus=bake.releaseFrame+30;
  run('ffmpeg',['-v','error','-y','-i',off,'-i',on,'-filter_complex',
    '[0:v]select=eq(n\\,'+focus+'),scale=960:540,setpts=PTS-STARTPTS[l];'+
    '[1:v]select=eq(n\\,'+focus+'),scale=960:540,setpts=PTS-STARTPTS[r];'+

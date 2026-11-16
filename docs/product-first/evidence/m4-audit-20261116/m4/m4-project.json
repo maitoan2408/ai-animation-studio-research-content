@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "physics-m4/1",
+  "motion": {
+    "schemaVersion": "character-motion/1",
+    "character": {
+      "id": "guest-m4-01",
+      "model": "an",
+      "rigId": "production-cutout-1",
+      "artPackId": "lantern-art-1",
+      "capabilities": [
+        "walk-stop",
+        "turn-head",
+        "wave",
+        "pick-place"
+      ],
+      "xStart": 840,
+      "floor": 860,
+      "facing": 1
+    },
+    "clips": [
+      {
+        "action": "pick-place",
+        "frames": 73
+      }
+    ],
+    "prop": {
+      "id": "cup-m3",
+      "asset": "props/cup",
+      "sha256": "3ef82e07b61e1c1f19d54dccf9ae22138773c27dadb46ebde7e7eb7c86b60eee",
+      "x": 960,
+      "y": 631,
+      "scale": 0.7
+    }
+  },
+  "tailFrames": 96,
+  "gravityMps2": 9.81,
+  "prop": {
+    "id": "cup-m3",
+    "pixelsPerMeter": 200,
+    "massKg": 0.6,
+    "halfExtentsM": [
+      0.15,
+      0.13
+    ],
+    "linearDamping": 0.1,
+    "angularDamping": 0.65,
+    "friction": 0.02,
+    "restitution": 0.2,
+    "floorStageY": 632,
+    "velocityStagePxPerSecond": [
+      95,
+      -30
+    ],
+    "angularVelocityDegPerSecond": 40
+  }
+}

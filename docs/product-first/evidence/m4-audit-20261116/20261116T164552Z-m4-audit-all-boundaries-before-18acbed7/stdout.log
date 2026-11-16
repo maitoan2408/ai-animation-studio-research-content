@@ -1,0 +1,73 @@
+✖ frozen unvalidated receipts cannot bypass replay validation (778.684423ms)
+✖ checksum-consistent teleport and floor penetration reject at bake boundary (294.275457ms)
+✖ checksum-consistent floor penetration rejects at bake boundary (152.886663ms)
+✖ contact event records first real support impulse at a 240Hz substep (127.600855ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2985.603524
+
+✖ failing tests:
+
+test at production/tests/m4-audit.test.ts:12:1
+✖ frozen unvalidated receipts cannot bypass replay validation (778.684423ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/workspace/m4-audit/production/tests/m4-audit.test.ts:16:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /M4_BAKE_UNVALIDATED/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at production/tests/m4-audit.test.ts:18:1
+✖ checksum-consistent teleport and floor penetration reject at bake boundary (294.275457ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/workspace/m4-audit/production/tests/m4-audit.test.ts:21:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /M4_BAKE_HANDOFF/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at production/tests/m4-audit.test.ts:23:1
+✖ checksum-consistent floor penetration rejects at bake boundary (152.886663ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/workspace/m4-audit/production/tests/m4-audit.test.ts:26:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /M4_BAKE_PENETRATION/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at production/tests/m4-audit.test.ts:29:1
+✖ contact event records first real support impulse at a 240Hz substep (127.600855ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  undefined !== 63
+  
+      at TestContext.<anonymous> (/workspace/m4-audit/production/tests/m4-audit.test.ts:46:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 63,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

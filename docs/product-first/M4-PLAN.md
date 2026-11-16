@@ -25,7 +25,7 @@
 - Supported asset: versioned art `props/cup` with matching SHA; M3 character `production-cutout-1`; exactly one bounded `pick-place` grip/release and platform geometry; user-editable mass, gravity, damping, restitution, initial velocity, angular velocity, platform height and collision half extents.
 - Parameter validation is fail-closed; objects or rig types outside this bounded implementation reject clearly. No S05 scene ID or hardcoded frame number; release is discovered in contact data.
 - Units explicitly converted: stage pixels/Y-down/CW degrees ↔ Rapier metres/Y-up/CCW radians at declared 200px/m. The collider is an art-directed box proxy, not the rendered silhouette. Declared Rapier collision skin 2mm; any reported penetration must be measured against actual collider envelope. No silent tolerance changes.
-- Receipt includes input/art/recipe/bake SHA-256, locked package and implementation hashes, engine/algorithm versions and fixed step settings. Random sample `150→20→100→0→150` reads frozen persisted frames.
+- Receipt includes input/art/recipe/bake SHA-256, locked package and implementation hashes, engine/algorithm versions and fixed step settings. Timeline-relative random samples `last→20→release→0→last` read successfully validated, frozen persisted frames, including the 105-frame minimum.
 - `M4_PROJECT_FILE` and `M4_OUTPUT_DIR` support custom M3-derived sources, while production's integrated native server consumes validated bake data.
 
 ## Acceptance / QA matrix

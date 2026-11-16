@@ -1,0 +1,18 @@
+{
+  "phase": "U2",
+  "step": "m4-audit-production-only-fixed",
+  "run_id": "20261116T165552Z-m4-audit-production-only-fixed-9e09876e",
+  "started_at_utc": "20261116T165552Z",
+  "command": [
+    "production/node_modules/.bin/tsx",
+    "--test",
+    "/tmp/m4-production-only-fixed/production/tests/m4-audit.test.ts"
+  ],
+  "cwd": "/workspace/m4-audit",
+  "base_commit": "bd03721aed84b3aaa022076cf33aa304a63e4d15",
+  "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "RUNNING",
+  "recorder_pid": 19479,
+  "source_snapshot_mode": "dedup-v1",
+  "source_snapshot_sha256": "e20f098bd71f8dc05776f07955860d830b7d3a32d63f9d0af5c659da1da0cc99"
+}

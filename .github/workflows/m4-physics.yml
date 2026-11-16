@@ -4,10 +4,14 @@ on:
     paths:
       - 'production/src/physics/**'
       - 'production/src/render/**'
-      - 'production/src/qa/audit-m4.ts'
+      - 'production/src/qa/audit-m4*.ts'
+      - 'production/src/scene/**'
+      - 'production/assets/**'
+      - 'production/examples/m4-*.json'
       - 'production/src/motion/**'
-      - 'production/tests/m4-physics.test.ts'
+      - 'production/tests/m4-*.ts'
       - 'production/package*.json'
+      - 'scripts/run-step.py'
       - '.github/workflows/m4-physics.yml'
   workflow_dispatch:
 permissions:
@@ -19,7 +23,9 @@ jobs:
   native-m4-and-post-result-review:
     runs-on: ubuntu-latest
     container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
-    timeout-minutes: 40
+    timeout-minutes: 50
+    env:
+      SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install local native media runtime
@@ -27,19 +33,72 @@ jobs:
       - run: npm --prefix production ci
       - name: M4 strict types and real-solver contract tests
         run: |
-          npm --prefix production run typecheck
-          npm --prefix production run test:physics:m4
-          npm --prefix production run test:physics
+          python3 scripts/run-step.py U2 m4-ci-types -- npm --prefix production run typecheck
+          python3 scripts/run-step.py U2 m4-ci-contracts -- npm --prefix production run test:physics:m4
+          python3 scripts/run-step.py U2 m4-ci-locked-physics -- npm --prefix production run test:physics
       - name: Render true 1080p24 Physics OFF and ON using same native M3 project
         env:
           SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: npm --prefix production run physics:m4
+        run: python3 scripts/run-step.py U2 m4-ci-native-default -- npm --prefix production run physics:m4
       - name: Independent post-result audit of OFF/ON media, contacts and provenance
-        run: npm --prefix production run physics:m4:audit
+        run: |
+          python3 scripts/run-step.py U2 m4-ci-post-default -- npm --prefix production run physics:m4:audit
+          python3 scripts/run-step.py U2 m4-ci-negative-media -- production/node_modules/.bin/tsx production/src/qa/audit-m4-negative.ts
+      - name: Short valid project and subframe contact native OFF/ON regression
+        env:
+          M4_PROJECT_FILE: examples/m4-short-project.json
+          M4_OUTPUT_DIR: out/product-first/m4-short
+        run: |
+          python3 scripts/run-step.py U2 m4-ci-native-short -- npm --prefix production run physics:m4
+          python3 scripts/run-step.py U2 m4-ci-post-short -- npm --prefix production run physics:m4:audit
       - name: Upload native evidence and editable source
-        if: success()
+        if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: physics-m4-review-${{ github.run_number }}
-          path: production/out/product-first/m4/
+          path: |
+            production/out/product-first/m4/
+            production/out/product-first/m4-short/
+            production/evidence/U2/*m4-ci*/result.json
+            production/evidence/U2/*m4-ci*/stdout.log
+          retention-days: 14
+
+      - name: Upload compact review media
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: physics-m4-compact-${{ github.run_number }}
+          path: |
+            production/out/product-first/m4*/*.json
+            production/out/product-first/m4*/*.mp4
+            production/out/product-first/m4*/*contact-sheet.png
+            production/out/product-first/m4*/*comparison.png
+          retention-days: 14
+      - name: Upload default off native stills
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: physics-m4-default-off-stills-${{ github.run_number }}
+          path: production/out/product-first/m4/m4-off-frame-*.png
+          retention-days: 14
+      - name: Upload default on native stills
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: physics-m4-default-on-stills-${{ github.run_number }}
+          path: production/out/product-first/m4/m4-on-frame-*.png
+          retention-days: 14
+      - name: Upload short off native stills
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: physics-m4-short-off-stills-${{ github.run_number }}
+          path: production/out/product-first/m4-short/m4-off-frame-*.png
+          retention-days: 14
+      - name: Upload short on native stills
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: physics-m4-short-on-stills-${{ github.run_number }}
+          path: production/out/product-first/m4-short/m4-on-frame-*.png
           retention-days: 14

@@ -1,0 +1,29 @@
+✔ frozen unvalidated receipts cannot bypass replay validation (961.325761ms)
+✔ checksum-consistent handoff teleport rejects at bake boundary (220.016757ms)
+✔ checksum-consistent floor penetration rejects at bake boundary (189.190831ms)
+✔ contact event records first real support impulse at a 240Hz substep (130.71116ms)
+✔ review frame selection supports shortest and long M4 projects (45.863413ms)
+✖ committed second input bakes the shortest supported native timeline (0.90052ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4855.637536
+
+✖ failing tests:
+
+test at ../../tmp/m4-production-only-before/production/tests/m4-audit.test.ts:64:1
+✖ committed second input bakes the shortest supported native timeline (0.90052ms)
+  Error: ENOENT: no such file or directory, open '/tmp/m4-production-only-before/examples/m4-short-project.json'
+      at readFileSync (node:fs:483:20)
+      at TestContext.<anonymous> (/tmp/m4-production-only-before/production/tests/m4-audit.test.ts:66:27)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/tmp/m4-production-only-before/examples/m4-short-project.json'
+  }
