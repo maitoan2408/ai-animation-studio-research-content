@@ -1,0 +1,27 @@
+name: M5 source formatting evidence
+on:
+  pull_request:
+    paths: ['.github/workflows/m5-format-proof.yml']
+permissions:
+  contents: read
+jobs:
+  format-source-evidence:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - run: npm ci
+      - name: Produce canonical Prettier source, without modifying the repository
+        run: |
+          npx prettier --write src/director.ts tests/director.test.ts web/director.html web/director.js scripts/m5-product-e2e.ts scripts/m5-independent-audit.ts
+      - name: Export exact formatted bytes as base64 in public source-evidence logs
+        run: |
+          for file in src/director.ts tests/director.test.ts web/director.html web/director.js scripts/m5-product-e2e.ts scripts/m5-independent-audit.ts; do
+            echo "M5_FORMAT_START:$file"
+            base64 -w 0 "$file"
+            echo
+            echo "M5_FORMAT_END:$file"
+          done
+      - name: Check compiler independently after formatting
+        run: npx tsc -p tsconfig.test.json
