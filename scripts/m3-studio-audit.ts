@@ -29,7 +29,9 @@ try{
   assert.equal(actual,expected,'stale or tampered delivered media '+name);
  }
  audit.checks.push('All six actual delivered file SHA-256 values match frozen evidence receipt');
- const project=JSON.parse(await readFile(path.join(out,'m3-project.json'),'utf8')) as {
+ const projectBytes=await readFile(path.join(out,'m3-project.json'));
+ assert.equal(sha(projectBytes),receipt.revision,'delivered project does not match saved revision');
+ const project=JSON.parse(projectBytes.toString()) as {
   character:{id:string;capabilities:string[]};clips:Array<{action:string;frames:number}>;prop?:unknown
  };
  assert.equal(project.character.id,'guest-qa');
