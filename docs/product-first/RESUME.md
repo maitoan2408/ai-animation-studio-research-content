@@ -1,3 +1,7 @@
+# M1–M5 development integration — 2026-11-17
+
+Source M4-audit PR #14 `3bbc337c3294e6dfa7570e463e6724a6990d64d9` plus M5 Director PR #15 `afdec922c993357981ee39cd32c772b69212b08d` combined on isolated branch, with M4 audit modifications preserved. M4 owner NOT_REVIEWED, M5 REWORK_REQUIRED. Three M5 findings await test-first fixes and joint M1–M5 CI; no merge to main/M6.
+
 # Current M4 audit completed — READY_FOR_USER_REVIEW
 
 Owner-requested M4 audit repaired replay validation, short timelines, substep contact events and false-positive media QA. Complete Studio, production and M4 CI passed on executable source `fc1eaf82d6a38f884f9baab8b4a04d6e9656c951`; downloaded four native films and nine negative media cases passed a separate second review. [Report and exact evidence](M4-AUDIT.md), [draft PR #14](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/14). Final documentation HEAD must also have all three green CI checks before handoff. No owner acceptance, merge or M5; preserve accepted M1–M3 and S05.

@@ -1,0 +1,15 @@
+---
+name: director
+version: 1
+---
+# M5 bounded Director — operational skill and real executor
+
+**ID:** `director-m5/1`. **Executor:** `src/director.ts`; **UI:** `/director`, `web/director.js`; **Service:** `src/server.ts`. No hypothetical or prose-only skill: `planDirector()`, `validateDirectorPlan()`, `executeDirectorPlan()` and `DirectorService.run()` call actual `Studio` methods.
+
+**Input:** strict `{title,script,style,language,profile,voice}`. Script scenes are separated by blank lines, with optional `[action=...; camera=...; seconds=...]` directives. Only root Studio's currently implemented `idle,wave,walk,pick-up,talk`, `static,pan` and known styles are allowed. Heuristic inferred actions are explicitly described in plan notes and require user approval. Root Studio is not the M3 native rig or M4 native physics pipeline.
+
+**Output:** SHA-bound `DirectorPlan` with full validated storyboard and exact acyclic task graph (scenes → voice if requested → render → verify); after explicit approval, one actual editable Studio project and a `DirectorReceipt` binding plan/revision/job/MP4 SHA and QC. Every node maps to a specific executable `Studio` action. No review record or artistic PASS is written.
+
+**Guards:** strict reconstructed graph, schema and SHA binding, no arbitrary JS or external keys; one active Director run, SHA-bound idempotent recovery of completed plans, render retry only for `RENDER_TEMPORARY`, `PROCESS_FAILED` or `WORKER_INTERRUPTED`, never retry unsupported/invalid inputs; fail closed if project revision changed by a human. Do not overwrite authored changes or assume a browser/user approved a rendered film.
+
+**Verification:** `tests/director.test.ts` negative/security/ownership/retry tests; `scripts/m5-product-e2e.ts` actual localhost UI and two new 1080p24 voiced movies; separate `scripts/m5-independent-audit.ts` video/audio/source/hash and failure screenshot checks. Full root/workbench/M4 regression on final implementation source required before review. M4 owner approval remains pending and this M5 branch must not be auto-merged.
