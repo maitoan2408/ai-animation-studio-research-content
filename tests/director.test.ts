@@ -227,7 +227,11 @@ test('M5 recovery rejects a corrupted plan journal without creating another proj
   await rm(path.join(root, 'director-m5', plan.planSha256 + '.json'));
   await writeFile(
     path.join(root, 'director-m5', plan.planSha256 + '.progress.json'),
-    JSON.stringify({ schemaVersion: 'director-m5-progress/1', planSha256: plan.planSha256, projectId: 'prj_fake' }),
+    JSON.stringify({
+      schemaVersion: 'director-m5-progress/1',
+      planSha256: plan.planSha256,
+      projectId: 'prj_fake',
+    }),
   );
   await assert.rejects(director.run(plan, true), codeIs('DIRECTOR_PROGRESS_CORRUPT'));
   assert.equal((await app.store.list('projects')).length, 1);
