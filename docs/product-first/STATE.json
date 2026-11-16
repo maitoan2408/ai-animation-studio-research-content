@@ -5,8 +5,8 @@
     "branch": "codex/v2-continuous",
     "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
   },
-  "implementationBranch": "codex/product-first-m4-physics",
-  "activeMilestone": "M4",
+  "implementationBranch": "codex/product-first-m5-director",
+  "activeMilestone": "M5",
   "milestones": {
     "M0": {
       "technicalStatus": "PASSED",
@@ -423,9 +423,19 @@
       }
     },
     "M5": {
-      "technicalStatus": "NOT_VERIFIED",
+      "technicalStatus": "IN_PROGRESS",
       "evidenceStatus": "NOT_VERIFIED",
-      "userAcceptance": "NOT_REVIEWED"
+      "userAcceptance": "NOT_REVIEWED",
+      "sourceBaseCommit": "081ee51cf7fb95ca1defe5f772449c5a7cf275a5",
+      "branch": "codex/product-first-m5-director",
+      "plan": "docs/product-first/M5-PLAN.md",
+      "review": "docs/product-first/M5-REVIEW.md",
+      "dependency": "M4 remains owner NOT_REVIEWED. Owner explicitly authorized beginning M5 development on 2026-11-17 without accepting or merging M4; M5 cannot be owner-ACCEPTED or merged automatically.",
+      "scope": "Bounded Director task graph and real Studio skill orchestration, two fresh native videos, UI graph screenshots and failure/recovery proofs.",
+      "status": "IMPLEMENTATION",
+      "ciRuns": [],
+      "unresolvedInScopeDefects": [],
+      "nextAction": "Build validated graph, real executor and UI; exercise failing cases; deliver two fresh source-bound videos and screenshot evidence; second-pass audit; rerun root/workbench/M4 suites after last fix."
     },
     "M6": {
       "technicalStatus": "NOT_VERIFIED",
@@ -490,6 +500,6 @@
       "scope": "M3 delivered motion/Studio quality and completed M1-M3 audit, with disclosed bounded art/rig and draft/silent audio limitations. Does not approve M4 deliverables or authorize PR merges."
     }
   },
-  "nextMilestone": "M4",
-  "nextAction": "M4 independent audit found in-scope defects; fix M4-EDGE-001 and M4-SUPPORT-002 and rerun full acceptance gates."
+  "nextMilestone": "M5",
+  "nextAction": "Implement M5 Director on separate Draft branch, with owner M4 approval still pending. No merges or owner acceptance assertions."
 }
