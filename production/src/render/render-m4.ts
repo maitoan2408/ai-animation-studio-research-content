@@ -15,6 +15,30 @@ import {bakeM4,validateM4Bake,validateM4Project,type PhysicsProject,type Physics
 import {sampleM4Scene} from '../physics/m4-adapter.js';
 import type {ArtPack} from '../scene/types.js';
 const sha=(b:string|Uint8Array)=>createHash('sha256').update(b).digest('hex');
+/** Cross-runtime (Node/V8 vs Chromium/WebGL browser) trigonometric evaluations
+ * can differ by ~1e-14. Verify every key, array entry, string and Boolean exactly;
+ * compare finite transform numbers within 1e-9 stage units, far below the
+ * independent measured contact/collision limits. Browser seek checks remain
+ * byte-for-byte PNG/state SHA comparisons in the same runtime.
+ */
+function assertSceneParity(actual:unknown,expected:unknown,location:string):void{
+ if(typeof expected==='number'){
+   assert.equal(typeof actual,'number',location+' type');
+   assert.ok(Number.isFinite(actual as number)&&Number.isFinite(expected)&&
+     Math.abs((actual as number)-expected)<=1e-9,
+     'M4_NATIVE_TRANSFORM_DIVERGENCE '+location+' got='+actual+' expected='+expected);
+ }else if(Array.isArray(expected)){
+   assert.ok(Array.isArray(actual),'M4_NATIVE_ARRAY '+location);
+   assert.equal(actual.length,expected.length,'M4_NATIVE_ARRAY_LENGTH '+location);
+   expected.forEach((item,i)=>assertSceneParity(actual[i],item,location+'['+i+']'));
+ }else if(expected!==null&&typeof expected==='object'){
+   assert.ok(actual!==null&&typeof actual==='object'&&!Array.isArray(actual),'M4_NATIVE_OBJECT '+location);
+   const a=actual as Record<string,unknown>,e=expected as Record<string,unknown>;
+   assert.deepEqual(Object.keys(a).sort(),Object.keys(e).sort(),'M4_NATIVE_KEYS '+location);
+   for(const key of Object.keys(e))assertSceneParity(a[key],e[key],location+'.'+key);
+ }else assert.equal(actual,expected,'M4_NATIVE_VALUE '+location);
+}
+
 const run=(command:string,args:string[])=>{
  const proc=spawnSync(command,args,{encoding:'utf8',maxBuffer:16*1024*1024});
  if(proc.error||proc.status!==0)throw Error(command+' FAILED '+String(proc.stderr||proc.error));
@@ -78,8 +102,8 @@ try{
      const raw=await captureFrameToBuffer(session,frame,frame/24);
      assert.equal(await session.page.evaluate('window.studio.frame'),frame);
      const displayed=await session.page.evaluate('JSON.stringify(window.studio.state)') as string;
-     assert.equal(displayed,JSON.stringify(sampleM4Scene({project,bake,enabled:mode==='on'},frame,pack)),
-       'M4_NATIVE_RENDER_STATE_MISMATCH '+mode+' '+frame);
+     assertSceneParity(JSON.parse(displayed),sampleM4Scene({project,bake,enabled:mode==='on'},frame,pack),
+       'mode='+mode+' frame='+frame);
      frameHashes.push(sha(raw.buffer));stateHashes.push(sha(displayed));
      if(selected.includes(frame)){
        const imageName='m4-'+mode+'-frame-'+String(frame).padStart(3,'0')+'.png';
