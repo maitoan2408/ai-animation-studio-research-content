@@ -67,7 +67,7 @@ export function validateM4Project(raw:unknown,pack:ArtPack):PhysicsProject{
     motion.clips.filter(c=>c.action==='pick-place').length!==1||
     motion.clips.at(-1)?.action!=='pick-place')
    throw Error('M4_PROP_CONTACT_UNSUPPORTED');
- if(!Number.isSafeInteger(raw.tailFrames)||raw.tailFrames<32||raw.tailFrames>240||
+ if(!Number.isSafeInteger(raw.tailFrames)||Number(raw.tailFrames)<32||Number(raw.tailFrames)>240||
     !range(raw.gravityMps2,1,30)||p.pixelsPerMeter!==200||
     !range(p.massKg,0.01,10)||!pair(p.halfExtentsM,1)||
     p.halfExtentsM.some((v:number)=>v<=0||v>0.5)||
@@ -113,7 +113,7 @@ export const centre=(pack:ArtPack,s:Sprite):[number,number]=>{
  return [s.x+d[0],s.y+d[1]];
 };
 export function m4Recipe(project:PhysicsProject):PhysicsRecipe{
- return {schemaVersion:'m4-recipe/1',engine:'rapier-'+versions.rapier,
+ return {schemaVersion:'m4-recipe/1',engine:('rapier-'+versions.rapier) as PhysicsRecipe['engine'],
    algorithm:'released-prop-platform-v1',fps:24,hz:240,substeps:10,solverIterations:12,
    gravityMps2:project.gravityMps2,contactSkinM:0.002,
    packageLockSha256:lockSha,implementationSha256:nativeSourceSha};
@@ -161,7 +161,7 @@ export function validateM4Bake(raw:unknown,project:PhysicsProject,pack:ArtPack):
  if(!Array.isArray(raw.events)||raw.events.length<2)throw Error('M4_BAKE_EVENTS');
  for(const e of raw.events){
    if(!obj(e)||!exact(e,['frame','kind','source'])||
-     !Number.isSafeInteger(e.frame)||e.frame<0||e.frame>=frames.length||
+     !Number.isSafeInteger(e.frame)||Number(e.frame)<0||Number(e.frame)>=frames.length||
      !['grip','release','platform-contact'].includes(String(e.kind))||
      e.source!==(e.kind==='platform-contact'?'rapier-contact':'authored-contact'))
      throw Error('M4_BAKE_EVENT_INVALID');
