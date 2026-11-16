@@ -17,4 +17,6 @@ Reviewer: delegated-agent. Scope: latest M3 branch 73adc256, including accepted 
 - Production workflow path filter omits the root M3 service/UI/harness that its native integration tests exercise.
 - M3 RESUME/plan contain obsolete workbench-only statements after Studio integration.
 
+- Confirmed additional cold-install defect: M3 native render failed ENOENT on missing textures.json; existing CI hid it by preparing art during M1 first. Renderer now bootstraps missing cache through the existing rasterizer, verifies every original/source and raster SHA, rejects corrupt cache, and CI explicitly starts M3 without that cache.
+
 Results: IN_PROGRESS. Logs and source snapshots: production/evidence/U2/*audit* (U2 is recorder namespace only).

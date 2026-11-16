@@ -11,6 +11,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {createCaptureSession,initializeSession,captureFrameToBuffer,closeCaptureSession,drainBrowserPool} from '@hyperframes/engine';
 import {serveM3,root} from './server.js';
+import {ensureM3Textures} from './prepare-m3.js';
 import {M3CharacterRegistry,makeM3Showcase,m3TotalFrames,sampleM3,validateM3} from '../motion/character-library.js';
 import type {ArtPack} from '../scene/types.js';
 
@@ -43,6 +44,7 @@ let session:Awaited<ReturnType<typeof createCaptureSession>>|undefined;
 let ff:ReturnType<typeof spawn>|undefined;
 let encoderStderr='';
 try{
+ await ensureM3Textures();
  server=await serveM3(project,{width:1920,height:1080});
  session=await createCaptureSession(server.url,output,{
    width:1920,height:1080,fps:{num:24,den:1},format:'png'

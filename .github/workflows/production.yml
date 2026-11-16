@@ -49,16 +49,18 @@ jobs:
         # Full-repo npm ci passed before EX-028 was fixed. This separate checkout
         # must remain outside the parent package tree, with its own empty cache.
         run: PATH="/tmp/q2-qc/bin:$PATH" /tmp/q2-qc/bin/python production/src/qa/check_fresh_review.py
+      - name: M3 native character-motion showcase (1080p + contact/seek gates)
+        env:
+          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          if [ -d production/out/art-q1 ]; then mv production/out/art-q1 production/out/art-q1-before-m3; fi
+          npm --prefix production run motion:m3
       - name: M1 production IR independent real Three video (native-art + 1080p still parity)
         env:
           SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           production/node_modules/.bin/tsx production/src/art/preview.ts
           production/node_modules/.bin/tsx production/src/render/render-ir.ts
-      - name: M3 native character-motion showcase (1080p + contact/seek gates)
-        env:
-          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: npm --prefix production run motion:m3
       - name: M3 required independent post-result provenance and media audit
         run: npm --prefix production run motion:m3:audit
       - name: M3 Studio real editor, saved revision and custom native film

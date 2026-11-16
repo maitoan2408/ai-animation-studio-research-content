@@ -113,10 +113,12 @@ try {
   invalid.character = { ...imported.character, id: 'invalid-import' };
   const invalidFile = path.join(dir, 'invalid.json');
   await writeFile(invalidFile, JSON.stringify(invalid));
-  const rejected = page.waitForResponse(r => r.url().endsWith('/motion/validate'));
+  const rejected = page.waitForResponse((r) => r.url().endsWith('/motion/validate'));
   await input.uploadFile(invalidFile);
   assert.equal((await rejected).status(), 400);
-  await page.waitForFunction(() => document.querySelector('#motion-notice')?.textContent?.includes('M3_INVALID_PROJECT'));
+  await page.waitForFunction(() =>
+    document.querySelector('#motion-notice')?.textContent?.includes('M3_INVALID_PROJECT'),
+  );
   check(
     'invalid import leaves current draft intact',
     await page.$eval('#character-id', (el) => (el as HTMLInputElement).value),
