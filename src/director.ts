@@ -147,6 +147,51 @@ export function validateDirectorPlan(raw: unknown): DirectorPlan {
     throw new StudioError('DIRECTOR_PLAN_TAMPERED', 'Graph or plan receipt differs from input.');
   return expected;
 }
+const hexSha = z.string().regex(/^[a-f0-9]{64}$/);
+const persistedReceiptSchema = z
+  .object({
+    schemaVersion: z.literal('director-m5-receipt/1'),
+    planSha256: hexSha,
+    status: z.literal('succeeded'),
+    tasks: z.array(
+      z
+        .object({
+          id: z.enum(['scenes', 'voice', 'render', 'verify']),
+          skill: z.enum(['script-to-scenes', 'prepare-audio', 'render-review', 'verify-artifact']),
+          status: z.literal('succeeded'),
+          attempt: z.number().int().positive(),
+        })
+        .strict(),
+    ),
+    projectId: z.string().min(1),
+    revisionId: z.string().min(1),
+    revisionDigest: hexSha,
+    renderInputSha256: hexSha,
+    audioAssetSha256s: z.array(hexSha),
+    jobId: z.string().min(1),
+    artifactId: z.string().min(1),
+    artifactSha256: hexSha,
+    profile: profileSchema,
+    qc: z
+      .object({
+        frames: z.number().int().positive(),
+        expectedFrames: z.number().int().positive(),
+        fps: z.string(),
+        width: z.number().int().positive(),
+        height: z.number().int().positive(),
+        duration: z.number().finite(),
+        hasAudio: z.boolean(),
+        audioDuration: z.number().finite().optional(),
+        audioSampleRate: z.number().int().positive().optional(),
+      })
+      .strict(),
+    voice: z.boolean(),
+    source: z.literal('root-studio-v1'),
+    autoApproved: z.literal(false),
+    createdAt: z.string().min(1),
+    receiptSha256: hexSha,
+  })
+  .strict();
 const transient = new Set(['RENDER_TEMPORARY', 'PROCESS_FAILED', 'WORKER_INTERRUPTED']);
 async function assertCurrent(app: Studio, projectId: string, revisionId: string) {
   const doc = await app.store.current(projectId);
@@ -357,40 +402,88 @@ export class DirectorService {
           throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Cannot load existing receipt.');
       }
       if (existing) {
+        const parsed = persistedReceiptSchema.safeParse(existing);
+        if (!parsed.success)
+          throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Stored receipt has invalid fields.');
+        existing = parsed.data;
         const { receiptSha256, ...payload } = existing;
+        const expectedTasks = plan.graph.map((node) => ({ id: node.id, skill: node.skill }));
+        const actualTasks = existing.tasks.map((task) => ({ id: task.id, skill: task.skill }));
         if (
           receiptSha256 !== digest(payload) ||
           existing.planSha256 !== plan.planSha256 ||
-          existing.status !== 'succeeded' ||
           existing.projectId !== directorProjectId(plan.planSha256) ||
-          existing.profile !== plan.intent.profile
+          existing.profile !== plan.intent.profile ||
+          existing.voice !== plan.intent.voice ||
+          canonical(actualTasks) !== canonical(expectedTasks) ||
+          existing.tasks.some((task) => task.status !== 'succeeded') ||
+          existing.tasks.some(
+            (task) => task.id !== 'render' && task.attempt !== 1,
+          )
         )
-          throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Stored receipt was modified.');
+          throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Stored execution claims are inconsistent.');
+        let job: Job;
+        try {
+          job = await this.app.store.get<Job>('jobs', existing.jobId);
+        } catch {
+          throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Stored render job does not exist.');
+        }
+        const renderTask = existing.tasks.find((task) => task.id === 'render');
+        if (
+          job.status !== 'succeeded' ||
+          job.error ||
+          job.projectId !== existing.projectId ||
+          job.revisionId !== existing.revisionId ||
+          job.profile !== existing.profile ||
+          job.artifactId !== existing.artifactId ||
+          job.attempts.length !== renderTask?.attempt ||
+          !job.attempts.length ||
+          !job.attempts.at(-1)?.finishedAt ||
+          job.attempts.at(-1)?.error
+        )
+          throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Persisted job no longer proves successful rendering.');
         const artifact = await this.app.store.get<Artifact>('artifacts', existing.artifactId);
         if (
           artifact.sha256 !== existing.artifactSha256 ||
           artifact.projectId !== existing.projectId ||
           artifact.revisionId !== existing.revisionId ||
+          artifact.jobId !== job.id ||
+          artifact.profile !== existing.profile ||
+          artifact.cacheKey !== job.cacheKey ||
+          canonical(artifact.qc) !== canonical(existing.qc) ||
           !(await this.app.store.verifyArtifact(artifact))
         )
           throw new StudioError(
             'DIRECTOR_ARTIFACT_INVALID',
-            'Previously completed video was modified.',
+            'Previously completed video or artifact evidence was modified.',
           );
         const revision = await assertCurrent(this.app, existing.projectId, existing.revisionId);
+        const original = await this.app.store.get<Revision>(
+          'revisions',
+          (await this.app.store.get<{ revisionIds: string[] }>(
+            'projects',
+            existing.projectId,
+          )).revisionIds[0]!,
+        );
         if (
+          original.digest !== plan.specSha256 ||
+          original.projectId !== existing.projectId ||
+          !original.notes.includes('director-plan-sha256=' + plan.planSha256) ||
           revision.digest !== existing.revisionDigest ||
           existing.renderInputSha256 !==
             digest({ spec: revision.spec, profile: existing.profile }) ||
           canonical(existing.audioAssetSha256s) !==
             canonical(
               revision.spec.scenes.flatMap((scene) => (scene.audio ? [scene.audio.assetId] : [])),
-            )
+            ) ||
+          artifact.qc.frames !== totalFrames(revision.spec) ||
+          artifact.qc.expectedFrames !== totalFrames(revision.spec) ||
+          artifact.qc.width !== profiles[existing.profile].width ||
+          artifact.qc.height !== profiles[existing.profile].height ||
+          artifact.qc.fps !== '24/1' ||
+          artifact.qc.hasAudio !== existing.voice
         )
-          throw new StudioError(
-            'DIRECTOR_RECEIPT_CORRUPT',
-            'Stored revision binding was modified.',
-          );
+          throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Source plan, revision or media profile differs.');
         for (const id of existing.audioAssetSha256s) await this.app.store.verifyAsset(id);
         return existing;
       }
