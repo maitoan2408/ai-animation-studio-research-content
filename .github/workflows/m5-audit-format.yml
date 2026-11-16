@@ -1,0 +1,20 @@
+name: M5 deep audit formatting export (temporary)
+on:
+  push:
+    branches: ['codex/m5-deep-audit-20261117']
+    paths:
+      - 'src/director.ts'
+      - '.github/workflows/m5-audit-format.yml'
+permissions:
+  contents: read
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: npm ci
+      - run: |
+          npx prettier --write src/director.ts
+          printf 'FORMAT_READY|src/director.ts|%s\n' "$(base64 -w0 src/director.ts)"
