@@ -7,6 +7,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {type RenderConfig,type TextureSpec} from './browser.js';
+import {validateM3,type M3Project} from '../motion/character-library.js';
 import {type ShotId,type Edit} from '../scene/benchmark.js';
 import type {ArtPack} from '../scene/types.js';
 import {phonemeCues} from '../audio/cues.js';
@@ -59,5 +60,14 @@ export async function serveIR(ir:import('../scene/animation-ir-adapter.js').Stag
     session.close();
     throw Error('IR_ART_PACK_VERSION_MISMATCH');
   }
+  return session;
+}
+
+/** M3 uses the same trusted Three texture loader and locked art-pack hashes.
+ * Never serve source- or model-generated browser code. */
+export async function serveM3(project:M3Project,options:{width?:number;height?:number}={}){
+  const session=await serve('S01',options);
+  try{session.config.m3=validateM3(project,session.config.pack);}
+  catch(error){session.close();throw error;}
   return session;
 }

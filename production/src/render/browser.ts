@@ -5,9 +5,10 @@ import * as THREE from 'three';
 import {benchmarkFrame,type ShotId,type Edit,shotFrames} from '../scene/benchmark.js';
 import type {ArtPack,SceneFrame} from '../scene/types.js';
 import {toProductionFrame,type StageShotTimeline} from '../scene/animation-ir-adapter.js';
+import {sampleM3,m3TotalFrames,type M3Project} from '../motion/character-library.js';
 
 export type TextureSpec={id:string;url:string;sha256:string;width:number;height:number};
-export type RenderConfig={pack:ArtPack;textures:TextureSpec[];shot:ShotId;edit?:Edit;ir?:StageShotTimeline;width:number;height:number;timeoutMs:number};
+export type RenderConfig={pack:ArtPack;textures:TextureSpec[];shot:ShotId;edit?:Edit;ir?:StageShotTimeline;m3?:M3Project;width:number;height:number;timeoutMs:number};
 type WindowApi=Window&{studio:{ready:boolean;error:string|null;frame:number;state:SceneFrame|null;seek:(frame:number)=>void;dispose:()=>void;diagnostics:Record<string,unknown>};__hf?:{duration:number;seek:(time:number)=>void}};
 const api=window as unknown as WindowApi;
 
@@ -49,7 +50,7 @@ async function start(){
  await Promise.all(Array.from({length:4},async()=>{while(queue.length){const spec=queue.shift()!;textures.set(spec.id,await loadTexture(spec,config.timeoutMs));}}));
  function draw(frame:number){
   if(!api.studio.ready)throw Error(api.studio.error??'RENDER_NOT_READY');
-  const state=config.ir?toProductionFrame(config.ir,frame,config.pack).frame:benchmarkFrame(config.pack,config.shot,frame,config.edit);
+  const state=config.m3?sampleM3(config.m3,frame,config.pack).frame:config.ir?toProductionFrame(config.ir,frame,config.pack).frame:benchmarkFrame(config.pack,config.shot,frame,config.edit);
   for(const mesh of meshes.values())mesh.visible=false;
   const ordered=[...state.sprites].sort((a,b)=>a.z-b.z);
   for(const [order,s] of ordered.entries()){
@@ -78,7 +79,7 @@ async function start(){
   gl:gl.getParameter(gl.VERSION),renderer:debug?gl.getParameter(debug.UNMASKED_RENDERER_WEBGL):null};
  api.studio.seek=draw;api.studio.dispose=()=>{for(const mesh of meshes.values()){mesh.geometry.dispose();(mesh.material as THREE.Material).dispose();}for(const t of textures.values())t.dispose();renderer.dispose();};
  api.studio.ready=true;draw(0);
- const count=config.ir?.timeline.totalFrames??shotFrames[config.shot];
+ const count=config.m3?m3TotalFrames(config.m3):config.ir?.timeline.totalFrames??shotFrames[config.shot];
  api.__hf={duration:count/24,seek:(time:number)=>draw(Math.min(count-1,Math.max(0,Math.floor(time*24+1e-7))))};
 }
 api.studio={ready:false,error:null,frame:-1,state:null,seek:()=>{throw Error('RENDER_NOT_READY');},dispose:()=>{},diagnostics:{}};

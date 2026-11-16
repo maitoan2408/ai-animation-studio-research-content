@@ -1,26 +1,33 @@
-# Resume checkpoint — 2026-11-16 | M2 technical PASS, pending owner review
+# M3 checkpoint — 2026-11-16 | TECHNICAL PASS; OWNER REVIEW PENDING
 
-## Strict stage gate
+## Sequential gate
 
-M0 and M1 are owner ACCEPTED. **M2 READY_FOR_USER_REVIEW (NOT_ACCEPTED)**. Do not start M3 or merge any stacked PR until owner explicitly approves. Mandatory for every stage: implement, independent defect/quality audit, repair findings, full final-source CI regressions, inspect actual rendered media, then present owner review.
+M0, M1, M2 are explicitly owner ACCEPTED. M3 is **READY_FOR_USER_REVIEW**, technical evidence PASS, but owner artistic/functional assessment **NOT_REVIEWED**. No M4 work and no merge of stacked PRs until owner accepts. No interim reporting.
 
-## Latest verified source and real evidence
+## Reproducible M3 product and code
 
-- Source code HEAD for M2 media: `bc351255374a7aac499e056daf8ed194167bb74a`. The documentation status update that follows is documentation-only; the executable revision and verified movie are unchanged.
-- Full Studio & product CI SUCCESS: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952273
-- Full production workbench CI SUCCESS: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952293
-- Latest actual M2 evidence: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43737952273/artifacts/14170989211 (`paper-studio-m2-145`, expires 2026-11-29).
-- The 24 sec 3-shot editable Studio movie is native 1920x1080/24fps, 576 decoded H264 frames with 48kHz AAC Vietnamese draft speech. SHA-256 `cc3177c7c71393fb54778f12c05023e102ff229cd6111a161cbf3ff61b8ed109`.
-- On 2026-11-16 downloaded the latest artifact and independently verified all 23 manifest hashes, MP4 SHA, ffprobe frame count, full ffmpeg video+audio decode, 3-scene portable project/voice references, sample frames/contact and browser-run reopen evidence.
-- The old long-render CLI JSON contract was repaired in commit `bc351255`; `tests/cli-long.ts` now runs in CI and passed. Earlier root-cause evidence persists in M2-REVIEW.md.
+- Development branch: `codex/product-first-m3-character-motion`; Draft PR #11; base is owner-accepted M2 branch.
+- Executable source and additional post-result re-audit passed on `61020373e6b64c9901fb6d3f5b7d19827363ec92`. Later documentation-only commit does not alter renderer or locked media.
+- Studio full CI: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767435 — SUCCESS (including M2 native edited video regression).
+- Production workbench full CI: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767459 — SUCCESS (includes M1 native video, M3 native 1080p film and separate post-result audit).
+- Media ZIP: https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43751133731/artifacts/14178155027 (expires 2026-11-29).
+- Native `m3-character-motion-final-1080p.mp4`: 268 frames, 1920x1080, 24fps, duration 11.1667s, H264, intentionally silent. SHA-256 `2a902307ae4e7fadccae0fbc6b75ecf3af97e90192015739a35d79b8da0434a5`.
+- New ID `guest-01` reuses validated art model `an`; project file is hash-bound, registry guards duplicate IDs.
+- Four actions: walk-stop, turn-head, wave, pick-place. 488 planted foot contact samples show zero sole drift; 58 held grip samples zero misalignment; cup lifts 66 stage pixels.
+- Actual full-encoded video independently downloaded and decoded; project bytes, native stills and contacts match all SHA. 17 native screenshots and actual before/after image retained.
 
-## Owner review boundary
+## Defect recovery & final review
 
-The pipeline, save/reopen, draft voice, editing and media output passed technical requirements. Visual motion is **basic**: simple wave, rigid walk and mechanical cup pick-up; natural motion remains future M3/M6. Draft eSpeak Vietnamese voice is not human quality certified. No automated evidence is an owner visual or listening approval. No M3 progress unless the owner says yes.
+Review report: `docs/product-first/M3-REVIEW.md`. Initial render technically succeeded but second pass found incorrect project-file digest and misleading standing baseline. Both corrected; registry collisions tested; native media redone; independent auditor verifies real artifact bytes as separate job step. Historical FAIL test runs are retained. No unresolved M3-scoped technical issues found in last audit.
 
-## Files to read first
+## Human caveats
 
-- `docs/product-first/ROADMAP.md` for stage requirements and mandatory post-stage QA.
-- `docs/product-first/STATE.json` for machine-readable state.
-- `docs/product-first/M2-REVIEW.md` for detailed M2 defects, checks, evidence and scope.
-- `scripts/m2-product-e2e.ts` and `.github/workflows/ci.yml` for reproducible workflow.
+- Visual puppet reuses existing verified model; no novel character artwork was created.
+- This M3 film demonstrates actual motion and contacts but not M4 generalized physics, M5 Director or M6 acting/voice polish.
+- Do not equate screenshot/hash parity with subjective quality approval. Show actual MP4/GIF/contact and concise QA in chat, then owner decides `ACCEPTED`.
+
+## Owner-requested M3 limitation audit and final review package
+
+After the original technical pass, the owner requested a full limitation inspection and repairs before any M4 work. Fixed and regression-tested capability subsets, prop-free non-pick tracks, and early out-of-reach pick/place rejection on executable source `61020373e6b64c9901fb6d3f5b7d19827363ec92`. Both complete CI workflows passed (`Studio 43753767435`, `workbench 43753767459`). Downloaded fresh M3 media and verified 21/21 SHA-256 entries, FFprobe exact 268 frames and full FFmpeg decode. Film visual bytes match the previous accepted technical artifact; M3 owner acceptance remains pending.
+
+Remaining deliberate bounds: the existing art/rig is reused, only right-facing two-step authored gait and cup interaction are demonstrated, and the new executor runs in the production workbench rather than the M2 Studio UI. These must be disclosed during owner review; general physics/Director/premium polish are M4–M6, not M3. M4 MUST NOT start before owner approval. See `M3-REVIEW.md`.

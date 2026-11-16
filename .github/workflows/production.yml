@@ -15,7 +15,7 @@ jobs:
   contracts-and-review:
     runs-on: ubuntu-latest
     container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install local media runtime
@@ -55,6 +55,20 @@ jobs:
         run: |
           production/node_modules/.bin/tsx production/src/art/preview.ts
           production/node_modules/.bin/tsx production/src/render/render-ir.ts
+      - name: M3 native character-motion showcase (1080p + contact/seek gates)
+        env:
+          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: npm --prefix production run motion:m3
+      - name: M3 required independent post-result provenance and media audit
+        run: npm --prefix production run motion:m3:audit
+      - name: M3 Studio real editor, saved revision and custom native film
+        env:
+          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          npm ci
+          npx tsx scripts/m3-studio-e2e.ts
+      - name: Independent M3 Studio post-result QA
+        run: npx tsx scripts/m3-studio-audit.ts
       - name: Upload diagnostic evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -63,6 +77,8 @@ jobs:
           path: |
             production/out/review-ui/
             production/out/product-first/m1/
+            production/out/product-first/m3/
+            artifacts/product-first/m3-studio/
             production/out/review-audit/
             production/out/player-check/
             production/out/chart-results/
