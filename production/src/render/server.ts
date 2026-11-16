@@ -8,6 +8,8 @@ import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {type RenderConfig,type TextureSpec} from './browser.js';
 import {validateM3,type M3Project} from '../motion/character-library.js';
+import {validateM4Project,validateM4Bake} from '../physics/m4.js';
+import type {M4RenderData} from '../physics/m4-adapter.js';
 import {type ShotId,type Edit} from '../scene/benchmark.js';
 import type {ArtPack} from '../scene/types.js';
 import {phonemeCues} from '../audio/cues.js';
@@ -70,4 +72,19 @@ export async function serveM3(project:M3Project,options:{width?:number;height?:n
   try{session.config.m3=validateM3(project,session.config.pack);}
   catch(error){session.close();throw error;}
   return session;
+}
+
+/** A validated user-editable M3 motion project is the authored input of M4.
+ * Both OFF and ON use the same render backend, timeline, camera and art pack.
+ * Never trust a caller's bake hash without checking input+toolchain+art.
+ */
+export async function serveM4(raw:M4RenderData,options:{width?:number;height?:number}={}){
+ const session=await serve('S01',options);
+ try{
+   const project=validateM4Project(raw.project,session.config.pack);
+   const bake=validateM4Bake(raw.bake,project,session.config.pack);
+   if(typeof raw.enabled!=='boolean')throw Error('M4_RENDER_MODE');
+   session.config.m4={project,bake,enabled:raw.enabled};
+ }catch(error){session.close();throw error;}
+ return session;
 }
