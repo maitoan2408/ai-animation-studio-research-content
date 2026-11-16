@@ -50,7 +50,7 @@ try {
     'Stale plan A must never reactivate approval after a script change',
   );
   assert.equal(await page.$$eval('#director-graph li', (entries) => entries.length), 0);
-  await page.setRequestInterception(false);
+  // Keep interception enabled while the asynchronous request callbacks drain.
   await page.click('#director-plan');
   await page.waitForFunction(
     () => (document.querySelector('#director-phase')?.textContent || '').includes('Ready'),

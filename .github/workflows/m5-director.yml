@@ -40,6 +40,8 @@ jobs:
           npm --prefix production run typecheck
           npm --prefix production run test:physics:m4
           npm --prefix production run test:physics
+      - name: Consolidated M1-M5 local QA workflow syntax
+        run: bash -n scripts/m1-m5-workflow.sh
       - name: Delayed response / edited input browser regression
         run: npx tsx scripts/m5-async-plan-ui.ts
       - name: Two new actual native 1080p voiced films, graph UI and fail-closed demo
