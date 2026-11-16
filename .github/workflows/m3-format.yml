@@ -1,0 +1,29 @@
+name: M3 editor formatting (temporary source tidy)
+on:
+  push:
+    branches: ['codex/product-first-m3-character-motion']
+permissions:
+  contents: write
+jobs:
+  tidy:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: codex/product-first-m3-character-motion
+          persist-credentials: true
+      - run: npm ci
+      - name: Format only new M3 Studio files and touched UI/HTTP code
+        run: npx prettier --write src/motion-service.ts src/server.ts tests/m3-http.test.ts web/motion.js web/motion.html web/index.html web/style.css
+      - name: Commit mechanical formatting if needed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/motion-service.ts src/server.ts tests/m3-http.test.ts web/motion.js web/motion.html web/index.html web/style.css
+          if git diff --cached --quiet; then
+            echo "FORMAT_ALREADY_CLEAN"
+          else
+            git commit -m "style(m3): format Studio native motion integration"
+            git push origin HEAD:codex/product-first-m3-character-motion
+          fi
