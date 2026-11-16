@@ -5,7 +5,10 @@ const defaults = { 'walk-stop': 73, 'turn-head': 49, wave: 49, 'pick-place': 97 
 const cupSha = '3ef82e07b61e1c1f19d54dccf9ae22138773c27dadb46ebde7e7eb7c86b60eee';
 let saved = null,
   dirty = false,
-  checkingJob = '';
+  checkingJob = '',
+  draftBase = null,
+  editVersion = 0,
+  documentBusy = false;
 function note(message, error = false) {
   const target = $('#motion-notice');
   target.textContent = message;
@@ -21,6 +24,8 @@ function field(label, type, value) {
   return { box, input };
 }
 function apply(project) {
+  draftBase = structuredClone(project);
+  editVersion++;
   $('#character-id').value = project.character.id;
   $('#character-model').value = project.character.model;
   $('#character-x').value = String(project.character.xStart);
@@ -89,35 +94,42 @@ function clips() {
 }
 function collect() {
   if (!saved) throw Error('M3 project not loaded');
-  const project = structuredClone(saved.project);
+  const project = structuredClone(draftBase);
   const entries = clips();
   if (!entries.length) throw Error('Cần ít nhất một action clip.');
   project.character.id = $('#character-id').value.trim();
   project.character.model = $('#character-model').value;
   project.character.xStart = Number($('#character-x').value);
   project.character.floor = Number($('#character-floor').value);
-  project.character.capabilities = [...new Set(entries.map((x) => x.action))];
+  if (
+    JSON.stringify(entries.map((x) => x.action)) !==
+    JSON.stringify(draftBase.clips.map((x) => x.action))
+  )
+    project.character.capabilities = [...new Set(entries.map((x) => x.action))];
   project.clips = entries;
   if (entries.some((x) => x.action === 'pick-place')) {
     project.prop = {
-      id: 'cup-m3',
-      asset: 'props/cup',
-      sha256: cupSha,
+      id: project.prop?.id ?? 'cup-m3',
+      asset: project.prop?.asset ?? 'props/cup',
+      sha256: project.prop?.sha256 ?? cupSha,
       x: Number($('#cup-x').value),
       y: Number($('#cup-y').value),
       scale: Number($('#cup-scale').value),
     };
-  } else delete project.prop;
+  } else if (draftBase.clips.some((x) => x.action === 'pick-place')) delete project.prop;
   return project;
 }
 function updateDirty() {
   $('#revision').textContent = saved
     ? (dirty ? 'Chưa lưu · ' : 'Đã lưu · ') + saved.revision.slice(0, 12)
     : 'Đang mở';
-  $('#motion-render').disabled = dirty || !saved || checkingJob !== '';
-  $('#motion-save').disabled = !saved;
+  $('#motion-render').disabled = dirty || !saved || documentBusy || checkingJob !== '';
+  $('#motion-save').disabled = !saved || documentBusy;
+  $('#motion-reload').disabled = documentBusy;
+  $('#motion-import').disabled = !saved || documentBusy;
 }
 function markDirty() {
+  editVersion++;
   dirty = true;
   updateDirty();
 }
@@ -147,17 +159,49 @@ async function perform(button, fn) {
     updateDirty();
   }
 }
+async function documentOperation(fn) {
+  if (documentBusy) throw Error('Đang xử lý project; hãy đợi thao tác hiện tại.');
+  documentBusy = true;
+  updateDirty();
+  try {
+    await fn();
+  } finally {
+    documentBusy = false;
+    updateDirty();
+  }
+}
 async function load() {
-  const next = await api('/project');
-  saved = next;
-  apply(next.project);
-  note('Đã mở revision ' + next.revision.slice(0, 12) + ' · ' + next.frames + ' frames.');
+  await documentOperation(async () => {
+    const version = editVersion;
+    const next = await api('/project');
+    saved = next;
+    if (editVersion === version) apply(next.project);
+    note(
+      'Đã mở revision ' +
+        next.revision.slice(0, 12) +
+        ' · ' +
+        next.frames +
+        ' frames.' +
+        (dirty ? ' Giữ lại chỉnh sửa mới chưa lưu.' : ''),
+    );
+  });
 }
 async function save() {
-  const document = await api('/project', { expectedRevision: saved.revision, project: collect() });
-  saved = document;
-  apply(document.project);
-  note('Đã lưu và xác minh: ' + document.frames + ' frames / 24fps.');
+  await documentOperation(async () => {
+    const version = editVersion;
+    const document = await api('/project', {
+      expectedRevision: saved.revision,
+      project: collect(),
+    });
+    saved = document;
+    if (editVersion === version) apply(document.project);
+    note(
+      'Đã lưu và xác minh: ' +
+        document.frames +
+        ' frames / 24fps.' +
+        (dirty ? ' Giữ lại chỉnh sửa mới chưa lưu.' : ''),
+    );
+  });
 }
 async function checkJob(id) {
   checkingJob = id;
@@ -223,10 +267,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const file = e.currentTarget.files?.[0];
       if (!file) return;
       if (file.size > 30000) throw Error('File project lớn hơn 30 KB.');
-      const project = JSON.parse(await file.text());
-      apply(project);
-      markDirty();
-      note('Đã nhập nháp; hãy lưu để kiểm tra dữ liệu và xuất video.');
+      await documentOperation(async () => {
+        const version = editVersion;
+        const project = JSON.parse(await file.text());
+        const validated = await api('/validate', { project });
+        if (version !== editVersion)
+          throw Error('Có chỉnh sửa mới; hãy nhập lại file để tránh ghi đè.');
+        apply(validated.project);
+        markDirty();
+        note('Đã nhập nháp đã xác minh; hãy lưu để xuất video.');
+      });
     }),
   );
   $('#motion-render').addEventListener('click', (e) =>

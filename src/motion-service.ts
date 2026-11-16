@@ -116,6 +116,9 @@ export class MotionService {
     const raw = await readFile(this.projectFile);
     return { revision: hash(raw), project: JSON.parse(raw.toString()) as MotionProject };
   }
+  async validate(project: unknown) {
+    return childJson(project);
+  }
   async get(): Promise<MotionDoc> {
     await this.init();
     const doc = await this.current();

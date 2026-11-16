@@ -1,10 +1,10 @@
 name: Q2 workbench verification
 on:
   pull_request:
-    paths: ['production/**', 'scripts/run-step.py', 'scripts/m2-product-e2e.ts', 'examples/m2-new-story.txt', '.github/workflows/production.yml']
+    paths: ['production/**', 'src/**', 'web/**', 'tests/m3-*.ts', 'scripts/m3-*.ts', 'examples/m3-*.json', 'package*.json', 'scripts/run-step.py', 'scripts/m2-product-e2e.ts', 'examples/m2-new-story.txt', '.github/workflows/production.yml']
   push:
     branches: [main]
-    paths: ['production/**', 'scripts/run-step.py', '.github/workflows/production.yml']
+    paths: ['production/**', 'src/**', 'web/**', 'tests/m3-*.ts', 'scripts/m3-*.ts', 'examples/m3-*.json', 'package*.json', 'scripts/run-step.py', '.github/workflows/production.yml']
   workflow_dispatch:
 permissions:
   contents: read

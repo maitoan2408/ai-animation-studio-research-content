@@ -344,6 +344,20 @@
     "M3 started only after explicit M2 owner acceptance; no interim reports; reviewable actual video and secondary post-result QA are mandatory.",
     "M3 268-frame 1080p native showreel and second-pass media provenance audit PASSED on 7aa1ce (both full CI); owner acceptance NOT_REVIEWED; M4 strictly prohibited.",
     "M3 reopened at owner request; three genuine data-contract limitations repaired and retested on 61020373e6b64c9901fb6d3f5b7d19827363ec92. Full app+workbench CI PASS; fresh 21/21 SHA-bound native media PASS. M4 remains blocked by owner gate.",
-    "M3 remaining bounded-scope limits disclosed: existing art/rig only, right-facing specific actions/cup, workbench-only motion not in M2 editor."
-  ]
+    "M3 remaining bounded-scope limits disclosed: existing art/rig only, right-facing specific actions/cup, separate /motion Studio page, not embedded in M2 storyboard editor."
+  ],
+  "crossMilestoneAudit": {
+    "date": "2026-11-16",
+    "status": "IN_PROGRESS",
+    "branch": "codex/m1-m3-audit-20261116",
+    "baseCommit": "73adc25646ba1175aa1e0ba9b108264bf27b546b",
+    "plan": "docs/product-first/M1-M3-AUDIT.md",
+    "reviewer": "delegated-agent",
+    "findings": [
+      "M3 late save erases newer draft",
+      "M3 import loses identity and discards invalid fields",
+      "Native M3 CI path filter omits Studio changes",
+      "Obsolete workbench-only checkpoint statements"
+    ]
+  }
 }
