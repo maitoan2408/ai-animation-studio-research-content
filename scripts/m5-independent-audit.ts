@@ -139,19 +139,37 @@ for (const film of manifest.programs) {
   // frame, not the black placeholder FFmpeg adds for a 5-frame 3×2 sheet.
   const contactPath = path.join(root, film.contact.file);
   const contactProbe = JSON.parse(
-    run('ffprobe', ['-v', 'error', '-show_entries', 'stream=width,height',
-      '-of', 'json', contactPath]).toString(),
+    run('ffprobe', [
+      '-v',
+      'error',
+      '-show_entries',
+      'stream=width,height',
+      '-of',
+      'json',
+      contactPath,
+    ]).toString(),
   ) as { streams: Array<{ width: number; height: number }> };
   assert.equal(contactProbe.streams[0]?.width, 1440);
   assert.equal(contactProbe.streams[0]?.height, 540);
   const lastTilePixel = run('ffmpeg', [
-    '-v', 'error', '-nostdin', '-i', contactPath,
-    '-vf', 'crop=1:1:1200:405', '-pix_fmt', 'rgb24',
-    '-f', 'rawvideo', '-',
+    '-v',
+    'error',
+    '-nostdin',
+    '-i',
+    contactPath,
+    '-vf',
+    'crop=1:1:1200:405',
+    '-pix_fmt',
+    'rgb24',
+    '-f',
+    'rawvideo',
+    '-',
   ]);
   assert.equal(lastTilePixel.length, 3);
-  assert.ok([...lastTilePixel].some((x) => x > 40),
-    'M5_EMPTY_CONTACT_TILE: black unused contact slot');
+  assert.ok(
+    [...lastTilePixel].some((x) => x > 40),
+    'M5_EMPTY_CONTACT_TILE: black unused contact slot',
+  );
   const video = await verifyFile(film.video.file, film.video.sha256);
   assert.ok(video.length > 10000);
   assert.equal(receipt.artifactSha256, film.video.sha256);

@@ -201,8 +201,12 @@ try {
     await page.waitForFunction(
       () => {
         const player = document.querySelector<HTMLVideoElement>('#director-video');
-        return player && !player.seeking && player.readyState >= 2 &&
-          Math.abs(player.currentTime - 2) < 0.05;
+        return (
+          player &&
+          !player.seeking &&
+          player.readyState >= 2 &&
+          Math.abs(player.currentTime - 2) < 0.05
+        );
       },
       { timeout: 30000 },
     );

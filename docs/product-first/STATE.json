@@ -424,7 +424,7 @@
     },
     "M5": {
       "technicalStatus": "IN_PROGRESS",
-      "evidenceStatus": "NOT_VERIFIED",
+      "evidenceStatus": "POST_RESULT_QA_IN_PROGRESS",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "081ee51cf7fb95ca1defe5f772449c5a7cf275a5",
       "branch": "codex/product-first-m5-director",
@@ -435,7 +435,23 @@
       "status": "IMPLEMENTATION",
       "ciRuns": [],
       "unresolvedInScopeDefects": [],
-      "nextAction": "Build validated graph, real executor and UI; exercise failing cases; deliver two fresh source-bound videos and screenshot evidence; second-pass audit; rerun root/workbench/M4 suites after last fix."
+      "nextAction": "Rerun genuine two-script final media after frame/preview evidence remediation, independently audit artifact and refresh full root/production/M4 CI on final HEAD; only then hand off.",
+      "resolvedDefects": [
+        {
+          "id": "M5-VISUAL-001",
+          "description": "Rendered Studio screenshot showed only a blank media-element gradient because metadata was loaded but no video frame had decoded.",
+          "resolution": "M5 browser preview requests the first frame, and E2E genuinely plays/seeks to frame 48 and verifies decode before capturing screenshots.",
+          "fixCommit": "17a43c95ae70b38a2870d138df6cd9ccc23d25c4"
+        },
+        {
+          "id": "M5-VISUAL-002",
+          "description": "3x2 chronological contact sheet had only five selected frames, leaving a misleading black placeholder tile.",
+          "resolution": "Render six real selected frames; independent second pass verifies the sixth tile contains actual image pixels.",
+          "fixCommit": "17a43c95ae70b38a2870d138df6cd9ccc23d25c4"
+        }
+      ],
+      "lastVerifiedSourceCommit": "ebb80ea36f7d0c931a569e1e9a1662ead98ab6ae",
+      "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/15"
     },
     "M6": {
       "technicalStatus": "NOT_VERIFIED",
@@ -501,5 +517,5 @@
     }
   },
   "nextMilestone": "M5",
-  "nextAction": "Implement M5 Director on separate Draft branch, with owner M4 approval still pending. No merges or owner acceptance assertions."
+  "nextAction": "M5 initial 2-film native end-to-end and separate audit PASS at ebb80e; post-result screenshot/contact defects reproduced and repaired, final CI pending. Owner M4 still NOT_REVIEWED."
 }

@@ -3,6 +3,11 @@ on:
   pull_request:
     paths:
       - 'production/src/physics/**'
+      - 'src/director.ts'
+      - 'src/server.ts'
+      - 'web/director.*'
+      - 'scripts/m5-*.ts'
+      - '.github/workflows/m5-director.yml'
       - 'production/src/render/**'
       - 'production/src/qa/audit-m4.ts'
       - 'production/src/motion/**'
