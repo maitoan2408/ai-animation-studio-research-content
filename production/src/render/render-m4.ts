@@ -28,9 +28,9 @@ function defaultProject():PhysicsProject{
  validateM3(motion,pack);
  return {schemaVersion:'physics-m4/1',motion,tailFrames:96,gravityMps2:9.81,
    prop:{id:motion.prop!.id,pixelsPerMeter:200,massKg:.6,
-     halfExtentsM:[.15,.13],linearDamping:.35,angularDamping:1.6,
-     friction:.7,restitution:.2,floorStageY:632,
-     velocityStagePxPerSecond:[55,-30],angularVelocityDegPerSecond:40}};
+     halfExtentsM:[.15,.13],linearDamping:.1,angularDamping:.65,
+     friction:.02,restitution:.2,floorStageY:632,
+     velocityStagePxPerSecond:[95,-30],angularVelocityDegPerSecond:40}};
 }
 const configured=process.env.M4_PROJECT_FILE;
 const project=validateM4Project(configured

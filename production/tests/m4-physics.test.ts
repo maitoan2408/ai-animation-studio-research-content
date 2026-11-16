@@ -18,9 +18,9 @@ function example(variant:'tip'|'slide'='tip'):PhysicsProject{
  return {
   schemaVersion:'physics-m4/1',motion,tailFrames:96,gravityMps2:9.81,
   prop:{id:motion.prop!.id,pixelsPerMeter:200,massKg:variant==='tip'?.6:.9,
-    halfExtentsM:[.15,.13],linearDamping:.35,angularDamping:1.6,
-    friction:variant==='tip'?.7:.35,restitution:variant==='tip'?.2:.55,
-    floorStageY:632,velocityStagePxPerSecond:variant==='tip'?[55,-30]:[-80,-50],
+    halfExtentsM:[.15,.13],linearDamping:.1,angularDamping:.65,
+    friction:variant==='tip'?.02:.03,restitution:variant==='tip'?.2:.55,
+    floorStageY:632,velocityStagePxPerSecond:variant==='tip'?[95,-30]:[-110,-50],
     angularVelocityDegPerSecond:variant==='tip'?40:-55},
  };
 }
@@ -46,7 +46,7 @@ test('M4 real Rapier bake: two parametrized interactions, 240Hz deterministic an
  const seek=order.map(f=>sampleM4Bake(a,f));
  assert.deepEqual(seek[0],seek[4]);
  const live=new Set(a.frames.slice(a.releaseFrame+1).map(f=>f.centerX.toFixed(4)+'/'+f.centerY.toFixed(4)));
- assert.ok(live.size>30,'physics must genuinely move prop');
+ assert.ok(live.size>30,'physics must genuinely move prop: distinct='+live.size);
  const off=sampleM4Scene({project,bake:a,enabled:false},150,pack);
  const on=sampleM4Scene({project,bake:a,enabled:true},150,pack);
  assert.deepEqual(off.camera,on.camera);
