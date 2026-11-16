@@ -121,10 +121,13 @@ for(const mode of ['off','on']){
  const entry=manifest.videos[mode]!;
  assert.ok(entry&&entry.frameHashes.length===bake.frames.length);
  assert.equal(entry.stateHashes.length,bake.frames.length);
+ for(const hash of [...entry.frameHashes,...entry.stateHashes])assert.match(hash,/^[a-f0-9]{64}$/);
  await checkFile(entry.name,entry.sha256);
  const expectedStills=[...selected.map(f=>'m4-'+mode+'-frame-'+String(f).padStart(3,'0')+'.png'),
    'm4-'+mode+'-contact-sheet.png'];
  assert.deepEqual(Object.keys(entry.nativeStills).sort(),expectedStills.sort(),'M4_NATIVE_STILLS_MISSING');
+ for(const f of selected)assert.equal(entry.nativeStills['m4-'+mode+'-frame-'+String(f).padStart(3,'0')+'.png'],
+   entry.frameHashes[f],'M4_NATIVE_FRAME_BINDING');
  for(const [file,hash] of Object.entries(entry.nativeStills))await checkFile(file,hash);
  assert.deepEqual(entry.video,{width:1920,height:1080,fps:24,frames:bake.frames.length,audio:false});
  const meta=JSON.parse(exec('ffprobe',['-v','error','-count_frames','-show_streams',
@@ -150,6 +153,14 @@ const decodedFrame=(mode:string)=>{
 };
 assert.notEqual(sha(decodedFrame('off')),sha(decodedFrame('on')),'M4_DECODED_OFF_ON_IDENTICAL');
 metrics.visualComparisonPixelDifference=true;
+const comparison=spawnSync('ffmpeg',['-v','error','-nostdin','-i',path.join(dir,manifest.videos.off!.name),
+ '-i',path.join(dir,manifest.videos.on!.name),'-filter_complex',
+ '[0:v]select=eq(n\\,'+focus+'),scale=960:540,setpts=PTS-STARTPTS[l];'+
+ '[1:v]select=eq(n\\,'+focus+'),scale=960:540,setpts=PTS-STARTPTS[r];'+
+ '[l][r]hstack=inputs=2','-frames:v','1','-f','image2pipe','-c:v','png','pipe:1'],
+ {maxBuffer:8*1024*1024});
+assert.equal(comparison.status,0,'M4_COMPARISON_REBUILD '+String(comparison.stderr));
+assert.equal(sha(comparison.stdout),manifest.comparison.sha256,'M4_COMPARISON_NOT_FROM_FILMS');
 assert.notEqual(manifest.videos.off!.frameHashes[manifest.comparison.frame],
   manifest.videos.on!.frameHashes[manifest.comparison.frame]);
 const changed=structuredClone(bake);

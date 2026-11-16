@@ -10,18 +10,26 @@ const source=path.resolve(process.env.M4_OUTPUT_DIR??path.join(root,'out/product
 const parent=await mkdtemp('/tmp/m4-negative-audit-');
 const results:Array<{case:string;status:string;error:string}>=[];
 try{
- for(const kind of ['project','video','still','missing-still','source','rehashed-trajectory','off-as-on']){
+ for(const kind of ['project','video','still','missing-still','source','rehashed-trajectory','off-as-on','rehashed-still','rehashed-comparison']){
   const out=path.join(parent,kind);await cp(source,out,{recursive:true});
   const manifestPath=path.join(out,'manifest.json');
   const manifest=JSON.parse(await readFile(manifestPath,'utf8'));
   const expected:Record<string,RegExp>={project:/M4_DELIVERY_HASH/,video:/M4_DELIVERY_HASH/,
    still:/M4_DELIVERY_HASH/,'missing-still':/M4_NATIVE_STILLS_MISSING/,source:/M4_SOURCE_COMMIT/,
-   'rehashed-trajectory':/M4_RECOMPUTED_BAKE_MISMATCH/,'off-as-on':/M4_DECODED_OFF_ON_IDENTICAL/};
+   'rehashed-trajectory':/M4_RECOMPUTED_BAKE_MISMATCH/,'off-as-on':/M4_DECODED_OFF_ON_IDENTICAL/,'rehashed-still':/M4_NATIVE_FRAME_BINDING/,
+   'rehashed-comparison':/M4_COMPARISON_NOT_FROM_FILMS/};
   if(['project','video','still'].includes(kind)){
    const file=kind==='project'?manifest.project.file:kind==='video'?manifest.videos.on.name:
      Object.keys(manifest.videos.on.nativeStills)[0];
    const target=path.join(out,file),bytes=await readFile(target);
    bytes[Math.floor(bytes.length/2)]!^=1;await writeFile(target,bytes);
+  }else if(kind==='rehashed-still'){
+   const files=Object.keys(manifest.videos.on.nativeStills);
+   const bytes=await readFile(path.join(out,files[1]!));
+   await writeFile(path.join(out,files[0]!),bytes);manifest.videos.on.nativeStills[files[0]!]=sha(bytes);
+  }else if(kind==='rehashed-comparison'){
+   const bytes=await readFile(path.join(out,'m4-off-contact-sheet.png'));
+   await writeFile(path.join(out,manifest.comparison.file),bytes);manifest.comparison.sha256=sha(bytes);
   }else if(kind==='missing-still')delete manifest.videos.on.nativeStills[Object.keys(manifest.videos.on.nativeStills)[0]!];
   else if(kind==='source')manifest.sourceCommit='LOCAL_UNPINNED';
   else if(kind==='off-as-on'){
