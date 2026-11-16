@@ -1,3 +1,5 @@
+> **Owner acceptance — 2026-11-16:** “Oce rồi mình duyệt”. The delivered M3 result and M1–M3 audit on `618e50a` are **ACCEPTED**. Pending-owner statements below describe earlier checkpoints. M4 is next in the unchanged roadmap; its own implementation/verification gates remain open. No automatic PR merge.
+
 # M3 — Character / Motion System: thực thi và nghiệm thu
 
 **Authorized:** 2026-11-16. Chủ dự án đã duyệt M2 trong hội thoại, cho phép triển khai M3. Parent: `codex/product-first-m2-studio-v02`; branch: `codex/product-first-m3-character-motion`; PR #11 (Draft). Không tự merge, không bắt đầu M4 trước khi chủ dự án duyệt M3.

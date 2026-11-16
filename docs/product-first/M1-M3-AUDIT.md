@@ -1,3 +1,5 @@
+> **Owner acceptance — 2026-11-16:** “Oce rồi mình duyệt”. The delivered M3 result and M1–M3 audit on `618e50a` are **ACCEPTED**. Pending-owner statements below describe earlier checkpoints. M4 is next in the unchanged roadmap; its own implementation/verification gates remain open. No automatic PR merge.
+
 # M1–M3 audit — 2026-11-16
 
 Reviewer: delegated-agent. Scope: latest M3 branch 73adc256, including accepted M1/M2 ancestry. No M4 or change to core roadmap/art acceptance.

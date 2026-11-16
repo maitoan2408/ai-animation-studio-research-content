@@ -238,8 +238,8 @@
     },
     "M3": {
       "technicalStatus": "PASSED",
-      "evidenceStatus": "READY_FOR_USER_REVIEW",
-      "userAcceptance": "NOT_REVIEWED",
+      "evidenceStatus": "ACCEPTED",
+      "userAcceptance": "ACCEPTED",
       "sourceBaseCommit": "68ae34daebce4e1b27b4345cf5f296e4f4d300c2",
       "plan": "docs/product-first/M3-PLAN.md",
       "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/11",
@@ -256,7 +256,7 @@
         "Only supported existing art and rig; right-facing, cup-specific bounded motions.",
         "Character Motion integrated as a separate /motion Studio page, not embedded in M2 storyboard editor."
       ],
-      "ownerGate": "Owner to approve bounded M3 after seeing fresh video/contact/QA in chat. Do not begin M4 or merge without approval.",
+      "ownerGate": "ACCEPTED by owner on 2026-11-16. M4 prerequisite satisfied; no automatic merge.",
       "sourceImplementationCommit": "7030efec1f9d47e1a3815790f8baad6f4a6c1c4b",
       "appCIRun": 43805995843,
       "productionCIRun": 43805995855,
@@ -295,14 +295,35 @@
         "Concurrent native Studio render requests fail closed with regression coverage."
       ],
       "unresolvedInScopeDefects": [],
-      "humanGate": "Owner must watch true M3 footage and decide artistic/functional acceptance; do not begin M4 without explicit owner approval",
+      "humanGate": "Owner accepted the delivered bounded M3 result. Future milestone acceptance remains separate.",
       "report": "docs/product-first/M3-REVIEW.md",
       "proof": {
         "studioCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43805995843",
         "workbenchCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43805995855",
         "artifact": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43805995855/artifacts/14198174989"
       },
-      "sourceCommit": "7030efec1f9d47e1a3815790f8baad6f4a6c1c4b"
+      "sourceCommit": "7030efec1f9d47e1a3815790f8baad6f4a6c1c4b",
+      "ownerReview": {
+        "date": "2026-11-16",
+        "timezone": "Asia/Saigon",
+        "decision": "ACCEPTED",
+        "source": "Explicit owner approval in this conversation",
+        "ownerMessage": "Oce rồi mình duyệt",
+        "reviewedSourceCommit": "618e50a52e3b7283421551120856034c08c5f666",
+        "scope": "M3 delivered motion/Studio quality and completed M1-M3 audit, with disclosed bounded art/rig and draft/silent audio limitations. Does not approve M4 deliverables or authorize PR merges."
+      },
+      "acceptedAuditProof": {
+        "sourceCommit": "618e50a52e3b7283421551120856034c08c5f666",
+        "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/12",
+        "appCIRun": 43847373653,
+        "productionCIRun": 43847373626,
+        "compactArtifactId": 14217171079,
+        "downloadedMediaAudit": {
+          "status": "PASS",
+          "checkedHashes": 62,
+          "fullVideoDecodes": 4
+        }
+      }
     },
     "M4": {
       "technicalStatus": "NOT_VERIFIED",
@@ -344,7 +365,8 @@
     "M3 started only after explicit M2 owner acceptance; no interim reports; reviewable actual video and secondary post-result QA are mandatory.",
     "M3 268-frame 1080p native showreel and second-pass media provenance audit PASSED on 7aa1ce (both full CI); owner acceptance NOT_REVIEWED; M4 strictly prohibited.",
     "M3 reopened at owner request; three genuine data-contract limitations repaired and retested on 61020373e6b64c9901fb6d3f5b7d19827363ec92. Full app+workbench CI PASS; fresh 21/21 SHA-bound native media PASS. M4 remains blocked by owner gate.",
-    "M3 remaining bounded-scope limits disclosed: existing art/rig only, right-facing specific actions/cup, separate /motion Studio page, not embedded in M2 storyboard editor."
+    "M3 remaining bounded-scope limits disclosed: existing art/rig only, right-facing specific actions/cup, separate /motion Studio page, not embedded in M2 storyboard editor.",
+    "2026-11-16 current owner decision: M3 and delivered M1-M3 audit ACCEPTED (\"Oce rồi mình duyệt\"). Earlier pending/blocking notes are historical; M4 is the next milestone, with its own delivery/QA gate. No merge authorized."
   ],
   "crossMilestoneAudit": {
     "date": "2026-11-16",
@@ -365,6 +387,17 @@
     "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/12",
     "evidence": "docs/product-first/evidence/m1-m3-audit-20261116",
     "unresolvedInScopeDefects": [],
-    "ownerAcceptance": "NOT_REVIEWED"
-  }
+    "ownerAcceptance": "ACCEPTED",
+    "ownerReview": {
+      "date": "2026-11-16",
+      "timezone": "Asia/Saigon",
+      "decision": "ACCEPTED",
+      "source": "Explicit owner approval in this conversation",
+      "ownerMessage": "Oce rồi mình duyệt",
+      "reviewedSourceCommit": "618e50a52e3b7283421551120856034c08c5f666",
+      "scope": "M3 delivered motion/Studio quality and completed M1-M3 audit, with disclosed bounded art/rig and draft/silent audio limitations. Does not approve M4 deliverables or authorize PR merges."
+    }
+  },
+  "nextMilestone": "M4",
+  "nextAction": "Prepare the bounded M4 physics implementation plan from ROADMAP.md: deterministic fixed-step bake, ownership/contact contracts, physics OFF/ON comparison, and generalization beyond S05. M4 remains unimplemented and unverified."
 }

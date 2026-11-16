@@ -1,3 +1,5 @@
+> **Owner acceptance — 2026-11-16:** “Oce rồi mình duyệt”. The delivered M3 result and M1–M3 audit on `618e50a` are **ACCEPTED**. Pending-owner statements below describe earlier checkpoints. M4 is next in the unchanged roadmap; its own implementation/verification gates remain open. No automatic PR merge.
+
 # M3 — Product-first character-motion gate / owner review
 
 **2026-11-16 — TECHNICAL PASS, READY_FOR_USER_REVIEW; ownerAcceptance=NOT_REVIEWED.** Gate conducted by delegated-agent and CI, not independent human artistic approval.
