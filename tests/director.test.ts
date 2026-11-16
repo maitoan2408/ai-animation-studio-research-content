@@ -14,6 +14,7 @@ import {
 import {
   StudioError,
   hash,
+  canonical,
   profiles,
   totalFrames,
   type Artifact,
@@ -255,4 +256,65 @@ test('M5-RECHECK-003 reject voice-induced changes to approved scene duration bef
     codeIs('DIRECTOR_VOICE_TIMING_CHANGED'),
   );
   assert.equal((await app.store.list('jobs')).length, 0);
+});
+
+test('M5-AUDIT-004: forged rehashed receipt cannot pretend to be native M4 or auto-approved', async (t) => {
+  const { app, root } = await fixture(t);
+  const director = new DirectorService(app);
+  const plan = planDirector(intent());
+  const original = await director.run(plan, true);
+  const file = path.join(root, 'director-m5', plan.planSha256 + '.json');
+  for (const forged of [
+    { source: 'native-m4-physics' },
+    { autoApproved: true },
+    { schemaVersion: 'director-m5-receipt/99' },
+  ]) {
+    const payload = { ...original, ...forged } as Record<string, unknown>;
+    delete payload.receiptSha256;
+    await writeFile(file, JSON.stringify({ ...payload, receiptSha256: hash(canonical(payload)) }));
+    await assert.rejects(
+      director.run(plan, true),
+      codeIs('DIRECTOR_RECEIPT_CORRUPT'),
+      'A receipt rehashed after unsupported source/approval/schema changes must be rejected',
+    );
+  }
+});
+
+test('M5-AUDIT-005: forged QC and graph-task evidence cannot bypass receipt revalidation', async (t) => {
+  const { app, root } = await fixture(t);
+  const director = new DirectorService(app);
+  const plan = planDirector(intent());
+  const original = await director.run(plan, true);
+  const file = path.join(root, 'director-m5', plan.planSha256 + '.json');
+  const variants = [
+    { qc: { ...original.qc, width: 17 } },
+    { tasks: original.tasks.filter((x) => x.id !== 'verify') },
+    { jobId: 'job_fabricated' },
+  ];
+  for (const forged of variants) {
+    const payload = { ...original, ...forged } as Record<string, unknown>;
+    delete payload.receiptSha256;
+    await writeFile(file, JSON.stringify({ ...payload, receiptSha256: hash(canonical(payload)) }));
+    await assert.rejects(
+      director.run(plan, true),
+      codeIs('DIRECTOR_RECEIPT_CORRUPT'),
+      'A rehashed but untruthful success claim must be rejected',
+    );
+  }
+});
+
+test('M5-AUDIT-006: cached Director receipt cannot succeed when associated render job is no longer successful', async (t) => {
+  const { app } = await fixture(t);
+  const director = new DirectorService(app);
+  const plan = planDirector(intent());
+  const original = await director.run(plan, true);
+  const job = await app.store.get<Job>('jobs', original.jobId);
+  job.status = 'failed';
+  job.error = { code: 'INJECTED_JOB_CORRUPTION', message: 'job no longer succeeded' };
+  await app.store.put('jobs', job.id, job);
+  await assert.rejects(
+    director.run(plan, true),
+    codeIs('DIRECTOR_RECEIPT_CORRUPT'),
+    'Previously completed receipt must be bound to an actually successful job',
+  );
 });
