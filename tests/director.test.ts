@@ -70,12 +70,21 @@ test('M5 versioned deterministic graph includes actual executors, action capabil
   assert.deepEqual(first, planDirector(intent()));
   assert.equal(first.schemaVersion, 'director-m5/1');
   assert.equal(first.graph.length, 3);
-  assert.deepEqual(first.graph.map((n) => n.id), ['scenes', 'render', 'verify']);
+  assert.deepEqual(
+    first.graph.map((n) => n.id),
+    ['scenes', 'render', 'verify'],
+  );
   assert.deepEqual(first.graph[2]!.needs, ['render']);
-  assert.deepEqual(first.spec.scenes.map((s) => s.action), ['wave', 'walk']);
+  assert.deepEqual(
+    first.spec.scenes.map((s) => s.action),
+    ['wave', 'walk'],
+  );
   assert.equal(validateDirectorPlan(first).planSha256, first.planSha256);
   const withVoice = planDirector({ ...intent(), voice: true, profile: 'final' });
-  assert.deepEqual(withVoice.graph.map((n) => n.id), ['scenes', 'voice', 'render', 'verify']);
+  assert.deepEqual(
+    withVoice.graph.map((n) => n.id),
+    ['scenes', 'voice', 'render', 'verify'],
+  );
   assert.deepEqual(withVoice.graph[2]!.needs, ['voice']);
   assert.notEqual(withVoice.planSha256, first.planSha256);
   const other = planDirector(intent('[action=pick-up; seconds=4]\nA little cup.'));
@@ -94,7 +103,7 @@ test('M5 fail closed for unsupported skills, forged graph, malicious extra field
     assert.throws(() => planDirector(input));
   const valid = planDirector(intent());
   const forgery = structuredClone(valid);
-  forgery.graph[1]!.skill = 'arbitrary-javascript' as typeof forgery.graph[number]['skill'];
+  forgery.graph[1]!.skill = 'arbitrary-javascript' as (typeof forgery.graph)[number]['skill'];
   assert.throws(() => validateDirectorPlan(forgery), codeIs('DIRECTOR_PLAN_TAMPERED'));
   const cycle = structuredClone(valid);
   cycle.graph[0]!.needs = ['verify'];
@@ -119,7 +128,10 @@ test('M5 requires explicit approval and never modifies an already saved human ed
   const done = await director.run(plan, true);
   assert.equal(done.autoApproved, false);
   assert.equal(done.status, 'succeeded');
-  assert.deepEqual(done.tasks.map((s) => s.id), ['scenes', 'render', 'verify']);
+  assert.deepEqual(
+    done.tasks.map((s) => s.id),
+    ['scenes', 'render', 'verify'],
+  );
   const same = await director.run(plan, true);
   assert.equal(same.receiptSha256, done.receiptSha256);
   assert.equal((await app.store.list('projects')).length, 1);
@@ -128,7 +140,10 @@ test('M5 requires explicit approval and never modifies an already saved human ed
   revised.scenes[0]!.title = 'A HUMAN EDIT';
   await app.store.revise(done.projectId, current.revision.id, revised);
   await assert.rejects(director.run(plan, true), codeIs('DIRECTOR_REVISION_CHANGED'));
-  assert.equal((await app.store.current(done.projectId)).revision.spec.scenes[0]!.title, 'A HUMAN EDIT');
+  assert.equal(
+    (await app.store.current(done.projectId)).revision.spec.scenes[0]!.title,
+    'A HUMAN EDIT',
+  );
   assert.equal((await app.store.list('projects')).length, 1);
 });
 test('M5 renderer transient failure uses one bounded retry and preserves original failed attempt', async (t) => {
@@ -151,10 +166,7 @@ test('M5 permanent renderer failure never retries or fabricates a succeeded rece
     throw new StudioError('INVALID_RENDER_INPUT', 'Fatal unsupported render input');
   });
   const plan = planDirector(intent());
-  await assert.rejects(
-    new DirectorService(app).run(plan, true),
-    codeIs('DIRECTOR_RENDER_FAILED'),
-  );
+  await assert.rejects(new DirectorService(app).run(plan, true), codeIs('DIRECTOR_RENDER_FAILED'));
   assert.equal(calls, 1);
   assert.equal((await app.store.list<Artifact>('artifacts')).length, 0);
   await assert.rejects(readFile(path.join(root, 'director-m5', plan.planSha256 + '.json')));

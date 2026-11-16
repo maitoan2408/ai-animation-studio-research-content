@@ -66,15 +66,24 @@ form.addEventListener('submit', async (event) => {
     for (const item of plan.graph) {
       const li = document.createElement('li');
       li.dataset.step = item.id;
-      li.textContent = item.id + ' · ' + item.skill + '  [needs: ' +
-        (item.needs.join(', ') || 'none') + ']';
+      li.textContent =
+        item.id + ' · ' + item.skill + '  [needs: ' + (item.needs.join(', ') || 'none') + ']';
       graph.append(li);
     }
     for (const scene of plan.spec.scenes) {
       const li = document.createElement('li');
       li.dataset.scene = scene.id;
-      li.textContent = scene.id + ' · ' + scene.title + ' · ' + scene.action +
-        ' · camera=' + scene.camera + ' · ' + scene.durationFrames + ' frames';
+      li.textContent =
+        scene.id +
+        ' · ' +
+        scene.title +
+        ' · ' +
+        scene.action +
+        ' · camera=' +
+        scene.camera +
+        ' · ' +
+        scene.durationFrames +
+        ' frames';
       scenes.append(li);
     }
     const paragraph = document.createElement('p');
@@ -107,9 +116,18 @@ runButton.addEventListener('click', async () => {
     });
     phase.textContent = 'M5 · Rendered';
     report('Đã hoàn tất kiểm tra artifact. Chưa phê duyệt nghệ thuật.');
-    receipt.textContent = 'Revision: ' + done.revisionId + ' · Video SHA-256: ' +
-      done.artifactSha256 + ' · ' + done.qc.width + '×' + done.qc.height +
-      ' / ' + done.qc.frames + ' frames';
+    receipt.textContent =
+      'Revision: ' +
+      done.revisionId +
+      ' · Video SHA-256: ' +
+      done.artifactSha256 +
+      ' · ' +
+      done.qc.width +
+      '×' +
+      done.qc.height +
+      ' / ' +
+      done.qc.frames +
+      ' frames';
     video.src = '/api/artifacts/' + encodeURIComponent(done.artifactId) + '/video';
     video.load();
     result.hidden = false;

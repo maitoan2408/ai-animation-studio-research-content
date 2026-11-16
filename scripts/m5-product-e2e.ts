@@ -68,7 +68,15 @@ const manifest: {
     revisionId: string;
     artifactId: string;
     revisionDigest: string;
-    video: { file: string; sha256: string; frames: number; width: number; height: number; fps: string; audio: boolean };
+    video: {
+      file: string;
+      sha256: string;
+      frames: number;
+      width: number;
+      height: number;
+      fps: string;
+      audio: boolean;
+    };
     graphScreenshot: { file: string; sha256: string };
     completedScreenshot: { file: string; sha256: string };
     contact: { file: string; sha256: string };
@@ -148,7 +156,10 @@ try {
       file: graphFile,
       sha256: sha(await readFile(path.join(folder, graphFile))),
     };
-    const planFile = await save('m5-' + story.id + '-plan.json', JSON.stringify(plan, null, 2) + '\n');
+    const planFile = await save(
+      'm5-' + story.id + '-plan.json',
+      JSON.stringify(plan, null, 2) + '\n',
+    );
     await page.click('#director-run');
     await page.waitForFunction(
       () => {
@@ -158,12 +169,16 @@ try {
       { timeout: 1000000, polling: 1000 },
     );
     const finalPhase = await page.$eval('#director-phase', (n) => n.textContent);
-    assert.ok(finalPhase?.includes('Rendered'), 'Director failed: ' + String(await page.$eval('#director-notice', (n) => n.textContent)));
+    assert.ok(
+      finalPhase?.includes('Rendered'),
+      'Director failed: ' + String(await page.$eval('#director-notice', (n) => n.textContent)),
+    );
     await page.waitForFunction(
       () => {
         const video = document.querySelector<HTMLVideoElement>('#director-video');
-        return video && video.readyState >= 1 && video.videoWidth === 1920 &&
-          video.videoHeight === 1080;
+        return (
+          video && video.readyState >= 1 && video.videoWidth === 1920 && video.videoHeight === 1080
+        );
       },
       { timeout: 45000 },
     );
@@ -181,9 +196,15 @@ try {
     const snapshot = await app.snapshot(receipt.projectId);
     assert.equal(snapshot.reviews.length, 0, 'Director cannot forge an artistic review');
     assert.equal(snapshot.revision.id, receipt.revisionId);
-    assert.deepEqual(snapshot.revision.spec.scenes.map((s) => s.action), plan.spec.scenes.map((s) => s.action));
+    assert.deepEqual(
+      snapshot.revision.spec.scenes.map((s) => s.action),
+      plan.spec.scenes.map((s) => s.action),
+    );
     const packageSource = await app.export(receipt.projectId, receipt.revisionId);
-    const projectFile = await save('m5-' + story.id + '-editable-project.json', JSON.stringify(packageSource, null, 2) + '\n');
+    const projectFile = await save(
+      'm5-' + story.id + '-editable-project.json',
+      JSON.stringify(packageSource, null, 2) + '\n',
+    );
     const revision = snapshot.revision;
     const job = await app.store.get<Job>('jobs', receipt.jobId);
     assert.equal(job.status, 'succeeded');
@@ -195,11 +216,25 @@ try {
     const videoBytes = await readFile(path.join(folder, videoFile));
     assert.equal(sha(videoBytes), receipt.artifactSha256);
     const probe = JSON.parse(
-      run('ffprobe', ['-v', 'error', '-count_frames', '-show_streams', '-of', 'json', path.join(folder, videoFile)]).toString(),
-    ) as { streams: Array<{
-      codec_type: string; nb_read_frames: string; avg_frame_rate: string;
-      sample_rate?: string; width?: number; height?: number;
-    }> };
+      run('ffprobe', [
+        '-v',
+        'error',
+        '-count_frames',
+        '-show_streams',
+        '-of',
+        'json',
+        path.join(folder, videoFile),
+      ]).toString(),
+    ) as {
+      streams: Array<{
+        codec_type: string;
+        nb_read_frames: string;
+        avg_frame_rate: string;
+        sample_rate?: string;
+        width?: number;
+        height?: number;
+      }>;
+    };
     const picture = probe.streams.find((s) => s.codec_type === 'video');
     const audio = probe.streams.find((s) => s.codec_type === 'audio');
     assert.equal(picture?.width, 1920);
@@ -207,8 +242,40 @@ try {
     assert.equal(picture?.nb_read_frames, String(totalFrames(revision.spec)));
     assert.equal(picture?.avg_frame_rate, '24/1');
     assert.equal(audio?.sample_rate, '48000', 'real local voice must be muxed at 48 kHz');
-    run('ffmpeg', ['-v', 'error', '-xerror', '-nostdin', '-threads', '1', '-i', path.join(folder, videoFile), '-f', 'null', '-']);
-    const pcm = run('ffmpeg', ['-v', 'error', '-nostdin', '-threads', '1', '-i', path.join(folder, videoFile), '-vn', '-ac', '1', '-ar', '8000', '-f', 's16le', '-'], 8 * 1024 * 1024);
+    run('ffmpeg', [
+      '-v',
+      'error',
+      '-xerror',
+      '-nostdin',
+      '-threads',
+      '1',
+      '-i',
+      path.join(folder, videoFile),
+      '-f',
+      'null',
+      '-',
+    ]);
+    const pcm = run(
+      'ffmpeg',
+      [
+        '-v',
+        'error',
+        '-nostdin',
+        '-threads',
+        '1',
+        '-i',
+        path.join(folder, videoFile),
+        '-vn',
+        '-ac',
+        '1',
+        '-ar',
+        '8000',
+        '-f',
+        's16le',
+        '-',
+      ],
+      8 * 1024 * 1024,
+    );
     let energy = 0;
     for (let i = 0; i + 1 < pcm.length; i += 2) {
       const n = pcm.readInt16LE(i);
@@ -218,19 +285,40 @@ try {
     const audioEnergy = Math.sqrt(energy / Math.max(1, pcm.length / 2));
     const contactName = 'm5-' + story.id + '-chronological-contact.png';
     const last = totalFrames(revision.spec) - 1;
-    const offsets = [0, Math.floor(last / 4), Math.floor(last / 2), Math.floor((last * 3) / 4), last];
+    const offsets = [
+      0,
+      Math.floor(last / 4),
+      Math.floor(last / 2),
+      Math.floor((last * 3) / 4),
+      last,
+    ];
     const filter = offsets.map((f) => 'eq(n\\,' + f + ')').join('+');
-    run('ffmpeg', ['-v', 'error', '-y', '-i', path.join(folder, videoFile),
-      '-vf', 'select=' + filter + ',scale=480:270,tile=3x2',
-      '-frames:v', '1', path.join(folder, contactName)]);
-    const contact = { file: contactName, sha256: sha(await readFile(path.join(folder, contactName))) };
+    run('ffmpeg', [
+      '-v',
+      'error',
+      '-y',
+      '-i',
+      path.join(folder, videoFile),
+      '-vf',
+      'select=' + filter + ',scale=480:270,tile=3x2',
+      '-frames:v',
+      '1',
+      path.join(folder, contactName),
+    ]);
+    const contact = {
+      file: contactName,
+      sha256: sha(await readFile(path.join(folder, contactName))),
+    };
     const doneScreenshotFile = 'm5-' + story.id + '-director-rendered.png';
     await page.screenshot({ path: path.join(folder, doneScreenshotFile), fullPage: true });
     const completedScreenshot = {
       file: doneScreenshotFile,
       sha256: sha(await readFile(path.join(folder, doneScreenshotFile))),
     };
-    const receiptFile = await save('m5-' + story.id + '-receipt.json', JSON.stringify(receipt, null, 2) + '\n');
+    const receiptFile = await save(
+      'm5-' + story.id + '-receipt.json',
+      JSON.stringify(receipt, null, 2) + '\n',
+    );
     manifest.programs.push({
       id: story.id,
       title: story.title,
@@ -265,12 +353,19 @@ try {
       body: JSON.stringify({ plan, approved: true }),
     });
     assert.equal(again.status, 201);
-    assert.equal((await again.json() as DirectorReceipt).artifactId, receipt.artifactId);
+    assert.equal(((await again.json()) as DirectorReceipt).artifactId, receipt.artifactId);
     assert.equal((await app.store.list('projects')).length, manifest.programs.length);
-    console.log('M5_REAL_FILM_PASS ' + JSON.stringify({
-      id: story.id, videoFile, frames: totalFrames(revision.spec),
-      sha256: receipt.artifactSha256, planSha256: plan.planSha256, audioEnergy,
-    }));
+    console.log(
+      'M5_REAL_FILM_PASS ' +
+        JSON.stringify({
+          id: story.id,
+          videoFile,
+          frames: totalFrames(revision.spec),
+          sha256: receipt.artifactSha256,
+          planSha256: plan.planSha256,
+          audioEnergy,
+        }),
+    );
   }
   // Failure demonstration: user-requested unsupported capability must be clearly rejected in UI.
   await page.goto(server.url + '/director', { waitUntil: 'networkidle0' });
@@ -286,11 +381,13 @@ try {
   const failedFile = 'm5-unsupported-skill-rejected.png';
   await page.screenshot({ path: path.join(folder, failedFile), fullPage: true });
   manifest.failureScreenshot = {
-    file: failedFile, sha256: sha(await readFile(path.join(folder, failedFile))),
+    file: failedFile,
+    sha256: sha(await readFile(path.join(folder, failedFile))),
     code: 'INVALID_PROJECT',
   };
   const badRun = await fetch(server.url + '/api/director/run', {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       plan: planDirector({
         title: cases[0].title,
@@ -308,11 +405,19 @@ try {
   assert.equal((await app.store.list('projects')).length, 2);
   assert.equal(pageErrors.length, 0, 'Chromium JavaScript errors: ' + pageErrors.join(', '));
   await writeFile(path.join(folder, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
-  console.log('M5_PRODUCT_PROOF_PASS ' + JSON.stringify({
-    sourceCommit: head, programs: manifest.programs.map((x) => ({
-      id: x.id, video: x.video, planSha256: x.planSha256, receiptSha256: x.receiptSha256,
-    })), negativeUi: manifest.failureScreenshot,
-  }));
+  console.log(
+    'M5_PRODUCT_PROOF_PASS ' +
+      JSON.stringify({
+        sourceCommit: head,
+        programs: manifest.programs.map((x) => ({
+          id: x.id,
+          video: x.video,
+          planSha256: x.planSha256,
+          receiptSha256: x.receiptSha256,
+        })),
+        negativeUi: manifest.failureScreenshot,
+      }),
+  );
 } finally {
   await browser.close();
   await server.close();

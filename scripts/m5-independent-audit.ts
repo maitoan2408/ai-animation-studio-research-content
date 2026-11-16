@@ -25,7 +25,15 @@ const manifest = JSON.parse(await readFile(path.join(root, 'manifest.json'), 'ut
     planSha256: string;
     receiptSha256: string;
     revisionDigest: string;
-    video: { file: string; sha256: string; frames: number; width: number; height: number; fps: string; audio: boolean };
+    video: {
+      file: string;
+      sha256: string;
+      frames: number;
+      width: number;
+      height: number;
+      fps: string;
+      audio: boolean;
+    };
     graphScreenshot: { file: string; sha256: string };
     completedScreenshot: { file: string; sha256: string };
     contact: { file: string; sha256: string };
@@ -71,12 +79,19 @@ async function verifyFile(file: string, want: string): Promise<Buffer> {
 }
 const pngSignature = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
 for (const film of manifest.programs) {
-  const plan = JSON.parse((await verifyFile(film.planFile.file, film.planFile.sha256)).toString()) as DirectorPlan;
+  const plan = JSON.parse(
+    (await verifyFile(film.planFile.file, film.planFile.sha256)).toString(),
+  ) as DirectorPlan;
   const compiled = validateDirectorPlan(plan);
   assert.equal(compiled.planSha256, film.planSha256);
-  assert.ok(compiled.graph.every((n) =>
-    ['script-to-scenes', 'prepare-audio', 'render-review', 'verify-artifact'].includes(n.skill)));
-  const packaged = JSON.parse((await verifyFile(film.projectFile.file, film.projectFile.sha256)).toString()) as {
+  assert.ok(
+    compiled.graph.every((n) =>
+      ['script-to-scenes', 'prepare-audio', 'render-review', 'verify-artifact'].includes(n.skill),
+    ),
+  );
+  const packaged = JSON.parse(
+    (await verifyFile(film.projectFile.file, film.projectFile.sha256)).toString(),
+  ) as {
     format: string;
     version: number;
     spec: unknown;
@@ -87,13 +102,21 @@ for (const film of manifest.programs) {
   const spec = parseSpec(packaged.spec);
   assert.equal(spec.title, film.title);
   assert.equal(hash(canonical(spec)), film.revisionDigest);
-  assert.deepEqual(spec.scenes.map((s) => s.action), plan.spec.scenes.map((s) => s.action));
-  assert.ok(spec.scenes.every((s) => s.audio), 'voice not actually bound to every scene');
+  assert.deepEqual(
+    spec.scenes.map((s) => s.action),
+    plan.spec.scenes.map((s) => s.action),
+  );
+  assert.ok(
+    spec.scenes.every((s) => s.audio),
+    'voice not actually bound to every scene',
+  );
   for (const asset of packaged.assets) {
     const data = Buffer.from(asset.base64, 'base64');
     assert.equal(digest(data), asset.id, 'portable source audio hash mismatch');
   }
-  const receipt = JSON.parse((await verifyFile(film.receiptFile.file, film.receiptFile.sha256)).toString()) as DirectorReceipt;
+  const receipt = JSON.parse(
+    (await verifyFile(film.receiptFile.file, film.receiptFile.sha256)).toString(),
+  ) as DirectorReceipt;
   const { receiptSha256, ...payload } = receipt;
   assert.equal(hash(canonical(payload)), receiptSha256);
   assert.equal(receiptSha256, film.receiptSha256);
@@ -101,7 +124,10 @@ for (const film of manifest.programs) {
   assert.equal(receipt.revisionDigest, film.revisionDigest);
   assert.equal(receipt.status, 'succeeded');
   assert.equal(receipt.autoApproved, false);
-  assert.deepEqual(receipt.tasks.map((x) => x.id), ['scenes', 'voice', 'render', 'verify']);
+  assert.deepEqual(
+    receipt.tasks.map((x) => x.id),
+    ['scenes', 'voice', 'render', 'verify'],
+  );
   assert.equal(receipt.source, 'root-studio-v1');
   assert.equal(receipt.qc.frames, totalFrames(spec));
   for (const picture of [film.graphScreenshot, film.completedScreenshot, film.contact]) {
@@ -115,17 +141,26 @@ for (const film of manifest.programs) {
   assert.ok(!sourceHashes.has(film.video.sha256), 'two videos are duplicates');
   sourceHashes.add(film.video.sha256);
   const filename = path.join(root, film.video.file);
-  const data = JSON.parse(run('ffprobe', ['-v', 'error', '-count_frames', '-show_streams',
-    '-of', 'json', filename]).toString()) as {
-      streams: Array<{
-        codec_type: string;
-        width?: number;
-        height?: number;
-        avg_frame_rate?: string;
-        nb_read_frames?: string;
-        sample_rate?: string;
-      }>;
-    };
+  const data = JSON.parse(
+    run('ffprobe', [
+      '-v',
+      'error',
+      '-count_frames',
+      '-show_streams',
+      '-of',
+      'json',
+      filename,
+    ]).toString(),
+  ) as {
+    streams: Array<{
+      codec_type: string;
+      width?: number;
+      height?: number;
+      avg_frame_rate?: string;
+      nb_read_frames?: string;
+      sample_rate?: string;
+    }>;
+  };
   const visual = data.streams.find((s) => s.codec_type === 'video');
   const voice = data.streams.find((s) => s.codec_type === 'audio');
   assert.equal(visual?.width, film.video.width);
@@ -134,12 +169,41 @@ for (const film of manifest.programs) {
   assert.equal(visual?.avg_frame_rate, '24/1');
   assert.equal(voice?.sample_rate, '48000');
   assert.equal(film.video.frames, totalFrames(spec));
-  run('ffmpeg', ['-v', 'error', '-xerror', '-nostdin', '-threads', '1',
-    '-i', filename, '-f', 'null', '-']);
+  run('ffmpeg', [
+    '-v',
+    'error',
+    '-xerror',
+    '-nostdin',
+    '-threads',
+    '1',
+    '-i',
+    filename,
+    '-f',
+    'null',
+    '-',
+  ]);
   report.fullVideoDecodes++;
-  const pcm = run('ffmpeg', ['-v', 'error', '-nostdin', '-threads', '1',
-    '-i', filename, '-vn', '-ac', '1', '-ar', '8000', '-f', 's16le', '-'],
-  8 * 1024 * 1024);
+  const pcm = run(
+    'ffmpeg',
+    [
+      '-v',
+      'error',
+      '-nostdin',
+      '-threads',
+      '1',
+      '-i',
+      filename,
+      '-vn',
+      '-ac',
+      '1',
+      '-ar',
+      '8000',
+      '-f',
+      's16le',
+      '-',
+    ],
+    8 * 1024 * 1024,
+  );
   let energy = 0;
   for (let i = 0; i + 1 < pcm.length; i += 2) {
     const n = pcm.readInt16LE(i);
@@ -168,6 +232,8 @@ assert.equal(manifest.failureScreenshot.code, 'INVALID_PROJECT');
 const proof = await verifyFile(manifest.failureScreenshot.file, manifest.failureScreenshot.sha256);
 assert.deepEqual(proof.subarray(0, 8), pngSignature);
 report.negativeUi = true;
-await writeFile(path.join(root, 'm5-independent-post-result-audit.json'),
-  JSON.stringify(report, null, 2) + '\n');
+await writeFile(
+  path.join(root, 'm5-independent-post-result-audit.json'),
+  JSON.stringify(report, null, 2) + '\n',
+);
 console.log('M5_INDEPENDENT_POST_RESULT_PASS ' + JSON.stringify(report));

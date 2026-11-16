@@ -170,7 +170,10 @@ export async function executeDirectorPlan(
   );
   let revision = await assertCurrent(app, project.id, project.currentRevisionId);
   if (digest(revision.spec) !== plan.specSha256)
-    throw new StudioError('DIRECTOR_COMPILE_DIVERGED', 'Compiled project is not the approved plan.');
+    throw new StudioError(
+      'DIRECTOR_COMPILE_DIVERGED',
+      'Compiled project is not the approved plan.',
+    );
   const tasks: DirectorReceipt['tasks'] = [
     { id: 'scenes', skill: 'script-to-scenes', status: 'succeeded', attempt: 1 },
   ];
@@ -183,7 +186,11 @@ export async function executeDirectorPlan(
   await assertCurrent(app, project.id, revision.id);
   let job = await app.enqueue(project.id, revision.id, plan.intent.profile);
   job = await app.wait(job.id);
-  if (job.status !== 'succeeded' && options.retryTransient && transient.has(job.error?.code ?? '')) {
+  if (
+    job.status !== 'succeeded' &&
+    options.retryTransient &&
+    transient.has(job.error?.code ?? '')
+  ) {
     await assertCurrent(app, project.id, revision.id);
     await app.retry(job.id);
     job = await app.wait(job.id);
@@ -208,7 +215,10 @@ export async function executeDirectorPlan(
     artifact.profile !== plan.intent.profile ||
     !(await app.store.verifyArtifact(artifact))
   )
-    throw new StudioError('DIRECTOR_ARTIFACT_INVALID', 'Artifact is stale, mismatched or corrupted.');
+    throw new StudioError(
+      'DIRECTOR_ARTIFACT_INVALID',
+      'Artifact is stale, mismatched or corrupted.',
+    );
   const original = await readFile(app.store.artifactFile(artifact.id));
   const expectedSize = profiles[plan.intent.profile];
   if (
@@ -278,8 +288,14 @@ export class DirectorService {
         )
           throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Stored receipt was modified.');
         const artifact = await this.app.store.get<Artifact>('artifacts', existing.artifactId);
-        if (artifact.sha256 !== existing.artifactSha256 || !(await this.app.store.verifyArtifact(artifact)))
-          throw new StudioError('DIRECTOR_ARTIFACT_INVALID', 'Previously completed video was modified.');
+        if (
+          artifact.sha256 !== existing.artifactSha256 ||
+          !(await this.app.store.verifyArtifact(artifact))
+        )
+          throw new StudioError(
+            'DIRECTOR_ARTIFACT_INVALID',
+            'Previously completed video was modified.',
+          );
         await assertCurrent(this.app, existing.projectId, existing.revisionId);
         return existing;
       }
