@@ -254,14 +254,14 @@
         "Existing rig art reused; no claim of brand-new authored character artwork",
         "M3 excludes M4 physics and M6 premium natural acting",
         "Only supported existing art and rig; right-facing, cup-specific bounded motions.",
-        "Production workbench motion not integrated as a selectable action in root M2 Studio UI; explicit owner scope choice."
+        "Character Motion integrated as a separate /motion Studio page, not embedded in M2 storyboard editor."
       ],
       "ownerGate": "Owner to approve bounded M3 after seeing fresh video/contact/QA in chat. Do not begin M4 or merge without approval.",
-      "sourceImplementationCommit": "61020373e6b64c9901fb6d3f5b7d19827363ec92",
-      "appCIRun": 43753767435,
-      "productionCIRun": 43753767459,
-      "artifactId": 14178155027,
-      "artifactName": "q2-workbench-142",
+      "sourceImplementationCommit": "7030efec1f9d47e1a3815790f8baad6f4a6c1c4b",
+      "appCIRun": 43805995843,
+      "productionCIRun": 43805995855,
+      "artifactId": 14198174989,
+      "artifactName": "q2-workbench-162",
       "artifactExpiresAt": "2026-11-29T19:19:48Z",
       "filmSha256": "2a902307ae4e7fadccae0fbc6b75ecf3af97e90192015739a35d79b8da0434a5",
       "film": {
@@ -290,17 +290,19 @@
         "Added required independent post-result audit step verifying hashes and full decode",
         "Capability registry now supports an explicit nonempty subset of actions; illegal clips, duplicate and unknown capabilities fail closed.",
         "Cup prop is optional for character motions that do not use pick/place; required when pick/place occurs.",
-        "Impossible hand/cup reach now fails immediately in project validation, rather than while rendering."
+        "Impossible hand/cup reach now fails immediately in project validation, rather than while rendering.",
+        "Character Motion Studio page, native render/download, revision save/reload, JSON import/export and independent post-result audit implemented.",
+        "Concurrent native Studio render requests fail closed with regression coverage."
       ],
       "unresolvedInScopeDefects": [],
       "humanGate": "Owner must watch true M3 footage and decide artistic/functional acceptance; do not begin M4 without explicit owner approval",
       "report": "docs/product-first/M3-REVIEW.md",
       "proof": {
-        "studioCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767435",
-        "workbenchCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767459",
-        "artifact": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43753767459/artifacts/14178155027"
+        "studioCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43805995843",
+        "workbenchCI": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43805995855",
+        "artifact": "https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43805995855/artifacts/14198174989"
       },
-      "sourceCommit": "61020373e6b64c9901fb6d3f5b7d19827363ec92"
+      "sourceCommit": "7030efec1f9d47e1a3815790f8baad6f4a6c1c4b"
     },
     "M4": {
       "technicalStatus": "NOT_VERIFIED",
