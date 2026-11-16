@@ -491,31 +491,31 @@
       "ciRuns": [
         {
           "name": "M5 Director native product verification",
-          "runId": 43971337130,
+          "runId": 43979847060,
           "conclusion": "SUCCESS",
-          "sourceCommit": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2"
+          "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37"
         },
         {
-          "name": "Paper Studio verification (root M1/M2 and 24s film)",
-          "runId": 43971336865,
+          "name": "Paper Studio verification",
+          "runId": 43979847149,
           "conclusion": "SUCCESS",
-          "sourceCommit": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2"
+          "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37"
         },
         {
-          "name": "Q2 workbench verification (M1/M3 native)",
-          "runId": 43971336913,
+          "name": "Q2 workbench verification",
+          "runId": 43979847057,
           "conclusion": "SUCCESS",
-          "sourceCommit": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2"
+          "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37"
         },
         {
           "name": "M4 physics native product verification",
-          "runId": 43971336912,
+          "runId": 43979847079,
           "conclusion": "SUCCESS",
-          "sourceCommit": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2"
+          "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37"
         }
       ],
       "unresolvedInScopeDefects": [],
-      "nextAction": "Owner to review two genuine M5 films and UI and M4 films; no merge/M6. P1: native M3/M4 Director connector and dependency advisory triage require separate engineering plan.",
+      "nextAction": "Owner to review integrated PR #16, M5 native films/graph and pending M4 aesthetic gate; M6 remains NOT_STARTED until owner explicitly approves. No merge to main.",
       "resolvedDefects": [
         {
           "id": "M5-VISUAL-001",
@@ -551,18 +551,18 @@
           "testedAt": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2"
         }
       ],
-      "lastVerifiedSourceCommit": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2",
+      "lastVerifiedSourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37",
       "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/16",
-      "sourceCommit": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2",
-      "artifactId": 14278867031,
-      "artifactName": "m5-director-review-14",
+      "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37",
+      "artifactId": 14283162671,
+      "artifactName": "m5-director-review-20",
       "artifactExpiresAt": "2026-11-30T22:39:46Z",
       "artifactHashes": {
         "videoA": "63a0fb370861fe1af67de27f2050caec2eafa96dd344aa45ca63dafee957d3b1",
         "videoB": "945b6bbdf9a648a8d43fee5ef1711e27ef10f01e3f131f0e6e994a218aa712db",
         "planA": "56051dfa81b0a1b1602fb896afbee18ef07a7e9476863f80ce11e4888cb21a54",
         "planB": "263990ccaf3c6c4ecc0d759d8d095d68ba45762c23bd131bddfc556efa2b2a2e",
-        "sourceHeadSha": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2"
+        "sourceHeadSha": "fb0e36788b30995ad338dd9efa86450496dd4e37"
       },
       "qualityMetrics": {
         "freshStories": 2,
@@ -591,7 +591,7 @@
         "Voice is local draft eSpeak, not professionally acted or human-approved, and animation has root M2 visual/acting limitations. Two short pilot proofs do not establish long-form cinematic quality.",
         "CI artifacts retained for 14 days; source/code hashes are preserved in repo, videos stored as downloadable GitHub Actions artifact and in chat."
       ],
-      "ownerGate": "TECHNICAL PASSED / READY_FOR_USER_REVIEW; userAcceptance NOT_REVIEWED, M4 owner NOT_REVIEWED; no merges or M6",
+      "ownerGate": "READY_FOR_USER_REVIEW; NO OWNER ACCEPTANCE; PR16 DRAFT; PR17 FURTHER AUDIT HISTORICAL; NO MAIN MERGE; NO M6",
       "audit20261117": {
         "verdict": "PASSED_ON_INTEGRATED_SOURCE",
         "sourceReviewed": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2",
@@ -625,7 +625,41 @@
       },
       "integrationBaseCommit": "3bbc337c3294e6dfa7570e463e6724a6990d64d9",
       "integrationDonorCommit": "afdec922c993357981ee39cd32c772b69212b08d",
-      "integrationStatus": "PASS_TECHNICAL_ON_VERIFIED_EXECUTABLE_SOURCE"
+      "integrationStatus": "AUDITED_M5_FAST_FORWARDED_TO_PR16_NO_MAIN_MERGE",
+      "deepAudit20261117": {
+        "verdict": "TECHNICAL_PASSED_OWNER_NOT_REVIEWED",
+        "implementedFromPR": 17,
+        "integratedIntoPR": 16,
+        "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37",
+        "freshNegativeTests": [
+          "M5-AUDIT-004",
+          "M5-AUDIT-005",
+          "M5-AUDIT-006"
+        ],
+        "failureReproductionRunId": 43978637024,
+        "passRunId": 43979847060,
+        "allFourRegressions": [
+          "43979847060",
+          "43979847149",
+          "43979847057",
+          "43979847079"
+        ],
+        "qualityEvidence": {
+          "twoFreshFilms": true,
+          "realFramesEach": 432,
+          "pixels": "1920x1080",
+          "frameRate": "24/1",
+          "audioRateHz": 48000,
+          "sha256Rechecked": 15,
+          "fullyDecodedFilms": 2
+        },
+        "openInScopeDefects": [],
+        "scopeLimits": [
+          "Director M5 executes root M2, does not yet invoke M3/M4 native production",
+          "artistic and voice approval remains owner-only"
+        ],
+        "handoff": "docs/product-first/M6-HANDOFF-PROMPT.md"
+      }
     },
     "M6": {
       "technicalStatus": "NOT_VERIFIED",
@@ -691,5 +725,5 @@
     }
   },
   "nextMilestone": "M5",
-  "nextAction": "Owner to review two genuine M5 films and UI and M4 films; no merge/M6. P1: native M3/M4 Director connector and dependency advisory triage require separate engineering plan."
+  "nextAction": "Owner to review integrated PR #16, M5 native films/graph and pending M4 aesthetic gate; M6 remains NOT_STARTED until owner explicitly approves. No merge to main."
 }

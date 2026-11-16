@@ -1,0 +1,11 @@
+# M5 deep-audit integrated into M1–M5 branch — 2026-11-17
+
+**Source integration:** owner-requested fast-forward of branch codex/integration-m1-m5-20261117 (PR #16) from fbf463d23d72c8eceda2ebe0cc41ca40c30abaf6 to **fb0e36788b30995ad338dd9efa86450496dd4e37**, exactly matching the previously audited PR #17 HEAD. Five original audit commits preserved in ancestry without rewriting history. The original audit PR #17 remains Draft and traceable. No merge into main, no auto-approval, no M6 code.
+
+**Why deep audit existed:** three new failing-first adversarial receipt tests found that a rehashed but inconsistent cached success record could claim false skill engine/approval/schema, QC/task/job details, or ignore a changed persisted job state. Fail evidence: GitHub Actions run 43978637024 (36 passed, 3 failed on source with tests only). Fix: strict persisted receipt schema with explicit root-studio-v1 and autoApproved=false, graph task identities, exact plan / revision / job / artifact / media-QC binding. Verified successful rejection after tamper; no test thresholds relaxed to hide a confirmed code fault.
+
+**Final code verified on fb0e36788b30995ad338dd9efa86450496dd4e37:** four successful workflows: M5 43979847060, root Studio 43979847149, Q2 production 43979847057, M4 physics 43979847079. M5 artifact 14283162671: 2 native 18s films, 1920x1080 24fps H264, 432 frames each, 48kHz AAC; 15/15 source/media file hashes and both full-file decodes checked independently. Real contact sheets and browser task graph/screenshots reviewed. No remaining *known in-scope* M5 blocker after the deep audit. Re-running checks on PR #16 integration ref may produce fresh run IDs; do not conflate an in-progress run with success.
+
+**Architecture limit is unchanged:** Director M5 executes root M2 Studio, not native M3/M4 skills. M6 is the separate Quality milestone in docs/product-first/ROADMAP.md; it has NOT been authorized for coding or implemented. Existing root M2/prod M3/M4 capabilities are verified individually, not falsely claimed as one universal Director video engine.
+
+**Owner gate:** M4 and M5 userAcceptance remain NOT_REVIEWED, M6 NOT_VERIFIED/NOT_REVIEWED. PR #16 Draft. Need explicit owner signoff before M6 coding or moving beyond review. Handoff planning prompt: M6-HANDOFF-PROMPT.md.
