@@ -21,6 +21,8 @@ Reviewer: delegated-agent. Scope: latest M3 branch 73adc256, including accepted 
 
 - **Weak negative audit:** the old test only asserted that a digest was not all zeroes; it did not feed corrupt media to the auditor. New post-result regression corrupts private copies of project, MP4 and native PNG and requires a specific integrity rejection. The Studio delivery audit also verifies project bytes against the saved revision.
 
+- **Premature UI screenshots:** the previous native Studio harness captured the player while still loading. It now requires real video metadata, playback progress and seeking to one second before desktop/mobile screenshots; the post-result auditor checks that receipt.
+
 ## Validation and evidence
 
 Executable source under final CI: `f34b206f1631eba26a87936ee955d8d99d16826a`.

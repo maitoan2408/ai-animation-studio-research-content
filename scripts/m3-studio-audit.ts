@@ -15,6 +15,7 @@ const audit:{status:'FAIL'|'PASS';checks:string[];error?:string;sourceCommit?:st
 try{
  const receipt=JSON.parse(await readFile(path.join(out,'evidence.json'),'utf8')) as {
   sourceCommit:string;frames:number;revision:string;video:{file:string;sha256:string};
+  playback:{width:number;height:number;duration:number;seekTime:number;error:number|null};
   character:string;action:string;hasProp:boolean;files:Record<string,string>;
  };
  assert.match(receipt.sourceCommit,/^[0-9a-f]{40}$/,'SOURCE_HEAD_SHA must bind artifact to source commit');
@@ -22,6 +23,11 @@ try{
  assert.equal(receipt.action,'wave');
  assert.equal(receipt.character,'guest-qa');
  assert.equal(receipt.hasProp,false);
+ assert.equal(receipt.playback.width,1920);assert.equal(receipt.playback.height,1080);
+ assert.equal(receipt.playback.error,null);
+ assert.ok(Math.abs(receipt.playback.duration-49/24)<.01);
+ assert.ok(Math.abs(receipt.playback.seekTime-1)<.05);
+ audit.checks.push('Actual browser playback and seek completed before UI screenshots');
  assert.match(receipt.revision,/^[0-9a-f]{64}$/);
  for(const [name,expected] of Object.entries(receipt.files)){
   assert.ok(/^[a-z0-9.-]+$/.test(name),'unsafe media filename');
