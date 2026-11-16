@@ -1,3 +1,9 @@
+# M4 Physics — implementation checkpoint (2026-11-16)
+
+Owner-approved M3 baseline: `79aae2fdfe960e03992e136a6529fe95623a1cdb`. M4 branch `codex/product-first-m4-physics`, Draft [PR #13](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/13). M4 **IN_PROGRESS**, **NOT owner accepted**. Source of truth: `docs/product-first/M4-PLAN.md` and `STATE.json`; no merge, no M5.
+
+M4 new modules: `production/src/physics/m4.ts` (strict data contract, fixed-step Rapier physics, SHA-bound bake and replay), `m4-adapter.ts` (M3 authored frame + physical prop ownership), native `render-m4.ts` and separate `audit-m4.ts`; new `production/tests/m4-physics.test.ts` and `.github/workflows/m4-physics.yml`. This checkpoint records implementation only, not test success; actual results must be transcribed from final HEAD CI and film audits into `M4-REVIEW.md` before delivery.
+
 # M3 accepted by owner — 2026-11-16
 
 The owner explicitly approved the delivered result: **“Oce rồi mình duyệt”**, after the M1–M3 technical report, videos and clarification that M3 quality acceptance was pending. M3 is now **ACCEPTED**; the M1–M3 audit is owner accepted. This records the owner's decision, not an invented independent review or claim about viewing/listening activity.

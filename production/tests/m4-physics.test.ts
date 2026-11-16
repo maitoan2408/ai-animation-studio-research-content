@@ -80,6 +80,6 @@ test('M4 fail-closed contracts: stale input/art/toolchain, invalid ownership, fr
  assert.throws(()=>validateM4Project(tim,pack),/M4_PLATFORM_INITIAL_PENETRATION/);
  const wrong=structuredClone(project);wrong.motion.clips=[{action:'wave',frames:49}];wrong.motion.prop=undefined;
  assert.throws(()=>validateM4Project(wrong,pack),/M4_PROP_CONTACT_UNSUPPORTED/);
- const fake=structuredClone(a);fake.bakeSha256=digest({...fake,bakeSha256:undefined});
+ const fake=structuredClone(a);fake.bakeSha256='0'.repeat(64);
  assert.throws(()=>validateM4Bake(fake,project,pack),/M4_BAKE_SHA_MISMATCH/);
 });

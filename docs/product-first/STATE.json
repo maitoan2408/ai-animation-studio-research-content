@@ -5,8 +5,8 @@
     "branch": "codex/v2-continuous",
     "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
   },
-  "implementationBranch": "codex/product-first-m3-character-motion",
-  "activeMilestone": "M3",
+  "implementationBranch": "codex/product-first-m4-physics",
+  "activeMilestone": "M4",
   "milestones": {
     "M0": {
       "technicalStatus": "PASSED",
@@ -326,9 +326,33 @@
       }
     },
     "M4": {
-      "technicalStatus": "NOT_VERIFIED",
-      "evidenceStatus": "NOT_VERIFIED",
-      "userAcceptance": "NOT_REVIEWED"
+      "technicalStatus": "IN_PROGRESS",
+      "evidenceStatus": "IN_PROGRESS",
+      "userAcceptance": "NOT_REVIEWED",
+      "sourceBaseCommit": "79aae2fdfe960e03992e136a6529fe95623a1cdb",
+      "branch": "codex/product-first-m4-physics",
+      "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/13",
+      "plan": "docs/product-first/M4-PLAN.md",
+      "review": "docs/product-first/M4-REVIEW.md",
+      "scope": "Bounded generalized single rigid cup/platform, M3 handoff/ownership, verified Rapier 240Hz and native 1080p OFF/ON",
+      "technicalGates": [
+        "M4 contract and two real Rapier fixture variants",
+        "SHA-bound bake and random-access replay",
+        "M3 authored-contact ownership and measured collision",
+        "Native OFF/ON + contact stills/manifest + independent post-result audit",
+        "Final root/production/M4 CI and full regression"
+      ],
+      "ciRuns": [],
+      "artifactHashes": {},
+      "resolvedDefects": [],
+      "unresolvedInScopeDefects": [],
+      "knownLimitations": [
+        "Supported M3 cutout/cup and flat platform only",
+        "No subjective artistic acceptance until owner review"
+      ],
+      "nextAction": "Resolve new M4 CI, perform independent second-pass after media, rerender and final regression, then request owner review.",
+      "sourceCommit": null,
+      "ownerGate": "M4 NOT_REVIEWED. Do not accept, merge or start M5."
     },
     "M5": {
       "technicalStatus": "NOT_VERIFIED",
