@@ -291,7 +291,17 @@ try {
   };
   const badRun = await fetch(server.url + '/api/director/run', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ plan: planDirector(cases[0]), approved: false }),
+    body: JSON.stringify({
+      plan: planDirector({
+        title: cases[0].title,
+        script: cases[0].script,
+        style: cases[0].style,
+        language: cases[0].language,
+        profile: cases[0].profile,
+        voice: cases[0].voice,
+      }),
+      approved: false,
+    }),
   });
   assert.equal(badRun.status, 400);
   assert.equal((await badRun.json()).error.code, 'INVALID_REQUEST');

@@ -17,6 +17,7 @@ import {
   profiles,
   totalFrames,
   type Artifact,
+  type Job,
 } from '../src/domain.js';
 import type { RenderFunction } from '../src/render.js';
 
@@ -93,7 +94,7 @@ test('M5 fail closed for unsupported skills, forged graph, malicious extra field
     assert.throws(() => planDirector(input));
   const valid = planDirector(intent());
   const forgery = structuredClone(valid);
-  forgery.graph[1]!.skill = 'arbitrary-javascript' as typeof forgery.graph[1]['skill'];
+  forgery.graph[1]!.skill = 'arbitrary-javascript' as typeof forgery.graph[number]['skill'];
   assert.throws(() => validateDirectorPlan(forgery), codeIs('DIRECTOR_PLAN_TAMPERED'));
   const cycle = structuredClone(valid);
   cycle.graph[0]!.needs = ['verify'];
@@ -138,7 +139,7 @@ test('M5 renderer transient failure uses one bounded retry and preserves origina
   });
   const receipt = await new DirectorService(app).run(planDirector(intent()), true);
   assert.equal(calls, 2);
-  const job = await app.store.get('jobs', receipt.jobId);
+  const job = await app.store.get<Job>('jobs', receipt.jobId);
   assert.equal(job.attempts.length, 2);
   assert.equal(job.attempts[0]!.error?.code, 'RENDER_TEMPORARY');
   assert.equal(job.status, 'succeeded');
