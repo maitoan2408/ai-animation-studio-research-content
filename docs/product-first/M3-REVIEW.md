@@ -63,3 +63,16 @@ Latest artifact `q2-workbench-142`: <https://github.com/maitoan2408/ai-animation
 - The reusable action executor currently runs in the **production Three/Chromium workbench**; new actions are **not yet available as user-selectable M2 Studio UI actions**. This is a product integration limit to resolve in a future approved milestone if the owner requires it before moving on.
 - Real generalized physics is M4; Director Agent is M5; natural character acting/voice finish is M6. Native no-slip/contact results are technical measures, not proof of lifelike animation.
 - PR #11 stays Draft. `READY_FOR_USER_REVIEW` is for the bounded M3 gate only. **M4 is blocked until owner expressly accepts M3 and its disclosed boundaries.**
+
+
+## M3 final product integration closure — 2026-11-16
+
+After the supplemental audit, the owner requested completion of M3, including the outstanding Studio integration. The root Paper Studio now has a real **Character Motion** page at `/motion` (source: `web/motion.html`, `web/motion.js`, `src/motion-service.ts`) with character/model selection, ordered editable action clips, frame durations, optional cup controls, revision save/reload, project JSON import/export, and native 1080p MP4 rendering/download. This is a separate Studio workspace connected to the root HTTP server; it is **not** an action selector embedded in the old storyboard editor. M2's original schema and renderer remain unchanged.
+
+The integration validates project data through the real workbench M3 contract, rejects unrecognized or unsupported actions, protects against stale revisions and simultaneous render requests, and verifies the native MP4 SHA before exposing the result. The UI-to-render end-to-end test generates a **new non-default wave-only, prop-free 49-frame 1080p/24fps native video** from a saved Studio revision, including actual desktop/mobile screenshots, a chronological contact sheet, exported JSON, and independent post-result media audit. Full production showcase (268 frames) remains in place.
+
+**Final executable commit:** `7030efec1f9d47e1a3815790f8baad6f4a6c1c4b`.
+**Full final-commit CI results:** root Studio `43805995843` SUCCESS; production `43805995855` SUCCESS, including negative/concurrent-render regression and M3 Studio independent post-result audit.
+**Evidence:** [Studio CI](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43805995843), [Workbench CI](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43805995855), [native evidence artifact](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43805995855/artifacts/14198174989).
+
+Remaining scope boundaries: art/rig reuse, right-facing bounded authored gait, cup-specific pickup, no generalized M4 physics, no M5 Director and no M6 acting polish. The Character Motion page is operational but distinct from the M2 storyboard editor. Technical gate: **PASSED**. Human visual/product gate: **NOT_REVIEWED**. Do not begin M4 without explicit owner approval.
