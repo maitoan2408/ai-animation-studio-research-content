@@ -90,4 +90,22 @@ test('M4 fail-closed contracts: stale input/art/toolchain, invalid ownership, fr
  assert.throws(()=>validateM4Project(wrong,pack),/M4_PROP_CONTACT_UNSUPPORTED/);
  const fake=structuredClone(a);fake.bakeSha256='0'.repeat(64);
  assert.throws(()=>validateM4Bake(fake,project,pack),/M4_BAKE_SHA_MISMATCH/);
+ const wrongEngine=structuredClone(a);
+ (wrongEngine.recipe as unknown as {engine:string}).engine='unknown-engine';
+ assert.throws(()=>validateM4Bake(wrongEngine,project,pack),/M4_RECIPE_INVALID/);
+ const wrongStep=structuredClone(a);
+ (wrongStep.recipe as unknown as {hz:number}).hz=120;
+ assert.throws(()=>validateM4Bake(wrongStep,project,pack),/M4_RECIPE_INVALID/);
+ const negativeCollider=structuredClone(project);negativeCollider.prop.halfExtentsM=[-.1,.13];
+ assert.throws(()=>validateM4Project(negativeCollider,pack),/M4_PHYSICS_PARAMETERS/);
+ const duplicate=structuredClone(project);
+ duplicate.motion.prop!.id=duplicate.motion.character.id;
+ duplicate.prop.id=duplicate.motion.character.id;
+ assert.throws(()=>validateM4Project(duplicate,pack),/M3_PROP_INVALID/);
+ const badSchema=structuredClone(project);
+ (badSchema as unknown as {schemaVersion:string}).schemaVersion='physics-m4/2';
+ assert.throws(()=>validateM4Project(badSchema,pack),/M4_PROJECT_SCHEMA/);
+ const recovered=await bakeM4(project,pack);
+ assert.equal(recovered.bakeSha256,a.bakeSha256,
+   'a rejected request must not contaminate a later valid simulation');
 });
