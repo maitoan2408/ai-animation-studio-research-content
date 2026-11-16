@@ -417,11 +417,12 @@ export class DirectorService {
           existing.voice !== plan.intent.voice ||
           canonical(actualTasks) !== canonical(expectedTasks) ||
           existing.tasks.some((task) => task.status !== 'succeeded') ||
-          existing.tasks.some(
-            (task) => task.id !== 'render' && task.attempt !== 1,
-          )
+          existing.tasks.some((task) => task.id !== 'render' && task.attempt !== 1)
         )
-          throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Stored execution claims are inconsistent.');
+          throw new StudioError(
+            'DIRECTOR_RECEIPT_CORRUPT',
+            'Stored execution claims are inconsistent.',
+          );
         let job: Job;
         try {
           job = await this.app.store.get<Job>('jobs', existing.jobId);
@@ -441,7 +442,10 @@ export class DirectorService {
           !job.attempts.at(-1)?.finishedAt ||
           job.attempts.at(-1)?.error
         )
-          throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Persisted job no longer proves successful rendering.');
+          throw new StudioError(
+            'DIRECTOR_RECEIPT_CORRUPT',
+            'Persisted job no longer proves successful rendering.',
+          );
         const artifact = await this.app.store.get<Artifact>('artifacts', existing.artifactId);
         if (
           artifact.sha256 !== existing.artifactSha256 ||
@@ -460,10 +464,8 @@ export class DirectorService {
         const revision = await assertCurrent(this.app, existing.projectId, existing.revisionId);
         const original = await this.app.store.get<Revision>(
           'revisions',
-          (await this.app.store.get<{ revisionIds: string[] }>(
-            'projects',
-            existing.projectId,
-          )).revisionIds[0]!,
+          (await this.app.store.get<{ revisionIds: string[] }>('projects', existing.projectId))
+            .revisionIds[0]!,
         );
         if (
           original.digest !== plan.specSha256 ||
@@ -483,7 +485,10 @@ export class DirectorService {
           artifact.qc.fps !== '24/1' ||
           artifact.qc.hasAudio !== existing.voice
         )
-          throw new StudioError('DIRECTOR_RECEIPT_CORRUPT', 'Source plan, revision or media profile differs.');
+          throw new StudioError(
+            'DIRECTOR_RECEIPT_CORRUPT',
+            'Source plan, revision or media profile differs.',
+          );
         for (const id of existing.audioAssetSha256s) await this.app.store.verifyAsset(id);
         return existing;
       }
