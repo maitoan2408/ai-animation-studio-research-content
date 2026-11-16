@@ -1,0 +1,45 @@
+name: M4 physics native product verification
+on:
+  pull_request:
+    paths:
+      - 'production/src/physics/**'
+      - 'production/src/render/**'
+      - 'production/src/qa/audit-m4.ts'
+      - 'production/src/motion/**'
+      - 'production/tests/m4-physics.test.ts'
+      - 'production/package*.json'
+      - '.github/workflows/m4-physics.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: m4-native-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  native-m4-and-post-result-review:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install local native media runtime
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
+      - run: npm --prefix production ci
+      - name: M4 strict types and real-solver contract tests
+        run: |
+          npm --prefix production run typecheck
+          npm --prefix production run test:physics:m4
+          npm --prefix production run test:physics
+      - name: Render true 1080p24 Physics OFF and ON using same native M3 project
+        env:
+          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: npm --prefix production run physics:m4
+      - name: Independent post-result audit of OFF/ON media, contacts and provenance
+        run: npm --prefix production run physics:m4:audit
+      - name: Upload native evidence and editable source
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: physics-m4-review-${{ github.run_number }}
+          path: production/out/product-first/m4/
+          retention-days: 14
