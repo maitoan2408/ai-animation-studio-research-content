@@ -78,7 +78,7 @@ export function validateM4Project(raw:unknown,pack:ArtPack):PhysicsProject{
    throw Error('M4_PHYSICS_PARAMETERS');
  const total=m3TotalFrames(motion)+(raw.tailFrames as number);
  if(total>5760)throw Error('M4_TIMELINE_RANGE');
- const release=detectRelease(motion,pack);
+ const {releaseFrame:release}=detectContact(motion,pack);
  const s=sampleM3(motion,release,pack).frame.sprites.find(x=>x.id===p.id);
  if(!s)throw Error('M4_PROP_SPRITE_MISSING');
  const center=centre(pack,s);
@@ -87,17 +87,20 @@ export function validateM4Project(raw:unknown,pack:ArtPack):PhysicsProject{
  if(Number(p.floorStageY)-bottom>100)throw Error('M4_PLATFORM_TOO_FAR');
  return raw as PhysicsProject;
 }
-function detectRelease(motion:M3Project,pack:ArtPack):number{
- let release=-1,gripCount=0,transitionCount=0;
+function detectContact(motion:M3Project,pack:ArtPack):{gripFrame:number;releaseFrame:number}{
+ let release=-1,gripFrame=-1,gripCount=0,transitionCount=0,priorGrip=false;
  for(let i=0;i<m3TotalFrames(motion);i++){
    const grip=sampleM3(motion,i,pack).contact.grip;
-   if(grip)gripCount++;
-   if(i>0&&sampleM3(motion,i-1,pack).contact.grip&&!grip){
-     release=i;transitionCount++;
+   if(grip){
+     gripCount++;
+     if(gripFrame<0)gripFrame=i;
    }
+   if(priorGrip&&!grip){release=i;transitionCount++;}
+   priorGrip=grip;
  }
- if(gripCount<5||transitionCount!==1||release<1)throw Error('M4_GRIP_RELEASE_REQUIRED');
- return release;
+ if(gripCount<5||transitionCount!==1||release<1||gripFrame<0)
+   throw Error('M4_GRIP_RELEASE_REQUIRED');
+ return {gripFrame,releaseFrame:release};
 }
 const offset=(pack:ArtPack,s:Sprite):[number,number]=>{
  const asset=pack.assets.find(a=>a.id===s.asset);
@@ -145,7 +148,7 @@ export function validateM4Bake(raw:unknown,project:PhysicsProject,pack:ArtPack):
  const recipe=m4Recipe(project);
  if(sha(raw.recipe)!==sha(recipe)||raw.recipeSha256!==sha(recipe))
    throw Error('M4_BAKE_RECIPE_OR_IMPLEMENTATION_STALE');
- const release=detectRelease(project.motion,pack);
+ const {releaseFrame:release,gripFrame}=detectContact(project.motion,pack);
  if(raw.releaseFrame!==release)throw Error('M4_BAKE_RELEASE_MISMATCH');
  if(!Array.isArray(raw.frames)||raw.frames.length!==m3TotalFrames(project.motion)+project.tailFrames)
    throw Error('M4_BAKE_FRAMES');
@@ -168,7 +171,7 @@ export function validateM4Bake(raw:unknown,project:PhysicsProject,pack:ArtPack):
  }
  const events=raw.events as PhysicsEvent[];
  if(events.filter(e=>e.kind==='release').length!==1||events.find(e=>e.kind==='release')?.frame!==release||
-    !events.some(e=>e.kind==='grip'&&e.frame<release)||
+    events.filter(e=>e.kind==='grip').length!==1||events.find(e=>e.kind==='grip')?.frame!==gripFrame||
     events.filter(e=>e.kind==='platform-contact').length>1||
     events.some(e=>e.kind==='platform-contact'&&e.frame<release))
    throw Error('M4_BAKE_EVENTS');
@@ -189,10 +192,10 @@ export async function bakeM4(raw:unknown,pack:ArtPack):Promise<PhysicsBake>{
  const project=structuredClone(validateM4Project(raw,pack));
  const p=project.prop,ppm=p.pixelsPerMeter;
  const recipe=m4Recipe(project);
- const release=detectRelease(project.motion,pack),count=m3TotalFrames(project.motion)+project.tailFrames;
+ const {releaseFrame:release,gripFrame}=detectContact(project.motion,pack),count=m3TotalFrames(project.motion)+project.tailFrames;
  const origin=stageFrame(pack,project.motion,release,'physics');
  const frames:PhysicsFrame[]=Array.from({length:release},(_,i)=>stageFrame(pack,project.motion,i,'authored'));
- const events:PhysicsEvent[]=[{frame:release-1,kind:'grip',source:'authored-contact'},
+ const events:PhysicsEvent[]=[{frame:gripFrame,kind:'grip',source:'authored-contact'},
    {frame:release,kind:'release',source:'authored-contact'}];
  const r=await rapier(),world=new r.World({x:0,y:-recipe.gravityMps2});
  world.timestep=1/recipe.hz;world.numSolverIterations=recipe.solverIterations;

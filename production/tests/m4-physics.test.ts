@@ -38,6 +38,12 @@ test('M4 real Rapier bake: two parametrized interactions, 240Hz deterministic an
  assert.equal(a.frames[a.releaseFrame]!.owner,'physics');
  assert.ok(a.releaseFrame>20);
  assert.ok(a.events.some(e=>e.kind==='release'));
+ const gripFrame=a.events.find(e=>e.kind==='grip')!.frame;
+ assert.ok(gripFrame<a.releaseFrame-1,'grip event must mark attachment onset, not the final held frame');
+ assert.equal(sampleM3(project.motion,gripFrame-1,pack).contact.grip,false);
+ assert.equal(sampleM3(project.motion,gripFrame,pack).contact.grip,true);
+ assert.equal(sampleM3(project.motion,a.releaseFrame-1,pack).contact.grip,true);
+ assert.equal(sampleM3(project.motion,a.releaseFrame,pack).contact.grip,false);
  assert.ok(a.events.some(e=>e.kind==='platform-contact'),'real solver contact event required');
  const before=sampleM3(project.motion,a.releaseFrame,pack).frame.sprites.find(x=>x.id===project.prop.id)!;
  const start=sampleM4Scene({project,bake:a,enabled:true},a.releaseFrame,pack).sprites.find(x=>x.id===project.prop.id)!;
@@ -74,6 +80,8 @@ test('M4 fail-closed contracts: stale input/art/toolchain, invalid ownership, fr
  assert.throws(()=>validateM4Bake(owner,project,pack),/M4_BAKE_FRAME_INVALID/);
  const noEvents=structuredClone(a);noEvents.events=[];
  assert.throws(()=>validateM4Bake(noEvents,project,pack),/M4_BAKE_EVENTS/);
+ const wrongGrip=structuredClone(a);wrongGrip.events.find(e=>e.kind==='grip')!.frame=a.releaseFrame-1;
+ assert.throws(()=>validateM4Bake(wrongGrip,project,pack),/M4_BAKE_EVENTS/);
  const bad=structuredClone(project);bad.prop.massKg=NaN;
  assert.throws(()=>validateM4Project(bad,pack),/M4_PHYSICS_PARAMETERS/);
  const tim=structuredClone(project);tim.prop.floorStageY=400;

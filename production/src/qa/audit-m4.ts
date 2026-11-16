@@ -37,7 +37,15 @@ const project=validateM4Project(JSON.parse(await readFile(path.join(dir,manifest
 const bake=validateM4Bake(JSON.parse(await readFile(path.join(dir,manifest.bake.file),'utf8')),project,pack) as PhysicsBake;
 assert.equal(bake.bakeSha256,manifest.bake.receipt);
 assert.equal(bake.frames.length,manifest.dimensions.count);
-const metrics={maxGripErrorStagePixels:0,gripSamples:0,maxHandoffJumpStagePixels:0,
+const actualGripStart=Array.from({length:bake.releaseFrame},(_,i)=>i)
+  .find(frame=>sampleM3(project.motion,frame,pack).contact.grip);
+assert.ok(actualGripStart!==undefined,'M4_NO_AUTHORED_GRIP_ONSET');
+assert.equal(bake.events.find(e=>e.kind==='grip')?.frame,actualGripStart,
+  'M4_GRIP_EVENT_NOT_ACTUAL_ATTACHMENT_ONSET');
+assert.equal(sampleM3(project.motion,bake.releaseFrame-1,pack).contact.grip,true);
+assert.equal(sampleM3(project.motion,bake.releaseFrame,pack).contact.grip,false);
+const metrics={gripOnsetFrame:actualGripStart,releaseFrame:bake.releaseFrame,
+  maxGripErrorStagePixels:0,gripSamples:0,maxHandoffJumpStagePixels:0,
   maxColliderPenetrationM:0,platformContactEvents:0,visualComparisonPixelDifference:true,
   repeatedSeekChecksum:'',replayedFrames:0};
 for(let f=0;f<bake.frames.length;f++){
