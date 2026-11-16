@@ -12,6 +12,7 @@ import {
   parseSpec,
   profileSchema,
   hashSchema,
+  directorProjectId,
   projectSpecSchema,
   type Project,
   type Revision,
@@ -90,9 +91,14 @@ export class Studio {
     title: string,
     style: unknown = 'paper-cut',
     language: 'vi' | 'en' = 'vi',
+    directorPlanSha?: string,
   ) {
     const planned = planScript(script, title, style, language);
-    return this.store.create(planned.spec, planned.notes);
+    const id = directorPlanSha ? directorProjectId(directorPlanSha) : undefined;
+    const notes = directorPlanSha
+      ? [...planned.notes, 'director-plan-sha256=' + directorPlanSha]
+      : planned.notes;
+    return this.store.create(planned.spec, notes, id);
   }
   async snapshot(projectId: string) {
     const current = await this.store.current(projectId);

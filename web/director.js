@@ -12,6 +12,9 @@ const result = document.querySelector('#director-result');
 const receipt = document.querySelector('#director-receipt');
 const video = document.querySelector('#director-video');
 let approvedPlan = null;
+let approvedInput = null;
+let generation = 0;
+let executing = false;
 let busy = false;
 const input = () => {
   const data = new FormData(form);
@@ -43,6 +46,9 @@ const report = (text, error = false) => {
   notice.style.color = error ? '#a12828' : '';
 };
 const invalidate = () => {
+  if (executing) return;
+  generation++;
+  approvedInput = null;
   approvedPlan = null;
   runButton.disabled = true;
   sha.textContent = '';
@@ -58,11 +64,18 @@ form.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (busy) return;
   invalidate();
+  const requested = JSON.stringify(input());
+  const currentGeneration = generation;
   busy = true;
   planButton.disabled = true;
   report('Đang kiểm tra khả năng và xây dựng task graph…');
   try {
-    const plan = await request('/api/director/plan', input());
+    const plan = await request('/api/director/plan', JSON.parse(requested));
+    if (currentGeneration !== generation || JSON.stringify(input()) !== requested) {
+      phase.textContent = 'M5 · Plan';
+      report('Kịch bản đã thay đổi trong lúc lập kế hoạch. Hãy lập kế hoạch mới.');
+      return;
+    }
     for (const item of plan.graph) {
       const li = document.createElement('li');
       li.dataset.step = item.id;
@@ -91,10 +104,12 @@ form.addEventListener('submit', async (event) => {
     notes.append(paragraph);
     sha.textContent = 'Plan SHA-256: ' + plan.planSha256;
     approvedPlan = plan;
+    approvedInput = requested;
     runButton.disabled = false;
     phase.textContent = 'M5 · Ready';
     report('Task graph hợp lệ. Xem lại rồi nhấn Xác nhận để thực thi các kỹ năng.');
   } catch (error) {
+    if (currentGeneration !== generation) return;
     phase.textContent = 'M5 · Rejected';
     report('FAIL-CLOSED ' + (error.code || 'DIRECTOR_ERROR') + ': ' + error.message, true);
   } finally {
@@ -104,7 +119,14 @@ form.addEventListener('submit', async (event) => {
 });
 runButton.addEventListener('click', async () => {
   if (busy || !approvedPlan) return;
+  if (JSON.stringify(input()) !== approvedInput) {
+    invalidate();
+    report('Kịch bản đã thay đổi. Hãy lập kế hoạch mới.', true);
+    return;
+  }
   busy = true;
+  executing = true;
+  for (const item of form.querySelectorAll('input, textarea, select')) item.disabled = true;
   runButton.disabled = true;
   planButton.disabled = true;
   phase.textContent = 'M5 · Running';
@@ -145,6 +167,8 @@ runButton.addEventListener('click', async () => {
     runButton.disabled = false;
   } finally {
     busy = false;
+    executing = false;
+    for (const item of form.querySelectorAll('input, textarea, select')) item.disabled = false;
     planButton.disabled = false;
   }
 });
