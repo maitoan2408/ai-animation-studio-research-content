@@ -9,6 +9,7 @@ import { frameSvg } from './rig.js';
 import { toAnimationIR, toLegacyProjectSpec } from './animation-ir.js';
 import { mixAudio } from './audio.js';
 import { MotionService } from './motion-service.js';
+import { DirectorService } from './director.js';
 
 const revisionRequest = z.object({ expectedRevision: z.string(), spec: z.unknown() }).strict();
 const voiceRequest = z.object({ expectedRevision: z.string() }).strict();
@@ -58,10 +59,13 @@ async function body(request: http.IncomingMessage): Promise<unknown> {
 
 export async function serve(app: Studio, port = 4310) {
   const motion = new MotionService(app.store.root);
+  const director = new DirectorService(app);
   await motion.init();
   const staticFiles = new Map([
     ['/', ['index.html', 'text/html; charset=utf-8']],
     ['/motion', ['motion.html', 'text/html; charset=utf-8']],
+    ['/director', ['director.html', 'text/html; charset=utf-8']],
+    ['/director.js', ['director.js', 'text/javascript; charset=utf-8']],
     ['/motion.js', ['motion.js', 'text/javascript; charset=utf-8']],
     ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
     ['/style.css', ['style.css', 'text/css; charset=utf-8']],
@@ -105,6 +109,22 @@ export async function serve(app: Studio, port = 4310) {
       if (method === 'GET' && parts.length === 2 && parts[1] === 'doctor') {
         json(await doctor());
         return;
+      }
+      // M5 Director uses only the real root Studio executor with explicit approval.
+      // It never runs user-supplied code or silently overwrites human revisions.
+      if (parts[1] === 'director' && parts.length === 3 && method === 'POST') {
+        if (parts[2] === 'plan') {
+          json(director.plan(await body(req)));
+          return;
+        }
+        if (parts[2] === 'run') {
+          const input = validate(
+            z.object({ plan: z.unknown(), approved: z.literal(true) }).strict(),
+            await body(req),
+          );
+          json(await director.run(input.plan, input.approved), 201);
+          return;
+        }
       }
       // M3 Character Motion: separate versioned project, same localhost Studio.
       // Unknown keys, foreign origins and stale revisions fail before native render.
