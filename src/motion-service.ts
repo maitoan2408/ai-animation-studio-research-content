@@ -89,6 +89,7 @@ export class MotionService {
   private readonly projectFile: string;
   private saving: Promise<void> = Promise.resolve();
   private running?: { id: string; child: ChildProcess };
+  private renderStart?: Promise<MotionJob>;
   constructor(storeRoot: string) {
     this.dir = path.join(storeRoot, 'motion-m3');
     this.projectFile = path.join(this.dir, 'project.json');
@@ -163,6 +164,17 @@ export class MotionService {
     return job;
   }
   async render(revision: string): Promise<MotionJob> {
+    if (this.renderStart || this.running)
+      failure('M3_RENDER_BUSY', 'A native M3 render is already running.', 409);
+    const launched = this.renderInner(revision);
+    this.renderStart = launched;
+    try {
+      return await launched;
+    } finally {
+      if (this.renderStart === launched) this.renderStart = undefined;
+    }
+  }
+  private async renderInner(revision: string): Promise<MotionJob> {
     await this.init();
     if (this.running) failure('M3_RENDER_BUSY', 'A native M3 render is already running.', 409);
     const doc = await this.current();
