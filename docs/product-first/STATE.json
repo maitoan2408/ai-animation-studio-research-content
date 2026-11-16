@@ -5,7 +5,7 @@
     "branch": "codex/v2-continuous",
     "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
   },
-  "implementationBranch": "codex/product-first-m4-physics",
+  "implementationBranch": "codex/m4-audit-20261116",
   "activeMilestone": "M4",
   "milestones": {
     "M0": {
@@ -326,7 +326,7 @@
       }
     },
     "M4": {
-      "technicalStatus": "REWORK_REQUIRED",
+      "technicalStatus": "REWORK_IN_PROGRESS",
       "evidenceStatus": "REWORK_REQUIRED",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "79aae2fdfe960e03992e136a6529fe95623a1cdb",
@@ -402,7 +402,7 @@
       ],
       "nextAction": "Reproduce new regression failures; bind collision geometry to actual authored bench and support anchor; rerun M4 media + independent QA + full M0-M3 regression.",
       "sourceCommit": "b44fb8d2f689a756837c291341f3786e9f889a49",
-      "ownerGate": "REWORK_REQUIRED. Previous technical PASS superseded by independent audit. Do not owner-accept, merge or start M5.",
+      "ownerGate": "Await current audit and final source-bound media; no automatic acceptance",
       "artifactId": 14224468519,
       "artifactName": "physics-m4-review-8",
       "artifactExpiresAt": "2026-11-30T12:15:44Z",
@@ -420,6 +420,20 @@
         "manifestHashesChecked": 25,
         "fullMp4Decodes": 2,
         "blackSceneDetections": 0
+      },
+      "audit20261116": {
+        "status": "IN_PROGRESS",
+        "baseCommit": "081ee51cf7fb95ca1defe5f772449c5a7cf275a5",
+        "plan": "docs/product-first/M4-AUDIT.md",
+        "reviewer": "delegated-agent",
+        "confirmedFindings": [
+          "Valid 105-frame render asserts >150",
+          "Frozen unvalidated bake accepted by replay",
+          "Rehashed handoff teleport and floor penetration accepted",
+          "First real solver support impulse missed between presentation frames",
+          "Post-result consumer compares declared hashes instead of actual OFF/ON pixels"
+        ],
+        "scope": "Preserve accepted M1-M3, bounded prop/platform and locked S05; no M5 or merge"
       }
     },
     "M5": {
@@ -491,5 +505,5 @@
     }
   },
   "nextMilestone": "M4",
-  "nextAction": "M4 independent audit found in-scope defects; fix M4-EDGE-001 and M4-SUPPORT-002 and rerun full acceptance gates."
+  "nextAction": "Finish M4 audit repairs, two native OFF/ON scenarios, separate post-result checks and full final HEAD regression."
 }

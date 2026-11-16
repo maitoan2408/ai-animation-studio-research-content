@@ -54,6 +54,7 @@ const range=(v:unknown,a:number,b:number)=>finite(v)&&v>=a&&v<=b;
 const pair=(v:unknown,limit:number):v is [number,number]=>Array.isArray(v)&&v.length===2&&v.every(x=>range(x,-limit,limit));
 const nativeSourceSha=sha(['m4.ts','m4-adapter.ts','engines.ts','../motion/character-library.ts',
   '../render/browser.ts'].map(p=>({path:p,sha256:fileSha(new URL(p,import.meta.url))})));
+const validatedBakes=new WeakSet<object>();
 const lockSha=fileSha(new URL('../../package-lock.json',import.meta.url));
 export function validateM4Project(raw:unknown,pack:ArtPack):PhysicsProject{
  if(!obj(raw)||!exact(raw,['schemaVersion','motion','tailFrames','prop','gravityMps2'])||
@@ -212,13 +213,27 @@ export function validateM4Bake(raw:unknown,project:PhysicsProject,pack:ArtPack):
    throw Error('M4_BAKE_EVENTS');
  const {bakeSha256,...payload}=raw;
  if(bakeSha256!==sha(payload))throw Error('M4_BAKE_SHA_MISMATCH');
+ const expectedOrigin=stageFrame(pack,project.motion,release,'physics');
+ const origin=frames[release]!;
+ if(Math.hypot(origin.centerX-expectedOrigin.centerX,origin.centerY-expectedOrigin.centerY)>1e-6||
+    Math.abs(origin.rotationDeg-expectedOrigin.rotationDeg)>1e-6)
+   throw Error('M4_BAKE_HANDOFF');
+ for(const frame of frames.slice(release)){
+   const angle=frame.rotationDeg*Math.PI/180;
+   const [hw,hh]=project.prop.halfExtentsM;
+   const bottom=frame.centerY+(Math.abs(Math.sin(angle))*hw+Math.abs(Math.cos(angle))*hh)*project.prop.pixelsPerMeter;
+   if((bottom-project.prop.floorStageY)/project.prop.pixelsPerMeter>recipe.contactSkinM)
+     throw Error('M4_BAKE_PENETRATION: frame='+frame.frame);
+ }
+
  for(const f of frames)Object.freeze(f);
  for(const e of events)Object.freeze(e);
  Object.freeze(frames);Object.freeze(events);Object.freeze(raw.recipe);Object.freeze(raw);
+ validatedBakes.add(raw);
  return raw as PhysicsBake;
 }
 export function sampleM4Bake(bake:PhysicsBake,frame:number):PhysicsFrame{
- if(!Object.isFrozen(bake)||!Object.isFrozen(bake.frames))throw Error('M4_BAKE_UNVALIDATED');
+ if(!validatedBakes.has(bake))throw Error('M4_BAKE_UNVALIDATED');
  if(!Number.isSafeInteger(frame)||frame<0||frame>=bake.frames.length)throw RangeError('M4_FRAME_OUT_OF_RANGE');
  return bake.frames[frame]!;
 }
@@ -255,18 +270,24 @@ export async function bakeM4(raw:unknown,pack:ArtPack):Promise<PhysicsBake>{
  try{
    frames.push(origin);
    for(let f=release+1;f<count;f++){
-     for(let i=0;i<recipe.substeps;i++)world.step();
+     for(let i=0;i<recipe.substeps;i++){
+       world.step();
+       // The declared skin can support the cup before geometric overlap.
+       // Observe actual solver impulses at 240Hz, including contacts which
+       // disappear again before the next 24fps presentation frame.
+       if(!contacted){
+         world.contactPair(collider,platform,m=>{
+           for(let j=0;j<m.numContacts();j++)
+             if(m.contactImpulse(j)>0)contacted=true;
+         });
+         if(contacted)events.push({frame:f,kind:'platform-contact',source:'rapier-contact'});
+       }
+     }
      const t=body.translation(),angle=-body.rotation()*180/Math.PI;
      if(![t.x,t.y,angle].every(Number.isFinite))throw Error('M4_NONFINITE_SIMULATION');
      requirePlatformInterior(t.x*ppm,p,platformBounds);
      frames.push({frame:f,centerX:t.x*ppm,centerY:-t.y*ppm,rotationDeg:angle,owner:'physics'});
-     if(!contacted){
-       world.contactPair(collider,platform,m=>{
-         for(let j=0;j<m.numSolverContacts();j++)
-           if(m.solverContactDist(j)<=0)contacted=true;
-       });
-       if(contacted)events.push({frame:f,kind:'platform-contact',source:'rapier-contact'});
-     }
+
    }
  }finally{world.free();}
  const payload={schemaVersion:'m4-bake/1' as const,inputSha256:sha(project),artSha256:sha(pack),

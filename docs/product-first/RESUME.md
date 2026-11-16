@@ -1,3 +1,7 @@
+# Current M4 owner-requested audit — 2026-11-16
+
+Branch `codex/m4-audit-20261116`, base latest M4 `081ee51c`. See [fixed audit plan](M4-AUDIT.md). Confirmed boundary and evidence defects are being repaired with immutable FAIL attempts. Older reports below are historical and do not establish current M4 completion. Accepted M1–M3 and S05 remain unchanged; no M5/merge.
+
 # M4 final technical review — 2026-11-16 | READY_FOR_USER_REVIEW; owner decision pending
 
 M4 implementation source `b44fb8d2f689a756837c291341f3786e9f889a49` on `codex/product-first-m4-physics` (Draft [PR #13](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/13)) passed three complete GitHub workflows: [M4 native + post-result](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43863511981), [production M0–M3 regression](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43863512036), and [Paper Studio/M2 regression](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43863512279). These runs are pinned to implementation SHA `b44fb8d2f689a756837c291341f3786e9f889a49`, not presumed evidence for different source code.
