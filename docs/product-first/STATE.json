@@ -423,8 +423,8 @@
       }
     },
     "M5": {
-      "technicalStatus": "PASSED",
-      "evidenceStatus": "READY_FOR_USER_REVIEW",
+      "technicalStatus": "REWORK_REQUIRED",
+      "evidenceStatus": "REWORK_REQUIRED",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "081ee51cf7fb95ca1defe5f772449c5a7cf275a5",
       "branch": "codex/product-first-m5-director",
@@ -459,8 +459,27 @@
           "sourceCommit": "f70e165ff7f955165f2921faf947681970f7e01a"
         }
       ],
-      "unresolvedInScopeDefects": [],
-      "nextAction": "Deliver two original videos, editable project JSONs, graph/UI screenshots, explicit negative-case proof and SHA manifest for owner's technical and artistic review; M4 still NOT_REVIEWED, no M5 owner ACCEPTED or M6.",
+      "unresolvedInScopeDefects": [
+        {
+          "id": "M5-RECHECK-001",
+          "severity": "HIGH",
+          "scope": "Async stale plan response can re-enable execution after form changes",
+          "status": "FOUND_IN_CODE;REGRESSION_NOT_RUN"
+        },
+        {
+          "id": "M5-RECHECK-002",
+          "severity": "HIGH",
+          "scope": "Crash/receipt-write gap can duplicate project upon identical plan replay",
+          "status": "FOUND_IN_CODE;REGRESSION_NOT_RUN"
+        },
+        {
+          "id": "M5-RECHECK-003",
+          "severity": "MEDIUM",
+          "scope": "Voice can extend approved timeline without renewed approval/final graph input binding",
+          "status": "FOUND_IN_CODE;REGRESSION_NOT_RUN"
+        }
+      ],
+      "nextAction": "First add failing regression tests for M5-RECHECK-001/002/003; then root-fix, render and audit media, full final-HEAD CI. No acceptance/merge/M6.",
       "resolvedDefects": [
         {
           "id": "M5-VISUAL-001",
@@ -511,7 +530,38 @@
         "Voice is local draft eSpeak, not professionally acted or human-approved, and animation has root M2 visual/acting limitations. Two short pilot proofs do not establish long-form cinematic quality.",
         "CI artifacts retained for 14 days; source/code hashes are preserved in repo, videos stored as downloadable GitHub Actions artifact and in chat."
       ],
-      "ownerGate": "READY_FOR_USER_REVIEW (delegated-agent technical QA PASSED, all final source CI SUCCESS); owner acceptance NOT_REVIEWED; no merge or M6."
+      "ownerGate": "REWORK_REQUIRED AFTER INDEPENDENT RECHECK; USER ACCEPTANCE NOT_REVIEWED; M4 STILL NOT_REVIEWED.",
+      "audit20261117": {
+        "verdict": "REWORK_REQUIRED",
+        "sourceReviewed": "78f392403637b93f97a6058fb8fbbc8149d195ca",
+        "sourceMediaVerified": true,
+        "independentArtifactHashesChecked": 15,
+        "fullMP4Decodes": 2,
+        "priorCIStillSuccess": true,
+        "newTargetedRegressions": "NOT_RUN",
+        "scope": "Source-path-confirmed acceptance gaps; plan fixes before re-review",
+        "report": "docs/product-first/M5-RECHECK-20261117.md",
+        "findings": [
+          {
+            "id": "M5-RECHECK-001",
+            "severity": "HIGH",
+            "scope": "Async stale plan response can re-enable execution after form changes",
+            "status": "FOUND_IN_CODE;REGRESSION_NOT_RUN"
+          },
+          {
+            "id": "M5-RECHECK-002",
+            "severity": "HIGH",
+            "scope": "Crash/receipt-write gap can duplicate project upon identical plan replay",
+            "status": "FOUND_IN_CODE;REGRESSION_NOT_RUN"
+          },
+          {
+            "id": "M5-RECHECK-003",
+            "severity": "MEDIUM",
+            "scope": "Voice can extend approved timeline without renewed approval/final graph input binding",
+            "status": "FOUND_IN_CODE;REGRESSION_NOT_RUN"
+          }
+        ]
+      }
     },
     "M6": {
       "technicalStatus": "NOT_VERIFIED",

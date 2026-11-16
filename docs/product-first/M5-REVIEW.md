@@ -1,3 +1,5 @@
+> **2026-11-17 deeper independent audit: this earlier technical-PASS conclusion is superseded by `M5-RECHECK-20261117.md`. M5 is `REWORK_REQUIRED` pending three source-path acceptance gaps and new regression tests. The films/CI below remain authentic historical evidence, not complete acceptance.**
+
 # M5 — Director: final technical and media review
 
 **Date:** 2026-11-17 (Asia/Bangkok). **Technical verdict: PASSED / READY_FOR_USER_REVIEW.** **User acceptance: NOT_REVIEWED.** M4 remains awaiting owner assessment; no project merge or M6 authorized. M5 implementation source: `f70e165ff7f955165f2921faf947681970f7e01a`; isolated branch `codex/product-first-m5-director`; [Draft PR #15](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/15), based on unmerged M4 branch.

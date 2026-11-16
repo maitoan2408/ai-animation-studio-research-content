@@ -1,3 +1,7 @@
+# M5 independent recheck — 2026-11-17 | REWORK_REQUIRED
+
+This later audit supersedes earlier M5 PASS summary. Existing 78f3924 media, 15/15 SHA and four CI jobs are valid, but source-level review exposed 3 acceptance gaps: async stale plan A after editing to B, duplicate project after crash before receipt persists, and audio-induced duration drift after plan approval. Targeted new regressions NOT_RUN. See `docs/product-first/M5-RECHECK-20261117.md`. M4 owner NOT_REVIEWED and M5 owner NOT_REVIEWED. Draft PRs unchanged, no M6 or merge.
+
 # M5 Director — final verified technical checkpoint (2026-11-17)
 
 **M5 implementation source:** `f70e165ff7f955165f2921faf947681970f7e01a`, four full SUCCESS workflows, genuine original 2×432-frame 1080p24 videos with audio, native graph/rendered UI screenshots, negative screenshot, 15 SHA checks and independently verified all-video decodes. Two post-result visual evidence defects were fixed with mandatory rerender and regression. [M5-REVIEW.md](M5-REVIEW.md), [Draft PR #15](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/15), [M5 two-film artifact](https://github.com/maitoan2408/ai-animation-studio-research-content/actions/runs/43922045093/artifacts/14253168961). This is an offline bounded root Studio orchestration program, not an autonomous LLM or native M3/M4 skill integration. M4 **still NOT owner reviewed** and remains Draft; M5 owner acceptance also NOT_REVIEWED; no merges or M6.
