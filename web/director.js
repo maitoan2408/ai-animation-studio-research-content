@@ -7,6 +7,7 @@ const graph = document.querySelector('#director-graph');
 const phase = document.querySelector('#director-phase');
 const sha = document.querySelector('#director-sha');
 const notes = document.querySelector('#director-notes');
+const scenes = document.querySelector('#director-scenes');
 const result = document.querySelector('#director-result');
 const receipt = document.querySelector('#director-receipt');
 const video = document.querySelector('#director-video');
@@ -47,6 +48,7 @@ const invalidate = () => {
   sha.textContent = '';
   graph.replaceChildren();
   notes.replaceChildren();
+  scenes.replaceChildren();
   result.hidden = true;
   if (!busy) phase.textContent = 'M5 · Plan';
 };
@@ -67,6 +69,13 @@ form.addEventListener('submit', async (event) => {
       li.textContent = item.id + ' · ' + item.skill + '  [needs: ' +
         (item.needs.join(', ') || 'none') + ']';
       graph.append(li);
+    }
+    for (const scene of plan.spec.scenes) {
+      const li = document.createElement('li');
+      li.dataset.scene = scene.id;
+      li.textContent = scene.id + ' · ' + scene.title + ' · ' + scene.action +
+        ' · camera=' + scene.camera + ' · ' + scene.durationFrames + ' frames';
+      scenes.append(li);
     }
     const paragraph = document.createElement('p');
     paragraph.textContent = plan.notes.join(' ');
