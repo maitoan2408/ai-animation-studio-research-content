@@ -7,7 +7,7 @@ import {readFile,writeFile} from 'node:fs/promises';
 import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {root} from '../render/server.js';
-import {validateM4Bake,validateM4Project,sampleM4Bake,type PhysicsBake,type PhysicsProject} from '../physics/m4.js';
+import {validateM4Bake,validateM4Project,sampleM4Bake,m4PlatformGeometry,type PhysicsBake,type PhysicsProject} from '../physics/m4.js';
 import {sampleM4Scene} from '../physics/m4-adapter.js';
 import {sampleM3} from '../motion/character-library.js';
 import type {ArtPack} from '../scene/types.js';
@@ -44,6 +44,11 @@ assert.equal(bake.events.find(e=>e.kind==='grip')?.frame,actualGripStart,
   'M4_GRIP_EVENT_NOT_ACTUAL_ATTACHMENT_ONSET');
 assert.equal(sampleM3(project.motion,bake.releaseFrame-1,pack).contact.grip,true);
 assert.equal(sampleM3(project.motion,bake.releaseFrame,pack).contact.grip,false);
+const platform=m4PlatformGeometry(project.motion,pack,bake.releaseFrame);
+assert.ok(platform.rightStageX-platform.leftStageX<500,
+ 'M4_INVISIBLE_PLATFORM_OVERSIZED');
+assert.ok(Math.abs(platform.supportStageY-project.prop.floorStageY)<=2,
+ 'M4_PLATFORM_VISUAL_SURFACE_MISMATCH');
 const metrics={gripOnsetFrame:actualGripStart,releaseFrame:bake.releaseFrame,
   maxGripErrorStagePixels:0,gripSamples:0,maxHandoffJumpStagePixels:0,
   maxColliderPenetrationM:0,platformContactEvents:0,visualComparisonPixelDifference:true,
@@ -68,8 +73,12 @@ for(let f=0;f<bake.frames.length;f++){
    const propOn=on.sprites.find(s=>s.id===project.prop.id)!;
    metrics.maxHandoffJumpStagePixels=Math.hypot(propOff.x-propOn.x,propOff.y-propOn.y);
  }
- if(f>bake.releaseFrame){
+ if(f>=bake.releaseFrame){
    const sample=sampleM4Bake(bake,f);
+   const radius=Math.hypot(...project.prop.halfExtentsM)*project.prop.pixelsPerMeter;
+   assert.ok(sample.centerX-radius>=platform.leftStageX-1e-6 &&
+     sample.centerX+radius<=platform.rightStageX+1e-6,
+     'M4_PLATFORM_ART_EDGE_COLLISION f='+f);
    const theta=sample.rotationDeg*Math.PI/180;
    const hw=project.prop.halfExtentsM[0],hh=project.prop.halfExtentsM[1];
    const halfY=(Math.abs(Math.sin(theta))*hw+Math.abs(Math.cos(theta))*hh)*200;

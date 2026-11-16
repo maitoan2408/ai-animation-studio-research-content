@@ -34,6 +34,8 @@ test('M4 real Rapier bake: two parametrized interactions, 240Hz deterministic an
  assert.deepEqual(a.recipe,m4Recipe(project));
  assert.equal(a.recipe.hz,240);
  assert.equal(a.recipe.substeps,10);
+ assert.ok(a.frames.every(x=>x.frame<a.releaseFrame||(x.centerX>885&&x.centerX<1235)),
+   'default physics never leaves the authored finite bench platform');
  assert.equal(a.frames.length,169);
  assert.equal(a.frames[a.releaseFrame]!.owner,'physics');
  assert.ok(a.releaseFrame>20);

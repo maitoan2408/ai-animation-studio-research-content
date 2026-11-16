@@ -85,6 +85,10 @@ export function validateM4Project(raw:unknown,pack:ArtPack):PhysicsProject{
  const bottom=center[1]+(p.halfExtentsM as number[])[1]!*200;
  if(bottom>Number(p.floorStageY)+0.5)throw Error('M4_PLATFORM_INITIAL_PENETRATION');
  if(Number(p.floorStageY)-bottom>100)throw Error('M4_PLATFORM_TOO_FAR');
+ const platform=m4PlatformGeometry(motion,pack,release);
+ if(Math.abs(Number(p.floorStageY)-platform.supportStageY)>2)
+   throw Error('M4_PLATFORM_ART_MISMATCH');
+ requirePlatformInterior(center[0],p as PhysicsProject['prop'],platform);
  return raw as PhysicsProject;
 }
 function detectContact(motion:M3Project,pack:ArtPack):{gripFrame:number;releaseFrame:number}{
@@ -115,6 +119,35 @@ export const centre=(pack:ArtPack,s:Sprite):[number,number]=>{
  const d=rotate(offset(pack,s),s.rotation);
  return [s.x+d[0],s.y+d[1]];
 };
+/** Platform is the actual authored bench surface, never an infinite hidden ground.
+ * Its rectangular support approximation is bound to the art pack, frame and
+ * source revision. Unsupported/rotated/missing surfaces fail closed.
+ */
+export function m4PlatformGeometry(motion:M3Project,pack:ArtPack,frame:number):{
+ leftStageX:number;rightStageX:number;supportStageY:number;
+}{
+ const surface=sampleM3(motion,frame,pack).frame.sprites.filter(x=>x.asset==='props/workbench');
+ const art=pack.assets.find(a=>a.id==='props/workbench');
+ if(surface.length!==1||!art?.anchors.support)
+   throw Error('M4_PLATFORM_ART_UNSUPPORTED');
+ const s=surface[0]!;
+ if(s.rotation!==0||!range(s.scaleX,0.01,10)||!range(s.scaleY,0.01,10))
+   throw Error('M4_PLATFORM_TRANSFORM_UNSUPPORTED');
+ return {
+   leftStageX:s.x-art.pivot[0]*s.scaleX,
+   rightStageX:s.x+(art.width-art.pivot[0])*s.scaleX,
+   supportStageY:s.y+(art.anchors.support[1]-art.pivot[1])*s.scaleY,
+ };
+}
+const platformRadius=(p:PhysicsProject['prop'])=>
+ Math.hypot(p.halfExtentsM[0],p.halfExtentsM[1])*p.pixelsPerMeter;
+function requirePlatformInterior(centerX:number,p:PhysicsProject['prop'],
+ bounds:ReturnType<typeof m4PlatformGeometry>):void{
+ const radius=platformRadius(p);
+ if(centerX-radius<bounds.leftStageX-1e-6||
+    centerX+radius>bounds.rightStageX+1e-6)
+   throw Error('M4_PLATFORM_EDGE_UNSUPPORTED');
+}
 export function m4Recipe(project:PhysicsProject):PhysicsRecipe{
  return {schemaVersion:'m4-recipe/1',engine:('rapier-'+versions.rapier) as PhysicsRecipe['engine'],
    algorithm:'released-prop-platform-v1',fps:24,hz:240,substeps:10,solverIterations:12,
@@ -153,6 +186,7 @@ export function validateM4Bake(raw:unknown,project:PhysicsProject,pack:ArtPack):
  if(!Array.isArray(raw.frames)||raw.frames.length!==m3TotalFrames(project.motion)+project.tailFrames)
    throw Error('M4_BAKE_FRAMES');
  const frames=raw.frames as PhysicsFrame[];
+ const platform=m4PlatformGeometry(project.motion,pack,release);
  for(const [f,v] of frames.entries()){
    if(!obj(v)||!exact(v,['frame','centerX','centerY','rotationDeg','owner'])||
      v.frame!==f||!range(v.centerX,-10000,10000)||!range(v.centerY,-10000,10000)||
@@ -160,6 +194,7 @@ export function validateM4Bake(raw:unknown,project:PhysicsProject,pack:ArtPack):
      throw Error('M4_BAKE_FRAME_INVALID');
    if(f<release&&sha(v)!==sha(stageFrame(pack,project.motion,f,'authored')))
      throw Error('M4_AUTHORED_FRAME_TAMPER');
+   if(f>=release)requirePlatformInterior(v.centerX,project.prop,platform);
  }
  if(!Array.isArray(raw.events)||raw.events.length<2)throw Error('M4_BAKE_EVENTS');
  for(const e of raw.events){
@@ -194,14 +229,17 @@ export async function bakeM4(raw:unknown,pack:ArtPack):Promise<PhysicsBake>{
  const recipe=m4Recipe(project);
  const {releaseFrame:release,gripFrame}=detectContact(project.motion,pack),count=m3TotalFrames(project.motion)+project.tailFrames;
  const origin=stageFrame(pack,project.motion,release,'physics');
+ const platformBounds=m4PlatformGeometry(project.motion,pack,release);
  const frames:PhysicsFrame[]=Array.from({length:release},(_,i)=>stageFrame(pack,project.motion,i,'authored'));
  const events:PhysicsEvent[]=[{frame:gripFrame,kind:'grip',source:'authored-contact'},
    {frame:release,kind:'release',source:'authored-contact'}];
  const r=await rapier(),world=new r.World({x:0,y:-recipe.gravityMps2});
  world.timestep=1/recipe.hz;world.numSolverIterations=recipe.solverIterations;
  const ground=world.createRigidBody(r.RigidBodyDesc.fixed());
- const platform=world.createCollider(r.ColliderDesc.cuboid(20,0.2)
-    .setTranslation(0,-p.floorStageY/ppm-0.2)
+ const platform=world.createCollider(r.ColliderDesc.cuboid(
+    (platformBounds.rightStageX-platformBounds.leftStageX)/(2*ppm),0.2)
+    .setTranslation((platformBounds.leftStageX+platformBounds.rightStageX)/(2*ppm),
+      -p.floorStageY/ppm-0.2)
     .setFriction(p.friction).setRestitution(p.restitution),ground);
  const body=world.createRigidBody(r.RigidBodyDesc.dynamic()
    .setTranslation(origin.centerX/ppm,-origin.centerY/ppm)
@@ -220,6 +258,7 @@ export async function bakeM4(raw:unknown,pack:ArtPack):Promise<PhysicsBake>{
      for(let i=0;i<recipe.substeps;i++)world.step();
      const t=body.translation(),angle=-body.rotation()*180/Math.PI;
      if(![t.x,t.y,angle].every(Number.isFinite))throw Error('M4_NONFINITE_SIMULATION');
+     requirePlatformInterior(t.x*ppm,p,platformBounds);
      frames.push({frame:f,centerX:t.x*ppm,centerY:-t.y*ppm,rotationDeg:angle,owner:'physics'});
      if(!contacted){
        world.contactPair(collider,platform,m=>{

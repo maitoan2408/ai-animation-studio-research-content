@@ -11,7 +11,7 @@ import {createCaptureSession,initializeSession,captureFrameToBuffer,closeCapture
 import {serveM4,root} from './server.js';
 import {ensureM3Textures} from './prepare-m3.js';
 import {makeM3Showcase,validateM3} from '../motion/character-library.js';
-import {bakeM4,validateM4Bake,validateM4Project,type PhysicsProject,type PhysicsBake} from '../physics/m4.js';
+import {bakeM4,validateM4Bake,validateM4Project,m4PlatformGeometry,type PhysicsProject,type PhysicsBake} from '../physics/m4.js';
 import {sampleM4Scene} from '../physics/m4-adapter.js';
 import type {ArtPack} from '../scene/types.js';
 const sha=(b:string|Uint8Array)=>createHash('sha256').update(b).digest('hex');
@@ -166,7 +166,8 @@ try{
    dimensions:{width:1920,height:1080,fps:24,count:frames},
    audio:'intentionally-silent',
    physics:{solverHz:240,substeps:10,platformStageY:project.prop.floorStageY,
-     collisionProxyHalfExtentsM:project.prop.halfExtentsM,contactSkinM:bake.recipe.contactSkinM},
+     collisionProxyHalfExtentsM:project.prop.halfExtentsM,contactSkinM:bake.recipe.contactSkinM,
+     boundedPlatform:m4PlatformGeometry(project.motion,pack,bake.releaseFrame)},
    limitations:['M4 supports one SHA-locked cup on a level platform with the existing M3 rig',
      'Motion/physics ownership handoff happens at the actual M3 contact release',
      'Only documented in-scope rigid-body interactions; no arbitrary third-party art/cloth'],
