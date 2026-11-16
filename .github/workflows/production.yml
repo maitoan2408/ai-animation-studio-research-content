@@ -61,6 +61,14 @@ jobs:
         run: npm --prefix production run motion:m3
       - name: M3 required independent post-result provenance and media audit
         run: npm --prefix production run motion:m3:audit
+      - name: M3 Studio real editor, saved revision and custom native film
+        env:
+          SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          npm ci
+          npx tsx scripts/m3-studio-e2e.ts
+      - name: Independent M3 Studio post-result QA
+        run: npx tsx scripts/m3-studio-audit.ts
       - name: Upload diagnostic evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -70,6 +78,7 @@ jobs:
             production/out/review-ui/
             production/out/product-first/m1/
             production/out/product-first/m3/
+            artifacts/product-first/m3-studio/
             production/out/review-audit/
             production/out/player-check/
             production/out/chart-results/
