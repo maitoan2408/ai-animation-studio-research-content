@@ -101,8 +101,7 @@ try{
    }
    await closeCaptureSession(session);session=undefined;
    service.close();service=undefined;
-   const probe=JSON.parse(run('ffprobe',['-v','error','-count_frames','-show_streams','-of','json',destination]))
-     as {streams:Array<{codec_type:string;width:number;height:number;nb_read_frames:string;avg_frame_rate:string}>};
+   const probe=JSON.parse(run('ffprobe',['-v','error','-count_frames','-show_streams','-of','json',destination])) as {streams:Array<{codec_type:string;width:number;height:number;nb_read_frames:string;avg_frame_rate:string}>};
    const videoStream=probe.streams.find(x=>x.codec_type==='video');
    assert.equal(videoStream?.width,1920);assert.equal(videoStream?.height,1080);
    assert.equal(videoStream?.nb_read_frames,String(frames));
