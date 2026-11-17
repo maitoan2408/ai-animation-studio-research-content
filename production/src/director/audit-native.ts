@@ -100,7 +100,7 @@ for(const [i,item] of overview.scenarios.entries()){
  const checks=Object.entries(manifest.stills??manifest.nativeFrames??{}) as [string,string][];
  assert.ok(checks.length>=7);
  for(const [image,digest] of checks){
-   assert.match(image,/^(frame-[0-9]{3}|m3-frame-[0-9]+|frame-[0-9]+)\.png$/);
+   assert.match(image,/^(?:frame-[0-9]{3}|m3-final-frame-[0-9]{3})\.png$/);
    const data=await readFile(path.join(folder,image));
    assert.equal(sha(data),digest);
  }
