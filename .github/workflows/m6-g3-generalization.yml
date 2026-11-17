@@ -3,6 +3,10 @@ on:
   pull_request:
     paths:
       - 'production/src/motion/general-*'
+      - 'production/src/scene/*'
+      - 'production/src/motion/character-library.ts'
+      - 'production/src/motion/grip-planner.ts'
+      - 'docs/product-first/M6-G1-G3-INTEGRATION-*'
       - 'production/src/physics/general-*'
       - 'production/src/render/browser.ts'
       - 'production/src/render/server.ts'

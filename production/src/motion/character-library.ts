@@ -172,7 +172,7 @@ function cupSprite(p:M3Project,y:number):Sprite{
   return sprite(p.prop.id,p.prop.asset,p.prop.x,y,6,0,p.prop.scale);
 }
 function wristAtProp(pack:ArtPack,p:M3Project,prop:Sprite,pose:ActorPose):Point{
-  return planGrip(pack,{actorModel:pose.character,actorX:pose.x,actorFloor:pose.floor,
+  return planGrip(pack,{actorModel:p.character.model,actorX:pose.x,actorFloor:pose.floor,
     actorFacing:pose.facing,propAsset:prop.asset,propX:prop.x,propY:prop.y,
     propScale:prop.scaleX,side:gripSide(p.prop?.hand),lift:0}).wrist;
 }
