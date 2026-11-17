@@ -6,6 +6,7 @@ import {sampleM3,m3TotalFrames,validateM3,type M3Project} from './character-libr
 import {sampleM6,type M6Quality,m6DefaultQuality} from './m6-quality.js';
 import type {ArtPack,Point} from '../scene/types.js';
 import {anchorPoint} from '../scene/geometry.js';
+import {auditFrame} from '../qa/general-scene-quality.js';
 
 type Issue=Readonly<{
   code:string;severity:'error'|'warning';frame:number;measured:number;
@@ -39,6 +40,7 @@ export function evaluateM6(
   const stance=new Map<string,Point>();
   let plantedSamples=0,heldGripSamples=0,maxPlantedDrift=0,maxGripError=0;
   let cameraChanges=0;
+  let previousFrame:import('../scene/types.js').SceneFrame|undefined;
   // Visual staging is independent from a mathematically valid IK reach.
   // This actor's supported pick-place is right-hand-only; putting the cup
   // across the body by the open LEFT hand created the visibly broken M6
@@ -55,6 +57,19 @@ export function evaluateM6(
   }
   for(let f=0;f<frames;f++){
     const sample=mode==='enhanced'?sampleM6(project,f,pack,controls):sampleM3(project,f,pack);
+    // Reusable engine-level QA runs on the actual evaluated frame, not on
+    // synthetic marker-only evidence. This also catches unrecognized art,
+    // duplicate instances and nonfinite transforms for every M6 film.
+    const contacts=sample.contact.grip&&project.prop?[{
+      id:project.character.id+'-held-prop',
+      holderId:project.character.id+'.right-hand',propId:project.prop.id,
+      holderAnchor:'grip',propAnchor:'grip',rearId:project.character.id+'.right-hand',
+      frontId:project.character.id+'.right-grip-front',tolerancePx:.001,
+    }]:[];
+    for(const problem of auditFrame(sample.frame,pack,{frame:f,contacts},previousFrame))
+      issues.push({code:problem.code,severity:'error',frame:f,measured:NaN,
+        expected:problem.detail,evidence:problem.subject});
+    previousFrame=sample.frame;
     const {index,clip,local}=clipFor(project,f);
     const camera=JSON.stringify(sample.frame.camera);
     if(camera!=='{"x":960,"y":540,"zoom":1}')cameraChanges++;
