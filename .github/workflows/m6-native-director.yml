@@ -1,0 +1,50 @@
+name: M6 G4-G5 native Director six-film end-to-end and post-result QA
+on:
+  pull_request:
+    paths:
+      - 'production/src/director/**'
+      - 'production/tests/m6-native-director.test.ts'
+      - 'production/src/motion/**'
+      - 'production/src/qa/**'
+      - 'production/src/scene/**'
+      - 'production/src/physics/**'
+      - 'production/src/render/**'
+      - 'production/package.json'
+      - '.github/workflows/m6-native-director.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-director-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  native-director-six-films:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 130
+    env:
+      SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      HYPERFRAMES_NO_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install real Chromium + FFmpeg + vector rasterizer
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
+      - run: npm ci && npm --prefix production ci
+      - name: Strict TS contracts and native Director adversarial tests
+        run: |
+          npm run verify
+          npm --prefix production run typecheck
+          npm --prefix production run test:native:director
+          npm --prefix production test
+      - name: Produce six genuinely distinct saved native projects and six real MP4 movies
+        run: npm --prefix production run native:director:demo
+      - name: Independent second pass through actual six media streams and frames
+        run: npm --prefix production run native:director:audit
+      - name: Publish six films, editable JSON plans, all receipts, actual contact frames and reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: m6-native-director-six-${{ github.run_number }}
+          path: |
+            production/out/product-first/m6-native-director-six/
+          retention-days: 14
