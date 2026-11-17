@@ -15,7 +15,7 @@ on:
       - 'tests/m6-audio-quality.test.ts'
       - 'production/src/motion/**'
       - 'production/src/render/**'
-      - 'production/src/qa/audit-m6.ts'
+      - 'production/src/qa/audit-m6*.ts'
       - 'production/tests/m6-*.ts'
       - 'production/examples/m6-*.json'
       - 'production/package.json'
@@ -55,6 +55,8 @@ jobs:
         run: python3 scripts/run-step.py U2 m6-ci-paired-native -- npm --prefix production run motion:m6
       - name: Independent post-result full-media decode, hashes and contact audit
         run: python3 scripts/run-step.py U2 m6-ci-independent-audit -- npm --prefix production run motion:m6:audit
+      - name: Independent adversarial evidence-tamper and source-check rejection
+        run: python3 scripts/run-step.py U2 m6-ci-negative-provenance -- production/node_modules/.bin/tsx production/src/qa/audit-m6-negative.ts
       - name: Retimed/near-IK-limit 122-frame real native A/B and independent audit
         env:
           M3_PROJECT_FILE: examples/m6-near-ik-limit.json
