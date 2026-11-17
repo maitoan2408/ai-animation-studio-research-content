@@ -666,11 +666,11 @@
       "ownerAcceptanceSource": "Owner explicitly confirmed M4 and M5 accepted in ChatGPT conversation on 2026-11-17 and authorized M6."
     },
     "M6": {
-      "technicalStatus": "PASSED",
-      "evidenceStatus": "READY_FOR_USER_REVIEW",
+      "technicalStatus": "IN_PROGRESS_REAUDIT",
+      "evidenceStatus": "FINAL_HEAD_REGRESSION_PENDING",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "ea79a67ec755c8946eafa919558fad280dc2ca1f",
-      "ownerGate": "READY_FOR_USER_REVIEW; owner decision NOT_REVIEWED. No automatic merge or M7.",
+      "ownerGate": "M6 technical re-audit in progress; OWNER NOT_REVIEWED. No main merge or M7.",
       "requirements": [
         "Audited identical-shot A/B real 1080p24 videos with matched camera and contact",
         "Quality improvements in motion, acting, secondary, audio, rendering and critic within supported contracts",
@@ -702,7 +702,16 @@
         "M6 native A/B clips intentionally silent; M5 voice is still draft eSpeak",
         "No arbitrary retargeting, cloth/hair solver or verified lip synchronization",
         "Subjective visual/acting and listening quality require owner judgment"
-      ]
+      ],
+      "originalVerifiedCodeCommit": "bb67dbb760a38e6fa1596a2e95dbf92f409bc547",
+      "reAuditStarted": "2026-11-17",
+      "foundInScopeDefects": [
+        "M6 optional torso/acting envelope could violate M3-valid two-link hand IK at reach boundary (failing-first CI run 44052509536)",
+        "Independent native M6 auditor assumed 268-frame default, rejecting valid retimed custom M3 project",
+        "Selected screenshot hashes were not cross-bound to complete frameHashes and the native still/contact path checks were incomplete",
+        "Opt-in audio postmaster could expose output before receipt publication and lacked exclusive output/strict video profile validation"
+      ],
+      "repairStatus": "Code fixes and adversarial tests committed; await final-source M0-M6 CI, custom native media, real Studio enhanced UI and audio postmaster negative tests."
     },
     "M7": {
       "technicalStatus": "NOT_VERIFIED",
