@@ -68,7 +68,8 @@ try{
     if(done!.status!=='rendering')break;
     await new Promise(resolve=>setTimeout(resolve,1000));
   }
-  assert.equal(done?.status,'succeeded','M6 Studio positive native mode failed: '+done?.error);
+  assert.ok(done,'M6 Studio render never returned a job result');
+  assert.equal(done.status,'succeeded','M6 Studio positive native mode failed: '+done.error);
   assert.equal(done.qualityMode,'enhanced');
   assert.equal(done.frames,268);
   await page.waitForFunction(()=>
