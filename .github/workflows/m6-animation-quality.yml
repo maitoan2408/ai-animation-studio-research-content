@@ -46,8 +46,9 @@ jobs:
         run: node --check scripts/m6-audio-post.mjs
       - name: Rebuild source-authored SVG art and verify exact manifest/SHA provenance
         run: |
+          find production/assets/lantern-v1 -type f -print0 | sort -z | xargs -0 sha256sum > /tmp/m6-original-art-sha256s.txt
           python3 production/src/art/build_assets.py
-          git diff --exit-code -- production/assets/lantern-v1/
+          sha256sum -c /tmp/m6-original-art-sha256s.txt
       - name: Strict application and native TypeScript contracts
         run: |
           npm run verify
