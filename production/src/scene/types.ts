@@ -28,6 +28,10 @@ export type ActorPose = {
   rightWrist?: Point; leftWrist?: Point; leftAnkle?: Point; rightAnkle?: Point;
   hipOffset?: Point; rightHand?: 'open' | 'grip' | 'point'; leftHand?: 'open' | 'grip' | 'point';
   rightHandAngle?: number; leftHandAngle?: number;
+  /** M3 pick-place opt-in: rear palm, held prop and curved foreground
+   * fingertips occupy distinct visual layers. Default false preserves
+   * archived M1/hero authored poses and their original goldens. */
+  layeredGrip?: boolean;
   /** Explicit IK bend side, default keeps existing rig behavior. */
   rightElbowBend?: 1 | -1;
 };
