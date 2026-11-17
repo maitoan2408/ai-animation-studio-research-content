@@ -10,7 +10,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {evaluateM6} from '../motion/m6-critic.js';
-import {makeM3Showcase,validateM3,type M3Project} from '../motion/character-library.js';
+import {m3TotalFrames,validateM3,type M3Project} from '../motion/character-library.js';
 import type {ArtPack} from '../scene/types.js';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
@@ -30,12 +30,15 @@ type Manifest={
 async function inspect(folder:string,mode:'baseline'|'enhanced',project:M3Project,pack:ArtPack){
   const m=JSON.parse(await readFile(path.join(folder,'manifest.json'),'utf8')) as Manifest;
   assert.equal(m.milestone,'M6');assert.equal(m.qualityMode,mode);
+  if(process.env.SOURCE_HEAD_SHA)assert.equal(m.sourceCommit,process.env.SOURCE_HEAD_SHA,'source commit mismatch');
+  const frames=m3TotalFrames(project);
   assert.equal(m.video.file,'m3-character-motion-final-1080p.mp4');
   assert.ok(/^[a-f0-9]{64}$/.test(m.video.sha256));
   assert.equal(m.video.width,1920);assert.equal(m.video.height,1080);
-  assert.equal(m.video.fps,24);assert.equal(m.video.frames,268);
+  assert.equal(m.video.fps,24);assert.equal(m.video.frames,frames);
   assert.equal(m.video.hasAudio,false,'this native shot is intentionally silent');
-  assert.equal(m.frameHashes.length,m.video.frames);
+  assert.equal(m.frameHashes.length,frames);
+  assert.equal(m.project.file,'m3-project.json');
   const j=await readFile(path.join(folder,m.project.file),'utf8');
   assert.equal(sha(j),m.project.sha256);
   assert.deepEqual(validateM3(JSON.parse(j),pack),project);
@@ -47,7 +50,7 @@ async function inspect(folder:string,mode:'baseline'|'enhanced',project:M3Projec
     };
   const v=meta.streams.find(x=>x.codec_type==='video');
   assert.equal(v?.width,1920);assert.equal(v?.height,1080);
-  assert.equal(v?.avg_frame_rate,'24/1');assert.equal(v?.nb_read_frames,'268');
+  assert.equal(v?.avg_frame_rate,'24/1');assert.equal(v?.nb_read_frames,String(frames));
   assert.ok(!meta.streams.some(s=>s.codec_type==='audio'));
   exec('ffmpeg',['-v','error','-xerror','-nostdin','-threads','1','-i',video,
     '-threads','1','-f','null','-']);
@@ -59,9 +62,13 @@ async function inspect(folder:string,mode:'baseline'|'enhanced',project:M3Projec
 }
 export async function auditM6(output:string){
   const pack=JSON.parse(await readFile(path.join(root,'assets/lantern-v1/manifest.json'),'utf8')) as ArtPack;
-  const project=makeM3Showcase(pack,'guest-01','an');
   const baselineFolder=path.join(output,'baseline');
   const enhancedFolder=path.join(output,'enhanced');
+  // Read the validated editable source actually delivered by the renderer.
+  // Do not silently audit a hard-coded showcase when the user rendered a retimed
+  // or near-reach M3 project through the public M3_PROJECT_FILE boundary.
+  const project=validateM3(JSON.parse(await readFile(path.join(baselineFolder,'m3-project.json'),'utf8')),pack);
+  const frames=m3TotalFrames(project);
   const [a,b]=await Promise.all([
     inspect(baselineFolder,'baseline',project,pack),
     inspect(enhancedFolder,'enhanced',project,pack),
@@ -71,7 +78,8 @@ export async function auditM6(output:string){
   assert.equal(a.video.frames,b.video.frames);
   assert.equal(a.video.duration,b.video.duration);
   const changed=b.frameHashes.filter((digest,f)=>digest!==a.frameHashes[f]).length;
-  assert.ok(changed>=24,'M6 A/B did not measurably change native pixels: '+changed);
+  const minimumChanged=frames===268?24:Math.max(1,Math.ceil(frames*.1));
+  assert.ok(changed>=minimumChanged,'M6 A/B did not measurably change native pixels: '+changed);
   const before=evaluateM6(project,pack,'baseline');
   const after=evaluateM6(project,pack,'enhanced');
   assert.deepEqual(before.issues,[]);assert.deepEqual(after.issues,[]);
@@ -80,7 +88,8 @@ export async function auditM6(output:string){
   assert.equal(before.metrics.heldGripSamples,after.metrics.heldGripSamples);
   assert.ok(after.metrics.maxPlantedDriftPixels<=before.metrics.maxPlantedDriftPixels+.001);
   assert.ok(after.metrics.maxGripErrorPixels<=before.metrics.maxGripErrorPixels+.001);
-  for(const f of [0,12,36,72,73,121,147,171,195,218,267]){
+  const sampleFrames=[...new Set(Array.from({length:11},(_,i)=>Math.round((frames-1)*i/10)))];
+  for(const f of sampleFrames){
     assert.equal(before.samples[f]?.camera,after.samples[f]?.camera,'camera mismatch');
     assert.equal(before.samples[f]?.heldGripPixels,after.samples[f]?.heldGripPixels,
       'held grip mismatch f='+f);
@@ -108,6 +117,7 @@ export async function auditM6(output:string){
       'editable source and source revision SHA preserved'],
     limits:['Native M3/M6 is separate from root Studio M2/Director',
       'Both comparison clips intentionally silent; no voice quality improvement claimed',
+      'Independent project validation and dynamic per-project frame count (no fixed 268-frame assumption)',
       'Art remains development asset; no new licensed art approved',
       'Subjective polish must be assessed by owner',
       'No cloth/hair solving, no general rig retargeting or arbitrary-scene support'],
