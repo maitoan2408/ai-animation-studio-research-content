@@ -89,6 +89,52 @@ function enhancePose(base:ActorPose,clip:M3Project['clips'][number],f:number,q:M
   return pose;
 }
 
+/**
+ * The M3 project validator proves the original target is reachable, not that an
+ * additive M6 shoulder lean will remain reachable. Fit the *optional quality*
+ * movement to the existing validated rig instead of stretching bones, moving a
+ * held prop or allowing a new render-time IK exception.
+ *
+ * The original pose is a verified feasible point (sampleM3 assembled it). If
+ * the requested quality envelope violates either two-link arm, use a bounded
+ * deterministic bisection in [0,1] for the strongest feasible enhancement.
+ * Both the chosen pose and rig are produced at the same absolute frame.
+ */
+function rigSafeQuality(
+  original:ActorPose,clip:M3Project['clips'][number],frame:number,
+  q:M6Quality,pack:ArtPack,
+):{pose:ActorPose;rig:ReturnType<typeof actorSprites>}{
+  const ik=(error:unknown)=>error instanceof Error&&error.message.startsWith('IK_UNREACHABLE:');
+  const at=(gain:number)=>{
+    const quality:M6Quality={
+      schemaVersion:'quality-motion/1',
+      leanDegrees:q.leanDegrees*gain,
+      bouncePixels:q.bouncePixels*gain,
+      armFollowPixels:q.armFollowPixels*gain,
+      headFollowDegrees:q.headFollowDegrees*gain,
+      settleDegrees:q.settleDegrees*gain,
+    };
+    const pose=enhancePose(original,clip,frame,quality);
+    return {pose,rig:actorSprites(pack,pose)};
+  };
+  try{return at(1);}
+  catch(error){if(!ik(error))throw error;}
+  let low=0,high=1;
+  // Baseline was already successfully assembled by sampleM3.
+  let safe={pose:original,rig:actorSprites(pack,original)};
+  for(let iteration=0;iteration<14;iteration++){
+    const factor=(low+high)/2;
+    try{
+      safe=at(factor);
+      low=factor;
+    }catch(error){
+      if(!ik(error))throw error;
+      high=factor;
+    }
+  }
+  return safe;
+}
+
 /** Same camera, prop, timeline and art as M3. Rebuild only this actor's sprites. */
 export function sampleM6(
   raw:unknown,frame:number,pack:ArtPack,quality:unknown=m6DefaultQuality,
@@ -97,8 +143,7 @@ export function sampleM6(
   const q=parseM6Quality(quality);
   const baseline=sampleM3(project,frame,pack);
   const {clip,local}=clipAt(project,frame);
-  const pose=enhancePose(baseline.pose,clip,local,q);
-  const actor=actorSprites(pack,pose);
+  const {pose,rig:actor}=rigSafeQuality(baseline.pose,clip,local,q,pack);
   const prefix=project.character.id+'.';
   const frameOut={
     camera:{...baseline.frame.camera},
