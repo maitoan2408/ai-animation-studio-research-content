@@ -39,10 +39,7 @@ test('M6 A/B has same project, camera, art, timebase, all foot targets and held 
       assert.ok(old,'missing sprite '+s.id);
       assert.equal(s.asset,old.asset);
       if(!s.id.startsWith(project.character.id+'.')){
-        if(s.id===project.prop?.id){
-          assert.deepEqual({...s,z:old!.z},old,'M6 mug may change paint layer only');
-          assert.equal(s.z,5.15,'mug must sit behind visible right gripping fingers');
-        }else assert.deepEqual(s,old);
+        assert.deepEqual(s,old,'M6 A/B must use identical M3-owned prop and art depth');
       }
     }
     for(const side of ['left','right']){
@@ -70,7 +67,10 @@ test('M6 visible hand and mug are composited in physically meaningful gripping o
     const cup=s.frame.sprites.find(x=>x.id===project.prop?.id)!;
     const palm=s.frame.sprites.find(x=>x.id===project.character.id+'.right-hand')!;
     const arm=s.frame.sprites.find(x=>x.id===project.character.id+'.right-forearm')!;
-    assert.ok(arm.z<cup.z&&cup.z<palm.z,'gripping fingers should appear IN FRONT of the mug at '+f);
+    const front=s.frame.sprites.find(x=>x.id===project.character.id+'.right-grip-front')!;
+    assert.ok(front,'separate curved-finger SVG missing at '+f);
+    assert.ok(arm.z<palm.z&&palm.z<cup.z&&cup.z<front.z,
+      'rear palm < mug handle < foreground fingers at '+f);
     assert.ok(s.contact.gripError!==null&&s.contact.gripError<.001);
     checked++;
   }
@@ -79,9 +79,8 @@ test('M6 visible hand and mug are composited in physically meaningful gripping o
 test('M6 semantic staging check rejects the actual visually wrong cross-body prop position',()=>{
   const wrong=structuredClone(project);
   wrong.character.xStart=900;wrong.prop!.x=928;
-  validateM3(wrong,pack); // M3 IK validity alone did not catch the visual error.
-  const report=evaluateM6(wrong,pack,'enhanced');
-  assert.ok(report.issues.some(x=>x.code==='M6_CROSS_BODY_PROP_STAGING'));
+  assert.throws(()=>validateM3(wrong,pack),/M3_RIGHT_HAND_PROP_STAGING/);
+  assert.throws(()=>evaluateM6(wrong,pack,'enhanced'),/M3_RIGHT_HAND_PROP_STAGING/);
   const fixed=structuredClone(wrong);fixed.prop!.x=1195;
   validateM3(fixed,pack);
   const corrected=evaluateM6(fixed,pack,'enhanced');
@@ -123,8 +122,8 @@ test('M6 critic measures complete timeline; no arbitrary artistic rating',()=>{
 test('M6 must not break an M3-valid pick/place near the two-link IK reach limit',()=>{
   const edge=structuredClone(project);
   edge.character.xStart=900;
-  edge.prop!.x=928;
-  assert.doesNotThrow(()=>validateM3(edge,pack),'validated source scenario');
+  edge.prop!.x=1195;
+  assert.doesNotThrow(()=>validateM3(edge,pack),'valid right-hand edge scenario');
   const frame=73+49+49+25;
   assert.doesNotThrow(()=>sampleM3(edge,frame,pack),'accepted M3 baseline reach');
   assert.doesNotThrow(()=>sampleM6(edge,frame,pack),'M6 acting must preserve valid IK reach');
@@ -170,4 +169,16 @@ test('retimed M6 native action sources stay random-access and preserve all annot
     assert.deepEqual(sampleM6(retimed,count-1,pack,high),
       sampleM6(retimed,count-1,pack,high));
   }
+});
+
+test('near-reach M6 head motion stays temporally continuous despite arm gain backoff',()=>{
+ const edge=structuredClone(project);
+ edge.character.xStart=900;edge.prop!.x=1195;
+ edge.clips=[{action:'walk-stop',frames:49},{action:'pick-place',frames:73}];
+ edge.character.capabilities=['walk-stop','pick-place'];
+ validateM3(edge,pack);
+ const quality=evaluateM6(edge,pack,'enhanced');
+ assert.deepEqual(quality.issues,[]);
+ assert.ok(quality.metrics.maxHeadAngularAccelerationDegPerSecondSquared<250,
+   'head snaps because the IK solver incorrectly suppresses independent acting');
 });

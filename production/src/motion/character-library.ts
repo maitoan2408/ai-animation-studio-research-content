@@ -107,6 +107,11 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
   for(const [index,item] of (value.clips as M3Clip[]).entries()){
     if(item.action==='walk-stop')actorX+=120;
     if(item.action!=='pick-place')continue;
+    // M3 originally accepted a right-hand-only pick of a mug staged well
+    // to the LEFT of the body; the resulting cutout arm visibly crossed
+    // the character while every mathematical grip marker still read zero.
+    // Reject the impossible staging before any native render starts.
+    if(p.x-actorX<35)throw Error('M3_RIGHT_HAND_PROP_STAGING: clip='+index);
     const dx=p.x+cupOffsetX-handOffsetX-(actorX+shoulderX);
     for(const lift of [0,66]){
       const dy=p.y+cupOffsetY-lift-handOffsetY-(c.floor as number+shoulderY);

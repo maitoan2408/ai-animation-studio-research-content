@@ -124,3 +124,18 @@ test('M4 fail-closed contracts: stale input/art/toolchain, invalid ownership, fr
  assert.equal(recovered.bakeSha256,a.bakeSha256,
    'a rejected request must not contaminate a later valid simulation');
 });
+
+test('M4 inherits corrected M3 hand/prop art and releases overlay at physics handoff',async()=>{
+ const validBake=baked??await bakeM4(project,pack);
+ const heldAt=validBake.events.find(e=>e.kind==='grip')!.frame;
+ const held=sampleM4Scene({project,bake:validBake,enabled:true},heldAt,pack);
+ const prefix=project.motion.character.id;
+ const palm=held.sprites.find(s=>s.id===prefix+'.right-hand')!;
+ const fingers=held.sprites.find(s=>s.id===prefix+'.right-grip-front')!;
+ const cup=held.sprites.find(s=>s.id===project.prop.id)!;
+ assert.ok(fingers,'M4 grip art not inherited from M3');
+ assert.ok(palm.z<cup.z&&cup.z<fingers.z,'M4 prop handle/front-finger occlusion');
+ const released=sampleM4Scene({project,bake:validBake,enabled:true},validBake.releaseFrame,pack);
+ assert.ok(!released.sprites.some(s=>s.id===prefix+'.right-grip-front'),
+   'M4 should not keep curled fingers after physics owns the cup');
+});
