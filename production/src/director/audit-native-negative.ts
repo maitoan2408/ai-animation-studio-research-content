@@ -90,7 +90,8 @@ for(const item of picked){
     await writeFile(receiptPath,receiptBytes);
     await writeFile(manifestPath,manifestBytes);assertions++;
     const damaged=Buffer.from(movieBytes);
-    damaged[Math.floor(damaged.length/2)]^=1;
+    const byte=Math.floor(damaged.length/2);
+    damaged[byte]=damaged[byte]! ^ 1;
     await writeFile(moviePath,damaged);
     await assert.rejects(executeNativeDirector(plan,tmp),/NATIVE_DIRECTOR_MEDIA_TAMPER/);
     await writeFile(moviePath,movieBytes);assertions++;
