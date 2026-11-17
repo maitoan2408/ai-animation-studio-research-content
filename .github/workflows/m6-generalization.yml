@@ -33,11 +33,6 @@ jobs:
         run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
       - run: npm ci
       - run: npm --prefix production ci
-      - name: Canonical Prettier snapshot for authored UI files (diagnostic; intentionally fails)
-        run: |
-          npx prettier --write src/motion-service.ts src/server.ts web/motion.html web/motion.js tests/m3-http.test.ts
-          node -e 'const fs=require("node:fs");for(const p of ["src/motion-service.ts","src/server.ts","web/motion.html","web/motion.js","tests/m3-http.test.ts"])console.log("GENERAL_FORMAT_JSON:"+JSON.stringify({path:p,content:fs.readFileSync(p,"utf8")}))'
-          exit 87
       - name: Strict root and production contracts, plus all independent new-project cases
         run: |
           npm run verify

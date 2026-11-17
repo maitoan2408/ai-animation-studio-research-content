@@ -30,9 +30,9 @@ function apply(project) {
   $('#character-model').value = project.character.model;
   $('#character-x').value = String(project.character.xStart);
   $('#character-floor').value = String(project.character.floor);
-  const prop = project.prop ?? {asset:'props/cup',hand:'right',x:960,y:631,scale:0.7};
-  $('#motion-prop-asset').value=prop.asset;
-  $('#motion-grip-side').value=prop.hand??'right';
+  const prop = project.prop ?? { asset: 'props/cup', hand: 'right', x: 960, y: 631, scale: 0.7 };
+  $('#motion-prop-asset').value = prop.asset;
+  $('#motion-grip-side').value = prop.hand ?? 'right';
   $('#cup-x').value = String(prop.x);
   $('#cup-y').value = String(prop.y);
   $('#cup-scale').value = String(prop.scale);
@@ -41,24 +41,28 @@ function apply(project) {
   dirty = false;
   updateDirty();
 }
-async function loadGripAssets(){
- const catalog=await api('/assets');
- if(catalog.schemaVersion!=='native-grip-assets/1'||!Array.isArray(catalog.assets))
-  throw Error('Native art catalog response is invalid.');
- const select=$('#motion-prop-asset');
- select.replaceChildren();
- gripAssets=new Map();
- for(const asset of catalog.assets){
-  if(typeof asset.id!=='string'||!/^props\/[a-z0-9-]+$/.test(asset.id)||
-    typeof asset.sha256!=='string'||!/^[a-f0-9]{64}$/.test(asset.sha256))
-    throw Error('Native art metadata is invalid.');
-  gripAssets.set(asset.id,asset.sha256);
-  const option=document.createElement('option');
-  option.value=asset.id;
-  option.textContent=asset.id.replace('props/','').replaceAll('-',' ');
-  select.append(option);
- }
- if(!gripAssets.size)throw Error('No supported object with a grip anchor.');
+async function loadGripAssets() {
+  const catalog = await api('/assets');
+  if (catalog.schemaVersion !== 'native-grip-assets/1' || !Array.isArray(catalog.assets))
+    throw Error('Native art catalog response is invalid.');
+  const select = $('#motion-prop-asset');
+  select.replaceChildren();
+  gripAssets = new Map();
+  for (const asset of catalog.assets) {
+    if (
+      typeof asset.id !== 'string' ||
+      !/^props\/[a-z0-9-]+$/.test(asset.id) ||
+      typeof asset.sha256 !== 'string' ||
+      !/^[a-f0-9]{64}$/.test(asset.sha256)
+    )
+      throw Error('Native art metadata is invalid.');
+    gripAssets.set(asset.id, asset.sha256);
+    const option = document.createElement('option');
+    option.value = asset.id;
+    option.textContent = asset.id.replace('props/', '').replaceAll('-', ' ');
+    select.append(option);
+  }
+  if (!gripAssets.size) throw Error('No supported object with a grip anchor.');
 }
 function clipRow(action = 'wave', frames = 49) {
   const row = document.createElement('div');
@@ -132,18 +136,20 @@ function collect() {
     entries.some((x) => x.action === 'pick-place') ||
     (project.prop && !draftBase.clips.some((x) => x.action === 'pick-place'))
   ) {
-    const asset=$('#motion-prop-asset').value,hand=$('#motion-grip-side').value;
-    const sha256=gripAssets.get(asset);
-    if(!sha256)throw Error('Đạo cụ không có điểm nắm được xác minh.');
-    if(hand!=='left'&&hand!=='right')throw Error('Tay nắm không hợp lệ.');
-    const preserveLegacyHand=hand==='right'&&draftBase.prop?.hand===undefined;
+    const asset = $('#motion-prop-asset').value,
+      hand = $('#motion-grip-side').value;
+    const sha256 = gripAssets.get(asset);
+    if (!sha256) throw Error('Đạo cụ không có điểm nắm được xác minh.');
+    if (hand !== 'left' && hand !== 'right') throw Error('Tay nắm không hợp lệ.');
+    const preserveLegacyHand = hand === 'right' && draftBase.prop?.hand === undefined;
     project.prop = {
       id: project.prop?.id ?? 'scene-prop',
-      asset,sha256,
+      asset,
+      sha256,
       x: Number($('#cup-x').value),
       y: Number($('#cup-y').value),
       scale: Number($('#cup-scale').value),
-      ...(preserveLegacyHand?{}:{hand}),
+      ...(preserveLegacyHand ? {} : { hand }),
     };
   } else if (draftBase.clips.some((x) => x.action === 'pick-place')) delete project.prop;
   return project;
