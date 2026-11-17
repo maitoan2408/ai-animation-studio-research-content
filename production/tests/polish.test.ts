@@ -8,7 +8,13 @@ const base=JSON.parse(await readFile(new URL('../assets/lantern-v1/manifest.json
 const root=new URL('../assets/lantern-polish-1/',import.meta.url);
 const pack=JSON.parse(await readFile(new URL('manifest.json',root),'utf8')) as ArtPack;
 test('polish keeps the 64 original drawings/pivots intact; new files have exact hashes',async()=>{
- for(const old of base.assets)assert.deepEqual(pack.assets.find(a=>a.id===old.id),old);
+ // Legacy polish pack remains immutable with its original 64 asset
+ // snapshots. New two-part grip art is scoped to M3 native, not retrofitted
+ // into accepted hero S05/legacy polish evidence.
+ const originals=base.assets.filter(a=>!a.id.endsWith('/hand-grip-front'));
+ assert.equal(originals.length,64);
+ for(const old of originals)assert.deepEqual(pack.assets.find(a=>a.id===old.id),old);
+ assert.equal(pack.assets.filter(a=>a.id.endsWith('/hand-grip-front')).length,0);
  for(const a of pack.assets){const bytes=await readFile(new URL(a.file,root));assert.equal(createHash('sha256').update(bytes).digest('hex'),a.sha256);}
  assert.notEqual(pack.assets.find(a=>a.id==='props/cup-accent')!.sha256,pack.assets.find(a=>a.id==='props/cup')!.sha256);
 });

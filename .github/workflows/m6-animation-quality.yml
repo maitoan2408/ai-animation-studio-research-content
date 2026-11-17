@@ -44,6 +44,10 @@ jobs:
       - run: npm --prefix production ci
       - name: Validate code-driven two-pass audio master command
         run: node --check scripts/m6-audio-post.mjs
+      - name: Rebuild source-authored SVG art and verify exact manifest/SHA provenance
+        run: |
+          python3 production/src/art/build_assets.py
+          git diff --exit-code -- production/assets/lantern-v1/
       - name: Strict application and native TypeScript contracts
         run: |
           npm run verify
