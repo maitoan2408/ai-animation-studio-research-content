@@ -137,6 +137,16 @@ def character(actor):
         else:
             hand=path('M20 41L17 27Q16 20 24 24L31 29L44 5Q49 2 51 7L40 32Q55 23 58 31L51 44L40 53L29 49Z',skin,'#b57d66',1.5)
         save(f'{actor}/hand-{pose}',68,64,hand,[29,45],{'grip':[43,28],'tip':[49,8]},'hand')
+    # Layered grip: the handle lies between a rear palm and curved fingers.
+    # Editable vector art and SHA-pinned foreground asset for both characters.
+    finger_front = (
+        path('M33 23Q41 19 49 24Q55 27 51 33Q46 36 40 31L34 29Z',skin,'#b57d66',1.5)
+        + path('M36 32Q44 29 51 35Q56 40 50 43Q44 45 38 40Z',skin,'#b57d66',1.5)
+        + path('M38 42Q45 39 49 43Q52 47 47 50Q43 51 39 46Z',skin,'#b57d66',1.5)
+        + path('M40 29Q45 28 47 30M42 38Q47 37 49 39','none','#b57d66',1.1)
+    )
+    save(f'{actor}/hand-grip-front',68,64,finger_front,[29,45],
+         {'grip':[43,28]},'hand')
     for view in ['front','quarter','profile']:
         for mood in ['neutral','worried','happy','blink']:
             face(actor,view,mood)

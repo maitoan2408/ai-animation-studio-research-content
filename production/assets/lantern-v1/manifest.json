@@ -110,12 +110,12 @@
       "width": 64,
       "height": 130,
       "pivot": [
-        32.0,
+        32,
         12
       ],
       "anchors": {
         "end": [
-          32.0,
+          32,
           117
         ]
       },
@@ -131,12 +131,12 @@
       "width": 58,
       "height": 122,
       "pivot": [
-        29.0,
+        29,
         12
       ],
       "anchors": {
         "end": [
-          29.0,
+          29,
           110
         ]
       },
@@ -152,12 +152,12 @@
       "width": 72,
       "height": 145,
       "pivot": [
-        36.0,
+        36,
         14
       ],
       "anchors": {
         "end": [
-          36.0,
+          36,
           129
         ]
       },
@@ -173,12 +173,12 @@
       "width": 64,
       "height": 145,
       "pivot": [
-        32.0,
+        32,
         14
       ],
       "anchors": {
         "end": [
-          32.0,
+          32,
           129
         ]
       },
@@ -280,6 +280,27 @@
       },
       "category": "hand",
       "sha256": "b85f86a79cb7b68838a4859872c050e8e13d759de3a27173276747b9b1a60e1c",
+      "colorSpace": "srgb",
+      "alpha": "straight",
+      "source": "project-original"
+    },
+    {
+      "id": "mai/hand-grip-front",
+      "file": "mai/hand-grip-front.svg",
+      "width": 68,
+      "height": 64,
+      "pivot": [
+        29,
+        45
+      ],
+      "anchors": {
+        "grip": [
+          43,
+          28
+        ]
+      },
+      "category": "hand",
+      "sha256": "5e3cde6ea884f27f7bde8d4e4a0317e9927372a728e3b67696829ebc09ea5692",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -737,12 +758,12 @@
       "width": 64,
       "height": 130,
       "pivot": [
-        32.0,
+        32,
         12
       ],
       "anchors": {
         "end": [
-          32.0,
+          32,
           117
         ]
       },
@@ -758,12 +779,12 @@
       "width": 58,
       "height": 122,
       "pivot": [
-        29.0,
+        29,
         12
       ],
       "anchors": {
         "end": [
-          29.0,
+          29,
           110
         ]
       },
@@ -779,12 +800,12 @@
       "width": 72,
       "height": 145,
       "pivot": [
-        36.0,
+        36,
         14
       ],
       "anchors": {
         "end": [
-          36.0,
+          36,
           129
         ]
       },
@@ -800,12 +821,12 @@
       "width": 64,
       "height": 145,
       "pivot": [
-        32.0,
+        32,
         14
       ],
       "anchors": {
         "end": [
-          32.0,
+          32,
           129
         ]
       },
@@ -907,6 +928,27 @@
       },
       "category": "hand",
       "sha256": "deda2d057ac045367a465149958f094827f3e98307614eaf6e911d39a6a91982",
+      "colorSpace": "srgb",
+      "alpha": "straight",
+      "source": "project-original"
+    },
+    {
+      "id": "an/hand-grip-front",
+      "file": "an/hand-grip-front.svg",
+      "width": 68,
+      "height": 64,
+      "pivot": [
+        29,
+        45
+      ],
+      "anchors": {
+        "grip": [
+          43,
+          28
+        ]
+      },
+      "category": "hand",
+      "sha256": "76a86af821fd1486d15b7e456fd95eeb552f98f36366b379dc10176506a85a2e",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -1481,8 +1523,8 @@
       "width": 2400,
       "height": 1350,
       "pivot": [
-        1200.0,
-        675.0
+        1200,
+        675
       ],
       "anchors": {},
       "category": "background",
@@ -1497,8 +1539,8 @@
       "width": 2400,
       "height": 1350,
       "pivot": [
-        1200.0,
-        675.0
+        1200,
+        675
       ],
       "anchors": {},
       "category": "background",
@@ -1513,8 +1555,8 @@
       "width": 2400,
       "height": 1350,
       "pivot": [
-        1200.0,
-        675.0
+        1200,
+        675
       ],
       "anchors": {},
       "category": "background",
@@ -1529,8 +1571,8 @@
       "width": 2400,
       "height": 1350,
       "pivot": [
-        1200.0,
-        675.0
+        1200,
+        675
       ],
       "anchors": {},
       "category": "background",
@@ -1545,8 +1587,8 @@
       "width": 500,
       "height": 1120,
       "pivot": [
-        250.0,
-        560.0
+        250,
+        560
       ],
       "anchors": {},
       "category": "foreground",
@@ -1561,8 +1603,8 @@
       "width": 500,
       "height": 1120,
       "pivot": [
-        250.0,
-        560.0
+        250,
+        560
       ],
       "anchors": {},
       "category": "foreground",
@@ -1577,8 +1619,8 @@
       "width": 960,
       "height": 280,
       "pivot": [
-        480.0,
-        140.0
+        480,
+        140
       ],
       "anchors": {},
       "category": "foreground",
