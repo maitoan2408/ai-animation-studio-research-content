@@ -4,6 +4,7 @@ on:
     paths:
       - 'scripts/m6-audio-post.mjs'
       - 'scripts/m6-studio-e2e.ts'
+      - 'tsconfig.m6.json'
       - '.github/workflows/m5-director.yml'
       - 'src/motion-service.ts'
       - 'src/server.ts'
@@ -46,6 +47,7 @@ jobs:
       - name: Strict application and native TypeScript contracts
         run: |
           npm run verify
+          npx tsc -p tsconfig.m6.json
           npm --prefix production run typecheck
           npm --prefix production run test:motion:m6
           npm --prefix production run test:physics:m4
