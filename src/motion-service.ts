@@ -16,6 +16,7 @@ const defaultProject = path.join(repoRoot, 'examples/m3-studio-project.json');
 const nativeRuntime = path.join(repoRoot, 'production/node_modules/@hyperframes/engine');
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 type MotionProject = Record<string, unknown>;
+type QualityMode = 'baseline' | 'enhanced';
 type MotionDoc = { revision: string; project: MotionProject; frames?: number };
 type MotionJob = {
   id: string;
@@ -24,6 +25,7 @@ type MotionJob = {
   createdAt: string;
   updatedAt: string;
   frames: number;
+  qualityMode?: QualityMode;
   videoSha256?: string;
   error?: string;
 };
@@ -166,10 +168,12 @@ export class MotionService {
       return { ...job, status: 'interrupted', error: 'Render was interrupted by service restart.' };
     return job;
   }
-  async render(revision: string): Promise<MotionJob> {
+  async render(revision: string, qualityMode: QualityMode = 'baseline'): Promise<MotionJob> {
+    if (qualityMode !== 'baseline' && qualityMode !== 'enhanced')
+      failure('M6_QUALITY_MODE_INVALID', 'Only baseline/enhanced native motion modes are supported.');
     if (this.renderStart || this.running)
       failure('M3_RENDER_BUSY', 'A native M3 render is already running.', 409);
-    const launched = this.renderInner(revision);
+    const launched = this.renderInner(revision, qualityMode);
     this.renderStart = launched;
     try {
       return await launched;
@@ -177,7 +181,7 @@ export class MotionService {
       if (this.renderStart === launched) this.renderStart = undefined;
     }
   }
-  private async renderInner(revision: string): Promise<MotionJob> {
+  private async renderInner(revision: string, qualityMode: QualityMode): Promise<MotionJob> {
     await this.init();
     if (this.running) failure('M3_RENDER_BUSY', 'A native M3 render is already running.', 409);
     const doc = await this.current();
@@ -205,13 +209,15 @@ export class MotionService {
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       frames: validated.frames,
+      qualityMode,
     };
     await this.writeJob(status);
     const child = spawn(process.execPath, ['--import', 'tsx', renderer], {
       cwd: repoRoot,
       stdio: ['ignore', 'pipe', 'pipe'],
       detached: process.platform !== 'win32',
-      env: { ...process.env, M3_PROJECT_FILE: projectPath, M3_OUTPUT_DIR: dir },
+      env: { ...process.env, M3_PROJECT_FILE: projectPath, M3_OUTPUT_DIR: dir,
+        ...(qualityMode === 'enhanced' ? { M6_QUALITY_MODE: 'enhanced' } : {}) },
     });
     this.running = { id, child };
     let transcript = '';
@@ -228,6 +234,8 @@ export class MotionService {
               'Native render failed (exit ' + String(code) + '): ' + transcript.slice(-2000),
           );
         const manifest = JSON.parse(await readFile(path.join(dir, 'manifest.json'), 'utf8')) as {
+          milestone: string;
+          qualityMode?: string | null;
           video: {
             file: string;
             sha256: string;
@@ -238,6 +246,8 @@ export class MotionService {
           };
         };
         if (
+          manifest.milestone !== (qualityMode === 'enhanced' ? 'M6' : 'M3') ||
+          manifest.qualityMode !== (qualityMode === 'enhanced' ? 'enhanced' : null) ||
           manifest.video.file !== 'm3-character-motion-final-1080p.mp4' ||
           manifest.video.frames !== validated.frames ||
           manifest.video.width !== 1920 ||

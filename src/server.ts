@@ -155,10 +155,10 @@ export async function serve(app: Studio, port = 4310) {
         }
         if (parts.length === 3 && parts[2] === 'jobs' && method === 'POST') {
           const input = validate(
-            z.object({ revision: z.string().regex(/^[a-f0-9]{64}$/) }).strict(),
+            z.object({ revision: z.string().regex(/^[a-f0-9]{64}$/), quality: z.enum(['baseline','enhanced']).optional() }).strict(),
             await body(req),
           );
-          json(await motion.render(input.revision), 202);
+          json(await motion.render(input.revision,input.quality ?? 'baseline'), 202);
           return;
         }
         if (parts.length === 4 && parts[2] === 'jobs' && method === 'GET') {

@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Character Motion · Paper Studio M3</title>
+    <title>Character Motion · Paper Studio M3/M6</title>
     <link rel="stylesheet" href="/style.css" />
     <script type="module" src="/motion.js"></script>
   </head>
   <body>
     <aside>
       <a class="brand" href="/">◈ PAPER STUDIO</a>
-      <p class="small">Character & Motion · M3</p>
+      <p class="small">Character & Motion · M3 + M6</p>
       <a class="button" href="/">← Storyboard Studio</a>
       <nav aria-label="Điều hướng">
         <a class="button" href="/motion">Character Motion</a>
@@ -18,7 +18,7 @@
         <p class="small">Asset gốc được kiểm SHA; chỉ các action được khai báo mới được render.</p>
       </nav>
       <div class="sidebar-note">
-        M3 dùng rig tương thích có sẵn.<br /><span>Vật lý tổng quát: M4 · Diễn xuất: M6</span>
+        M3 dùng rig tương thích có sẵn.<br /><span>M6 thêm acting/secondary motion có kiểm contact; art và voice vẫn là bản nháp.</span>
       </div>
     </aside>
     <main>
@@ -118,7 +118,13 @@
               giả lập.
             </p>
             <video id="motion-video" controls preload="metadata" hidden></video>
-            <p id="motion-blank" class="hint">Lưu dự án, sau đó render để xem phim M3.</p>
+            <p id="motion-blank" class="hint">Lưu dự án, chọn M3 hoặc M6 rồi render để xem video thật.</p>
+            <label>Chế độ chuyển động (không thay đổi project JSON)
+              <select id="motion-quality">
+                <option value="baseline">M3 baseline — chuyển động gốc</option>
+                <option value="enhanced">M6 quality — acting và follow-through</option>
+              </select>
+            </label>
             <div class="render-actions">
               <button class="primary" id="motion-render">Render Full HD · 24fps</button>
               <a id="motion-download" class="button" hidden download="character-motion-m3.mp4"
@@ -127,14 +133,14 @@
             </div>
             <p id="motion-status" class="hint" aria-live="polite">Chưa render.</p>
             <p class="hint">
-              Video showcase M3 không bao gồm audio; khả năng đọc lời thoại và mỹ thuật chất lượng
-              cao thuộc các bước khác.
+              Video M3/M6 native hiện không có audio. Voice eSpeak của Studio M2 là giọng nháp;
+              lựa chọn M6 không tự tạo diễn xuất, art hoặc giọng sản xuất cho mọi mô hình.
             </p>
           </section>
         </div>
       </div>
       <footer>
-        Paper Studio · M3 Character Motion. Chỉ có người dùng mới phê duyệt nghiệm thu nghệ thuật.
+        Paper Studio · M3/M6 Character Motion. Chỉ có người dùng mới phê duyệt nghiệm thu nghệ thuật.
       </footer>
     </main>
   </body>

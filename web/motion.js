@@ -127,6 +127,7 @@ function updateDirty() {
     ? (dirty ? 'Chưa lưu · ' : 'Đã lưu · ') + saved.revision.slice(0, 12)
     : 'Đang mở';
   $('#motion-render').disabled = dirty || !saved || documentBusy || checkingJob !== '';
+  $('#motion-quality').disabled = documentBusy || checkingJob !== '';
   $('#motion-save').disabled = !saved || documentBusy;
   $('#motion-reload').disabled = documentBusy;
   $('#motion-import').disabled = !saved || documentBusy;
@@ -227,6 +228,7 @@ async function checkJob(id) {
       $('#motion-download').href = url;
       $('#motion-download').hidden = false;
       $('#motion-status').textContent =
+        (job.qualityMode === 'enhanced' ? 'M6 quality · ' : 'M3 baseline · ') +
         'MP4 1920×1080, 24fps; ' + job.frames + ' frames · SHA ' + job.videoSha256.slice(0, 16);
     } else note('M3 render chưa thành công: ' + (job.error || job.status), true);
   } catch (error) {
@@ -285,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#motion-render').addEventListener('click', (e) =>
     perform(e.currentTarget, async () => {
       if (dirty) throw Error('Hãy lưu revision trước khi render.');
-      const job = await api('/jobs', { revision: saved.revision });
+      const job = await api('/jobs', { revision: saved.revision, quality: $('#motion-quality').value });
       note('Đã nhận render từ Studio, file sẽ chỉ công bố sau khi vượt qua QC.');
       $('#motion-video').hidden = true;
       $('#motion-blank').hidden = false;
