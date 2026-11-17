@@ -47,7 +47,7 @@ let ff:ReturnType<typeof spawn>|undefined;
 let encoderStderr='';
 try{
  await ensureM3Textures();
- server=m6Mode?await serveM6(project,m6Mode,{...undefined},{width:1920,height:1080}):await serveM3(project,{width:1920,height:1080});
+ server=m6Mode?await serveM6(project,m6Mode,undefined,{width:1920,height:1080}):await serveM3(project,{width:1920,height:1080});
  session=await createCaptureSession(server.url,output,{
    width:1920,height:1080,fps:{num:24,den:1},format:'png'
  },null,{chromePath:'/usr/bin/chromium',forceScreenshot:true,
