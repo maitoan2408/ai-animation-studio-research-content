@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {nativeArt,planNativeDirector,verifyNativePlan,saveNativePlan,
  reopenNativePlan,validateNativeDirector,type NativeDirectorInput} from '../src/director/native-director.js';
-import {makeM3Showcase} from '../src/motion/character-library.js';
+import {makeM3Showcase,validateM3} from '../src/motion/character-library.js';
 import type {ArtPack} from '../src/scene/types.js';
 import type {GeneralFilm} from '../src/motion/general-timeline.js';
 
@@ -138,5 +138,6 @@ test('native storyboard explicitly stages supported props on real SHA-bound tabl
  const legacy=structuredClone(input);
  if(legacy.storyboard.engine!=='m3')throw Error('M3 expected');
  delete legacy.storyboard.project.stage;
- assert.equal(planNativeDirector(legacy,pack,sha256).graph[1]!.skill,'native-m3-chromium');
+ assert.equal(validateM3(legacy.storyboard.project,pack).schemaVersion,'character-motion/1');
+ assert.throws(()=>planNativeDirector(legacy,pack,sha256),/NATIVE_DIRECTOR_VISIBLE_STAGE_REQUIRED/);
 });

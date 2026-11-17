@@ -98,7 +98,9 @@ export function validateNativeDirector(raw:unknown,pack:ArtPack):NativeDirectorI
  const s=raw.storyboard;
  if(s.engine==='m3'){
    if(!only(s,['engine','project']))reject('NATIVE_DIRECTOR_STORYBOARD_SCHEMA');
-   validateM3(s.project,pack);
+   const project=validateM3(s.project,pack);
+   if(project.clips.some(c=>c.action==='pick-place')&&!project.stage)
+     reject('NATIVE_DIRECTOR_VISIBLE_STAGE_REQUIRED');
  }else if(s.engine==='g3'){
    if(!only(s,['engine','film','releases']))reject('NATIVE_DIRECTOR_STORYBOARD_SCHEMA');
    const film=validateGeneralFilm(s.film,pack);

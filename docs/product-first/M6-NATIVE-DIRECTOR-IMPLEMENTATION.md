@@ -58,9 +58,10 @@ SHA-validated `stage` referencing the actual workbench artwork;
 new M3 scenes declare left/right placement explicitly. Validation checks
 that the **real prop support anchor** is over the **real visible
 table support span**, accounting for the asset pivots, geometry and
-scale. The older project contract without `stage` retains its original
-render behavior. Adversarial tests inject wrong position, wrong height,
-and spoofed art SHA.
+scale. The older standalone M3 project contract without `stage` retains its
+original render behavior, but the **new M6 Native Director rejects new
+`pick-place` jobs without declared visible stage**. Adversarial tests
+inject missing staging, wrong position, wrong height, and spoofed art SHA.
 
 Historical evidence is preserved; initial stills are not accepted
 as final. New 05/06 native films must be rerendered and re-reviewed
