@@ -10,7 +10,7 @@ import {once} from 'node:events';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {createCaptureSession,initializeSession,captureFrameToBuffer,closeCaptureSession,drainBrowserPool} from '@hyperframes/engine';
-import {serveM3,root} from './server.js';
+import {serveM3,serveM6,root} from './server.js';
 import {ensureM3Textures} from './prepare-m3.js';
 import {M3CharacterRegistry,makeM3Showcase,m3TotalFrames,sampleM3,validateM3} from '../motion/character-library.js';
 import type {ArtPack} from '../scene/types.js';
@@ -23,6 +23,8 @@ const check=(name:string,args:string[])=>{
 };
 const pack=JSON.parse(await readFile(path.join(root,'assets/lantern-v1/manifest.json'),'utf8')) as ArtPack;
 const registry=new M3CharacterRegistry(pack);
+const m6Mode=process.env.M6_QUALITY_MODE;
+if(m6Mode!==undefined&&m6Mode!=='baseline'&&m6Mode!=='enhanced')throw Error('M6_QUALITY_MODE_INVALID');
 const configured=process.env.M3_PROJECT_FILE;
 const project=configured
   ? validateM3(JSON.parse(await readFile(configured,'utf8')),pack)
@@ -45,7 +47,7 @@ let ff:ReturnType<typeof spawn>|undefined;
 let encoderStderr='';
 try{
  await ensureM3Textures();
- server=await serveM3(project,{width:1920,height:1080});
+ server=m6Mode?await serveM6(project,m6Mode,{...undefined},{width:1920,height:1080}):await serveM3(project,{width:1920,height:1080});
  session=await createCaptureSession(server.url,output,{
    width:1920,height:1080,fps:{num:24,den:1},format:'png'
  },null,{chromePath:'/usr/bin/chromium',forceScreenshot:true,
@@ -149,7 +151,7 @@ try{
    'select='+selector(compareFrames)+',scale=480:270,tile=5x1',
    '-frames:v','1',comparison]);
  const manifest={
-   milestone:'M3',status:'TECHNICAL_PASS_PENDING_OWNER_VISUAL_REVIEW',
+   milestone:m6Mode?'M6':'M3',qualityMode:m6Mode??null,status:'TECHNICAL_PASS_PENDING_OWNER_VISUAL_REVIEW',
    sourceCommit:process.env.SOURCE_HEAD_SHA||process.env.GITHUB_SHA||'LOCAL_UNPINNED',
    checkoutCommit:process.env.GITHUB_SHA||'LOCAL_UNPINNED',
    renderer:'native Three.js + audited cutout puppet, same sample at any frame',
