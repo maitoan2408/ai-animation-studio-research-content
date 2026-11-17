@@ -62,9 +62,9 @@ try{
   assert.ok(jobId);
   let done:{status:string;frames:number;qualityMode?:string;videoSha256?:string;error?:string}|undefined;
   for(let attempt=0;attempt<420;attempt++){
-    const response=await fetch(server.url+'/api/motion/jobs/'+jobId);
-    assert.equal(response.status,200);
-    done=await response.json() as typeof done;
+    const statusResponse:Response=await fetch(server.url+'/api/motion/jobs/'+jobId);
+    assert.equal(statusResponse.status,200);
+    done=await statusResponse.json() as typeof done;
     if(done!.status!=='rendering')break;
     await new Promise(resolve=>setTimeout(resolve,1000));
   }
