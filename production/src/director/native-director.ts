@@ -239,8 +239,7 @@ export async function executeNativeDirector(planFile:string,store:string):Promis
  try{
  try{
    await stat(path.join(published,'native-director-receipt.json'));
-   const receipt=JSON.parse(await readFile(path.join(published,'native-director-receipt.json'),'utf8'))
-     as NativeDirectorReceipt;
+   const receipt=JSON.parse(await readFile(path.join(published,'native-director-receipt.json'),'utf8')) as NativeDirectorReceipt;
    await verifyReceipt(receipt,published,plan);
    return receipt;
  }catch(e){
