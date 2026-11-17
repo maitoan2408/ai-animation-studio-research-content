@@ -5,8 +5,8 @@
     "branch": "codex/v2-continuous",
     "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
   },
-  "implementationBranch": "codex/integration-m1-m5-20261117",
-  "activeMilestone": "M5",
+  "implementationBranch": "codex/product-first-m6-animation-quality",
+  "activeMilestone": "M6",
   "milestones": {
     "M0": {
       "technicalStatus": "PASSED",
@@ -328,7 +328,7 @@
     "M4": {
       "technicalStatus": "PASSED",
       "evidenceStatus": "READY_FOR_USER_REVIEW",
-      "userAcceptance": "NOT_REVIEWED",
+      "userAcceptance": "ACCEPTED",
       "sourceBaseCommit": "79aae2fdfe960e03992e136a6529fe95623a1cdb",
       "branch": "codex/m4-audit-20261116",
       "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/14",
@@ -431,7 +431,7 @@
       ],
       "nextAction": "Owner reviews the verified M4 native films. No merge or M5 until explicit approval.",
       "sourceCommit": "fc1eaf82d6a38f884f9baab8b4a04d6e9656c951",
-      "ownerGate": "READY_FOR_USER_REVIEW; NOT owner accepted. Final documentation HEAD must also pass all three CI workflows before delivery.",
+      "ownerGate": "ACCEPTED by owner 2026-11-17; authorization for M6 only. No automatic merge.",
       "artifactId": 14249123538,
       "artifactName": "physics-m4-compact-16",
       "artifactExpiresAt": "2026-11-30",
@@ -475,12 +475,14 @@
         },
         "evidence": "docs/product-first/evidence/m4-audit-20261116",
         "unresolvedInScopeDefects": []
-      }
+      },
+      "ownerAcceptedAt": "2026-11-17",
+      "ownerAcceptanceSource": "Owner explicitly confirmed M4 and M5 accepted in ChatGPT conversation on 2026-11-17 and authorized M6."
     },
     "M5": {
       "technicalStatus": "PASSED",
       "evidenceStatus": "READY_FOR_USER_REVIEW",
-      "userAcceptance": "NOT_REVIEWED",
+      "userAcceptance": "ACCEPTED",
       "sourceBaseCommit": "3bbc337c3294e6dfa7570e463e6724a6990d64d9",
       "branch": "codex/integration-m1-m5-20261117",
       "plan": "docs/product-first/M5-PLAN.md",
@@ -591,7 +593,7 @@
         "Voice is local draft eSpeak, not professionally acted or human-approved, and animation has root M2 visual/acting limitations. Two short pilot proofs do not establish long-form cinematic quality.",
         "CI artifacts retained for 14 days; source/code hashes are preserved in repo, videos stored as downloadable GitHub Actions artifact and in chat."
       ],
-      "ownerGate": "READY_FOR_USER_REVIEW; NO OWNER ACCEPTANCE; PR16 DRAFT; PR17 FURTHER AUDIT HISTORICAL; NO MAIN MERGE; NO M6",
+      "ownerGate": "ACCEPTED by owner 2026-11-17; authorization for M6 only. No automatic merge.",
       "audit20261117": {
         "verdict": "PASSED_ON_INTEGRATED_SOURCE",
         "sourceReviewed": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2",
@@ -659,12 +661,22 @@
           "artistic and voice approval remains owner-only"
         ],
         "handoff": "M6 prompt delivered only in chat on owner request; not maintained as a Git file."
-      }
+      },
+      "ownerAcceptedAt": "2026-11-17",
+      "ownerAcceptanceSource": "Owner explicitly confirmed M4 and M5 accepted in ChatGPT conversation on 2026-11-17 and authorized M6."
     },
     "M6": {
-      "technicalStatus": "NOT_VERIFIED",
+      "technicalStatus": "IN_PROGRESS",
       "evidenceStatus": "NOT_VERIFIED",
-      "userAcceptance": "NOT_REVIEWED"
+      "userAcceptance": "NOT_REVIEWED",
+      "sourceBaseCommit": "ea79a67ec755c8946eafa919558fad280dc2ca1f",
+      "ownerGate": "Owner authorized implementation 2026-11-17; not accepted; no M7.",
+      "requirements": [
+        "Audited identical-shot A/B real 1080p24 videos with matched camera and contact",
+        "Quality improvements in motion, acting, secondary, audio, rendering and critic within supported contracts",
+        "Second-pass media review and full M0-M6 regression; preserve historic evidence",
+        "Only owner can set ACCEPTED"
+      ]
     },
     "M7": {
       "technicalStatus": "NOT_VERIFIED",
