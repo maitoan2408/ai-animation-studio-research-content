@@ -90,17 +90,23 @@ export function evaluateM6(
       const cup=sample.frame.sprites.find(s=>s.id===project.prop!.id);
       const hand=sample.frame.sprites.find(s=>s.id===project.character.id+'.right-hand');
       const forearm=sample.frame.sprites.find(s=>s.id===project.character.id+'.right-forearm');
-      if(!cup||!hand||!forearm||!(forearm.z<cup.z&&cup.z<hand.z))
+      const front=sample.frame.sprites.find(s=>s.id===project.character.id+'.right-grip-front');
+      if(!cup||!hand||!forearm||!front||
+         !(forearm.z<hand.z&&hand.z<cup.z&&cup.z<front.z))
         issues.push({code:'M6_GRIP_VISIBLE_LAYER_ORDER',severity:'error',frame:f,
-          measured:cup?.z??NaN,expected:'right forearm < mug < gripping fingers in paint order',
+          measured:cup?.z??NaN,expected:'forearm < rear palm < cup handle < separate finger art',
           evidence:'sprites/'+project.prop.id+' / '+project.character.id+'.right-hand'});
       else{
         const handAnchor=anchorPoint(pack,hand,'grip');
+        const fingerAnchor=anchorPoint(pack,front,'grip');
         const cupAnchor=anchorPoint(pack,cup,'grip');
-        if(Math.hypot(handAnchor[0]-cupAnchor[0],handAnchor[1]-cupAnchor[1])>.001)
+        const difference=Math.max(
+          Math.hypot(handAnchor[0]-cupAnchor[0],handAnchor[1]-cupAnchor[1]),
+          Math.hypot(fingerAnchor[0]-cupAnchor[0],fingerAnchor[1]-cupAnchor[1]));
+        if(difference>.001)
           issues.push({code:'M6_VISIBLE_GRIP_OFFSET',severity:'error',frame:f,
-            measured:Math.hypot(handAnchor[0]-cupAnchor[0],handAnchor[1]-cupAnchor[1]),
-            expected:'actual visible hand-asset and handle anchor match',
+            measured:difference,
+            expected:'real palm + foreground finger SVG anchors coincide with the handle',
             evidence:'asset anchor points, not synthetic rig marker'});
       }
     }

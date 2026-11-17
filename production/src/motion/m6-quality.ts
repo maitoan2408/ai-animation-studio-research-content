@@ -111,7 +111,10 @@ function rigSafeQuality(
       leanDegrees:q.leanDegrees*gain,
       bouncePixels:q.bouncePixels*gain,
       armFollowPixels:q.armFollowPixels*gain,
-      headFollowDegrees:q.headFollowDegrees*gain,
+      // Head turn does not change arm reach: never disable it when a
+      // near-limit shoulder causes the optional torso quality to back off.
+      // This prevents sudden head-angle snaps in short M6 edge clips.
+      headFollowDegrees:q.headFollowDegrees,
       settleDegrees:q.settleDegrees*gain,
     };
     const pose=enhancePose(original,clip,frame,quality);
@@ -121,7 +124,7 @@ function rigSafeQuality(
   catch(error){if(!ik(error))throw error;}
   let low=0,high=1;
   // Baseline was already successfully assembled by sampleM3.
-  let safe={pose:original,rig:actorSprites(pack,original)};
+  let safe=at(0);
   for(let iteration=0;iteration<14;iteration++){
     const factor=(low+high)/2;
     try{
@@ -147,12 +150,9 @@ export function sampleM6(
   const prefix=project.character.id+'.';
   const frameOut={
     camera:{...baseline.frame.camera},
-    // M3 mistakenly paints the entire mug above the gripping fingers (z=6).
-    // For M6, put the vessel behind the right gripping palm (z=5.2) but
-    // in front of its forearm (z=5.1). Keep identical coordinates, anchors,
-    // art, camera and contact timing. This is a compositing correction only.
-    sprites:[...baseline.frame.sprites.filter(s=>!s.id.startsWith(prefix))
-      .map(s=>project.prop&&s.id===project.prop.id?{...s,z:5.15}:s),...actor.sprites],
+    // M3 now owns the actual three-layer grip. M6 never silently alters
+    // object depth: this preserves identical objects, art and staging in A/B.
+    sprites:[...baseline.frame.sprites.filter(s=>!s.id.startsWith(prefix)),...actor.sprites],
     markers:[...baseline.frame.markers.filter(m=>!m.id.startsWith(prefix)),...actor.markers],
   };
   const prop=project.prop&&frameOut.sprites.find(s=>s.id===project.prop!.id);
