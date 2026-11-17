@@ -156,8 +156,7 @@ export async function serve(app: Studio, port = 4310) {
             return;
           }
         }
-        if (parts.length === 6 && parts[3] === 'jobs' &&
-            parts[5] === 'video' && method === 'GET') {
+        if (parts.length === 6 && parts[3] === 'jobs' && parts[5] === 'video' && method === 'GET') {
           const bytes = await nativeDirector.video(parts[4]!);
           const range = req.headers.range;
           res.setHeader('Content-Type', 'video/mp4');

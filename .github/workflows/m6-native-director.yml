@@ -33,20 +33,6 @@ jobs:
       - name: Install real Chromium + FFmpeg + vector rasterizer
         run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
       - run: npm ci && npm --prefix production ci
-      - name: Prepare canonical Prettier source as a review artifact only
-        run: |
-          npx prettier --write src/native-director-service.ts src/server.ts
-          mkdir -p artifacts/m6-root-prettier
-          cp src/native-director-service.ts artifacts/m6-root-prettier/native-director-service.ts
-          cp src/server.ts artifacts/m6-root-prettier/server.ts
-          git checkout -- src/native-director-service.ts src/server.ts
-      - name: Preserve formatted source for independent commit
-        if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: m6-native-root-format-${{ github.run_number }}
-          path: artifacts/m6-root-prettier/
-          retention-days: 7
       - name: Strict TS contracts and native Director adversarial tests
         run: |
           npm run verify
