@@ -5,7 +5,7 @@ on:
       - 'production/src/director/**'
       - 'src/native-director-service.ts'
       - 'src/server.ts'
-      - 'tests/native-director-http.ts'
+      - 'production/tests/m6-native-director-http.test.mjs'
       - 'production/tests/m6-native-director.test.ts'
       - 'production/src/motion/**'
       - 'production/src/qa/**'
