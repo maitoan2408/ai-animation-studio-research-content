@@ -27,7 +27,7 @@ type Manifest={
   frameHashes:string[];nativeFrames:Record<string,string>;
   contacts:{file:string;sha256:string};
 };
-async function inspect(folder:string,mode:'baseline'|'enhanced',project:M3Project,pack:ArtPack){
+export async function inspect(folder:string,mode:'baseline'|'enhanced',project:M3Project,pack:ArtPack){
   const m=JSON.parse(await readFile(path.join(folder,'manifest.json'),'utf8')) as Manifest;
   assert.equal(m.milestone,'M6');assert.equal(m.qualityMode,mode);
   if(process.env.SOURCE_HEAD_SHA)assert.equal(m.sourceCommit,process.env.SOURCE_HEAD_SHA,'source commit mismatch');
@@ -38,6 +38,8 @@ async function inspect(folder:string,mode:'baseline'|'enhanced',project:M3Projec
   assert.equal(m.video.fps,24);assert.equal(m.video.frames,frames);
   assert.equal(m.video.hasAudio,false,'this native shot is intentionally silent');
   assert.equal(m.frameHashes.length,frames);
+  assert.ok(m.frameHashes.every(d=>/^[a-f0-9]{64}$/.test(d)),'M6_FRAME_DIGEST_FORMAT');
+  assert.ok(Object.keys(m.nativeFrames).length>=9,'M6_NATIVE_STILLS_MISSING');
   assert.equal(m.project.file,'m3-project.json');
   const j=await readFile(path.join(folder,m.project.file),'utf8');
   assert.equal(sha(j),m.project.sha256);
@@ -51,12 +53,25 @@ async function inspect(folder:string,mode:'baseline'|'enhanced',project:M3Projec
   const v=meta.streams.find(x=>x.codec_type==='video');
   assert.equal(v?.width,1920);assert.equal(v?.height,1080);
   assert.equal(v?.avg_frame_rate,'24/1');assert.equal(v?.nb_read_frames,String(frames));
+  assert.ok(Math.abs(m.video.duration-frames/24)<.08,'M6_MANIFEST_DURATION_MISMATCH');
   assert.ok(!meta.streams.some(s=>s.codec_type==='audio'));
   exec('ffmpeg',['-v','error','-xerror','-nostdin','-threads','1','-i',video,
     '-threads','1','-f','null','-']);
+  const selected=new Set<number>();
   for(const [file,digest] of Object.entries(m.nativeFrames)){
-    assert.equal(sha(await readFile(path.join(folder,file))),digest,'still frame integrity '+file);
+    const match=/^m3-final-frame-(\\d{3,4})\\.png$/.exec(file);
+    if(!match)throw Error('M6_NATIVE_FRAME_PATH_INVALID: '+file);
+    const frame=Number(match[1]);
+    if(!Number.isSafeInteger(frame)||frame<0||frame>=frames)
+      throw Error('M6_NATIVE_FRAME_RANGE_INVALID: '+file);
+    selected.add(frame);
+    const actual=sha(await readFile(path.join(folder,file)));
+    assert.equal(actual,digest,'still frame integrity '+file);
+    if(m.frameHashes[frame]!==actual)throw Error('M6_FRAME_SAMPLE_MISMATCH: '+file);
   }
+  assert.ok(selected.has(0)&&selected.has(frames-1),'M6_BOUNDARY_STILLS_MISSING');
+  if(m.contacts.file!=='m3-chronological-contact-sheet.png')
+    throw Error('M6_CONTACT_SHEET_PATH_INVALID');
   assert.equal(sha(await readFile(path.join(folder,m.contacts.file))),m.contacts.sha256);
   return m;
 }
