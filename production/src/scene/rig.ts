@@ -36,11 +36,11 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
     bone(`${side}-forearm`, 'forearm',joint,wrist,z+.1);
     const hand = side === 'right' ? pose.rightHand ?? 'open' : pose.leftHand ?? 'open';
     const handAngle=(side==='right'?pose.rightHandAngle:pose.leftHandAngle) ?? (hand==='open'?180:0);
-    const layeredGrip=side==='right'&&hand==='grip'&&pose.layeredGrip===true;
+    const layeredGrip=hand==='grip'&&(pose.layeredGrip===side||(pose.layeredGrip===true&&side==='right'));
     localSprite(`${side}-hand`,`${a}/hand-${hand}`,wrist,
       z+(layeredGrip ? 0.15 : 0.2),handAngle);
     const handSprite=items[items.length-1]!;
-    if(hand==='open'&&side==='right') handSprite.scaleX=-1;
+    if((hand==='open'&&side==='right')||(layeredGrip&&side==='left')) handSprite.scaleX=-1;
     const handAsset=pack.assets.find(x=>x.id===handSprite.asset)!;
     const offset=subtract(handAsset.anchors.grip!,handAsset.pivot);
     mark(`${side}-grip`,add(wrist,rotate([offset[0]*handSprite.scaleX,offset[1]],handAngle)),'contact',z+.2);
@@ -48,7 +48,8 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
       // This real SVG overlays only curved fingertips: mug handle is
       // visible between the rear palm and front fingers, not hidden
       // behind a single opaque fist as in the original M3 implementation.
-      localSprite('right-grip-front',`${a}/hand-grip-front`,wrist,z+0.35,handAngle);
+      localSprite(`${side}-grip-front`,`${a}/hand-grip-front`,wrist,z+0.35,handAngle);
+      if(side==='left')items[items.length-1]!.scaleX=-1;
     }
     mark(`${side}-wrist`,wrist,'joint',z+.2);
   };
