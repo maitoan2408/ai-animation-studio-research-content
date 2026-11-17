@@ -10,6 +10,7 @@ import { toAnimationIR, toLegacyProjectSpec } from './animation-ir.js';
 import { mixAudio } from './audio.js';
 import { MotionService } from './motion-service.js';
 import { DirectorService } from './director.js';
+import { NativeDirectorService } from './native-director-service.js';
 
 const revisionRequest = z.object({ expectedRevision: z.string(), spec: z.unknown() }).strict();
 const voiceRequest = z.object({ expectedRevision: z.string() }).strict();
@@ -60,6 +61,7 @@ async function body(request: http.IncomingMessage): Promise<unknown> {
 export async function serve(app: Studio, port = 4310) {
   const motion = new MotionService(app.store.root);
   const director = new DirectorService(app);
+  const nativeDirector = new NativeDirectorService(app.store.root);
   await motion.init();
   const staticFiles = new Map([
     ['/', ['index.html', 'text/html; charset=utf-8']],
@@ -123,6 +125,61 @@ export async function serve(app: Studio, port = 4310) {
             await body(req),
           );
           json(await director.run(input.plan, input.approved), 201);
+          return;
+        }
+      }
+      // M6 Native Director is opt-in: strictly validated authored storyboards.
+      // It schedules actual M3/Three or G3/Rapier/Three work; M5 remains unchanged.
+      if (parts[1] === 'director' && parts[2] === 'native') {
+        if (parts.length === 4 && parts[3] === 'plan' && method === 'POST') {
+          const input = validate(z.object({ input: z.unknown() }).strict(), await body(req));
+          json(await nativeDirector.plan(input.input));
+          return;
+        }
+        if (parts.length === 4 && parts[3] === 'save' && method === 'POST') {
+          const input = validate(z.object({ plan: z.unknown() }).strict(), await body(req));
+          json(await nativeDirector.save(input.plan), 201);
+          return;
+        }
+        if (parts.length === 5 && parts[3] === 'projects' && method === 'GET') {
+          json(await nativeDirector.project(parts[4]!));
+          return;
+        }
+        if (parts.length === 5 && parts[3] === 'jobs') {
+          if (method === 'POST') {
+            validate(z.object({ approved: z.literal(true) }).strict(), await body(req));
+            json(await nativeDirector.render(parts[4]!), 202);
+            return;
+          }
+          if (method === 'GET') {
+            json(await nativeDirector.job(parts[4]!));
+            return;
+          }
+        }
+        if (parts.length === 6 && parts[3] === 'jobs' &&
+            parts[5] === 'video' && method === 'GET') {
+          const bytes = await nativeDirector.video(parts[4]!);
+          const range = req.headers.range;
+          res.setHeader('Content-Type', 'video/mp4');
+          res.setHeader('Accept-Ranges', 'bytes');
+          if (range) {
+            const match = /^bytes=(\d+)-(\d*)$/.exec(range);
+            const start = Number(match?.[1]);
+            const end = match?.[2] ? Number(match[2]) : bytes.length - 1;
+            if (!match || start > end || start >= bytes.length || end >= bytes.length) {
+              res.writeHead(416, { 'Content-Range': 'bytes */' + bytes.length });
+              res.end();
+              return;
+            }
+            res.writeHead(206, {
+              'Content-Range': 'bytes ' + start + '-' + end + '/' + bytes.length,
+              'Content-Length': end - start + 1,
+            });
+            res.end(bytes.subarray(start, end + 1));
+          } else {
+            res.writeHead(200, { 'Content-Length': bytes.length });
+            res.end(bytes);
+          }
           return;
         }
       }
@@ -344,6 +401,7 @@ export async function serve(app: Studio, port = 4310) {
     url: `http://127.0.0.1:${address.port}`,
     close: async () => {
       await motion.close();
+      await nativeDirector.close();
       return new Promise<void>((resolve, reject) =>
         server.close((error) => (error ? reject(error) : resolve())),
       );
