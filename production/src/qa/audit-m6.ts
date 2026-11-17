@@ -59,7 +59,7 @@ export async function inspect(folder:string,mode:'baseline'|'enhanced',project:M
     '-threads','1','-f','null','-']);
   const selected=new Set<number>();
   for(const [file,digest] of Object.entries(m.nativeFrames)){
-    const match=/^m3-final-frame-(\\d{3,4})\\.png$/.exec(file);
+    const match=/^m3-final-frame-(\d{3,4})\.png$/.exec(file);
     if(!match)throw Error('M6_NATIVE_FRAME_PATH_INVALID: '+file);
     const frame=Number(match[1]);
     if(!Number.isSafeInteger(frame)||frame<0||frame>=frames)
