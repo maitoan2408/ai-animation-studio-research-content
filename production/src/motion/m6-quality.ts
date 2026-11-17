@@ -147,7 +147,12 @@ export function sampleM6(
   const prefix=project.character.id+'.';
   const frameOut={
     camera:{...baseline.frame.camera},
-    sprites:[...baseline.frame.sprites.filter(s=>!s.id.startsWith(prefix)),...actor.sprites],
+    // M3 mistakenly paints the entire mug above the gripping fingers (z=6).
+    // For M6, put the vessel behind the right gripping palm (z=5.2) but
+    // in front of its forearm (z=5.1). Keep identical coordinates, anchors,
+    // art, camera and contact timing. This is a compositing correction only.
+    sprites:[...baseline.frame.sprites.filter(s=>!s.id.startsWith(prefix))
+      .map(s=>project.prop&&s.id===project.prop.id?{...s,z:5.15}:s),...actor.sprites],
     markers:[...baseline.frame.markers.filter(m=>!m.id.startsWith(prefix)),...actor.markers],
   };
   const prop=project.prop&&frameOut.sprites.find(s=>s.id===project.prop!.id);

@@ -666,11 +666,11 @@
       "ownerAcceptanceSource": "Owner explicitly confirmed M4 and M5 accepted in ChatGPT conversation on 2026-11-17 and authorized M6."
     },
     "M6": {
-      "technicalStatus": "PASSED",
-      "evidenceStatus": "READY_FOR_USER_REVIEW",
+      "technicalStatus": "REWORK_REQUIRED",
+      "evidenceStatus": "VISUAL_DEFECT_REPRODUCED_RETEST_PENDING",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "ea79a67ec755c8946eafa919558fad280dc2ca1f",
-      "ownerGate": "READY_FOR_USER_REVIEW; artistic and listening assessment remains owner NOT_REVIEWED. PR #18 Draft; no main merge or M7.",
+      "ownerGate": "Stop PASS claim. Real new native media and owner artistic review required. Draft PR, no merge/M7.",
       "requirements": [
         "Audited identical-shot A/B real 1080p24 videos with matched camera and contact",
         "Quality improvements in motion, acting, secondary, audio, rendering and critic within supported contracts",
@@ -734,6 +734,10 @@
         "Native A/B silent, M5 voice remains draft eSpeak; no true facial/viseme system",
         "Existing art is development art; no new licensed/approved art",
         "M5 Director continues to invoke root M2, not native M3/M4 executors; no generic re-rig/cloth/hair"
+      ],
+      "visualDefects": [
+        "Source mug z=6 painted on top of gripping palm z=5.2; marker-only tests missed visible hand overlap",
+        "Near-IK stress fixture placed cup on opposite side of actor from right-hand picking action, visually intersecting left forearm"
       ]
     },
     "M7": {

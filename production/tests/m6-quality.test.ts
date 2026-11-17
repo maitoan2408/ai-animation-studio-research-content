@@ -38,7 +38,12 @@ test('M6 A/B has same project, camera, art, timebase, all foot targets and held 
       const old=aById.get(s.id);
       assert.ok(old,'missing sprite '+s.id);
       assert.equal(s.asset,old.asset);
-      if(!s.id.startsWith(project.character.id+'.'))assert.deepEqual(s,old);
+      if(!s.id.startsWith(project.character.id+'.')){
+        if(s.id===project.prop?.id){
+          assert.deepEqual({...s,z:old!.z},old,'M6 mug may change paint layer only');
+          assert.equal(s.z,5.15,'mug must sit behind visible right gripping fingers');
+        }else assert.deepEqual(s,old);
+      }
     }
     for(const side of ['left','right']){
       const id=project.character.id+'.'+side+'-sole';
@@ -56,6 +61,31 @@ test('M6 A/B has same project, camera, art, timebase, all foot targets and held 
   }
   assert.ok(changed>60,'quality pass not producing visible pose differences');
   assert.ok(contact>=40);
+});
+test('M6 visible hand and mug are composited in physically meaningful gripping order',()=>{
+  let checked=0;
+  for(let f=0;f<m3TotalFrames(project);f++){
+    const s=after(f);
+    if(!s.contact.grip)continue;
+    const cup=s.frame.sprites.find(x=>x.id===project.prop?.id)!;
+    const palm=s.frame.sprites.find(x=>x.id===project.character.id+'.right-hand')!;
+    const arm=s.frame.sprites.find(x=>x.id===project.character.id+'.right-forearm')!;
+    assert.ok(arm.z<cup.z&&cup.z<palm.z,'gripping fingers should appear IN FRONT of the mug at '+f);
+    assert.ok(s.contact.gripError!==null&&s.contact.gripError<.001);
+    checked++;
+  }
+  assert.ok(checked>=40);
+});
+test('M6 semantic staging check rejects the actual visually wrong cross-body prop position',()=>{
+  const wrong=structuredClone(project);
+  wrong.character.xStart=900;wrong.prop!.x=928;
+  validateM3(wrong,pack); // M3 IK validity alone did not catch the visual error.
+  const report=evaluateM6(wrong,pack,'enhanced');
+  assert.ok(report.issues.some(x=>x.code==='M6_CROSS_BODY_PROP_STAGING'));
+  const fixed=structuredClone(wrong);fixed.prop!.x=1195;
+  validateM3(fixed,pack);
+  const corrected=evaluateM6(fixed,pack,'enhanced');
+  assert.ok(!corrected.issues.some(x=>x.code==='M6_CROSS_BODY_PROP_STAGING'));
 });
 test('M6 timeline boundaries match accepted M3 pose at every supported clip boundary',()=>{
   const boundaries=[0,72,73,121,122,170,171,267];
