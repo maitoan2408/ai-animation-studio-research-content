@@ -15,6 +15,7 @@ on:
       - 'production/src/render/**'
       - 'production/src/qa/audit-m6.ts'
       - 'production/tests/m6-*.ts'
+      - 'production/examples/m6-*.json'
       - 'production/package.json'
       - 'production/package-lock.json'
       - 'docs/product-first/M6-*.md'
@@ -51,6 +52,13 @@ jobs:
         run: python3 scripts/run-step.py U2 m6-ci-paired-native -- npm --prefix production run motion:m6
       - name: Independent post-result full-media decode, hashes and contact audit
         run: python3 scripts/run-step.py U2 m6-ci-independent-audit -- npm --prefix production run motion:m6:audit
+      - name: Retimed/near-IK-limit 122-frame real native A/B and independent audit
+        env:
+          M3_PROJECT_FILE: examples/m6-near-ik-limit.json
+          M6_OUTPUT_DIR: out/product-first/m6-edge
+        run: |
+          python3 scripts/run-step.py U2 m6-ci-paired-edge -- npm --prefix production run motion:m6
+          python3 scripts/run-step.py U2 m6-ci-post-edge -- npm --prefix production run motion:m6:audit
       - name: Upload original paired MP4, editable project, contact sheets and QA
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -58,6 +66,7 @@ jobs:
           name: animation-m6-review-${{ github.run_number }}
           path: |
             production/out/product-first/m6/
+            production/out/product-first/m6-edge/
             production/evidence/U2/*m6-ci*/result.json
             production/evidence/U2/*m6-ci*/stdout.log
           retention-days: 14
