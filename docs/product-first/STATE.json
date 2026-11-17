@@ -667,7 +667,7 @@
     },
     "M6": {
       "technicalStatus": "REWORK_REQUIRED",
-      "evidenceStatus": "VISUAL_DEFECT_REPRODUCED_RETEST_PENDING",
+      "evidenceStatus": "GENERALIZATION_G2_CI_PENDING",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "ea79a67ec755c8946eafa919558fad280dc2ca1f",
       "ownerGate": "Stop PASS claim. Real new native media and owner artistic review required. Draft PR, no merge/M7.",
@@ -738,7 +738,36 @@
       "visualDefects": [
         "Source mug z=6 painted on top of gripping palm z=5.2; marker-only tests missed visible hand overlap",
         "Near-IK stress fixture placed cup on opposite side of actor from right-hand picking action, visually intersecting left forearm"
-      ]
+      ],
+      "generalization": {
+        "G1": {
+          "status": "PASSED_TECHNICAL",
+          "verifiedCode": "916aaba4ee80841ad470a3ed40c0747738e40d98",
+          "workflowRuns": [
+            44105794311,
+            44105794301,
+            44105794352,
+            44105794333,
+            44105794339
+          ]
+        },
+        "G2": {
+          "status": "IMPLEMENTED_PENDING_CI",
+          "scope": "Both hands, arbitrary compatible cutout-1 model and anchored native prop; mirrored facing; wrong-side and unreachable target fail closed"
+        },
+        "G3": {
+          "status": "PENDING"
+        },
+        "G4": {
+          "status": "PENDING"
+        },
+        "G5": {
+          "status": "PENDING"
+        },
+        "G6": {
+          "status": "PENDING_OWNER_REVIEW"
+        }
+      }
     },
     "M7": {
       "technicalStatus": "NOT_VERIFIED",

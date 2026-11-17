@@ -14,6 +14,7 @@ on:
       - 'tests/m3-http.test.ts'
       - 'tests/m6-audio-quality.test.ts'
       - 'production/src/motion/**'
+      - 'production/src/scene/**'
       - 'production/src/qa/general-scene-quality.ts'
       - 'production/tests/m6-general-quality.test.ts'
       - 'production/src/render/**'
@@ -57,7 +58,7 @@ jobs:
           npx tsc -p tsconfig.m6.json
           npm --prefix production run typecheck
           npm --prefix production run test:motion:m6
-          (cd production && npx tsx --test tests/m6-general-quality.test.ts)
+          (cd production && npx tsx --test tests/m6-general-quality.test.ts tests/m6-general-interaction.test.ts)
           npm --prefix production run test:physics:m4
       - name: True 1080p24 paired native M3 baseline and M6 quality captures
         run: python3 scripts/run-step.py U2 m6-ci-paired-native -- npm --prefix production run motion:m6
