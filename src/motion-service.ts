@@ -170,7 +170,10 @@ export class MotionService {
   }
   async render(revision: string, qualityMode: QualityMode = 'baseline'): Promise<MotionJob> {
     if (qualityMode !== 'baseline' && qualityMode !== 'enhanced')
-      failure('M6_QUALITY_MODE_INVALID', 'Only baseline/enhanced native motion modes are supported.');
+      failure(
+        'M6_QUALITY_MODE_INVALID',
+        'Only baseline/enhanced native motion modes are supported.',
+      );
     if (this.renderStart || this.running)
       failure('M3_RENDER_BUSY', 'A native M3 render is already running.', 409);
     const launched = this.renderInner(revision, qualityMode);
@@ -216,8 +219,12 @@ export class MotionService {
       cwd: repoRoot,
       stdio: ['ignore', 'pipe', 'pipe'],
       detached: process.platform !== 'win32',
-      env: { ...process.env, M3_PROJECT_FILE: projectPath, M3_OUTPUT_DIR: dir,
-        ...(qualityMode === 'enhanced' ? { M6_QUALITY_MODE: 'enhanced' } : {}) },
+      env: {
+        ...process.env,
+        M3_PROJECT_FILE: projectPath,
+        M3_OUTPUT_DIR: dir,
+        ...(qualityMode === 'enhanced' ? { M6_QUALITY_MODE: 'enhanced' } : {}),
+      },
     });
     this.running = { id, child };
     let transcript = '';

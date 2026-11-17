@@ -37,10 +37,6 @@ jobs:
         run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
       - run: npm ci
       - run: npm --prefix production ci
-      - name: Temporary canonical Prettier snapshot (diagnostic only; remove after repair)
-        run: |
-          npm run format
-          node -e 'const fs=require("node:fs");for(const p of ["src/audio-quality.ts","src/motion-service.ts","src/render.ts","src/server.ts","tests/m3-http.test.ts","tests/m6-audio-quality.test.ts","web/motion.html","web/motion.js"])console.log("M6_FORMAT_JSON:"+JSON.stringify({path:p,content:fs.readFileSync(p,"utf8")}))'
       - name: Strict application and native TypeScript contracts
         run: |
           npm run verify
