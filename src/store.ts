@@ -63,29 +63,77 @@ export class Store {
     );
     return Promise.all(names.map((x) => this.get<T>(collection, x.slice(0, -5))));
   }
-  async create(specInput: unknown, notes: string[] = []): Promise<Project> {
-    const spec = parseSpec(specInput),
-      time = now(),
-      projectId = uid('prj');
-    const rev: Revision = {
-      id: uid('rev'),
-      projectId,
-      createdAt: time,
-      spec,
-      digest: hash(canonical(spec)),
-      notes,
+  async create(
+    specInput: unknown,
+    notes: string[] = [],
+    fixedProjectId?: string,
+  ): Promise<Project> {
+    const spec = parseSpec(specInput);
+    const projectId = fixedProjectId ?? uid('prj');
+    if (fixedProjectId && !idSchema.safeParse(fixedProjectId).success)
+      throw new StudioError('DIRECTOR_ID_INVALID', 'Invalid deterministic project ID.');
+    const save = async (): Promise<Project> => {
+      if (fixedProjectId) {
+        let existing: Project | undefined;
+        try {
+          existing = await this.get<Project>('projects', projectId);
+        } catch (error) {
+          if (!(error instanceof StudioError && error.code === 'NOT_FOUND')) throw error;
+        }
+        if (existing) {
+          const first = await this.get<Revision>('revisions', existing.revisionIds[0]!);
+          if (
+            first.projectId !== projectId ||
+            first.digest !== hash(canonical(spec)) ||
+            canonical(first.notes) !== canonical(notes)
+          )
+            throw new StudioError(
+              'DIRECTOR_PROJECT_CONFLICT',
+              'Existing plan project differs from the approved plan.',
+              409,
+            );
+          return existing;
+        }
+      }
+      const time = now();
+      const rev: Revision = {
+        id: fixedProjectId ? 'rev_' + projectId.slice(4) : uid('rev'),
+        projectId,
+        createdAt: time,
+        spec,
+        digest: hash(canonical(spec)),
+        notes,
+      };
+      if (fixedProjectId) {
+        let previous: Revision | undefined;
+        try {
+          previous = await this.get<Revision>('revisions', rev.id);
+        } catch (error) {
+          if (!(error instanceof StudioError && error.code === 'NOT_FOUND')) throw error;
+        }
+        if (
+          previous &&
+          (previous.digest !== rev.digest || canonical(previous.notes) !== canonical(notes))
+        )
+          throw new StudioError(
+            'DIRECTOR_REVISION_CONFLICT',
+            'Partial project recovery conflicts with the approved input.',
+            409,
+          );
+      }
+      const project: Project = {
+        id: projectId,
+        createdAt: time,
+        updatedAt: time,
+        title: spec.title,
+        currentRevisionId: rev.id,
+        revisionIds: [rev.id],
+      };
+      await this.put('revisions', rev.id, rev);
+      await this.put('projects', project.id, project);
+      return project;
     };
-    const project: Project = {
-      id: projectId,
-      createdAt: time,
-      updatedAt: time,
-      title: spec.title,
-      currentRevisionId: rev.id,
-      revisionIds: [rev.id],
-    };
-    await this.put('revisions', rev.id, rev);
-    await this.put('projects', project.id, project);
-    return project;
+    return fixedProjectId ? this.transaction(save) : save();
   }
   async revise(
     projectId: string,

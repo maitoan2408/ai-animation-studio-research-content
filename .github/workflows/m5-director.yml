@@ -1,0 +1,57 @@
+name: M5 Director native product verification
+on:
+  pull_request:
+    paths:
+      - 'src/director.ts'
+      - 'src/server.ts'
+      - 'tests/director.test.ts'
+      - 'web/director.*'
+      - 'scripts/m5-*.ts'
+      - 'tsconfig.m5.json'
+      - 'package*.json'
+      - '.github/workflows/m5-director.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: m5-native-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  m5-two-fresh-stories-and-independent-audit:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 65
+    env:
+      STUDIO_BROWSER: /usr/bin/chromium
+      HYPERFRAMES_NO_TELEMETRY: '1'
+      SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install native Chromium, FFmpeg and vector runtime
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
+      - run: npm ci
+      - run: npm --prefix production ci
+      - name: Strict TypeScript and bounded Director graph tests
+        run: |
+          npm run verify
+          npx tsc -p tsconfig.m5.json
+      - name: Verify M4 physics stays compatible with Director baseline
+        run: |
+          npm --prefix production run typecheck
+          npm --prefix production run test:physics:m4
+          npm --prefix production run test:physics
+      - name: Consolidated M1-M5 local QA workflow syntax
+        run: bash -n scripts/m1-m5-workflow.sh
+      - name: Delayed response / edited input browser regression
+        run: npx tsx scripts/m5-async-plan-ui.ts
+      - name: Two new actual native 1080p voiced films, graph UI and fail-closed demo
+        run: npx tsx scripts/m5-product-e2e.ts
+      - name: Separate post-result audit of both videos, audio, graphs and sources
+        run: npx tsx scripts/m5-independent-audit.ts
+      - name: Upload M5 editable projects, real films, screenshots and receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: m5-director-review-${{ github.run_number }}
+          path: artifacts/product-first/m5/
+          retention-days: 14

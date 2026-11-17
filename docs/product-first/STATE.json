@@ -5,8 +5,8 @@
     "branch": "codex/v2-continuous",
     "commit": "61d2de8834cc9e48d3c4c25c329f050e415e6d59"
   },
-  "implementationBranch": "codex/m4-audit-20261116",
-  "activeMilestone": "M4",
+  "implementationBranch": "codex/integration-m1-m5-20261117",
+  "activeMilestone": "M5",
   "milestones": {
     "M0": {
       "technicalStatus": "PASSED",
@@ -478,9 +478,188 @@
       }
     },
     "M5": {
-      "technicalStatus": "NOT_VERIFIED",
-      "evidenceStatus": "NOT_VERIFIED",
-      "userAcceptance": "NOT_REVIEWED"
+      "technicalStatus": "PASSED",
+      "evidenceStatus": "READY_FOR_USER_REVIEW",
+      "userAcceptance": "NOT_REVIEWED",
+      "sourceBaseCommit": "3bbc337c3294e6dfa7570e463e6724a6990d64d9",
+      "branch": "codex/integration-m1-m5-20261117",
+      "plan": "docs/product-first/M5-PLAN.md",
+      "review": "docs/product-first/M1-M5-REVIEW-20261117.md",
+      "dependency": "M4 remains owner NOT_REVIEWED. Owner explicitly authorized beginning M5 development on 2026-11-17 without accepting or merging M4; M5 cannot be owner-ACCEPTED or merged automatically.",
+      "scope": "Bounded Director task graph and real Studio skill orchestration, two fresh native videos, UI graph screenshots and failure/recovery proofs.",
+      "status": "READY_FOR_USER_REVIEW",
+      "ciRuns": [
+        {
+          "name": "M5 Director native product verification",
+          "runId": 43979847060,
+          "conclusion": "SUCCESS",
+          "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37"
+        },
+        {
+          "name": "Paper Studio verification",
+          "runId": 43979847149,
+          "conclusion": "SUCCESS",
+          "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37"
+        },
+        {
+          "name": "Q2 workbench verification",
+          "runId": 43979847057,
+          "conclusion": "SUCCESS",
+          "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37"
+        },
+        {
+          "name": "M4 physics native product verification",
+          "runId": 43979847079,
+          "conclusion": "SUCCESS",
+          "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37"
+        }
+      ],
+      "unresolvedInScopeDefects": [],
+      "nextAction": "Owner to review integrated PR #16, M5 native films/graph and pending M4 aesthetic gate; M6 remains NOT_STARTED until owner explicitly approves. No merge to main.",
+      "resolvedDefects": [
+        {
+          "id": "M5-VISUAL-001",
+          "description": "Rendered Studio screenshot showed only a blank media-element gradient because metadata was loaded but no video frame had decoded.",
+          "resolution": "M5 browser preview requests the first frame, and E2E genuinely plays/seeks to frame 48 and verifies decode before capturing screenshots.",
+          "fixCommit": "17a43c95ae70b38a2870d138df6cd9ccc23d25c4"
+        },
+        {
+          "id": "M5-VISUAL-002",
+          "description": "3x2 chronological contact sheet had only five selected frames, leaving a misleading black placeholder tile.",
+          "resolution": "Render six real selected frames; independent second pass verifies the sixth tile contains actual image pixels.",
+          "fixCommit": "17a43c95ae70b38a2870d138df6cd9ccc23d25c4"
+        },
+        {
+          "id": "M5-RECHECK-001",
+          "severity": "HIGH",
+          "resolution": "UI request generation/fingerprint invalidates in-flight plan after input edits; Puppeteer delayed-response race regression PASS.",
+          "fixCommit": "05820bbcad27550655750b5505323f2b94e99661",
+          "testedAt": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2"
+        },
+        {
+          "id": "M5-RECHECK-002",
+          "severity": "HIGH",
+          "resolution": "Deterministic plan-bound project identity, journal written before create, idempotent source/revision/job/artifact recovery, corrupted journal rejection; restart-without-receipt regression PASS.",
+          "fixCommit": "d7f7569a8254aef7f6321f2841b913fd4036577e",
+          "testedAt": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2"
+        },
+        {
+          "id": "M5-RECHECK-003",
+          "severity": "MEDIUM",
+          "resolution": "Reject voice-induced post-approval frame changes before render; verify content/audio SHA and bind exact render revision in receipt; injected-long-voice regression PASS.",
+          "fixCommit": "d7f7569a8254aef7f6321f2841b913fd4036577e",
+          "testedAt": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2"
+        }
+      ],
+      "lastVerifiedSourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37",
+      "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/16",
+      "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37",
+      "artifactId": 14283162671,
+      "artifactName": "m5-director-review-20",
+      "artifactExpiresAt": "2026-11-30T22:39:46Z",
+      "artifactHashes": {
+        "videoA": "63a0fb370861fe1af67de27f2050caec2eafa96dd344aa45ca63dafee957d3b1",
+        "videoB": "945b6bbdf9a648a8d43fee5ef1711e27ef10f01e3f131f0e6e994a218aa712db",
+        "planA": "56051dfa81b0a1b1602fb896afbee18ef07a7e9476863f80ce11e4888cb21a54",
+        "planB": "263990ccaf3c6c4ecc0d759d8d095d68ba45762c23bd131bddfc556efa2b2a2e",
+        "sourceHeadSha": "fb0e36788b30995ad338dd9efa86450496dd4e37"
+      },
+      "qualityMetrics": {
+        "freshStories": 2,
+        "framesEach": 432,
+        "secondsEach": 18,
+        "outputProfile": "1920x1080 H264 24fps with 48kHz voice",
+        "audibleAudioRmsA": 2041.1232195933756,
+        "audibleAudioRmsB": 1670.8100443061487,
+        "originalVideoFullDecodes": 2,
+        "independentlyRecheckedArtifactHashes": 15,
+        "graphAndFinalStudioScreenshots": 4,
+        "negativeUiScreenshots": 1,
+        "nativeContactSheets": 2,
+        "nonblankContactTilesEach": 6,
+        "graphNodesEach": 4,
+        "noAutomaticallyApprovedReviews": true,
+        "finalCIJobs": 4,
+        "browserStalePlanRegression": "PASS",
+        "idempotentCrashRecovery": "PASS",
+        "voiceTimelineGuard": "PASS",
+        "physicsOffOnOriginalFilms": 4
+      },
+      "knownLimitations": [
+        "Offline deterministic/capability-aware orchestration of existing root M2 Studio executors; not an autonomous generative LLM, and currently does not invoke separate M3/M4 native workbench backends.",
+        "Supported root action vocabulary: idle, wave, walk, pick-up, talk; supported cameras: static and pan. Unsupported 3D, fly, independent generated art and unrecognized actions fail closed.",
+        "Voice is local draft eSpeak, not professionally acted or human-approved, and animation has root M2 visual/acting limitations. Two short pilot proofs do not establish long-form cinematic quality.",
+        "CI artifacts retained for 14 days; source/code hashes are preserved in repo, videos stored as downloadable GitHub Actions artifact and in chat."
+      ],
+      "ownerGate": "READY_FOR_USER_REVIEW; NO OWNER ACCEPTANCE; PR16 DRAFT; PR17 FURTHER AUDIT HISTORICAL; NO MAIN MERGE; NO M6",
+      "audit20261117": {
+        "verdict": "PASSED_ON_INTEGRATED_SOURCE",
+        "sourceReviewed": "74596bd1d1c8b0d97345bd676440dbadd2acdfc2",
+        "sourceMediaVerified": true,
+        "independentArtifactHashesChecked": 15,
+        "fullMP4Decodes": 2,
+        "priorCIStillSuccess": true,
+        "newTargetedRegressions": "PASS",
+        "scope": "Source-path-confirmed acceptance gaps; plan fixes before re-review",
+        "report": "docs/product-first/M1-M5-REVIEW-20261117.md",
+        "findings": [
+          {
+            "id": "M5-RECHECK-001",
+            "severity": "HIGH",
+            "status": "RESOLVED_TESTED",
+            "fixCommit": "05820bbcad27550655750b5505323f2b94e99661"
+          },
+          {
+            "id": "M5-RECHECK-002",
+            "severity": "HIGH",
+            "status": "RESOLVED_TESTED",
+            "fixCommit": "d7f7569a8254aef7f6321f2841b913fd4036577e"
+          },
+          {
+            "id": "M5-RECHECK-003",
+            "severity": "MEDIUM",
+            "status": "RESOLVED_TESTED",
+            "fixCommit": "d7f7569a8254aef7f6321f2841b913fd4036577e"
+          }
+        ]
+      },
+      "integrationBaseCommit": "3bbc337c3294e6dfa7570e463e6724a6990d64d9",
+      "integrationDonorCommit": "afdec922c993357981ee39cd32c772b69212b08d",
+      "integrationStatus": "AUDITED_M5_FAST_FORWARDED_TO_PR16_NO_MAIN_MERGE",
+      "deepAudit20261117": {
+        "verdict": "TECHNICAL_PASSED_OWNER_NOT_REVIEWED",
+        "implementedFromPR": 17,
+        "integratedIntoPR": 16,
+        "sourceCommit": "fb0e36788b30995ad338dd9efa86450496dd4e37",
+        "freshNegativeTests": [
+          "M5-AUDIT-004",
+          "M5-AUDIT-005",
+          "M5-AUDIT-006"
+        ],
+        "failureReproductionRunId": 43978637024,
+        "passRunId": 43979847060,
+        "allFourRegressions": [
+          "43979847060",
+          "43979847149",
+          "43979847057",
+          "43979847079"
+        ],
+        "qualityEvidence": {
+          "twoFreshFilms": true,
+          "realFramesEach": 432,
+          "pixels": "1920x1080",
+          "frameRate": "24/1",
+          "audioRateHz": 48000,
+          "sha256Rechecked": 15,
+          "fullyDecodedFilms": 2
+        },
+        "openInScopeDefects": [],
+        "scopeLimits": [
+          "Director M5 executes root M2, does not yet invoke M3/M4 native production",
+          "artistic and voice approval remains owner-only"
+        ],
+        "handoff": "M6 prompt delivered only in chat on owner request; not maintained as a Git file."
+      }
     },
     "M6": {
       "technicalStatus": "NOT_VERIFIED",
@@ -545,6 +724,6 @@
       "scope": "M3 delivered motion/Studio quality and completed M1-M3 audit, with disclosed bounded art/rig and draft/silent audio limitations. Does not approve M4 deliverables or authorize PR merges."
     }
   },
-  "nextMilestone": "M5_PENDING_M4_OWNER_APPROVAL",
-  "nextAction": "Owner reviews the verified M4 native films. No merge or M5 until explicit approval."
+  "nextMilestone": "M5",
+  "nextAction": "Owner to review integrated PR #16, M5 native films/graph and pending M4 aesthetic gate; M6 remains NOT_STARTED until owner explicitly approves. No merge to main."
 }

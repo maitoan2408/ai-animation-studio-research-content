@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Director · Paper Studio M5</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/director.js"></script>
+  </head>
+  <body>
+    <aside>
+      <a class="brand" href="/">◈ PAPER STUDIO</a>
+      <p class="small">Director · M5</p>
+      <a class="button" href="/">← Storyboard Studio</a>
+      <a class="button" href="/motion">Character Motion (M3)</a>
+      <div class="sidebar-note">
+        Bounded offline planner → approved task graph → real Studio renderer.
+        <span>No arbitrary generated code; no automatic artistic acceptance.</span>
+      </div>
+    </aside>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">DIRECTOR · VALIDATED PRODUCTION</p>
+          <h1>Điều phối sản xuất video</h1>
+        </div>
+        <span class="badge" id="director-phase">M5 · Plan</span>
+      </header>
+      <p id="director-notice" role="status" aria-live="polite">
+        Tạo kế hoạch trước. Đọc lại task graph và xác nhận trước khi chạy.
+      </p>
+      <section class="card">
+        <h2>Kịch bản và đầu vào</h2>
+        <form id="director-form">
+          <div class="form-row">
+            <label>
+              Tên phim<input
+                name="title"
+                value="Buổi sáng trong khu vườn"
+                maxlength="100"
+                required
+              />
+            </label>
+            <label>
+              Phong cách<select name="style">
+                <option value="paper-cut">Paper-cut</option>
+                <option value="multiplane">Multiplane</option>
+                <option value="shadow-box">Shadow-box</option>
+              </select>
+            </label>
+            <label>
+              Ngôn ngữ<select name="language">
+                <option value="vi">Tiếng Việt</option>
+                <option value="en">English</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            Kịch bản (mỗi đoạn là một cảnh)
+            <textarea name="script" rows="11" maxlength="12000" required>
+[title=Chào vườn; action=wave; seconds=6; camera=static]
+Ánh nắng ban mai đến thật nhẹ nhàng. Tôi vẫy tay chào khu vườn.
+
+[title=Bước đi; action=walk; seconds=6; camera=pan]
+Tôi bước theo con đường nhỏ và tìm một nơi thật yên tĩnh.
+
+[title=Lời kể; action=talk; seconds=6; camera=static]
+Mỗi ngày đều mang đến một câu chuyện mới, hãy cùng khám phá.</textarea>
+          </label>
+          <div class="form-row">
+            <label>
+              Chất lượng<select name="profile">
+                <option value="final">Final 1920×1080</option>
+                <option value="preview">Preview 640×360</option>
+              </select>
+            </label>
+            <label>
+              Giọng đọc<select name="voice">
+                <option value="true">Nháp giọng eSpeak (local)</option>
+                <option value="false">Không giọng đọc</option>
+              </select>
+            </label>
+          </div>
+          <div class="render-actions">
+            <button class="primary" type="submit" id="director-plan">1. Lập task graph</button>
+            <button type="button" id="director-run" disabled>2. Xác nhận và tạo video</button>
+          </div>
+        </form>
+      </section>
+      <section class="card">
+        <h2>Task graph đã xác thực</h2>
+        <p>Chương trình chỉ sử dụng kỹ năng hiện có. Sửa script sẽ vô hiệu hóa kế hoạch cũ.</p>
+        <p class="small" id="director-sha"></p>
+        <ol id="director-graph" aria-label="Director task graph"></ol>
+        <h3>Các cảnh sẽ được tạo</h3>
+        <ol id="director-scenes" aria-label="Storyboard đã biên dịch"></ol>
+        <div id="director-notes"></div>
+      </section>
+      <section class="card" id="director-result" hidden>
+        <h2>Video được tạo bởi Studio</h2>
+        <p id="director-receipt"></p>
+        <video id="director-video" controls playsinline preload="metadata" width="640"></video>
+        <p><a href="/" id="director-edit">Mở Studio để xem/chỉnh sửa dự án</a></p>
+        <p class="small">Director không tự đánh giá diễn xuất hay phê duyệt nghệ thuật.</p>
+      </section>
+    </main>
+  </body>
+</html>

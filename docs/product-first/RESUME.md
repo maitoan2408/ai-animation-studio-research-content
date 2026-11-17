@@ -1,3 +1,15 @@
+# 2026-11-17 — M5 deep-audit fast-forward integrated into PR #16, owner signoff pending
+
+PR #16 integration branch now includes all five commits from PR #17 deep audit via non-force fast-forward; executable source SHA fb0e36788b30995ad338dd9efa86450496dd4e37. Three new adversarial persisted-receipt defects reproduced then fixed with strict schema/actual-job/artifact validation. Final source M5, Paper Studio, Q2 and M4 workflows all SUCCESS (43979847060 / 43979847149 / 43979847057 / 43979847079); two genuine M5 films independently rechecked. No main merge. M4/M5 owner still NOT_REVIEWED; M6 still NOT_STARTED. See [integration evidence](M5-INTEGRATION-20261117.md) and M6 prompt delivered in chat only (not kept in Git).
+
+# M1–M5 integrated technical PASS — 2026-11-17 | OWNER REVIEW PENDING
+
+Four full CI runs **SUCCESS** on executable source `74596bd1d1c8b0d97345bd676440dbadd2acdfc2`: M5 Director 43971337130, root M1/M2 43971336865, production M1/M3 43971336913, M4 native physics 43971336912. New stale-plan, durable restart recovery and voice timing regressions PASS. Original two M5 films, M2 film, M3 native films and all four M4 films downloaded and independently full-decoded; source/artifact SHA reports checked. See [final integration review](M1-M5-REVIEW-20261117.md) and [quality plan](M1-M5-INTEGRATION-QA.md). Draft PR #16 only, **M4 and M5 both owner NOT_REVIEWED**, no merge/M6. Director runs the root M2 engine; native M3/M4 orchestration is still P1 scope.
+
+# M1–M5 development integration — 2026-11-17
+
+Source M4-audit PR #14 `3bbc337c3294e6dfa7570e463e6724a6990d64d9` plus M5 Director PR #15 `afdec922c993357981ee39cd32c772b69212b08d` combined on isolated branch, with M4 audit modifications preserved. M4 owner NOT_REVIEWED, M5 REWORK_REQUIRED. Three M5 findings await test-first fixes and joint M1–M5 CI; no merge to main/M6.
+
 # Current M4 audit completed — READY_FOR_USER_REVIEW
 
 Owner-requested M4 audit repaired replay validation, short timelines, substep contact events and false-positive media QA. Complete Studio, production and M4 CI passed on executable source `fc1eaf82d6a38f884f9baab8b4a04d6e9656c951`; downloaded four native films and nine negative media cases passed a separate second review. [Report and exact evidence](M4-AUDIT.md), [draft PR #14](https://github.com/maitoan2408/ai-animation-studio-research-content/pull/14). Final documentation HEAD must also have all three green CI checks before handoff. No owner acceptance, merge or M5; preserve accepted M1–M3 and S05.
