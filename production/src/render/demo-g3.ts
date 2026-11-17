@@ -71,7 +71,7 @@ for(const scenario of scenarios){
  const bake=await bakeGeneralDrop(p,pack);
  if(!bake.contacts.length)throw Error('G3_NO_REAL_PLATFORM_CONTACT '+scenario.id);
  const playback:GeneralPlayback={schemaVersion:'general-playback/1',film,
-   releases:[{actorId:'actor-hero',frame:releaseFrame,project:p,bake}]};
+   releases:[{actorId:'actor-hero',frame:releaseFrame,settleFrames:24,project:p,bake}]};
  validateGeneralPlayback(playback,pack);
  const dir=path.join(out,scenario.id);
  await mkdir(dir,{recursive:true});

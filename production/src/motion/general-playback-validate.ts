@@ -19,10 +19,14 @@ export function validateGeneralPlayback(raw:unknown,pack:ArtPack):GeneralPlaybac
    if(!release||typeof release!=='object'||Array.isArray(release))
      throw Error('G3_RELEASE_SCHEMA');
    const q=release as Record<string,unknown>;
-   if(Object.keys(q).sort().join('|')!=='actorId|bake|frame|project'||
+   const keys=Object.keys(q).sort().join('|');
+   if(!['actorId|bake|frame|project','actorId|bake|frame|project|settleFrames'].includes(keys)||
       typeof q.actorId!=='string'||ids.has(q.actorId)||
       !Number.isSafeInteger(q.frame)||Number(q.frame)<6||
-      Number(q.frame)>=film.frames-24)throw Error('G3_RELEASE_SCHEMA');
+      Number(q.frame)>=film.frames-24||
+      (q.settleFrames!==undefined&&(!Number.isSafeInteger(q.settleFrames)||
+        Number(q.settleFrames)<8||Number(q.settleFrames)>48)))
+     throw Error('G3_RELEASE_SCHEMA');
    ids.add(q.actorId);
    const track=film.tracks.find(t=>t.contact.actor.id===q.actorId);
    if(!track)throw Error('G3_RELEASE_ACTOR_UNKNOWN');

@@ -57,6 +57,16 @@ test('G3 real right-hand cup release: physical ownership and independent random 
  assert.ok(before.frame.sprites.some(s=>s.id==='actor-one.right-grip-front'));
  assert.ok(!at.frame.sprites.some(s=>s.id==='actor-one.right-grip-front'));
  assert.equal(at.frame.sprites.find(s=>s.id==='actor-one.right-hand')?.asset,'an/hand-open');
+ const after=all[Math.min(release+24,all.length-1)]!;
+ const atWrist=at.frame.markers.find(m=>m.id==='actor-one.right-wrist')!.point;
+ const afterWrist=after.frame.markers.find(m=>m.id==='actor-one.right-wrist')!.point;
+ assert.ok(Math.hypot(afterWrist[0]-atWrist[0],afterWrist[1]-atWrist[1])>20,
+   'hand must naturally withdraw after prop release, not hover above the cup');
+ for(let f=release+1;f<=release+24;f++){
+   const a=all[f-1]!.frame.markers.find(m=>m.id==='actor-one.right-wrist')!.point;
+   const b=all[f]!.frame.markers.find(m=>m.id==='actor-one.right-wrist')!.point;
+   assert.ok(Math.hypot(a[0]-b[0],a[1]-b[1])<10,'follow-through jumped at '+f);
+ }
  const old=before.frame.sprites.find(s=>s.id==='item-one')!;
  const now=at.frame.sprites.find(s=>s.id==='item-one')!;
  assert.ok(Math.hypot(...((): [number,number]=>{
@@ -76,6 +86,11 @@ test('G3 real left-hand lantern release has correct layer order and no floating 
  assert.ok(before.frame.sprites.some(s=>s.id==='actor-one.left-grip-front'));
  assert.ok(!after.frame.sprites.some(s=>s.id==='actor-one.left-grip-front'));
  assert.ok(movie.releases[0]!.bake.contacts.length>=1);
+ const atWrist=after.frame.markers.find(m=>m.id==='actor-one.left-wrist')!.point;
+ const later=sampleGeneralPlayback(movie,release+30,pack);
+ const laterWrist=later.frame.markers.find(m=>m.id==='actor-one.left-wrist')!.point;
+ assert.ok(Math.hypot(atWrist[0]-laterWrist[0],atWrist[1]-laterWrist[1])>20,
+   'left hand must follow through to rest instead of levitating the lamp');
 });
 test('G3 fail-closed: forged physics receipt, wrong handoff and invisible collision platform',async()=>{
  const {movie}=await create();
