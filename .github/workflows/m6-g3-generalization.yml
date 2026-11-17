@@ -2,6 +2,7 @@ name: M6 G3 reusable motion and native physics film verification
 on:
   pull_request:
     paths:
+      - 'production/src/director/**'
       - 'production/src/motion/general-*'
       - 'production/src/scene/*'
       - 'production/src/motion/character-library.ts'

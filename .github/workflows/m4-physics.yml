@@ -2,6 +2,7 @@ name: M4 physics native product verification
 on:
   pull_request:
     paths:
+      - 'production/src/director/**'
       - 'production/src/physics/**'
       - 'production/src/render/**'
       - 'production/src/qa/audit-m4*.ts'

@@ -2,6 +2,7 @@ name: M6 paired animation quality and post-result audit
 on:
   pull_request:
     paths:
+      - 'production/src/director/**'
       - 'scripts/m6-audio-post.mjs'
       - 'scripts/m6-studio-e2e.ts'
       - 'tsconfig.m6.json'

@@ -45,6 +45,8 @@ jobs:
         run: npm --prefix production run native:director:demo
       - name: Independent second pass through actual six media streams and frames
         run: npm --prefix production run native:director:audit
+      - name: Third-pass G6 adversarial tests on separate copies of real M3 and G3 outputs
+        run: npx tsx production/src/director/audit-native-negative.ts
       - name: Publish six films, editable JSON plans, all receipts, actual contact frames and reports
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
