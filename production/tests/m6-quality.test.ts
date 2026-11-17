@@ -111,3 +111,33 @@ test('every allowed M6 quality control remains safe across accepted walk-stop fr
     assert.doesNotThrow(()=>sampleM6(walk,f,pack,high),'high-quality bounded controls at frame '+f);
   }
 });
+
+test('retimed M6 native action sources stay random-access and preserve all annotated contacts',()=>{
+  for(const model of ['an','mai'] as const){
+    const retimed=makeM3Showcase(pack,'guest-retime-'+model,model);
+    retimed.clips[0]!.frames=97;
+    retimed.clips[1]!.frames=73;
+    retimed.clips[2]!.frames=73;
+    validateM3(retimed,pack);
+    const high={...m6DefaultQuality,leanDegrees:5,bouncePixels:6,
+      armFollowPixels:24,headFollowDegrees:8,settleDegrees:4};
+    const count=m3TotalFrames(retimed);
+    for(let frame=0;frame<count;frame++){
+      const expected=sampleM3(retimed,frame,pack);
+      const actual=sampleM6(retimed,frame,pack,high);
+      assert.deepEqual(actual.frame.camera,expected.frame.camera,'camera '+model+':'+frame);
+      for(const side of expected.contact.planted){
+        const id=retimed.character.id+'.'+side+'-sole';
+        assert.deepEqual(actual.frame.markers.find(m=>m.id===id)?.point,
+          expected.frame.markers.find(m=>m.id===id)?.point,'stance '+model+':'+frame);
+      }
+      if(expected.contact.grip){
+        assert.equal(actual.contact.grip,true);
+        assert.ok(actual.contact.gripError!==null&&actual.contact.gripError<.001,
+          'held hand '+model+':'+frame);
+      }
+    }
+    assert.deepEqual(sampleM6(retimed,count-1,pack,high),
+      sampleM6(retimed,count-1,pack,high));
+  }
+});
