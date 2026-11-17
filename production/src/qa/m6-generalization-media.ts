@@ -82,6 +82,18 @@ for(const name of ['left-cup','right-lantern','no-prop-performance']){
   assert.equal(manifest.video.width,1920);assert.equal(manifest.video.height,1080);
   assert.equal(manifest.video.fps,24);assert.equal(manifest.video.hasAudio,false);
   assert.equal(manifest.video.sha256,sha(await readFile(movie)));
+  // Cross-renderer media verification is identical for native and Director
+  // movies. Rejected profiles and invalid audio are a real CI negative test.
+  const universal=path.resolve(root,'../scripts/media-quality-gate.mjs');
+  run('node',[universal,movie,String(manifest.video.frames),'silent']);
+  const mediaGate=JSON.parse(await readFile(movie+'.film-quality.json','utf8'));
+  assert.equal(mediaGate.sha256,manifest.video.sha256);
+  const wrongFrames=spawnSync('node',[universal,movie,String(manifest.video.frames+1),'silent'],{
+    cwd:root,encoding:'utf8'});
+  assert.notEqual(wrongFrames.status,0,'must reject wrong frame profile');
+  const wrongAudio=spawnSync('node',[universal,movie,String(manifest.video.frames),'voiced'],{
+    cwd:root,encoding:'utf8'});
+  assert.notEqual(wrongAudio.status,0,'must reject silently absent narration');
   assert.equal(manifest.project.sha256,sha(json));
   const gate=requireNativeVisualPass(authored,pack,mode);
   const archived=JSON.parse(await readFile(path.join(folder,'native-visual-gate.json'),'utf8'));

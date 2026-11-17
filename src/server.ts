@@ -129,6 +129,10 @@ export async function serve(app: Studio, port = 4310) {
       // M3 Character Motion: separate versioned project, same localhost Studio.
       // Unknown keys, foreign origins and stale revisions fail before native render.
       if (parts[1] === 'motion') {
+        if (parts.length === 3 && parts[2] === 'assets' && method === 'GET') {
+          json(await motion.gripAssets());
+          return;
+        }
         if (parts.length === 3 && parts[2] === 'validate' && method === 'POST') {
           const input = validate(z.object({ project: z.unknown() }).strict(), await body(req));
           json(await motion.validate(input.project));

@@ -25,6 +25,13 @@ test('M3 Studio edits persist, validate independent capabilities, and reject sta
   assert.equal((await get('/motion')).status, 200);
   assert.match(await (await get('/motion')).text(), /Character Motion/);
   assert.equal((await get('/motion.js')).status, 200);
+  const assetsResponse=await get('/api/motion/assets');
+  assert.equal(assetsResponse.status,200);
+  const catalog=await assetsResponse.json() as {assets:{id:string;sha256:string}[]};
+  assert.ok(catalog.assets.some(a=>a.id==='props/cup'));
+  assert.ok(catalog.assets.some(a=>a.id==='props/lantern-dark'));
+  assert.ok(catalog.assets.some(a=>a.id==='props/lantern-lit'));
+  assert.ok(!catalog.assets.some(a=>a.id==='props/workbench'));
   const initial = (await (await get('/api/motion/project')).json()) as {
     revision: string;
     project: any;
@@ -57,6 +64,22 @@ test('M3 Studio edits persist, validate independent capabilities, and reject sta
       .status,
     409,
   );
+  // The HTTP/editor route must accept two different new stories and grip
+  // configurations without a new scene-specific code path.
+  const left=structuredClone(initial.project);
+  left.character.model='mai';left.character.xStart=840;
+  left.character.capabilities=['turn-head','pick-place'];
+  left.clips=[{action:'turn-head',frames:49},{action:'pick-place',frames:73}];
+  left.prop={...left.prop,hand:'left',x:720};
+  assert.equal((await post('/api/motion/validate',{project:left})).status,200);
+  const lantern=structuredClone(left);
+  lantern.character.model='an';lantern.character.xStart=840;
+  lantern.prop={...lantern.prop,asset:'props/lantern-dark',
+    sha256:catalog.assets.find(a=>a.id==='props/lantern-dark')!.sha256,
+    hand:'right',x:940,y:700,scale:.65};
+  assert.equal((await post('/api/motion/validate',{project:lantern})).status,200);
+  const wrong=structuredClone(left);wrong.prop.x=1000;
+  assert.equal((await post('/api/motion/validate',{project:wrong})).status,400);
   const unsupported = structuredClone(subset);
   unsupported.clips.push({ action: 'pick-place', frames: 97 });
   assert.equal(

@@ -78,11 +78,18 @@
             </details>
           </section>
           <section class="card" id="prop-section">
-            <h2>Đạo cụ · cốc</h2>
+            <h2>Đạo cụ có điểm nắm</h2>
             <p>
-              Chỉ cần khi timeline chứa pick-place. Điểm nắm và tầm với tay được kiểm tra trước
-              render.
+              Chọn đạo cụ từ art pack SHA, cùng tay trái hoặc phải. Engine kiểm tra hình,
+              tầm với và các lớp nắm trước render; không nhận artwork ngoài rig đã hỗ trợ.
             </p>
+            <div class="form-row">
+              <label>Đạo cụ<select id="motion-prop-asset"></select></label>
+              <label>Tay nắm<select id="motion-grip-side">
+                <option value="right">Tay phải</option>
+                <option value="left">Tay trái</option>
+              </select></label>
+            </div>
             <div class="form-row">
               <label>Vị trí X<input id="cup-x" type="number" min="500" max="1500" /></label>
               <label>Vị trí Y<input id="cup-y" type="number" min="450" max="850" /></label>
