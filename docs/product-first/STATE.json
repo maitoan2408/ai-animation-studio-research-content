@@ -667,7 +667,7 @@
     },
     "M6": {
       "technicalStatus": "REWORK_REQUIRED",
-      "evidenceStatus": "GENERALIZATION_G2_CI_PENDING",
+      "evidenceStatus": "GENERALIZATION_G3_CI_PENDING",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "ea79a67ec755c8946eafa919558fad280dc2ca1f",
       "ownerGate": "Stop PASS claim. Real new native media and owner artistic review required. Draft PR, no merge/M7.",
@@ -752,11 +752,20 @@
           ]
         },
         "G2": {
-          "status": "IMPLEMENTED_PENDING_CI",
-          "scope": "Both hands, arbitrary compatible cutout-1 model and anchored native prop; mirrored facing; wrong-side and unreachable target fail closed"
+          "status": "PASSED_TECHNICAL",
+          "verifiedCode": "8bc014bdad628a7a54096e97e04d821ce416fc47",
+          "workflowRuns": [
+            44131452788,
+            44131453005,
+            44131452960,
+            44131452805,
+            44131453003
+          ],
+          "notes": "Two hands, two supplied models, new rig-compatible kit and two anchored props tested; visual film variety still G5"
         },
         "G3": {
-          "status": "PENDING"
+          "status": "IMPLEMENTED_PENDING_CI",
+          "scope": "Deterministic data-only multi-track timed contact, retiming and camera; general Rapier rectangle/ball drop with source-hash receipts"
         },
         "G4": {
           "status": "PENDING"

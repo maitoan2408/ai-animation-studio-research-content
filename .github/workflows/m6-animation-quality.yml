@@ -58,7 +58,7 @@ jobs:
           npx tsc -p tsconfig.m6.json
           npm --prefix production run typecheck
           npm --prefix production run test:motion:m6
-          (cd production && npx tsx --test tests/m6-general-quality.test.ts tests/m6-general-interaction.test.ts)
+          (cd production && npx tsx --test tests/m6-general-quality.test.ts tests/m6-general-interaction.test.ts tests/m6-general-timeline.test.ts tests/m6-general-drop.test.ts)
           npm --prefix production run test:physics:m4
       - name: True 1080p24 paired native M3 baseline and M6 quality captures
         run: python3 scripts/run-step.py U2 m6-ci-paired-native -- npm --prefix production run motion:m6
