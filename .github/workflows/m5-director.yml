@@ -8,6 +8,7 @@ on:
       - 'web/director.*'
       - 'scripts/m5-*.ts'
       - 'scripts/m6-audio-post.mjs'
+      - 'scripts/m6-audio-negative.mjs'
       - 'tsconfig.m5.json'
       - 'package*.json'
       - '.github/workflows/m5-director.yml'
@@ -53,6 +54,8 @@ jobs:
         run: |
           node scripts/m6-audio-post.mjs artifacts/product-first/m5/m5-script-a-final-1080p.mp4 artifacts/product-first/m5/m5-script-a-m6-audio-quality.mp4
           node scripts/m6-audio-post.mjs artifacts/product-first/m5/m5-script-b-final-1080p.mp4 artifacts/product-first/m5/m5-script-b-m6-audio-quality.mp4
+      - name: M6 audio postmaster negative cases (no old media/output mutation)
+        run: node scripts/m6-audio-negative.mjs artifacts/product-first/m5/m5-script-a-final-1080p.mp4
       - name: Upload M5 editable projects, real films, screenshots and receipts
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
