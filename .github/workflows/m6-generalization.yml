@@ -1,0 +1,53 @@
+name: M6 generalized native production — three independent scenes
+on:
+  pull_request:
+    paths:
+      - 'scripts/media-quality-gate.mjs'
+      - 'production/src/motion/**'
+      - 'production/src/scene/rig.ts'
+      - 'production/src/scene/types.ts'
+      - 'production/src/qa/native-visual-gate.ts'
+      - 'production/src/qa/m6-generalization-media.ts'
+      - 'production/tests/m6-generalization.test.ts'
+      - 'production/src/render/render-m3.ts'
+      - 'production/package.json'
+      - '.github/workflows/m6-generalization.yml'
+      - 'docs/product-first/M6-GENERALIZATION-*.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: m6-generalization-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  six-native-films-and-independent-visual-gate:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 100
+    env:
+      SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      HYPERFRAMES_NO_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install real native render dependencies
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
+      - run: npm ci
+      - run: npm --prefix production ci
+      - name: Strict root and production contracts, plus all independent new-project cases
+        run: |
+          npm run verify
+          npm --prefix production run typecheck
+          npm --prefix production test
+      - name: Six true 1080p24 movies on three unrelated editable projects + independent QA
+        run: |
+          python3 scripts/run-step.py U2 m6-generalized-3-scenes -- npm --prefix production run motion:m6:generalization
+      - name: Upload genuine editable inputs, full MP4s, stills, visual gates and receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: m6-generalized-review-${{ github.run_number }}
+          path: |
+            production/out/product-first/m6-generalization/
+            production/evidence/U2/*m6-generalized*/result.json
+            production/evidence/U2/*m6-generalized*/stdout.log
+          retention-days: 14

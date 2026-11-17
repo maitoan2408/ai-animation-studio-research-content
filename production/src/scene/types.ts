@@ -31,7 +31,7 @@ export type ActorPose = {
   /** M3 pick-place opt-in: rear palm, held prop and curved foreground
    * fingertips occupy distinct visual layers. Default false preserves
    * archived M1/hero authored poses and their original goldens. */
-  layeredGrip?: boolean;
+  layeredGrip?: boolean | 'left' | 'right';
   /** Explicitly selected hand, independent of the character's name and prop. */
   layeredGripSide?: 'left' | 'right';
   leftElbowBend?: 1 | -1;

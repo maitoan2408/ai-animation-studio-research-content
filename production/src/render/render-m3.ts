@@ -14,6 +14,7 @@ import {serveM3,serveM6,root} from './server.js';
 import {ensureM3Textures} from './prepare-m3.js';
 import {M3CharacterRegistry,makeM3Showcase,m3TotalFrames,sampleM3,validateM3} from '../motion/character-library.js';
 import {sampleM6} from '../motion/m6-quality.js';
+import {requireNativeVisualPass} from '../qa/native-visual-gate.js';
 import type {ArtPack} from '../scene/types.js';
 
 const sha=(b:Uint8Array|string)=>createHash('sha256').update(b).digest('hex');
@@ -61,6 +62,11 @@ registry.register(project);
 const projectJson=JSON.stringify(project,null,2)+'\n';
 const output=process.env.M3_OUTPUT_DIR?path.resolve(process.env.M3_OUTPUT_DIR):path.join(root,'out/product-first/m3');
 await mkdir(output,{recursive:true});
+// Mandatory for EVERY new native M3/M6 project, including imported projects.
+// The gate validates real assembled assets for every frame but never claims
+// artistic approval. A failure blocks publication before Chromium export.
+const visualGate=requireNativeVisualPass(project,pack,m6Mode==='enhanced'?'enhanced':'baseline');
+await writeFile(path.join(output,'native-visual-gate.json'),JSON.stringify(visualGate,null,2)+'\n');
 const frames=m3TotalFrames(project);
 const selected=configured
   ? [...new Set(Array.from({length:17},(_,i)=>Math.round((frames-1)*i/16)))]
