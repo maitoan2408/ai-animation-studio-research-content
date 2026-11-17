@@ -186,11 +186,37 @@ async function verifyReceipt(receipt:NativeDirectorReceipt,dir:string,
     receipt.artPackSha256!==input.artPackSha256||
     receipt.status!=='succeeded')
    reject('NATIVE_DIRECTOR_RECEIPT_STALE');
- const media=await readFile(path.join(dir,receipt.mediaFile));
+ const story=input.input.storyboard;
+ const isM3=story.engine==='m3';
+ const expectedFile=isM3?'m3-character-motion-final-1080p.mp4':
+   'g3-motion-physics-1080p.mp4';
+ const expectedExecutor=isM3?'native-m3':'native-g3-rapier';
+ const expectedFrames=isM3?m3TotalFrames(story.project):story.film.frames;
+ if(receipt.schemaVersion!=='native-director-receipt/1'||
+    receipt.executor!==expectedExecutor||receipt.mediaFile!==expectedFile||
+    receipt.frames!==expectedFrames||receipt.width!==1920||
+    receipt.height!==1080||receipt.fps!==24||
+    !/^[0-9a-f]{64}$/.test(receipt.mediaSha256)||
+    !/^[0-9a-f]{64}$/.test(receipt.rendererSourceSha256)||
+    !/^[0-9a-f]{64}$/.test(receipt.nativeManifestSha256))
+   reject('NATIVE_DIRECTOR_RECEIPT_PROFILE_TAMPER');
+ const source=await readFile(path.join(dir,isM3?'source-project.json':'source-playback.json'));
+ if(sha(source)!==receipt.rendererSourceSha256)
+   reject('NATIVE_DIRECTOR_RENDER_SOURCE_TAMPER');
+ const media=await readFile(path.join(dir,expectedFile));
  if(sha(media)!==receipt.mediaSha256)reject('NATIVE_DIRECTOR_MEDIA_TAMPER');
  const manifest=await readFile(path.join(dir,'manifest.json'));
  if(sha(manifest)!==receipt.nativeManifestSha256)
    reject('NATIVE_DIRECTOR_MANIFEST_TAMPER');
+ const native=JSON.parse(manifest.toString()) as {
+   video?:{file?:string;sha256?:string;frames?:number;width?:number;height?:number;fps?:number};
+   sourceSha256?:string;project?:{sha256?:string};
+ };
+ if(native.video?.file!==expectedFile||native.video?.sha256!==receipt.mediaSha256||
+    native.video?.frames!==expectedFrames||native.video?.width!==1920||
+    native.video?.height!==1080||native.video?.fps!==24||
+    (isM3?native.project?.sha256!==sha(source):native.sourceSha256!==sha(source)))
+   reject('NATIVE_DIRECTOR_MANIFEST_PROFILE_TAMPER');
  const probe=JSON.parse(run('ffprobe',['-v','error','-count_frames','-show_streams',
    '-of','json',path.join(dir,receipt.mediaFile)])) as {
     streams:Array<{codec_type:string;width:number;height:number;avg_frame_rate:string;nb_read_frames:string}>;
