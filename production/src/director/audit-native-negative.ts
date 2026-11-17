@@ -105,7 +105,7 @@ for(const item of picked){
     console.log('G6_NEGATIVE_CASES_PASSED '+item.id);
   }finally{await rm(tmp,{recursive:true,force:true});}
 }
-assert.equal(assertions,28);
+assert.equal(assertions,30);
 console.log('G6_INDEPENDENT_FAIL_CLOSED_PASS '+JSON.stringify({
   sourceCommit:overview.sourceCommit,scenarios:picked.map(x=>x!.id),
   assertions,noGoldenModified:true
