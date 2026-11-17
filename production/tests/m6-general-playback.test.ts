@@ -87,6 +87,9 @@ test('G3 fail-closed: forged physics receipt, wrong handoff and invisible collis
  assert.throws(()=>validateGeneralPlayback(moved,pack),/GENERAL_PHYSICS_BAKE_SCHEMA|G3_RELEASE_TELEPORT/);
  const unrealistic=structuredClone(movie);
  unrealistic.releases[0]!.project.collider={kind:'box',halfWidthPx:12,halfHeightPx:5};
+ // Re-bake the modified physics project: the receipt must be internally
+ // valid, so the dedicated art-vs-collider visual gate is truly exercised.
+ unrealistic.releases[0]!.bake=await bakeGeneralDrop(unrealistic.releases[0]!.project,pack);
  assert.throws(()=>validateGeneralPlayback(unrealistic,pack),/G3_COLLIDER_VISUAL_CONTACT_MISMATCH/);
  const hidden=structuredClone(movie);
  hidden.film.stage=[];
