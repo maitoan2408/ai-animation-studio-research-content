@@ -1,0 +1,52 @@
+name: M6 paired animation quality and post-result audit
+on:
+  pull_request:
+    paths:
+      - 'production/src/motion/**'
+      - 'production/src/render/**'
+      - 'production/src/qa/audit-m6.ts'
+      - 'production/tests/m6-*.ts'
+      - 'production/package.json'
+      - 'production/package-lock.json'
+      - 'docs/product-first/M6-*.md'
+      - '.github/workflows/m6-animation-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: m6-quality-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  paired-native-quality-and-independent-audit:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 85
+    env:
+      SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      HYPERFRAMES_NO_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install deterministic native render dependencies
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
+      - run: npm ci
+      - run: npm --prefix production ci
+      - name: Strict application and native TypeScript contracts
+        run: |
+          npm run verify
+          npm --prefix production run typecheck
+          npm --prefix production run test:motion:m6
+          npm --prefix production run test:physics:m4
+      - name: True 1080p24 paired native M3 baseline and M6 quality captures
+        run: python3 scripts/run-step.py U2 m6-ci-paired-native -- npm --prefix production run motion:m6
+      - name: Independent post-result full-media decode, hashes and contact audit
+        run: python3 scripts/run-step.py U2 m6-ci-independent-audit -- npm --prefix production run motion:m6:audit
+      - name: Upload original paired MP4, editable project, contact sheets and QA
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: animation-m6-review-${{ github.run_number }}
+          path: |
+            production/out/product-first/m6/
+            production/evidence/U2/*m6-ci*/result.json
+            production/evidence/U2/*m6-ci*/stdout.log
+          retention-days: 14
