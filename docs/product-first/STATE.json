@@ -667,7 +667,7 @@
     },
     "M6": {
       "technicalStatus": "REWORK_REQUIRED",
-      "evidenceStatus": "GENERALIZATION_G3_CI_PENDING",
+      "evidenceStatus": "G3_NATIVE_TWO_FILM_CI_PENDING",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "ea79a67ec755c8946eafa919558fad280dc2ca1f",
       "ownerGate": "Stop PASS claim. Real new native media and owner artistic review required. Draft PR, no merge/M7.",
@@ -764,8 +764,9 @@
           "notes": "Two hands, two supplied models, new rig-compatible kit and two anchored props tested; visual film variety still G5"
         },
         "G3": {
-          "status": "IMPLEMENTED_PENDING_CI",
-          "scope": "Deterministic data-only multi-track timed contact, retiming and camera; general Rapier rectangle/ball drop with source-hash receipts"
+          "status": "NATIVE_VALIDATION_PENDING",
+          "scope": "Data-driven contacts, keyframed motion, two independently baked and source-bound Rapier release films; newly added physical ownership, collision-art and video QC gates",
+          "ownerGate": "No G4 until G3 real native 1080p clips + post-result QA and legacy M1-M6 regressions pass."
         },
         "G4": {
           "status": "PENDING"
