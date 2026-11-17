@@ -35,13 +35,17 @@ const makeM3=(pack:ArtPack,mode:'mai-wave'|'an-walk'|'mai-left-cup'|'an-right-la
    p.clips=[{action:'turn-head',frames:49},{action:'pick-place',frames:73}];
    p.prop={id:'desk-cup',asset:'props/cup',sha256:art(pack,'props/cup').sha256,
      x:720,y:631,scale:.7,hand:'left'};
+   p.stage={id:'workbench-left',asset:'props/workbench',
+     sha256:art(pack,'props/workbench').sha256,x:620,y:860,z:-1,scale:1.2};
  }else{
    p.character.id='an-lantern';p.character.model='an';p.character.xStart=840;
    p.character.capabilities=['turn-head','pick-place'];
    p.clips=[{action:'turn-head',frames:49},{action:'pick-place',frames:73}];
    p.prop={id:'lamp',asset:'props/lantern-dark',
      sha256:art(pack,'props/lantern-dark').sha256,
-     x:940,y:700,scale:.65,hand:'right'};
+     x:940,y:631,scale:.65,hand:'right'};
+   p.stage={id:'workbench-right',asset:'props/workbench',
+     sha256:art(pack,'props/workbench').sha256,x:1060,y:860,z:-1,scale:1.2};
  }
  return p;
 };

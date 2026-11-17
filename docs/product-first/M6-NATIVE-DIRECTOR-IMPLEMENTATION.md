@@ -43,6 +43,29 @@ contact sheets and independent second-pass reports are produced by
 `npm --prefix production run native:director:demo`, then
 `npm --prefix production run native:director:audit`.
 
+## Visual re-audit and staged-scene remediation
+
+The independent first-pass contact-sheet review of source
+`689feb14535bac61fd26443edabe8f033ea5634f` identified a real
+visual defect not exposed by pure hand-to-prop IK tests:
+the M3 **left-hand cup** was held at `x=720` while the inherited table began
+at approximately `x=849`, creating a floating object/unsupported
+pickup. The M3 right-hand lantern was also initially authored below the
+visible tabletop (`y=700` versus table support `y≈631`).
+
+Remediation expands M3 project data with optional, immutable,
+SHA-validated `stage` referencing the actual workbench artwork;
+new M3 scenes declare left/right placement explicitly. Validation checks
+that the **real prop support anchor** is over the **real visible
+table support span**, accounting for the asset pivots, geometry and
+scale. The older project contract without `stage` retains its original
+render behavior. Adversarial tests inject wrong position, wrong height,
+and spoofed art SHA.
+
+Historical evidence is preserved; initial stills are not accepted
+as final. New 05/06 native films must be rerendered and re-reviewed
+from final integration SHA.
+
 ## Required evidence and go/no-go conditions
 
 1. All M1–M5 compatibility, G1/G2/G3, root API and native production tests must

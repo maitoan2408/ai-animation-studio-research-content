@@ -107,3 +107,36 @@ test('immutable save/reopen supports editor changes as distinct revisions and re
    await assert.rejects(reopenNativePlan(file,pack,sha256),/STALE_PLAN/);
  }finally{await rm(dir,{recursive:true,force:true});}
 });
+
+test('native storyboard explicitly stages supported props on real SHA-bound table art',async()=>{
+ const {pack,sha256}=await nativeArt(),cup=pack.assets.find(a=>a.id==='props/cup')!,
+  table=pack.assets.find(a=>a.id==='props/workbench')!;
+ const input=m3(pack);
+ if(input.storyboard.engine!=='m3')throw Error('M3 expected');
+ const project=input.storyboard.project;
+ project.character.xStart=840;
+ project.character.capabilities=['turn-head','pick-place'];
+ project.clips=[{action:'turn-head',frames:49},{action:'pick-place',frames:73}];
+ project.prop={id:'desk-cup',asset:'props/cup',sha256:cup.sha256,
+  x:720,y:631,scale:.7,hand:'left'};
+ project.stage={id:'workbench-left',asset:'props/workbench',
+  sha256:table.sha256,x:620,y:860,z:-1,scale:1.2};
+ const plan=planNativeDirector(input,pack,sha256);
+ assert.equal(plan.input.storyboard.engine,'m3');
+ const moved=structuredClone(input);
+ if(moved.storyboard.engine!=='m3')throw Error('M3 expected');
+ moved.storyboard.project.stage!.x=1050;
+ assert.throws(()=>planNativeDirector(moved,pack,sha256),/M3_STAGE_VISIBLE_SUPPORT_MISMATCH/);
+ const underground=structuredClone(input);
+ if(underground.storyboard.engine!=='m3')throw Error('M3 expected');
+ underground.storyboard.project.prop!.y+=40;
+ assert.throws(()=>planNativeDirector(underground,pack,sha256),/M3_STAGE_VISIBLE_SUPPORT_MISMATCH/);
+ const spoof=structuredClone(input);
+ if(spoof.storyboard.engine!=='m3')throw Error('M3 expected');
+ spoof.storyboard.project.stage!.sha256='0'.repeat(64);
+ assert.throws(()=>planNativeDirector(spoof,pack,sha256),/M3_STAGE_ART_STALE/);
+ const legacy=structuredClone(input);
+ if(legacy.storyboard.engine!=='m3')throw Error('M3 expected');
+ delete legacy.storyboard.project.stage;
+ assert.equal(planNativeDirector(legacy,pack,sha256).graph[1]!.skill,'native-m3-chromium');
+});

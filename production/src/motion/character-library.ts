@@ -19,12 +19,18 @@ export type M3Character={
   artPackId:string;capabilities:M3Action[];
   xStart:number;floor:number;facing:1|-1;
 };
+export type M3Stage={
+  id:string;asset:'props/workbench';sha256:string;
+  x:number;y:number;z:number;scale:number;
+};
 export type M3Project={
   schemaVersion:'character-motion/1';
   character:M3Character;
   clips:M3Clip[];
   /** Optional hand is backward-compatible: older M3 projects default to right. */
   prop?:{id:string;asset:string;sha256:string;x:number;y:number;scale:number;hand?:GripSide};
+  /** Optional validated scene staging. Absence preserves accepted legacy M3 art. */
+  stage?:M3Stage;
 };
 export type M3Sample={
   action:M3Action;localFrame:number;pose:ActorPose;
@@ -41,7 +47,9 @@ const base=(c:M3Character,x:number):ActorPose=>({
 });
 /** Fail closed: an instance ID may be new; its compatible artwork/rig must exist. */
 export function validateM3(value:unknown,pack:ArtPack):M3Project{
-  if(!isObj(value)||!exact(value,Object.prototype.hasOwnProperty.call(value,'prop')?['schemaVersion','character','clips','prop']:['schemaVersion','character','clips'])||
+  if(!isObj(value)||!exact(value,['schemaVersion','character','clips',
+     ...(Object.hasOwn(value,'prop')?['prop']:[]),
+     ...(Object.hasOwn(value,'stage')?['stage']:[])])||
      value.schemaVersion!=='character-motion/1'||!isObj(value.character)||
      !exact(value.character,['id','model','rigId','artPackId','capabilities','xStart','floor','facing']))
     throw Error('M3_PROJECT_INVALID');
@@ -107,6 +115,34 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
       side:gripSide(p.hand),lift,
     });
   }
+  }
+  if(value.stage!==undefined){
+   const stage=value.stage;
+   if(!isObj(stage)||!exact(stage,['id','asset','sha256','x','y','z','scale'])||
+      !value.prop||typeof stage.id!=='string'||
+      !/^[a-z][a-z0-9-]{2,32}$/.test(stage.id)||
+      stage.id===c.id||stage.id===(value.prop as Record<string,unknown>).id||
+      stage.asset!=='props/workbench'||
+      !validNumber(stage.x)||!validNumber(stage.y)||!validNumber(stage.z)||
+      !validNumber(stage.scale)||stage.scale<.5||stage.scale>2||
+      stage.z>-0.05||stage.z< -5)
+      throw Error('M3_STAGE_SCHEMA_OR_CAPABILITY');
+   const bench=pack.assets.find(a=>a.id===stage.asset);
+   if(!bench||stage.sha256!==bench.sha256||!bench.anchors.support)
+     throw Error('M3_STAGE_ART_STALE');
+   const prop=value.prop as Record<string,unknown>;
+   const propArt=pack.assets.find(a=>a.id===prop.asset);
+   if(!propArt?.anchors.support)throw Error('M3_STAGE_PROP_SUPPORT_MISSING');
+   const supportX=(prop.x as number)+(propArt.anchors.support[0]-propArt.pivot[0])*(prop.scale as number);
+   const supportY=(prop.y as number)+(propArt.anchors.support[1]-propArt.pivot[1])*(prop.scale as number);
+   const tabletopY=(stage.y as number)+(bench.anchors.support[1]-bench.pivot[1])*(stage.scale as number);
+   const left=(stage.x as number)-bench.pivot[0]*(stage.scale as number);
+   const right=(stage.x as number)+(bench.width-bench.pivot[0])*(stage.scale as number);
+   const propHalf=propArt.width*(prop.scale as number)/2;
+   if(![supportX,supportY,tabletopY,left,right].every(Number.isFinite)||
+      supportX-propHalf<left+5||supportX+propHalf>right-5||
+      Math.abs(supportY-tabletopY)>3)
+     throw Error('M3_STAGE_VISIBLE_SUPPORT_MISMATCH');
   }
   return value as M3Project;
 }
@@ -245,7 +281,10 @@ export function sampleM3(raw:unknown,frame:number,pack:ArtPack):M3Sample{
   const camera={x:960,y:540,zoom:1};
   return {
     action:clip.action,localFrame:local,pose,
-    frame:{camera,sprites:[...background(camera),...(prop?[sprite('bench','props/workbench',1060,860,-1,0,1.2),prop]:[]),...rig.sprites],
+    frame:{camera,sprites:[...background(camera),...(prop?[
+      ...(p.stage?[sprite(p.stage.id,p.stage.asset,p.stage.x,p.stage.y,p.stage.z,0,p.stage.scale)]:
+      [sprite('bench','props/workbench',1060,860,-1,0,1.2)]),
+      prop]:[]),...rig.sprites],
       markers:[...rig.markers,...(cupAnchor&&p.prop?[{id:p.prop.id+'.grip',point:cupAnchor,z:6,kind:'contact' as const}]:[])]},
     contact:{planted,grip,gripError:error},
   };
