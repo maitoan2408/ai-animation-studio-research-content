@@ -1,0 +1,38 @@
+name: M6 source checkout handoff for independent local audit
+on:
+  push:
+    branches: [codex/m6-integrated-g3-g6-audit-20261118]
+    paths:
+      - '.github/workflows/m6-source-handoff.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Pack tracked source files excluding historical binaries
+        run: |
+          python3 - <<'PY'
+          import subprocess,tarfile,pathlib
+          files=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          omit=('artifacts/','production/artifacts/','production/evidence/','evidence/','reports/','validation/','production/out/','out/','data/')
+          included=0; skipped=[]
+          with tarfile.open('/tmp/m6-source-checkout.tar.gz','w:gz') as tar:
+            for f in files:
+              if not f or f.startswith(omit): continue
+              p=pathlib.Path(f)
+              if not p.is_file() or p.stat().st_size>20_000_000:
+                skipped.append(f)
+                continue
+              tar.add(f,arcname=f)
+              included+=1
+          print('INCLUDED',included,'SKIPPED_LARGE',len(skipped),skipped[:20])
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: m6-source-checkout
+          path: /tmp/m6-source-checkout.tar.gz
+          retention-days: 3
