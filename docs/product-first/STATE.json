@@ -666,11 +666,11 @@
       "ownerAcceptanceSource": "Owner explicitly confirmed M4 and M5 accepted in ChatGPT conversation on 2026-11-17 and authorized M6."
     },
     "M6": {
-      "technicalStatus": "IN_PROGRESS_REAUDIT",
-      "evidenceStatus": "FINAL_HEAD_REGRESSION_PENDING",
+      "technicalStatus": "PASSED",
+      "evidenceStatus": "READY_FOR_USER_REVIEW",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "ea79a67ec755c8946eafa919558fad280dc2ca1f",
-      "ownerGate": "M6 technical re-audit in progress; OWNER NOT_REVIEWED. No main merge or M7.",
+      "ownerGate": "READY_FOR_USER_REVIEW; artistic and listening assessment remains owner NOT_REVIEWED. PR #18 Draft; no main merge or M7.",
       "requirements": [
         "Audited identical-shot A/B real 1080p24 videos with matched camera and contact",
         "Quality improvements in motion, acting, secondary, audio, rendering and critic within supported contracts",
@@ -680,7 +680,7 @@
       "plan": "docs/product-first/M6-PLAN.md",
       "report": "docs/product-first/M6-REVIEW.md",
       "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/18",
-      "lastVerifiedCodeCommit": "9edd174221600d5162c1667d938f1775fc8ee1cb",
+      "lastVerifiedCodeCommit": "ad4857af404ea4a92e3b061b951be715610f1ecd",
       "regressionRuns": {
         "m6": 44037747251,
         "root": 44037747426,
@@ -688,12 +688,12 @@
         "m4": 44037747236,
         "m5": 44037747275
       },
-      "mediaArtifactId": 14308906579,
+      "mediaArtifactId": 14318021192,
       "baselineVideoSha256": "2a902307ae4e7fadccae0fbc6b75ecf3af97e90192015739a35d79b8da0434a5",
       "enhancedVideoSha256": "4a2c7e44eb453bd426862146e6c3d9afd01a8c8f9f82c9496ffb674c4e3d0a04",
-      "sourceCommit": "bb67dbb760a38e6fa1596a2e95dbf92f409bc547",
-      "finalExecutableCommit": "bb67dbb760a38e6fa1596a2e95dbf92f409bc547",
-      "audioArtifactId": 14309105004,
+      "sourceCommit": "ad4857af404ea4a92e3b061b951be715610f1ecd",
+      "finalExecutableCommit": "ad4857af404ea4a92e3b061b951be715610f1ecd",
+      "audioArtifactId": 14315693663,
       "independentPostResultAudit": "PASS_TECHNICAL_ONLY",
       "unresolvedInScopeDefects": [],
       "knownOutOfScopeLimits": [
@@ -711,7 +711,30 @@
         "Selected screenshot hashes were not cross-bound to complete frameHashes and the native still/contact path checks were incomplete",
         "Opt-in audio postmaster could expose output before receipt publication and lacked exclusive output/strict video profile validation"
       ],
-      "repairStatus": "Code fixes and adversarial tests committed; await final-source M0-M6 CI, custom native media, real Studio enhanced UI and audio postmaster negative tests."
+      "repairStatus": "Code fixes and adversarial tests committed; await final-source M0-M6 CI, custom native media, real Studio enhanced UI and audio postmaster negative tests.",
+      "reAuditResult": "PASS_TECHNICAL_ONLY",
+      "reAuditStatus": "COMPLETE",
+      "reAuditDate": "2026-11-17",
+      "reAuditRuns": {
+        "m6": 44056379042,
+        "root": 44056379036,
+        "production": 44056379038,
+        "m4": 44056379043,
+        "m5": 44056379263
+      },
+      "fixedInScopeDefects": [
+        "IK-safe per-frame bounded M6 additive pose at previously valid reach boundaries, with no stretch/contact override",
+        "Independent audit handles valid retimed editable project and verifies real 122-frame edge media",
+        "Still/frame/source digest and contact-sheet path anti-tamper checks with failing-first negative cases",
+        "Two-pass voiced-media output collision, lock, true profile and receipt checks with failing-first negative cases"
+      ],
+      "qualityLimits": [
+        "Technical post-result checks do not establish superior human-perceived acting quality",
+        "M6 quality changes are bounded and subtle; head angular acceleration on short near-IK test increases and deserves artistic viewing",
+        "Native A/B silent, M5 voice remains draft eSpeak; no true facial/viseme system",
+        "Existing art is development art; no new licensed/approved art",
+        "M5 Director continues to invoke root M2, not native M3/M4 executors; no generic re-rig/cloth/hair"
+      ]
     },
     "M7": {
       "technicalStatus": "NOT_VERIFIED",
