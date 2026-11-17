@@ -1,6 +1,6 @@
 # 2026-11-17 — M5 deep-audit fast-forward integrated into PR #16, owner signoff pending
 
-PR #16 integration branch now includes all five commits from PR #17 deep audit via non-force fast-forward; executable source SHA fb0e36788b30995ad338dd9efa86450496dd4e37. Three new adversarial persisted-receipt defects reproduced then fixed with strict schema/actual-job/artifact validation. Final source M5, Paper Studio, Q2 and M4 workflows all SUCCESS (43979847060 / 43979847149 / 43979847057 / 43979847079); two genuine M5 films independently rechecked. No main merge. M4/M5 owner still NOT_REVIEWED; M6 still NOT_STARTED. See [integration evidence](M5-INTEGRATION-20261117.md) and [M6 handoff prompt](M6-HANDOFF-PROMPT.md).
+PR #16 integration branch now includes all five commits from PR #17 deep audit via non-force fast-forward; executable source SHA fb0e36788b30995ad338dd9efa86450496dd4e37. Three new adversarial persisted-receipt defects reproduced then fixed with strict schema/actual-job/artifact validation. Final source M5, Paper Studio, Q2 and M4 workflows all SUCCESS (43979847060 / 43979847149 / 43979847057 / 43979847079); two genuine M5 films independently rechecked. No main merge. M4/M5 owner still NOT_REVIEWED; M6 still NOT_STARTED. See [integration evidence](M5-INTEGRATION-20261117.md) and M6 prompt delivered in chat only (not kept in Git).
 
 # M1–M5 integrated technical PASS — 2026-11-17 | OWNER REVIEW PENDING
 

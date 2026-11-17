@@ -8,4 +8,4 @@
 
 **Architecture limit is unchanged:** Director M5 executes root M2 Studio, not native M3/M4 skills. M6 is the separate Quality milestone in docs/product-first/ROADMAP.md; it has NOT been authorized for coding or implemented. Existing root M2/prod M3/M4 capabilities are verified individually, not falsely claimed as one universal Director video engine.
 
-**Owner gate:** M4 and M5 userAcceptance remain NOT_REVIEWED, M6 NOT_VERIFIED/NOT_REVIEWED. PR #16 Draft. Need explicit owner signoff before M6 coding or moving beyond review. Handoff planning prompt: M6-HANDOFF-PROMPT.md.
+**Owner gate:** M4 and M5 userAcceptance remain NOT_REVIEWED, M6 NOT_VERIFIED/NOT_REVIEWED. PR #16 Draft. Need explicit owner signoff before M6 coding or moving beyond review. M6 handoff prompt shared in chat only on owner's request; not saved as a Git file.

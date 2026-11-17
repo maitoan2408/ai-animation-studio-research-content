@@ -658,7 +658,7 @@
           "Director M5 executes root M2, does not yet invoke M3/M4 native production",
           "artistic and voice approval remains owner-only"
         ],
-        "handoff": "docs/product-first/M6-HANDOFF-PROMPT.md"
+        "handoff": "M6 prompt delivered only in chat on owner request; not maintained as a Git file."
       }
     },
     "M6": {
