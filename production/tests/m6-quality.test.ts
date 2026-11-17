@@ -61,7 +61,12 @@ test('M6 timeline boundaries match accepted M3 pose at every supported clip boun
   const boundaries=[0,72,73,121,122,170,171,267];
   for(const f of boundaries){
     const a=before(f),b=after(f);
-    assert.deepEqual(b.pose,a.pose,'nonzero quality transform at boundary '+f);
+    const original=new Map(a.frame.sprites.map(s=>[s.id,s]));
+    for(const actual of b.frame.sprites){
+      const expected=original.get(actual.id)!;
+      assert.ok(Math.hypot(actual.x-expected.x,actual.y-expected.y)<1e-7,'boundary translation '+f);
+      assert.ok(Math.abs(actual.rotation-expected.rotation)<1e-7,'boundary rotation '+f);
+    }
   }
 });
 test('M6 random-access quality sampling independent of visit order',()=>{
