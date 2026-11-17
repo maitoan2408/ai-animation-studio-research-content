@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {sampleM3,makeM3Showcase,m3TotalFrames} from '../src/motion/character-library.js';
+import {sampleM3,makeM3Showcase,m3TotalFrames,validateM3} from '../src/motion/character-library.js';
 import {sampleM6,parseM6Quality,m6DefaultQuality} from '../src/motion/m6-quality.js';
 import {evaluateM6} from '../src/motion/m6-critic.js';
 import type {ArtPack} from '../src/scene/types.js';
@@ -88,4 +88,26 @@ test('M6 critic measures complete timeline; no arbitrary artistic rating',()=>{
   assert.ok(b.metrics.maxHeadAngularSpeedDegPerSecond>0);
   assert.ok(!('artisticScore' in b));
   assert.throws(()=>evaluateM6(project,pack,'bad' as 'baseline'),/M6_CRITIC_MODE/);
+});
+
+test('M6 must not break an M3-valid pick/place near the two-link IK reach limit',()=>{
+  const edge=structuredClone(project);
+  edge.character.xStart=900;
+  edge.prop!.x=928;
+  assert.doesNotThrow(()=>validateM3(edge,pack),'validated source scenario');
+  const frame=73+49+49+25;
+  assert.doesNotThrow(()=>sampleM3(edge,frame,pack),'accepted M3 baseline reach');
+  assert.doesNotThrow(()=>sampleM6(edge,frame,pack),'M6 acting must preserve valid IK reach');
+});
+test('every allowed M6 quality control remains safe across accepted walk-stop frames',()=>{
+  const high={...m6DefaultQuality,leanDegrees:5,bouncePixels:6,
+    armFollowPixels:24,headFollowDegrees:8,settleDegrees:4};
+  const walk=structuredClone(project);
+  walk.clips=[{action:'walk-stop' as const,frames:73}];
+  delete walk.prop;
+  walk.character.capabilities=['walk-stop'];
+  assert.doesNotThrow(()=>validateM3(walk,pack));
+  for(let f=0;f<73;f++){
+    assert.doesNotThrow(()=>sampleM6(walk,f,pack,high),'high-quality bounded controls at frame '+f);
+  }
 });
