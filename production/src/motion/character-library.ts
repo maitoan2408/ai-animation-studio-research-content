@@ -9,6 +9,7 @@ import {anchorPoint} from '../scene/geometry.js';
 import {smooth, mix} from '../scene/math.js';
 import {sprite, type ActorPose, type ArtPack, type Point, type SceneFrame, type Sprite} from '../scene/types.js';
 import {sampleAction} from './actions.js';
+import {planGrip,gripDepth,gripSide,type GripSide} from './grip-planner.js';
 
 export const m3Actions=['walk-stop','turn-head','wave','pick-place'] as const;
 export type M3Action=(typeof m3Actions)[number];
@@ -22,7 +23,8 @@ export type M3Project={
   schemaVersion:'character-motion/1';
   character:M3Character;
   clips:M3Clip[];
-  prop?:{id:string;asset:'props/cup';sha256:string;x:number;y:number;scale:number};
+  /** Optional hand is backward-compatible: older M3 projects default to right. */
+  prop?:{id:string;asset:string;sha256:string;x:number;y:number;scale:number;hand?:GripSide};
 };
 export type M3Sample={
   action:M3Action;localFrame:number;pose:ActorPose;
@@ -79,46 +81,31 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
     throw Error('M3_PROP_REQUIRED');
   if(value.prop!==undefined){
   const p=value.prop;
-  if(!isObj(p)||!exact(p,['id','asset','sha256','x','y','scale'])||
+  if(!isObj(p)||!exact(p,Object.hasOwn(p,'hand')?['id','asset','sha256','x','y','scale','hand']:['id','asset','sha256','x','y','scale'])||
      typeof p.id!=='string'||!/^[a-z][a-z0-9-]{2,32}$/.test(p.id)||
-     p.id===c.id||p.asset!=='props/cup'||
+     p.id===c.id||typeof p.asset!=='string'||!/^props\/[a-z0-9-]+$/.test(p.asset)||
+     (Object.hasOwn(p,'hand')&&p.hand!=='left'&&p.hand!=='right')||
      !validNumber(p.x)||p.x<500||p.x>1500||
      !validNumber(p.y)||p.y<450||p.y>850||
      !validNumber(p.scale)||p.scale<.3||p.scale>1.5||
      typeof p.sha256!=='string')throw Error('M3_PROP_INVALID');
   const art=pack.assets.find(a=>a.id===p.asset);
-  if(!art||art.sha256!==p.sha256||!art.anchors.grip||
+  if(!art||art.category!=='prop'||art.sha256!==p.sha256||!art.anchors.grip||
      !pack.assets.find(a=>a.id===c.model+'/hand-grip')?.anchors.grip)
     throw Error('M3_PROP_HASH_OR_ANCHOR');
-  // Reject impossible configured pick/place contacts *before* starting a render.
-  // The real cutout has 105 + 98 stage-px upper/forearm lengths; a matching
-  // hand/cup grip marker alone does not prove the arm can physically reach it.
-  const torso=pack.assets.find(a=>a.id===c.model+'/torso');
-  const hand=pack.assets.find(a=>a.id===c.model+'/hand-grip');
-  if(!torso?.anchors.rightShoulder||!hand?.anchors.grip)
-    throw Error('M3_CHARACTER_SHOULDER_OR_GRIP_MISSING');
-  const shoulderX=torso.anchors.rightShoulder[0]-torso.pivot[0];
-  const shoulderY=-258+torso.anchors.rightShoulder[1]-torso.pivot[1];
-  const handOffsetX=hand.anchors.grip[0]-hand.pivot[0];
-  const handOffsetY=hand.anchors.grip[1]-hand.pivot[1];
-  const cupOffsetX=(art.anchors.grip[0]-art.pivot[0])*p.scale;
-  const cupOffsetY=(art.anchors.grip[1]-art.pivot[1])*p.scale;
+  // The same data-driven side/anchor/IK planner used by the renderer checks
+  // every authored pick clip and both extreme lift heights. Unsupported
+  // objects, wrong-side staging and overreach reject before a media job starts.
   let actorX=c.xStart as number;
-  for(const [index,item] of (value.clips as M3Clip[]).entries()){
+  for(const item of value.clips as M3Clip[]){
     if(item.action==='walk-stop')actorX+=120;
     if(item.action!=='pick-place')continue;
-    // M3 originally accepted a right-hand-only pick of a mug staged well
-    // to the LEFT of the body; the resulting cutout arm visibly crossed
-    // the character while every mathematical grip marker still read zero.
-    // Reject the impossible staging before any native render starts.
-    if(p.x-actorX<35)throw Error('M3_RIGHT_HAND_PROP_STAGING: clip='+index);
-    const dx=p.x+cupOffsetX-handOffsetX-(actorX+shoulderX);
-    for(const lift of [0,66]){
-      const dy=p.y+cupOffsetY-lift-handOffsetY-(c.floor as number+shoulderY);
-      const reach=Math.hypot(dx,dy);
-      if(reach>203+1e-6||reach<7-1e-6)
-        throw Error('M3_PICK_IK_UNREACHABLE: clip='+index+' reach='+reach.toFixed(3));
-    }
+    for(const lift of [0,66])planGrip(pack,{
+      actorModel:c.model as M3Character['model'],actorX,actorFloor:c.floor as number,
+      actorFacing:c.facing as 1,propAsset:p.asset as string,
+      propX:p.x as number,propY:p.y as number,propScale:p.scale as number,
+      side:gripSide(p.hand),lift,
+    });
   }
   }
   return value as M3Project;
@@ -184,12 +171,10 @@ function cupSprite(p:M3Project,y:number):Sprite{
   if(!p.prop)throw Error('M3_PROP_REQUIRED');
   return sprite(p.prop.id,p.prop.asset,p.prop.x,y,6,0,p.prop.scale);
 }
-function wristAtCup(pack:ArtPack,prop:Sprite,pose:ActorPose):Point{
-  const hand=pack.assets.find(a=>a.id===pose.character+'/hand-grip');
-  if(!hand?.anchors.grip)throw Error('M3_HAND_ANCHOR_MISSING');
-  const grip=anchorPoint(pack,prop,'grip');
-  const off:[number,number]=[hand.anchors.grip[0]-hand.pivot[0],hand.anchors.grip[1]-hand.pivot[1]];
-  return [(grip[0]-pose.x)/pose.facing-off[0],grip[1]-pose.floor-off[1]];
+function wristAtProp(pack:ArtPack,p:M3Project,prop:Sprite,pose:ActorPose):Point{
+  return planGrip(pack,{actorModel:pose.character,actorX:pose.x,actorFloor:pose.floor,
+    actorFacing:pose.facing,propAsset:prop.asset,propX:prop.x,propY:prop.y,
+    propScale:prop.scaleX,side:gripSide(p.prop?.hand),lift:0}).wrist;
 }
 function pickPlace(pack:ArtPack,p:M3Project,x:number,f:number,frames:number):{
   pose:ActorPose;prop:Sprite;grip:boolean
@@ -202,13 +187,20 @@ function pickPlace(pack:ArtPack,p:M3Project,x:number,f:number,frames:number):{
   const lower=smooth(Math.max(0,Math.min(1,(t-.63)/.22)));
   const held=t>=.25&&t<.85;
   const prop=cupSprite(p,p.prop!.y-66*(lift-lower));
-  const target=wristAtCup(pack,prop,pose);
+  const side=gripSide(p.prop?.hand);
+  const target=wristAtProp(pack,p,prop,pose);
   const release=smooth(Math.max(0,Math.min(1,(t-.85)/.15)));
   const weight=reach*(1-release);
-  pose.rightWrist=[mix(96,target[0],weight),mix(-220,target[1],weight)];
-  pose.rightHand=held?'grip':'open';
-  pose.layeredGrip=held;
-  pose.rightHandAngle=180*(1-weight);
+  if(side==='right'){
+    pose.rightWrist=[mix(96,target[0],weight),mix(-220,target[1],weight)];
+    pose.rightHand=held?'grip':'open';
+    pose.rightHandAngle=180*(1-weight);
+  }else{
+    pose.leftWrist=[mix(-99,target[0],weight),mix(-211,target[1],weight)];
+    pose.leftHand=held?'grip':'open';
+    pose.leftHandAngle=180*(1-weight);
+  }
+  pose.layeredGrip=held?side:undefined;
   pose.headAngle=6*Math.sin(Math.PI*t)**2;
   return {pose,prop,grip:held};
 }
@@ -243,10 +235,10 @@ export function sampleM3(raw:unknown,frame:number,pack:ArtPack):M3Sample{
   // M3 owns the visible hand/prop composition: the handle is painted
   // above the rear palm but below a real SVG fingertip overlay. M4 inherits
   // this unchanged until Rapier takes ownership at release.
-  if(prop&&grip)prop.z=5.22;
+  if(prop&&grip)prop.z=gripDepth(gripSide(p.prop?.hand)).prop;
   const rig=actorSprites(pack,pose);
   const cupAnchor=prop?anchorPoint(pack,prop,'grip'):null;
-  const handAnchor=rig.markers.find(m=>m.id===pose.id+'.right-grip');
+  const handAnchor=rig.markers.find(m=>m.id===pose.id+'.'+gripSide(p.prop?.hand)+'-grip');
   if(grip&&(!handAnchor||!cupAnchor))throw Error('M3_GRIP_MARKER_MISSING');
   const error=grip&&handAnchor&&cupAnchor?Math.hypot(handAnchor.point[0]-cupAnchor[0],handAnchor.point[1]-cupAnchor[1]):null;
   if(grip&&error!>0.00001)throw Error('M3_GRIP_CONTACT_LOST');

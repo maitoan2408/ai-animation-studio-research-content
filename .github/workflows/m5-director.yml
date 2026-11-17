@@ -7,6 +7,7 @@ on:
       - 'tests/director.test.ts'
       - 'web/director.*'
       - 'scripts/m5-*.ts'
+      - 'scripts/media-quality-gate.mjs'
       - 'scripts/m6-audio-post.mjs'
       - 'scripts/m6-audio-negative.mjs'
       - 'tsconfig.m5.json'
@@ -50,10 +51,18 @@ jobs:
         run: npx tsx scripts/m5-product-e2e.ts
       - name: Separate post-result audit of both videos, audio, graphs and sources
         run: npx tsx scripts/m5-independent-audit.ts
+      - name: Reusable media-quality gate on both native Director outputs
+        run: |
+          node scripts/media-quality-gate.mjs artifacts/product-first/m5/m5-script-a-final-1080p.mp4 432 voiced
+          node scripts/media-quality-gate.mjs artifacts/product-first/m5/m5-script-b-final-1080p.mp4 432 voiced
       - name: M6 production loudness/true-peak check on both actual voiced films
         run: |
           node scripts/m6-audio-post.mjs artifacts/product-first/m5/m5-script-a-final-1080p.mp4 artifacts/product-first/m5/m5-script-a-m6-audio-quality.mp4
           node scripts/m6-audio-post.mjs artifacts/product-first/m5/m5-script-b-final-1080p.mp4 artifacts/product-first/m5/m5-script-b-m6-audio-quality.mp4
+      - name: Reusable media-quality gate on both mastered deliverables
+        run: |
+          node scripts/media-quality-gate.mjs artifacts/product-first/m5/m5-script-a-m6-audio-quality.mp4 432 voiced
+          node scripts/media-quality-gate.mjs artifacts/product-first/m5/m5-script-b-m6-audio-quality.mp4 432 voiced
       - name: M6 audio postmaster negative cases (no old media/output mutation)
         run: node scripts/m6-audio-negative.mjs artifacts/product-first/m5/m5-script-a-final-1080p.mp4
       - name: Upload M5 editable projects, real films, screenshots and receipts

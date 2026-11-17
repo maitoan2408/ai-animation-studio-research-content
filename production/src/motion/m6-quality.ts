@@ -8,6 +8,7 @@
  * retargeting or an automatically approved artistic result.
  */
 import {actorSprites} from '../scene/rig.js';
+import {gripSide} from './grip-planner.js';
 import {anchorPoint} from '../scene/geometry.js';
 import {validateM3,sampleM3,type M3Project,type M3Sample} from './character-library.js';
 import type {ArtPack,ActorPose,Point} from '../scene/types.js';
@@ -156,7 +157,8 @@ export function sampleM6(
     markers:[...baseline.frame.markers.filter(m=>!m.id.startsWith(prefix)),...actor.markers],
   };
   const prop=project.prop&&frameOut.sprites.find(s=>s.id===project.prop!.id);
-  const grip=frameOut.markers.find(m=>m.id===prefix+'right-grip');
+  const side=gripSide(project.prop?.hand);
+  const grip=frameOut.markers.find(m=>m.id===prefix+side+'-grip');
   const contactError=baseline.contact.grip
     ? (!prop||!grip ? Infinity : Math.hypot(
         ...((()=>{const target=anchorPoint(pack,prop,'grip');return [

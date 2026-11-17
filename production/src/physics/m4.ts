@@ -64,7 +64,11 @@ export function validateM4Project(raw:unknown,pack:ArtPack):PhysicsProject{
       'angularVelocityDegPerSecond']))
    throw Error('M4_PROJECT_SCHEMA');
  const motion=validateM3(raw.motion,pack),p=raw.prop;
+ // M3 now supports multiple art-backed object types and both hands. The
+ // historical Rapier M4 bake is calibrated ONLY for right-hand cup release.
+ // Keep unsupported variants explicit until their physics fixtures are proven.
  if(!motion.prop||motion.prop.id!==p.id||
+    motion.prop.asset!=='props/cup'||(motion.prop.hand!==undefined&&motion.prop.hand!=='right')||
     motion.clips.filter(c=>c.action==='pick-place').length!==1||
     motion.clips.at(-1)?.action!=='pick-place')
    throw Error('M4_PROP_CONTACT_UNSUPPORTED');
