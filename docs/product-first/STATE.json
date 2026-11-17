@@ -667,16 +667,30 @@
     },
     "M6": {
       "technicalStatus": "IN_PROGRESS",
-      "evidenceStatus": "NOT_VERIFIED",
+      "evidenceStatus": "AWAITING_FINAL_AUDIO_CI",
       "userAcceptance": "NOT_REVIEWED",
       "sourceBaseCommit": "ea79a67ec755c8946eafa919558fad280dc2ca1f",
-      "ownerGate": "Owner authorized implementation 2026-11-17; not accepted; no M7.",
+      "ownerGate": "Final new audio workflow / last-executable SHA technical QA and owner's artistic assessment pending; no merge/M7.",
       "requirements": [
         "Audited identical-shot A/B real 1080p24 videos with matched camera and contact",
         "Quality improvements in motion, acting, secondary, audio, rendering and critic within supported contracts",
         "Second-pass media review and full M0-M6 regression; preserve historic evidence",
         "Only owner can set ACCEPTED"
-      ]
+      ],
+      "plan": "docs/product-first/M6-PLAN.md",
+      "report": "docs/product-first/M6-REVIEW.md",
+      "pr": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/18",
+      "lastVerifiedCodeCommit": "9edd174221600d5162c1667d938f1775fc8ee1cb",
+      "regressionRuns": {
+        "m6": 44035353836,
+        "root": 44035353832,
+        "production": 44035353828,
+        "m4": 44035353847,
+        "m5": 44035353867
+      },
+      "mediaArtifactId": 14307243112,
+      "baselineVideoSha256": "2a902307ae4e7fadccae0fbc6b75ecf3af97e90192015739a35d79b8da0434a5",
+      "enhancedVideoSha256": "4a2c7e44eb453bd426862146e6c3d9afd01a8c8f9f82c9496ffb674c4e3d0a04"
     },
     "M7": {
       "technicalStatus": "NOT_VERIFIED",

@@ -58,3 +58,7 @@ A/B audit must explicitly measure frames changed, fixed camera, editable project
 The bounded native evaluator is **not** an integrated Director → M3 → Rapier workflow. That separate product architecture requires adapter design, versioning and tested owner-approved sequencing. A premium studio-grade voice cannot be declared with eSpeak or numeric audio statistics. Generic cloth/hair, entirely new character artwork, broad retargeting, feature-film quality, licensed voice procurement and M7 pilot are outside this bounded implementation unless separately authorized. If any target not met, report M6 IN_PROGRESS / BLOCKED, not READY_FOR_USER_REVIEW.
 
 Before approval, keep source/revision/asset hashes, failed attempts and limitations intact; never alter locked goldens or thresholds to make tests green.
+
+## Verified real voiced-film postmaster extension
+
+`scripts/m6-audio-post.mjs` is an optional, fail-closed FFmpeg two-pass loudnorm consumer for immutable root M5 voice-bearing native MP4s: target -16 LUFS and true-peak maximum -1dBTP (filter target -1.5), 48kHz AAC. It refuses unsupported input/no-audio/mismatched output/existing files, measures initial EBU R128, remeasures final true peak, enforces original 1920×1080/24fps and exact decoded frame count, compares FFmpeg video stream SHA256 before and after, full-decodes final media, and SHA-binds original/derived media in a report. Two real M5 story MP4s are CI inputs. This does not change eSpeak voice timbre, generate viseme timing or modify the original accepted files.
