@@ -13,6 +13,7 @@ import {createCaptureSession,initializeSession,captureFrameToBuffer,closeCapture
 import {serveM3,serveM6,root} from './server.js';
 import {ensureM3Textures} from './prepare-m3.js';
 import {M3CharacterRegistry,makeM3Showcase,m3TotalFrames,sampleM3,validateM3} from '../motion/character-library.js';
+import {sampleM6} from '../motion/m6-quality.js';
 import type {ArtPack} from '../scene/types.js';
 
 const sha=(b:Uint8Array|string)=>createHash('sha256').update(b).digest('hex');
@@ -21,6 +22,33 @@ const check=(name:string,args:string[])=>{
  if(result.error||result.status!==0)throw Error(name+' ERROR '+String(result.stderr||result.error));
  return result.stdout;
 };
+/** Prove the browser actually rendered the authored M6 stage, not an M3
+ * substitute. Numeric tolerance only covers cross-runtime trig roundoff.
+ */
+function assertNativeStage(actual:unknown,expected:unknown,key:string):void{
+  if(typeof expected==='number'){
+    assert.ok(typeof actual==='number'&&Number.isFinite(actual)&&
+      Math.abs(actual-expected)<1e-5,'NATIVE_STAGE_NUMERIC_MISMATCH '+key);
+    return;
+  }
+  if(Array.isArray(expected)){
+    assert.ok(Array.isArray(actual)&&actual.length===expected.length,
+      'NATIVE_STAGE_ARRAY_MISMATCH '+key);
+    for(let i=0;i<expected.length;i++)
+      assertNativeStage(actual[i],expected[i],key+'['+i+']');
+    return;
+  }
+  if(expected!==null&&typeof expected==='object'){
+    assert.ok(actual!==null&&typeof actual==='object'&&!Array.isArray(actual),
+      'NATIVE_STAGE_OBJECT_MISMATCH '+key);
+    const a=actual as Record<string,unknown>,b=expected as Record<string,unknown>;
+    assert.deepEqual(Object.keys(a).sort(),Object.keys(b).sort(),
+      'NATIVE_STAGE_KEYS_MISMATCH '+key);
+    for(const k of Object.keys(b))assertNativeStage(a[k],b[k],key+'.'+k);
+    return;
+  }
+  assert.equal(actual,expected,'NATIVE_STAGE_VALUE_MISMATCH '+key);
+}
 const pack=JSON.parse(await readFile(path.join(root,'assets/lantern-v1/manifest.json'),'utf8')) as ArtPack;
 const registry=new M3CharacterRegistry(pack);
 const m6Mode=process.env.M6_QUALITY_MODE;
@@ -74,7 +102,7 @@ try{
    throw Error('M3_CLIP_OUT_OF_RANGE');
  };
  for(let f=0;f<frames;f++){
-   const sample=sampleM3(project,f,pack);
+   const sample=m6Mode==='enhanced'?sampleM6(project,f,pack):sampleM3(project,f,pack);
    if(!constraints.actions.includes(sample.action))constraints.actions.push(sample.action);
    for(const side of sample.contact.planted){
      const point=sample.frame.markers.find(m=>m.id===project.character.id+'.'+side+'-sole')!.point;
@@ -101,6 +129,7 @@ try{
    const raw=await captureFrameToBuffer(session,f,f/24);
    assert.equal(await session.page.evaluate('window.studio.frame'),f,'browser frame mismatch');
    const state=await session.page.evaluate('JSON.stringify(window.studio.state)') as string;
+   if(m6Mode)assertNativeStage(JSON.parse(state),sample.frame,'frame-'+f);
    frameHashes.push(sha(raw.buffer));stateHashes.push(sha(state));
    if(selected.includes(f)){
      const filename='m3-final-frame-'+String(f).padStart(3,'0')+'.png';

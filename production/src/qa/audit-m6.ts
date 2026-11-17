@@ -92,6 +92,7 @@ export async function auditM6(output:string){
   assert.equal(a.project.sha256,b.project.sha256,'A/B projects differ');
   assert.equal(a.video.frames,b.video.frames);
   assert.equal(a.video.duration,b.video.duration);
+  assert.notEqual(a.video.sha256,b.video.sha256,'M6_ENCODED_VIDEOS_IDENTICAL');
   const changed=b.frameHashes.filter((digest,f)=>digest!==a.frameHashes[f]).length;
   const minimumChanged=frames===268?24:Math.max(1,Math.ceil(frames*.1));
   assert.ok(changed>=minimumChanged,'M6 A/B did not measurably change native pixels: '+changed);
