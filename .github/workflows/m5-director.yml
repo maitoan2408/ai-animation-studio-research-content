@@ -2,6 +2,7 @@ name: M5 Director native product verification
 on:
   pull_request:
     paths:
+      - 'production/src/director/**'
       - 'src/director.ts'
       - 'src/server.ts'
       - 'tests/director.test.ts'
