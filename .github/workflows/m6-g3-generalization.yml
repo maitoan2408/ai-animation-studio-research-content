@@ -25,6 +25,7 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - run: apt-get update && apt-get install -y --no-install-recommends ffmpeg
       - run: npm ci && npm --prefix production ci
       - name: Legacy and generalized code-contract typecheck
         run: |

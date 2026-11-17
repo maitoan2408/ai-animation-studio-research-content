@@ -48,7 +48,7 @@ await mkdir(out,{recursive:true});
 const video=path.join(out,'g3-motion-physics-1080p.mp4');
 const frameHashes:string[]=[],stateHashes:string[]=[];
 const stills:Record<string,string>={};
-let server:Awaited<ReturnType<typeof serveGeneral>>|undefined;
+let server:Awaited<ReturnType<typeof serveG3>>|undefined;
 let session:Awaited<ReturnType<typeof createCaptureSession>>|undefined;
 let ff:ReturnType<typeof spawn>|undefined;
 let stderr='';
