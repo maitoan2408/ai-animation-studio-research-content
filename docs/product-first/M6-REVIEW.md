@@ -55,3 +55,23 @@ Initial FAILs during development were reproduced, including eight Prettier viola
 This evidence proves **bounded native M3 motion/acting technical changes** plus non-destructive M5 sound-level improvement. The existing development art remains development art; no human approves style, licensed assets or natural voice via these tests. There is no general Director→M3/M4 adapter, arbitrary character retargeting, cloth/hair simulation, full facial lip-sync, upgraded production voice or M7 pilot. Film motion is stylized and the artistic gain modest. New audio CI must pass on final implementation SHA before M6 is `READY_FOR_USER_REVIEW`.
 
 **Status at review-file creation: M6 TECHNICAL_A_B_PASS; final-audio CI PENDING; userAcceptance NOT_REVIEWED.** Never self mark ACCEPTED or merge.
+
+## Final implementation-head CI, second independent recheck and owner handoff — 2026-11-17
+
+**Final executable implementation SHA:** `bb67dbb760a38e6fa1596a2e95dbf92f409bc547` after integrating the source-controlled two-pass M5 audio postmaster and re-running all five workflows. This supersedes the earlier pending-audio section; the 9edd174 reports above remain historical evidence rather than current code proof. **All five final-source workflows completed SUCCESS:**
+
+| Check | Final-source GitHub run | Status |
+| --- | ---: | --- |
+| M6 actual 1080p24 paired A/B + separate full-decode/frame-contact audit | 44037747251 | SUCCESS |
+| Root Studio verify, integration, UI, native 24s M2 edit/voice/reopen | 44037747426 | SUCCESS (both jobs) |
+| Production native M1/M3, all TS/Python/independent audit and isolated install | 44037747221 | SUCCESS |
+| M4 1080p Rapier OFF/ON + short-project/subframe negative regression | 44037747236 | SUCCESS |
+| M5 two narrated native 1080p films + separate post-result check + M6 2-pass loudness | 44037747275 | SUCCESS |
+
+**Final M6 native artifact ID:** `14308906579`, name `animation-m6-review-8`; actual audited source in `m6-paired-audit.json` = `bb67dbb760a38e6fa1596a2e95dbf92f409bc547`, PASS_TECHNICAL_ONLY. Final-source video SHA-256s remain identical to earlier true 268-frame captures; 258/268 native frames changed and contact/camera discrepancies stayed zero. The delivered paired contact sheet is directly extracted from the native video captures, not generated art.
+
+**Final M5 + M6 audio artifact ID:** `14309105004`, name `m5-director-review-30`. Its two source-attached `.quality.json` receipts independently rechecked after download: A -19.5→-16.1 LUFS/-3.0→-1.5dBTP, mastered SHA `55a10859c5a47c74699b65bf6d0d1807bf14c3555146c7f1f440c18d959fe97f`; B -20.8→-16.0 LUFS/-4.7→-1.4dBTP, mastered SHA `27c51d9f215724d886e47d118b1bdabe1ef355c52e769a33087b3478c705e39e`. Each kept exactly 432 original video frames and complete decode; original video bitstreams unchanged. Offline RMS-envelope comparison on decoded audio measured zero timing lag and >0.995 correlation, with original final silence retained.
+
+Independent second review includes visually inspected 1080p A/B keyframes, chronological contact, FFmpeg blackdetect (no full-frame black intervals), extra file-byte SHA checks after CI artifact download, M6 true native source check, audio FFprobe/EBU R128 and rejected same-path/overwrite attempts. The gains are **measurable but modest**: more expressive posture/acting and consistent audio level; no automated claim of artistic realism. No known uncorrected **M6 in-scope** technical defect remains from final verified evidence. All earlier failed CI attempts were retained rather than erased.
+
+**State: `READY_FOR_USER_REVIEW`**, technical PASS only, `userAcceptance: NOT_REVIEWED`. Owner must personally review the movies and sound. No main merge and **no M7**. The later documentation-only checkpoint commit after `bb67dbb760a38e6fa1596a2e95dbf92f409bc547` does not change executable sources, render profile or media hashes.
