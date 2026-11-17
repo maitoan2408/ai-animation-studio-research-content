@@ -35,10 +35,11 @@ jobs:
       - run: npm ci && npm --prefix production ci
       - name: Prepare canonical Prettier source as a review artifact only
         run: |
+          npx prettier --write src/native-director-service.ts src/server.ts
           mkdir -p artifacts/m6-root-prettier
           cp src/native-director-service.ts artifacts/m6-root-prettier/native-director-service.ts
           cp src/server.ts artifacts/m6-root-prettier/server.ts
-          npx prettier --write artifacts/m6-root-prettier
+          git checkout -- src/native-director-service.ts src/server.ts
       - name: Preserve formatted source for independent commit
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
