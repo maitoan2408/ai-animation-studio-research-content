@@ -21,7 +21,10 @@
     "motion:m3:audit": "tsx src/qa/audit-m3.ts && tsx src/qa/audit-m3-negative.ts",
     "physics:m4": "tsx src/render/render-m4.ts",
     "physics:m4:audit": "tsx src/qa/audit-m4.ts",
-    "test:physics:m4": "tsx --test tests/m4-*.test.ts"
+    "test:physics:m4": "tsx --test tests/m4-*.test.ts",
+    "motion:m6": "tsx src/render/render-m6.ts",
+    "motion:m6:audit": "tsx src/qa/audit-m6.ts",
+    "test:motion:m6": "tsx --test tests/m6-quality.test.ts"
   },
   "dependencies": {
     "@dimforge/rapier2d-deterministic-compat": "0.21.0",
