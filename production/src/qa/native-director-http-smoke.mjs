@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import {mkdtemp,readFile,writeFile,rm} from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import {Studio} from '../../src/application.js';
-import {serve} from '../../src/server.js';
+import {Studio} from '../../../src/application.js';
+import {serve} from '../../../src/server.js';
 
 const storyboard=()=>({
  schemaVersion:'native-director/1',

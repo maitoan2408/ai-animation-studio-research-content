@@ -5,7 +5,7 @@ on:
       - 'production/src/director/**'
       - 'src/native-director-service.ts'
       - 'src/server.ts'
-      - 'production/tests/m6-native-director-http.test.mjs'
+      - 'production/src/qa/native-director-http-smoke.mjs'
       - 'production/tests/m6-native-director.test.ts'
       - 'production/src/motion/**'
       - 'production/src/qa/**'
@@ -39,6 +39,8 @@ jobs:
           npm --prefix production run typecheck
           npm --prefix production run test:native:director
           npm --prefix production test
+      - name: Studio native HTTP integration smoke with both dependency trees
+        run: node --import tsx --test production/src/qa/native-director-http-smoke.mjs
       - name: Produce six genuinely distinct saved native projects and six real MP4 movies
         run: npm --prefix production run native:director:demo
       - name: Independent second pass through actual six media streams and frames
