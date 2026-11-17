@@ -2,6 +2,8 @@ name: M6 paired animation quality and post-result audit
 on:
   pull_request:
     paths:
+      - 'scripts/m6-audio-post.mjs'
+      - '.github/workflows/m5-director.yml'
       - 'src/motion-service.ts'
       - 'src/server.ts'
       - 'src/audio-quality.ts'
@@ -37,6 +39,8 @@ jobs:
         run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
       - run: npm ci
       - run: npm --prefix production ci
+      - name: Validate code-driven two-pass audio master command
+        run: node --check scripts/m6-audio-post.mjs
       - name: Strict application and native TypeScript contracts
         run: |
           npm run verify
