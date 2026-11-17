@@ -8,6 +8,9 @@ import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {type RenderConfig,type TextureSpec} from './browser.js';
 import {validateM3,type M3Project} from '../motion/character-library.js';
+import {m6DefaultQuality,parseM6Quality,type M6Quality} from '../motion/m6-quality.js';
+import {validateGeneralFilm,type GeneralFilm} from '../motion/general-timeline.js';
+import {validateGeneralPlayback} from '../motion/general-playback-validate.js';
 import {validateM4Project,validateM4Bake} from '../physics/m4.js';
 import type {M4RenderData} from '../physics/m4-adapter.js';
 import {type ShotId,type Edit} from '../scene/benchmark.js';
@@ -74,6 +77,20 @@ export async function serveM3(project:M3Project,options:{width?:number;height?:n
   return session;
 }
 
+/** Same native art, camera and timebase for M6 paired comparison.
+ * Quality is a validated data-only envelope, not arbitrary browser code.
+ */
+export async function serveM6(project:M3Project,quality:'baseline'|'enhanced',
+  controls:unknown=m6DefaultQuality,options:{width?:number;height?:number}={}){
+ if(quality!=='baseline'&&quality!=='enhanced')throw Error('M6_RENDER_MODE');
+ const session=await serve('S01',options);
+ try{
+  session.config.m6={project:validateM3(project,session.config.pack),quality,
+   controls:parseM6Quality(controls) as M6Quality};
+ }catch(error){session.close();throw error;}
+ return session;
+}
+
 /** A validated user-editable M3 motion project is the authored input of M4.
  * Both OFF and ON use the same render backend, timeline, camera and art pack.
  * Never trust a caller's bake hash without checking input+toolchain+art.
@@ -85,6 +102,25 @@ export async function serveM4(raw:M4RenderData,options:{width?:number;height?:nu
    const bake=validateM4Bake(raw.bake,project,session.config.pack);
    if(typeof raw.enabled!=='boolean')throw Error('M4_RENDER_MODE');
    session.config.m4={project,bake,enabled:raw.enabled};
+ }catch(error){session.close();throw error;}
+ return session;
+}
+
+/** G3 isolated motion/physics native movie endpoint. Explicit schema and
+ * bake provenance are validated before browser serving; no Director M5 code
+ * or approvals are changed. */
+export async function serveG3(raw:unknown,options:{width?:number;height?:number}={}){
+ const session=await serve('S01',options);
+ try{
+   session.config.generalPlayback=validateGeneralPlayback(raw,session.config.pack);
+ }catch(error){session.close();throw error;}
+ return session;
+}
+/** G3 standalone motion-only native review, same shaders/textures and timeline. */
+export async function serveGeneral(raw:unknown,options:{width?:number;height?:number}={}){
+ const session=await serve('S01',options);
+ try{
+   session.config.general=validateGeneralFilm(raw,session.config.pack) as GeneralFilm;
  }catch(error){session.close();throw error;}
  return session;
 }

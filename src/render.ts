@@ -13,6 +13,7 @@ import {
 } from './domain.js';
 import { Store } from './store.js';
 import { mixAudio } from './audio.js';
+import { analyzeAudioWav } from './audio-quality.js';
 import { frameSvg } from './rig.js';
 import { toAnimationIR, toLegacyProjectSpec } from './animation-ir.js';
 import { run, doctor } from './process.js';
@@ -43,7 +44,13 @@ export async function compile(
   const mix = await mixAudio(store, spec);
   await mkdir(dir, { recursive: true });
   await copyFile(require.resolve('gsap/dist/gsap.min.js'), path.join(dir, 'gsap.min.js'));
-  if (mix.audio) await writeFile(path.join(dir, 'audio.wav'), mix.audio);
+  if (mix.audio) {
+    await writeFile(path.join(dir, 'audio.wav'), mix.audio);
+    await writeFile(
+      path.join(dir, 'audio-quality.json'),
+      JSON.stringify(analyzeAudioWav(mix.audio), null, 2) + '\n',
+    );
+  }
   // JSON values are inert; escape '<' to prevent user text closing a script tag.
   const data = JSON.stringify({ spec, envelopes: mix.envelopes }).replace(/</g, '\\u003c');
   const html = `<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#f3e8ca}#scene{width:${width}px;height:${height}px;overflow:hidden}</style><script src="gsap.min.js"></script></head><body>

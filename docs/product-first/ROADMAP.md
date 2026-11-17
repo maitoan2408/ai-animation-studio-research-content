@@ -84,3 +84,7 @@ CI bundles are temporary (currently 14 days). Keep small manifests in source and
 ## Security and reproducibility
 
 No arbitrary AI-generated JavaScript at runtime, no private API keys in content/logs, no unlicensed model/media imports, no browser-sandbox bypass beyond existing trusted CI policy, no auto-approval of acting/art; external paid providers require owner approval. Preserve failed attempts and do not alter tests to camouflage failures.
+
+## M6 development authorization and scoped integration — 2026-11-17
+
+Owner accepted both M4 Physics and M5 Director in conversation, authorizing M6 Animation Quality on Draft PR #18. New data-driven M3 acting/secondary overlay, real same-shot/native A/B video captures, technical motion/contact critic, Studio quality selector and independent FFmpeg audio mastering keep accepted M0–M5 intact. M5 Director still runs the root M2 engine; native M3/M4 quality is a separately measured path. No automatic M6 artistic acceptance, main merge or M7 advancement. See [M6-PLAN.md](M6-PLAN.md) and [M6-REVIEW.md](M6-REVIEW.md).

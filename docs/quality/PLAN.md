@@ -75,3 +75,7 @@ Không di chuyển toàn repo sang monorepo chỉ để trông giống sơ đồ
   request/source snapshot trước chạy, không sửa log FAIL; commit/push checkpoint.
 - Release: không production cho tới U8 và Q2/Q3–Q9 gates liên quan đóng bằng
   evidence đúng phạm vi. Handoff same-agent không đổi thành independent.
+
+## M6 quality engineering (17/11/2026)
+
+See [M6-PLAN.md](../product-first/M6-PLAN.md): paired native M3 baseline/quality video from identical art, scene, camera and 24fps timeline; strict contact-preserving performance/secondary motion over reusable M3 actions, descriptive frame critic, independent render/decode/visual inspection. M5 voiced artifacts receive optional two-pass FFmpeg -16 LUFS, final EBU R128 true peak <= -1dBTP; preserve exact compressed video stream and original media. Neither technical metric certifies art, natural voice, human acting or licensed artwork. Do not modify locked S05 goldens or thresholds.

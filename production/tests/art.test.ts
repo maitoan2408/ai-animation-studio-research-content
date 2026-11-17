@@ -11,7 +11,15 @@ const packRoot=new URL('../assets/lantern-v1/',import.meta.url);
 const pack=JSON.parse(await readFile(new URL('manifest.json',packRoot),'utf8')) as ArtPack;
 
 test('art source hashes, explicit pivots, views and local references remain intact',async()=>{
-  assert.equal(new Set(pack.assets.map(a=>a.id)).size,64);
+  // Preserve the original 64-painting art vocabulary verbatim. Two newly
+  // authored, SHA-bound fingertip pieces are an additive M3 correction.
+  assert.equal(new Set(pack.assets.map(a=>a.id)).size,66);
+  assert.equal(pack.assets.filter(a=>!a.id.endsWith('/hand-grip-front')).length,64);
+  for(const model of ['mai','an']){
+    const fingers=pack.assets.find(a=>a.id===model+'/hand-grip-front');
+    assert.ok(fingers,'missing independent visible gripping fingers '+model);
+    assert.deepEqual(fingers.anchors.grip,[43,28]);
+  }
   for(const a of pack.assets){
     assert.ok(!a.file.includes('..')&&!a.file.startsWith('/'));
     const bytes=await readFile(new URL(a.file,packRoot));

@@ -107,6 +107,11 @@ export function validateM3(value:unknown,pack:ArtPack):M3Project{
   for(const [index,item] of (value.clips as M3Clip[]).entries()){
     if(item.action==='walk-stop')actorX+=120;
     if(item.action!=='pick-place')continue;
+    // M3 originally accepted a right-hand-only pick of a mug staged well
+    // to the LEFT of the body; the resulting cutout arm visibly crossed
+    // the character while every mathematical grip marker still read zero.
+    // Reject the impossible staging before any native render starts.
+    if(p.x-actorX<35)throw Error('M3_RIGHT_HAND_PROP_STAGING: clip='+index);
     const dx=p.x+cupOffsetX-handOffsetX-(actorX+shoulderX);
     for(const lift of [0,66]){
       const dy=p.y+cupOffsetY-lift-handOffsetY-(c.floor as number+shoulderY);
@@ -202,6 +207,7 @@ function pickPlace(pack:ArtPack,p:M3Project,x:number,f:number,frames:number):{
   const weight=reach*(1-release);
   pose.rightWrist=[mix(96,target[0],weight),mix(-220,target[1],weight)];
   pose.rightHand=held?'grip':'open';
+  pose.layeredGrip=held;
   pose.rightHandAngle=180*(1-weight);
   pose.headAngle=6*Math.sin(Math.PI*t)**2;
   return {pose,prop,grip:held};
@@ -234,6 +240,10 @@ export function sampleM3(raw:unknown,frame:number,pack:ArtPack):M3Sample{
     pose={...v,id:p.character.id,character:p.character.model,x:startX,floor:p.character.floor,
       facing:p.character.facing};
   }
+  // M3 owns the visible hand/prop composition: the handle is painted
+  // above the rear palm but below a real SVG fingertip overlay. M4 inherits
+  // this unchanged until Rapier takes ownership at release.
+  if(prop&&grip)prop.z=5.22;
   const rig=actorSprites(pack,pose);
   const cupAnchor=prop?anchorPoint(pack,prop,'grip'):null;
   const handAnchor=rig.markers.find(m=>m.id===pose.id+'.right-grip');

@@ -144,3 +144,7 @@ Khóa baseline/crop và công cụ ΔE00; ba thử chiếu sáng thân và ba th
 
 ### F2 tiếp tục: fixture và motion thử — 14/11/2026
 T0b dedup mặc định Linux sau Git-only review/audit; ngoài Linux legacy. Màu trung tính, bóng alpha có lỗ và edge alpha được kiểm trong fixture giới hạn; bump 192 frame preview và hai crop tĩnh không đổi. Những kết quả này chưa khép gate visual/motion/người duyệt F2. Xem F2 report.
+
+## M6 first post-result evidence (17/11/2026)
+
+At code SHA `9edd174221600d5162c1667d938f1775fc8ee1cb`, actual 1080p24 native cutout A/B 268-frame videos and independent full-decode/contact/hash audit PASS (run 44035353836, artifact 14307243112). Baseline SHA `2a902307ae4e7fadccae0fbc6b75ecf3af97e90192015739a35d79b8da0434a5`, enhanced `4a2c7e44eb453bd426862146e6c3d9afd01a8c8f9f82c9496ffb674c4e3d0a04`; 258 pixel-changed frames; 488 planted and 58 grip samples both max 0px error. Same-source root/M2, workbench/M3, M4 and M5 complete regression successful. Verified optional offline audio mastering on actual M5 films: A -19.5→-16.1LUFS and -3→-1.5dBTP; B -20.8→-16LUFS and -4.7→-1.4dBTP, both original video stream hashes held. This is technical QA only; pending final-head code/CI and owner review. Old FAIL evidence preserved.

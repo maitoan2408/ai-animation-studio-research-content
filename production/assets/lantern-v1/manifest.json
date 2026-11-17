@@ -285,6 +285,27 @@
       "source": "project-original"
     },
     {
+      "id": "mai/hand-grip-front",
+      "file": "mai/hand-grip-front.svg",
+      "width": 68,
+      "height": 64,
+      "pivot": [
+        29,
+        45
+      ],
+      "anchors": {
+        "grip": [
+          43,
+          28
+        ]
+      },
+      "category": "hand",
+      "sha256": "5e3cde6ea884f27f7bde8d4e4a0317e9927372a728e3b67696829ebc09ea5692",
+      "colorSpace": "srgb",
+      "alpha": "straight",
+      "source": "project-original"
+    },
+    {
       "id": "mai/head-front-neutral",
       "file": "mai/head-front-neutral.svg",
       "width": 180,
@@ -907,6 +928,27 @@
       },
       "category": "hand",
       "sha256": "deda2d057ac045367a465149958f094827f3e98307614eaf6e911d39a6a91982",
+      "colorSpace": "srgb",
+      "alpha": "straight",
+      "source": "project-original"
+    },
+    {
+      "id": "an/hand-grip-front",
+      "file": "an/hand-grip-front.svg",
+      "width": 68,
+      "height": 64,
+      "pivot": [
+        29,
+        45
+      ],
+      "anchors": {
+        "grip": [
+          43,
+          28
+        ]
+      },
+      "category": "hand",
+      "sha256": "76a86af821fd1486d15b7e456fd95eeb552f98f36366b379dc10176506a85a2e",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"

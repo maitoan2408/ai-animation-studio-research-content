@@ -102,6 +102,15 @@ test('M3 Studio edits persist, validate independent capabilities, and reject sta
     403,
   );
   assert.equal((await get('/api/motion/jobs/not-an-id')).status, 404);
+  assert.equal(
+    (await post('/api/motion/jobs', { revision: accepted.revision, quality: 'arbitrary-code' }))
+      .status,
+    400,
+  );
+  assert.equal(
+    (await post('/api/motion/jobs', { revision: accepted.revision, quality: '<script>' })).status,
+    400,
+  );
   assert.equal((await get('/api/motion/jobs/not-an-id/video')).status, 404);
   const validation = await post('/api/motion/validate', { project: subset });
   assert.equal(validation.status, 200);

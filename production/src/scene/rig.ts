@@ -5,6 +5,7 @@ import { sprite, type ActorPose, type ArtPack, type Marker, type Point, type Spr
  * re-evaluating a frame never integrates previous frames or clock state. */
 export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]; markers: Marker[]} {
   if (pose.rightElbowBend !== undefined && pose.rightElbowBend !== 1 && pose.rightElbowBend !== -1) throw Error('RIGHT_ELBOW_BEND_INVALID');
+  if (pose.leftElbowBend !== undefined && pose.leftElbowBend !== 1 && pose.leftElbowBend !== -1) throw Error('LEFT_ELBOW_BEND_INVALID');
   const items: Sprite[] = [], markers: Marker[] = [];
   const a = pose.character, hip = add([0, -258], pose.hipOffset ?? [0, 0]);
   const torsoAngle = pose.torsoAngle ?? 0;
@@ -31,21 +32,31 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
   leg('left', add(hip, [-30,0]), pose.leftAnkle ?? [-35,-29], 1);
   leg('right', add(hip,[30,0]), pose.rightAnkle ?? [48,-29], 2);
   const arm = (side: 'left' | 'right', shoulder: Point, wrist: Point, z: number) => {
-    const joint = elbow(shoulder,wrist,105,98,side === 'right' ? pose.rightElbowBend ?? 1 : -1);
+    const joint = elbow(shoulder,wrist,105,98,side === 'right' ? pose.rightElbowBend ?? 1 : pose.leftElbowBend ?? -1);
     bone(`${side}-upper`, 'upper-arm', shoulder,joint,z);
     bone(`${side}-forearm`, 'forearm',joint,wrist,z+.1);
     const hand = side === 'right' ? pose.rightHand ?? 'open' : pose.leftHand ?? 'open';
     const handAngle=(side==='right'?pose.rightHandAngle:pose.leftHandAngle) ?? (hand==='open'?180:0);
-    localSprite(`${side}-hand`,`${a}/hand-${hand}`,wrist,z+.2,handAngle);
+    const layeredGrip=hand==='grip'&&(pose.layeredGripSide===side||
+      (side==='right'&&pose.layeredGrip===true&&pose.layeredGripSide===undefined));
+    localSprite(`${side}-hand`,`${a}/hand-${hand}`,wrist,
+      z+(layeredGrip ? 0.15 : 0.2),handAngle);
     const handSprite=items[items.length-1]!;
     if(hand==='open'&&side==='right') handSprite.scaleX=-1;
     const handAsset=pack.assets.find(x=>x.id===handSprite.asset)!;
     const offset=subtract(handAsset.anchors.grip!,handAsset.pivot);
     mark(`${side}-grip`,add(wrist,rotate([offset[0]*handSprite.scaleX,offset[1]],handAngle)),'contact',z+.2);
+    if(layeredGrip){
+      // This real SVG overlays only curved fingertips: mug handle is
+      // visible between the rear palm and front fingers, not hidden
+      // behind a single opaque fist as in the original M3 implementation.
+      localSprite(`${side}-grip-front`,`${a}/hand-grip-front`,wrist,z+0.35,handAngle);
+    }
     mark(`${side}-wrist`,wrist,'joint',z+.2);
   };
   const restWrist=(x:number)=>atTorso([x,47]);
-  arm('left',torsoAnchor('leftShoulder'),pose.leftWrist ?? restWrist(profile?-62:-99),2.5);
+  arm('left',torsoAnchor('leftShoulder'),pose.leftWrist ?? restWrist(profile?-62:-99),
+    pose.layeredGripSide==='left'?5:2.5);
   localSprite('torso',torsoId,hip,3,torsoAngle);
   const neck = torsoAnchor('neck');
   const headId = `${a}/head-${pose.view ?? 'quarter'}-${pose.mood ?? 'neutral'}`;
@@ -56,7 +67,8 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
   const mouth = add(neck,rotate(subtract(headAsset.anchors.mouth,headAsset.pivot),headAngle));
   localSprite('mouth',`mouth/${pose.mouth ?? 'rest'}`,mouth,4.1,headAngle);
   if(pose.view==='profile') items[items.length-1]!.scaleX=.65;
-  arm('right',torsoAnchor('rightShoulder'),pose.rightWrist ?? restWrist(profile?75:108),5);
+  arm('right',torsoAnchor('rightShoulder'),pose.rightWrist ?? restWrist(profile?75:108),
+    pose.layeredGripSide==='left'?2.5:5);
   const scale = pose.scale ?? 1, facing = pose.facing;
   const world = (p: Point): Point => [pose.x + p[0]*scale*facing, pose.floor+p[1]*scale];
   return {

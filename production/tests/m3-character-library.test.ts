@@ -175,3 +175,42 @@ test('wave-only and walk-only character packages do not require a cup prop',()=>
  assert.doesNotThrow(()=>validateM3(walkOnly,pack));
  assert.equal(sampleM3(walkOnly,36,pack).contact.planted.includes('left'),true);
 });
+
+test('M3 actual SVG grip has rear palm, handle and independent curved fingertips',()=>{
+ let observed=0;
+ for(let f=0;f<m3TotalFrames(project);f++){
+   const state=sample(f);
+   const hand=state.frame.sprites.find(s=>s.id==='guest-01.right-hand')!;
+   const mug=state.frame.sprites.find(s=>s.id==='cup-m3')!;
+   const fingers=state.frame.sprites.find(s=>s.id==='guest-01.right-grip-front');
+   if(state.contact.grip){
+     observed++;
+     assert.ok(fingers,'no visible foreground fingers at held frame '+f);
+     assert.equal(hand.asset,'an/hand-grip');
+     assert.equal(fingers!.asset,'an/hand-grip-front');
+     const arm=state.frame.sprites.find(s=>s.id==='guest-01.right-forearm')!;
+     assert.ok(arm.z<hand.z&&hand.z<mug.z&&mug.z<fingers!.z,
+       'visible hand/handle composite order is wrong at '+f);
+     const right=anchorPoint(pack,hand,'grip');
+     const front=anchorPoint(pack,fingers!,'grip');
+     const handle=anchorPoint(pack,mug,'grip');
+     for(const pt of [right,front])
+       assert.ok(Math.hypot(pt[0]-handle[0],pt[1]-handle[1])<.001);
+   }else assert.equal(fingers,undefined,'front fingers floating without cup at '+f);
+ }
+ assert.ok(observed>=40);
+ for(const model of ['mai','an']){
+   assert.ok(pack.assets.some(a=>a.id===model+'/hand-grip-front'),
+     'both production characters must have an authored grip finger asset');
+ }
+});
+
+test('M3 right-hand action refuses visually wrong cup position even if IK could reach it',()=>{
+ const wrong=structuredClone(project);
+ wrong.character.xStart=900;
+ wrong.prop!.x=928;
+ assert.throws(()=>validateM3(wrong,pack),/M3_RIGHT_HAND_PROP_STAGING/);
+ const correct=structuredClone(wrong);
+ correct.prop!.x=1195;
+ assert.doesNotThrow(()=>validateM3(correct,pack));
+});

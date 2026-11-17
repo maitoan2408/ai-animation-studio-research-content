@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "tests/m3-http.test.ts",
+    "tests/m6-audio-quality.test.ts",
+    "scripts/m6-studio-e2e.ts"
+  ]
+}

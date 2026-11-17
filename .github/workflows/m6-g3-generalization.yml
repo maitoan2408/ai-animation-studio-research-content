@@ -1,0 +1,66 @@
+name: M6 G3 reusable motion and native physics film verification
+on:
+  pull_request:
+    paths:
+      - 'production/src/motion/general-*'
+      - 'production/src/physics/general-*'
+      - 'production/src/render/browser.ts'
+      - 'production/src/render/server.ts'
+      - 'production/src/render/render-g3.ts'
+      - 'production/src/render/demo-g3.ts'
+      - 'production/src/qa/audit-g3.ts'
+      - 'production/tests/m6-general-*.test.ts'
+      - 'docs/product-first/M6-GENERALIZATION-PLAN.md'
+      - '.github/workflows/m6-g3-generalization.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: m6-g3-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  g3-contracts-and-negative:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - run: apt-get update && apt-get install -y --no-install-recommends ffmpeg
+      - run: npm ci && npm --prefix production ci
+      - name: Legacy and generalized code-contract typecheck
+        run: |
+          npm run verify
+          npm --prefix production run typecheck
+      - name: Independent new G1/G2/G3 test suite and adversarial cases
+        run: |
+          cd production
+          npx tsx --test tests/m6-general-quality.test.ts tests/m6-general-interaction.test.ts tests/m6-general-timeline.test.ts tests/m6-general-drop.test.ts tests/m6-general-playback.test.ts
+      - name: Old M3/M4/M6 motion and physical integrity contracts
+        run: |
+          npm --prefix production run test:motion:m6
+          npm --prefix production run test:physics:m4
+  g3-actual-native-movies:
+    needs: g3-contracts-and-negative
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 75
+    env:
+      SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      HYPERFRAMES_NO_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install native software rasterizer, Chromium, FFmpeg and vector tools
+        run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
+      - run: npm ci && npm --prefix production ci
+      - name: Render two distinct actual 1080p24 G3 grip, lift, release and physics films
+        run: npx tsx production/src/render/demo-g3.ts
+      - name: Independent after-render source/bake/contact/stills/video audit
+        run: npx tsx production/src/qa/audit-g3.ts
+      - name: Publish real videos, contact PNGs, editable sources and SHA evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: m6-g3-native-real-films-${{ github.run_number }}
+          path: |
+            production/out/product-first/g3-general-reviews/
+          retention-days: 14

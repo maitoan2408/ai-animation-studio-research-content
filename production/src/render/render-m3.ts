@@ -10,9 +10,10 @@ import {once} from 'node:events';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {createCaptureSession,initializeSession,captureFrameToBuffer,closeCaptureSession,drainBrowserPool} from '@hyperframes/engine';
-import {serveM3,root} from './server.js';
+import {serveM3,serveM6,root} from './server.js';
 import {ensureM3Textures} from './prepare-m3.js';
 import {M3CharacterRegistry,makeM3Showcase,m3TotalFrames,sampleM3,validateM3} from '../motion/character-library.js';
+import {sampleM6} from '../motion/m6-quality.js';
 import type {ArtPack} from '../scene/types.js';
 
 const sha=(b:Uint8Array|string)=>createHash('sha256').update(b).digest('hex');
@@ -21,8 +22,37 @@ const check=(name:string,args:string[])=>{
  if(result.error||result.status!==0)throw Error(name+' ERROR '+String(result.stderr||result.error));
  return result.stdout;
 };
+/** Prove the browser actually rendered the authored M6 stage, not an M3
+ * substitute. Numeric tolerance only covers cross-runtime trig roundoff.
+ */
+function assertNativeStage(actual:unknown,expected:unknown,key:string):void{
+  if(typeof expected==='number'){
+    assert.ok(typeof actual==='number'&&Number.isFinite(actual)&&
+      Math.abs(actual-expected)<1e-5,'NATIVE_STAGE_NUMERIC_MISMATCH '+key);
+    return;
+  }
+  if(Array.isArray(expected)){
+    assert.ok(Array.isArray(actual)&&actual.length===expected.length,
+      'NATIVE_STAGE_ARRAY_MISMATCH '+key);
+    for(let i=0;i<expected.length;i++)
+      assertNativeStage(actual[i],expected[i],key+'['+i+']');
+    return;
+  }
+  if(expected!==null&&typeof expected==='object'){
+    assert.ok(actual!==null&&typeof actual==='object'&&!Array.isArray(actual),
+      'NATIVE_STAGE_OBJECT_MISMATCH '+key);
+    const a=actual as Record<string,unknown>,b=expected as Record<string,unknown>;
+    assert.deepEqual(Object.keys(a).sort(),Object.keys(b).sort(),
+      'NATIVE_STAGE_KEYS_MISMATCH '+key);
+    for(const k of Object.keys(b))assertNativeStage(a[k],b[k],key+'.'+k);
+    return;
+  }
+  assert.equal(actual,expected,'NATIVE_STAGE_VALUE_MISMATCH '+key);
+}
 const pack=JSON.parse(await readFile(path.join(root,'assets/lantern-v1/manifest.json'),'utf8')) as ArtPack;
 const registry=new M3CharacterRegistry(pack);
+const m6Mode=process.env.M6_QUALITY_MODE;
+if(m6Mode!==undefined&&m6Mode!=='baseline'&&m6Mode!=='enhanced')throw Error('M6_QUALITY_MODE_INVALID');
 const configured=process.env.M3_PROJECT_FILE;
 const project=configured
   ? validateM3(JSON.parse(await readFile(configured,'utf8')),pack)
@@ -45,7 +75,7 @@ let ff:ReturnType<typeof spawn>|undefined;
 let encoderStderr='';
 try{
  await ensureM3Textures();
- server=await serveM3(project,{width:1920,height:1080});
+ server=m6Mode?await serveM6(project,m6Mode,undefined,{width:1920,height:1080}):await serveM3(project,{width:1920,height:1080});
  session=await createCaptureSession(server.url,output,{
    width:1920,height:1080,fps:{num:24,den:1},format:'png'
  },null,{chromePath:'/usr/bin/chromium',forceScreenshot:true,
@@ -72,7 +102,7 @@ try{
    throw Error('M3_CLIP_OUT_OF_RANGE');
  };
  for(let f=0;f<frames;f++){
-   const sample=sampleM3(project,f,pack);
+   const sample=m6Mode==='enhanced'?sampleM6(project,f,pack):sampleM3(project,f,pack);
    if(!constraints.actions.includes(sample.action))constraints.actions.push(sample.action);
    for(const side of sample.contact.planted){
      const point=sample.frame.markers.find(m=>m.id===project.character.id+'.'+side+'-sole')!.point;
@@ -99,6 +129,7 @@ try{
    const raw=await captureFrameToBuffer(session,f,f/24);
    assert.equal(await session.page.evaluate('window.studio.frame'),f,'browser frame mismatch');
    const state=await session.page.evaluate('JSON.stringify(window.studio.state)') as string;
+   if(m6Mode)assertNativeStage(JSON.parse(state),sample.frame,'frame-'+f);
    frameHashes.push(sha(raw.buffer));stateHashes.push(sha(state));
    if(selected.includes(f)){
      const filename='m3-final-frame-'+String(f).padStart(3,'0')+'.png';
@@ -149,7 +180,7 @@ try{
    'select='+selector(compareFrames)+',scale=480:270,tile=5x1',
    '-frames:v','1',comparison]);
  const manifest={
-   milestone:'M3',status:'TECHNICAL_PASS_PENDING_OWNER_VISUAL_REVIEW',
+   milestone:m6Mode?'M6':'M3',qualityMode:m6Mode??null,status:'TECHNICAL_PASS_PENDING_OWNER_VISUAL_REVIEW',
    sourceCommit:process.env.SOURCE_HEAD_SHA||process.env.GITHUB_SHA||'LOCAL_UNPINNED',
    checkoutCommit:process.env.GITHUB_SHA||'LOCAL_UNPINNED',
    renderer:'native Three.js + audited cutout puppet, same sample at any frame',
