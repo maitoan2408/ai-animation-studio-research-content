@@ -50,38 +50,6 @@ async function start(){
  camera.position.z=1000;
  const textures=new Map<string,THREE.Texture>(),meshes=new Map<string,THREE.Mesh>();
 
- // Native asset-sampled joint fills avoid per-character palette hardcoding.
- // Every G3 opt-in cap derives its position from the rig's actual two bone anchors.
- const jointColorCache=new Map<string,THREE.Color>();
- const jointColor=(assetId:string):THREE.Color=>{
-  const cached=jointColorCache.get(assetId);if(cached)return cached;
-  const tex=textures.get(assetId),source=tex?.image as HTMLImageElement|undefined;
-  const art=config.pack.assets.find(a=>a.id===assetId);
-  if(!source||!art||!art.anchors.end)throw Error('G3_JOINT_SOURCE_TEXTURE_UNAVAILABLE '+assetId);
-  const can=document.createElement('canvas');can.width=source.width;can.height=source.height;
-  const ctx=can.getContext('2d',{willReadFrequently:true});
-  if(!ctx)throw Error('G3_JOINT_CONTEXT_UNAVAILABLE');
-  ctx.drawImage(source,0,0);
-  const y=Math.max(0,Math.min(can.height-1,Math.round(art.anchors.end[1]-28)));
-  const x=Math.max(0,Math.min(can.width-1,Math.round(art.width/2)));
-  // The anchor can sit in a transparent cutout; sample the nearest opaque
-  // native limb pixel rather than assuming its geometric center is painted.
-  // A bounded search keeps the color tied to this exact source asset.
-  let rgba:Uint8ClampedArray|undefined;
-  const radius=Math.max(2,Math.min(24,Math.ceil(Math.min(can.width,can.height)*0.12)));
-  const pixels=ctx.getImageData(Math.max(0,x-radius),Math.max(0,y-radius),Math.min(can.width,x+radius+1)-Math.max(0,x-radius),Math.min(can.height,y+radius+1)-Math.max(0,y-radius));
-  const ox=Math.max(0,x-radius),oy=Math.max(0,y-radius);
-  outer:for(let d=0;d<=radius;d++)for(let dy=-d;dy<=d;dy++)for(let dx=-d;dx<=d;dx++){
-   if(Math.max(Math.abs(dx),Math.abs(dy))!==d)continue;
-   const px=x+dx,py=y+dy;
-   if(px<ox||py<oy||px>=ox+pixels.width||py>=oy+pixels.height)continue;
-   const i=((py-oy)*pixels.width+(px-ox))*4;
-   if((pixels.data[i+3]??0)>=100){rgba=pixels.data.slice(i,i+4);break outer;}
-  }
-  if(!rgba)throw Error('G3_JOINT_OPAQUE_COAT_SAMPLE_MISSING '+assetId);
-  const color=new THREE.Color('rgb('+rgba[0]+','+rgba[1]+','+rgba[2]+')');
-  jointColorCache.set(assetId,color);return color;
- };
  const began=performance.now();
  // Bounded decode concurrency keeps high resolution layers within this host's RAM.
  const queue=[...config.textures];
@@ -105,21 +73,10 @@ async function start(){
    (mesh.material as THREE.MeshBasicMaterial).opacity=s.opacity;
   }
 
-  for(const cap of state.jointCaps??[]){
-   const key='g3-cap:'+cap.id;let mesh=meshes.get(key);
-   if(!mesh){
-    const geometry=new THREE.CircleGeometry(1,32);
-    const shade=jointColor(cap.sourceAsset);
-    mesh=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({
-      color:shade,transparent:true,depthWrite:false,depthTest:false,side:THREE.DoubleSide
-    }));
-    scene.add(mesh);meshes.set(key,mesh);
-   }
-   mesh.visible=true;
-   mesh.position.set(cap.x-960,540-cap.y,cap.z);
-   mesh.rotation.z=0;mesh.scale.set(cap.radius,cap.radius,1);
-   mesh.renderOrder=ordered.filter(s=>s.z<=cap.z).length+.01;
-  }
+  // G3 jointCaps remain validated spatial metadata, not decorative overlays.
+  // The previous opaque CircleGeometry caps introduced conspicuous dark disks
+  // over the actual paper-cut garment. Rendering them would obscure pinned art.
+  // A future textured seam treatment requires independent silhouette QA.
   camera.position.x=state.camera.x-960;camera.position.y=540-state.camera.y;camera.zoom=state.camera.zoom;camera.updateProjectionMatrix();
   renderer.render(scene,camera);renderer.getContext().finish();
   api.studio.frame=frame;api.studio.state=state;
