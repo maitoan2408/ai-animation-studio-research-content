@@ -91,7 +91,7 @@ const part=(frame:SceneFrame,id:string):Sprite=>{
  */
 export function sampleG3Performance(playback:GeneralPlayback,plan:G3PerformancePlan,frame:number,
  pack:ArtPack):G3PerformanceSample{
- const base=sampleGeneralPlayback(playback,frame,pack);
+ const base=sampleGeneralPlayback(playback,frame,pack,'native-silhouette');
  let scene:SceneFrame=base.frame;
  const gains:G3PerformanceSample['gains'][number][]=[];
  for(const track of plan.tracks){

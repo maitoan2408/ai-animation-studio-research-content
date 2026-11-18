@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import type {ArtPack} from '../src/scene/types.js';
-import {anchorPoint} from '../src/scene/geometry.js';
+import {anchorPoint,spriteBounds} from '../src/scene/geometry.js';
 import {sampleGeneralFilm,type GeneralFilm} from '../src/motion/general-timeline.js';
 import {sampleGeneralPlayback,type GeneralPlayback} from '../src/motion/general-playback.js';
 import {sampleG3Performance,validateG3Performance,type G3PerformancePlan} from '../src/motion/g3-performance.js';
@@ -73,6 +73,29 @@ for(const [hand,model] of [['right','an'],['left','mai']] as const){
    return b;
   });
   assert.ok(changed>36,'no meaningful movement in new enhanced output '+changed);
+  const rest=95;
+  const base=sampleGeneralPlayback(movie,rest,pack).frame;
+  const improved=scenes[rest]!.frame;
+  const crowding=(f:typeof base)=>{
+    const b=(part:string)=>spriteBounds(pack,
+      f.sprites.find(s=>s.id==='hero-actor.'+part)!);
+    const handBox=b(hand+'-hand'),area=(handBox.right-handBox.left)*
+      (handBox.bottom-handBox.top);
+    return ['left-thigh','right-thigh'].reduce((sum,part)=>{
+      const thigh=b(part);
+      return sum+Math.max(0,Math.min(handBox.right,thigh.right)-
+        Math.max(handBox.left,thigh.left))*Math.max(0,Math.min(handBox.bottom,thigh.bottom)-
+        Math.max(handBox.top,thigh.top));
+    },0)/area;
+  };
+  assert.ok(crowding(improved)<=crowding(base)+1e-5,
+    'silhouette-aware resting cannot increase hand/thigh crowding');
+  for(const f of [63,64,65,95,127]){
+    const s=scenes[f]!.frame;
+    const upper=s.sprites.find(x=>x.id==='hero-actor.'+hand+'-upper')!;
+    const torso=s.sprites.find(x=>x.id==='hero-actor.torso')!;
+    assert.ok(upper.z>torso.z,'release must not invert the active arm/torso order');
+  }
   // A near-limit planted-body IK cannot erase valid independent gaze/free-hand.
   const peak=sampleG3Performance(movie,plan,42,pack);
   const original=sampleGeneralPlayback(movie,42,pack);

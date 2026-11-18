@@ -26,7 +26,10 @@ function fromCenter(old:Sprite,pack:ArtPack,x:number,y:number,angle:number):Spri
  const [cx,cy]=center({...s,x:0,y:0},pack);
  return {...s,x:x-cx,y:y-cy};
 }
-export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack:ArtPack):GeneralSample{
+/** Native silhouette resting is an opt-in G3 style; archived baseline unchanged. */
+export type GeneralRestStyle='legacy'|'native-silhouette';
+export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack:ArtPack,
+ restStyle:GeneralRestStyle='legacy'):GeneralSample{
  const sample=sampleGeneralFilm(playback.film,frame,pack);
  if(!playback.releases.length)return sample;
  let sprites=sample.frame.sprites,markers=sample.frame.markers;
@@ -65,10 +68,15 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
    const physicalRest=fromCenter(old,pack,finish.centerX,finish.centerY,finish.angleDeg);
    const propBounds=spriteBounds(pack,physicalRest);
    let destination:Point|undefined;
-   // Prefer the resting arm's natural side; only retreat farther in if
-   // the object would appear to stick to an idle open hand.
-   for(let yshift=10;yshift>=-4&&destination===undefined;yshift-=2){
-     for(let factor=.38;factor>=-.001;factor-=.02){
+   let best=Number.POSITIVE_INFINITY;
+   // Source-derived semantic wrist rest, not a specific actor/prop or frame.
+   // Maintain historical candidate search for all non-enhanced playback.
+   const overlap=(x:ReturnType<typeof spriteBounds>,y:ReturnType<typeof spriteBounds>)=>
+     Math.max(0,Math.min(x.right,y.right)-Math.max(x.left,y.left))*
+     Math.max(0,Math.min(x.bottom,y.bottom)-Math.max(x.top,y.top));
+   for(let yshift=10;yshift>=-4&&(restStyle==='native-silhouette'||!destination);yshift-=2){
+     for(let factor=restStyle==='native-silhouette'?1:.38;factor>=-.001;
+       factor-=restStyle==='native-silhouette'?.04:.02){
        const world:Point=[mix(a.x,rest[0],Math.max(0,factor)),rest[1]+yshift];
        const local:Point=[(world[0]-a.x)/(a.scale*a.facing),
          (world[1]-a.floor)/a.scale];
@@ -76,10 +84,20 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
          const solved=actorSprites(pack,{...neutral,
            ...(hand==='left'?{leftWrist:local,leftHand:'open' as const,leftHandAngle:180}:
              {rightWrist:local,rightHand:'open' as const,rightHandAngle:180})});
-         const handSprite=solved.sprites.find(s=>s.id===prefix+hand+'-hand');
-         if(handSprite&&spriteBoundsGap(spriteBounds(pack,handSprite),propBounds)>=6){
-           destination=world;break;
-         }
+         const palm=solved.sprites.find(s=>s.id===prefix+hand+'-hand');
+         if(!palm)throw Error('G3_REST_HAND_MISSING '+actorId);
+         const visible=spriteBounds(pack,palm);
+         if(spriteBoundsGap(visible,propBounds)<6)continue;
+         if(restStyle==='legacy'){destination=world;break;}
+         const area=(visible.right-visible.left)*(visible.bottom-visible.top);
+         if(!(area>0))throw Error('G3_REST_HAND_BOUNDS '+actorId);
+         const thighRatio=solved.sprites.filter(s=>
+           s.id===prefix+'left-thigh'||s.id===prefix+'right-thigh')
+           .reduce((n,s)=>n+overlap(visible,spriteBounds(pack,s)),0)/area;
+         // AABB is a conservative silhouette proxy; pixel-alpha review remains
+         // mandatory. Prefer a visible hand by the body's side over the thigh.
+         const score=thighRatio*4+(1-Math.max(0,factor))*.15+Math.abs(yshift)*.001;
+         if(score<best-1e-10){best=score;destination=world;}
        }catch(e){
          if(!(e instanceof Error)||!e.message.startsWith('IK_UNREACHABLE'))throw e;
        }

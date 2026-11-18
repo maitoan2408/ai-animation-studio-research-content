@@ -16,6 +16,7 @@ import {sampleG3Performance,validateG3Performance} from '../motion/g3-performanc
 import {auditFrame} from './general-scene-quality.js';
 import {auditG3VisualIntent} from './g3-visual-intent.js';
 import {auditG3JointCaps} from '../scene/g3-joint-caps.js';
+import {auditG3ArmDepth} from '../scene/g3-occlusion.js';
 import type {ArtPack} from '../scene/types.js';
 const sha=(x:Uint8Array|string)=>createHash('sha256').update(x).digest('hex');
 const check=(cmd:string,args:string[])=>{
@@ -154,7 +155,7 @@ for(const pair of pairs.pairs){
    assert.equal(sha(data),digest);
    assert.equal(sha(data),manifest.frameHashes[index]);
  }
- let changed=0,backoffs=0;
+ let changed=0,acting=0,compositingOnly=0,backoffs=0;
  for(let frame=0;frame<playback.film.frames;frame++){
    const base=sampleGeneralPlayback(playback,frame,pack);
    const next=sampleG3Performance(playback,plan,frame,pack);
@@ -169,6 +170,9 @@ for(const pair of pairs.pairs){
      pair.enhanced+':'+frame+':state/physical support');
    assert.deepEqual(auditG3JointCaps(artFrame,pack,plan.tracks.map(t=>t.actorId)),[],
      pair.enhanced+':'+frame+':joint visual geometry');
+   for(const track of playback.film.tracks)
+     assert.deepEqual(auditG3ArmDepth(artFrame,track.contact.actor.id,track.contact.hand),[],
+       pair.enhanced+':'+frame+':arm depth');
    assert.deepEqual(artFrame.camera,base.frame.camera);
    assert.deepEqual(next.contacts,base.contacts);
    for(const t of playback.film.tracks){
@@ -181,17 +185,39 @@ for(const pair of pairs.pairs){
          base.frame.markers.find(m=>m.id===sole)?.point,'sole drift');
      }
    }
-   if(JSON.stringify(artFrame.sprites)!==JSON.stringify(base.frame.sprites))changed++;
+   const altered=JSON.stringify(artFrame.sprites)!==JSON.stringify(base.frame.sprites);
+   if(altered)changed++;
+   if(next.gains.length){
+     acting++;
+     assert.ok(altered,'G3_ACTING_GAIN_WITHOUT_VISUAL_CHANGE '+frame);
+   }else if(altered){
+     compositingOnly++;
+     const original=new Map(base.frame.sprites.map(s=>[s.id,s]));
+     for(const sprite of artFrame.sprites){
+       const previous=original.get(sprite.id);
+       assert.ok(previous,'G3_UNKNOWN_VISUAL_SOURCE '+sprite.id);
+       // Pure layer-only changes cannot move sprites or rewrite their pixels.
+       // Native-silhouette recovery is separately allowed only after release.
+       const t=playback.film.tracks.find(t=>sprite.id.startsWith(t.contact.actor.id+'.'));
+       const released=t&&playback.releases.some(r=>r.actorId===t.contact.actor.id&&frame>=r.frame);
+       if(!released)assert.deepEqual({...sprite,z:0},{...previous,z:0},
+         'G3_UNDECLARED_GEOMETRY_CHANGE '+frame+':'+sprite.id);
+     }
+   }
    backoffs+=next.gains.filter(g=>g.applied+1e-4<g.requested).length;
  }
- assert.ok(changed>36,'G3_ENHANCED_ACTING_TOO_WEAK '+changed);
- assert.equal(manifest.performance.changedActingFrames,changed);
+ assert.ok(changed>36,'G3_ENHANCED_VISIBLE_CHANGE_TOO_WEAK '+changed);
+ assert.equal(changed,acting+compositingOnly,'G3_FRAME_CHANGE_LEDGER');
+ assert.equal(manifest.performance.changedActingFrames,acting,
+   'G3_ACTING_BEAT_MANIFEST_MISMATCH');
  assert.equal(manifest.performance.backoffFrames.length,backoffs);
- assert.equal(pair.changedActingFrames,changed);
+ assert.equal(pair.changedActingFrames,acting);
  verified.push({id:pair.enhanced,frames:playback.film.frames,
    releaseFrame:playback.releases[0]?.frame,
    contactCount:playback.releases[0]?.bake.contacts.length,
-   sha256:manifest.video.sha256,changedActingFrames:changed,backoffFrames:backoffs});
+   sha256:manifest.video.sha256,changedActingFrames:acting,
+   totalChangedFrames:changed,compositingOnlyFrames:compositingOnly,
+   backoffFrames:backoffs});
 }
 
 const report={schemaVersion:'g3-independent-review/1',status:'PASS_TECHNICAL_PENDING_OWNER_ART',
