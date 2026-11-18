@@ -17,6 +17,8 @@ import {sampleGeneralPlayback} from '../motion/general-playback.js';
 import {sampleG3Performance,validateG3Performance} from '../motion/g3-performance.js';
 import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
+import {auditG3VisualIntent} from '../qa/g3-visual-intent.js';
+import {auditG3JointCaps} from '../scene/g3-joint-caps.js';
 import type {ArtPack} from '../scene/types.js';
 
 const hash=(a:Uint8Array|string)=>createHash('sha256').update(a).digest('hex');
@@ -97,6 +99,12 @@ try{
      last?.frame,{maxSpriteJumpPx:35,maxRotationDeltaDegrees:28,
        maxCameraDeltaPx:10,maxCameraZoomRatio:1.12});
    if(qc.length)throw Error('GENERAL_FILM_VISUAL_QA '+i+' '+qc.map(q=>q.code+':'+q.subject).join(','));
+   const intent=auditG3VisualIntent(playback,i,expected.frame,pack);
+   if(intent.issues.length)throw Error('G3_VISUAL_INTENT_QA '+i+' '+JSON.stringify(intent.issues));
+   if(performance){
+     const jointIssues=auditG3JointCaps(expected.frame,pack,performance.tracks.map(t=>t.actorId));
+     if(jointIssues.length)throw Error('G3_VISUAL_JOINT_QA '+i+' '+JSON.stringify(jointIssues));
+   }
    const capture=await captureFrameToBuffer(session,i,i/24);
    const state=await session.page.evaluate('JSON.stringify(window.studio.state)') as string;
    equalState(JSON.parse(state),expected.frame,'frame'+i);
@@ -152,7 +160,9 @@ try{
   checks:['same Three renderer and art as legacy M3–M6',
    'authored hand contact -> physics-owned real Rapier bake','actual per-frame browser state parity',
    'actual G1 contact and camera continuity checks','true native MP4 full decode',
-   'source-bound SHA and pixel random seek parity'],
+   'source-bound SHA and pixel random seek parity',
+   'source-derived held/falling/resting state and visible support',
+   ...(performance?['asset-sampled arm/knee joint caps validated against actual limb endpoints']:[])],
   limits:['Limited planted-foot grasp/release scenarios; not arbitrary walking',
    'No final voice or human aesthetic pass'],
  };

@@ -49,6 +49,26 @@ async function start(){
  const scene=new THREE.Scene(),camera=new THREE.OrthographicCamera(-960,960,540,-540,.1,4000);
  camera.position.z=1000;
  const textures=new Map<string,THREE.Texture>(),meshes=new Map<string,THREE.Mesh>();
+
+ // Native asset-sampled joint fills avoid per-character palette hardcoding.
+ // Every G3 opt-in cap derives its position from the rig's actual two bone anchors.
+ const jointColorCache=new Map<string,THREE.Color>();
+ const jointColor=(assetId:string):THREE.Color=>{
+  const cached=jointColorCache.get(assetId);if(cached)return cached;
+  const tex=textures.get(assetId),source=tex?.image as HTMLImageElement|undefined;
+  const art=config.pack.assets.find(a=>a.id===assetId);
+  if(!source||!art||!art.anchors.end)throw Error('G3_JOINT_SOURCE_TEXTURE_UNAVAILABLE '+assetId);
+  const can=document.createElement('canvas');can.width=source.width;can.height=source.height;
+  const ctx=can.getContext('2d',{willReadFrequently:true});
+  if(!ctx)throw Error('G3_JOINT_CONTEXT_UNAVAILABLE');
+  ctx.drawImage(source,0,0);
+  const y=Math.max(0,Math.min(can.height-1,Math.round(art.anchors.end[1]-28)));
+  const x=Math.max(0,Math.min(can.width-1,Math.round(art.width/2)));
+  const rgba=ctx.getImageData(x,y,1,1).data;
+  if(rgba[3]<100)throw Error('G3_JOINT_OPAQUE_COAT_SAMPLE_MISSING '+assetId);
+  const color=new THREE.Color('rgb('+rgba[0]+','+rgba[1]+','+rgba[2]+')');
+  jointColorCache.set(assetId,color);return color;
+ };
  const began=performance.now();
  // Bounded decode concurrency keeps high resolution layers within this host's RAM.
  const queue=[...config.textures];
@@ -70,6 +90,22 @@ async function start(){
    }
    mesh.visible=true;mesh.renderOrder=order;mesh.position.set(s.x-960,540-s.y,s.z);mesh.rotation.z=-s.rotation*Math.PI/180;mesh.scale.set(s.scaleX,s.scaleY,1);
    (mesh.material as THREE.MeshBasicMaterial).opacity=s.opacity;
+  }
+
+  for(const cap of state.jointCaps??[]){
+   const key='g3-cap:'+cap.id;let mesh=meshes.get(key);
+   if(!mesh){
+    const geometry=new THREE.CircleGeometry(1,32);
+    const shade=jointColor(cap.sourceAsset);
+    mesh=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({
+      color:shade,transparent:true,depthWrite:false,depthTest:false,side:THREE.DoubleSide
+    }));
+    scene.add(mesh);meshes.set(key,mesh);
+   }
+   mesh.visible=true;
+   mesh.position.set(cap.x-960,540-cap.y,cap.z);
+   mesh.rotation.z=0;mesh.scale.set(cap.radius,cap.radius,1);
+   mesh.renderOrder=ordered.filter(s=>s.z<=cap.z).length+.01;
   }
   camera.position.x=state.camera.x-960;camera.position.y=540-state.camera.y;camera.zoom=state.camera.zoom;camera.updateProjectionMatrix();
   renderer.render(scene,camera);renderer.getContext().finish();

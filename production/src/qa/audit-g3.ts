@@ -14,6 +14,8 @@ import {generalFilmFrameContract} from '../motion/general-timeline.js';
 import {sampleGeneralPlayback} from '../motion/general-playback.js';
 import {sampleG3Performance,validateG3Performance} from '../motion/g3-performance.js';
 import {auditFrame} from './general-scene-quality.js';
+import {auditG3VisualIntent} from './g3-visual-intent.js';
+import {auditG3JointCaps} from '../scene/g3-joint-caps.js';
 import type {ArtPack} from '../scene/types.js';
 const sha=(x:Uint8Array|string)=>createHash('sha256').update(x).digest('hex');
 const check=(cmd:string,args:string[])=>{
@@ -86,6 +88,8 @@ for(const id of expected){
    const issues=auditFrame(sample.frame,pack,generalFilmFrameContract(playback.film,pack,f,
      playback.releases.filter(r=>f>=r.frame).map(r=>r.actorId)));
    assert.equal(issues.length,0,id+':'+f+':'+JSON.stringify(issues));
+   assert.deepEqual(auditG3VisualIntent(playback,f,sample.frame,pack).issues,[],
+     id+':'+f+':support state');
  }
  assert.equal(overview.clips.find((x:{id:string})=>x.id===id)?.video.sha256,manifest.video.sha256);
  assert.equal(overview.clips.find((x:{id:string})=>x.id===id)?.sourceSha256,sha(source));
@@ -161,6 +165,10 @@ for(const pair of pairs.pairs){
      {maxSpriteJumpPx:35,maxRotationDeltaDegrees:28,
        maxCameraDeltaPx:10,maxCameraZoomRatio:1.12});
    assert.equal(issues.length,0,pair.enhanced+':'+frame+':'+JSON.stringify(issues));
+   assert.deepEqual(auditG3VisualIntent(playback,frame,artFrame,pack).issues,[],
+     pair.enhanced+':'+frame+':state/physical support');
+   assert.deepEqual(auditG3JointCaps(artFrame,pack,plan.tracks.map(t=>t.actorId)),[],
+     pair.enhanced+':'+frame+':joint visual geometry');
    assert.deepEqual(artFrame.camera,base.frame.camera);
    assert.deepEqual(next.contacts,base.contacts);
    for(const t of playback.film.tracks){
