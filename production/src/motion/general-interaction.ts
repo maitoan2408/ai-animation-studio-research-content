@@ -7,7 +7,7 @@
 import {actorSprites} from '../scene/rig.js';
 import {anchorPoint} from '../scene/geometry.js';
 import {sprite,type ArtPack,type ActorPose,type SceneFrame,type Sprite} from '../scene/types.js';
-import {auditFrame,type ContactContract} from '../qa/general-scene-quality.js';
+import {auditFrame,type ContactContract,type FrameContract,type SpriteContract,type GroundContract} from '../qa/general-scene-quality.js';
 
 export type HandSide='left'|'right';
 export type ContactProject={
@@ -57,6 +57,37 @@ export function validateGeneralContact(raw:unknown,pack:ArtPack):ContactProject{
     throw Error('GENERAL_CONTACT_WRONG_SIDE');
   return raw as ContactProject;
 }
+/** Authored requirements for the supported rig, independent of sampled sprites
+ * and markers. A release removes the declared grip but not the prop or feet.
+ * World bounds describe the stage, not the deliberately cropped camera viewport. */
+export function generalContactFrameContract(p:ContactProject,pack:ArtPack,frame:number,held=true):FrameContract{
+ const {actor:a,object:o,hand}=p;
+ const prefix=a.id+'.',requiredSprites:SpriteContract[]=[],grounds:GroundContract[]=[];
+ const add=(id:string,artId:string,expectedSha?:string)=>{
+   const item=asset(pack,artId);if(!item)throw Error('GENERAL_CONTRACT_ASSET: '+artId);
+   requiredSprites.push({id,asset:artId,sha256:expectedSha??item.sha256});
+ };
+ for(const [side,offset] of [['left',-35],['right',48]] as const){
+   for(const [part,art] of [['thigh','thigh'],['shin','shin'],['boot','boot'],
+     ['upper','upper-arm'],['forearm','forearm']] as const)
+     add(prefix+side+'-'+part,a.model+'/'+art);
+   add(prefix+side+'-hand',a.model+'/hand-'+(held&&side===hand?'grip':'open'));
+   if(held&&side===hand)add(prefix+side+'-grip-front',a.model+'/hand-grip-front');
+   // Authoritative planted stance for production-cutout-1; no marker input.
+   grounds.push({id:prefix+side+'-sole',spriteId:prefix+side+'-boot',anchor:'sole',
+     point:[a.x+offset*a.scale*a.facing,a.floor],tolerancePx:.001});
+ }
+ add(prefix+'torso',a.model+'/torso');
+ add(prefix+'head',a.model+'/head-quarter-neutral');
+ add(prefix+'mouth','mouth/rest');
+ add(o.id,o.asset,o.sha256);
+ const contact:ContactContract={id:a.id+'-'+hand+'-'+o.id,
+   holderId:prefix+hand+'-hand',propId:o.id,holderAnchor:'grip',propAnchor:o.anchor,
+   rearId:prefix+hand+'-hand',frontId:prefix+hand+'-grip-front',frontAnchor:'grip',
+   tolerancePx:.001};
+ return {frame,requiredSprites,grounds,contacts:held?[contact]:[],
+   bounds:[{id:a.id,spriteIds:requiredSprites.map(r=>r.id),minX:0,minY:0,maxX:1920,maxY:1080}]};
+}
 export type GeneralGripFrame={
   pose:ActorPose;objectSprite:Sprite;frame:SceneFrame;contact:ContactContract;
 };
@@ -82,11 +113,11 @@ export function sampleGeneralGrip(raw:unknown,pack:ArtPack):GeneralGripFrame{
   const contact:ContactContract={
     id:a.id+'-'+hand+'-'+o.id,holderId:a.id+'.'+hand+'-hand',propId:o.id,
     holderAnchor:'grip',propAnchor:o.anchor,
-    rearId:a.id+'.'+hand+'-hand',frontId:a.id+'.'+hand+'-grip-front',
+    rearId:a.id+'.'+hand+'-hand',frontId:a.id+'.'+hand+'-grip-front',frontAnchor:'grip',
     tolerancePx:.001,
   };
   const frame:SceneFrame={camera:{...p.camera},sprites:[...rig.sprites,objectSprite],markers:rig.markers};
-  const result=auditFrame(frame,pack,{frame:0,contacts:[contact]});
+  const result=auditFrame(frame,pack,generalContactFrameContract(p,pack,0));
   if(result.length)throw Error('GENERAL_CONTACT_QA: '+result.map(x=>x.code).join(','));
   return {pose,objectSprite,frame,contact};
 }

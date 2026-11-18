@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {sampleGeneralFilm,type GeneralFilm} from '../src/motion/general-timeline.js';
+import {sampleGeneralFilm,generalFilmFrameContract,type GeneralFilm} from '../src/motion/general-timeline.js';
 import {centerOfSprite,sampleGeneralPlayback,type GeneralPlayback} from '../src/motion/general-playback.js';
 import {validateGeneralPlayback} from '../src/motion/general-playback-validate.js';
 import {bakeGeneralDrop,type GeneralDrop} from '../src/physics/general-drop.js';
@@ -109,4 +109,23 @@ test('G3 fail-closed: forged physics receipt, wrong handoff and invisible collis
  const hidden=structuredClone(movie);
  hidden.film.stage=[];
  assert.throws(()=>validateGeneralPlayback(hidden,pack),/G3_RELEASE_INVISIBLE_PLATFORM/);
+});
+
+test('G1 actual G3 render contracts reject forged sole, shifted fingers and wrong prop identity',async()=>{
+ const {movie,release}=await create();
+ const held=sampleGeneralPlayback(movie,release-1,pack);
+ const heldContract=generalFilmFrameContract(movie.film,pack,release-1);
+ assert.deepEqual(auditFrame(held.frame,pack,heldContract),[]);
+ const fingers=structuredClone(held.frame);
+ fingers.sprites.find(s=>s.id==='actor-one.right-grip-front')!.x+=8;
+ assert.ok(auditFrame(fingers,pack,heldContract).some(x=>x.code==='QA_FRONT_CONTACT_MISALIGNED'));
+ const after=sampleGeneralPlayback(movie,release+10,pack);
+ const releaseContract=generalFilmFrameContract(movie.film,pack,release+10,['actor-one']);
+ assert.deepEqual(auditFrame(after.frame,pack,releaseContract),[]);
+ const sole=structuredClone(after.frame);
+ sole.sprites.find(s=>s.id==='actor-one.left-boot')!.y+=5;
+ assert.ok(auditFrame(sole,pack,releaseContract).some(x=>x.code==='QA_GROUND_CONTACT'));
+ const wrong=structuredClone(after.frame);
+ wrong.sprites.find(s=>s.id==='item-one')!.asset='props/lantern-dark';
+ assert.ok(auditFrame(wrong,pack,releaseContract).some(x=>x.code==='QA_ASSET_BINDING_MISMATCH'));
 });

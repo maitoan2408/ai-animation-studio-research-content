@@ -72,7 +72,7 @@ export function evaluateM6(
     const contacts=sample.contact.grip&&project.prop?[{
       id:project.character.id+'-held-prop',holderId:project.character.id+'.'+side+'-hand',
       propId:project.prop.id,holderAnchor:'grip',propAnchor:'grip',
-      rearId:project.character.id+'.'+side+'-hand',frontId:project.character.id+'.'+side+'-grip-front',tolerancePx:.001,
+      rearId:project.character.id+'.'+side+'-hand',frontId:project.character.id+'.'+side+'-grip-front',frontAnchor:'grip',tolerancePx:.001,
     }]:[];
     for(const problem of auditFrame(sample.frame,pack,{frame:f,contacts},previousFrame))
       issues.push({code:problem.code,severity:'error',frame:f,measured:NaN,expected:problem.detail,evidence:problem.subject});

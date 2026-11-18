@@ -63,6 +63,15 @@ export function evaluateNativeVisuals(
   for(const side of s.contact.planted){
     const sole=s.frame.markers.find(x=>x.id===p.character.id+'.'+side+'-sole');
     if(!sole){push('VISUAL_MISSING_PLANTED_SOLE','error',frame,side,'Missing sole marker');continue;}
+    // Verify the real sole artwork anchor, not merely the authored marker.
+    const boot=current.get(p.character.id+'.'+side+'-boot');
+    try{
+      if(!boot)throw Error('boot sprite absent');
+      const actual=anchorPoint(pack,boot,'sole');
+      const discrepancy=dist(actual,sole.point);
+      if(!Number.isFinite(discrepancy)||discrepancy>.001)
+        push('VISUAL_ACTUAL_SOLE_DRIFT','error',frame,boot.id,'real sole vs marker '+discrepancy+'px');
+    }catch(e){push('VISUAL_SOLE_ART_MISSING','error',frame,side,String(e));}
     planted++;
     const step=clip.clip.action==='walk-stop'?(clip.clip.frames-25)/2:0;
     const phase=clip.clip.action==='walk-stop'?

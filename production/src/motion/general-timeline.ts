@@ -8,8 +8,8 @@ import {background} from '../scene/benchmark.js';
 import {actorSprites} from '../scene/rig.js';
 import {smooth,mix} from '../scene/math.js';
 import {sprite,type ArtPack,type SceneFrame} from '../scene/types.js';
-import {sampleGeneralGrip,validateGeneralContact,type ContactProject} from './general-interaction.js';
-import {auditFrame,type ContactContract} from '../qa/general-scene-quality.js';
+import {sampleGeneralGrip,validateGeneralContact,generalContactFrameContract,type ContactProject} from './general-interaction.js';
+import {auditFrame,type ContactContract,type FrameContract} from '../qa/general-scene-quality.js';
 
 export type GeneralKey={frame:number;dx:number;dy:number;headAngle:number};
 export type CameraKey={frame:number;x:number;y:number;zoom:number};
@@ -87,6 +87,17 @@ function interpolation<T extends {frame:number}>(keys:T[],frame:number){
  const left=keys[i]!,right=keys[i+1]!;
  return {a:left,b:right,t:smooth((frame-left.frame)/(right.frame-left.frame))};
 }
+/** Derived from authored tracks and release schedule, never from rendered
+ * sprite/marker claims. Includes source-pinned stage prop identities. */
+export function generalFilmFrameContract(film:GeneralFilm,pack:ArtPack,frame:number,
+  released:readonly string[]=[]):FrameContract{
+ const parts=film.tracks.map(t=>generalContactFrameContract(t.contact,pack,frame,
+   !released.includes(t.contact.actor.id)));
+ return {frame,contacts:parts.flatMap(p=>p.contacts??[]),
+   grounds:parts.flatMap(p=>p.grounds??[]),bounds:parts.flatMap(p=>p.bounds??[]),
+   requiredSprites:[...parts.flatMap(p=>p.requiredSprites??[]),
+     ...(film.stage??[]).map(s=>({id:s.id,asset:s.asset,sha256:s.sha256}))]};
+}
 export type GeneralSample={frame:SceneFrame;contacts:ContactContract[];index:number};
 export function sampleGeneralFilm(raw:unknown,index:number,pack:ArtPack):GeneralSample{
  const film=validateGeneralFilm(raw,pack);
@@ -111,7 +122,7 @@ export function sampleGeneralFilm(raw:unknown,index:number,pack:ArtPack):General
    contacts.push(grip.contact);
  }
  const frame={camera,sprites,markers};
- const issues=auditFrame(frame,pack,{frame:index,contacts});
+ const issues=auditFrame(frame,pack,generalFilmFrameContract(film,pack,index));
  if(issues.length)throw Error('GENERAL_FILM_FRAME_QA: '+issues.map(x=>x.code).join(','));
  return {frame,contacts,index};
 }

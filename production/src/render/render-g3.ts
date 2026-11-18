@@ -12,6 +12,7 @@ import path from 'node:path';
 import {createCaptureSession,initializeSession,captureFrameToBuffer,closeCaptureSession,drainBrowserPool} from '@hyperframes/engine';
 import {serveG3,root} from './server.js';
 import {ensureM3Textures} from './prepare-m3.js';
+import {generalFilmFrameContract} from '../motion/general-timeline.js';
 import {sampleGeneralPlayback} from '../motion/general-playback.js';
 import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
@@ -75,7 +76,8 @@ try{
  let last:ReturnType<typeof sampleGeneralPlayback>|undefined;
  for(let i=0;i<count;i++){
    const expected=sampleGeneralPlayback(playback,i,pack);
-   const qc=auditFrame(expected.frame,pack,{frame:i,contacts:expected.contacts},
+   const qc=auditFrame(expected.frame,pack,generalFilmFrameContract(film,pack,i,
+     playback.releases.filter(r=>i>=r.frame).map(r=>r.actorId)),
      last?.frame,{maxSpriteJumpPx:35,maxRotationDeltaDegrees:28,
        maxCameraDeltaPx:10,maxCameraZoomRatio:1.12});
    if(qc.length)throw Error('GENERAL_FILM_VISUAL_QA '+i+' '+qc.map(q=>q.code+':'+q.subject).join(','));
