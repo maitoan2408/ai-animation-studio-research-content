@@ -4,6 +4,8 @@
  */
 import {actorSprites} from '../scene/rig.js';
 import {deriveG3JointCaps} from '../scene/g3-joint-caps.js';
+import {selectG3ElbowBend,applyG3ElbowBend} from '../scene/g3-ergonomic-ik.js';
+import {sampleGeneralGrip} from './general-interaction.js';
 import {resolveG3ArmDepth,auditG3ArmDepth} from '../scene/g3-occlusion.js';
 import {anchorPoint} from '../scene/geometry.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
@@ -208,6 +210,13 @@ export function sampleG3Performance(playback:GeneralPlayback,plan:G3PerformanceP
  for(const track of plan.tracks){
   const source=playback.film.tracks.find(t=>t.contact.actor.id===track.actorId);
   if(!source)throw Error('G3_ARM_DEPTH_TRACK_UNKNOWN '+track.actorId);
+  // The choice is pinned to the first source-held pose, not the current
+  // frame's IK, to forbid an elbow-branch pop during handoff/recovery.
+  const sourceHeld=sampleGeneralGrip(source.contact,pack).frame;
+  const bend=selectG3ElbowBend(sourceHeld,pack,track.actorId,
+    source.contact.hand,source.contact.actor.facing);
+  scene=applyG3ElbowBend(scene,pack,track.actorId,source.contact.hand,
+    source.contact.actor.facing,bend);
   scene=resolveG3ArmDepth(scene,track.actorId,source.contact.hand);
   const depth=auditG3ArmDepth(scene,track.actorId,source.contact.hand);
   if(depth.length)throw Error('G3_ARM_DEPTH_QA '+JSON.stringify(depth));

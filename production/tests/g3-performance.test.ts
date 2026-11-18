@@ -111,7 +111,14 @@ for(const [hand,model] of [['right','an'],['left','mai']] as const){
   for(const i of [127,0,79,40,64,127])assert.deepEqual(sampleG3Performance(movie,plan,i,pack),scenes[i]);
   const empty=sampleG3Performance(movie,plan,0,pack).frame;
   const original0=sampleGeneralPlayback(movie,0,pack).frame;
-  assert.deepEqual(empty.sprites,original0.sprites);
+  // The G3 ergonomic pass intentionally retargets its active arm at frame 0,
+  // without changing any historical baseline or other character component.
+  const active=hand;
+  for(const s of empty.sprites){
+   if(s.id==='hero-actor.'+active+'-upper'||
+      s.id==='hero-actor.'+active+'-forearm')continue;
+   assert.deepEqual(s,original0.sprites.find(x=>x.id===s.id));
+  }
   assert.deepEqual(empty.markers,original0.markers);
   assert.deepEqual(empty.camera,original0.camera);
   assert.equal(empty.jointCaps?.length,4,'joint seam caps are G3-enhanced-only polish');
