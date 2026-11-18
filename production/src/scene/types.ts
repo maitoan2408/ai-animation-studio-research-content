@@ -17,6 +17,8 @@ export type Sprite = {
 export type Marker = { id: string; point: Point; z: number; kind: 'joint' | 'contact' | 'ground' };
 export type SceneFrame = {
   sprites: Sprite[]; markers: Marker[];
+  /** G3-only deterministic paper-cut joint polish, absent on archived M1–M6 frames. */
+  jointCaps?: import('../scene/g3-joint-caps.js').JointCap[];
   camera: { x: number; y: number; zoom: number };
 };
 export type ActorPose = {

@@ -3,6 +3,7 @@
  * Trust boundary must verify canonical source and art digests before accepting a plan.
  */
 import {actorSprites} from '../scene/rig.js';
+import {deriveG3JointCaps} from '../scene/g3-joint-caps.js';
 import {anchorPoint} from '../scene/geometry.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
 import {generalFilmFrameContract} from './general-timeline.js';
@@ -200,5 +201,5 @@ export function sampleG3Performance(playback:GeneralPlayback,plan:G3PerformanceP
   gains.push({actorId:a.id,requested:u,applied:u*Math.min(bodyGain,secondaryGain),
     bodyApplied:u*bodyGain,secondaryApplied:u*secondaryGain,kind:beat.kind});
  }
- return {...base,frame:scene,gains};
+ return {...base,frame:{...scene,jointCaps:deriveG3JointCaps(scene,pack,plan.tracks.map(t=>t.actorId))},gains};
 }
