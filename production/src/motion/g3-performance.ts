@@ -20,7 +20,7 @@ export type G3PerformancePlan={
  tracks:G3PerformanceTrack[];
 };
 export type G3PerformanceSample=ReturnType<typeof sampleGeneralPlayback>&{
- gains:ReadonlyArray<{actorId:string;requested:number;applied:number;kind:G3BeatKind}>;
+ gains:ReadonlyArray<{actorId:string;requested:number;applied:number;kind:G3BeatKind;bodyApplied:number;secondaryApplied:number}>;
 };
 
 const obj=(x:unknown):x is Record<string,unknown>=>!!x&&typeof x==='object'&&!Array.isArray(x);
@@ -109,16 +109,18 @@ export function sampleG3Performance(playback:GeneralPlayback,plan:G3PerformanceP
   const rightHandAngle=part(scene,prefix+'right-hand').rotation/a.facing;
   const firstSole=point(scene,prefix+'left-sole'),secondSole=point(scene,prefix+'right-sole');
   const originalProp=part(scene,source.contact.object.id);
-  const at=(gain:number)=>{
-   const v=u*gain;
+  const at=(bodyGain:number,secondaryGain:number)=>{
+   // Solve the body and secondary channels independently. A near-reach wrist
+   // may forbid the hip/shoulder shift without forbidding gaze or free-hand acting.
+   const v=u*bodyGain,detail=u*secondaryGain;
    const freeLeft=side==='right';
-   const leftGoal:Point=[left[0]+(freeLeft?beat.freeHandDx*a.facing*v:0),
-     left[1]+(freeLeft?beat.freeHandDy*v:0)];
-   const rightGoal:Point=[right[0]+(!freeLeft?beat.freeHandDx*a.facing*v:0),
-     right[1]+(!freeLeft?beat.freeHandDy*v:0)];
+   const leftGoal:Point=[left[0]+(freeLeft?beat.freeHandDx*a.facing*detail:0),
+     left[1]+(freeLeft?beat.freeHandDy*detail:0)];
+   const rightGoal:Point=[right[0]+(!freeLeft?beat.freeHandDx*a.facing*detail:0),
+     right[1]+(!freeLeft?beat.freeHandDy*detail:0)];
    const pose:ActorPose={id:a.id,character:a.model,x:a.x,floor:a.floor,facing:a.facing,
      scale:a.scale,view:'quarter',
-     headAngle:head+beat.headDeg*v,torsoAngle:beat.torsoDeg*v,
+     headAngle:head+beat.headDeg*detail,torsoAngle:beat.torsoDeg*v,
      hipOffset:[beat.hipX*v,beat.hipY*v],
      leftWrist:local(leftGoal),rightWrist:local(rightGoal),
      leftHand:held&&side==='left'?'grip':'open',
@@ -162,21 +164,41 @@ export function sampleG3Performance(playback:GeneralPlayback,plan:G3PerformanceP
    }
    return result;
   };
-  let result:SceneFrame,applied=1;
-  try{result=at(1);}
+  let result:SceneFrame,bodyGain=1,secondaryGain=1;
+  const isIK=(e:unknown)=>e instanceof Error&&e.message.startsWith('IK_UNREACHABLE');
+  try{result=at(1,1);}
   catch(e){
-   if(!(e instanceof Error)||!e.message.startsWith('IK_UNREACHABLE'))throw e;
-   let low=0,high=1;
-   result=scene;
-   for(let i=0;i<16;i++){
-     const candidate=(low+high)/2;
-     try{const next=at(candidate);low=candidate;result=next;}
-     catch(x){if(!(x instanceof Error)||!x.message.startsWith('IK_UNREACHABLE'))throw x;high=candidate;}
+   if(!isIK(e))throw e;
+   // Keep the baseline contact and recover as much independent gaze/free-hand
+   // acting as IK permits. Never let a constrained knee cancel head movement.
+   result=at(0,0);
+   try{result=at(0,1);}
+   catch(e){
+     if(!isIK(e))throw e;
+     let low=0,high=1;
+     for(let i=0;i<16;i++){
+       const gain=(low+high)/2;
+       try{const next=at(0,gain);low=gain;result=next;}
+       catch(x){if(!isIK(x))throw x;high=gain;}
+     }
+     secondaryGain=low;
    }
-   applied=low;
+   try{result=at(1,secondaryGain);}
+   catch(e){
+     if(!isIK(e))throw e;
+     bodyGain=0;
+     let low=0,high=1;
+     for(let i=0;i<16;i++){
+       const gain=(low+high)/2;
+       try{const next=at(gain,secondaryGain);low=gain;result=next;}
+       catch(x){if(!isIK(x))throw x;high=gain;}
+     }
+     bodyGain=low;
+   }
   }
   scene=result;
-  gains.push({actorId:a.id,requested:u,applied:u*applied,kind:beat.kind});
+  gains.push({actorId:a.id,requested:u,applied:u*Math.min(bodyGain,secondaryGain),
+    bodyApplied:u*bodyGain,secondaryApplied:u*secondaryGain,kind:beat.kind});
  }
  return {...base,frame:scene,gains};
 }

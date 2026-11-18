@@ -73,6 +73,15 @@ for(const [hand,model] of [['right','an'],['left','mai']] as const){
    return b;
   });
   assert.ok(changed>36,'no meaningful movement in new enhanced output '+changed);
+  // A near-limit planted-body IK cannot erase valid independent gaze/free-hand.
+  const peak=sampleG3Performance(movie,plan,42,pack);
+  const original=sampleGeneralPlayback(movie,42,pack);
+  const free=hand==='right'?'left':'right';
+  const wristId='hero-actor.'+free+'-wrist';
+  const wrist=(s:typeof original)=>s.frame.markers.find(m=>m.id===wristId)!.point;
+  const a=wrist(peak),b=wrist(original);
+  assert.ok(Math.hypot(a[0]-b[0],a[1]-b[1])>3,
+    'an unreachable body pose must not erase independently safe free-hand acting');
   for(const i of [127,0,79,40,64,127])assert.deepEqual(sampleG3Performance(movie,plan,i,pack),scenes[i]);
   assert.deepEqual(sampleG3Performance(movie,plan,0,pack).frame,
     sampleGeneralPlayback(movie,0,pack).frame);

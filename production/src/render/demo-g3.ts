@@ -51,8 +51,10 @@ for(const scenario of scenarios){
       {frame:48,dx:0,dy:-scenario.objectLift,headAngle:7},
       {frame:duration-1,dx:0,dy:-scenario.objectLift,headAngle:7}]}],
   stage:[stage],
-  camera:[{frame:0,x:960,y:540,zoom:1},
-    {frame:duration-1,x:953,y:538,zoom:1.05}],
+  // Authored cinematic two-shot: keep both feet, actor and real table in frame.
+  // The same camera track is shared by baseline/enhanced for honest A/B.
+  camera:[{frame:0,x:(scenario.rootX+scenario.objectX+scenario.benchX)/3+10,y:650,zoom:1.46},
+    {frame:duration-1,x:(scenario.rootX+scenario.objectX+scenario.benchX)/3,y:655,zoom:1.55}],
  };
  validateGeneralFilm(film,pack);
  const held=sampleGeneralFilm(film,releaseFrame-1,pack);
@@ -98,7 +100,7 @@ for(const scenario of scenarios){
    tracks:[{actorId:'actor-hero',beats:[
      {kind:'prepare',start:0,peak:11,end:23,torsoDeg:-2.7,hipX:-3.5,hipY:3,
        headDeg:4,freeHandDx:-9,freeHandDy:-3},
-     {kind:'act',start:23,peak:43,end:63,torsoDeg:3.5,hipX:4,hipY:-3.5,
+     {kind:'act',start:23,peak:43,end:63,torsoDeg:3.5,hipX:4,hipY:2.5,
        headDeg:-4,freeHandDx:11,freeHandDy:3},
      {kind:'recover',start:64,peak:79,end:112,torsoDeg:-3,hipX:-3.5,hipY:2.5,
        headDeg:4.5,freeHandDx:-10,freeHandDy:-4}

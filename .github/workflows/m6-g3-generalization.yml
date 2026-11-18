@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'production/src/motion/general-*'
+      - 'production/src/motion/g3-performance.ts'
       - 'production/src/physics/general-*'
       - 'production/src/render/browser.ts'
       - 'production/src/render/server.ts'
@@ -10,6 +11,8 @@ on:
       - 'production/src/render/demo-g3.ts'
       - 'production/src/qa/audit-g3.ts'
       - 'production/tests/m6-general-*.test.ts'
+      - 'production/tests/g3-performance.test.ts'
+      - 'docs/product-first/G3-VISUAL-QUALITY-REDESIGN-v1.md'
       - 'docs/product-first/M6-GENERALIZATION-PLAN.md'
       - '.github/workflows/m6-g3-generalization.yml'
   workflow_dispatch:
@@ -34,7 +37,7 @@ jobs:
       - name: Independent new G1/G2/G3 test suite and adversarial cases
         run: |
           cd production
-          npx tsx --test tests/m6-general-quality.test.ts tests/m6-general-interaction.test.ts tests/m6-general-timeline.test.ts tests/m6-general-drop.test.ts tests/m6-general-playback.test.ts
+          npx tsx --test tests/m6-general-quality.test.ts tests/m6-general-interaction.test.ts tests/m6-general-timeline.test.ts tests/m6-general-drop.test.ts tests/m6-general-playback.test.ts tests/g3-performance.test.ts
       - name: Old M3/M4/M6 motion and physical integrity contracts
         run: |
           npm --prefix production run test:motion:m6
@@ -52,7 +55,7 @@ jobs:
       - name: Install native software rasterizer, Chromium, FFmpeg and vector tools
         run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg librsvg2-bin fonts-liberation python3
       - run: npm ci && npm --prefix production ci
-      - name: Render two distinct actual 1080p24 G3 grip, lift, release and physics films
+      - name: Render four source-paired 1080p24 G3 baseline/enhanced films
         run: npx tsx production/src/render/demo-g3.ts
       - name: Independent after-render source/bake/contact/stills/video audit
         run: npx tsx production/src/qa/audit-g3.ts
