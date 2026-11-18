@@ -76,7 +76,7 @@ async function start(){
    const px=x+dx,py=y+dy;
    if(px<ox||py<oy||px>=ox+pixels.width||py>=oy+pixels.height)continue;
    const i=((py-oy)*pixels.width+(px-ox))*4;
-   if(pixels.data[i+3]>=100){rgba=pixels.data.slice(i,i+4);break outer;}
+   if((pixels.data[i+3]??0)>=100){rgba=pixels.data.slice(i,i+4);break outer;}
   }
   if(!rgba)throw Error('G3_JOINT_OPAQUE_COAT_SAMPLE_MISSING '+assetId);
   const color=new THREE.Color('rgb('+rgba[0]+','+rgba[1]+','+rgba[2]+')');
