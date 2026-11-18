@@ -38,7 +38,7 @@ function joints(frame:SceneFrame,pack:ArtPack,actorId:string,side:Side,facing:1|
  const hand=wrist(frame,actorId+'.'+side+'-wrist');
  const u=linkLength(pack,upper),f=linkLength(pack,forearm);
  return {upper,forearm,shoulder,hand,
-  joint:(bend:G3Bend)=>elbow(shoulder,hand,u,f,bend*facing)};
+  joint:(bend:G3Bend)=>elbow(shoulder,hand,u,f,(bend*facing) as G3Bend)};
 }
 /** Use the first source-held pose to select an ergonomic branch once.
  * Strongly discourage elbows above shoulders; mildly discourage elbows
