@@ -8,7 +8,7 @@ const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',
 for(const model of ['an','mai'])for(const hand of ['left','right'] as const){
  test('G3 generic cutout joint caps follow actual SVG elbow and knee on '+model+' '+hand,()=>{
   const a=actorSprites(pack,{id:'subject',character:model,x:800,floor:860,facing:1,
-    ...(hand==='left'?{leftWrist:[-140,-180]}:{rightWrist:[140,-180]})});
+    ...(hand==='left'?{leftWrist:[-110,-220]}:{rightWrist:[110,-220]})});
   const frame:SceneFrame={sprites:a.sprites,markers:a.markers,camera:{x:960,y:540,zoom:1}};
   frame.jointCaps=deriveG3JointCaps(frame,pack,['subject']);
   assert.equal(frame.jointCaps.length,4);

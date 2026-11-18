@@ -65,7 +65,7 @@ async function start(){
   const y=Math.max(0,Math.min(can.height-1,Math.round(art.anchors.end[1]-28)));
   const x=Math.max(0,Math.min(can.width-1,Math.round(art.width/2)));
   const rgba=ctx.getImageData(x,y,1,1).data;
-  if(rgba[3]<100)throw Error('G3_JOINT_OPAQUE_COAT_SAMPLE_MISSING '+assetId);
+  if((rgba[3]??0)<100)throw Error('G3_JOINT_OPAQUE_COAT_SAMPLE_MISSING '+assetId);
   const color=new THREE.Color('rgb('+rgba[0]+','+rgba[1]+','+rgba[2]+')');
   jointColorCache.set(assetId,color);return color;
  };
