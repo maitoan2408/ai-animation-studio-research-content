@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 import {bakeGeneralDrop,validateGeneralDrop,verifyGeneralDropBake,type GeneralDrop} from '../src/physics/general-drop.js';
 import type {ArtPack} from '../src/scene/types.js';
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
@@ -39,4 +40,19 @@ test('G3 physics fails closed on stale art, unsupported shape, impossible platfo
  const bake=await bakeGeneralDrop(p,pack);
  const bad=structuredClone(bake);bad.frames[5]!.centerY+=1;
  assert.throws(()=>verifyGeneralDropBake(bad,p),/GENERAL_PHYSICS_BAKE_HASH/);
+});
+
+// A digest is public integrity data, not authentication. Recomputing it
+// after editing the baked frames must not authorize fabricated physics.
+test('G3 rejects rehashed forged bake at the trusted physics boundary',async()=>{
+ const p=example(),bake=await bakeGeneralDrop(p,pack);
+ const forged=structuredClone(bake);
+ forged.frames[8]!.centerY+=1000;
+ const {sha256:ignored,...payload}=forged;
+ forged.sha256=createHash('sha256').update(JSON.stringify(payload)).digest('hex');
+ assert.equal(typeof ignored,'string');
+ // A newly calculated digest cannot substitute for a deterministic solver result.
+ await assert.rejects(async()=>{
+   verifyGeneralDropBake(forged,p);
+ },/GENERAL_PHYSICS_(?:BAKE_FORGED|FRAME_INVALID)/);
 });
