@@ -118,6 +118,31 @@ export class MotionService {
     const raw = await readFile(this.projectFile);
     return { revision: hash(raw), project: JSON.parse(raw.toString()) as MotionProject };
   }
+  /** Discover SHA-locked grip-capable props; never trust user URLs or SHA. */
+  async gripAssets() {
+    const art = JSON.parse(
+      await readFile(path.join(repoRoot, 'production/assets/lantern-v1/manifest.json'), 'utf8'),
+    ) as {
+      version: string;
+      assets: {
+        id: string;
+        sha256: string;
+        category: string;
+        anchors: Record<string, [number, number]>;
+      }[];
+    };
+    if (!art.version || !Array.isArray(art.assets))
+      failure('M3_ASSET_CATALOG_INVALID', 'Native art catalog unavailable.', 503);
+    const assets = art.assets
+      .filter((a) => a.category === 'prop' && Array.isArray(a.anchors.grip))
+      .map((a) => ({ id: a.id, sha256: a.sha256 }));
+    if (
+      !assets.length ||
+      assets.some((a) => !/^props\/[a-z0-9-]+$/.test(a.id) || !/^[a-f0-9]{64}$/.test(a.sha256))
+    )
+      failure('M3_ASSET_CATALOG_INVALID', 'Untrusted grip asset metadata.', 503);
+    return { schemaVersion: 'native-grip-assets/1', artPackId: art.version, assets };
+  }
   async validate(project: unknown) {
     return childJson(project);
   }

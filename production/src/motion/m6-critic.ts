@@ -6,6 +6,7 @@ import {sampleM3,m3TotalFrames,validateM3,type M3Project} from './character-libr
 import {sampleM6,type M6Quality,m6DefaultQuality} from './m6-quality.js';
 import type {ArtPack,Point} from '../scene/types.js';
 import {anchorPoint} from '../scene/geometry.js';
+import {gripSide} from './grip-planner.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
 
 type Issue=Readonly<{
@@ -41,35 +42,10 @@ export function evaluateM6(
   let plantedSamples=0,heldGripSamples=0,maxPlantedDrift=0,maxGripError=0;
   let cameraChanges=0;
   let previousFrame:import('../scene/types.js').SceneFrame|undefined;
-  // Visual staging is independent from a mathematically valid IK reach.
-  // This actor's supported pick-place is right-hand-only; putting the cup
-  // across the body by the open LEFT hand created the visibly broken M6
-  // stress film, even though all artificial grip markers read zero pixels.
-  const firstPick=project.clips.findIndex(c=>c.action==='pick-place');
-  if(firstPick>=0&&project.prop){
-    const prior=project.clips.slice(0,firstPick);
-    const actorX=project.character.xStart+prior.filter(c=>c.action==='walk-stop').length*120;
-    const offset=project.prop.x-actorX;
-    if(offset<35)issues.push({code:'M6_CROSS_BODY_PROP_STAGING',severity:'error',
-      frame:prior.reduce((sum,c)=>sum+c.frames,0),measured:offset,
-      expected:'right-hand cup staged at least 35 stage px right of actor root',
-      evidence:'project/prop/x / right-hand only pick-place'});
-  }
+  // Wrong-side and unreachable prop configurations now fail in the shared
+  // data-driven grip planner before quality sampling or native media export.
   for(let f=0;f<frames;f++){
     const sample=mode==='enhanced'?sampleM6(project,f,pack,controls):sampleM3(project,f,pack);
-    // Reusable engine-level QA runs on the actual evaluated frame, not on
-    // synthetic marker-only evidence. This also catches unrecognized art,
-    // duplicate instances and nonfinite transforms for every M6 film.
-    const contacts=sample.contact.grip&&project.prop?[{
-      id:project.character.id+'-held-prop',
-      holderId:project.character.id+'.right-hand',propId:project.prop.id,
-      holderAnchor:'grip',propAnchor:'grip',rearId:project.character.id+'.right-hand',
-      frontId:project.character.id+'.right-grip-front',tolerancePx:.001,
-    }]:[];
-    for(const problem of auditFrame(sample.frame,pack,{frame:f,contacts},previousFrame))
-      issues.push({code:problem.code,severity:'error',frame:f,measured:NaN,
-        expected:problem.detail,evidence:problem.subject});
-    previousFrame=sample.frame;
     const {index,clip,local}=clipFor(project,f);
     const camera=JSON.stringify(sample.frame.camera);
     if(camera!=='{"x":960,"y":540,"zoom":1}')cameraChanges++;
@@ -92,6 +68,15 @@ export function evaluateM6(
       }
       plantedSamples++;
     }
+    const side=gripSide(project.prop?.hand);
+    const contacts=sample.contact.grip&&project.prop?[{
+      id:project.character.id+'-held-prop',holderId:project.character.id+'.'+side+'-hand',
+      propId:project.prop.id,holderAnchor:'grip',propAnchor:'grip',
+      rearId:project.character.id+'.'+side+'-hand',frontId:project.character.id+'.'+side+'-grip-front',tolerancePx:.001,
+    }]:[];
+    for(const problem of auditFrame(sample.frame,pack,{frame:f,contacts},previousFrame))
+      issues.push({code:problem.code,severity:'error',frame:f,measured:NaN,expected:problem.detail,evidence:problem.subject});
+    previousFrame=sample.frame;
     if(sample.contact.grip){
       const value=sample.contact.gripError;
       if(value===null||!Number.isFinite(value))throw Error('M6_CRITIC_GRIP_MISSING');
@@ -103,14 +88,15 @@ export function evaluateM6(
     }
     if(mode==='enhanced'&&sample.contact.grip&&project.prop){
       const cup=sample.frame.sprites.find(s=>s.id===project.prop!.id);
-      const hand=sample.frame.sprites.find(s=>s.id===project.character.id+'.right-hand');
-      const forearm=sample.frame.sprites.find(s=>s.id===project.character.id+'.right-forearm');
-      const front=sample.frame.sprites.find(s=>s.id===project.character.id+'.right-grip-front');
+      const side=gripSide(project.prop.hand);
+      const hand=sample.frame.sprites.find(s=>s.id===project.character.id+'.'+side+'-hand');
+      const forearm=sample.frame.sprites.find(s=>s.id===project.character.id+'.'+side+'-forearm');
+      const front=sample.frame.sprites.find(s=>s.id===project.character.id+'.'+side+'-grip-front');
       if(!cup||!hand||!forearm||!front||
          !(forearm.z<hand.z&&hand.z<cup.z&&cup.z<front.z))
         issues.push({code:'M6_GRIP_VISIBLE_LAYER_ORDER',severity:'error',frame:f,
           measured:cup?.z??NaN,expected:'forearm < rear palm < cup handle < separate finger art',
-          evidence:'sprites/'+project.prop.id+' / '+project.character.id+'.right-hand'});
+          evidence:'sprites/'+project.prop.id+' / '+project.character.id+'.'+side+'-hand'});
       else{
         const handAnchor=anchorPoint(pack,hand,'grip');
         const fingerAnchor=anchorPoint(pack,front,'grip');

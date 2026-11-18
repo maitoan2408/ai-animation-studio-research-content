@@ -32,3 +32,7 @@ No claim of general video production until G2–G6 are independently validated o
 - `demo-g3.ts` generates **two distinct real 1080p24 MP4s**, An/right/cup and Mai/left/lantern, including physical landing on the visible workbench. `audit-g3.ts` checks all files independently, full FFmpeg decode, frame counts, still hashes, source SHA, physics evidence and contact continuity.
 - G3 cannot pass by unit tests alone. The new G3 native-film GitHub job and every legacy M0–M6 regression must pass on a single source SHA before G4 begins.
 - Do not claim arbitrary walking, all possible body gestures, cloth/hair, natural emotional acting or approved final art. These require later milestones and owner viewing.
+
+## Integration candidate (2026-11-18)
+
+Merge base `901bb7a1`; parents PR18 `b6521f6c` and PR19 `f0e9c676`. Preserve both distinct hand-placement contracts and their tests. PR19 historical plan is archived as `M6-GENERALIZATION-PR19-PLAN.md`; this ledger and the owner's G1–G6 prompt govern current gates. G3 artifacts on PR18 downloaded and independently SHA-verified, full-decoded and inspected as two 128-frame silent films, but are NOT evidence for this new source. The integration must rerender all affected native films and pass all legacy and new workflows before G4. G4–G6 remain pending. No owner acceptance or M7.

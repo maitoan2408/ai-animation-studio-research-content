@@ -38,11 +38,14 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
     const hand = side === 'right' ? pose.rightHand ?? 'open' : pose.leftHand ?? 'open';
     const handAngle=(side==='right'?pose.rightHandAngle:pose.leftHandAngle) ?? (hand==='open'?180:0);
     const layeredGrip=hand==='grip'&&(pose.layeredGripSide===side||
-      (side==='right'&&pose.layeredGrip===true&&pose.layeredGripSide===undefined));
+      (pose.layeredGripSide===undefined&&(pose.layeredGrip===side||(side==='right'&&pose.layeredGrip===true))));
     localSprite(`${side}-hand`,`${a}/hand-${hand}`,wrist,
       z+(layeredGrip ? 0.15 : 0.2),handAngle);
     const handSprite=items[items.length-1]!;
-    if(hand==='open'&&side==='right') handSprite.scaleX=-1;
+    // M3's side-valued contract mirrors its left grip; general-contact/1
+    // explicitly selects an unmirrored grip with layeredGripSide.
+    const mirrorLeftGrip=layeredGrip&&side==='left'&&pose.layeredGripSide===undefined&&pose.layeredGrip==='left';
+    if((hand==='open'&&side==='right')||mirrorLeftGrip) handSprite.scaleX=-1;
     const handAsset=pack.assets.find(x=>x.id===handSprite.asset)!;
     const offset=subtract(handAsset.anchors.grip!,handAsset.pivot);
     mark(`${side}-grip`,add(wrist,rotate([offset[0]*handSprite.scaleX,offset[1]],handAngle)),'contact',z+.2);
@@ -51,6 +54,7 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
       // visible between the rear palm and front fingers, not hidden
       // behind a single opaque fist as in the original M3 implementation.
       localSprite(`${side}-grip-front`,`${a}/hand-grip-front`,wrist,z+0.35,handAngle);
+      if(mirrorLeftGrip)items[items.length-1]!.scaleX=-1;
     }
     mark(`${side}-wrist`,wrist,'joint',z+.2);
   };
