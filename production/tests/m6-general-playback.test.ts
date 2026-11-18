@@ -151,3 +151,24 @@ test('G3 release source and deterministic physics retime for 120 and 144 native 
    assert.throws(()=>validateGeneralPlayback(bad,pack),/G3_RELEASE_SCHEMA/);
  }
 });
+
+test('G3 native silhouette resting hand stays visibly clear of the actual prop art on both sides and retimes',async()=>{
+ const {spriteBounds,spriteBoundsGap}=await import('../src/scene/geometry.js');
+ for(const [hand,obj,frames,release] of [
+   ['right','props/cup',120,55],
+   ['left','props/lantern-dark',144,70],
+ ] as const){
+   const {movie}=await create(hand,obj,frames,release);
+   validateGeneralPlayback(movie,pack);
+   const settled=Math.min(frames-1,release+30);
+   const rendered=sampleGeneralPlayback(movie,settled,pack,'native-silhouette');
+   const handSprite=rendered.frame.sprites.find(s=>s.id==='actor-one.'+hand+'-hand');
+   const propSprite=rendered.frame.sprites.find(s=>s.id==='item-one');
+   assert.ok(handSprite&&propSprite,'visible hand and native prop must exist');
+   assert.ok(spriteBoundsGap(spriteBounds(pack,handSprite),spriteBounds(pack,propSprite))>=6-1e-6,
+     'G3 released hand still appears to grip resting '+obj+' at frame '+settled);
+   assert.equal(rendered.contacts.length,0,'released prop must not retain ownership');
+   assert.deepEqual(sampleGeneralPlayback(movie,settled,pack,'native-silhouette'),rendered,
+     'enhanced native resting pose must be deterministic under random seek');
+ }
+});
