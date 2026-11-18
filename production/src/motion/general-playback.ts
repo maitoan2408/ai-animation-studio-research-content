@@ -53,7 +53,11 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
    // Never freeze the hand above a falling prop: this previously read as
    // telekinesis despite perfect physics hashes and grip anchors.
    const u=smooth((frame-release.frame)/(release.settleFrames??24));
-   const destination:Point=[mix(a.x,rest[0],.70),rest[1]];
+   // A relaxed hand must visibly separate from the released prop. The previous
+   // .70 target returned it almost to the prop's original x, creating
+   // the illusion of an invisible grip despite correct Rapier collision.
+   // A shoulder-aligned return with modest vertical fall is generic to both hands.
+   const destination:Point=[mix(a.x,rest[0],.38),rest[1]+10];
    const world=mixPoint(before,destination,u);
    const local:Point=[(world[0]-a.x)/(a.scale*a.facing),
      (world[1]-a.floor)/a.scale];

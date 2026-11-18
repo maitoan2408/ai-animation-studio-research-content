@@ -2,7 +2,7 @@
  * This runs on real sprite geometry; never trusts contact markers alone.
  * The short free-fall phase is intentional, never mislabeled as a float bug.
  */
-import {anchorPoint} from '../scene/geometry.js';
+import {anchorPoint,assetPoint} from '../scene/geometry.js';
 import type {ArtPack,SceneFrame,Sprite,Point} from '../scene/types.js';
 import type {GeneralPlayback} from '../motion/general-playback.js';
 
@@ -12,6 +12,17 @@ export type PropVisualState={actorId:string;propId:string;frame:number;state:Pro
  supportDistancePx:number|null};
 const dist=(a:Point,b:Point)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
 const byId=(frame:SceneFrame,id:string):Sprite|undefined=>frame.sprites.find(s=>s.id===id);
+const rect=(pack:ArtPack,s:Sprite)=>{
+ const art=pack.assets.find(x=>x.id===s.asset);
+ if(!art)throw Error('G3_VISUAL_UNKNOWN_ART '+s.asset);
+ const points:Point[]=[[0,0],[art.width,0],[0,art.height],[art.width,art.height]]
+  .map(p=>assetPoint(pack,s,p));
+ const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);
+ return {left:Math.min(...xs),right:Math.max(...xs),top:Math.min(...ys),bottom:Math.max(...ys)};
+};
+const gap=(a:ReturnType<typeof rect>,b:ReturnType<typeof rect>)=>
+ Math.hypot(Math.max(0,b.left-a.right,a.left-b.right),
+   Math.max(0,b.top-a.bottom,a.top-b.bottom));
 const fail=(issues:VisualIntentIssue[],code:string,frame:number,actorId:string,detail:string)=>
  issues.push({code,frame,actorId,detail});
 
@@ -54,6 +65,16 @@ export function auditG3VisualIntent(playback:GeneralPlayback,frame:number,scene:
     fail(issues,'G3_VISUAL_RELEASED_HAND_STILL_GRIPPING',frame,a.id,palm.asset);
   }
   let supportDistancePx:number|null=null;
+  // An unheld object should not visually touch an idle open hand after
+  // recovery: correct physics can still read as an invisible grip on film.
+  if(release&&frame>=release.frame+(release.settleFrames??24)){
+   try{
+    const space=gap(rect(pack,palm),rect(pack,prop));
+    if(space<6)
+     fail(issues,'G3_VISUAL_RELEASED_HAND_PROP_STILL_TOUCHING',frame,a.id,
+       space.toFixed(3)+'px visual AABB gap');
+   }catch(e){fail(issues,'G3_VISUAL_SEPARATION_GEOMETRY',frame,a.id,String(e));}
+  }
   if(release){
    const top=release.project.platform.top;
    const p=release.project.platform;
