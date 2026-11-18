@@ -64,8 +64,21 @@ async function start(){
   ctx.drawImage(source,0,0);
   const y=Math.max(0,Math.min(can.height-1,Math.round(art.anchors.end[1]-28)));
   const x=Math.max(0,Math.min(can.width-1,Math.round(art.width/2)));
-  const rgba=ctx.getImageData(x,y,1,1).data;
-  if((rgba[3]??0)<100)throw Error('G3_JOINT_OPAQUE_COAT_SAMPLE_MISSING '+assetId);
+  // The anchor can sit in a transparent cutout; sample the nearest opaque
+  // native limb pixel rather than assuming its geometric center is painted.
+  // A bounded search keeps the color tied to this exact source asset.
+  let rgba:Uint8ClampedArray|undefined;
+  const radius=Math.max(2,Math.min(24,Math.ceil(Math.min(can.width,can.height)*0.12)));
+  const pixels=ctx.getImageData(Math.max(0,x-radius),Math.max(0,y-radius),Math.min(can.width,x+radius+1)-Math.max(0,x-radius),Math.min(can.height,y+radius+1)-Math.max(0,y-radius));
+  const ox=Math.max(0,x-radius),oy=Math.max(0,y-radius);
+  outer:for(let d=0;d<=radius;d++)for(let dy=-d;dy<=d;dy++)for(let dx=-d;dx<=d;dx++){
+   if(Math.max(Math.abs(dx),Math.abs(dy))!==d)continue;
+   const px=x+dx,py=y+dy;
+   if(px<ox||py<oy||px>=ox+pixels.width||py>=oy+pixels.height)continue;
+   const i=((py-oy)*pixels.width+(px-ox))*4;
+   if(pixels.data[i+3]>=100){rgba=pixels.data.slice(i,i+4);break outer;}
+  }
+  if(!rgba)throw Error('G3_JOINT_OPAQUE_COAT_SAMPLE_MISSING '+assetId);
   const color=new THREE.Color('rgb('+rgba[0]+','+rgba[1]+','+rgba[2]+')');
   jointColorCache.set(assetId,color);return color;
  };
