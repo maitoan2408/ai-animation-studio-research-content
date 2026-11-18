@@ -75,7 +75,10 @@ for(const [hand,model] of [['right','an'],['left','mai']] as const){
   assert.ok(changed>36,'no meaningful movement in new enhanced output '+changed);
   const rest=95;
   const base=sampleGeneralPlayback(movie,rest,pack).frame;
-  const improved=scenes[rest]!.frame;
+  // Isolate the opt-in rest solver from the independent torso/hip acting
+  // channels. Comparing an active acting beat to an unanimated baseline would
+  // conflate different geometric causes and falsely fail a correct rest solver.
+  const improved=sampleGeneralPlayback(movie,rest,pack,'native-silhouette').frame;
   const crowding=(f:typeof base)=>{
     const b=(part:string)=>spriteBounds(pack,
       f.sprites.find(s=>s.id==='hero-actor.'+part)!);

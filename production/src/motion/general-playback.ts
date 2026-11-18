@@ -75,8 +75,12 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
      Math.max(0,Math.min(x.right,y.right)-Math.max(x.left,y.left))*
      Math.max(0,Math.min(x.bottom,y.bottom)-Math.max(x.top,y.top));
    for(let yshift=10;yshift>=-4&&(restStyle==='native-silhouette'||!destination);yshift-=2){
-     for(let factor=restStyle==='native-silhouette'?1:.38;factor>=-.001;
-       factor-=restStyle==='native-silhouette'?.04:.02){
+     // Search the same source-body pose space for both strategies, while G3
+     // adds neutral-side candidates. Include every legacy candidate to ensure
+     // the new score cannot worsen baseline hand/thigh overlap by construction.
+     const factors=Array.from({length:restStyle==='native-silhouette'?51:20},
+       (_,n)=>(restStyle==='native-silhouette'?1:.38)-n*.02);
+     for(const factor of factors){
        const world:Point=[mix(a.x,rest[0],Math.max(0,factor)),rest[1]+yshift];
        const local:Point=[(world[0]-a.x)/(a.scale*a.facing),
          (world[1]-a.floor)/a.scale];
