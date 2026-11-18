@@ -14,6 +14,7 @@ import {serveG3,root} from './server.js';
 import {ensureM3Textures} from './prepare-m3.js';
 import {generalFilmFrameContract} from '../motion/general-timeline.js';
 import {sampleGeneralPlayback} from '../motion/general-playback.js';
+import {sampleG3Performance,validateG3Performance} from '../motion/g3-performance.js';
 import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
 import type {ArtPack} from '../scene/types.js';
@@ -44,6 +45,12 @@ const raw=await readFile(path.resolve(source));
 const pack=JSON.parse(await readFile(path.join(root,'assets/lantern-v1/manifest.json'),'utf8')) as ArtPack;
 const playback=await validateGeneralPlaybackAgainstSolver(JSON.parse(raw.toString()),pack);
 const film=playback.film;
+const performanceRaw=process.env.G3_PERFORMANCE_FILE
+ ?await readFile(path.resolve(process.env.G3_PERFORMANCE_FILE)):undefined;
+const performance=performanceRaw?validateG3Performance(JSON.parse(performanceRaw.toString()),
+ playback,pack,{playbackSha256:hash(JSON.stringify(playback)),artSha256:hash(JSON.stringify(pack))}):undefined;
+const performanceBackoffs:{frame:number;actorId:string;requested:number;applied:number}[]=[];
+let changedActingFrames=0;
 const out=path.resolve(process.env.G3_OUTPUT_DIR??path.join(root,'out/product-first/g3-general'));
 await mkdir(out,{recursive:true});
 const video=path.join(out,'g3-motion-physics-1080p.mp4');
@@ -57,7 +64,7 @@ const count=film.frames;
 const selected=[...new Set(Array.from({length:9},(_,i)=>Math.round((count-1)*i/8)))];
 try{
  await ensureM3Textures();
- server=await serveG3(playback,{width:1920,height:1080});
+ server=await serveG3(playback,{width:1920,height:1080},performance);
  session=await createCaptureSession(server.url,out,{
    width:1920,height:1080,fps:{num:24,den:1},format:'png'
  },null,{chromePath:'/usr/bin/chromium',forceScreenshot:true,
@@ -75,7 +82,13 @@ try{
  ff.stdin!.on('error',e=>error=e);
  let last:ReturnType<typeof sampleGeneralPlayback>|undefined;
  for(let i=0;i<count;i++){
-   const expected=sampleGeneralPlayback(playback,i,pack);
+   const expected=performance?sampleG3Performance(playback,performance,i,pack):
+     sampleGeneralPlayback(playback,i,pack);
+   if('gains' in expected){
+     if(expected.gains.length)changedActingFrames++;
+     for(const g of expected.gains)if(g.applied+1e-4<g.requested)
+       performanceBackoffs.push({frame:i,actorId:g.actorId,requested:g.requested,applied:g.applied});
+   }
    const qc=auditFrame(expected.frame,pack,generalFilmFrameContract(film,pack,i,
      playback.releases.filter(r=>i>=r.frame).map(r=>r.actorId)),
      last?.frame,{maxSpriteJumpPx:35,maxRotationDeltaDegrees:28,
@@ -119,6 +132,7 @@ try{
  run('ffmpeg',['-v','error','-xerror','-y','-i',video,'-vf',
    'select='+selector+',scale=480:270,tile=3x3','-frames:v','1',contact]);
  const contactBytes=await readFile(contact);
+ if(performanceRaw)await writeFile(path.join(out,'performance-plan.json'),performanceRaw);
  const manifest={schemaVersion:'g3-native-motion-physics/1',
   status:'TECHNICAL_PASS_PENDING_HUMAN_VISUAL_REVIEW',sourceSha256:hash(raw),
   releases:playback.releases.map(r=>({actorId:r.actorId,frame:r.frame,
@@ -127,6 +141,11 @@ try{
   video:{file:path.basename(video),sha256:hash(await readFile(video)),
     frames:count,width:1920,height:1080,fps:24,audio:false},
   stills,frameHashes,stateHashes,contactSheet:{file:'contact-sheet.png',sha256:hash(contactBytes)},
+  ...(performance&&performanceRaw?{performance:{
+     schemaVersion:performance.schemaVersion,file:'performance-plan.json',
+     sha256:hash(performanceRaw),playbackSha256:performance.playbackSha256,
+     artSha256:performance.artSha256,changedActingFrames,backoffFrames:performanceBackoffs
+  }}:{}),
   checks:['same Three renderer and art as legacy M3–M6',
    'authored hand contact -> physics-owned real Rapier bake','actual per-frame browser state parity',
    'actual G1 contact and camera continuity checks','true native MP4 full decode',

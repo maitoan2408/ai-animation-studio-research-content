@@ -11,6 +11,7 @@ import {validateM3,type M3Project} from '../motion/character-library.js';
 import {m6DefaultQuality,parseM6Quality,type M6Quality} from '../motion/m6-quality.js';
 import {validateGeneralFilm,type GeneralFilm} from '../motion/general-timeline.js';
 import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
+import {validateG3Performance} from '../motion/g3-performance.js';
 import {validateM4Project,validateM4Bake} from '../physics/m4.js';
 import type {M4RenderData} from '../physics/m4-adapter.js';
 import {type ShotId,type Edit} from '../scene/benchmark.js';
@@ -109,10 +110,19 @@ export async function serveM4(raw:M4RenderData,options:{width?:number;height?:nu
 /** G3 isolated motion/physics native movie endpoint. Explicit schema and
  * bake provenance are validated before browser serving; no Director M5 code
  * or approvals are changed. */
-export async function serveG3(raw:unknown,options:{width?:number;height?:number}={}){
+export async function serveG3(raw:unknown,options:{width?:number;height?:number}={},
+ performance?:unknown){
  const session=await serve('S01',options);
  try{
-   session.config.generalPlayback=await validateGeneralPlaybackAgainstSolver(raw,session.config.pack);
+   const playback=await validateGeneralPlaybackAgainstSolver(raw,session.config.pack);
+   session.config.generalPlayback=playback;
+   if(performance!==undefined){
+     const digest=(data:unknown)=>createHash('sha256').update(JSON.stringify(data)).digest('hex');
+     session.config.generalPerformance={playback,plan:validateG3Performance(
+       performance,playback,session.config.pack,{
+         playbackSha256:digest(playback),artSha256:digest(session.config.pack)
+       })};
+   }
  }catch(error){session.close();throw error;}
  return session;
 }
