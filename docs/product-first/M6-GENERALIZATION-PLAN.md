@@ -36,3 +36,7 @@ No claim of general video production until G2–G6 are independently validated o
 ## Integration candidate (2026-11-18)
 
 Merge base `901bb7a1`; parents PR18 `b6521f6c` and PR19 `f0e9c676`. Preserve both distinct hand-placement contracts and their tests. PR19 historical plan is archived as `M6-GENERALIZATION-PR19-PLAN.md`; this ledger and the owner's G1–G6 prompt govern current gates. G3 artifacts on PR18 downloaded and independently SHA-verified, full-decoded and inspected as two 128-frame silent films, but are NOT evidence for this new source. The integration must rerender all affected native films and pass all legacy and new workflows before G4. G4–G6 remain pending. No owner acceptance or M7.
+
+### G3 adversarial replay fix candidate (2026-11-18)
+
+The integration initially failed TS2322 in run 44205118031; fix `a9748b8` passed the G3 contract job 134470009251. Subsequent independent review reproduced an integrity/authenticity gap: the original verifier accepted an edited baked coordinate (frame 8, +1000 stage px) after recomputing its public SHA using actual PR18 playback data. Regression-first commit `48c5cf6` is retained. Native render/server and independent auditor must re-simulate the validated solver recipe and reject a digest mismatch (including a one-pixel forgery). The source and release manifest are independently bound. This is a candidate repair, pending fresh full regression and actual rendered-media review. Do not mark G3 PASS or begin G4 until these gates pass.

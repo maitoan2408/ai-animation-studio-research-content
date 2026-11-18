@@ -129,3 +129,14 @@ export async function bakeGeneralDrop(raw:unknown,pack:ArtPack):Promise<GeneralD
   substeps:10 as const,frames,contacts};
  return verifyGeneralDropBake({...payload,sha256:sha(payload)},p);
 }
+
+/** A public SHA is an integrity checksum, not proof that Rapier produced a
+ * receipt. At every untrusted playback boundary, reproduce the fixed-step
+ * solver result on the exact validated recipe before publishing or auditing. */
+export async function verifyGeneralDropAgainstSolver(raw:unknown,project:unknown,pack:ArtPack):Promise<GeneralDropBake>{
+ const p=validateGeneralDrop(project,pack);
+ const checked=verifyGeneralDropBake(raw,p);
+ const rebuilt=await bakeGeneralDrop(p,pack);
+ if(checked.sha256!==rebuilt.sha256)throw Error('GENERAL_PHYSICS_BAKE_FORGED');
+ return checked;
+}

@@ -9,7 +9,7 @@ import {createHash} from 'node:crypto';
 import {readFile,writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {root} from '../render/server.js';
-import {validateGeneralPlayback} from '../motion/general-playback-validate.js';
+import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
 import {sampleGeneralPlayback} from '../motion/general-playback.js';
 import {auditFrame} from './general-scene-quality.js';
 import type {ArtPack} from '../scene/types.js';
@@ -28,10 +28,13 @@ const verified=[];
 for(const id of expected){
  const folder=path.join(dir,id);
  const source=await readFile(path.join(folder,'source-g3-playback.json'));
- const playback=validateGeneralPlayback(JSON.parse(source.toString()),pack);
+ const playback=await validateGeneralPlaybackAgainstSolver(JSON.parse(source.toString()),pack);
  const manifest=JSON.parse(await readFile(path.join(folder,'manifest.json'),'utf8'));
  assert.equal(manifest.schemaVersion,'g3-native-motion-physics/1');
  assert.equal(manifest.sourceSha256,sha(source));
+ assert.equal(sha(await readFile(path.join(folder,'playback.json'))),sha(source));
+ const expectedSource=process.env.SOURCE_HEAD_SHA??process.env.GITHUB_SHA;
+ if(expectedSource)assert.equal(manifest.sourceCommit,expectedSource,'G3_MEDIA_SOURCE_STALE');
  assert.equal(manifest.video.file,'g3-motion-physics-1080p.mp4');
  assert.equal(manifest.video.width,1920);
  assert.equal(manifest.video.height,1080);
@@ -42,6 +45,8 @@ for(const id of expected){
  assert.equal(manifest.stateHashes.length,playback.film.frames);
  assert.equal(manifest.releases.length,playback.releases.length);
  for(const [i,r]of playback.releases.entries()){
+   assert.equal(manifest.releases[i].frame,r.frame);
+   assert.equal(manifest.releases[i].actorId,r.actorId);
    assert.equal(manifest.releases[i].bakeSha256,r.bake.sha256);
    assert.deepEqual(manifest.releases[i].physicalContactFrames,r.bake.contacts);
    assert.ok(r.bake.contacts.length>0);
@@ -53,6 +58,8 @@ for(const id of expected){
   streams:Array<{codec_type:string;width:number;height:number;avg_frame_rate:string;nb_read_frames:string}>;
   format:{duration:string};
  };
+ assert.equal(parsed.streams.filter(s=>s.codec_type==='video').length,1);
+ assert.equal(parsed.streams.filter(s=>s.codec_type==='audio').length,0);
  const stream=parsed.streams.find(s=>s.codec_type==='video');
  assert.equal(stream?.width,1920);assert.equal(stream?.height,1080);
  assert.equal(stream?.avg_frame_rate,'24/1');

@@ -4,7 +4,7 @@
  */
 import {sampleGeneralFilm,validateGeneralFilm} from './general-timeline.js';
 import {centerOfSprite,type GeneralPlayback} from './general-playback.js';
-import {validateGeneralDrop,verifyGeneralDropBake} from '../physics/general-drop.js';
+import {validateGeneralDrop,verifyGeneralDropBake,verifyGeneralDropAgainstSolver} from '../physics/general-drop.js';
 import type {ArtPack} from '../scene/types.js';
 
 export function validateGeneralPlayback(raw:unknown,pack:ArtPack):GeneralPlayback{
@@ -65,4 +65,12 @@ export function validateGeneralPlayback(raw:unknown,pack:ArtPack):GeneralPlaybac
    if(!match)throw Error('G3_RELEASE_INVISIBLE_PLATFORM');
  }
  return raw as GeneralPlayback;
+}
+
+/** Trusted native renderer/auditor input boundary. Rebuild bakes once per
+ * submitted project, never during random-access frame evaluation. */
+export async function validateGeneralPlaybackAgainstSolver(raw:unknown,pack:ArtPack):Promise<GeneralPlayback>{
+ const playback=validateGeneralPlayback(raw,pack);
+ for(const r of playback.releases)await verifyGeneralDropAgainstSolver(r.bake,r.project,pack);
+ return playback;
 }

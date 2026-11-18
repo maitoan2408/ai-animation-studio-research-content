@@ -13,7 +13,7 @@ import {createCaptureSession,initializeSession,captureFrameToBuffer,closeCapture
 import {serveG3,root} from './server.js';
 import {ensureM3Textures} from './prepare-m3.js';
 import {sampleGeneralPlayback} from '../motion/general-playback.js';
-import {validateGeneralPlayback} from '../motion/general-playback-validate.js';
+import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
 import type {ArtPack} from '../scene/types.js';
 
@@ -41,7 +41,7 @@ const source=process.env.G3_PLAYBACK_FILE;
 if(!source)throw Error('G3_PLAYBACK_FILE_REQUIRED');
 const raw=await readFile(path.resolve(source));
 const pack=JSON.parse(await readFile(path.join(root,'assets/lantern-v1/manifest.json'),'utf8')) as ArtPack;
-const playback=validateGeneralPlayback(JSON.parse(raw.toString()),pack);
+const playback=await validateGeneralPlaybackAgainstSolver(JSON.parse(raw.toString()),pack);
 const film=playback.film;
 const out=path.resolve(process.env.G3_OUTPUT_DIR??path.join(root,'out/product-first/g3-general'));
 await mkdir(out,{recursive:true});

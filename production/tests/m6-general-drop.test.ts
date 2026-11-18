@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {bakeGeneralDrop,validateGeneralDrop,verifyGeneralDropBake,type GeneralDrop} from '../src/physics/general-drop.js';
+import {bakeGeneralDrop,validateGeneralDrop,verifyGeneralDropBake,verifyGeneralDropAgainstSolver,type GeneralDrop} from '../src/physics/general-drop.js';
 import type {ArtPack} from '../src/scene/types.js';
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
 const example=(asset='props/cup',kind:'ball'|'box'='box'):GeneralDrop=>({
@@ -46,13 +46,14 @@ test('G3 physics fails closed on stale art, unsupported shape, impossible platfo
 // after editing the baked frames must not authorize fabricated physics.
 test('G3 rejects rehashed forged bake at the trusted physics boundary',async()=>{
  const p=example(),bake=await bakeGeneralDrop(p,pack);
- const forged=structuredClone(bake);
- forged.frames[8]!.centerY+=1000;
- const {sha256:ignored,...payload}=forged;
- forged.sha256=createHash('sha256').update(JSON.stringify(payload)).digest('hex');
- assert.equal(typeof ignored,'string');
- // A newly calculated digest cannot substitute for a deterministic solver result.
- await assert.rejects(async()=>{
-   verifyGeneralDropBake(forged,p);
- },/GENERAL_PHYSICS_(?:BAKE_FORGED|FRAME_INVALID)/);
+ assert.equal((await verifyGeneralDropAgainstSolver(bake,p,pack)).sha256,bake.sha256);
+ for(const displacement of [1000,1]){
+   const forged=structuredClone(bake);
+   forged.frames[8]!.centerY+=displacement;
+   const {sha256:ignored,...payload}=forged;
+   forged.sha256=createHash('sha256').update(JSON.stringify(payload)).digest('hex');
+   assert.equal(typeof ignored,'string');
+   // Syntactically correct and self-hashed, but not produced by the solver.
+   await assert.rejects(()=>verifyGeneralDropAgainstSolver(forged,p,pack),/GENERAL_PHYSICS_BAKE_FORGED/);
+ }
 });
