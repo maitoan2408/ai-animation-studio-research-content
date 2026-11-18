@@ -83,8 +83,12 @@ for(const [hand,model] of [['right','an'],['left','mai']] as const){
   assert.ok(Math.hypot(a[0]-b[0],a[1]-b[1])>3,
     'an unreachable body pose must not erase independently safe free-hand acting');
   for(const i of [127,0,79,40,64,127])assert.deepEqual(sampleG3Performance(movie,plan,i,pack),scenes[i]);
-  assert.deepEqual(sampleG3Performance(movie,plan,0,pack).frame,
-    sampleGeneralPlayback(movie,0,pack).frame);
+  const empty=sampleG3Performance(movie,plan,0,pack).frame;
+  const original0=sampleGeneralPlayback(movie,0,pack).frame;
+  assert.deepEqual(empty.sprites,original0.sprites);
+  assert.deepEqual(empty.markers,original0.markers);
+  assert.deepEqual(empty.camera,original0.camera);
+  assert.equal(empty.jointCaps?.length,4,'joint seam caps are G3-enhanced-only polish');
  });
 }
 test('G3 performance fail-closed on forged source, stale assets, invalid phase and excess movement',()=>{
