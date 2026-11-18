@@ -15,8 +15,8 @@ const byId=(frame:SceneFrame,id:string):Sprite|undefined=>frame.sprites.find(s=>
 const rect=(pack:ArtPack,s:Sprite)=>{
  const art=pack.assets.find(x=>x.id===s.asset);
  if(!art)throw Error('G3_VISUAL_UNKNOWN_ART '+s.asset);
- const points:Point[]=[[0,0],[art.width,0],[0,art.height],[art.width,art.height]]
-  .map(p=>assetPoint(pack,s,p));
+ const corners:Point[]=[[0,0],[art.width,0],[0,art.height],[art.width,art.height]];
+ const points=corners.map(p=>assetPoint(pack,s,p));
  const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);
  return {left:Math.min(...xs),right:Math.max(...xs),top:Math.min(...ys),bottom:Math.max(...ys)};
 };
