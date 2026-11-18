@@ -34,7 +34,7 @@ export async function inspectVideo(file,{frames,voice=false,fps=24,width=1920,he
  // Every decoded frame and every audio sample must be readable: NOT merely
  // ffprobe success, existence, screenshot hash or MPEG header presence.
  const diagnostic=command('ffmpeg',['-hide_banner','-nostats','-xerror','-nostdin',
-   '-threads','1','-i',file,'-vf','blackdetect=d=0.08:pix_th=0.98',
+   '-threads','1','-i',file,'-vf','blackdetect=d=0.08:pic_th=0.98:pix_th=0.10',
    '-threads','1','-f','null','-']);
  const warnings=diagnostic.split('\n')
   .filter(x=>x.includes('black_start:'))
