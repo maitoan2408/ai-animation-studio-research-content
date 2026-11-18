@@ -12,6 +12,7 @@ import {root} from '../render/server.js';
 import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
 import {generalFilmFrameContract} from '../motion/general-timeline.js';
 import {sampleGeneralPlayback} from '../motion/general-playback.js';
+import {sampleG3Performance,validateG3Performance} from '../motion/g3-performance.js';
 import {auditFrame} from './general-scene-quality.js';
 import type {ArtPack} from '../scene/types.js';
 const sha=(x:Uint8Array|string)=>createHash('sha256').update(x).digest('hex');
@@ -91,6 +92,100 @@ for(const id of expected){
  verified.push({id,frames:playback.film.frames,releaseFrame:playback.releases[0]?.frame,
    contactCount:playback.releases[0]?.bake.contacts.length,sha256:sha(video)});
 }
+// Separate independent enhanced A/B audit: never inherit baseline PASS just because two new
+// MP4s exist. Validate real source bytes, plan, per-frame physics/contact and native output.
+const pairs=JSON.parse(await readFile(path.join(dir,'g3-performance-overview.json'),'utf8'));
+assert.equal(pairs.schemaVersion,'g3-performance-ab/1');
+assert.deepEqual(pairs.pairs.map((x:{baseline:string})=>x.baseline),expected);
+for(const pair of pairs.pairs){
+ const enhancedDir=path.join(dir,pair.enhanced);
+ const baselineDir=path.join(dir,pair.baseline);
+ const source=await readFile(path.join(enhancedDir,'source-g3-playback.json'));
+ const baselineSource=await readFile(path.join(baselineDir,'source-g3-playback.json'));
+ assert.equal(sha(source),sha(baselineSource),'G3_AB_EDITABLE_PLAYBACK_CHANGED');
+ const playback=await validateGeneralPlaybackAgainstSolver(JSON.parse(source.toString()),pack);
+ const planSource=await readFile(path.join(enhancedDir,'source-g3-performance.json'));
+ const plan=validateG3Performance(JSON.parse(planSource.toString()),playback,pack,{
+   playbackSha256:sha(JSON.stringify(playback)),artSha256:sha(JSON.stringify(pack))
+ });
+ const manifest=JSON.parse(await readFile(path.join(enhancedDir,'manifest.json'),'utf8'));
+ const original=JSON.parse(await readFile(path.join(baselineDir,'manifest.json'),'utf8'));
+ assert.equal(manifest.schemaVersion,'g3-native-motion-physics/1');
+ assert.equal(manifest.sourceSha256,sha(source));
+ assert.equal(manifest.sourceSha256,original.sourceSha256);
+ assert.equal(manifest.video.sha256,pair.enhancedVideoSha256);
+ assert.equal(original.video.sha256,pair.baselineVideoSha256);
+ assert.equal(pair.playbackSha256,sha(source));
+ assert.equal(manifest.performance?.schemaVersion,'g3-performance/1');
+ assert.equal(manifest.performance?.sha256,sha(planSource));
+ assert.equal(manifest.performance?.sha256,pair.performanceSha256);
+ assert.equal(manifest.performance?.playbackSha256,plan.playbackSha256);
+ assert.equal(manifest.performance?.artSha256,plan.artSha256);
+ assert.equal(sha(await readFile(path.join(enhancedDir,'performance-plan.json'))),sha(planSource));
+ const expectedSource=process.env.SOURCE_HEAD_SHA??process.env.GITHUB_SHA;
+ if(expectedSource)assert.equal(manifest.sourceCommit,expectedSource,'G3_PERFORMANCE_SOURCE_STALE');
+ assert.equal(manifest.video.audio,false);
+ assert.equal(manifest.video.frames,playback.film.frames);
+ assert.equal(manifest.video.width,1920);
+ assert.equal(manifest.video.height,1080);
+ assert.equal(manifest.video.fps,24);
+ assert.equal(manifest.frameHashes.length,playback.film.frames);
+ assert.equal(manifest.stateHashes.length,playback.film.frames);
+ const videoPath=path.join(enhancedDir,manifest.video.file);
+ assert.equal(sha(await readFile(videoPath)),manifest.video.sha256);
+ const profile=JSON.parse(check('ffprobe',['-v','error','-count_frames',
+   '-show_streams','-show_format','-of','json',videoPath]));
+ const v=profile.streams.find((s:{codec_type:string})=>s.codec_type==='video');
+ assert.equal(v?.width,1920);assert.equal(v?.height,1080);
+ assert.equal(v?.avg_frame_rate,'24/1');
+ assert.equal(v?.nb_read_frames,String(playback.film.frames));
+ assert.equal(profile.streams.filter((s:{codec_type:string})=>s.codec_type==='audio').length,0);
+ check('ffmpeg',['-v','error','-xerror','-nostdin','-threads','1','-i',videoPath,'-f','null','-']);
+ const sheet=await readFile(path.join(enhancedDir,'contact-sheet.png'));
+ assert.equal(sha(sheet),manifest.contactSheet.sha256);
+ for(const [file,digest] of Object.entries(manifest.stills as Record<string,string>)){
+   assert.match(file,/^frame-[0-9]{3}\.png$/);
+   const index=Number(file.slice(6,9));
+   const data=await readFile(path.join(enhancedDir,file));
+   assert.equal(sha(data),digest);
+   assert.equal(sha(data),manifest.frameHashes[index]);
+ }
+ let changed=0,backoffs=0;
+ for(let frame=0;frame<playback.film.frames;frame++){
+   const base=sampleGeneralPlayback(playback,frame,pack);
+   const next=sampleG3Performance(playback,plan,frame,pack);
+   const artFrame=next.frame;
+   const issues=auditFrame(artFrame,pack,generalFilmFrameContract(playback.film,pack,
+     frame,playback.releases.filter(r=>frame>=r.frame).map(r=>r.actorId)),
+     frame>0?sampleG3Performance(playback,plan,frame-1,pack).frame:undefined,
+     {maxSpriteJumpPx:35,maxRotationDeltaDegrees:28,
+       maxCameraDeltaPx:10,maxCameraZoomRatio:1.12});
+   assert.equal(issues.length,0,pair.enhanced+':'+frame+':'+JSON.stringify(issues));
+   assert.deepEqual(artFrame.camera,base.frame.camera);
+   assert.deepEqual(next.contacts,base.contacts);
+   for(const t of playback.film.tracks){
+     const propId=t.contact.object.id;
+     assert.deepEqual(artFrame.sprites.find(s=>s.id===propId),
+       base.frame.sprites.find(s=>s.id===propId),'physics-owned prop changed');
+     for(const hand of ['left','right']){
+       const sole=t.contact.actor.id+'.'+hand+'-sole';
+       assert.deepEqual(artFrame.markers.find(m=>m.id===sole)?.point,
+         base.frame.markers.find(m=>m.id===sole)?.point,'sole drift');
+     }
+   }
+   if(JSON.stringify(artFrame.sprites)!==JSON.stringify(base.frame.sprites))changed++;
+   backoffs+=next.gains.filter(g=>g.applied+1e-4<g.requested).length;
+ }
+ assert.ok(changed>36,'G3_ENHANCED_ACTING_TOO_WEAK '+changed);
+ assert.equal(manifest.performance.changedActingFrames,changed);
+ assert.equal(manifest.performance.backoffFrames.length,backoffs);
+ assert.equal(pair.changedActingFrames,changed);
+ verified.push({id:pair.enhanced,frames:playback.film.frames,
+   releaseFrame:playback.releases[0]?.frame,
+   contactCount:playback.releases[0]?.bake.contacts.length,
+   sha256:manifest.video.sha256,changedActingFrames:changed,backoffFrames:backoffs});
+}
+
 const report={schemaVersion:'g3-independent-review/1',status:'PASS_TECHNICAL_PENDING_OWNER_ART',
  source:'real native 1080p24 MP4 + source + per-frame scene QA',cases:verified,
  limitations:['Physical collision proxies are bounded to authored props',

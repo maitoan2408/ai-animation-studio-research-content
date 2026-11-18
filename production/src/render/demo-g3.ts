@@ -12,6 +12,7 @@ import path from 'node:path';
 import {root} from './server.js';
 import {sampleGeneralFilm,validateGeneralFilm,type GeneralFilm} from '../motion/general-timeline.js';
 import {centerOfSprite,type GeneralPlayback} from '../motion/general-playback.js';
+import {validateG3Performance,type G3PerformancePlan} from '../motion/g3-performance.js';
 import {validateGeneralPlayback} from '../motion/general-playback-validate.js';
 import {bakeGeneralDrop,type GeneralDrop} from '../physics/general-drop.js';
 import type {ArtPack} from '../scene/types.js';
@@ -29,6 +30,8 @@ const scenarios:Scenario[]=[
   prop:'props/lantern-dark',scale:.65,objectLift:26,benchX:1120},
 ];
 const receipt=[];
+const pairs=[];
+const hash=(s:string)=>createHash('sha256').update(s).digest('hex');
 for(const scenario of scenarios){
  const duration=128,releaseFrame=64,table=art('props/workbench');
  const top=860+(table.anchors.support![1]-table.pivot[1])*1.2;
@@ -88,7 +91,55 @@ for(const scenario of scenarios){
   prop:scenario.prop,releaseFrame,frames:duration,contacts:bake.contacts,
   sourceSha256:createHash('sha256').update(data).digest('hex'),
   video:manifest.video});
+ // Same editable playback, actor, prop, release, locked art, camera and Rapier
+ // recipe in both A/B films. Only this separately versioned performance data changes.
+ const performance:G3PerformancePlan={schemaVersion:'g3-performance/1',
+   playbackSha256:hash(JSON.stringify(playback)),artSha256:hash(JSON.stringify(pack)),
+   tracks:[{actorId:'actor-hero',beats:[
+     {kind:'prepare',start:0,peak:11,end:23,torsoDeg:-2.7,hipX:-3.5,hipY:3,
+       headDeg:4,freeHandDx:-9,freeHandDy:-3},
+     {kind:'act',start:23,peak:43,end:63,torsoDeg:3.5,hipX:4,hipY:-3.5,
+       headDeg:-4,freeHandDx:11,freeHandDy:3},
+     {kind:'recover',start:64,peak:79,end:112,torsoDeg:-3,hipX:-3.5,hipY:2.5,
+       headDeg:4.5,freeHandDx:-10,freeHandDy:-4}
+   ]}]};
+ validateG3Performance(performance,playback,pack,{
+   playbackSha256:performance.playbackSha256,artSha256:performance.artSha256});
+ const enhancedId=scenario.id+'-enhanced',enhancedDir=path.join(out,enhancedId);
+ await mkdir(enhancedDir,{recursive:true});
+ const enhancedSource=path.join(enhancedDir,'source-g3-playback.json');
+ const performanceSource=path.join(enhancedDir,'source-g3-performance.json');
+ const performanceBytes=JSON.stringify(performance,null,2)+'\n';
+ await writeFile(enhancedSource,data);
+ await writeFile(performanceSource,performanceBytes);
+ const enhanced=spawn(process.execPath,['--import','tsx',path.join(root,'src/render/render-g3.ts')],{
+   cwd:root,env:{...process.env,G3_PLAYBACK_FILE:enhancedSource,
+     G3_PERFORMANCE_FILE:performanceSource,G3_OUTPUT_DIR:enhancedDir,
+     HYPERFRAMES_NO_TELEMETRY:'1'},stdio:'inherit',
+ });
+ const [enhancedExit]=await once(enhanced,'close');
+ if(enhancedExit!==0)throw Error('G3_ENHANCED_NATIVE_RENDER_FAILED '+scenario.id+' '+enhancedExit);
+ const enhancedManifest=JSON.parse(await readFile(path.join(enhancedDir,'manifest.json'),'utf8'));
+ if(enhancedManifest.sourceSha256!==manifest.sourceSha256)
+   throw Error('G3_AB_PLAYBACK_SOURCE_DIVERGENCE');
+ if(!enhancedManifest.performance||
+    enhancedManifest.performance.sha256!==hash(performanceBytes))
+   throw Error('G3_AB_PERFORMANCE_SOURCE_MISSING');
+ pairs.push({baseline:scenario.id,enhanced:enhancedId,
+   actor:scenario.model,hand:scenario.hand,prop:scenario.prop,
+   playbackSha256:hash(data),performanceSha256:hash(performanceBytes),
+   baselineVideoSha256:manifest.video.sha256,
+   enhancedVideoSha256:enhancedManifest.video.sha256,
+   changedActingFrames:enhancedManifest.performance.changedActingFrames,
+   backoffCount:enhancedManifest.performance.backoffFrames.length});
 }
+await writeFile(path.join(out,'g3-performance-overview.json'),JSON.stringify({
+ schemaVersion:'g3-performance-ab/1',status:'AWAITING_INDEPENDENT_AFTER_RENDER_AUDIT',
+ sourceCommit:process.env.SOURCE_HEAD_SHA??process.env.GITHUB_SHA??'LOCAL',
+ pairs,limitations:['Technical performance changes do not equal artistic approval',
+  'Every physical bake and authored held prop is the same in paired films',
+  'Actual 1x/0.5x film playback and owner aesthetic judgment remain required']
+},null,2)+'\n');
 await writeFile(path.join(out,'g3-overview.json'),JSON.stringify({
  schemaVersion:'g3-native-review/1',status:'READY_FOR_OWNER_VISUAL_REVIEW',
  frames:receipt.reduce((a,c)=>a+c.frames,0),clips:receipt,
