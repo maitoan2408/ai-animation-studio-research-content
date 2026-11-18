@@ -4,6 +4,7 @@
  */
 import {actorSprites} from '../scene/rig.js';
 import {deriveG3JointCaps} from '../scene/g3-joint-caps.js';
+import {resolveG3ArmDepth,auditG3ArmDepth} from '../scene/g3-occlusion.js';
 import {anchorPoint} from '../scene/geometry.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
 import {generalFilmFrameContract} from './general-timeline.js';
@@ -200,6 +201,16 @@ export function sampleG3Performance(playback:GeneralPlayback,plan:G3PerformanceP
   scene=result;
   gains.push({actorId:a.id,requested:u,applied:u*Math.min(bodyGain,secondaryGain),
     bodyApplied:u*bodyGain,secondaryApplied:u*secondaryGain,kind:beat.kind});
+ }
+ // Contact-side compositing must not invert at release when the hand opens.
+ // This opt-in correction changes only the renderer's painter-order metadata.
+ // No actor pose, contact, Rapier state, native art or historical frame is moved.
+ for(const track of plan.tracks){
+  const source=playback.film.tracks.find(t=>t.contact.actor.id===track.actorId);
+  if(!source)throw Error('G3_ARM_DEPTH_TRACK_UNKNOWN '+track.actorId);
+  scene=resolveG3ArmDepth(scene,track.actorId,source.contact.hand);
+  const depth=auditG3ArmDepth(scene,track.actorId,source.contact.hand);
+  if(depth.length)throw Error('G3_ARM_DEPTH_QA '+JSON.stringify(depth));
  }
  return {...base,frame:{...scene,jointCaps:deriveG3JointCaps(scene,pack,plan.tracks.map(t=>t.actorId))},gains};
 }
