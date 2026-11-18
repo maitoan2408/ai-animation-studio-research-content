@@ -69,3 +69,41 @@ test('G3 rejects bad keys, duplicate IDs, unreachable motion and incomplete span
  assert.throws(()=>validateGeneralFilm(f,pack),/GENERAL_FILM_DUPLICATE_ACTOR_OR_PROP/);
  assert.throws(()=>sampleGeneralFilm(f,-1,pack),/GENERAL_FILM_DUPLICATE_ACTOR_OR_PROP/);
 });
+
+test('G3 144-frame retiming preserves source-defined grip, camera and actual planted soles at every frame',()=>{
+ const f=film();f.frames=144;
+ f.tracks[0]!.keys=[
+   {frame:0,dx:0,dy:0,headAngle:0},
+   {frame:48,dx:0,dy:-32,headAngle:6},
+   {frame:90,dx:4,dy:-44,headAngle:6},
+   {frame:143,dx:0,dy:0,headAngle:0},
+ ];
+ f.camera=[{frame:0,x:960,y:540,zoom:1},{frame:143,x:952,y:538,zoom:1.08}];
+ validateGeneralFilm(f,pack);
+ const every=Array.from({length:f.frames},(_,i)=>sampleGeneralFilm(f,i,pack));
+ for(const [i,s] of every.entries()){
+   assert.deepEqual(auditFrame(s.frame,pack,{frame:i,contacts:s.contacts}),[]);
+   assert.equal(s.contacts.length,1,'missing grip contract at frame '+i);
+   const sole=(side:'left'|'right')=>
+     s.frame.markers.find(x=>x.id==='actor-one.'+side+'-sole')!.point;
+   assert.deepEqual(sole('left'),every[0]!.frame.markers.find(x=>x.id==='actor-one.left-sole')!.point);
+   assert.deepEqual(sole('right'),every[0]!.frame.markers.find(x=>x.id==='actor-one.right-sole')!.point);
+   const prop=s.frame.sprites.find(x=>x.id==='mug-one')!;
+   if(i){
+     const prior=every[i-1]!.frame.sprites.find(x=>x.id==='mug-one')!;
+     assert.ok(Math.hypot(prop.x-prior.x,prop.y-prior.y)<4,'retimed prop jump at '+i);
+   }
+ }
+ for(const k of [143,0,71,48,142,0,143])
+   assert.deepEqual(sampleGeneralFilm(f,k,pack),every[k],'order-dependent G3 frame '+k);
+});
+test('G3 retiming rejects short films, duplicate/out-of-range keys and incomplete changed-duration spans',()=>{
+ const short=film();short.frames=23;
+ assert.throws(()=>validateGeneralFilm(short,pack),/GENERAL_FILM_SCHEMA/);
+ const duplicate=film();duplicate.tracks[0]!.keys[1]!.frame=0;
+ assert.throws(()=>validateGeneralFilm(duplicate,pack),/GENERAL_FILM_KEY_INVALID/);
+ const outOfRange=film();outOfRange.tracks[0]!.keys[3]!.frame=96;
+ assert.throws(()=>validateGeneralFilm(outOfRange,pack),/GENERAL_FILM_KEY_INVALID/);
+ const incomplete=film();incomplete.frames=144;
+ assert.throws(()=>validateGeneralFilm(incomplete,pack),/GENERAL_FILM_KEY_BOUNDARY/);
+});

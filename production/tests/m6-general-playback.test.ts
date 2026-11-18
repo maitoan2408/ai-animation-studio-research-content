@@ -9,10 +9,9 @@ import {auditFrame} from '../src/qa/general-scene-quality.js';
 import type {ArtPack} from '../src/scene/types.js';
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
 const asset=(id:string)=>pack.assets.find(a=>a.id===id)!;
-async function create(hand:'left'|'right'='right',obj:'props/cup'|'props/lantern-dark'='props/cup'){
+async function create(hand:'left'|'right'='right',obj:'props/cup'|'props/lantern-dark'='props/cup',frames=96,release=47){
  const actorX=hand==='right'?800:1280,propX=hand==='right'?900:1180;
  const table=asset('props/workbench'),benchX=hand==='right'?1060:1120;
- const frames=96,release=47;
  const film:GeneralFilm={schemaVersion:'general-film/1',frames,
    tracks:[{contact:{schemaVersion:'general-contact/1',
      actor:{id:'actor-one',model:hand==='right'?'an':'mai',rigId:'production-cutout-1',
@@ -22,10 +21,10 @@ async function create(hand:'left'|'right'='right',obj:'props/cup'|'props/lantern
      hand,camera:{x:960,y:540,zoom:1}},
      keys:[{frame:0,dx:0,dy:0,headAngle:0},
        {frame:30,dx:0,dy:-18,headAngle:5},
-       {frame:95,dx:0,dy:-18,headAngle:5}]}],
+       {frame:frames-1,dx:0,dy:-18,headAngle:5}]}],
    stage:[{id:'table',asset:table.id,sha256:table.sha256,
       x:benchX,y:860,z:-1,scale:1.2}],
-   camera:[{frame:0,x:960,y:540,zoom:1},{frame:95,x:955,y:539,zoom:1.05}],
+   camera:[{frame:0,x:960,y:540,zoom:1},{frame:frames-1,x:955,y:539,zoom:1.05}],
  };
  const held=sampleGeneralFilm(film,release-1,pack);
  const s=held.frame.sprites.find(s=>s.id==='item-one')!,[x,y]=centerOfSprite(s,pack);
@@ -128,4 +127,27 @@ test('G1 actual G3 render contracts reject forged sole, shifted fingers and wron
  const wrong=structuredClone(after.frame);
  wrong.sprites.find(s=>s.id==='item-one')!.asset='props/lantern-dark';
  assert.ok(auditFrame(wrong,pack,releaseContract).some(x=>x.code==='QA_ASSET_BINDING_MISMATCH'));
+});
+
+test('G3 release source and deterministic physics retime for 120 and 144 native frames',async()=>{
+ for(const [hand,object,frames,release] of [
+   ['right','props/cup',120,55],
+   ['left','props/lantern-dark',144,70],
+ ] as const){
+   const {movie}=await create(hand,object,frames,release);
+   validateGeneralPlayback(movie,pack);
+   assert.equal(movie.releases[0]!.bake.frames.length,frames-release);
+   const framesInOrder=Array.from({length:frames},(_,i)=>sampleGeneralPlayback(movie,i,pack));
+   for(const k of [frames-1,0,release-1,release,release+1,Math.min(release+20,frames-1),frames-1]){
+     assert.deepEqual(sampleGeneralPlayback(movie,k,pack),framesInOrder[k],hand+' non-deterministic frame '+k);
+   }
+   assert.equal(framesInOrder[release-1]!.contacts.length,1);
+   assert.equal(framesInOrder[release]!.contacts.length,0);
+   for(let i=0;i<frames;i++){
+     const contacts=i<release?1:0;
+     assert.equal(framesInOrder[i]!.contacts.length,contacts,'retimed grip ownership '+i);
+   }
+   const bad=structuredClone(movie);bad.releases[0]!.frame=frames-24;
+   assert.throws(()=>validateGeneralPlayback(bad,pack),/G3_RELEASE_SCHEMA/);
+ }
 });
