@@ -84,9 +84,12 @@ try{
  for(let i=0;i<count;i++){
    const expected=performance?sampleG3Performance(playback,performance,i,pack):
      sampleGeneralPlayback(playback,i,pack);
-   if('gains' in expected){
-     if(expected.gains.length)changedActingFrames++;
-     for(const g of expected.gains)if(g.applied+1e-4<g.requested)
+   if(performance){
+     // The selected branch is the enhanced sample; a structural 'in' guard
+     // would narrow a generic source frame's optional field to unknown.
+     const gains=(expected as ReturnType<typeof sampleG3Performance>).gains;
+     if(gains.length)changedActingFrames++;
+     for(const g of gains)if(g.applied+1e-4<g.requested)
        performanceBackoffs.push({frame:i,actorId:g.actorId,requested:g.requested,applied:g.applied});
    }
    const qc=auditFrame(expected.frame,pack,generalFilmFrameContract(film,pack,i,
