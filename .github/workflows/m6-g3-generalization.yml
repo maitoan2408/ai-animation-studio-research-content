@@ -13,7 +13,7 @@ on:
       - 'production/src/render/demo-g3.ts'
       - 'production/src/qa/audit-g3.ts'
       - 'production/tests/m6-general-*.test.ts'
-      - 'production/tests/g3-performance.test.ts tests/g3-visual-intent.test.ts tests/g3-joint-caps.test.ts'
+      - 'production/tests/g3-performance.test.ts'
       - 'production/tests/g3-visual-intent.test.ts'
       - 'production/tests/g3-joint-caps.test.ts'
       - 'docs/product-first/G3-VISUAL-QUALITY-REDESIGN-v1.md'
@@ -41,7 +41,7 @@ jobs:
       - name: Independent new G1/G2/G3 test suite and adversarial cases
         run: |
           cd production
-          npx tsx --test tests/m6-general-quality.test.ts tests/m6-general-interaction.test.ts tests/m6-general-timeline.test.ts tests/m6-general-drop.test.ts tests/m6-general-playback.test.ts tests/g3-performance.test.ts
+          npx tsx --test tests/m6-general-quality.test.ts tests/m6-general-interaction.test.ts tests/m6-general-timeline.test.ts tests/m6-general-drop.test.ts tests/m6-general-playback.test.ts tests/g3-performance.test.ts tests/g3-visual-intent.test.ts tests/g3-joint-caps.test.ts
       - name: Old M3/M4/M6 motion and physical integrity contracts
         run: |
           npm --prefix production run test:motion:m6

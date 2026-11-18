@@ -5,6 +5,7 @@
  */
 import {sampleGeneralFilm,type GeneralFilm,type GeneralSample} from './general-timeline.js';
 import {actorSprites} from '../scene/rig.js';
+import {spriteBounds,spriteBoundsGap} from '../scene/geometry.js';
 import {mix,mixPoint,smooth} from '../scene/math.js';
 import type {GeneralDrop,GeneralDropBake} from '../physics/general-drop.js';
 import type {ActorPose,ArtPack,Point,Sprite,SceneFrame} from '../scene/types.js';
@@ -57,7 +58,34 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
    // .70 target returned it almost to the prop's original x, creating
    // the illusion of an invisible grip despite correct Rapier collision.
    // A shoulder-aligned return with modest vertical fall is generic to both hands.
-   const destination:Point=[mix(a.x,rest[0],.38),rest[1]+10];
+   // Choose the least invasive reachable neutral wrist that no longer overlaps
+   // the *resting* object's actual art bounds. This is generic for arbitrary
+   // compatible actors/prop sizes/hands and preserves all source/bake positions.
+   const finish=release.bake.frames[release.bake.frames.length-1]!;
+   const physicalRest=fromCenter(old,pack,finish.centerX,finish.centerY,finish.angleDeg);
+   const propBounds=spriteBounds(pack,physicalRest);
+   let destination:Point|undefined;
+   // Prefer the resting arm's natural side; only retreat farther in if
+   // the object would appear to stick to an idle open hand.
+   for(let yshift=10;yshift>=-4&&destination===undefined;yshift-=2){
+     for(let factor=.38;factor>=-.001;factor-=.02){
+       const world:Point=[mix(a.x,rest[0],Math.max(0,factor)),rest[1]+yshift];
+       const local:Point=[(world[0]-a.x)/(a.scale*a.facing),
+         (world[1]-a.floor)/a.scale];
+       try{
+         const solved=actorSprites(pack,{...neutral,
+           ...(hand==='left'?{leftWrist:local,leftHand:'open' as const,leftHandAngle:180}:
+             {rightWrist:local,rightHand:'open' as const,rightHandAngle:180})});
+         const handSprite=solved.sprites.find(s=>s.id===prefix+hand+'-hand');
+         if(handSprite&&spriteBoundsGap(spriteBounds(pack,handSprite),propBounds)>=6){
+           destination=world;break;
+         }
+       }catch(e){
+         if(!(e instanceof Error)||!e.message.startsWith('IK_UNREACHABLE'))throw e;
+       }
+     }
+   }
+   if(!destination)throw Error('G3_RELEASE_RESTING_HAND_CLEARANCE_UNREACHABLE '+actorId);
    const world=mixPoint(before,destination,u);
    const local:Point=[(world[0]-a.x)/(a.scale*a.facing),
      (world[1]-a.floor)/a.scale];

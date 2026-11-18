@@ -13,3 +13,16 @@ export function anchorPoint(pack: ArtPack, item: Sprite, name: string): Point {
   if(!point) throw new Error(`ANCHOR_MISSING: ${item.asset}:${name}`);
   return assetPoint(pack,item,point);
 }
+
+export function spriteBounds(pack:ArtPack,item:Sprite){
+ const art=pack.assets.find(x=>x.id===item.asset);
+ if(!art)throw Error('SPRITE_BOUNDS_ASSET_MISSING '+item.asset);
+ const corners:Point[]=[[0,0],[art.width,0],[art.width,art.height],[0,art.height]];
+ const places=corners.map(p=>assetPoint(pack,item,p));
+ return {left:Math.min(...places.map(p=>p[0])),right:Math.max(...places.map(p=>p[0])),
+  top:Math.min(...places.map(p=>p[1])),bottom:Math.max(...places.map(p=>p[1]))};
+}
+export function spriteBoundsGap(a:ReturnType<typeof spriteBounds>,b:ReturnType<typeof spriteBounds>){
+ return Math.hypot(Math.max(0,b.left-a.right,a.left-b.right),
+   Math.max(0,b.top-a.bottom,a.top-b.bottom));
+}
