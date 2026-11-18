@@ -23,3 +23,11 @@ for(const model of ['an','mai'])for(const hand of ['left','right'] as const){
   assert.throws(()=>deriveG3JointCaps(disconnected,pack,['subject']),/G3_JOINT_SEAM_DISCONNECTED/);
  });
 }
+
+test('G3 paper-cut silhouette must not receive opaque disk joint overlays',()=>{
+ const renderer=readFileSync(new URL('../src/render/browser.ts',import.meta.url),'utf8');
+ assert.doesNotMatch(renderer,/CircleGeometry\\s*\\(/,
+  'Opaque circular caps conceal the native garment and create dark elbow/knee disks');
+ assert.doesNotMatch(renderer,/for\\s*\\(const cap of state\\.jointCaps/,
+  'Joint metadata must not be drawn as an unvalidated opaque overlay');
+});
