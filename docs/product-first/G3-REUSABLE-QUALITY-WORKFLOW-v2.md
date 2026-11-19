@@ -31,3 +31,7 @@
 | User artistic acceptance | user review of final paired native films | NOT_ACCEPTED |
 
 Technical green only proves technical green, never aesthetic acceptance.
+
+## R8 lowered-elbow experiment and no-false-PASS rule
+
+R7 same-HEAD native 4-film render `d4dd495b83ce91df546f33908d3d53e8e280156f` passed its technical audit but **did not visibly resolve** the hand/thigh overlap; not accepted. R8 tests a G3-only alternative analytical elbow branch with native forearm foreshortening, preserving the archived outward mode, every held-world grip, sole, scene art and Rapier state. The alternative is an *art-quality candidate* until full native 1×/0.5× playback and close-up comparison; no CI outcome can close that gate. If it creates an implausible bend, visible sleeve length change or popping, revert the candidate, retain evidence and redesign instead of lowering acceptance standards.

@@ -80,3 +80,45 @@ test('G3 projection remains continuous near the maximum foreshortening boundary'
   previous=projected;
  }
 });
+
+/** Independent visual-motivated branch fixture. A high hand target must not
+ * force the upper sleeve horizontal; lowering the elbow cannot move the real
+ * wrist, hand asset, prop or either planted foot. Opposite hand/facing/scales
+ * prove that the branch is not a special case for one actor or lantern.
+ */
+for(const model of ['mai','an'])for(const side of ['left','right'] as const)
+for(const facing of [-1,1] as const)for(const scale of [.8,1,1.2]){
+ test('G3 lowered elbow is grounded and native-anchored '+model+side+facing+scale,()=>{
+  const base=make(model,side,facing,scale);
+  const out=applyG3ArmProjection(base,pack,'actor',side,facing,'lowered');
+  const upper=p(out,'actor.'+side+'-upper'),lower=p(out,'actor.'+side+'-forearm');
+  const joint=anchorPoint(pack,upper,'end');
+  const wrist=out.markers.find(x=>x.id==='actor.'+side+'-wrist')!.point;
+  const nativeSpan=Math.hypot(joint[0]-upper.x,joint[1]-upper.y);
+  assert.ok(joint[1]>upper.y+.3*nativeSpan,
+    'a recovery/grip sleeve must point below rather than above the shoulder');
+  assert.ok(lower.scaleY/upper.scaleY>=.56-1e-6);
+  assert.ok(d(joint,[lower.x,lower.y])<.001);
+  assert.ok(d(anchorPoint(pack,lower,'end'),wrist)<.001);
+  assert.deepEqual(out.markers,base.markers);
+  for(const s of out.sprites)if(!['actor.'+side+'-upper','actor.'+side+'-forearm'].includes(s.id))
+   assert.deepEqual(s,p(base,s.id));
+  assert.deepEqual(applyG3ArmProjection(out,pack,'actor',side,facing,'lowered'),out);
+ });
+}
+test('G3 lowered branch remains continuous through source-scaled rising grip',()=>{
+ let previous:SceneFrame|undefined;
+ for(let i=0;i<=80;i++){
+  const rig=actorSprites(pack,{id:'actor',character:'mai',x:940,floor:860,
+    facing:1,view:'quarter',layeredGripSide:'left',
+    leftWrist:[-114,-320-i*.35],leftHand:'grip'});
+  const current:SceneFrame={camera:{x:960,y:540,zoom:1},sprites:rig.sprites,markers:rig.markers};
+  const next=applyG3ArmProjection(current,pack,'actor','left',1,'lowered');
+  if(previous){
+   const a=anchorPoint(pack,p(previous,'actor.left-upper'),'end');
+   const b=anchorPoint(pack,p(next,'actor.left-upper'),'end');
+   assert.ok(d(a,b)<14,'G3_LOWERED_ELBOW_FRAME_JUMP '+i);
+  }
+  previous=next;
+ }
+});

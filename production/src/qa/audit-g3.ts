@@ -199,7 +199,7 @@ for(const pair of pairs.pairs){
      for(const entry of plan.tracks){
        const source=playback.film.tracks.find(t=>t.contact.actor.id===entry.actorId)!;
        expectedFrame=applyG3ArmProjection(expectedFrame,pack,entry.actorId,
-         source.contact.hand,source.contact.actor.facing);
+         source.contact.hand,source.contact.actor.facing,'lowered');
      }
      const original=new Map(expectedFrame.sprites.map(s=>[s.id,s]));
      for(const sprite of artFrame.sprites){
