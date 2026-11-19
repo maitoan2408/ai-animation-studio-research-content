@@ -48,3 +48,35 @@ test('G3 lost native wrist or anchor fails closed',()=>{
  const b=make('an','right',1,1);p(b,'actor.right-forearm').asset='broken/art';
  assert.throws(()=>applyG3ArmProjection(b,pack,'actor','right',1),/G3_PROJECTION_ART_MISSING/);
 });
+/** Movement continuity failure injection: do NOT snap from compressed to
+ * full-length forearm when a moving shoulder/wrist crosses the projection cap.
+ * This is exactly the frame-36 failure from the first native R5 review.
+ */
+test('G3 projection remains continuous near the maximum foreshortening boundary',()=>{
+ const old=make('mai','left',1,1);
+ const u=p(old,'actor.left-upper');
+ let previous:SceneFrame|undefined;
+ // Progressive rising grip and simultaneous modest torso/hip shift exercise
+ // the same driven G3 channels, without actor/prop-specific production rules.
+ for(let i=0;i<=80;i++){
+  const wristY=-320-i*.35;
+  const shift=Math.sin(i/80*Math.PI)*3;
+  const rig=actorSprites(pack,{id:'actor',character:'mai',x:940,floor:860,
+   facing:1,view:'quarter',layeredGripSide:'left',
+   torsoAngle:shift,hipOffset:[shift*.5,shift*.4],
+   leftWrist:[-114,wristY],leftHand:'grip'});
+  const current:SceneFrame={camera:old.camera,sprites:rig.sprites,markers:rig.markers};
+  const projected=applyG3ArmProjection(current,pack,'actor','left',1);
+  const elbow=anchorPoint(pack,p(projected,'actor.left-upper'),'end');
+  const lower=p(projected,'actor.left-forearm');
+  assert.ok(lower.scaleY/p(projected,'actor.left-upper').scaleY>=.56-1e-6);
+  if(previous){
+   const prevElbow=anchorPoint(pack,p(previous,'actor.left-upper'),'end');
+   assert.ok(d(elbow,prevElbow)<14,'G3_PROJECTED_ELBOW_TELEPORT '+i);
+   const prevLower=p(previous,'actor.left-forearm');
+   assert.ok(Math.abs(lower.rotation-prevLower.rotation)<19,
+    'G3_PROJECTED_FOREARM_ROTATION_SNAP '+i);
+  }
+  previous=projected;
+ }
+});

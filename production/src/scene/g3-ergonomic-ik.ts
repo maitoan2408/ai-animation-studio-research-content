@@ -34,13 +34,33 @@ export function applyG3ArmProjection(f:SceneFrame,pack:ArtPack,actor:string,
  const upper=length(pack,u,nominal),lower=length(pack,v,nominal);
  const bend=((side==='left'?-1:1)*facing) as 1|-1;
  let joint=elbow(shoulder,wrist,upper,lower,bend),ratio=1;
- if(joint[1]<shoulder[1]+upper*.06){
-  for(let i=1;i<=44;i++){
-   const candidateRatio=1-i*.01;
-   let candidate:Point;
-   try{candidate=elbow(shoulder,wrist,upper,lower*candidateRatio,bend);}
-   catch(e){if(e instanceof Error&&e.message.startsWith('IK_UNREACHABLE'))break;throw e;}
-   if(candidate[1]>=shoulder[1]+upper*.06){joint=candidate;ratio=candidateRatio;break;}
+ const desired=shoulder[1]+upper*.06;
+ if(joint[1]<desired){
+  // R5 native render exposed a discontinuity at an animation boundary:
+  // if even 0.56 compression missed the desired drop by 1px, old code
+  // jumped straight back to an uncompressed (raised) elbow at frame36.
+  // The maximum feasible projection is always the continuous fallback.
+  const d=Math.hypot(wrist[0]-shoulder[0],wrist[1]-shoulder[1]);
+  // Determine the physical IK reach boundary, source independent.
+  const minimum=Math.max(.56,Math.abs(upper-d)/lower+1e-8);
+  if(minimum<=1){
+   const at=(r:number)=>elbow(shoulder,wrist,upper,lower*r,bend);
+   const full=at(minimum);
+   if(full[1]>joint[1]){
+    ratio=minimum;
+    joint=full;
+    if(full[1]>=desired){
+     // Continuous rather than quantized root; choose LEAST distortion.
+     // The elbow Y is monotone in this native outward branch range.
+     let lo=minimum,hi=1;
+     for(let n=0;n<28;n++){
+      const mid=(lo+hi)*.5;
+      if(at(mid)[1]>=desired)lo=mid;
+      else hi=mid;
+     }
+     ratio=lo; joint=at(lo);
+    }
+   }
   }
  }
  const nu={...u,rotation:angle(shoulder,joint)};
