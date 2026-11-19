@@ -17,6 +17,7 @@ import {auditFrame} from './general-scene-quality.js';
 import {auditG3VisualIntent} from './g3-visual-intent.js';
 import {auditG3JointCaps} from '../scene/g3-joint-caps.js';
 import {auditG3ArmDepth} from '../scene/g3-occlusion.js';
+import {applyG3ArmProjection} from '../scene/g3-ergonomic-ik.js';
 import type {ArtPack} from '../scene/types.js';
 const sha=(x:Uint8Array|string)=>createHash('sha256').update(x).digest('hex');
 const check=(cmd:string,args:string[])=>{
@@ -192,7 +193,15 @@ for(const pair of pairs.pairs){
      assert.ok(altered,'G3_ACTING_GAIN_WITHOUT_VISUAL_CHANGE '+frame);
    }else if(altered){
      compositingOnly++;
-     const original=new Map(base.frame.sprites.map(s=>[s.id,s]));
+     // Independently recompute only the declared G3 projection from the
+     // pristine baseline. Reject ANY other unapproved sprite geometry.
+     let expectedFrame=base.frame;
+     for(const entry of plan.tracks){
+       const source=playback.film.tracks.find(t=>t.contact.actor.id===entry.actorId)!;
+       expectedFrame=applyG3ArmProjection(expectedFrame,pack,entry.actorId,
+         source.contact.hand,source.contact.actor.facing);
+     }
+     const original=new Map(expectedFrame.sprites.map(s=>[s.id,s]));
      for(const sprite of artFrame.sprites){
        const previous=original.get(sprite.id);
        assert.ok(previous,'G3_UNKNOWN_VISUAL_SOURCE '+sprite.id);

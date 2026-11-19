@@ -1,86 +1,58 @@
-/** Opt-in G3 elbow-branch selection for a planted cutout rig.
- * Correct a real paper-doll failure: a near-body grip can put the elbow ABOVE
- * its shoulder merely because the legacy rig uses a fixed +/- IK branch.
- * The choice is derived from source shoulder/wrist and native art link anchors;
- * it stays fixed across the whole contact/release clip to avoid a joint pop.
- * It does not touch hands, world grip, Rapier, soles, or archived rig output.
+/** G3 opt-in 2.5D projection of the source native forearm. Do not flip
+ * the outside elbow across the torso (rejected in independent R4 art review).
+ * World grip/hand, feet, props, Rapier and legacy source remain unchanged.
  */
 import {elbow} from './math.js';
 import {anchorPoint} from './geometry.js';
 import type {ArtPack,SceneFrame,Point,Sprite} from './types.js';
-
-export type G3Bend=1|-1;
 type Side='left'|'right';
-const item=(frame:SceneFrame,id:string):Sprite=>{
- const s=frame.sprites.find(p=>p.id===id);
- if(!s)throw Error('G3_ELBOW_PART_MISSING '+id);
+const part=(f:SceneFrame,id:string):Sprite=>{
+ const s=f.sprites.find(v=>v.id===id);
+ if(!s)throw Error('G3_PROJECTION_SPRITE_MISSING '+id);
  return s;
 };
-const wrist=(frame:SceneFrame,id:string):Point=>{
- const marker=frame.markers.find(m=>m.id===id);
- if(!marker)throw Error('G3_ELBOW_WRIST_MISSING '+id);
- return marker.point;
+const length=(pack:ArtPack,s:Sprite,nominalY:number)=>{
+ const a=pack.assets.find(x=>x.id===s.asset);
+ if(!a?.anchors.end)throw Error('G3_PROJECTION_ART_MISSING '+s.asset);
+ const n=Math.hypot((a.anchors.end[0]-a.pivot[0])*s.scaleX,
+ (a.anchors.end[1]-a.pivot[1])*nominalY);
+ if(!(n>0))throw Error('G3_PROJECTION_LINK_INVALID');
+ return n;
 };
-const linkLength=(pack:ArtPack,s:Sprite)=>{
- const art=pack.assets.find(a=>a.id===s.asset);
- if(!art?.anchors.end)throw Error('G3_ELBOW_NATIVE_LINK_MISSING '+s.asset);
- const dx=(art.anchors.end[0]-art.pivot[0])*s.scaleX;
- const dy=(art.anchors.end[1]-art.pivot[1])*s.scaleY;
- const length=Math.hypot(dx,dy);
- if(!Number.isFinite(length)||length<1)throw Error('G3_ELBOW_LINK_INVALID '+s.asset);
- return length;
-};
-const degree=(a:Point,b:Point)=>Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI-90;
-function joints(frame:SceneFrame,pack:ArtPack,actorId:string,side:Side,facing:1|-1){
- const upper=item(frame,actorId+'.'+side+'-upper');
- const forearm=item(frame,actorId+'.'+side+'-forearm');
- const shoulder:Point=[upper.x,upper.y];
- const hand=wrist(frame,actorId+'.'+side+'-wrist');
- const u=linkLength(pack,upper),f=linkLength(pack,forearm);
- return {upper,forearm,shoulder,hand,
-  joint:(bend:G3Bend)=>elbow(shoulder,hand,u,f,(bend*facing) as G3Bend)};
-}
-/** Use the first source-held pose to select an ergonomic branch once.
- * Strongly discourage elbows above shoulders; mildly discourage elbows
- * folding back across the torso. Both penalties are dimensionless and
- * invariant under uniform scale and facing reversal.
+const angle=(a:Point,b:Point)=>Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI-90;
+/** Bounded perspective, no bone stretch. Select the least foreshortening in
+ * [0.56,1] that avoids the winged near-body elbow. If none is feasible,
+ * retain source IK. Derive nominal lengths from asset pivots/ends and the
+ * unchanged upper-arm scale, so repeated random seeks are idempotent.
  */
-export function selectG3ElbowBend(frame:SceneFrame,pack:ArtPack,actorId:string,
- side:Side,facing:1|-1):G3Bend{
- const chain=joints(frame,pack,actorId,side,facing);
- const reference=Math.max(1,linkLength(pack,chain.upper));
- const cost=(bend:G3Bend)=>{
-  const p=chain.joint(bend);
-  const above=Math.max(0,chain.shoulder[1]-p[1])/reference;
-  const towardTorso=Math.max(0,(p[0]-chain.shoulder[0])*facing*(side==='left'?1:-1))/reference;
-  return above*2+towardTorso*.6;
- };
- const negative=cost(-1),positive=cost(1);
- // Ties retain archived side preference and avoid an arbitrary bend flip.
- return Math.abs(negative-positive)<1e-9?(side==='left'?-1:1):
-   negative<positive?-1:1;
-}
-/** Retarget only the two source arm-sprite rotations, without touching hands,
- * tips or art. Scene markers remain source authored. Native link end anchors
- * are required to coincide with the next native link's pivot.
- */
-export function applyG3ElbowBend(frame:SceneFrame,pack:ArtPack,actorId:string,
- side:Side,facing:1|-1,bend:G3Bend):SceneFrame{
- if(bend!==1&&bend!==-1)throw Error('G3_ELBOW_BEND_INVALID');
- const chain=joints(frame,pack,actorId,side,facing);
- const joint=chain.joint(bend);
- if(Math.hypot(chain.forearm.x-joint[0],chain.forearm.y-joint[1])<.001 &&
-    Math.hypot(anchorPoint(pack,chain.upper,'end')[0]-joint[0],
-      anchorPoint(pack,chain.upper,'end')[1]-joint[1])<.001)return frame;
- const upper={...chain.upper,rotation:degree(chain.shoulder,joint)};
- const forearm={...chain.forearm,x:joint[0],y:joint[1],
-  rotation:degree(joint,chain.hand)};
- const resolved={...frame,sprites:frame.sprites.map(s=>
-  s.id===upper.id?upper:s.id===forearm.id?forearm:s)};
- const actual=anchorPoint(pack,upper,'end');
- const last=anchorPoint(pack,forearm,'end');
- if(Math.hypot(actual[0]-joint[0],actual[1]-joint[1])>.001 ||
-    Math.hypot(last[0]-chain.hand[0],last[1]-chain.hand[1])>.001)
-  throw Error('G3_ELBOW_NATIVE_CHAIN_DISCONNECTED');
- return resolved;
+export function applyG3ArmProjection(f:SceneFrame,pack:ArtPack,actor:string,
+ side:Side,facing:1|-1):SceneFrame{
+ const u=part(f,actor+'.'+side+'-upper'),v=part(f,actor+'.'+side+'-forearm');
+ const wrist=f.markers.find(m=>m.id===actor+'.'+side+'-wrist')?.point;
+ if(!wrist)throw Error('G3_PROJECTION_WRIST_MISSING');
+ const shoulder:Point=[u.x,u.y],nominal=u.scaleY;
+ const upper=length(pack,u,nominal),lower=length(pack,v,nominal);
+ const bend=((side==='left'?-1:1)*facing) as 1|-1;
+ let joint=elbow(shoulder,wrist,upper,lower,bend),ratio=1;
+ if(joint[1]<shoulder[1]+upper*.06){
+  for(let i=1;i<=44;i++){
+   const candidateRatio=1-i*.01;
+   let candidate:Point;
+   try{candidate=elbow(shoulder,wrist,upper,lower*candidateRatio,bend);}
+   catch(e){if(e instanceof Error&&e.message.startsWith('IK_UNREACHABLE'))break;throw e;}
+   if(candidate[1]>=shoulder[1]+upper*.06){joint=candidate;ratio=candidateRatio;break;}
+  }
+ }
+ const nu={...u,rotation:angle(shoulder,joint)};
+ const nv={...v,x:joint[0],y:joint[1],scaleY:nominal*ratio,
+  rotation:angle(joint,wrist)};
+ if(Math.abs(u.rotation-nu.rotation)<1e-9&&
+    Math.hypot(v.x-joint[0],v.y-joint[1])<1e-8&&
+    Math.abs(v.scaleY-nv.scaleY)<1e-9&&
+    Math.abs(v.rotation-nv.rotation)<1e-9)return f;
+ const endUpper=anchorPoint(pack,nu,'end'),endLower=anchorPoint(pack,nv,'end');
+ if(Math.hypot(endUpper[0]-joint[0],endUpper[1]-joint[1])>.001||
+    Math.hypot(endLower[0]-wrist[0],endLower[1]-wrist[1])>.001)
+  throw Error('G3_PROJECTION_NATIVE_ANCHOR_DRIFT');
+ return {...f,sprites:f.sprites.map(s=>s.id===u.id?nu:s.id===v.id?nv:s)};
 }

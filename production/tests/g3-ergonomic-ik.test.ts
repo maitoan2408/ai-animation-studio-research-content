@@ -3,60 +3,48 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {actorSprites} from '../src/scene/rig.js';
 import {anchorPoint} from '../src/scene/geometry.js';
-import {selectG3ElbowBend,applyG3ElbowBend} from '../src/scene/g3-ergonomic-ik.js';
+import {applyG3ArmProjection} from '../src/scene/g3-ergonomic-ik.js';
 import type {ArtPack,SceneFrame,Point} from '../src/scene/types.js';
-
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
-const dist=(a:Point,b:Point)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
-const part=(f:SceneFrame,id:string)=>f.sprites.find(s=>s.id===id)!;
-const marker=(f:SceneFrame,id:string)=>f.markers.find(m=>m.id===id)!.point;
-const frame=(model:string,hand:'left'|'right',facing:1|-1,scale:number):SceneFrame=>{
- const local=hand==='left'?[-114,-333] as Point:[110,-246] as Point;
- const rig=actorSprites(pack,{id:'actor',character:model,x:960,floor:860,facing,scale,
-  view:'quarter',layeredGripSide:hand,
-  ...(hand==='left'?{leftWrist:local,leftHand:'grip' as const}:
-    {rightWrist:local,rightHand:'grip' as const})});
+const p=(f:SceneFrame,id:string)=>f.sprites.find(s=>s.id===id)!;
+const d=(a:Point,b:Point)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
+function make(model:string,side:'left'|'right',facing:1|-1,scale:number):SceneFrame{
+ const w:Point=side==='left'?[-114,-333]:[110,-246];
+ const rig=actorSprites(pack,{id:'actor',character:model,x:940,floor:860,facing,scale,
+  view:'quarter',layeredGripSide:side,
+  ...(side==='left'?{leftWrist:w,leftHand:'grip' as const}:
+    {rightWrist:w,rightHand:'grip' as const})});
  return {sprites:rig.sprites,markers:rig.markers,camera:{x:960,y:540,zoom:1}};
-};
-for(const model of ['mai','an'])for(const hand of ['left','right'] as const)
+}
+for(const model of ['mai','an'])for(const side of ['left','right'] as const)
 for(const facing of [-1,1] as const)for(const scale of [.8,1,1.25]){
- test('G3 ergonomic chain opt-in, source-pinned, invariant '+model+hand+facing+scale,()=>{
-  const source=frame(model,hand,facing,scale);
-  const before=structuredClone(source);
-  const bend=selectG3ElbowBend(source,pack,'actor',hand,facing);
-  const fixed=applyG3ElbowBend(source,pack,'actor',hand,facing,bend);
-  const start=part(fixed,'actor.'+hand+'-upper');
-  const lower=part(fixed,'actor.'+hand+'-forearm');
-  const handTarget=marker(fixed,'actor.'+hand+'-wrist');
-  const elbow=anchorPoint(pack,start,'end'),end=anchorPoint(pack,lower,'end');
-  assert.ok(dist(elbow,[lower.x,lower.y])<.001);
-  assert.ok(dist(end,handTarget)<.001);
-  assert.deepEqual(source,before,'never mutate source frame');
-  assert.deepEqual(fixed.markers,source.markers,'never move contact, wrist or soles');
-  for(const s of fixed.sprites){
-   const orig=source.sprites.find(x=>x.id===s.id)!;
-   if(s.id==='actor.'+hand+'-upper'||s.id==='actor.'+hand+'-forearm')continue;
-   assert.deepEqual(s,orig,'other body/hand sprites must remain intact');
-  }
-  assert.deepEqual(applyG3ElbowBend(fixed,pack,'actor',hand,facing,bend),fixed);
+ test('G3 projection source-preserving/outside elbow '+model+side+facing+scale,()=>{
+  const old=make(model,side,facing,scale),src=structuredClone(old);
+  const next=applyG3ArmProjection(old,pack,'actor',side,facing);
+  const u=p(next,'actor.'+side+'-upper'),v=p(next,'actor.'+side+'-forearm');
+  const elbow=anchorPoint(pack,u,'end');
+  const wrist=next.markers.find(m=>m.id==='actor.'+side+'-wrist')!.point;
+  assert.ok(d(elbow,[v.x,v.y])<.001&&d(anchorPoint(pack,v,'end'),wrist)<.001);
+  assert.ok(v.scaleY/u.scaleY>=.56-1e-6&&v.scaleY/u.scaleY<=1+1e-6);
+  assert.ok((elbow[0]-u.x)*facing*(side==='left'?1:-1)<0,
+    'R4 rejected cross-chest arm must not recur');
+  assert.deepEqual(old,src);assert.deepEqual(next.markers,old.markers);
+  for(const s of next.sprites)if(!['actor.'+side+'-upper','actor.'+side+'-forearm'].includes(s.id))
+   assert.deepEqual(s,p(old,s.id));
+  assert.deepEqual(applyG3ArmProjection(next,pack,'actor',side,facing),next);
  });
 }
-test('G3 failing-first winged left elbow is corrected without changing actual grip',()=>{
- const old=frame('mai','left',1,1),first=part(old,'actor.left-upper');
- const raw=anchorPoint(pack,first,'end');
- assert.ok(raw[1]<first.y,'the existing locked IK raises the elbow above shoulder');
- const bend=selectG3ElbowBend(old,pack,'actor','left',1);
- assert.equal(bend,1,'source-derived ergonomics selects the downward alternative');
- const fixed=applyG3ElbowBend(old,pack,'actor','left',1,bend);
- const newElbow=anchorPoint(pack,part(fixed,'actor.left-upper'),'end');
- assert.ok(newElbow[1]>first.y+40,'elbow must not remain above shoulder');
- assert.ok(newElbow[1]-raw[1]>65,'a trivial angle tweak does not fix the wing');
+test('G3 actual winged left-shoulder scenario corrected without chest-crossing',()=>{
+ const old=make('mai','left',1,1),upper=p(old,'actor.left-upper');
+ assert.ok(anchorPoint(pack,upper,'end')[1]<upper.y);
+ const result=applyG3ArmProjection(old,pack,'actor','left',1);
+ const u=p(result,'actor.left-upper'),v=p(result,'actor.left-forearm'),joint=anchorPoint(pack,u,'end');
+ assert.ok(joint[1]>u.y+5&&joint[0]<u.x-45);
+ assert.ok(v.scaleY/u.scaleY<.9&&v.scaleY/u.scaleY>=.56);
 });
-test('G3 elbow branch refuses missing native art, wrist and invalid bend',()=>{
- const s=frame('an','right',1,1);
- assert.throws(()=>applyG3ElbowBend(s,pack,'actor','right',1,0 as never),/G3_ELBOW_BEND_INVALID/);
- const missing=structuredClone(s);missing.markers=missing.markers.filter(x=>x.id!=='actor.right-wrist');
- assert.throws(()=>applyG3ElbowBend(missing,pack,'actor','right',1,1),/G3_ELBOW_WRIST_MISSING/);
- const bad=structuredClone(s);part(bad,'actor.right-upper').asset='missing/upper';
- assert.throws(()=>selectG3ElbowBend(bad,pack,'actor','right',1),/G3_ELBOW_NATIVE_LINK_MISSING/);
+test('G3 lost native wrist or anchor fails closed',()=>{
+ const a=make('an','right',1,1);a.markers=a.markers.filter(m=>m.id!=='actor.right-wrist');
+ assert.throws(()=>applyG3ArmProjection(a,pack,'actor','right',1),/G3_PROJECTION_WRIST_MISSING/);
+ const b=make('an','right',1,1);p(b,'actor.right-forearm').asset='broken/art';
+ assert.throws(()=>applyG3ArmProjection(b,pack,'actor','right',1),/G3_PROJECTION_ART_MISSING/);
 });
