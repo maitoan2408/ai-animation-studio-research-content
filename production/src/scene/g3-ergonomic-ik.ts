@@ -6,7 +6,6 @@ import {elbow} from './math.js';
 import {anchorPoint} from './geometry.js';
 import type {ArtPack,SceneFrame,Point,Sprite} from './types.js';
 type Side='left'|'right';
-export type G3ElbowStyle='outward'|'lowered';
 const part=(f:SceneFrame,id:string):Sprite=>{
  const s=f.sprites.find(v=>v.id===id);
  if(!s)throw Error('G3_PROJECTION_SPRITE_MISSING '+id);
@@ -25,11 +24,9 @@ const angle=(a:Point,b:Point)=>Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI-90;
  * [0.56,1] that avoids the winged near-body elbow. If none is feasible,
  * retain source IK. Derive nominal lengths from asset pivots/ends and the
  * unchanged upper-arm scale, so repeated random seeks are idempotent.
- * The G3-only lowered mode uses the opposite analytic branch with the native
- * elbow below the shoulder; source wrist/forearm anchors remain exact.
  */
 export function applyG3ArmProjection(f:SceneFrame,pack:ArtPack,actor:string,
- side:Side,facing:1|-1,style:G3ElbowStyle='outward'):SceneFrame{
+ side:Side,facing:1|-1):SceneFrame{
  const u=part(f,actor+'.'+side+'-upper'),v=part(f,actor+'.'+side+'-forearm');
  const wrist=f.markers.find(m=>m.id===actor+'.'+side+'-wrist')?.point;
  if(!wrist)throw Error('G3_PROJECTION_WRIST_MISSING');
@@ -38,16 +35,7 @@ export function applyG3ArmProjection(f:SceneFrame,pack:ArtPack,actor:string,
  const bend=((side==='left'?-1:1)*facing) as 1|-1;
  let joint=elbow(shoulder,wrist,upper,lower,bend),ratio=1;
  const desired=shoulder[1]+upper*.06;
- if(style==='lowered'){
-  // A raised grip pulls the archival paper-cut outside elbow nearly level
-  // with the shoulder. A lowered bent elbow is the other analytic IK branch.
-  // Foreground foreshortening of the original forearm (not an extra joint
-  // overlay) permits a vertical upper sleeve with unchanged hand contact.
-  // Source scale and reach alone determine compression; no per-film data.
-  const d=Math.hypot(wrist[0]-shoulder[0],wrist[1]-shoulder[1]);
-  ratio=Math.min(1,Math.max(.56,Math.abs(upper-d)/lower+1e-8));
-  joint=elbow(shoulder,wrist,upper,lower*ratio,bend===1?-1:1);
- }else if(joint[1]<desired){
+ if(joint[1]<desired){
   // R5 native render exposed a discontinuity at an animation boundary:
   // if even 0.56 compression missed the desired drop by 1px, old code
   // jumped straight back to an uncompressed (raised) elbow at frame36.

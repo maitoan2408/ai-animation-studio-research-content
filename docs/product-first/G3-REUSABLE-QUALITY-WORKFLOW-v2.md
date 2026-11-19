@@ -35,3 +35,11 @@ Technical green only proves technical green, never aesthetic acceptance.
 ## R8 lowered-elbow experiment and no-false-PASS rule
 
 R7 same-HEAD native 4-film render `d4dd495b83ce91df546f33908d3d53e8e280156f` passed its technical audit but **did not visibly resolve** the hand/thigh overlap; not accepted. R8 tests a G3-only alternative analytical elbow branch with native forearm foreshortening, preserving the archived outward mode, every held-world grip, sole, scene art and Rapier state. The alternative is an *art-quality candidate* until full native 1×/0.5× playback and close-up comparison; no CI outcome can close that gate. If it creates an implausible bend, visible sleeve length change or popping, revert the candidate, retain evidence and redesign instead of lowering acceptance standards.
+
+## R8 rejection and safe code rollback — 2026-11-19
+
+The owner reported R8 visibly **WORSE** than the preceding baseline. Independent native film contact crops support this: a forced opposite-side low elbow branch created unnatural, severely hinged limb pose after release; R7 only changed rest candidate ranking and failed to improve body/thigh separation. Prior claims of artistic progress were too optimistic. **Neither R7 nor R8 is accepted.** Non-negotiable rule: a lower elbow in one still or green G3 contact QA is never evidence of animation improvement.
+
+Immediately roll back the six runtime/QA/test files touched in R7–R8 to their **exact known-working d898b426 blob SHA** and remove experimental `production/src/scene/g3-rest-pose.ts` (no baseline art/goldens changed). Preserve this reusable workflow document for the next design cycle. Follow-up: begin with alpha-accurate silhouette/provenance tests and explicit motion/dof requirements, use test-first negative fixtures and multiple source-native character/prop combinations; develop a staged alternative *without* flipping analytic IK bend branches globally, and require dual actual side-by-side full-film art PASS at 1×/0.5× before accepting visual changes. No forward progress to G4 until the owner approves.
+
+**This rollback restores the pre-R7 image-generating implementation, NOT an artistically accepted G3.** Prior d898 movie remains historical evidence; a new source SHA requires new CI and native media artifact for current-source technical claims.

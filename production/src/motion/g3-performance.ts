@@ -212,7 +212,7 @@ export function sampleG3Performance(playback:GeneralPlayback,plan:G3PerformanceP
   // Hold the native outside IK branch, using only bounded foreground-depth
   // foreshortening if a near-shoulder grip creates a winged elbow.
   scene=applyG3ArmProjection(scene,pack,track.actorId,
-    source.contact.hand,source.contact.actor.facing,'lowered');
+    source.contact.hand,source.contact.actor.facing);
   scene=resolveG3ArmDepth(scene,track.actorId,source.contact.hand);
   const depth=auditG3ArmDepth(scene,track.actorId,source.contact.hand);
   if(depth.length)throw Error('G3_ARM_DEPTH_QA '+JSON.stringify(depth));

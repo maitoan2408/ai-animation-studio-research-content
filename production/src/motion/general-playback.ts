@@ -6,7 +6,6 @@
 import {sampleGeneralFilm,type GeneralFilm,type GeneralSample} from './general-timeline.js';
 import {actorSprites} from '../scene/rig.js';
 import {spriteBounds,spriteBoundsGap} from '../scene/geometry.js';
-import {scoreG3RestPose} from '../scene/g3-rest-pose.js';
 import {mix,mixPoint,smooth} from '../scene/math.js';
 import type {GeneralDrop,GeneralDropBake} from '../physics/general-drop.js';
 import type {ActorPose,ArtPack,Point,Sprite,SceneFrame} from '../scene/types.js';
@@ -72,19 +71,15 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
    let best=Number.POSITIVE_INFINITY;
    // Source-derived semantic wrist rest, not a specific actor/prop or frame.
    // Maintain historical candidate search for all non-enhanced playback.
-   for(let yshift=restStyle==='native-silhouette'?12:10;
-     yshift>=(restStyle==='native-silhouette'?-6:-4)&&
-       (restStyle==='native-silhouette'||!destination);
-     yshift-=restStyle==='native-silhouette'?3:2){
+   const overlap=(x:ReturnType<typeof spriteBounds>,y:ReturnType<typeof spriteBounds>)=>
+     Math.max(0,Math.min(x.right,y.right)-Math.max(x.left,y.left))*
+     Math.max(0,Math.min(x.bottom,y.bottom)-Math.max(x.top,y.top));
+   for(let yshift=10;yshift>=-4&&(restStyle==='native-silhouette'||!destination);yshift-=2){
      // Search the same source-body pose space for both strategies, while G3
      // adds neutral-side candidates. Include every legacy candidate to ensure
      // the new score cannot worsen baseline hand/thigh overlap by construction.
-     // Expand *outward*, away from the thighs: the previous search stopped
-     // at neutral and sometimes chose a cramped inner wrist to clear a prop.
-     // The native arm span and full IK still reject invalid reach.
-     const factors=Array.from({length:restStyle==='native-silhouette'?61:20},
-       (_,n)=>(restStyle==='native-silhouette'?1.32:.38)-n*
-         (restStyle==='native-silhouette'?.022:.02));
+     const factors=Array.from({length:restStyle==='native-silhouette'?51:20},
+       (_,n)=>(restStyle==='native-silhouette'?1:.38)-n*.02);
      for(const factor of factors){
        const world:Point=[mix(a.x,rest[0],Math.max(0,factor)),rest[1]+yshift];
        const local:Point=[(world[0]-a.x)/(a.scale*a.facing),
@@ -98,7 +93,14 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
          const visible=spriteBounds(pack,palm);
          if(spriteBoundsGap(visible,propBounds)<6)continue;
          if(restStyle==='legacy'){destination=world;break;}
-         const score=scoreG3RestPose(pack,solved.sprites,actorId,hand,rest,yshift);
+         const area=(visible.right-visible.left)*(visible.bottom-visible.top);
+         if(!(area>0))throw Error('G3_REST_HAND_BOUNDS '+actorId);
+         const thighRatio=solved.sprites.filter(s=>
+           s.id===prefix+'left-thigh'||s.id===prefix+'right-thigh')
+           .reduce((n,s)=>n+overlap(visible,spriteBounds(pack,s)),0)/area;
+         // AABB is a conservative silhouette proxy; pixel-alpha review remains
+         // mandatory. Prefer a visible hand by the body's side over the thigh.
+         const score=thighRatio*4+(1-Math.max(0,factor))*.15+Math.abs(yshift)*.001;
          if(score<best-1e-10){best=score;destination=world;}
        }catch(e){
          if(!(e instanceof Error)||!e.message.startsWith('IK_UNREACHABLE'))throw e;

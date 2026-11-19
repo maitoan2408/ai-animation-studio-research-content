@@ -4,8 +4,6 @@ import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import type {ArtPack} from '../src/scene/types.js';
 import {anchorPoint,spriteBounds} from '../src/scene/geometry.js';
-import {scoreG3RestPose} from '../src/scene/g3-rest-pose.js';
-import {actorSprites} from '../src/scene/rig.js';
 import {sampleGeneralFilm,type GeneralFilm} from '../src/motion/general-timeline.js';
 import {sampleGeneralPlayback,type GeneralPlayback} from '../src/motion/general-playback.js';
 import {sampleG3Performance,validateG3Performance,type G3PerformancePlan} from '../src/motion/g3-performance.js';
@@ -139,45 +137,4 @@ test('G3 performance fail-closed on forged source, stale assets, invalid phase a
  assert.throws(()=>validateG3Performance(surge,movie,pack,expected),/G3_PERFORMANCE_BEAT_INVALID/);
  const unknown=structuredClone(plan);unknown.tracks[0]!.actorId='not-registered';
  assert.throws(()=>validateG3Performance(unknown,movie,pack,expected),/G3_PERFORMANCE_ACTOR_UNKNOWN/);
-});
-
-/** Independent adversarial rest fixture: an inward hand rests over the near
- * thigh while an outside-shoulder candidate is IK-reachable. Both characters,
- * both hand sides, both facing directions: not tuned to the cup/lantern scene.
- */
-for(const model of ['an','mai'])for(const hand of ['left','right'] as const)
-for(const facing of [-1,1] as const)for(const scale of [.8,1.2]){
- test('G3 relaxed rest prefers native outside arm to thigh-crowded '+model+hand+facing+scale,()=>{
-  const rest=actorSprites(pack,{id:'s',character:model,x:960,floor:860,
-    facing,scale,view:'quarter'});
-  const neutral=rest.markers.find(m=>m.id==='s.'+hand+'-wrist')!.point;
-  // Rig source, not a guessed wrist height: its hip pivot is displaced from
-  // the floor. An old test wrote y=47 directly and created an unreachable
-  // 444px target, unrelated to the real rest-pose failure.
-  const local:[number,number]=[(neutral[0]-960)/(scale*facing),
-    (neutral[1]-860)/scale];
-  const mk=(factor:number)=>{
-   const wrist:[number,number]=[local[0]*factor,local[1]];
-   const rig=actorSprites(pack,{id:'s',character:model,x:960,floor:860,
-     facing,scale,view:'quarter',
-     ...(hand==='left'?{leftWrist:wrist,leftHand:'open' as const}:
-       {rightWrist:wrist,rightHand:'open' as const})});
-   return {rig,wrist:[960+wrist[0]*scale*facing,860+wrist[1]*scale] as [number,number]};
-  };
-  const inner=mk(.38),outer=mk(1);
-  const score=(x:typeof inner)=>scoreG3RestPose(pack,x.rig.sprites,'s',hand,
-    outer.wrist,0);
-  assert.ok(score(outer)<score(inner),
-    'clear outside-shoulder hanging arm must beat crowded near-hip wrist');
-  assert.ok(Number.isFinite(score(outer)));
- });
-}
-test('G3 rest scoring fails closed on missing limb metadata / torso part',()=>{
- const rig=actorSprites(pack,{id:'s',character:'an',x:960,floor:860,facing:1});
- assert.throws(()=>scoreG3RestPose(pack,rig.sprites.filter(s=>s.id!=='s.torso'),
-   's','left',[900,700],0),/G3_REST_ART_PART_MISSING/);
- const broken=structuredClone(rig.sprites);
- broken.find(s=>s.id==='s.left-upper')!.asset='unavailable-kit';
- assert.throws(()=>scoreG3RestPose(pack,broken,'s','left',[900,700],0),
-   /G3_REST_LINK_METADATA|SPRITE_BOUNDS_ASSET_MISSING/);
 });
