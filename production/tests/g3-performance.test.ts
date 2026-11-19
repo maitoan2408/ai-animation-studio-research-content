@@ -148,9 +148,16 @@ test('G3 performance fail-closed on forged source, stale assets, invalid phase a
 for(const model of ['an','mai'])for(const hand of ['left','right'] as const)
 for(const facing of [-1,1] as const)for(const scale of [.8,1.2]){
  test('G3 relaxed rest prefers native outside arm to thigh-crowded '+model+hand+facing+scale,()=>{
-  const offset=hand==='left'?-99:108;
+  const rest=actorSprites(pack,{id:'s',character:model,x:960,floor:860,
+    facing,scale,view:'quarter'});
+  const neutral=rest.markers.find(m=>m.id==='s.'+hand+'-wrist')!.point;
+  // Rig source, not a guessed wrist height: its hip pivot is displaced from
+  // the floor. An old test wrote y=47 directly and created an unreachable
+  // 444px target, unrelated to the real rest-pose failure.
+  const local:[number,number]=[(neutral[0]-960)/(scale*facing),
+    (neutral[1]-860)/scale];
   const mk=(factor:number)=>{
-   const wrist:[number,number]=[offset*factor,47];
+   const wrist:[number,number]=[local[0]*factor,local[1]];
    const rig=actorSprites(pack,{id:'s',character:model,x:960,floor:860,
      facing,scale,view:'quarter',
      ...(hand==='left'?{leftWrist:wrist,leftHand:'open' as const}:
