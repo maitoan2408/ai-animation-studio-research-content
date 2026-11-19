@@ -72,7 +72,9 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
    let best=Number.POSITIVE_INFINITY;
    // Source-derived semantic wrist rest, not a specific actor/prop or frame.
    // Maintain historical candidate search for all non-enhanced playback.
-   for(let yshift=12;yshift>=-6&&(restStyle==='native-silhouette'||!destination);
+   for(let yshift=restStyle==='native-silhouette'?12:10;
+     yshift>=(restStyle==='native-silhouette'?-6:-4)&&
+       (restStyle==='native-silhouette'||!destination);
      yshift-=restStyle==='native-silhouette'?3:2){
      // Search the same source-body pose space for both strategies, while G3
      // adds neutral-side candidates. Include every legacy candidate to ensure
