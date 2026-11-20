@@ -28,20 +28,25 @@
       "technical": "PASS_TECHNICAL",
       "art": "READY_FOR_USER_REVIEW",
       "userAcceptance": "NOT_REVIEWED",
-      "reviewHead": "55bb0bd",
+      "reviewHead": "d0a91e8",
       "artPack": "assets/lantern-v2",
       "fixed": [
         "round limb joints, no elbow cuff (lantern-v2)",
         "grip -> half-open -> open hand release, <=22.5 deg/frame turn",
-        "released hand hangs beside the body, never on a thigh; blocked staging fails closed"
+        "released hand hangs beside the body, never on a thigh; blocked staging fails closed",
+        "arms and hands at 85% (lantern-art-2.1); relaxed rest pose derived from arm length; relaxed hand at rest and after release; thigh clearance on rotated rectangles"
       ],
       "openDefects": [
-        "after release the wrist leaves the prop slowly (eases over 24 frames), hand stays near the prop for ~6 frames",
-        "Mai reaches with an almost straight horizontal arm to set the lantern far out",
+        "wrist leaves the prop slowly after release",
+        "released hand rests on the bench edge in all three films",
+        "Mai holds the lantern at shoulder height with a near-horizontal arm",
         "weight transfer / body acting still subtle",
-        "an-left-cup-late-release: actor overlaps the bench (staging data)"
+        "narrow valid placement window for short-armed right-hand releases (fails closed with BLOCKED_BY_STAGING)"
       ],
-      "evidence": "local native render + audit at 55bb0bd; CI render.yml artifact films-<run>"
+      "evidence": "local native render + audit and CI render.yml success at d0a91e8",
+      "ownerFeedback": [
+        "2026-11-20: arms too long, pose unnatural (reviewed 55bb0bd) -> fixed in G3-5"
+      ]
     },
     "G4": {
       "status": "NOT_STARTED",
