@@ -1,9 +1,0 @@
-test_archive_extract_keeps_dedup (test_evidence_dedup.DedupTest.test_archive_extract_keeps_dedup) ... ok
-test_dedup_is_opt_in_replays_and_rejects_corruption (test_evidence_dedup.DedupTest.test_dedup_is_opt_in_replays_and_rejects_corruption) ... ok
-test_legacy_and_symlink_escape (test_evidence_dedup.DedupTest.test_legacy_and_symlink_escape) ... ok
-test_store_symlink_rejected_by_recorder (test_evidence_dedup.DedupTest.test_store_symlink_rejected_by_recorder) ... ok
-
-----------------------------------------------------------------------
-Ran 4 tests in 3.661s
-
-OK

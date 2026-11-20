@@ -74,14 +74,13 @@ export function run(
 
 export async function doctor() {
   const browser = process.env.STUDIO_BROWSER ?? '/usr/bin/chromium';
-  const [ffmpeg, ffprobe, chromium, rasterizer] = await Promise.all([
+  const [ffmpeg, ffprobe, chromium] = await Promise.all([
     run('ffmpeg', ['-version']),
     run('ffprobe', ['-version']),
-    run(browser, ['--version']),
-    run('rsvg-convert', ['--version']).catch(() => {
+    run(browser, ['--version']).catch(() => {
       throw new StudioError(
-        'RASTERIZER_UNAVAILABLE',
-        'Không chạy được rsvg-convert. Cài librsvg2-bin (Debian/Ubuntu) và kiểm tra PATH trước khi render.',
+        'BROWSER_UNAVAILABLE',
+        `Không chạy được trình duyệt ${browser}. Đặt STUDIO_BROWSER tới Chromium đã cài.`,
         503,
       );
     }),
@@ -92,8 +91,7 @@ export async function doctor() {
     ffprobe: ffprobe.split('\n')[0]!,
     chromium: chromium.trim(),
     browser,
-    rasterizer: rasterizer.trim(),
-    backend: 'HyperFrames 0.9.30 / native librsvg segments',
-    compiler: 'paper-studio/2',
+    backend: 'none: film renderer is connected in G4',
+    compiler: 'paper-studio/3',
   };
 }

@@ -5,10 +5,6 @@ import { z } from 'zod';
 import { Studio } from './application.js';
 import { StudioError, errorInfo, hash, type Project, type Artifact } from './domain.js';
 import { doctor } from './process.js';
-import { frameSvg } from './rig.js';
-import { toAnimationIR, toLegacyProjectSpec } from './animation-ir.js';
-import { mixAudio } from './audio.js';
-import { MotionService } from './motion-service.js';
 import { DirectorService } from './director.js';
 
 const revisionRequest = z.object({ expectedRevision: z.string(), spec: z.unknown() }).strict();
@@ -58,15 +54,11 @@ async function body(request: http.IncomingMessage): Promise<unknown> {
 }
 
 export async function serve(app: Studio, port = 4310) {
-  const motion = new MotionService(app.store.root);
   const director = new DirectorService(app);
-  await motion.init();
   const staticFiles = new Map([
     ['/', ['index.html', 'text/html; charset=utf-8']],
-    ['/motion', ['motion.html', 'text/html; charset=utf-8']],
     ['/director', ['director.html', 'text/html; charset=utf-8']],
     ['/director.js', ['director.js', 'text/javascript; charset=utf-8']],
-    ['/motion.js', ['motion.js', 'text/javascript; charset=utf-8']],
     ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
     ['/style.css', ['style.css', 'text/css; charset=utf-8']],
   ]);
@@ -126,80 +118,6 @@ export async function serve(app: Studio, port = 4310) {
           return;
         }
       }
-      // M3 Character Motion: separate versioned project, same localhost Studio.
-      // Unknown keys, foreign origins and stale revisions fail before native render.
-      if (parts[1] === 'motion') {
-        if (parts.length === 3 && parts[2] === 'assets' && method === 'GET') {
-          json(await motion.gripAssets());
-          return;
-        }
-        if (parts.length === 3 && parts[2] === 'validate' && method === 'POST') {
-          const input = validate(z.object({ project: z.unknown() }).strict(), await body(req));
-          json(await motion.validate(input.project));
-          return;
-        }
-        if (parts.length === 3 && parts[2] === 'project') {
-          if (method === 'GET') {
-            json(await motion.get());
-            return;
-          }
-          if (method === 'POST') {
-            const input = validate(
-              z
-                .object({
-                  expectedRevision: z.string().regex(/^[a-f0-9]{64}$/),
-                  project: z.unknown(),
-                })
-                .strict(),
-              await body(req),
-            );
-            json(await motion.save(input.expectedRevision, input.project), 201);
-            return;
-          }
-        }
-        if (parts.length === 3 && parts[2] === 'jobs' && method === 'POST') {
-          const input = validate(
-            z
-              .object({
-                revision: z.string().regex(/^[a-f0-9]{64}$/),
-                quality: z.enum(['baseline', 'enhanced']).optional(),
-              })
-              .strict(),
-            await body(req),
-          );
-          json(await motion.render(input.revision, input.quality ?? 'baseline'), 202);
-          return;
-        }
-        if (parts.length === 4 && parts[2] === 'jobs' && method === 'GET') {
-          json(await motion.job(parts[3]!));
-          return;
-        }
-        if (parts.length === 5 && parts[2] === 'jobs' && parts[4] === 'video' && method === 'GET') {
-          const bytes = await motion.video(parts[3]!);
-          const range = req.headers.range;
-          res.setHeader('Content-Type', 'video/mp4');
-          res.setHeader('Accept-Ranges', 'bytes');
-          if (range) {
-            const match = /^bytes=(\d+)-(\d*)$/.exec(range);
-            const start = Number(match?.[1]),
-              end = match?.[2] ? Number(match[2]) : bytes.length - 1;
-            if (!match || start > end || start >= bytes.length || end >= bytes.length) {
-              res.writeHead(416, { 'Content-Range': 'bytes */' + bytes.length });
-              res.end();
-              return;
-            }
-            res.writeHead(206, {
-              'Content-Range': 'bytes ' + start + '-' + end + '/' + bytes.length,
-              'Content-Length': end - start + 1,
-            });
-            res.end(bytes.subarray(start, end + 1));
-          } else {
-            res.writeHead(200, { 'Content-Length': bytes.length });
-            res.end(bytes);
-          }
-          return;
-        }
-      }
       if (parts[1] === 'projects' && parts.length === 2) {
         if (method === 'GET') {
           json(
@@ -256,23 +174,6 @@ export async function serve(app: Studio, port = 4310) {
         if (parts.length === 4 && parts[3] === 'export' && method === 'GET') {
           res.setHeader('Content-Disposition', `attachment; filename="${id}.studio.json"`);
           json(await app.export(id, url.searchParams.get('revision') ?? undefined));
-          return;
-        }
-        if (parts.length === 4 && parts[3] === 'preview' && method === 'GET') {
-          const current = await app.store.current(id);
-          const requested = url.searchParams.get('revision');
-          const revision = requested
-            ? await app.store.get<typeof current.revision>('revisions', requested)
-            : current.revision;
-          if (revision.projectId !== id)
-            throw new StudioError('REVISION_MISMATCH', 'Revision không thuộc project.');
-          const frame = Number(url.searchParams.get('frame') ?? 0);
-          if (!Number.isFinite(frame) || frame < 0)
-            throw new StudioError('INVALID_FRAME', 'Frame không hợp lệ.');
-          const sceneSpec = toLegacyProjectSpec(toAnimationIR(revision.spec));
-          const { envelopes } = await mixAudio(app.store, sceneSpec);
-          res.writeHead(200, { 'Content-Type': 'image/svg+xml' });
-          res.end(frameSvg(sceneSpec, frame, envelopes));
           return;
         }
       }
@@ -343,7 +244,6 @@ export async function serve(app: Studio, port = 4310) {
     server,
     url: `http://127.0.0.1:${address.port}`,
     close: async () => {
-      await motion.close();
       return new Promise<void>((resolve, reject) =>
         server.close((error) => (error ? reject(error) : resolve())),
       );

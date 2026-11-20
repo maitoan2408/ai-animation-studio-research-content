@@ -4,7 +4,7 @@
  * not faked by moving a marker. Unsupported walks/releases fail closed and
  * require a separately validated motion or physics clip.
  */
-import {background} from '../scene/benchmark.js';
+import {background} from '../scene/background.js';
 import {actorSprites} from '../scene/rig.js';
 import {smooth,mix} from '../scene/math.js';
 import {sprite,type ArtPack,type SceneFrame} from '../scene/types.js';

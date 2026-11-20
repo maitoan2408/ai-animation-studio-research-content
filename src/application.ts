@@ -24,7 +24,7 @@ import {
 } from './domain.js';
 import { planScript } from './planner.js';
 import { draftVoice, bindAudio, importAudio, pcmFromWav } from './audio.js';
-import { renderVideo, type RenderFunction } from './render.js';
+import { rendererNotConfigured, type RenderFunction } from './render.js';
 import { doctor } from './process.js';
 
 const packageSchema = z
@@ -59,7 +59,7 @@ export class Studio {
 
   static async open(
     root: string,
-    renderer: RenderFunction = renderVideo,
+    renderer: RenderFunction = rendererNotConfigured,
     runtimeKey?: string,
   ): Promise<Studio> {
     const app = new Studio(root, renderer, runtimeKey);
