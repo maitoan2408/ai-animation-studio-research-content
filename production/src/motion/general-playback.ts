@@ -9,6 +9,7 @@ import {spriteBounds,spriteBoundsGap} from '../scene/geometry.js';
 import {mix,mixPoint,smooth} from '../scene/math.js';
 import type {GeneralDrop,GeneralDropBake} from '../physics/general-drop.js';
 import type {ActorPose,ArtPack,Point,Sprite,SceneFrame} from '../scene/types.js';
+import {releasedHandState,releasedHandAngle} from './hand-release.js';
 
 export type GeneralRelease={actorId:string;frame:number;project:GeneralDrop;bake:GeneralDropBake;settleFrames?:number};
 export type GeneralPlayback={schemaVersion:'general-playback/1';film:GeneralFilm;releases:GeneralRelease[]};
@@ -27,6 +28,14 @@ function fromCenter(old:Sprite,pack:ArtPack,x:number,y:number,angle:number):Spri
  return {...s,x:x-cx,y:y-cy};
 }
 /** Native silhouette resting is an opt-in G3 style; archived baseline unchanged. */
+/** Released actors and the hand drawing each must show at `frame`. */
+export function releasedHands(playback:GeneralPlayback,frame:number,pack:ArtPack){
+ return playback.releases.filter(r=>frame>=r.frame).map(r=>{
+  const t=playback.film.tracks.find(t=>t.contact.actor.id===r.actorId);
+  if(!t)throw Error('G3_RELEASE_TRACK_UNKNOWN');
+  return {actorId:r.actorId,hand:releasedHandState(pack,t.contact.actor.model,frame-r.frame,r.settleFrames)};
+ });
+}
 export type GeneralRestStyle='legacy'|'native-silhouette';
 export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack:ArtPack,
  restStyle:GeneralRestStyle='legacy'):GeneralSample{
@@ -112,10 +121,12 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
    const local:Point=[(world[0]-a.x)/(a.scale*a.facing),
      (world[1]-a.floor)/a.scale];
    const head=hold.frame.sprites.find(s=>s.id===prefix+'head')?.rotation??0;
+   const shape=releasedHandState(pack,model,frame-release.frame,release.settleFrames);
+   const angle=releasedHandAngle(pack,model,frame-release.frame,release.settleFrames??24,mix(0,1,u));
    const pose:ActorPose={...neutral,headAngle:head/a.facing*(1-u),
      ...(hand==='left'?
-       {leftWrist:local,leftHand:'open' as const,leftHandAngle:mix(0,180,u)}:
-       {rightWrist:local,rightHand:'open' as const,rightHandAngle:mix(0,180,u)})};
+       {leftWrist:local,leftHand:shape,leftHandAngle:angle}:
+       {rightWrist:local,rightHand:shape,rightHandAngle:angle})};
    const follow=actorSprites(pack,pose);
    sprites=[...sprites.filter(s=>!s.id.startsWith(prefix)&&s.id!==propId),
      ...follow.sprites,fromCenter(old,pack,v.centerX,v.centerY,v.angleDeg)];

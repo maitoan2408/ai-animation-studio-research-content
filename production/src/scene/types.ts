@@ -28,7 +28,7 @@ export type ActorPose = {
   mouth?: 'rest' | 'M' | 'A' | 'E' | 'O' | 'F' | 'smile';
   /** Local coordinates relative to actor origin at floor; targets are wrist/ankle. */
   rightWrist?: Point; leftWrist?: Point; leftAnkle?: Point; rightAnkle?: Point;
-  hipOffset?: Point; rightHand?: 'open' | 'grip' | 'point'; leftHand?: 'open' | 'grip' | 'point';
+  hipOffset?: Point; rightHand?: 'open' | 'grip' | 'point' | 'half'; leftHand?: 'open' | 'grip' | 'point' | 'half';
   rightHandAngle?: number; leftHandAngle?: number;
   /** M3 pick-place opt-in: rear palm, held prop and curved foreground
    * fingertips occupy distinct visual layers. Default false preserves

@@ -15,7 +15,7 @@ import {serveFilm,root} from './server.js';
 import {loadArtPack} from '../art/pack.js';
 import {browserPath} from '../art/textures.js';
 import {generalFilmFrameContract} from '../motion/general-timeline.js';
-import {sampleGeneralPlayback} from '../motion/general-playback.js';
+import {sampleGeneralPlayback,releasedHands} from '../motion/general-playback.js';
 import {sampleG3Performance,validateG3Performance} from '../motion/performance-layer.js';
 import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
@@ -95,7 +95,7 @@ try{
        performanceBackoffs.push({frame:i,actorId:g.actorId,requested:g.requested,applied:g.applied});
    }
    const qc=auditFrame(expected.frame,pack,generalFilmFrameContract(film,pack,i,
-     playback.releases.filter(r=>i>=r.frame).map(r=>r.actorId)),
+     releasedHands(playback,i,pack)),
      last?.frame,{maxSpriteJumpPx:35,maxRotationDeltaDegrees:28,
        maxCameraDeltaPx:10,maxCameraZoomRatio:1.12});
    if(qc.length)throw Error('GENERAL_FILM_VISUAL_QA '+i+' '+qc.map(q=>q.code+':'+q.subject).join(','));

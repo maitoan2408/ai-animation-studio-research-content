@@ -12,7 +12,7 @@ import path from 'node:path';
 import {root} from '../render/server.js';
 import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
 import {generalFilmFrameContract} from '../motion/general-timeline.js';
-import {sampleGeneralPlayback} from '../motion/general-playback.js';
+import {sampleGeneralPlayback,releasedHands} from '../motion/general-playback.js';
 import {sampleG3Performance,validateG3Performance} from '../motion/performance-layer.js';
 import {auditFrame} from './general-scene-quality.js';
 import {auditG3VisualIntent} from './visual-intent.js';
@@ -98,7 +98,7 @@ for(const id of expected){
  for(let f=0;f<playback.film.frames;f++){
    const sample=sampleGeneralPlayback(playback,f,pack);
    const issues=auditFrame(sample.frame,pack,generalFilmFrameContract(playback.film,pack,f,
-     playback.releases.filter(r=>f>=r.frame).map(r=>r.actorId)));
+     releasedHands(playback,f,pack)));
    assert.equal(issues.length,0,id+':'+f+':'+JSON.stringify(issues));
    assert.deepEqual(auditG3VisualIntent(playback,f,sample.frame,pack).issues,[],
      id+':'+f+':support state');
@@ -172,7 +172,7 @@ for(const pair of pairs.pairs){
    const next=sampleG3Performance(playback,plan,frame,pack);
    const artFrame=next.frame;
    const issues=auditFrame(artFrame,pack,generalFilmFrameContract(playback.film,pack,
-     frame,playback.releases.filter(r=>frame>=r.frame).map(r=>r.actorId)),
+     frame,releasedHands(playback,frame,pack)),
      frame>0?sampleG3Performance(playback,plan,frame-1,pack).frame:undefined,
      {maxSpriteJumpPx:35,maxRotationDeltaDegrees:28,
        maxCameraDeltaPx:10,maxCameraZoomRatio:1.12});

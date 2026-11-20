@@ -9,7 +9,7 @@ import {resolveG3ArmDepth,auditG3ArmDepth} from '../scene/arm-depth.js';
 import {anchorPoint} from '../scene/geometry.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
 import {generalFilmFrameContract} from './general-timeline.js';
-import {sampleGeneralPlayback,type GeneralPlayback,type GeneralRelease} from './general-playback.js';
+import {sampleGeneralPlayback,releasedHands,type GeneralPlayback,type GeneralRelease} from './general-playback.js';
 import type {ActorPose,ArtPack,Point,SceneFrame,Sprite} from '../scene/types.js';
 
 export type G3BeatKind='prepare'|'act'|'recover';
@@ -110,6 +110,12 @@ export function sampleG3Performance(playback:GeneralPlayback,plan:G3PerformanceP
   const head=part(scene,prefix+'head').rotation/a.facing;
   const leftHandAngle=part(scene,prefix+'left-hand').rotation/a.facing;
   const rightHandAngle=part(scene,prefix+'right-hand').rotation/a.facing;
+  // Keep whatever drawing the sampled frame chose (grip, half-open, open).
+  const handShape=(s:'left'|'right')=>{
+   const id=part(scene,prefix+s+'-hand').asset.split('/hand-')[1];
+   if(id!=='grip'&&id!=='half'&&id!=='open')throw Error('G3_PERFORMANCE_HAND_SHAPE '+id);
+   return id;
+  };
   const firstSole=point(scene,prefix+'left-sole'),secondSole=point(scene,prefix+'right-sole');
   const originalProp=part(scene,source.contact.object.id);
   const at=(bodyGain:number,secondaryGain:number)=>{
@@ -126,8 +132,8 @@ export function sampleG3Performance(playback:GeneralPlayback,plan:G3PerformanceP
      headAngle:head+beat.headDeg*detail,torsoAngle:beat.torsoDeg*v,
      hipOffset:[beat.hipX*v,beat.hipY*v],
      leftWrist:local(leftGoal),rightWrist:local(rightGoal),
-     leftHand:held&&side==='left'?'grip':'open',
-     rightHand:held&&side==='right'?'grip':'open',
+     leftHand:handShape('left'),
+     rightHand:handShape('right'),
      leftHandAngle,rightHandAngle,
      ...(held?{layeredGripSide:side}:{}),
    };
@@ -155,7 +161,7 @@ export function sampleG3Performance(playback:GeneralPlayback,plan:G3PerformanceP
    if(JSON.stringify(actualProp)!==JSON.stringify(originalProp))
      throw Error('G3_PERFORMANCE_PROP_CHANGED');
    const contract=generalFilmFrameContract(playback.film,pack,frame,
-     playback.releases.filter(x=>frame>=x.frame).map(x=>x.actorId));
+     releasedHands(playback,frame,pack));
    const findings=auditFrame(result,pack,contract);
    if(findings.length)throw Error('G3_PERFORMANCE_SCENE_QA '+findings.map(f=>f.code).join(','));
    // Validate real sprite's grip anchor at the exact authored target while held.

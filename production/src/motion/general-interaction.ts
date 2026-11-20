@@ -60,7 +60,8 @@ export function validateGeneralContact(raw:unknown,pack:ArtPack):ContactProject{
 /** Authored requirements for the supported rig, independent of sampled sprites
  * and markers. A release removes the declared grip but not the prop or feet.
  * World bounds describe the stage, not the deliberately cropped camera viewport. */
-export function generalContactFrameContract(p:ContactProject,pack:ArtPack,frame:number,held=true):FrameContract{
+export function generalContactFrameContract(p:ContactProject,pack:ArtPack,frame:number,held=true,
+  releasedHand:'open'|'half'='open'):FrameContract{
  const {actor:a,object:o,hand}=p;
  const prefix=a.id+'.',requiredSprites:SpriteContract[]=[],grounds:GroundContract[]=[];
  const add=(id:string,artId:string,expectedSha?:string)=>{
@@ -71,7 +72,7 @@ export function generalContactFrameContract(p:ContactProject,pack:ArtPack,frame:
    for(const [part,art] of [['thigh','thigh'],['shin','shin'],['boot','boot'],
      ['upper','upper-arm'],['forearm','forearm']] as const)
      add(prefix+side+'-'+part,a.model+'/'+art);
-   add(prefix+side+'-hand',a.model+'/hand-'+(held&&side===hand?'grip':'open'));
+   add(prefix+side+'-hand',a.model+'/hand-'+(held&&side===hand?'grip':!held&&side===hand?releasedHand:'open'));
    if(held&&side===hand)add(prefix+side+'-grip-front',a.model+'/hand-grip-front');
    // Authoritative planted stance for production-cutout-1; no marker input.
    grounds.push({id:prefix+side+'-sole',spriteId:prefix+side+'-boot',anchor:'sole',

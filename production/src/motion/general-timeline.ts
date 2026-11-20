@@ -107,10 +107,13 @@ function interpolation<T extends {frame:number}>(keys:T[],frame:number){
 }
 /** Derived from authored tracks and release schedule, never from rendered
  * sprite/marker claims. Includes source-pinned stage prop identities. */
+/** `released` lists actors that have let go; a plain id means an open hand. */
 export function generalFilmFrameContract(film:GeneralFilm,pack:ArtPack,frame:number,
-  released:readonly string[]=[]):FrameContract{
- const parts=film.tracks.map(t=>generalContactFrameContract(t.contact,pack,frame,
-   !released.includes(t.contact.actor.id)));
+  released:readonly(string|{actorId:string;hand:'open'|'half'})[]=[]):FrameContract{
+ const entry=(id:string)=>released.map(r=>typeof r==='string'?{actorId:r,hand:'open' as const}:r)
+   .find(r=>r.actorId===id);
+ const parts=film.tracks.map(t=>{const r=entry(t.contact.actor.id);
+   return generalContactFrameContract(t.contact,pack,frame,!r,r?.hand??'open');});
  return {frame,contacts:parts.flatMap(p=>p.contacts??[]),
    grounds:parts.flatMap(p=>p.grounds??[]),bounds:parts.flatMap(p=>p.bounds??[]),
    requiredSprites:[...parts.flatMap(p=>p.requiredSprites??[]),

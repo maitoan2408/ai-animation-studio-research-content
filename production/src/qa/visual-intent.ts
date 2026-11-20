@@ -5,6 +5,7 @@
 import {anchorPoint,spriteBounds,spriteBoundsGap} from '../scene/geometry.js';
 import type {ArtPack,SceneFrame,Sprite,Point} from '../scene/types.js';
 import type {GeneralPlayback} from '../motion/general-playback.js';
+import {releasedHandState} from '../motion/hand-release.js';
 
 export type PropState='held'|'falling'|'settling'|'resting';
 export type VisualIntentIssue={code:string;frame:number;actorId:string;detail:string};
@@ -50,8 +51,9 @@ export function auditG3VisualIntent(playback:GeneralPlayback,frame:number,scene:
    }catch(e){fail(issues,'G3_VISUAL_GRIP_ANCHOR_UNAVAILABLE',frame,a.id,String(e));}
   }else{
    if(fingers)fail(issues,'G3_VISUAL_GHOST_FINGERS_AFTER_RELEASE',frame,a.id,hand);
-   if(!palm.asset.endsWith('/hand-open'))
-    fail(issues,'G3_VISUAL_RELEASED_HAND_STILL_GRIPPING',frame,a.id,palm.asset);
+   const expected=a.model+'/hand-'+releasedHandState(pack,a.model,frame-release!.frame,release!.settleFrames);
+   if(palm.asset!==expected)
+    fail(issues,'G3_VISUAL_RELEASED_HAND_STILL_GRIPPING',frame,a.id,palm.asset+' expected '+expected);
   }
   let supportDistancePx:number|null=null;
   // An unheld object should not visually touch an idle open hand after
