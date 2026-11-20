@@ -53,3 +53,23 @@ test('a pack without the half drawing keeps the immediate open hand',async()=>{
  const hand=sampleGeneralPlayback(playback,r.frame,pack).frame.sprites.find(s=>s.id==='actor-hero.right-hand')!;
  assert.equal(hand.asset,'an/hand-open');
 });
+
+test('released hand never rotates faster than the render continuity limit (28 deg/frame)',async()=>{
+ const {sampleG3Performance}=await import('../src/motion/performance-layer.js');
+ const {createHash}=await import('node:crypto');
+ const h=(x:unknown)=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
+ for(const name of ['an-right-cup.json','mai-left-lantern.json','an-left-cup-late-release.json']){
+  const {pack,playback}=await film(name,'assets/lantern-v2');
+  const raw=JSON.parse(await readFile(path.join(root,'examples/films',name),'utf8'));
+  const plan={schemaVersion:'g3-performance/1' as const,playbackSha256:h(playback),artSha256:h(pack),tracks:raw.performance.tracks};
+  const r=playback.releases[0]!,id=playback.film.tracks[0]!.contact.actor.id+'.'+playback.film.tracks[0]!.contact.hand+'-hand';
+  for(const sample of [(f:number)=>sampleGeneralPlayback(playback,f,pack).frame,(f:number)=>sampleG3Performance(playback,plan,f,pack).frame]){
+   let prev:number|undefined;
+   for(let f=r.frame-1;f<Math.min(playback.film.frames,r.frame+30);f++){
+    const rot=sample(f).sprites.find(s=>s.id===id)!.rotation;
+    if(prev!==undefined)assert.ok(Math.abs(rot-prev)<=28,name+' hand snaps '+Math.abs(rot-prev).toFixed(1)+' deg at '+f);
+    prev=rot;
+   }
+  }
+ }
+});
