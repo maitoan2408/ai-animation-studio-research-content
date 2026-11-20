@@ -19,6 +19,10 @@ Mỗi thư mục con là một art pack có phiên bản. `manifest.json` khai m
 
 `npm --prefix production run textures -- assets/<pack>` rasterize SVG thành PNG (1.5× nền, 2× tiền cảnh, 4× còn lại) vào `production/out/textures/<pack>/`, kèm SHA từng file. Renderer kiểm hash trước mỗi lần dùng; cache hỏng thì dừng, không tự tạo lại.
 
-## Giới hạn hiện tại của `lantern-v1`
+## `lantern-v2`
+
+Giống `lantern-v1`, trừ: `upper-arm`, `forearm`, `thigh`, `shin` vẽ lại dạng khớp tròn (hai đầu là nửa hình tròn, tâm tại pivot và anchor `end`, đoạn sau chồng lên đoạn trước) để xoay góc nào cũng không lộ đường cắt; bỏ dải cổ tay áo ở khuỷu, chỉ giữ ở cổ tay; thêm `hand-half` (nửa mở) cùng pivot/anchor với `hand-open`. Độ dài xương giữ nguyên.
+
+## Giới hạn của `lantern-v1`
 
 Bàn tay chỉ có ba trạng thái rời (`open`, `grip`, `point`) và cánh tay là hai mảnh cắt cứng; đây là nguyên nhân chính của lỗi G3 (xem `docs/ROADMAP.md`). Sửa bằng pack mới có version mới, không sửa đè `lantern-v1`.

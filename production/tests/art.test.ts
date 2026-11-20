@@ -68,3 +68,25 @@ test('bone lengths come from each character\'s own art, so a new proportion need
   for(const r of [a,t])for(const side of ['left','right'])
     assert.ok(Math.abs(r.markers.find(m=>m.id.endsWith(side+'-sole'))!.point[1]-850)<1e-6);
 });
+
+test('lantern-v2 keeps v1 proportions, rounds every limb joint and adds a half-open hand',async()=>{
+  const root2=new URL('../assets/lantern-v2/',import.meta.url);
+  const v2=JSON.parse(await readFile(new URL('manifest.json',root2),'utf8')) as ArtPack;
+  assert.notEqual(v2.version,pack.version);
+  for(const a of v2.assets){
+    const bytes=await readFile(new URL(a.file,root2));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'),a.sha256,a.id);
+  }
+  for(const model of ['mai','an'])for(const part of ['upper-arm','forearm','thigh','shin']){
+    const id=model+'/'+part,old=pack.assets.find(a=>a.id===id)!,next=v2.assets.find(a=>a.id===id)!;
+    const len=(a:typeof old)=>distance(a.pivot,a.anchors.end!);
+    assert.equal(len(next),len(old),id+' bone length must not change');
+    // A round joint: the art extends beyond the pivot and the end by at least
+    // 40% of its width, so rotating at either joint never exposes a cut edge.
+    assert.ok(next.pivot[1]>=next.width*.4&&next.height-next.anchors.end![1]>=next.width*.35,id);
+  }
+  for(const model of ['mai','an']){
+    const half=v2.assets.find(a=>a.id===model+'/hand-half')!,open=v2.assets.find(a=>a.id===model+'/hand-open')!;
+    assert.deepEqual([half.pivot,half.anchors.grip],[open.pivot,open.anchors.grip]);
+  }
+});
