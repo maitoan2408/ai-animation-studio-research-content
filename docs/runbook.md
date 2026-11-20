@@ -41,7 +41,7 @@ Chỉ output có Artifact record và media khớp hash mới được giao. Atom
 
 1. Dừng ứng dụng. Backup projects, revisions, assets, jobs, artifacts, reviews, media, Git commit và package-lock. tmp/cache không bắt buộc để replay.
 2. Restore vào thư mục mới, không đè studio đang chạy; không restore `.studio.lock` máy cũ.
-3. Dùng đúng checkout, chạy doctor, mở với STUDIO_DATA mới; kiểm history/artifact hashes và render preview.
+3. Dùng đúng checkout, chạy doctor, mở với STUDIO_DATA mới; kiểm history/artifact hashes.
 4. Package round-trip một project đã được test. Restore full history trên máy khác vẫn là ca P9 chưa nghiệm thu.
 
 ## Dung lượng và nâng phiên bản

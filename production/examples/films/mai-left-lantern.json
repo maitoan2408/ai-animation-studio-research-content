@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "film-request/1",
+  "id": "mai-left-lantern",
+  "artPack": "assets/lantern-v1",
+  "film": {
+    "schemaVersion": "general-film/1",
+    "frames": 128,
+    "tracks": [
+      {
+        "contact": {
+          "schemaVersion": "general-contact/1",
+          "actor": {
+            "id": "actor-hero",
+            "model": "mai",
+            "rigId": "production-cutout-1",
+            "x": 1280,
+            "floor": 860,
+            "facing": 1,
+            "scale": 1
+          },
+          "object": {
+            "id": "hero-prop",
+            "asset": "props/lantern-dark",
+            "sha256": "c9dccf7c14430cb1ea68c7f6f5d0ae5707808f23ce630fbf1300505933b06db4",
+            "x": 1180,
+            "y": 631,
+            "scale": 0.65,
+            "anchor": "grip"
+          },
+          "hand": "left",
+          "camera": {
+            "x": 960,
+            "y": 540,
+            "zoom": 1
+          }
+        },
+        "keys": [
+          {
+            "frame": 0,
+            "dx": 0,
+            "dy": 0,
+            "headAngle": 0
+          },
+          {
+            "frame": 23,
+            "dx": 0,
+            "dy": -8,
+            "headAngle": -3
+          },
+          {
+            "frame": 48,
+            "dx": 0,
+            "dy": -26,
+            "headAngle": 7
+          },
+          {
+            "frame": 127,
+            "dx": 0,
+            "dy": -26,
+            "headAngle": 7
+          }
+        ]
+      }
+    ],
+    "stage": [
+      {
+        "id": "bench-stage",
+        "asset": "props/workbench",
+        "sha256": "af1f37aea169e817189ebd540bc81715acb902efe587f7e801e20c172631cda0",
+        "x": 1120,
+        "y": 860,
+        "z": -1,
+        "scale": 1.2
+      }
+    ],
+    "camera": [
+      {
+        "frame": 0,
+        "x": 1203.3333333333333,
+        "y": 650,
+        "zoom": 1.46
+      },
+      {
+        "frame": 127,
+        "x": 1193.3333333333333,
+        "y": 655,
+        "zoom": 1.55
+      }
+    ]
+  },
+  "releases": [
+    {
+      "actorId": "actor-hero",
+      "objectId": "hero-prop",
+      "frame": 64,
+      "settleFrames": 24,
+      "supportStageId": "bench-stage",
+      "collider": {
+        "kind": "box",
+        "halfWidthPx": 32,
+        "halfHeightPx": 55
+      },
+      "physics": {
+        "massKg": 0.8,
+        "restitution": 0.04,
+        "friction": 0.8,
+        "gravityMps2": 9.81
+      }
+    }
+  ],
+  "performance": {
+    "tracks": [
+      {
+        "actorId": "actor-hero",
+        "beats": [
+          {
+            "kind": "prepare",
+            "start": 0,
+            "peak": 11,
+            "end": 23,
+            "torsoDeg": -2.7,
+            "hipX": -3.5,
+            "hipY": 3,
+            "headDeg": 4,
+            "freeHandDx": -9,
+            "freeHandDy": -3
+          },
+          {
+            "kind": "act",
+            "start": 23,
+            "peak": 43,
+            "end": 63,
+            "torsoDeg": 3.5,
+            "hipX": 4,
+            "hipY": 2.5,
+            "headDeg": -4,
+            "freeHandDx": 11,
+            "freeHandDy": 3
+          },
+          {
+            "kind": "recover",
+            "start": 64,
+            "peak": 79,
+            "end": 112,
+            "torsoDeg": -3,
+            "hipX": -3.5,
+            "hipY": 2.5,
+            "headDeg": 4.5,
+            "freeHandDx": -10,
+            "freeHandDy": -4
+          }
+        ]
+      }
+    ]
+  }
+}

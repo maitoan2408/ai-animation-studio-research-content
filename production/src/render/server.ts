@@ -7,19 +7,21 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {type RenderConfig,type TextureSpec} from './browser.js';
-import {validateGeneralFilm,type GeneralFilm} from '../motion/general-timeline.js';
 import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
 import {validateG3Performance} from '../motion/g3-performance.js';
-import type {ArtPack} from '../scene/types.js';
+import {loadArtPack} from '../art/pack.js';
+import {ensureTextures,textureCacheDir} from '../art/textures.js';
 export const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 export type Fault='none'|'slow'|'404'|'corrupt'|'hash'|'timeout';
-export async function serve(options:{width?:number;height?:number;fault?:Fault}={}){
- const pack=JSON.parse(await readFile(path.join(root,'assets/lantern-v1/manifest.json'),'utf8')) as ArtPack;
- const manifest=JSON.parse(await readFile(path.join(root,'out/art-q1/textures.json'),'utf8')) as {textures:{id:string;file:string;sha256:string;width:number;height:number}[]};
- const fault=options.fault??'none',faultId='mai/head-quarter-neutral';
+export async function serve(options:{artPackDir:string;width?:number;height?:number;fault?:Fault}){
+ const packDir=path.resolve(root,options.artPackDir);
+ const pack=await loadArtPack(packDir);
+ const cacheDir=textureCacheDir(packDir);
+ const manifest=await ensureTextures(packDir,cacheDir);
+ const fault=options.fault??'none',faultId=pack.assets.find(a=>a.category!=='background')?.id;
  const files=new Map<string,Buffer>(),textures:TextureSpec[]=[];
  for(const t of manifest.textures){
-  const url=`/textures/${encodeURIComponent(t.id)}.png`;let bytes=await readFile(path.join(root,'out/art-q1',t.file));
+  const url=`/textures/${encodeURIComponent(t.id)}.png`;let bytes=await readFile(path.join(cacheDir,t.file));
   if(createHash('sha256').update(bytes).digest('hex')!==t.sha256)throw Error(`SOURCE_TEXTURE_HASH ${t.id}`);
   if(t.id===faultId&&fault==='corrupt')bytes=Buffer.from('not a PNG');
   files.set(url,bytes);textures.push({id:t.id,url,sha256:fault==='corrupt'&&t.id===faultId?createHash('sha256').update(bytes).digest('hex'):t.sha256,width:t.width,height:t.height});
@@ -47,10 +49,9 @@ export async function serve(options:{width?:number;height?:number;fault?:Fault}=
  return {url:`http://127.0.0.1:${addr.port}`,config,close:()=>{server.closeAllConnections();server.close();}};
 }
 
-/** G3 isolated motion/physics native movie endpoint. Explicit schema and
- * bake provenance are validated before browser serving; no Director M5 code
- * or approvals are changed. */
-export async function serveG3(raw:unknown,options:{width?:number;height?:number}={},
+/** Serve one validated film playback (and optional performance layer) to the
+ * trusted browser renderer. Schema and bake provenance are checked first. */
+export async function serveFilm(raw:unknown,options:{artPackDir:string;width?:number;height?:number;fault?:Fault},
  performance?:unknown){
  const session=await serve(options);
  try{
@@ -63,14 +64,6 @@ export async function serveG3(raw:unknown,options:{width?:number;height?:number}
          playbackSha256:digest(playback),artSha256:digest(session.config.pack)
        })};
    }
- }catch(error){session.close();throw error;}
- return session;
-}
-/** G3 standalone motion-only native review, same shaders/textures and timeline. */
-export async function serveGeneral(raw:unknown,options:{width?:number;height?:number}={}){
- const session=await serve(options);
- try{
-   session.config.general=validateGeneralFilm(raw,session.config.pack) as GeneralFilm;
  }catch(error){session.close();throw error;}
  return session;
 }

@@ -2,7 +2,6 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { contactLayout } from '../src/art/contact-layout.js';
 import { anchorPoint } from '../src/scene/geometry.js';
 import { actorSprites } from '../src/scene/rig.js';
 import { distance, elbow } from '../src/scene/math.js';
@@ -35,12 +34,6 @@ test('art source hashes, explicit pivots, views and local references remain inta
     assert.notEqual(front.sha256,profile.sha256);
     assert.ok(profile.width<front.width,'Profile has its own silhouette');
   }
-});
-
-test('contact styleframe: rendered hand anchor coincides with prop grip within 2 px',()=>{
-  const frame=contactLayout(pack),hand=frame.sprites.find(s=>s.id==='mai.right-hand')!,cup=frame.sprites.find(s=>s.id==='cup')!;
-  const gap=distance(anchorPoint(pack,hand,'grip'),anchorPoint(pack,cup,'grip'));
-  assert.ok(gap<=2,`hand-prop gap ${gap.toFixed(4)} px exceeds 2 px`);
 });
 
 test('neutral and mirrored puppet soles remain on the ground; no limb stretching fallback',()=>{

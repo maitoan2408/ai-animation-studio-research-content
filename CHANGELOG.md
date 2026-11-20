@@ -1,5 +1,14 @@
 # Changelog
 
+## Dọn repo — 20/11/2026
+
+- Gộp 8 thế hệ kế hoạch thành `docs/ROADMAP.md` + `docs/STATE.json`; danh sách đã gỡ ở `docs/HISTORY.md`.
+- Gỡ khoảng 1,1 GB evidence/artifacts và code chỉ phục vụ một phim/giai đoạn; pipeline tổng quát cho ra frame giống hệt từng byte trước và sau khi dọn.
+- Phim là dữ liệu: `production/examples/films/*.json` (`film-request/1`) + `npm run render`/`npm run audit`; thêm phim thứ ba chỉ bằng JSON.
+- Gỡ renderer SVG cảnh cố định của Studio; job render trả `RENDERER_NOT_CONFIGURED` cho tới G4.
+- Planner đoán hành động theo động từ, không theo tên đồ vật.
+- CI còn `ci.yml` và `render.yml`.
+
 ## Quality review and next-step plan — 14/11/2026
 
 - Reviewed checkpoint1278176 against code, retained measurements and confirmed CI.

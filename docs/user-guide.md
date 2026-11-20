@@ -9,7 +9,7 @@ Mỗi đoạn cách bằng dòng trống là một scene. Chỉ dẫn tùy chọ
 Tôi nhấc chiếc cốc lên, và chậm lại một chút.
 ```
 
-Không có chỉ dẫn, planner chọn action theo từ khóa và ước lượng thời lượng theo số từ. Đây là đề xuất để sửa, chưa là phân tích ngữ nghĩa bằng LLM. Script ≤12.000 ký tự, narration mỗi scene ≤1.200 ký tự.
+Không có chỉ dẫn, planner chọn action theo động từ (nhấc, cầm, đi bộ, vẫy tay…) và ước lượng thời lượng theo số từ. Đây là đề xuất để sửa, chưa là phân tích ngữ nghĩa bằng LLM. Script ≤12.000 ký tự, narration mỗi scene ≤1.200 ký tự.
 
 Action: idle, wave, walk, pick-up, talk. Camera: static, pan. Chỉ dẫn không hỗ trợ bị từ chối. Chỉnh các trường rồi **Lưu phiên bản mới**; version/video cũ vẫn tồn tại. Có sửa chưa lưu thì voice/render báo cần lưu trước.
 
@@ -25,11 +25,9 @@ Voice tự sinh gắn hash narration. Đổi text phải bỏ audio, lưu rồi 
 
 ## Render và review
 
-Preview 640×360, final 1920×1080; 24 fps, H.264 MP4. Job giữ revision lúc submit; sửa project không đổi job đang chạy. Hủy queued/running; chỉ failed/cancelled/interrupted được retry.
+Studio hiện **chưa nối với engine phim** (lộ trình G4): bấm Render tạo job, job kết thúc `failed` với mã `RENDERER_NOT_CONFIGURED` và không tạo video. Hàng đợi, hủy/thử lại, review gắn artifact/revision/frame vẫn giữ nguyên để dùng khi G4 nối renderer.
 
-Chọn video đã QC; video cũ ghi rõ revision cũ. Review gắn artifact hash, revision và frame đang xem, đánh số từ 0. Approval không chuyển sang revision mới.
-
-QC kiểm metadata, full decode và hash, chưa chấm kể chuyện, contact, diễn xuất, phát âm hoặc loudness master. Người duyệt nghe/xem hết video, cả cut giữa scene.
+Muốn xem phim thật lúc này, dùng engine phim: xem README phần "Render phim mẫu".
 
 ## Export/import
 

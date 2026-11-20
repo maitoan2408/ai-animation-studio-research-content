@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "studio-state/1",
+  "updated": "2026-11-20",
+  "branch": "codex/m6-unified-integration-20261118",
+  "pullRequest": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/22",
+  "cleanupBase": "7f35e4f631660c64c49b7b10cc2285aecd878931",
+  "active": "G3",
+  "stages": {
+    "M0-M5": {
+      "userAcceptance": "ACCEPTED",
+      "acceptedAt": {
+        "M0": "1da6486bd7f1d5c36584dba5a940f4eff8270499",
+        "M1": "2b28317bbf15550204ebef1952b3938c222bb5f0",
+        "M2": "2042ad49e4e7f5456a49bc696d820044017f5643",
+        "M3": "68ae34daebce4e1b27b4345cf5f296e4f4d300c2",
+        "M4": "79aae2fdfe960e03992e136a6529fe95623a1cdb",
+        "M5": "3bbc337c3294e6dfa7570e463e6724a6990d64d9"
+      },
+      "note": "Accepted at these SHAs. The SVG renderer, M3 motion page and M3/M4/M6 renderers were removed in the cleanup; see docs/HISTORY.md."
+    },
+    "G1": { "technical": "PASS_TECHNICAL" },
+    "G2": { "technical": "PASS_TECHNICAL" },
+    "G3": {
+      "technical": "PASS_TECHNICAL",
+      "art": "ART_REWORK_REQUIRED",
+      "userAcceptance": "NOT_ACCEPTED",
+      "openDefects": [
+        "upper-arm/elbow/sleeve silhouette shows cutout seams",
+        "grip-to-open hand switch at release is abrupt (only 3 discrete hand drawings)",
+        "hand overlaps thigh in rest pose",
+        "weak weight transfer / body acting"
+      ]
+    },
+    "G4": { "status": "NOT_STARTED", "gate": "owner approves G3" },
+    "G5": { "status": "NOT_STARTED" },
+    "G6": { "status": "NOT_STARTED" },
+    "M7": { "status": "NOT_AUTHORIZED" }
+  },
+  "knownGaps": [
+    "Studio render jobs fail with RENDERER_NOT_CONFIGURED until G4",
+    "walk / wave / turn-head actions are not in the general engine",
+    "no audio in native films"
+  ]
+}

@@ -25,5 +25,5 @@ Không tuyên bố planner hiểu cốt truyện bằng LLM; người dùng sử
 
 ## Bằng chứng
 
-tests/domain.test.ts; tests/audio.test.ts; tests/ui.ts. Không tự ghi PASS; chạy test hoặc trỏ evidence đúng commit. Xem docs/api.md, docs/capabilities.md và docs/verification.md. Skill dùng chung application service, không có đường ghi data riêng.
+tests/domain.test.ts; tests/audio.test.ts; tests/ui.ts. Không tự ghi PASS; chạy test hoặc trỏ evidence đúng commit. Xem docs/api.md và docs/ARCHITECTURE.md. Skill dùng chung application service, không có đường ghi data riêng.
 

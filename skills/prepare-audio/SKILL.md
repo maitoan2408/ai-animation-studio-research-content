@@ -25,5 +25,5 @@ Không cắt mất thoại; không coi amplitude mouth là phoneme lip-sync; voi
 
 ## Bằng chứng
 
-tests/audio.test.ts; tests/integration.ts; tests/ui.ts. Không tự ghi PASS; chạy test hoặc trỏ evidence đúng commit. Xem docs/api.md, docs/capabilities.md và docs/verification.md. Skill dùng chung application service, không có đường ghi data riêng.
+tests/audio.test.ts; tests/ui.ts. Không tự ghi PASS; chạy test hoặc trỏ evidence đúng commit. Xem docs/api.md và docs/ARCHITECTURE.md. Skill dùng chung application service, không có đường ghi data riêng.
 

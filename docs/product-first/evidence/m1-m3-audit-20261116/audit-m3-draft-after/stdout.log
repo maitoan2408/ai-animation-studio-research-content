@@ -1,5 +1,0 @@
-PASS late save preserves newer draft
-PASS late save leaves draft dirty
-PASS next save uses updated revision
-PASS import preserves full project identity
-PASS invalid import leaves current draft intact

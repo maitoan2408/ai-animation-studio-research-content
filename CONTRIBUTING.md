@@ -1,11 +1,10 @@
 # Đóng góp
 
-Đọc AGENTS.md → plan.md → architecture → skill liên quan. Giữ evidence mốc đã pass.
+1. Đọc [AGENTS.md](AGENTS.md) và [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+2. Mô tả input, kết quả mong đợi, kết quả thực tế và log.
+3. Sửa đúng module; không đặt logic domain vào UI; không hardcode theo nhân vật/đạo cụ/phim.
+4. Chạy các kiểm tra trong `docs/ARCHITECTURE.md`; ghi rõ cái nào `NOT_RUN`.
+5. Cập nhật `docs/ROADMAP.md`, `docs/STATE.json`, `CHANGELOG.md` khi trạng thái đổi.
+6. Push nhánh, mở PR nháp. Chủ dự án duyệt trước khi merge.
 
-1. Mô tả input/revision/profile, expected/actual và log.
-2. Sửa đúng module; không đặt domain logic vào UI.
-3. Chạy format/verify; integration khi đổi render/audio/state, UI test khi đổi API/UI.
-4. Cập nhật capability/plan/verification/changelog; không sửa ngưỡng để che lỗi.
-5. Commit/push branch; PR ghi test thực và NOT_RUN. Người dùng duyệt trước merge.
-
-Không commit runtime data, secrets, node_modules/cache. Asset cần nguồn/quyền rõ. Giữ nguyên Word/PDF và SHA256SUMS gốc.
+Không commit dữ liệu runtime, secret, `node_modules`, output render. Asset cần ghi rõ nguồn và quyền. Giữ nguyên báo cáo Word/PDF gốc và `SHA256SUMS`.
