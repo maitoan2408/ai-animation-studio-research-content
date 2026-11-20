@@ -69,7 +69,7 @@ test('bone lengths come from each character\'s own art, so a new proportion need
     assert.ok(Math.abs(r.markers.find(m=>m.id.endsWith(side+'-sole'))!.point[1]-850)<1e-6);
 });
 
-test('lantern-v2 keeps v1 proportions, rounds every limb joint and adds a half-open hand',async()=>{
+test('lantern-v2: arms and hands at 85% of v1, legs unchanged, round joints, relaxed hand',async()=>{
   const root2=new URL('../assets/lantern-v2/',import.meta.url);
   const v2=JSON.parse(await readFile(new URL('manifest.json',root2),'utf8')) as ArtPack;
   assert.notEqual(v2.version,pack.version);
@@ -80,13 +80,26 @@ test('lantern-v2 keeps v1 proportions, rounds every limb joint and adds a half-o
   for(const model of ['mai','an'])for(const part of ['upper-arm','forearm','thigh','shin']){
     const id=model+'/'+part,old=pack.assets.find(a=>a.id===id)!,next=v2.assets.find(a=>a.id===id)!;
     const len=(a:typeof old)=>distance(a.pivot,a.anchors.end!);
-    assert.equal(len(next),len(old),id+' bone length must not change');
+    const expected=/arm/.test(part)?Math.round(len(old)*.85):len(old);
+    assert.equal(len(next),expected,id+' bone length');
     // A round joint: the art extends beyond the pivot and the end by at least
     // 40% of its width, so rotating at either joint never exposes a cut edge.
     assert.ok(next.pivot[1]>=next.width*.4&&next.height-next.anchors.end![1]>=next.width*.35,id);
   }
+  const v2grip=(model:string)=>v2.assets.find(a=>a.id===model+'/hand-grip')!;
   for(const model of ['mai','an']){
     const half=v2.assets.find(a=>a.id===model+'/hand-half')!,open=v2.assets.find(a=>a.id===model+'/hand-open')!;
     assert.deepEqual([half.pivot,half.anchors.grip],[open.pivot,open.anchors.grip]);
+    const g1=pack.assets.find(a=>a.id===model+'/hand-grip')!,g2=v2grip(model);
+    for(const k of [0,1] as const)assert.ok(Math.abs((g2.anchors.grip![k]-g2.pivot[k])-(g1.anchors.grip![k]-g1.pivot[k])*.85)<.01,'hand scaled 85%');
   }
+});
+
+test('oriented coverage follows rotation: a box beside a slanted limb is not counted as on it',async()=>{
+  const {orientedCoverage}=await import('../src/scene/geometry.js');
+  const thigh={id:'t',asset:'an/thigh',x:500,y:500,z:0,rotation:-20,scaleX:1,scaleY:1,opacity:1};
+  const onTop={...thigh,id:'h',asset:'an/hand-open',rotation:0};
+  assert.ok(orientedCoverage(pack,onTop,thigh)>.5);
+  const beside={...onTop,x:500+80};
+  assert.equal(orientedCoverage(pack,beside,thigh),0);
 });

@@ -22,8 +22,8 @@
             "id": "hero-prop",
             "asset": "props/cup",
             "sha256": "3ef82e07b61e1c1f19d54dccf9ae22138773c27dadb46ebde7e7eb7c86b60eee",
-            "x": 990,
-            "y": 610,
+            "x": 960,
+            "y": 590,
             "scale": 0.7,
             "anchor": "grip"
           },
@@ -76,13 +76,13 @@
     "camera": [
       {
         "frame": 0,
-        "x": 960.0,
+        "x": 950,
         "y": 650,
         "zoom": 1.46
       },
       {
         "frame": 127,
-        "x": 950.0,
+        "x": 940,
         "y": 655,
         "zoom": 1.55
       }

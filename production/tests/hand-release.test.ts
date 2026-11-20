@@ -21,17 +21,17 @@ const film=async(name:string,packDir:string)=>{
  return {pack,playback:await buildPlayback(validateFilmRequest(raw,pack),pack)};
 };
 
-test('half-open timing scales with settle time and needs the drawing',()=>{
+test('released hand: relaxed drawing when the pack has one, open otherwise; turn pace scales',()=>{
  const withHalf={version:'x',assets:[{id:'m/hand-half'}]} as unknown as ArtPack;
  const without={version:'x',assets:[]} as unknown as ArtPack;
  assert.equal(halfOpenFrames(24),3);assert.equal(halfOpenFrames(8),2);assert.equal(halfOpenFrames(48),6);
- assert.deepEqual([0,1,2,3].map(f=>releasedHandState(withHalf,'m',f,24)),['half','half','half','open']);
+ assert.deepEqual([0,1,2,30].map(f=>releasedHandState(withHalf,'m',f,24)),['half','half','half','half']);
  assert.deepEqual([0,1,2,3].map(f=>releasedHandState(without,'m',f,24)),['open','open','open','open']);
  assert.throws(()=>releasedHandState(withHalf,'m',-1),/HAND_RELEASE_FRAME/);
 });
 
 for(const name of ['an-right-cup.json','mai-left-lantern.json','an-left-cup-late-release.json']){
- test('release goes grip -> half -> open on the releasing hand only: '+name,async()=>{
+ test('release goes grip -> relaxed and stays relaxed; free hand relaxed: '+name,async()=>{
   const {pack,playback}=await film(name,'assets/lantern-v2');
   const r=playback.releases[0]!,t=playback.film.tracks[0]!,id=t.contact.actor.id;
   const other=t.contact.hand==='left'?'right':'left';
@@ -39,9 +39,8 @@ for(const name of ['an-right-cup.json','mai-left-lantern.json','an-left-cup-late
    .find(s=>s.id===id+'.'+side+'-hand')!.asset.split('/hand-')[1];
   const n=halfOpenFrames(r.settleFrames);
   assert.equal(shape(r.frame-1,t.contact.hand),'grip');
-  for(let k=0;k<n;k++)assert.equal(shape(r.frame+k,t.contact.hand),'half');
-  assert.equal(shape(r.frame+n,t.contact.hand),'open');
-  for(const f of [r.frame-1,r.frame,r.frame+n])assert.equal(shape(f,other),'open');
+  for(let k=0;k<n+20&&r.frame+k<playback.film.frames;k++)assert.equal(shape(r.frame+k,t.contact.hand),'half');
+  for(const f of [r.frame-1,r.frame,r.frame+n])assert.equal(shape(f,other),'half');
   for(let f=r.frame-2;f<r.frame+n+2;f++)
    assert.deepEqual(auditG3VisualIntent(playback,f,sampleGeneralPlayback(playback,f,pack).frame,pack).issues,[]);
  });

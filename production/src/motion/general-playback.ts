@@ -5,7 +5,7 @@
  */
 import {sampleGeneralFilm,type GeneralFilm,type GeneralSample} from './general-timeline.js';
 import {actorSprites} from '../scene/rig.js';
-import {spriteBounds,spriteBoundsGap} from '../scene/geometry.js';
+import {spriteBounds,spriteBoundsGap,orientedCoverage} from '../scene/geometry.js';
 import {mix,mixPoint,smooth} from '../scene/math.js';
 import type {GeneralDrop,GeneralDropBake} from '../physics/general-drop.js';
 import type {ActorPose,ArtPack,Point,Sprite,SceneFrame} from '../scene/types.js';
@@ -82,8 +82,9 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
    // Maintain historical candidate search for all non-enhanced playback.
    const restHand=(world:Point)=>{
      const local:Point=[(world[0]-a.x)/(a.scale*a.facing),(world[1]-a.floor)/a.scale];
-     return hand==='left'?{leftWrist:local,leftHand:'open' as const,leftHandAngle:180}:
-       {rightWrist:local,rightHand:'open' as const,rightHandAngle:180};
+     const shape=releasedHandState(pack,model,0);
+     return hand==='left'?{leftWrist:local,leftHand:shape,leftHandAngle:180}:
+       {rightWrist:local,rightHand:shape,rightHandAngle:180};
    };
    const handBounds=(solved:ReturnType<typeof actorSprites>)=>{
      const palm=solved.sprites.find(s=>s.id===prefix+hand+'-hand');
@@ -108,7 +109,7 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
    }else{
     // Hang the hand where the arm falls naturally, beside the body. Hard
     // limits: >=6px clear of the resting prop and at most 10% of the hand's
-    // box over either thigh. Among valid spots take the one closest to the
+    // own rotated rectangle inside either thigh's rotated rectangle. Among valid spots take the one closest to the
     // natural hang. If none exists the staging leaves no room for the hand,
     // which is an authoring error, not something to hide on the thigh.
     for(let yshift=10;yshift>=-4;yshift-=2){
@@ -121,9 +122,10 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
        if(spriteBoundsGap(visible,propBounds)<6)continue;
        const area=(visible.right-visible.left)*(visible.bottom-visible.top);
        if(!(area>0))throw Error('G3_REST_HAND_BOUNDS '+actorId);
+       const palm=solved.sprites.find(s=>s.id===prefix+hand+'-hand')!;
        const thighRatio=solved.sprites.filter(s=>
          s.id===prefix+'left-thigh'||s.id===prefix+'right-thigh')
-         .reduce((sum,s)=>sum+overlap(visible,spriteBounds(pack,s)),0)/area;
+         .reduce((sum,s)=>sum+orientedCoverage(pack,palm,s),0);
        if(thighRatio>.1)continue;
        const score=Math.abs(factor-1)+Math.abs(yshift)*.002;
        if(score<best-1e-10){best=score;destination=world;}

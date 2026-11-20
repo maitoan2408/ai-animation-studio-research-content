@@ -9,19 +9,23 @@ import {auditFrame} from '../src/qa/general-scene-quality.js';
 import type {ArtPack} from '../src/scene/types.js';
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
 const asset=(id:string)=>pack.assets.find(a=>a.id===id)!;
+const pack2=JSON.parse(readFileSync(new URL('../assets/lantern-v2/manifest.json',import.meta.url),'utf8')) as ArtPack;
+const assetIn=(p:ArtPack,id:string)=>p.assets.find(a=>a.id===id)!;
 async function create(hand:'left'|'right'='right',obj:'props/cup'|'props/lantern-dark'='props/cup',frames=96,release=47,
  clearForRest=false){
- // `clearForRest` stages the prop far enough out that the released hand can
- // hang beside the body; the default is the historical (legacy) staging.
+ // `clearForRest` uses the current pack (lantern-v2) staged like the example
+ // films so the released hand can hang beside the body; the default is the
+ // historical v1 staging used by the legacy baseline checks.
+ const P=clearForRest?pack2:pack;
  const actorX=hand==='right'?800:1280;
- const propX=clearForRest?(hand==='right'?990:1090):(hand==='right'?900:1180);
- const propY=clearForRest&&hand==='right'?610:631;
- const table=asset('props/workbench'),benchX=hand==='right'?1060:1120;
+ const propX=clearForRest?(hand==='right'?960:1100):(hand==='right'?900:1180);
+ const propY=clearForRest&&hand==='right'?590:631;
+ const table=assetIn(P,'props/workbench'),benchX=hand==='right'?1060:1120;
  const film:GeneralFilm={schemaVersion:'general-film/1',frames,
    tracks:[{contact:{schemaVersion:'general-contact/1',
      actor:{id:'actor-one',model:hand==='right'?'an':'mai',rigId:'production-cutout-1',
        x:actorX,floor:860,facing:1,scale:1},
-     object:{id:'item-one',asset:obj,sha256:asset(obj).sha256,
+     object:{id:'item-one',asset:obj,sha256:assetIn(P,obj).sha256,
        x:propX,y:propY,scale:obj==='props/cup'?.7:.65,anchor:'grip'},
      hand,camera:{x:960,y:540,zoom:1}},
      keys:[{frame:0,dx:0,dy:0,headAngle:0},
@@ -31,10 +35,10 @@ async function create(hand:'left'|'right'='right',obj:'props/cup'|'props/lantern
       x:benchX,y:860,z:-1,scale:1.2}],
    camera:[{frame:0,x:960,y:540,zoom:1},{frame:frames-1,x:955,y:539,zoom:1.05}],
  };
- const held=sampleGeneralFilm(film,release-1,pack);
- const s=held.frame.sprites.find(s=>s.id==='item-one')!,[x,y]=centerOfSprite(s,pack);
+ const held=sampleGeneralFilm(film,release-1,P);
+ const s=held.frame.sprites.find(s=>s.id==='item-one')!,[x,y]=centerOfSprite(s,P);
  const physics:GeneralDrop={
-   schemaVersion:'general-physics/1',asset:obj,assetSha256:asset(obj).sha256,
+   schemaVersion:'general-physics/1',asset:obj,assetSha256:assetIn(P,obj).sha256,
    initial:{centerX:x,centerY:y,angleDeg:s.rotation},
    collider:{kind:'box',halfWidthPx:obj==='props/cup'?22:32,
      halfHeightPx:obj==='props/cup'?26:55},
@@ -45,10 +49,10 @@ async function create(hand:'left'|'right'='right',obj:'props/cup'|'props/lantern
    physics:{massKg:.5,restitution:.04,friction:.8,gravityMps2:9.81},
    frames:frames-release,pixelsPerMeter:200,
  };
- const bake=await bakeGeneralDrop(physics,pack);
+ const bake=await bakeGeneralDrop(physics,P);
  const movie:GeneralPlayback={schemaVersion:'general-playback/1',film,
    releases:[{actorId:'actor-one',frame:release,project:physics,bake}]};
- return {movie,release};
+ return {movie,release,pack:P};
 }
 test('G3 real right-hand cup release: physical ownership and independent random seek without teleport',async()=>{
  const {movie,release}=await create();
@@ -163,7 +167,7 @@ test('G3 native silhouette resting hand stays visibly clear of the actual prop a
    ['right','props/cup',120,55],
    ['left','props/lantern-dark',144,70],
  ] as const){
-   const {movie}=await create(hand,obj,frames,release,true);
+   const {movie,pack}=await create(hand,obj,frames,release,true);
    validateGeneralPlayback(movie,pack);
    const settled=Math.min(frames-1,release+30);
    const rendered=sampleGeneralPlayback(movie,settled,pack,'native-silhouette');
@@ -179,16 +183,14 @@ test('G3 native silhouette resting hand stays visibly clear of the actual prop a
 });
 
 test('native-silhouette rest never puts the hand on a thigh; staging with no room fails closed',async()=>{
- const {spriteBounds}=await import('../src/scene/geometry.js');
+ const {orientedCoverage}=await import('../src/scene/geometry.js');
  for(const hand of ['right','left'] as const){
   const obj=hand==='right'?'props/cup':'props/lantern-dark';
-  const {movie}=await create(hand,obj,120,55,true);
-  const frame=sampleGeneralPlayback(movie,119,pack,'native-silhouette').frame;
-  const box=(id:string)=>spriteBounds(pack,frame.sprites.find(s=>s.id==='actor-one.'+id)!);
-  const palm=box(hand+'-hand'),area=(palm.right-palm.left)*(palm.bottom-palm.top);
-  const onThigh=['left-thigh','right-thigh'].map(box).reduce((n,t)=>n+
-    Math.max(0,Math.min(palm.right,t.right)-Math.max(palm.left,t.left))*
-    Math.max(0,Math.min(palm.bottom,t.bottom)-Math.max(palm.top,t.top)),0)/area;
+  const {movie,pack:p2}=await create(hand,obj,120,55,true);
+  const frame=sampleGeneralPlayback(movie,119,p2,'native-silhouette').frame;
+  const part=(id:string)=>frame.sprites.find(s=>s.id==='actor-one.'+id)!;
+  // Rotated-rectangle coverage (the rule's own measure), not axis-aligned boxes.
+  const onThigh=['left-thigh','right-thigh'].reduce((n,t)=>n+orientedCoverage(p2,part(hand+'-hand'),part(t)),0);
   assert.ok(onThigh<=.1,hand+' hand rests on thigh '+onThigh);
   const blocked=(await create(hand,obj,120,55,false)).movie;
   assert.throws(()=>sampleGeneralPlayback(blocked,119,pack,'native-silhouette'),/G3_RELEASE_REST_BLOCKED_BY_STAGING/);

@@ -5,6 +5,7 @@
  * character ID, side, or a positional code path. Legacy M3 remains unchanged.
  */
 import {actorSprites} from '../scene/rig.js';
+import {relaxedHand} from './hand-release.js';
 import {anchorPoint} from '../scene/geometry.js';
 import {sprite,type ArtPack,type ActorPose,type SceneFrame,type Sprite} from '../scene/types.js';
 import {auditFrame,type ContactContract,type FrameContract,type SpriteContract,type GroundContract} from '../qa/general-scene-quality.js';
@@ -72,7 +73,7 @@ export function generalContactFrameContract(p:ContactProject,pack:ArtPack,frame:
    for(const [part,art] of [['thigh','thigh'],['shin','shin'],['boot','boot'],
      ['upper','upper-arm'],['forearm','forearm']] as const)
      add(prefix+side+'-'+part,a.model+'/'+art);
-   add(prefix+side+'-hand',a.model+'/hand-'+(held&&side===hand?'grip':!held&&side===hand?releasedHand:'open'));
+   add(prefix+side+'-hand',a.model+'/hand-'+(held&&side===hand?'grip':!held&&side===hand?releasedHand:relaxedHand(pack,a.model)));
    if(held&&side===hand)add(prefix+side+'-grip-front',a.model+'/hand-grip-front');
    // Authoritative planted stance for production-cutout-1; no marker input.
    grounds.push({id:prefix+side+'-sole',spriteId:prefix+side+'-boot',anchor:'sole',

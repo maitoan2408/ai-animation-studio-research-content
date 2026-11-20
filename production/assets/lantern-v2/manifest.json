@@ -1,5 +1,5 @@
 {
-  "version": "lantern-art-2",
+  "version": "lantern-art-2.1",
   "authorship": "Original vector artwork authored for this project; no external art or voice assets",
   "license": "Project-original; use with repository project. External dependencies listed separately.",
   "units": "pixels in 1920x1080 stage; part pivots in native SVG coordinates",
@@ -108,7 +108,7 @@
       "id": "mai/upper-arm",
       "file": "mai/upper-arm.svg",
       "width": 50,
-      "height": 152,
+      "height": 136,
       "pivot": [
         25.0,
         25
@@ -116,11 +116,11 @@
       "anchors": {
         "end": [
           25.0,
-          130
+          114
         ]
       },
       "category": "limb",
-      "sha256": "28bcae9ef01a4078df31bc0d5bbfbee7d128ce4ac36b1404090e198e444d6fa5",
+      "sha256": "040ee8021d0435507ef12c4f189123fc45b6cbf9b009303328758445df22e36b",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -129,7 +129,7 @@
       "id": "mai/forearm",
       "file": "mai/forearm.svg",
       "width": 44,
-      "height": 139,
+      "height": 124,
       "pivot": [
         22.0,
         22
@@ -137,11 +137,11 @@
       "anchors": {
         "end": [
           22.0,
-          120
+          105
         ]
       },
       "category": "limb",
-      "sha256": "25dd3f0050109019b0f68cb2ca228ab3b2686297b9f6a23c47f2b4d504545441",
+      "sha256": "00b84add9fe02ab1727a3f12c4442cfc53d6d3574821c93459a1ae47749f7491",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -220,16 +220,16 @@
       ],
       "anchors": {
         "grip": [
-          43,
-          28
+          40.9,
+          30.55
         ],
         "tip": [
-          49,
-          8
+          46.0,
+          13.55
         ]
       },
       "category": "hand",
-      "sha256": "feb446fe0e6fc1e9a0f1572193cba1ef73619e81509ed0712700bb3a688aeca0",
+      "sha256": "71b902e20af66a0000da472a515b105a70107e2a23d1532b1e2d54f20b0f7a86",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -245,16 +245,16 @@
       ],
       "anchors": {
         "grip": [
-          43,
-          28
+          40.9,
+          30.55
         ],
         "tip": [
-          49,
-          8
+          46.0,
+          13.55
         ]
       },
       "category": "hand",
-      "sha256": "150e325d733dd29aea7873c889d834c1d1a3954e7b63f11c8bf3ebc020975b89",
+      "sha256": "fb4722a40967a1bb371b9d7a5dd850c40767a478ea5916decde1f9192a8ba86f",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -270,16 +270,16 @@
       ],
       "anchors": {
         "grip": [
-          43,
-          28
+          40.9,
+          30.55
         ],
         "tip": [
-          49,
-          8
+          46.0,
+          13.55
         ]
       },
       "category": "hand",
-      "sha256": "b85f86a79cb7b68838a4859872c050e8e13d759de3a27173276747b9b1a60e1c",
+      "sha256": "3fc1bf4e17de4433637471bbc7798e25b291032e677c0ef984f69867355a9ebf",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -295,12 +295,12 @@
       ],
       "anchors": {
         "grip": [
-          43,
-          28
+          40.9,
+          30.55
         ]
       },
       "category": "hand",
-      "sha256": "5e3cde6ea884f27f7bde8d4e4a0317e9927372a728e3b67696829ebc09ea5692",
+      "sha256": "d3343e773877355cbe8fabc49c809b6dc6c6e339b749204c8430aaaf882ee6ff",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -756,7 +756,7 @@
       "id": "an/upper-arm",
       "file": "an/upper-arm.svg",
       "width": 50,
-      "height": 152,
+      "height": 136,
       "pivot": [
         25.0,
         25
@@ -764,11 +764,11 @@
       "anchors": {
         "end": [
           25.0,
-          130
+          114
         ]
       },
       "category": "limb",
-      "sha256": "5ca42a380dd15b93dc0be92d10ace913ffb9d63fdfd814542cb81244fc763390",
+      "sha256": "13d51d453a20859399df4d75361729de712df55af2b2fda8ff2d519873037925",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -777,7 +777,7 @@
       "id": "an/forearm",
       "file": "an/forearm.svg",
       "width": 44,
-      "height": 139,
+      "height": 124,
       "pivot": [
         22.0,
         22
@@ -785,11 +785,11 @@
       "anchors": {
         "end": [
           22.0,
-          120
+          105
         ]
       },
       "category": "limb",
-      "sha256": "a675f46694f9f47d35e7f665755178413aed5dc4299c58e6964913ecc5c39c20",
+      "sha256": "51d1145acc901ad66bb65d7bbc2f20d5afc533fa0232e40a91bf732cf0f17982",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -868,16 +868,16 @@
       ],
       "anchors": {
         "grip": [
-          43,
-          28
+          40.9,
+          30.55
         ],
         "tip": [
-          49,
-          8
+          46.0,
+          13.55
         ]
       },
       "category": "hand",
-      "sha256": "d09b88c2d7ca8f1feb85612d60d1a09a29a497857d9b21d34824ea5086c0f0bb",
+      "sha256": "d9a3df5b430c3252f97b5606962b9dd13f78bd850e35ac1ee8f9814df98285be",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -893,16 +893,16 @@
       ],
       "anchors": {
         "grip": [
-          43,
-          28
+          40.9,
+          30.55
         ],
         "tip": [
-          49,
-          8
+          46.0,
+          13.55
         ]
       },
       "category": "hand",
-      "sha256": "bfc47724fd94b9228856aa3ab0c105b6976e4643b08e248b9b6a21f6b91e2b07",
+      "sha256": "07ca0dfe6dc93de42418d775432d5e13f93ff52c156ad5d4f349ac3fbfa35913",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -918,16 +918,16 @@
       ],
       "anchors": {
         "grip": [
-          43,
-          28
+          40.9,
+          30.55
         ],
         "tip": [
-          49,
-          8
+          46.0,
+          13.55
         ]
       },
       "category": "hand",
-      "sha256": "deda2d057ac045367a465149958f094827f3e98307614eaf6e911d39a6a91982",
+      "sha256": "6706c6dfd067bf566bf4fe60c4dc864f09202b384ff565645ab02ecd44df4b98",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -943,12 +943,12 @@
       ],
       "anchors": {
         "grip": [
-          43,
-          28
+          40.9,
+          30.55
         ]
       },
       "category": "hand",
-      "sha256": "76a86af821fd1486d15b7e456fd95eeb552f98f36366b379dc10176506a85a2e",
+      "sha256": "2d4e7232152261cd041444fa554dd35f23716433d9e5ecdd395d117aa0ee7fb2",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -1640,16 +1640,16 @@
       ],
       "anchors": {
         "grip": [
-          43,
-          28
+          40.9,
+          30.55
         ],
         "tip": [
-          49,
-          8
+          46.0,
+          13.55
         ]
       },
       "category": "hand",
-      "sha256": "b897f1802bb89db901792f79c231b15a52d7fe218da56ea4d1998557a4d0bf48",
+      "sha256": "8f27a4cfe74df61ec2499dbc2ce095cbca36a9467fdc85d7d59f6cd1e656a587",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"
@@ -1665,16 +1665,16 @@
       ],
       "anchors": {
         "grip": [
-          43,
-          28
+          40.9,
+          30.55
         ],
         "tip": [
-          49,
-          8
+          46.0,
+          13.55
         ]
       },
       "category": "hand",
-      "sha256": "8ddfca79db57f910f6d8686c70962b625e5b7c181f17075a947dd27beec70b87",
+      "sha256": "155e129c37cc15c03e5b3fc09777cb1d228c53dd924294af17f538bcaccc6048",
       "colorSpace": "srgb",
       "alpha": "straight",
       "source": "project-original"

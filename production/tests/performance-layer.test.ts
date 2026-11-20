@@ -8,13 +8,14 @@ import {sampleGeneralFilm,type GeneralFilm} from '../src/motion/general-timeline
 import {sampleGeneralPlayback,type GeneralPlayback} from '../src/motion/general-playback.js';
 import {sampleG3Performance,validateG3Performance,type G3PerformancePlan} from '../src/motion/performance-layer.js';
 import {auditFrame} from '../src/qa/general-scene-quality.js';
-const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
+// The performance layer is reviewed on the current pack (lantern-v2).
+const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v2/manifest.json',import.meta.url),'utf8')) as ArtPack;
 const sha=(x:unknown)=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
 const asset=(id:string)=>pack.assets.find(x=>x.id===id)!;
 function project(hand:'left'|'right'='right',model='an',frames=128):GeneralPlayback{
  const actorX=hand==='right'?800:1280;
  // Staged so the released hand can hang beside the body, clear of the prop.
- const propX=hand==='right'?990:1090,propY=hand==='right'?610:631;
+ const propX=hand==='right'?970:1100,propY=hand==='right'?590:631;
  const prop=hand==='right'?'props/cup':'props/lantern-dark';
  const film:GeneralFilm={schemaVersion:'general-film/1',frames,
   tracks:[{contact:{schemaVersion:'general-contact/1',

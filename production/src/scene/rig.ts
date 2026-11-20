@@ -7,7 +7,9 @@ import { sprite, type ActorPose, type ArtPack, type Marker, type Point, type Spr
 export const cutoutStance = {
   hipHeight: 258, hipHalfWidth: 30,
   leftAnkle: [-35, -29] as Point, rightAnkle: [48, -29] as Point,
-  restWristY: 47, restWristX: {left: -99, right: 108, leftProfile: -62, rightProfile: 75},
+  /** Relaxed arm: the wrist hangs this fraction of the arm's own length below
+   * the shoulder (elbow slightly bent) and this far out to the side. */
+  restReach: .95, restOut: 14, restOutProfile: 0,
 } as const;
 /** Pivot-to-anchor distance of one art part, in native units. */
 export function partLength(pack: ArtPack, assetId: string, anchor = 'end'): number {
@@ -56,7 +58,9 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
     const joint = elbow(shoulder,wrist,upperArm,forearm,side === 'right' ? pose.rightElbowBend ?? 1 : pose.leftElbowBend ?? -1);
     bone(`${side}-upper`, 'upper-arm', shoulder,joint,z);
     bone(`${side}-forearm`, 'forearm',joint,wrist,z+.1);
-    const hand = side === 'right' ? pose.rightHand ?? 'open' : pose.leftHand ?? 'open';
+    // A resting hand is relaxed: the half-open drawing when the pack has one.
+    const relaxed = pack.assets.some(x => x.id === `${a}/hand-half`) ? 'half' as const : 'open' as const;
+    const hand = side === 'right' ? pose.rightHand ?? relaxed : pose.leftHand ?? relaxed;
     const handAngle=(side==='right'?pose.rightHandAngle:pose.leftHandAngle) ?? (hand==='open'?180:0);
     const layeredGrip=hand==='grip'&&(pose.layeredGripSide===side||
       (pose.layeredGripSide===undefined&&(pose.layeredGrip===side||(side==='right'&&pose.layeredGrip===true))));
@@ -79,8 +83,9 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
     }
     mark(`${side}-wrist`,wrist,'joint',z+.2);
   };
-  const restWrist=(x:number)=>atTorso([x,st.restWristY]);
-  arm('left',torsoAnchor('leftShoulder'),pose.leftWrist ?? restWrist(profile?st.restWristX.leftProfile:st.restWristX.left),
+  const restWrist=(shoulder:Point,side:-1|1)=>add(shoulder,
+    rotate([side*(profile?st.restOutProfile:st.restOut),(upperArm+forearm)*st.restReach],torsoAngle));
+  arm('left',torsoAnchor('leftShoulder'),pose.leftWrist ?? restWrist(torsoAnchor('leftShoulder'),-1),
     pose.layeredGripSide==='left'?5:2.5);
   localSprite('torso',torsoId,hip,3,torsoAngle);
   const neck = torsoAnchor('neck');
@@ -92,7 +97,7 @@ export function actorSprites(pack: ArtPack, pose: ActorPose): {sprites: Sprite[]
   const mouth = add(neck,rotate(subtract(headAsset.anchors.mouth,headAsset.pivot),headAngle));
   localSprite('mouth',`mouth/${pose.mouth ?? 'rest'}`,mouth,4.1,headAngle);
   if(pose.view==='profile') items[items.length-1]!.scaleX=.65;
-  arm('right',torsoAnchor('rightShoulder'),pose.rightWrist ?? restWrist(profile?st.restWristX.rightProfile:st.restWristX.right),
+  arm('right',torsoAnchor('rightShoulder'),pose.rightWrist ?? restWrist(torsoAnchor('rightShoulder'),1),
     pose.layeredGripSide==='left'?2.5:5);
   const scale = pose.scale ?? 1, facing = pose.facing;
   const world = (p: Point): Point => [pose.x + p[0]*scale*facing, pose.floor+p[1]*scale];
