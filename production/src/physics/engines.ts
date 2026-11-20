@@ -5,7 +5,7 @@ import * as P from 'planck';
 import R from '@dimforge/rapier2d-deterministic-compat';
 import { readFileSync } from 'node:fs';
 export const contract = JSON.parse(
-  readFileSync(new URL('../../brief/quality/physics-contract.json', import.meta.url), 'utf8'),
+  readFileSync(new URL('./contract.json', import.meta.url), 'utf8'),
 ) as {
   fps: number;
   hz: number;

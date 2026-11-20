@@ -1,7 +1,0 @@
-test_missing_or_duplicate_sprite_rejected (test_f2_native_endpoints.NativeEndpointCropTest.test_missing_or_duplicate_sprite_rejected) ... ok
-test_tracks_moved_rotated_sprite (test_f2_native_endpoints.NativeEndpointCropTest.test_tracks_moved_rotated_sprite) ... ok
-
-----------------------------------------------------------------------
-Ran 2 tests in 0.000s
-
-OK

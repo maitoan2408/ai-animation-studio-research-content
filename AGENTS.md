@@ -1,88 +1,29 @@
-# Hướng dẫn làm việc trong repo
+# Hướng dẫn cho agent
 
-## Vòng thực hiện hiện hành
-
-Người dùng đã ủy quyền thực hiện/ra quyết định từng phase và tự sửa lỗi. Đọc
-`docs/execution/RESUME.md` và `state.json` trước khi tiếp tục. Review theo ủy quyền
-phải ghi `delegated-agent`, không giả là người dùng hoặc chuyên gia độc lập đã duyệt.
-Sau từng bước có evidence, cập nhật checkpoint và push nhánh; giữ toàn bộ kết quả cũ.
-
-## Giao tiếp, bàn giao bằng hình ảnh và QA hồi quy sau khi có sản phẩm (chủ dự án, 2026-11-16)
-
-- **Không báo cáo tiến độ giữa chừng.** Trong một milestone đã được giao, tự triển khai và ghi lại checkpoint/log/commit nội bộ; không gửi các thông báo tiến độ, bản nháp hoặc xin người dùng duyệt từng bước. Chỉ gửi một lần khi có sản phẩm đã qua kiểm thử cuối và có đủ bằng chứng để review. Nếu phát sinh blocker thực sự không thể tự xử lý, báo rõ `BLOCKED` cùng bằng chứng, tuyệt đối không gọi là đã hoàn thành.
-- **Bàn giao trực tiếp trong đoạn chat.** Hiển thị ngay hình ảnh, contact sheet/khung hình thực, và video/preview có thể xem khi môi trường hỗ trợ, được tạo từ đúng revision cuối; không bắt người dùng phải mở GitHub chỉ để nhìn sản phẩm. Đính kèm video/file nguồn chỉnh sửa được và link artifact/manifest để tải khi cần. Nếu không thể nhúng video trực tiếp, phải nêu rõ hạn chế và ít nhất hiển thị ảnh/frame thật trong chat cùng đường dẫn video có thể xem/tải; không giả là đã nhúng media khi chưa có.
-- **Sau khi tạo được sản phẩm, bắt buộc quay lại kiểm thử lần hai trước khi báo cáo.** Đây là vòng hậu sản xuất riêng biệt: rà lại đầy đủ acceptance criteria so với sản phẩm thật; xem/nghe media, kiểm storyboard, timeline, chuyển động, khung hình, âm thanh, UI, save/reopen/import/export, tính đúng dữ liệu, negative cases, bảo mật, compatibility và khả năng tái lập theo phạm vi milestone.
-- **Nếu phát hiện lỗi hoặc thiếu sót thì quay lui và sửa tận gốc.** Tái hiện lỗi và lưu bằng chứng FAIL, bổ sung regression test, sửa, render/đối chiếu media mới, rồi chạy lại toàn bộ test liên quan **và full regression suites trên commit cuối**. Lặp vòng audit → fix → re-test cho đến khi không còn lỗi trong phạm vi; không che lỗi bằng ngưỡng mới, đánh dấu giả PASS hoặc giữ artifact từ revision cũ.
-- Chỉ sau vòng hậu kiểm cuối thành công mới trình người dùng review một lần bằng **sản phẩm + hình ảnh/video thực + kết quả QA ngắn gọn**. Giữ `READY_FOR_USER_REVIEW` cho đến khi người dùng quyết định `ACCEPTED`; không tự merge hoặc bắt đầu milestone tiếp theo. Không tự nhận đã có chuyên gia độc lập hoặc chủ dự án duyệt.
+Đọc file này, rồi chỉ mở tài liệu/code cần cho việc đang làm. Trạng thái hiện tại: [docs/STATE.json](docs/STATE.json); lộ trình: [docs/ROADMAP.md](docs/ROADMAP.md); kiến trúc: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Mục tiêu
 
-Xây studio nội bộ tạo hoạt hình 2D/2.5D từ kịch bản. Sản phẩm phải chạy lại được, có bằng chứng kiểm thử và review gắn đúng revision/artifact. Đọc `plan.md`, `docs/architecture.md`, `skills.md` trước khi đổi workflow.
+Workflow làm phim 2D/2.5D **tái sử dụng được** và phim **thực sự đẹp**. Không chuyển sang 3D, không gọi API tạo hình/video, không hardcode theo nhân vật, đạo cụ, cảnh hay số frame.
 
-## Quy tắc triển khai
+## Quy tắc bắt buộc
 
-- TypeScript strict; tách domain, lưu trữ, planner, compiler/render và HTTP/UI. Hàm và dữ liệu có tên mô tả trách nhiệm.
-- Validate dữ liệu tại biên vào và trước render. Không thực thi HTML/JS do người dùng hoặc model cung cấp.
-- Asset lưu theo SHA-256; revision bất biến. Ghi JSON qua temporary file + rename. Cập nhật revision có kiểm tra bản gốc để tránh ghi đè đồng thời.
-- Job có attempt riêng, AbortSignal, log và output tạm. Chỉ công bố artifact sau decode/QC. Không tự duyệt nghệ thuật.
-- Không coi exit 0/file tồn tại là đã đạt. Kiểm frame count, dimensions, fps, audio và hash.
-- Render dùng dependency đã khóa và asset local. Không đặt API key vào project/export/log/Git.
-- Mọi lỗi phải có code/message hữu ích. Không bắt exception rồi báo thành công hoặc im lặng fallback làm sai nội dung.
-- Mỗi mốc cập nhật plan, tài liệu sử dụng, kết quả thực đo và changelog; commit có phạm vi rõ. Đẩy branch để người dùng review, không tự merge.
+- **Tổng quát từ dữ liệu.** Không có `if (actor === 'an')`, điều kiện riêng cho cốc/đèn, hay vá ở frame 95. Nhân vật, đạo cụ, phim nằm trong art pack và `production/examples/films/*.json`. Tính năng mới phải chạy trên ≥2 nhân vật/tay/đạo cụ.
+- **Không mở thêm tầng kế hoạch.** Khi một giai đoạn thất bại, sửa nguyên nhân gốc trong giai đoạn đó và cập nhật `docs/ROADMAP.md`/`docs/STATE.json`. Không tạo file kế hoạch mới, không đặt bộ ký hiệu giai đoạn mới.
+- **Tất định.** Lấy mẫu thuần theo frame, tua ngẫu nhiên được; input, art và bake đều có SHA; bake vật lý bất biến. Tay giữ đạo cụ đến khi thả, sau đó bake Rapier giữ.
+- **Dừng khi sai.** Hành động không hỗ trợ, bake cũ, hash sai, hình học sai, tầm với không tới → lỗi có mã. Không fallback âm thầm rồi báo thành công.
+- **Không che lỗi.** Không nới ngưỡng, không xóa test để lấy màu xanh, không sửa code chỉ để khớp một ảnh chụp.
+- **Báo cáo trung thực:** `PASS_TECHNICAL`, `ART_REWORK_REQUIRED`, `READY_FOR_USER_REVIEW`, `ACCEPTED` (chỉ chủ dự án đặt), `BLOCKED`, `NOT_RUN`. Không nói đã xem phim nếu chưa xem.
+- **Bảo mật.** Không chạy HTML/JS do người dùng hoặc model tạo. Validate ở biên vào và trước render. Không đặt key vào repo/log.
+- **Git.** Làm trên nhánh feature + PR nháp; commit nhỏ, giải thích được. Không force-push, không tự merge, không sửa `main`. Không commit MP4/ZIP/evidence lớn; video lấy từ CI artifact.
 
-## Kiểm tra bắt buộc
+## Vòng làm việc
 
-`npm run verify` cho typecheck và tests nhanh. `npm run test:integration` cho renderer/CLI/storage workflow trên Chromium + FFmpeg. `npm run test:ui` cho luồng trình duyệt khi đổi UI/API. Các test có phí hoặc cần credential riêng không được đánh dấu pass nếu chưa chạy.
+1. `git status -sb && git rev-parse HEAD`; đọc `docs/STATE.json`.
+2. Xác định lỗi cụ thể, frame/đoạn bị lỗi và ai sở hữu nó (art, rig, motion, physics, renderer).
+3. Viết test thất bại trước (cả hai nhân vật/tay/hướng, tua frame, biên thả đạo cụ…), sửa nguyên nhân gốc, chạy test liên quan.
+4. Render phim mẫu, audit, **xem phim thật** ở 1× và 0.5× cho mọi nhân vật trước khi nói đã cải thiện.
+5. Sau lần sửa cuối, chạy toàn bộ kiểm tra trên cùng HEAD (bảng trong `docs/ARCHITECTURE.md`).
+6. Bàn giao một lần: HEAD, thay đổi, kết quả test, ảnh/video thật, lỗi nghệ thuật còn lại, trạng thái. Hiển thị media trực tiếp nếu được.
 
-Kiểm thử phải gồm input lỗi và recovery khi thay state machine, không chỉ happy path. Khi test thất bại, giữ log, sửa nguyên nhân và chạy lại phần liên quan. Không chỉnh ngưỡng để che sai khác chưa giải thích.
-
-## Dữ liệu và tài liệu
-
-- `data/` là runtime, không commit. `examples/` là input có thể tái tạo. `artifacts/` chỉ lưu bằng chứng chọn lọc, không cache/browser/binary.
-- `reports/` giữ nghiên cứu và thẩm định gốc. `validation/` là harness nghiên cứu, tách khỏi ứng dụng.
-- Ghi rõ PASS, FAIL, BLOCKED hoặc NOT_RUN. Fixture hình học không chứng minh chất lượng phim hoàn chỉnh.
-
-## Kiểm workbench Q2 trước Q3
-
-Prototype production nằm riêng, không coi capability của nó đã có trong app v0.1.
-Chạy `npm --prefix production run typecheck`, `npm --prefix production test` và
-`python -m unittest discover -s production/tests -p 'test_*.py' -v` khi thay phần
-liên quan. Renderer/media thay đổi phải có real native render/decode và artifact.
-Các lệnh đều bọc `scripts/run-step.py`; historical fail snapshots giữ nguyên.
-Đọc `production/evidence/Q2/gate.json` và `production/artifacts/Q2/review-final`.
-Không suy voice audition từ loudness, color approval từ tags, motion score từ
-contact tests, hoặc independent handoff từ cùng agent chạy process mới.
-
-## Công cụ review Q2 và tái lập media
-
-`production/src/review/README.md` là hướng dẫn code/API/journal. Catalog mặc định
-v2 có media chia32MiB parts; chạy review_bundle.py restore trước review/check/UI.
-Không commit lại MP4 đã ghép hoặc sửa các phần/manifest để khớp video khác.
-Mọi review cần đúng artifact SHA/master SHA/revision/shot/frame; test phải dùng
-automated-test và thư mục dữ liệu riêng. Không coi checkbox xem/nghe là xác minh
-danh tính hoặc bằng chứng người độc lập. CI workbench không đóng gate mỹ thuật.
-Các helper kiểm v0.1 dùng run_app_regression.py để giữ hash deliverables cũ;
-helper phải build CLI trong workspace tách biệt trước integration/UI tests.
-Khi đổi lưu note/retry/draft UI, chạy thêm `npm --prefix production run test:review-recovery`.
-Giữ nguyên requestId lẫn body sau response không rõ đã commit; STALE_HEAD là
-rejection xác định mới được rebase. Response cũ không được xóa draft mới.
-
-## Nâng cấp chất lượng hiện hành U0–U8
-
-Đọc `docs/quality/PLAN.md`, `state.json`, `RESULTS.md` trước khi tiếp tục.
-U0–U8 ứng với kế hoạch mới đính kèm, không thay Q0–Q9 hoặc P0–P11 lịch sử.
-Giữ R3; candidate secondary S05 là development art, chưa là production approval.
-Engine/input/golden được khóa; không cập nhật golden để che lỗi chưa giải thích.
-Dùng `run-step.py U<n>` để lưu attempt; QA auditor kiểm cả Q và U.
-Texture bootstrap chính xác: `production/src/motion/prepare_textures.py`; không
-phụ thuộc cache hoặc raster lại asset nếu chỉ cần tái tạo candidate đã khóa.
-Tài liệu module ở `production/src/physics/README.md` và `src/motion/README.md`.
-Không thêm video/native ZIP lớn vào regular Git; giữ recipe/source/report nhỏ.
-
-## M4 physics-specific delivery gate (owner-approved 2026-11-16)
-
-Reuse U3 Rapier/bake but do not alter S05 locked files or goldens. Generalize via validated project data and M3 authored-ownership/contact, fixed 240Hz+24fps 10-step simulation, input/art/recipe/source-bound immutable bake and arbitrary frame replay; stale receipts fail closed. Require at least two non-S05 physics input configurations, genuine native 1080p OFF/ON films from identical project/camera/timeline and measured collision/handoff/contact evidence. After real media exists, a separate delegated-agent second-pass audit must inspect decoded media and negative cases, then repeat full root+production+M4 regression on final HEAD after any fix. Report only actual verification, keep M4 READY_FOR_USER_REVIEW pending owner, never accept/merge/start M5 automatically.
-
-## M5 Director-specific development exception (owner instruction 2026-11-17)
-
-The owner explicitly authorized **starting M5 implementation** while keeping M4 pending for later owner review. This is a narrow exception for development sequencing only; **M4 is NOT owner ACCEPTED**. Work on isolated `codex/product-first-m5-director` with Draft PR #15 based on the Draft M4 branch; no merge, no M6. M5 must implement actual deterministic data-only skill graph and real Studio calls, with two fresh script videos, Chromium graph screenshots, unsupported-action fail demo, provenance/retry/human edit tests, second-pass media audit and full root+production+M4 final-head regression. Do not confuse generated demonstration videos with finished general AI model capability. Only owner can approve.
+Quy tắc quyết định: **test xanh mà phim xấu hơn là FAIL.**

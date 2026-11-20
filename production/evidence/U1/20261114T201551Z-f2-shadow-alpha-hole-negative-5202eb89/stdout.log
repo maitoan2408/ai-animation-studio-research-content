@@ -1,7 +1,0 @@
-test_alpha_hole_verifier_rejects_filled_or_absent_shadow (test_f2_calibration_verify.ShadowFixtureVerifierTest.test_alpha_hole_verifier_rejects_filled_or_absent_shadow) ... ok
-test_rejects_no_shadow_and_leak (test_f2_calibration_verify.ShadowFixtureVerifierTest.test_rejects_no_shadow_and_leak) ... ok
-
-----------------------------------------------------------------------
-Ran 2 tests in 1.157s
-
-OK

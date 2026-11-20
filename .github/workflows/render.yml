@@ -1,0 +1,34 @@
+name: Render example films
+on:
+  pull_request:
+    paths: ['production/**', '.github/workflows/render.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  render-audit:
+    runs-on: ubuntu-latest
+    container: node:24.22.1-trixie@sha256:65f2a832ba8374f622bf691e122d556692861f4a63759c3b7120356d4460e95c
+    timeout-minutes: 90
+    env:
+      HYPERFRAMES_NO_TELEMETRY: '1'
+      SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - run: apt-get update && apt-get install -y --no-install-recommends chromium ffmpeg fonts-liberation
+      - run: npm --prefix production ci
+      - name: Render every example film (baseline and enhanced pairs)
+        run: cd production && npm run render -- examples/films/*.json --out out/films
+      - name: Independent post-render audit
+        run: cd production && npm run audit -- out/films
+      - name: Renderer fault and seek self-check
+        run: cd production && npm run check:renderer -- examples/films/an-right-cup.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: films-${{ github.run_id }}
+          path: production/out/films
+          retention-days: 14

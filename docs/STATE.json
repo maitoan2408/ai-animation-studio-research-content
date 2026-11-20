@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "studio-state/1",
+  "updated": "2026-11-20",
+  "branch": "codex/m6-unified-integration-20261118",
+  "pullRequest": "https://github.com/maitoan2408/ai-animation-studio-research-content/pull/22",
+  "cleanupBase": "7f35e4f631660c64c49b7b10cc2285aecd878931",
+  "active": "G3",
+  "stages": {
+    "M0-M5": {
+      "userAcceptance": "ACCEPTED",
+      "acceptedAt": {
+        "M0": "1da6486bd7f1d5c36584dba5a940f4eff8270499",
+        "M1": "2b28317bbf15550204ebef1952b3938c222bb5f0",
+        "M2": "2042ad49e4e7f5456a49bc696d820044017f5643",
+        "M3": "68ae34daebce4e1b27b4345cf5f296e4f4d300c2",
+        "M4": "79aae2fdfe960e03992e136a6529fe95623a1cdb",
+        "M5": "3bbc337c3294e6dfa7570e463e6724a6990d64d9"
+      },
+      "note": "Accepted at these SHAs. The SVG renderer, M3 motion page and M3/M4/M6 renderers were removed in the cleanup; see docs/HISTORY.md."
+    },
+    "G1": {
+      "technical": "PASS_TECHNICAL"
+    },
+    "G2": {
+      "technical": "PASS_TECHNICAL"
+    },
+    "G3": {
+      "technical": "PASS_TECHNICAL",
+      "art": "READY_FOR_USER_REVIEW",
+      "userAcceptance": "NOT_REVIEWED",
+      "reviewHead": "d0a91e8",
+      "artPack": "assets/lantern-v2",
+      "fixed": [
+        "round limb joints, no elbow cuff (lantern-v2)",
+        "grip -> half-open -> open hand release, <=22.5 deg/frame turn",
+        "released hand hangs beside the body, never on a thigh; blocked staging fails closed",
+        "arms and hands at 85% (lantern-art-2.1); relaxed rest pose derived from arm length; relaxed hand at rest and after release; thigh clearance on rotated rectangles"
+      ],
+      "openDefects": [
+        "wrist leaves the prop slowly after release",
+        "released hand rests on the bench edge in all three films",
+        "Mai holds the lantern at shoulder height with a near-horizontal arm",
+        "weight transfer / body acting still subtle",
+        "narrow valid placement window for short-armed right-hand releases (fails closed with BLOCKED_BY_STAGING)"
+      ],
+      "evidence": "local native render + audit and CI render.yml success at d0a91e8",
+      "ownerFeedback": [
+        "2026-11-20: arms too long, pose unnatural (reviewed 55bb0bd) -> fixed in G3-5"
+      ]
+    },
+    "G4": {
+      "status": "NOT_STARTED",
+      "gate": "owner approves G3"
+    },
+    "G5": {
+      "status": "NOT_STARTED"
+    },
+    "G6": {
+      "status": "NOT_STARTED"
+    },
+    "M7": {
+      "status": "NOT_AUTHORIZED"
+    }
+  },
+  "knownGaps": [
+    "Studio render jobs fail with RENDERER_NOT_CONFIGURED until G4",
+    "walk / wave / turn-head actions are not in the general engine",
+    "no audio in native films"
+  ]
+}

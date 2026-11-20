@@ -1,7 +1,0 @@
-test_detects_dark_bright_and_bad_box (test_f2_shadow_regions.ShadowRegionTest.test_detects_dark_bright_and_bad_box) ... ok
-
-----------------------------------------------------------------------
-Ran 1 test in 0.123s
-
-OK
-{"status": "OBSERVATION_ONLY", "regions": {"torso_hand": {"box": [205, 128, 272, 200], "darkerPixels": 367, "brighterPixels": 0, "unchangedPixels": 4443, "meanRgbDelta": -1.3881288004422334}, "head_neck": {"box": [205, 90, 275, 145], "darkerPixels": 498, "brighterPixels": 0, "unchangedPixels": 3327, "meanRgbDelta": -2.3119480519480518}, "ground_feet": {"box": [195, 275, 295, 315], "darkerPixels": 474, "brighterPixels": 0, "unchangedPixels": 3484, "meanRgbDelta": -2.1349999999999993}, "sky": {"box": [13, 6, 116, 36], "darkerPixels": 0, "brighterPixels": 0, "unchangedPixels": 3090, "meanRgbDelta": 0.0}}, "scope": "signed 8-bit RGB on/off in fixed crops; no proof that shadow belongs to intended receiver, contact, color or art"}

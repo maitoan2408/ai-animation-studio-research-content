@@ -1,29 +1,32 @@
-# Lantern art pack
+# Art pack
 
-`lantern-v1/manifest.json` khai 64 SVG gốc, source SHA-256, pivot, anchors và quyền.
-Nguồn authoring là `../src/art/build_assets.py`; sửa paths/palette/metadata tại đó,
-chạy generator rồi review diff. Generator không tải asset bên ngoài.
+Mỗi thư mục con là một art pack có phiên bản. `manifest.json` khai mọi SVG: `id`, `file`, kích thước, `pivot`, `anchors`, `category`, SHA-256 nguồn. SVG là nguồn chỉnh sửa; sửa SVG thì phải cập nhật SHA, hoặc tạo pack mới có version mới để phim cũ vẫn tái lập được.
 
 ## Hợp đồng hình học
 
-- Stage 1920×1080, x phải/y xuống, độ quay thuận chiều kim đồng hồ.
-- Sprite x/y là **pivot**, không phải góc trên hoặc tâm hình.
-- Mọi point trong manifest tính bằng native SVG units, bao gồm vùng trong suốt.
-- Actor origin ở mặt sàn; IK dùng chiều dài arm 105+98 và leg 115+115.
-- `grip` của bàn tay phải trùng `grip` prop trong world; không chấp nhận chỉ trùng
-  một marker tự khai. Test transform điểm của cả hai sprite qua cùng phép chiếu.
-- Front/quarter/profile có torso/head riêng, không dùng quay camera để giả mặt sau.
-- PNG textures là cache sRGB/straight alpha, native vector raster 1.5–4×. Không dùng
-  AI upscale/interpolation. Texture manifest gắn source hash và PNG hash.
+- Stage 1920×1080, x sang phải, y xuống, góc quay thuận chiều kim đồng hồ.
+- Sprite đặt theo **pivot**, không theo góc hay tâm ảnh. Mọi điểm tính bằng đơn vị SVG gốc.
+- Gốc nhân vật nằm trên mặt sàn. Tay nghỉ treo ở 95% độ dài tay của chính nhân vật, hơi đưa ra ngoài. Rig `production-cutout-1` lấy **độ dài xương từ chính art**: khoảng cách pivot → anchor `end` của `upper-arm`, `forearm`, `thigh`, `shin`; offset đế từ anchor `sole` của `boot`.
+- Bàn tay cầm: anchor `grip` của `hand-grip` phải trùng anchor `grip` của đạo cụ trong world.
+- Đạo cụ làm mặt đỡ cần anchor `support` (mặt trên).
+- Front/quarter/profile dùng torso/head riêng, không xoay camera để giả mặt sau.
 
-## Authoring và review
+## Bộ phận bắt buộc cho một nhân vật `<model>`
 
-`src/art/preview.ts` dùng cùng rig để dựng wide/close/contact/model-sheet/extremes.
-Art history ở `../artifacts/Q1/draft-1..3`; không ghi đè take bị loại. `src/art/check_textures.py`
-kiểm texture/hash/alpha, `tests/art.test.ts` kiểm metadata/sole/contact/IK reach.
-`src/art/check_three.ts` kiểm shader, alpha trên trắng/đen bằng actual texture.
+`torso`, `upper-arm`, `forearm`, `thigh`, `shin`, `boot`, `hand-open`, `hand-grip`, `hand-grip-front`, `hand-point`, `head-<view>-<mood>`; miệng dùng chung `mouth/*`.
 
-Rig extremes là kiểm vùng hoạt động, không phải pose diễn xuất đã duyệt: Q2 phải
-tránh tay che mặt và chỉnh silhouette theo từng beat. Chưa hỗ trợ back view, xoay
-360°, costume dynamics hoặc replacement drawing ngoài manifest. Thêm asset cần
-version/hash mới và kiểm lại mọi shot phụ thuộc.
+## Texture
+
+`npm --prefix production run textures -- assets/<pack>` rasterize SVG thành PNG (1.5× nền, 2× tiền cảnh, 4× còn lại) vào `production/out/textures/<pack>/`, kèm SHA từng file. Renderer kiểm hash trước mỗi lần dùng; cache hỏng thì dừng, không tự tạo lại.
+
+## `lantern-v2` (version `lantern-art-2.1`)
+
+So với `lantern-v1`:
+- `upper-arm`, `forearm`, `thigh`, `shin` vẽ lại dạng khớp tròn (hai đầu là nửa hình tròn, tâm tại pivot và anchor `end`, đoạn sau chồng lên đoạn trước), nên xoay góc nào cũng không lộ đường cắt. Bỏ dải cổ tay áo ở khuỷu, chỉ giữ ở cổ tay.
+- Cánh tay ngắn còn 85% (89 + 83 thay vì 105 + 98); chân giữ nguyên.
+- Mọi hình bàn tay thu còn 85% quanh pivot, anchor co theo.
+- Thêm `hand-half` (bàn tay thả lỏng), dùng cho tay nghỉ và tay vừa thả đạo cụ.
+
+## Giới hạn của `lantern-v1`
+
+Bàn tay chỉ có ba trạng thái rời (`open`, `grip`, `point`) và cánh tay là hai mảnh cắt cứng; đây là nguyên nhân chính của lỗi G3 (xem `docs/ROADMAP.md`). Sửa bằng pack mới có version mới, không sửa đè `lantern-v1`.

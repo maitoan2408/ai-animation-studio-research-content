@@ -8,7 +8,8 @@ import { serve } from '../src/server.js';
 import { doctor } from '../src/process.js';
 
 const root = await mkdtemp(path.join(os.tmpdir(), 'studio-ui-'));
-await mkdir('artifacts', { recursive: true });
+const out = path.join(root, 'ui-output');
+await mkdir(out, { recursive: true });
 const app = await Studio.open(root),
   server = await serve(app, 0),
   runtime = await doctor();
@@ -81,34 +82,18 @@ try {
   );
   checks.push('WAV upload normalizes and creates another revision');
   await page.click('#render');
-  await page.waitForSelector('[data-job-status=succeeded]', { timeout: 180000 });
-  await page.waitForFunction(
-    () => {
-      const v = document.querySelector('video');
-      return v instanceof HTMLVideoElement && !v.hidden && v.readyState >= 2;
-    },
-    { timeout: 15000 },
-  );
-  assert.ok(await page.$eval('video', (v) => v.duration >= 4));
-  checks.push('real render -> browser video metadata and QC');
-  await input('[name="reviewer"]', 'Automated UI test');
-  await input('[name="notes"]', 'Test endpoint only; not human artistic approval.');
-  await page.select('[name="decision"]', 'approved');
-  await page.click('#review-submit');
-  await page.waitForFunction(() =>
-    document.querySelector('#reviews')?.textContent?.includes('Automated UI test'),
-  );
-  const reviewed = await app.snapshot(projectId);
-  assert.equal(reviewed.reviews.length, 1);
-  assert.equal(reviewed.reviews[0]!.revisionId, reviewed.revision.id);
-  checks.push('review binds the selected artifact and revision');
+  await page.waitForSelector('[data-job-status=failed]', { timeout: 60000 });
+  const rendered = await app.snapshot(projectId);
+  assert.equal(rendered.jobs[0]!.error?.code, 'RENDERER_NOT_CONFIGURED');
+  assert.equal(rendered.artifacts.length, 0);
+  checks.push('render without a connected film renderer fails closed and publishes nothing');
   await page.evaluate(async () => {
     window.scrollTo(0, 0);
     await new Promise<void>((resolve) =>
       requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
     );
   });
-  await page.screenshot({ path: 'artifacts/ui-desktop.png', fullPage: true });
+  await page.screenshot({ path: path.join(out, 'ui-desktop.png'), fullPage: true });
   const exported = await page.$eval('#export-link', async (node) => {
     const response = await fetch((node as HTMLAnchorElement).href);
     return response.json();
@@ -125,7 +110,7 @@ try {
   assert.equal(all.length, 2);
   const imported = all.find((x) => x.id !== projectId)!;
   const importedState = await app.snapshot(imported.id);
-  assert.deepEqual(importedState.revision.spec, reviewed.revision.spec);
+  assert.deepEqual(importedState.revision.spec, rendered.revision.spec);
   assert.equal(importedState.reviews.length, 0);
   checks.push('UI export -> import preserves media/spec without inherited approval');
   await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
@@ -133,12 +118,12 @@ try {
     await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
     true,
   );
-  await page.screenshot({ path: 'artifacts/ui-mobile.png', fullPage: true });
+  await page.screenshot({ path: path.join(out, 'ui-mobile.png'), fullPage: true });
   checks.push('390px viewport has no horizontal overflow');
   assert.deepEqual(errors, []);
   checks.push('no uncaught browser JavaScript errors');
   await writeFile(
-    'artifacts/ui-results.json',
+    path.join(out, 'ui-results.json'),
     JSON.stringify(
       {
         status: 'PASS',
@@ -154,7 +139,7 @@ try {
   console.log(JSON.stringify({ status: 'PASS', checks }, null, 2));
 } catch (error) {
   await writeFile(
-    'artifacts/ui-failure.json',
+    path.join(out, 'ui-failure.json'),
     JSON.stringify({ error: String(error), checks, dataRoot: root }, null, 2),
   );
   throw error;

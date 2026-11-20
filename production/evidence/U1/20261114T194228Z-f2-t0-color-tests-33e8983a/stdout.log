@@ -1,7 +1,0 @@
-test_invalid_size_and_region (test_f2_color_compare.ColorCompareTest.test_invalid_size_and_region) ... ok
-test_reference_pairs_and_identity (test_f2_color_compare.ColorCompareTest.test_reference_pairs_and_identity) ... ok
-
-----------------------------------------------------------------------
-Ran 2 tests in 0.017s
-
-OK

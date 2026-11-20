@@ -1,8 +1,0 @@
-[title=Lời chào ở ngôi nhà; action=wave; camera=static; seconds=8; color=#527e88]
-Một buổi sáng yên bình. Tôi vẫy tay chào ngày mới.
-
-[title=Con đường xanh; action=walk; camera=pan; seconds=8; color=#527e88]
-Tôi bước theo con đường nhỏ, qua những tán cây.
-
-[title=Chiếc cốc ấm; action=pick-up; camera=static; seconds=8; color=#527e88]
-Tôi nhấc một chiếc cốc lên và ngắm nắng sớm.

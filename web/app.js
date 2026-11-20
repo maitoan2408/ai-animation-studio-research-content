@@ -98,9 +98,6 @@ async function loadProject(id, preserveGeneration, submittedSpec, expectedLoadGe
   const frames = current.revision.spec.scenes.reduce((n, s) => n + s.durationFrames, 0);
   $('#total-time').textContent =
     `${current.revision.spec.scenes.length} cảnh · ${(frames / 24).toFixed(1)} giây`;
-  $('#scrubber').max = frames - 1;
-  $('#scrubber').value = 0;
-  updatePreview();
   buildScenes();
   if (draft) {
     if (draft.style !== submittedSpec.style) $('#project-style').value = draft.style;
@@ -230,11 +227,6 @@ function collectSpec() {
     if (panel.dataset.detach === 'yes') delete scene.audio;
   }
   return spec;
-}
-function updatePreview() {
-  if (current)
-    $('#story-preview').src =
-      `/api/projects/${current.project.id}/preview?frame=${$('#scrubber').value}&revision=${current.revision.id}`;
 }
 function showArtifact() {
   selectedArtifact = $('#artifact-select').value;
@@ -372,7 +364,6 @@ $('#discard-edits').onclick = (event) =>
     await loadProject(current.project.id);
     notice('Đã bỏ thay đổi chưa lưu và tải revision mới nhất.');
   });
-$('#scrubber').oninput = updatePreview;
 $('#artifact-select').onchange = showArtifact;
 $('#save-scenes').onclick = (event) =>
   action(event.target, async () => {

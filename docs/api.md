@@ -13,7 +13,6 @@ Base `http://127.0.0.1:4310/api`; request ghi cần application/json, ≤40 MB. 
 | POST /projects/:id/voice | {expectedRevision} → Revision có voice |
 | POST /projects/:id/audio | {expectedRevision,sceneId,base64} → Revision gắn WAV |
 | POST /projects/:id/jobs | {revisionId,profile} → Job, 202 |
-| GET /projects/:id/preview?frame=24&revision=... | SVG đúng revision yêu cầu; mặc định current; chưa audio envelope |
 | GET /projects/:id/export?revision=... | Gói spec + audio; mặc định current |
 | POST /import | ProjectPackage → Project mới |
 | GET /jobs/:id | Job/progress/attempts |
@@ -33,4 +32,4 @@ Revision endpoint nhận đầy đủ spec. Client áp dụng patch trong bộ n
 | POST /director/plan | Strict `{title,script,style,language,profile,voice}` → deterministic SHA-bound `DirectorPlan` with supported graph and compiled scenes; no execution |
 | POST /director/run | `{plan,approved:true}` → after actual Studio render/QC `DirectorReceipt` with source revision, artifact SHA, frame profile and task attempts; reject tamper/stale approval/unsupported input |
 
-See `docs/product-first/M5-USAGE.md`. Root M5 does not secretly execute M3/M4. No AI-provider credentials or externally generated JS are accepted.
+Until a film renderer is connected (G4), render jobs and `POST /director/run` end with `RENDERER_NOT_CONFIGURED`. No AI-provider credentials or externally generated JS are accepted.

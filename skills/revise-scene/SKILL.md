@@ -25,5 +25,5 @@ Không chuyển approval/artifact cũ sang revision mới.
 
 ## Bằng chứng
 
-tests/domain.test.ts; tests/http.test.ts; tests/ui.ts. Không tự ghi PASS; chạy test hoặc trỏ evidence đúng commit. Xem docs/api.md, docs/capabilities.md và docs/verification.md. Skill dùng chung application service, không có đường ghi data riêng.
+tests/domain.test.ts; tests/http.test.ts; tests/ui.ts. Không tự ghi PASS; chạy test hoặc trỏ evidence đúng commit. Xem docs/api.md và docs/ARCHITECTURE.md. Skill dùng chung application service, không có đường ghi data riêng.
 

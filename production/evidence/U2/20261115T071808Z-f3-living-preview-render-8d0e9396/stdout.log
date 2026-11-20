@@ -1,8 +1,0 @@
-/workspace/studio-audit/production/src/art/paper-scene/animate.ts:29
-if(Object.keys(urls).length!==used.size)throw Error('ANIMATION_TEXTURE_COVERAGE');
-                                              ^
-
-Error: ANIMATION_TEXTURE_COVERAGE
-    at <anonymous> (/workspace/studio-audit/production/src/art/paper-scene/animate.ts:29:47)
-
-Node.js v24.22.1

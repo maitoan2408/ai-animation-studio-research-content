@@ -1,8 +1,0 @@
-{
-  "note": "Pull camera back3% around screen centre, all frames",
-  "scaleFactor": 0.97,
-  "modifiedCurves": 292,
-  "frame": 72,
-  "operator": "delegated-agent",
-  "scope": "Native curves only; independent operator pending"
-}

@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "film-request/1",
+  "id": "an-left-cup-late-release",
+  "artPack": "assets/lantern-v2",
+  "film": {
+    "schemaVersion": "general-film/1",
+    "frames": 144,
+    "tracks": [
+      {
+        "contact": {
+          "schemaVersion": "general-contact/1",
+          "actor": {
+            "id": "actor-hero",
+            "model": "an",
+            "rigId": "production-cutout-1",
+            "x": 1240,
+            "floor": 860,
+            "facing": 1,
+            "scale": 1
+          },
+          "object": {
+            "id": "hero-prop",
+            "asset": "props/cup",
+            "sha256": "3ef82e07b61e1c1f19d54dccf9ae22138773c27dadb46ebde7e7eb7c86b60eee",
+            "x": 1070,
+            "y": 610,
+            "scale": 0.7,
+            "anchor": "grip"
+          },
+          "hand": "left",
+          "camera": {
+            "x": 960,
+            "y": 540,
+            "zoom": 1
+          }
+        },
+        "keys": [
+          {
+            "frame": 0,
+            "dx": 0,
+            "dy": 0,
+            "headAngle": 0
+          },
+          {
+            "frame": 30,
+            "dx": 0,
+            "dy": -10,
+            "headAngle": -4
+          },
+          {
+            "frame": 60,
+            "dx": 0,
+            "dy": -34,
+            "headAngle": 6
+          },
+          {
+            "frame": 143,
+            "dx": 0,
+            "dy": -34,
+            "headAngle": 6
+          }
+        ]
+      }
+    ],
+    "stage": [
+      {
+        "id": "bench-stage",
+        "asset": "props/workbench",
+        "sha256": "af1f37aea169e817189ebd540bc81715acb902efe587f7e801e20c172631cda0",
+        "x": 1080,
+        "y": 860,
+        "z": -1,
+        "scale": 1.2
+      }
+    ],
+    "camera": [
+      {
+        "frame": 0,
+        "x": 1140,
+        "y": 650,
+        "zoom": 1.4
+      },
+      {
+        "frame": 143,
+        "x": 1130,
+        "y": 655,
+        "zoom": 1.5
+      }
+    ],
+    "background": [
+      {
+        "id": "sky",
+        "asset": "background/sky",
+        "x": 960,
+        "y": 540,
+        "z": -600
+      },
+      {
+        "id": "village",
+        "asset": "background/village",
+        "x": 960,
+        "y": 540,
+        "z": -400
+      },
+      {
+        "id": "workshop",
+        "asset": "background/workshop",
+        "x": 960,
+        "y": 540,
+        "z": -200
+      },
+      {
+        "id": "ground",
+        "asset": "background/ground",
+        "x": 960,
+        "y": 540,
+        "z": -10
+      },
+      {
+        "id": "tree-left",
+        "asset": "background/tree-left",
+        "x": 30,
+        "y": 500,
+        "z": 50
+      },
+      {
+        "id": "tree-right",
+        "asset": "background/tree-right",
+        "x": 1890,
+        "y": 500,
+        "z": 51,
+        "scaleX": -1
+      },
+      {
+        "id": "grass",
+        "asset": "background/foreground-grass",
+        "x": 800,
+        "y": 1110,
+        "z": 60
+      }
+    ]
+  },
+  "releases": [
+    {
+      "actorId": "actor-hero",
+      "objectId": "hero-prop",
+      "frame": 80,
+      "settleFrames": 24,
+      "supportStageId": "bench-stage",
+      "collider": {
+        "kind": "box",
+        "halfWidthPx": 22,
+        "halfHeightPx": 26
+      },
+      "physics": {
+        "massKg": 0.45,
+        "restitution": 0.04,
+        "friction": 0.8,
+        "gravityMps2": 9.81
+      }
+    }
+  ],
+  "performance": {
+    "tracks": [
+      {
+        "actorId": "actor-hero",
+        "beats": [
+          {
+            "kind": "prepare",
+            "start": 0,
+            "peak": 14,
+            "end": 30,
+            "torsoDeg": -2.5,
+            "hipX": -3,
+            "hipY": 3,
+            "headDeg": 4,
+            "freeHandDx": -8,
+            "freeHandDy": -3
+          },
+          {
+            "kind": "act",
+            "start": 30,
+            "peak": 55,
+            "end": 79,
+            "torsoDeg": 3,
+            "hipX": 4,
+            "hipY": 2.5,
+            "headDeg": -4,
+            "freeHandDx": 10,
+            "freeHandDy": 3
+          },
+          {
+            "kind": "recover",
+            "start": 80,
+            "peak": 96,
+            "end": 130,
+            "torsoDeg": -3,
+            "hipX": -3.5,
+            "hipY": 2.5,
+            "headDeg": 4,
+            "freeHandDx": -9,
+            "freeHandDy": -4
+          }
+        ]
+      }
+    ]
+  }
+}

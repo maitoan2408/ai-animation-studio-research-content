@@ -1,2 +1,0 @@
-{"status": "OBSERVATION_ONLY", "box": [13, 6, 116, 36], "frames": 192, "changedFrames": 0, "totalChangedPixels": 0, "maxChannelDelta": 0, "scope": "fixed crop vs frame 0; change can be movement, occlusion or flicker, equality does not validate full shot"}
-{"status": "OBSERVATION_ONLY", "box": [212, 150, 225, 165], "frames": 192, "changedFrames": 0, "totalChangedPixels": 0, "maxChannelDelta": 0, "scope": "fixed crop vs frame 0; change can be movement, occlusion or flicker, equality does not validate full shot"}

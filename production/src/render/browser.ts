@@ -2,14 +2,13 @@
  * only AFTER required textures, integrity checks, decode and shader warmup.
  * No dependency on undocumented LoadingManager counters. */
 import * as THREE from 'three';
-import {benchmarkFrame,type ShotId,type Edit,shotFrames} from '../scene/benchmark.js';
 import type {ArtPack,SceneFrame} from '../scene/types.js';
-import {toProductionFrame,type StageShotTimeline} from '../scene/animation-ir-adapter.js';
-import {sampleM3,m3TotalFrames,type M3Project} from '../motion/character-library.js';
-import {sampleM4Scene,type M4RenderData} from '../physics/m4-adapter.js';
+import {sampleGeneralFilm,type GeneralFilm} from '../motion/general-timeline.js';
+import {sampleGeneralPlayback,type GeneralPlayback} from '../motion/general-playback.js';
+import {sampleG3Performance,type G3PerformancePlan} from '../motion/performance-layer.js';
 
 export type TextureSpec={id:string;url:string;sha256:string;width:number;height:number};
-export type RenderConfig={pack:ArtPack;textures:TextureSpec[];shot:ShotId;edit?:Edit;ir?:StageShotTimeline;m3?:M3Project;m4?:M4RenderData;width:number;height:number;timeoutMs:number};
+export type RenderConfig={pack:ArtPack;textures:TextureSpec[];general?:GeneralFilm;generalPlayback?:GeneralPlayback;generalPerformance?:{playback:GeneralPlayback;plan:G3PerformancePlan};width:number;height:number;timeoutMs:number};
 type WindowApi=Window&{studio:{ready:boolean;error:string|null;frame:number;state:SceneFrame|null;seek:(frame:number)=>void;dispose:()=>void;diagnostics:Record<string,unknown>};__hf?:{duration:number;seek:(time:number)=>void}};
 const api=window as unknown as WindowApi;
 
@@ -45,13 +44,15 @@ async function start(){
  const scene=new THREE.Scene(),camera=new THREE.OrthographicCamera(-960,960,540,-540,.1,4000);
  camera.position.z=1000;
  const textures=new Map<string,THREE.Texture>(),meshes=new Map<string,THREE.Mesh>();
+
  const began=performance.now();
  // Bounded decode concurrency keeps high resolution layers within this host's RAM.
  const queue=[...config.textures];
  await Promise.all(Array.from({length:4},async()=>{while(queue.length){const spec=queue.shift()!;textures.set(spec.id,await loadTexture(spec,config.timeoutMs));}}));
  function draw(frame:number){
   if(!api.studio.ready)throw Error(api.studio.error??'RENDER_NOT_READY');
-  const state=config.m4?sampleM4Scene(config.m4,frame,config.pack):config.m3?sampleM3(config.m3,frame,config.pack).frame:config.ir?toProductionFrame(config.ir,frame,config.pack).frame:benchmarkFrame(config.pack,config.shot,frame,config.edit);
+  const state=config.generalPerformance?sampleG3Performance(config.generalPerformance.playback,config.generalPerformance.plan,frame,config.pack).frame:config.generalPlayback?sampleGeneralPlayback(config.generalPlayback,frame,config.pack).frame:config.general?sampleGeneralFilm(config.general,frame,config.pack).frame:undefined;
+  if(!state)throw Error('RENDER_SOURCE_MISSING');
   for(const mesh of meshes.values())mesh.visible=false;
   const ordered=[...state.sprites].sort((a,b)=>a.z-b.z);
   for(const [order,s] of ordered.entries()){
@@ -67,6 +68,11 @@ async function start(){
    mesh.visible=true;mesh.renderOrder=order;mesh.position.set(s.x-960,540-s.y,s.z);mesh.rotation.z=-s.rotation*Math.PI/180;mesh.scale.set(s.scaleX,s.scaleY,1);
    (mesh.material as THREE.MeshBasicMaterial).opacity=s.opacity;
   }
+
+  // G3 jointCaps remain validated spatial metadata, not decorative overlays.
+  // The previous opaque CircleGeometry caps introduced conspicuous dark disks
+  // over the actual paper-cut garment. Rendering them would obscure pinned art.
+  // A future textured seam treatment requires independent silhouette QA.
   camera.position.x=state.camera.x-960;camera.position.y=540-state.camera.y;camera.zoom=state.camera.zoom;camera.updateProjectionMatrix();
   renderer.render(scene,camera);renderer.getContext().finish();
   api.studio.frame=frame;api.studio.state=state;
@@ -80,7 +86,8 @@ async function start(){
   gl:gl.getParameter(gl.VERSION),renderer:debug?gl.getParameter(debug.UNMASKED_RENDERER_WEBGL):null};
  api.studio.seek=draw;api.studio.dispose=()=>{for(const mesh of meshes.values()){mesh.geometry.dispose();(mesh.material as THREE.Material).dispose();}for(const t of textures.values())t.dispose();renderer.dispose();};
  api.studio.ready=true;draw(0);
- const count=config.m4?config.m4.bake.frames.length:config.m3?m3TotalFrames(config.m3):config.ir?.timeline.totalFrames??shotFrames[config.shot];
+ const count=config.generalPerformance?config.generalPerformance.playback.film.frames:config.generalPlayback?config.generalPlayback.film.frames:config.general?config.general.frames:0;
+ if(count<1)throw Error('RENDER_SOURCE_MISSING');
  api.__hf={duration:count/24,seek:(time:number)=>draw(Math.min(count-1,Math.max(0,Math.floor(time*24+1e-7))))};
 }
 api.studio={ready:false,error:null,frame:-1,state:null,seek:()=>{throw Error('RENDER_NOT_READY');},dispose:()=>{},diagnostics:{}};

@@ -5,23 +5,11 @@
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/*.test.ts tests/*.test.mjs",
-    "assets": "python src/art/build_assets.py",
-    "review": "tsx src/review/cli.ts",
-    "test:review": "tsx --test tests/review.test.ts",
-    "test:review-ui": "tsx tests/review-ui.mjs",
-    "test:review-recovery": "tsx src/qa/audit_review_workflow.mjs",
-    "review:r3": "tsx src/review/cli.ts --catalog artifacts/Q2/web-review-v3/generated/catalog.json",
-    "test:review-r3": "tsx tests/review-ui.mjs artifacts/Q2/web-review-v3/generated/catalog.json",
-    "physics:spike": "tsx src/physics/spike.ts",
-    "quality:hero": "tsx src/motion/build_hero.ts",
-    "test:physics": "tsx --test tests/physics.test.ts",
-    "quality:diagnostics": "tsx src/motion/diagnostics.ts",
-    "motion:m3": "tsx src/render/render-m3.ts",
-    "motion:m3:audit": "tsx src/qa/audit-m3.ts && tsx src/qa/audit-m3-negative.ts",
-    "physics:m4": "tsx src/render/render-m4.ts",
-    "physics:m4:audit": "tsx src/qa/audit-m4.ts",
-    "test:physics:m4": "tsx --test tests/m4-*.test.ts"
+    "test": "tsx --test tests/*.test.ts",
+    "textures": "tsx src/art/textures.ts",
+    "render": "tsx src/render/render-films.ts",
+    "audit": "tsx src/qa/audit-films.ts",
+    "check:renderer": "tsx src/render/check-renderer.ts"
   },
   "dependencies": {
     "@dimforge/rapier2d-deterministic-compat": "0.21.0",

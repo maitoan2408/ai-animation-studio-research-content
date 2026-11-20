@@ -115,3 +115,10 @@ test('startup marks a running job interrupted rather than successful', async () 
     await rm(dir, { recursive: true, force: true });
   }
 });
+
+test('planner infers actions from verbs, independent of the object or character named', () => {
+  const actions = planScript(
+    'Tôi nhấc chiếc đèn lồng.\n\nAn cầm quyển sách.\n\nMai vẫy tay chào.\n\nHọ đi bộ về nhà.\n\nTrời tối dần.',
+  ).spec.scenes.map((s) => s.action);
+  assert.deepEqual(actions, ['pick-up', 'pick-up', 'wave', 'walk', 'talk']);
+});

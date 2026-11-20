@@ -1,4 +1,15 @@
-import { StudioError, parseSpec, type ProjectSpec, styleSchema } from './domain.js';
+import { StudioError, parseSpec, type ProjectSpec, styleSchema, actionSchema } from './domain.js';
+import type { z } from 'zod';
+
+type Action = z.infer<typeof actionSchema>;
+
+/** Verbs (not objects) that suggest an action, checked in order on accent-free
+ * lower-case text. Any object or character can appear in the sentence. */
+const actionKeywords: [Action, string[]][] = [
+  ['pick-up', ['nhac', 'cam', 'pick', 'lift', 'hold']],
+  ['walk', ['di bo', 'buoc di', 'walk']],
+  ['wave', ['vay tay', 'chao', 'wave', 'hello']],
+];
 
 /** Offline, deterministic draft planner. It does not claim language-model reasoning. */
 export function planScript(
@@ -44,10 +55,10 @@ export function planScript(
       .replace(/[\u0300-\u036f]/g, '')
       .replace(/đ/g, 'd')
       .toLowerCase();
-    let inferred = 'talk';
-    if (/nhac|cam coc|pick|cup/.test(normalized)) inferred = 'pick-up';
-    else if (/di bo|buoc di|walk/.test(normalized)) inferred = 'walk';
-    else if (/vay tay|chao|wave|hello/.test(normalized)) inferred = 'wave';
+    const inferred =
+      actionKeywords.find(([, words]) =>
+        words.some((w) => new RegExp(`\\b${w}\\b`).test(normalized)),
+      )?.[0] ?? 'talk';
     const seconds = options.seconds
       ? Number(options.seconds)
       : Math.min(30, Math.max(4, Math.ceil(narration.split(/\s+/).length / 2.5) + 1));
