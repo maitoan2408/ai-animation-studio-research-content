@@ -1,7 +1,7 @@
 {
   "schemaVersion": "film-request/1",
   "id": "an-left-cup-late-release",
-  "artPack": "assets/lantern-v1",
+  "artPack": "assets/lantern-v2",
   "film": {
     "schemaVersion": "general-film/1",
     "frames": 144,
