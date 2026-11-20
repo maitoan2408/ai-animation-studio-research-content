@@ -22,8 +22,8 @@
             "id": "hero-prop",
             "asset": "props/cup",
             "sha256": "3ef82e07b61e1c1f19d54dccf9ae22138773c27dadb46ebde7e7eb7c86b60eee",
-            "x": 900,
-            "y": 631,
+            "x": 990,
+            "y": 610,
             "scale": 0.7,
             "anchor": "grip"
           },
@@ -44,19 +44,19 @@
           {
             "frame": 23,
             "dx": 0,
-            "dy": -8,
+            "dy": -6,
             "headAngle": -3
           },
           {
             "frame": 48,
             "dx": 0,
-            "dy": -40,
+            "dy": -20,
             "headAngle": 7
           },
           {
             "frame": 127,
             "dx": 0,
-            "dy": -40,
+            "dy": -20,
             "headAngle": 7
           }
         ]
@@ -76,13 +76,13 @@
     "camera": [
       {
         "frame": 0,
-        "x": 930,
+        "x": 960.0,
         "y": 650,
         "zoom": 1.46
       },
       {
         "frame": 127,
-        "x": 920,
+        "x": 950.0,
         "y": 655,
         "zoom": 1.55
       }

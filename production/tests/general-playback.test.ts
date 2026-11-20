@@ -9,15 +9,20 @@ import {auditFrame} from '../src/qa/general-scene-quality.js';
 import type {ArtPack} from '../src/scene/types.js';
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
 const asset=(id:string)=>pack.assets.find(a=>a.id===id)!;
-async function create(hand:'left'|'right'='right',obj:'props/cup'|'props/lantern-dark'='props/cup',frames=96,release=47){
- const actorX=hand==='right'?800:1280,propX=hand==='right'?900:1180;
+async function create(hand:'left'|'right'='right',obj:'props/cup'|'props/lantern-dark'='props/cup',frames=96,release=47,
+ clearForRest=false){
+ // `clearForRest` stages the prop far enough out that the released hand can
+ // hang beside the body; the default is the historical (legacy) staging.
+ const actorX=hand==='right'?800:1280;
+ const propX=clearForRest?(hand==='right'?990:1090):(hand==='right'?900:1180);
+ const propY=clearForRest&&hand==='right'?610:631;
  const table=asset('props/workbench'),benchX=hand==='right'?1060:1120;
  const film:GeneralFilm={schemaVersion:'general-film/1',frames,
    tracks:[{contact:{schemaVersion:'general-contact/1',
      actor:{id:'actor-one',model:hand==='right'?'an':'mai',rigId:'production-cutout-1',
        x:actorX,floor:860,facing:1,scale:1},
      object:{id:'item-one',asset:obj,sha256:asset(obj).sha256,
-       x:propX,y:631,scale:obj==='props/cup'?.7:.65,anchor:'grip'},
+       x:propX,y:propY,scale:obj==='props/cup'?.7:.65,anchor:'grip'},
      hand,camera:{x:960,y:540,zoom:1}},
      keys:[{frame:0,dx:0,dy:0,headAngle:0},
        {frame:30,dx:0,dy:-18,headAngle:5},
@@ -158,7 +163,7 @@ test('G3 native silhouette resting hand stays visibly clear of the actual prop a
    ['right','props/cup',120,55],
    ['left','props/lantern-dark',144,70],
  ] as const){
-   const {movie}=await create(hand,obj,frames,release);
+   const {movie}=await create(hand,obj,frames,release,true);
    validateGeneralPlayback(movie,pack);
    const settled=Math.min(frames-1,release+30);
    const rendered=sampleGeneralPlayback(movie,settled,pack,'native-silhouette');
@@ -170,5 +175,23 @@ test('G3 native silhouette resting hand stays visibly clear of the actual prop a
    assert.equal(rendered.contacts.length,0,'released prop must not retain ownership');
    assert.deepEqual(sampleGeneralPlayback(movie,settled,pack,'native-silhouette'),rendered,
      'enhanced native resting pose must be deterministic under random seek');
+ }
+});
+
+test('native-silhouette rest never puts the hand on a thigh; staging with no room fails closed',async()=>{
+ const {spriteBounds}=await import('../src/scene/geometry.js');
+ for(const hand of ['right','left'] as const){
+  const obj=hand==='right'?'props/cup':'props/lantern-dark';
+  const {movie}=await create(hand,obj,120,55,true);
+  const frame=sampleGeneralPlayback(movie,119,pack,'native-silhouette').frame;
+  const box=(id:string)=>spriteBounds(pack,frame.sprites.find(s=>s.id==='actor-one.'+id)!);
+  const palm=box(hand+'-hand'),area=(palm.right-palm.left)*(palm.bottom-palm.top);
+  const onThigh=['left-thigh','right-thigh'].map(box).reduce((n,t)=>n+
+    Math.max(0,Math.min(palm.right,t.right)-Math.max(palm.left,t.left))*
+    Math.max(0,Math.min(palm.bottom,t.bottom)-Math.max(palm.top,t.top)),0)/area;
+  assert.ok(onThigh<=.1,hand+' hand rests on thigh '+onThigh);
+  const blocked=(await create(hand,obj,120,55,false)).movie;
+  assert.throws(()=>sampleGeneralPlayback(blocked,119,pack,'native-silhouette'),/G3_RELEASE_REST_BLOCKED_BY_STAGING/);
+  assert.doesNotThrow(()=>sampleGeneralPlayback(blocked,119,pack),'legacy baseline stays reproducible');
  }
 });

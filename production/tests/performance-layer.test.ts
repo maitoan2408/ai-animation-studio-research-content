@@ -13,12 +13,13 @@ const sha=(x:unknown)=>createHash('sha256').update(JSON.stringify(x)).digest('he
 const asset=(id:string)=>pack.assets.find(x=>x.id===id)!;
 function project(hand:'left'|'right'='right',model='an',frames=128):GeneralPlayback{
  const actorX=hand==='right'?800:1280;
- const propX=hand==='right'?900:1180;
+ // Staged so the released hand can hang beside the body, clear of the prop.
+ const propX=hand==='right'?990:1090,propY=hand==='right'?610:631;
  const prop=hand==='right'?'props/cup':'props/lantern-dark';
  const film:GeneralFilm={schemaVersion:'general-film/1',frames,
   tracks:[{contact:{schemaVersion:'general-contact/1',
    actor:{id:'hero-actor',model,rigId:'production-cutout-1',x:actorX,floor:860,facing:1,scale:1},
-   object:{id:'hero-prop',asset:prop,sha256:asset(prop).sha256,x:propX,y:631,scale:hand==='right'?.7:.65,anchor:'grip'},
+   object:{id:'hero-prop',asset:prop,sha256:asset(prop).sha256,x:propX,y:propY,scale:hand==='right'?.7:.65,anchor:'grip'},
    hand,camera:{x:960,y:540,zoom:1}},
    keys:[{frame:0,dx:0,dy:0,headAngle:0},{frame:23,dx:0,dy:-8,headAngle:-3},
      {frame:48,dx:0,dy:-24,headAngle:7},{frame:frames-1,dx:0,dy:-24,headAngle:7}]}],

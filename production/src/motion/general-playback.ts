@@ -80,41 +80,58 @@ export function sampleGeneralPlayback(playback:GeneralPlayback,frame:number,pack
    let best=Number.POSITIVE_INFINITY;
    // Source-derived semantic wrist rest, not a specific actor/prop or frame.
    // Maintain historical candidate search for all non-enhanced playback.
+   const restHand=(world:Point)=>{
+     const local:Point=[(world[0]-a.x)/(a.scale*a.facing),(world[1]-a.floor)/a.scale];
+     return hand==='left'?{leftWrist:local,leftHand:'open' as const,leftHandAngle:180}:
+       {rightWrist:local,rightHand:'open' as const,rightHandAngle:180};
+   };
+   const handBounds=(solved:ReturnType<typeof actorSprites>)=>{
+     const palm=solved.sprites.find(s=>s.id===prefix+hand+'-hand');
+     if(!palm)throw Error('G3_REST_HAND_MISSING '+actorId);
+     return spriteBounds(pack,palm);
+   };
    const overlap=(x:ReturnType<typeof spriteBounds>,y:ReturnType<typeof spriteBounds>)=>
      Math.max(0,Math.min(x.right,y.right)-Math.max(x.left,y.left))*
      Math.max(0,Math.min(x.bottom,y.bottom)-Math.max(x.top,y.top));
-   for(let yshift=10;yshift>=-4&&(restStyle==='native-silhouette'||!destination);yshift-=2){
-     // Search the same source-body pose space for both strategies, while G3
-     // adds neutral-side candidates. Include every legacy candidate to ensure
-     // the new score cannot worsen baseline hand/thigh overlap by construction.
-     const factors=Array.from({length:restStyle==='native-silhouette'?51:20},
-       (_,n)=>(restStyle==='native-silhouette'?1:.38)-n*.02);
-     for(const factor of factors){
-       const world:Point=[mix(a.x,rest[0],Math.max(0,factor)),rest[1]+yshift];
-       const local:Point=[(world[0]-a.x)/(a.scale*a.facing),
-         (world[1]-a.floor)/a.scale];
-       try{
-         const solved=actorSprites(pack,{...neutral,
-           ...(hand==='left'?{leftWrist:local,leftHand:'open' as const,leftHandAngle:180}:
-             {rightWrist:local,rightHand:'open' as const,rightHandAngle:180})});
-         const palm=solved.sprites.find(s=>s.id===prefix+hand+'-hand');
-         if(!palm)throw Error('G3_REST_HAND_MISSING '+actorId);
-         const visible=spriteBounds(pack,palm);
-         if(spriteBoundsGap(visible,propBounds)<6)continue;
-         if(restStyle==='legacy'){destination=world;break;}
-         const area=(visible.right-visible.left)*(visible.bottom-visible.top);
-         if(!(area>0))throw Error('G3_REST_HAND_BOUNDS '+actorId);
-         const thighRatio=solved.sprites.filter(s=>
-           s.id===prefix+'left-thigh'||s.id===prefix+'right-thigh')
-           .reduce((n,s)=>n+overlap(visible,spriteBounds(pack,s)),0)/area;
-         // AABB is a conservative silhouette proxy; pixel-alpha review remains
-         // mandatory. Prefer a visible hand by the body's side over the thigh.
-         const score=thighRatio*4+(1-Math.max(0,factor))*.15+Math.abs(yshift)*.001;
-         if(score<best-1e-10){best=score;destination=world;}
-       }catch(e){
-         if(!(e instanceof Error)||!e.message.startsWith('IK_UNREACHABLE'))throw e;
-       }
+   if(restStyle==='legacy'){
+    // Historical baseline search, kept so A/B baselines stay reproducible.
+    for(let yshift=10;yshift>=-4&&!destination;yshift-=2){
+     for(const factor of Array.from({length:20},(_,n)=>.38-n*.02)){
+      const world:Point=[mix(a.x,rest[0],Math.max(0,factor)),rest[1]+yshift];
+      try{
+       const solved=actorSprites(pack,{...neutral,...restHand(world)});
+       if(spriteBoundsGap(handBounds(solved),propBounds)<6)continue;
+       destination=world;break;
+      }catch(e){if(!(e instanceof Error)||!e.message.startsWith('IK_UNREACHABLE'))throw e;}
      }
+    }
+   }else{
+    // Hang the hand where the arm falls naturally, beside the body. Hard
+    // limits: >=6px clear of the resting prop and at most 10% of the hand's
+    // box over either thigh. Among valid spots take the one closest to the
+    // natural hang. If none exists the staging leaves no room for the hand,
+    // which is an authoring error, not something to hide on the thigh.
+    for(let yshift=10;yshift>=-4;yshift-=2){
+     for(let n=-20;n<=20;n++){
+      const factor=1+n*.02;
+      const world:Point=[mix(a.x,rest[0],factor),rest[1]+yshift];
+      try{
+       const solved=actorSprites(pack,{...neutral,...restHand(world)});
+       const visible=handBounds(solved);
+       if(spriteBoundsGap(visible,propBounds)<6)continue;
+       const area=(visible.right-visible.left)*(visible.bottom-visible.top);
+       if(!(area>0))throw Error('G3_REST_HAND_BOUNDS '+actorId);
+       const thighRatio=solved.sprites.filter(s=>
+         s.id===prefix+'left-thigh'||s.id===prefix+'right-thigh')
+         .reduce((sum,s)=>sum+overlap(visible,spriteBounds(pack,s)),0)/area;
+       if(thighRatio>.1)continue;
+       const score=Math.abs(factor-1)+Math.abs(yshift)*.002;
+       if(score<best-1e-10){best=score;destination=world;}
+      }catch(e){if(!(e instanceof Error)||!e.message.startsWith('IK_UNREACHABLE'))throw e;}
+     }
+    }
+    if(!destination)throw Error('G3_RELEASE_REST_BLOCKED_BY_STAGING '+actorId+
+      ': no reachable hang beside the body is clear of '+t.contact.object.id+' and the thighs');
    }
    if(!destination)throw Error('G3_RELEASE_RESTING_HAND_CLEARANCE_UNREACHABLE '+actorId);
    const world=mixPoint(before,destination,u);
