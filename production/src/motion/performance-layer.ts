@@ -3,9 +3,9 @@
  * Trust boundary must verify canonical source and art digests before accepting a plan.
  */
 import {actorSprites} from '../scene/rig.js';
-import {deriveG3JointCaps} from '../scene/g3-joint-caps.js';
-import {applyG3ArmProjection} from '../scene/g3-ergonomic-ik.js';
-import {resolveG3ArmDepth,auditG3ArmDepth} from '../scene/g3-occlusion.js';
+import {deriveG3JointCaps} from '../scene/joint-caps.js';
+import {applyG3ArmProjection} from '../scene/arm-projection.js';
+import {resolveG3ArmDepth,auditG3ArmDepth} from '../scene/arm-depth.js';
 import {anchorPoint} from '../scene/geometry.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
 import {generalFilmFrameContract} from './general-timeline.js';

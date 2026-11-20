@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {actorSprites} from '../src/scene/rig.js';
-import {resolveG3ArmDepth,auditG3ArmDepth} from '../src/scene/g3-occlusion.js';
+import {resolveG3ArmDepth,auditG3ArmDepth} from '../src/scene/arm-depth.js';
 import type {ArtPack,SceneFrame} from '../src/scene/types.js';
 
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;

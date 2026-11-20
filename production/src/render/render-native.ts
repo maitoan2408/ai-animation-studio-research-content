@@ -16,11 +16,11 @@ import {loadArtPack} from '../art/pack.js';
 import {browserPath} from '../art/textures.js';
 import {generalFilmFrameContract} from '../motion/general-timeline.js';
 import {sampleGeneralPlayback} from '../motion/general-playback.js';
-import {sampleG3Performance,validateG3Performance} from '../motion/g3-performance.js';
+import {sampleG3Performance,validateG3Performance} from '../motion/performance-layer.js';
 import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
 import {auditFrame} from '../qa/general-scene-quality.js';
-import {auditG3VisualIntent} from '../qa/g3-visual-intent.js';
-import {auditG3JointCaps} from '../scene/g3-joint-caps.js';
+import {auditG3VisualIntent} from '../qa/visual-intent.js';
+import {auditG3JointCaps} from '../scene/joint-caps.js';
 
 const hash=(a:Uint8Array|string)=>createHash('sha256').update(a).digest('hex');
 const run=(cmd:string,args:string[])=>{

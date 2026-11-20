@@ -8,7 +8,7 @@ import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {type RenderConfig,type TextureSpec} from './browser.js';
 import {validateGeneralPlaybackAgainstSolver} from '../motion/general-playback-validate.js';
-import {validateG3Performance} from '../motion/g3-performance.js';
+import {validateG3Performance} from '../motion/performance-layer.js';
 import {loadArtPack} from '../art/pack.js';
 import {ensureTextures,textureCacheDir} from '../art/textures.js';
 export const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');

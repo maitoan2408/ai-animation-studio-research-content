@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {sampleGeneralFilm,type GeneralFilm} from '../src/motion/general-timeline.js';
 import {centerOfSprite,sampleGeneralPlayback,type GeneralPlayback} from '../src/motion/general-playback.js';
 import {bakeGeneralDrop,type GeneralDrop} from '../src/physics/general-drop.js';
-import {auditG3VisualIntent} from '../src/qa/g3-visual-intent.js';
+import {auditG3VisualIntent} from '../src/qa/visual-intent.js';
 import type {ArtPack} from '../src/scene/types.js';
 
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;

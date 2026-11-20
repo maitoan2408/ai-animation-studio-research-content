@@ -4,7 +4,6 @@
  * not faked by moving a marker. Unsupported walks/releases fail closed and
  * require a separately validated motion or physics clip.
  */
-import {background} from '../scene/background.js';
 import {actorSprites} from '../scene/rig.js';
 import {smooth,mix} from '../scene/math.js';
 import {sprite,type ArtPack,type SceneFrame} from '../scene/types.js';
@@ -15,9 +14,11 @@ export type GeneralKey={frame:number;dx:number;dy:number;headAngle:number};
 export type CameraKey={frame:number;x:number;y:number;zoom:number};
 export type GeneralTrack={contact:ContactProject;keys:GeneralKey[]};
 export type StageProp={id:string;asset:string;sha256:string;x:number;y:number;z:number;scale:number};
+/** Background/foreground layer; z also sets its camera parallax (z/2000). */
+export type BackgroundLayer={id:string;asset:string;x:number;y:number;z:number;scaleX?:number};
 export type GeneralFilm={
  schemaVersion:'general-film/1';frames:number;
- tracks:GeneralTrack[];camera:CameraKey[];stage?:StageProp[];
+ tracks:GeneralTrack[];camera:CameraKey[];stage?:StageProp[];background?:BackgroundLayer[];
 };
 const isObj=(x:unknown):x is Record<string,unknown>=>!!x&&typeof x==='object'&&!Array.isArray(x);
 const exact=(x:Record<string,unknown>,wanted:string[])=>
@@ -37,9 +38,9 @@ function validateKeys<T extends {frame:number}>(raw:unknown,frames:number,types:
     throw Error('GENERAL_FILM_KEY_BOUNDARY');
 }
 export function validateGeneralFilm(raw:unknown,pack:ArtPack):GeneralFilm{
- if(!isObj(raw)||!exact(raw,Object.prototype.hasOwnProperty.call(raw,'stage')?
-       ['schemaVersion','frames','tracks','camera','stage']:
-       ['schemaVersion','frames','tracks','camera'])||
+ if(!isObj(raw)||!exact(raw,['schemaVersion','frames','tracks','camera',
+       ...(Object.prototype.hasOwnProperty.call(raw,'stage')?['stage']:[]),
+       ...(Object.prototype.hasOwnProperty.call(raw,'background')?['background']:[])])||
     raw.schemaVersion!=='general-film/1'||!Number.isSafeInteger(raw.frames)||
     Number(raw.frames)<24||Number(raw.frames)>480||!Array.isArray(raw.tracks)||
     raw.tracks.length<1||raw.tracks.length>3)throw Error('GENERAL_FILM_SCHEMA');
@@ -60,6 +61,23 @@ export function validateGeneralFilm(raw:unknown,pack:ArtPack):GeneralFilm{
      if(!art||art.sha256!==part.sha256||art.category!=='prop')
        throw Error('GENERAL_FILM_STAGE_ASSET_STALE');
      staged.add(part.id);
+   }
+ }
+ if(raw.background!==undefined){
+   if(!Array.isArray(raw.background)||raw.background.length>16)throw Error('GENERAL_FILM_BACKGROUND');
+   const ids=new Set<string>();
+   for(const layer of raw.background){
+     if(!isObj(layer)||!exact(layer,Object.prototype.hasOwnProperty.call(layer,'scaleX')?
+         ['id','asset','x','y','z','scaleX']:['id','asset','x','y','z'])||
+       typeof layer.id!=='string'||!/^[a-z][a-z0-9-]{1,38}$/.test(layer.id)||ids.has(layer.id)||
+       staged.has(layer.id)||typeof layer.asset!=='string'||
+       !finite(layer.x)||!finite(layer.y)||!finite(layer.z)||
+       (layer.scaleX!==undefined&&(!finite(layer.scaleX)||layer.scaleX===0)))
+       throw Error('GENERAL_FILM_BACKGROUND_INVALID');
+     const art=pack.assets.find(a=>a.id===layer.asset);
+     if(!art||(art.category!=='background'&&art.category!=='foreground'))
+       throw Error('GENERAL_FILM_BACKGROUND_ASSET');
+     ids.add(layer.id);
    }
  }
  for(const track of raw.tracks){
@@ -106,7 +124,8 @@ export function sampleGeneralFilm(raw:unknown,index:number,pack:ArtPack):General
  const cam=interpolation(film.camera,index);
  const camera={x:mix(cam.a.x,cam.b.x,cam.t),y:mix(cam.a.y,cam.b.y,cam.t),
    zoom:mix(cam.a.zoom,cam.b.zoom,cam.t)};
- const sprites=background(camera),markers:SceneFrame['markers']=[],contacts:ContactContract[]=[];
+ const sprites=(film.background??[]).map(b=>({...sprite(b.id,b.asset,b.x,b.y,b.z,0,b.scaleX??1,1),
+   x:b.x-(camera.x-960)*b.z/2000})),markers:SceneFrame['markers']=[],contacts:ContactContract[]=[];
  for(const staged of film.stage??[])
    sprites.push(sprite(staged.id,staged.asset,staged.x,staged.y,staged.z,0,staged.scale));
  for(const track of film.tracks){

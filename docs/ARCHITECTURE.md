@@ -13,7 +13,7 @@ Repo có hai phần, **chưa được nối với nhau** (nối là việc của
 
 | Muốn thêm | Làm gì | Không cần sửa code khi |
 | --- | --- | --- |
-| Phim mới | Thêm `production/examples/films/<id>.json` (schema `film-request/1`) | Dùng nhân vật/đạo cụ có sẵn trong art pack |
+| Phim mới, cảnh/nền mới | Thêm `production/examples/films/<id>.json` (schema `film-request/1`); nền là danh sách lớp `background` trong file phim | Dùng nhân vật/đạo cụ có sẵn trong art pack |
 | Đạo cụ mới | Thêm SVG + mục trong `manifest.json` của art pack, có anchor `grip` (và `support` nếu là mặt đỡ) | Luôn |
 | Nhân vật mới | Thêm bộ phận `<model>/torso`, `upper-arm`, `forearm`, `thigh`, `shin`, `boot`, `hand-*`, `head-*` với anchor `end`/`sole`/`grip` | Cùng kiểu rig `production-cutout-1`. Độ dài xương lấy từ anchor của chính art đó |
 | Art pack mới | Thư mục mới trong `production/assets/` và trỏ `artPack` của phim tới đó | Luôn; texture được rasterize và cache theo pack |
@@ -36,12 +36,11 @@ flowchart LR
 | --- | --- |
 | `scene/types.ts`, `scene/geometry.ts`, `scene/math.ts` | Hợp đồng frame: sprite đặt theo pivot, stage 1920×1080, y hướng xuống |
 | `scene/rig.ts` | Ráp con rối cắt giấy từ art pack. Độ dài xương lấy từ anchor `end`/`sole` của art; tư thế mặc định theo hồ sơ rig |
-| `scene/background.ts` | Nền nhiều lớp có parallax theo camera |
 | `motion/general-interaction.ts` | Hợp đồng tay–đạo cụ: chọn tay trái/phải, kiểm tầm với, kiểm art bắt buộc |
-| `motion/general-timeline.ts` | `general-film/1`: keyframe, camera, đạo cụ sân khấu; lấy mẫu frame thuần (tua ngẫu nhiên được) |
+| `motion/general-timeline.ts` | `general-film/1`: keyframe, camera, đạo cụ sân khấu, các lớp nền (parallax theo z); lấy mẫu frame thuần (tua ngẫu nhiên được) |
 | `motion/general-playback*.ts`, `physics/general-drop.ts`, `physics/engines.ts` | Tay giữ đạo cụ đến frame thả; sau đó bản bake Rapier (bất biến, có SHA) điều khiển đạo cụ |
-| `motion/g3-performance.ts`, `scene/g3-*.ts` | Lớp diễn xuất tùy chọn (chuẩn bị → hành động → hồi): thân, hông, đầu, tay rảnh; giữ nguyên tiếp xúc và bàn chân |
-| `qa/general-scene-quality.ts`, `qa/g3-visual-intent.ts` | QA từng frame: anchor tiếp xúc, đế giày chạm đất, layer, camera liên tục, đạo cụ có mặt đỡ |
+| `motion/performance-layer.ts`, `scene/arm-projection.ts`, `scene/arm-depth.ts`, `scene/joint-caps.ts` | Lớp diễn xuất tùy chọn (chuẩn bị → hành động → hồi): thân, hông, đầu, tay rảnh; giữ nguyên tiếp xúc và bàn chân |
+| `qa/general-scene-quality.ts`, `qa/visual-intent.ts` | QA từng frame: anchor tiếp xúc, đế giày chạm đất, layer, camera liên tục, đạo cụ có mặt đỡ |
 | `art/pack.ts`, `art/textures.ts` | Đọc art pack; rasterize SVG → PNG một lần, kiểm hash mỗi lần dùng |
 | `render/render-films.ts` | Lệnh chính: nhận file phim, bake, render baseline và (nếu có lớp diễn xuất) bản `-enhanced` cùng nguồn |
 | `render/render-native.ts`, `render/server.ts`, `render/browser.ts` | Render từng frame trong Chromium, so state trình duyệt với state tính trước, mã hóa MP4, kiểm tua ngẫu nhiên |

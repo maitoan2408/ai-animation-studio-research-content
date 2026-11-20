@@ -6,7 +6,7 @@ import type {ArtPack} from '../src/scene/types.js';
 import {anchorPoint,spriteBounds} from '../src/scene/geometry.js';
 import {sampleGeneralFilm,type GeneralFilm} from '../src/motion/general-timeline.js';
 import {sampleGeneralPlayback,type GeneralPlayback} from '../src/motion/general-playback.js';
-import {sampleG3Performance,validateG3Performance,type G3PerformancePlan} from '../src/motion/g3-performance.js';
+import {sampleG3Performance,validateG3Performance,type G3PerformancePlan} from '../src/motion/performance-layer.js';
 import {auditFrame} from '../src/qa/general-scene-quality.js';
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
 const sha=(x:unknown)=>createHash('sha256').update(JSON.stringify(x)).digest('hex');

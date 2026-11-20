@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import type {ArtPack,SceneFrame} from '../scene/types.js';
 import {sampleGeneralFilm,type GeneralFilm} from '../motion/general-timeline.js';
 import {sampleGeneralPlayback,type GeneralPlayback} from '../motion/general-playback.js';
-import {sampleG3Performance,type G3PerformancePlan} from '../motion/g3-performance.js';
+import {sampleG3Performance,type G3PerformancePlan} from '../motion/performance-layer.js';
 
 export type TextureSpec={id:string;url:string;sha256:string;width:number;height:number};
 export type RenderConfig={pack:ArtPack;textures:TextureSpec[];general?:GeneralFilm;generalPlayback?:GeneralPlayback;generalPerformance?:{playback:GeneralPlayback;plan:G3PerformancePlan};width:number;height:number;timeoutMs:number};

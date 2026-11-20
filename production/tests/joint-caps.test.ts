@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {actorSprites} from '../src/scene/rig.js';
-import {deriveG3JointCaps,auditG3JointCaps} from '../src/scene/g3-joint-caps.js';
+import {deriveG3JointCaps,auditG3JointCaps} from '../src/scene/joint-caps.js';
 import type {ArtPack,SceneFrame} from '../src/scene/types.js';
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
 for(const model of ['an','mai'])for(const hand of ['left','right'] as const){

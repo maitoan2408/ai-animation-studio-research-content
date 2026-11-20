@@ -48,3 +48,23 @@ test('neutral and mirrored puppet soles remain on the ground; no limb stretching
   }
   assert.throws(()=>elbow([0,0],[500,0],105,98,1),/IK_UNREACHABLE/);
 });
+
+test('bone lengths come from each character\'s own art, so a new proportion needs no code',()=>{
+  // A data-only character "tall": An's art with a 20-unit longer forearm and shin.
+  const tall=pack.assets.filter(a=>a.id.startsWith('an/')).map(a=>{
+    const copy=structuredClone(a);copy.id=a.id.replace(/^an\//,'tall/');
+    if(/\/(forearm|shin)$/.test(copy.id))copy.anchors.end=[copy.anchors.end![0],copy.anchors.end![1]+20];
+    return copy;
+  });
+  const big:ArtPack={...pack,assets:[...pack.assets,...tall]};
+  const rest={x:700,floor:850,facing:1 as const,rightWrist:[120,-250] as [number,number]};
+  const a=actorSprites(big,{id:'a',character:'an',...rest});
+  const t=actorSprites(big,{id:'t',character:'tall',...rest});
+  const reach=(r:typeof a,id:string)=>{
+    const upper=r.sprites.find(s=>s.id===id+'.right-upper')!,fore=r.sprites.find(s=>s.id===id+'.right-forearm')!;
+    return distance([upper.x,upper.y],[fore.x,fore.y])+distance([fore.x,fore.y],r.markers.find(m=>m.id===id+'.right-wrist')!.point);
+  };
+  assert.ok(Math.abs(reach(t,'t')-reach(a,'a')-20)<1e-6);
+  for(const r of [a,t])for(const side of ['left','right'])
+    assert.ok(Math.abs(r.markers.find(m=>m.id.endsWith(side+'-sole'))!.point[1]-850)<1e-6);
+});

@@ -86,6 +86,58 @@
         "y": 655,
         "zoom": 1.5
       }
+    ],
+    "background": [
+      {
+        "id": "sky",
+        "asset": "background/sky",
+        "x": 960,
+        "y": 540,
+        "z": -600
+      },
+      {
+        "id": "village",
+        "asset": "background/village",
+        "x": 960,
+        "y": 540,
+        "z": -400
+      },
+      {
+        "id": "workshop",
+        "asset": "background/workshop",
+        "x": 960,
+        "y": 540,
+        "z": -200
+      },
+      {
+        "id": "ground",
+        "asset": "background/ground",
+        "x": 960,
+        "y": 540,
+        "z": -10
+      },
+      {
+        "id": "tree-left",
+        "asset": "background/tree-left",
+        "x": 30,
+        "y": 500,
+        "z": 50
+      },
+      {
+        "id": "tree-right",
+        "asset": "background/tree-right",
+        "x": 1890,
+        "y": 500,
+        "z": 51,
+        "scaleX": -1
+      },
+      {
+        "id": "grass",
+        "asset": "background/foreground-grass",
+        "x": 800,
+        "y": 1110,
+        "z": 60
+      }
     ]
   },
   "releases": [

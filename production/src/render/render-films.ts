@@ -15,7 +15,7 @@ import path from 'node:path';
 import {root} from './server.js';
 import {sampleGeneralFilm,validateGeneralFilm,type GeneralFilm} from '../motion/general-timeline.js';
 import {centerOfSprite,type GeneralPlayback,type GeneralRelease} from '../motion/general-playback.js';
-import {validateG3Performance,type G3PerformancePlan} from '../motion/g3-performance.js';
+import {validateG3Performance,type G3PerformancePlan} from '../motion/performance-layer.js';
 import {validateGeneralPlayback} from '../motion/general-playback-validate.js';
 import {bakeGeneralDrop,type GeneralDrop} from '../physics/general-drop.js';
 import {loadArtPack} from '../art/pack.js';

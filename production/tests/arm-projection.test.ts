@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {actorSprites} from '../src/scene/rig.js';
 import {anchorPoint} from '../src/scene/geometry.js';
-import {applyG3ArmProjection} from '../src/scene/g3-ergonomic-ik.js';
+import {applyG3ArmProjection} from '../src/scene/arm-projection.js';
 import type {ArtPack,SceneFrame,Point} from '../src/scene/types.js';
 const pack=JSON.parse(readFileSync(new URL('../assets/lantern-v1/manifest.json',import.meta.url),'utf8')) as ArtPack;
 const p=(f:SceneFrame,id:string)=>f.sprites.find(s=>s.id===id)!;
