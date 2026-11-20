@@ -18,23 +18,44 @@
       },
       "note": "Accepted at these SHAs. The SVG renderer, M3 motion page and M3/M4/M6 renderers were removed in the cleanup; see docs/HISTORY.md."
     },
-    "G1": { "technical": "PASS_TECHNICAL" },
-    "G2": { "technical": "PASS_TECHNICAL" },
+    "G1": {
+      "technical": "PASS_TECHNICAL"
+    },
+    "G2": {
+      "technical": "PASS_TECHNICAL"
+    },
     "G3": {
       "technical": "PASS_TECHNICAL",
-      "art": "ART_REWORK_REQUIRED",
-      "userAcceptance": "NOT_ACCEPTED",
+      "art": "READY_FOR_USER_REVIEW",
+      "userAcceptance": "NOT_REVIEWED",
+      "reviewHead": "55bb0bd",
+      "artPack": "assets/lantern-v2",
+      "fixed": [
+        "round limb joints, no elbow cuff (lantern-v2)",
+        "grip -> half-open -> open hand release, <=22.5 deg/frame turn",
+        "released hand hangs beside the body, never on a thigh; blocked staging fails closed"
+      ],
       "openDefects": [
-        "upper-arm/elbow/sleeve silhouette shows cutout seams",
-        "grip-to-open hand switch at release is abrupt (only 3 discrete hand drawings)",
-        "hand overlaps thigh in rest pose",
-        "weak weight transfer / body acting"
-      ]
+        "after release the wrist leaves the prop slowly (eases over 24 frames), hand stays near the prop for ~6 frames",
+        "Mai reaches with an almost straight horizontal arm to set the lantern far out",
+        "weight transfer / body acting still subtle",
+        "an-left-cup-late-release: actor overlaps the bench (staging data)"
+      ],
+      "evidence": "local native render + audit at 55bb0bd; CI render.yml artifact films-<run>"
     },
-    "G4": { "status": "NOT_STARTED", "gate": "owner approves G3" },
-    "G5": { "status": "NOT_STARTED" },
-    "G6": { "status": "NOT_STARTED" },
-    "M7": { "status": "NOT_AUTHORIZED" }
+    "G4": {
+      "status": "NOT_STARTED",
+      "gate": "owner approves G3"
+    },
+    "G5": {
+      "status": "NOT_STARTED"
+    },
+    "G6": {
+      "status": "NOT_STARTED"
+    },
+    "M7": {
+      "status": "NOT_AUTHORIZED"
+    }
   },
   "knownGaps": [
     "Studio render jobs fail with RENDERER_NOT_CONFIGURED until G4",

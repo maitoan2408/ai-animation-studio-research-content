@@ -19,15 +19,20 @@ Một studio hoạt hình 2D/2.5D chạy bằng code, **mở rộng bằng dữ 
 | --- | --- | --- |
 | Đã hoàn tất trước đợt dọn | M0–M5: baseline, IR, Studio có revision, thư viện chuyển động M3, vật lý M4, Director M5 | Chủ dự án đã `ACCEPTED` tại các SHA ghi trong `STATE.json`. Renderer SVG cũ, trang M3 và các renderer riêng M3/M4/M6 đã gỡ khỏi cây (xem phần "Khoảng trống") |
 | G1–G2 | Kiểm tra cảnh tổng quát (sprite, anchor, layer, camera); chọn tay trái/phải, cầm đạo cụ, giới hạn tầm với | `PASS_TECHNICAL` |
-| **G3 (đang làm)** | Cầm → thả → đạo cụ rơi bằng Rapier; lớp diễn xuất (performance layer) | Kỹ thuật PASS; **`ART_REWORK_REQUIRED`**: khuỷu/tay áo lộ đường cắt, tay chuyển nắm→mở đột ngột, tay đè đùi khi nghỉ, thân chưa dồn trọng lượng |
+| **G3 (đang làm)** | Cầm → thả → đạo cụ rơi bằng Rapier; lớp diễn xuất (performance layer) | Kỹ thuật PASS; nghệ thuật **`READY_FOR_USER_REVIEW`** tại `55bb0bd` (pack `lantern-v2`). Đã sửa: khớp tròn, bàn tay nắm→nửa mở→mở, tay nghỉ bên hông. Còn mở: tay rời đạo cụ chậm, Mai với đèn bằng tay gần như duỗi thẳng ngang, diễn xuất thân còn nhẹ |
 | G4 | Nối Studio (kịch bản → storyboard → revision) với engine phim `production/`; Studio render lại được | Chưa bắt đầu. Chỉ bắt đầu khi chủ dự án duyệt G3 |
 | G5 | ≥ 6 phim thực sự khác nhau, chỉ khác dữ liệu | Chưa bắt đầu |
 | G6 | Regression đầy đủ + chủ dự án duyệt toàn bộ | Chưa bắt đầu |
 | M7 | Phim pilot dài | Chưa được phép |
 
-## Hướng xử lý G3 đã thống nhất
+## G3 đã làm (G3-1 → G3-4)
 
-Các lỗi G3 chủ yếu nằm ở **art và rig**, không ở solver: art tay chỉ có 3 trạng thái rời (`hand-open`, `hand-grip`, `hand-point`) và hai mảnh cắt cứng cho cánh tay. Bước tiếp theo là pack art có phiên bản mới (khớp chồng mép, tư thế tay trung gian, tư thế nghỉ thiết kế sẵn), thử nhanh trên một phim, rồi mới chạy đủ bộ phim mẫu. Không lật nhánh IK toàn cục, không vẽ đĩa che khớp.
+1. `lantern-v2`: tay/chân vẽ lại dạng khớp tròn chồng mép, bỏ dải cổ tay áo ở khuỷu, thêm `hand-half`. `lantern-v1` giữ nguyên.
+2. Thả đạo cụ: bàn tay nắm → nửa mở → mở, xoay đều ≤ 22,5°/frame (QA renderer giới hạn 28°).
+3. Tay nghỉ: bắt đầu từ chỗ tay buông tự nhiên, cứng: cách đạo cụ ≥ 6px và ≤ 10% bàn tay trên đùi; không có chỗ hợp lệ thì dừng `G3_RELEASE_REST_BLOCKED_BY_STAGING`. Bản baseline giữ thuật toán cũ để so A/B.
+4. Phim mẫu dàn lại bằng dữ liệu và render trên `lantern-v2`.
+
+Chỉ chủ dự án đặt `ACCEPTED`; G4 chỉ bắt đầu sau đó.
 
 ## Khoảng trống sau đợt dọn (phải làm lại theo cách tổng quát)
 
